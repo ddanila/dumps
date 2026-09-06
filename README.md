@@ -13,7 +13,9 @@ confidence and any unresolved provenance.
   `ЭСТАФЕТА - III` banner. Strong Estafeta-03 family attribution; exact board
   provenance and firmware revision remain unconfirmed.
 - [`K573RF5 set 41-44`](unknown/k573rf5-set-41-44/) — four 2 KiB EPROMs from
-  an unidentified board, reported not to be from a Juku computer.
+  an unidentified board, reported not to be from a Juku computer. Sequential
+  8080-compatible code with passing internal checksums; likely programmable
+  instrumentation with a GPIB-style interface and signed-decimal messages.
 
 ## Rights
 

@@ -31,6 +31,18 @@ byte-interleaved images found no meaningful strings in ASCII, high-bit ASCII,
 CP866, KOI8-R, ISO-8859-5, or Windows-1251. The data appears predominantly to
 be executable code and lookup tables, but that does not identify the system.
 
+## Follow-up code analysis
+
+The [2026-09-07 analysis](ANALYSIS.md) establishes a coherent sequential
+`41 -> 42 -> 43 -> 44` 8080-compatible image, including four passing internal
+ROM checksums. It finds dynamically constructed signed-decimal messages,
+a letter-command parser, BCD arithmetic, and strong evidence of a GPIB-style
+talker/listener interface. A programmable instrument is the leading hypothesis;
+the original system remains unidentified, so this set stays under `unknown/`.
+
+Run `python3 unknown/k573rf5-set-41-44/analyze_code.py` from the repository
+root for read-only evidence checks; add `--disassemble` for selected code.
+
 ## Checksums
 
 | Dump | CRC16-CCITT | CRC32 | SHA-256 |
