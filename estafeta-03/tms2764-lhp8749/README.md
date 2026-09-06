@@ -1,9 +1,11 @@
-# Unidentified TMS2764 LHP8749 set
+# Estafeta-03 — TMS2764 LHP8749 set
 
 The owner reports two chips with identical markings: `TMS 2764-20JL LHP8749`.
-They are labelled `01` and `02`; both have now been acquired. The original
-system and PCB positions remain unknown. String analysis strongly supports
-an even/odd interleaving of the two images; see the findings below.
+They are labelled `01` and `02`; both have now been acquired. Static code and
+string analysis strongly attribute this set to the **Estafeta-03 family**.
+Exact source-board provenance, PCB positions, and firmware revision remain
+unconfirmed. The two images form even/odd halves of 8086-compatible firmware;
+see the evidence and limitations below.
 Identical physical markings do not imply identical ROM contents.
 
 ## Label 01
@@ -14,8 +16,7 @@ Identical physical markings do not imply identical ROM contents.
 - SHA-256: `82a53447a1832d5040bcb919c8cc45e54a8f59f1ba7991040965285d5f843c9c`.
 - Non-uniform data: 244 distinct byte values and 21 distinct 256-byte pages.
   Not an all-zero/all-FF image or a single 256-byte page repeated throughout.
-  No original system identity is claimed; repeatability is not comparison
-  against a trusted reference image.
+  Repeatability is not comparison against a trusted reference image.
 
 ## Label 02
 
@@ -26,7 +27,7 @@ Identical physical markings do not imply identical ROM contents.
 - Non-uniform data: 242 distinct byte values and 21 distinct 256-byte pages.
   Not an all-zero/all-FF image or a single repeated 256-byte page.
 - The two chip images are distinct, differing at 4,582 of 8,192 byte offsets.
-  Their exact system identity remains unknown.
+  Their exact board provenance remains unknown.
 
 ## String findings
 
@@ -83,23 +84,99 @@ decoded: ЭСТАФЕТА - III
 | `2404` | ПЕРЕДАНО: | Transmitted |
 | `2413` | ПРИНЯТО: | Received |
 
-Whitespace is normalized in the table. These strings suggest firmware for a
-ring-network controller or diagnostic device associated with "Эстафета-III".
-This is a hypothesis from the dump contents, not a confirmed historical product,
-board identification, CPU identification, or attribution to a manufacturer.
-The banner and the diagnostics are directly observed; the device interpretation
-remains provisional. No firmware was executed during this analysis.
+Whitespace is normalized in the table. The banner and ring-network diagnostics
+support the Estafeta-03 attribution alongside the code and external hardware
+description below. No firmware was executed during this analysis.
 
 From the repository root, reproduce the checksum-verified extraction:
 
 ```sh
-python3 unknown/tms2764-lhp8749/analyze_strings.py
+python3 estafeta-03/tms2764-lhp8749/analyze_strings.py
 ```
 
 The script resolves its input images relative to itself. It reports both byte orders, checks the known
 banner, and prints shift-delimited strings with offsets without writing files.
 The table also includes readable fragments interrupted by dynamic fields, which
 are not emitted by the script's stricter complete-shift-span matcher.
+
+## 8086 code and system attribution
+
+The owner suggested the [RetroPC Estafeta-03 collection entry](https://retropc.org/Stanciya_Lokal_noj_Svyazi_(SLS)_Estafeta-03_s_142.html).
+The page describes a КР1810ВМ86 CPU, two D2764A UV EPROMs, КР537РУ10 static
+RAM, and selectable communication speeds of 300–19200 baud. This is a close
+architectural match to our paired 2764 images and communications strings.
+Our chips are marked TMS2764, not the D2764A parts described on that specimen;
+the page is supporting hardware evidence, not a reference dump or proof of
+the originating board.
+
+Disassembly with `ndisasm -b 16` establishes coherent executable paths in the
+`01`-even / `02`-odd reconstruction, not merely isolated valid x86 opcodes:
+
+1. At image offset `0x3FF0`, the bytes `BC 00 53 EA AF 08 00 00` decode as:
+
+   ```asm
+   mov sp, 0x5300
+   jmp 0x0000:0x08AF
+   ```
+
+   If the 16 KiB ROM is mapped at physical `0xFC000–0xFFFFF`, this stub lands
+   at the 8086 reset address `0xFFFF0`. The far jump and following absolute
+   accesses imply a low-address ROM mapping/alias as well. This is a mapping
+   inference; the board's address decoding has not been verified.
+
+2. The target at `0x08AF` begins coherent initialization: register setup,
+   writes to I/O ports `0x20`, `0x22`, and `0x12`, `CLI`, stack setup,
+   loading `ES = 0x0C00`, and a loop at `0x08F3–0x08F9` clearing
+   `0x5000–0x5FFF` in the data segment. Later initialization executes `STI`.
+
+3. With the low mapping inferred above, vector slots 8, 9, and 10 contain
+   `0000:0083`, `0000:0186`, and `0000:0255`. The decoded interrupt code
+   includes register saves/restores and `IRET` returns.
+
+4. Calls at `0x0936` and `0x0983` both target `0x1F3F`. That routine obtains
+   the saved return address from the stack, reads successive inline bytes,
+   and advances the saved address. Nonzero bytes are queued through `0x1FA5`;
+   a zero terminator returns to the instruction after the string. Thus the
+   banner following the call at `0x0983` is actual output data, not an
+   accidental text match. Execution resumes at `0x0999` (`call 0x0F7B`).
+
+Linear disassembly of the entire image incorrectly interprets embedded strings,
+vector entries, and padding as instructions, sometimes displaying instructions
+from newer x86 generations. Those are not evidence of a newer CPU. Conversely,
+8086-compatible instructions alone cannot distinguish an 8086 from an 8088 or
+other compatible processor; the two byte lanes and the external description
+support the 8086 hardware interpretation.
+
+Conclusion: very high confidence in **8086-compatible firmware**, with strong
+**Estafeta-03 family attribution**. Exact revision and physical-board identity
+remain unconfirmed without matching provenance or an independent reference ROM.
+This justifies filing the set under `estafeta-03/`, while retaining that caveat.
+It was previously archived at `unknown/tms2764-lhp8749/`; the move preserves
+the original chip bytes, checksums, acquisition metadata, and read logs.
+
+To reproduce selected disassembly without creating a combined ROM file, run
+from the repository root (Python 3 and NASM's `ndisasm` required):
+
+```sh
+python3 - <<'PY'
+import hashlib
+from pathlib import Path
+import subprocess
+
+root = Path('estafeta-03/tms2764-lhp8749')
+rom = bytearray(16384)
+rom[0::2] = (root / 'label01.bin').read_bytes()
+rom[1::2] = (root / 'label02.bin').read_bytes()
+assert hashlib.sha256(rom).hexdigest() == (
+    'cdfa3999780ac80e96b7ca4e0d575c6cf3c9467cf66cc99dd88bb9f3268b7f0f')
+for start, end in [(0x3FF0, 0x3FF8), (0x08AF, 0x0939),
+                   (0x0983, 0x0986), (0x0999, 0x099C),
+                   (0x1F3F, 0x1F59), (0x1FA5, 0x1FAE),
+                   (0x1FB1, 0x1FCD)]:
+    subprocess.run(['ndisasm', '-b', '16', '-o', str(start), '-'],
+                   input=rom[start:end], check=True)
+PY
+```
 
 ## Acquisition
 

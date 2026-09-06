@@ -3,12 +3,15 @@
 This repository preserves ROM images recovered from physical hardware. Sets
 whose originating system is not known are kept under [`unknown/`](unknown/)
 with chip markings, physical placement, acquisition details, and checksums.
+Attributed sets are grouped by system; individual READMEs record identification
+confidence and any unresolved provenance.
 
 ## Sets
 
-- [`TMS2764 LHP8749 set`](unknown/tms2764-lhp8749/) — two reported 8 KiB
-  EPROMs labelled `01` and `02`, each repeat-read; interleaved strings identify
-  an `ЭСТАФЕТА - III` banner and ring-network diagnostics. Exact hardware unknown.
+- [`Estafeta-03 / TMS2764 LHP8749 set`](estafeta-03/tms2764-lhp8749/) — two
+  repeat-read 8 KiB EPROMs; confirmed 8086-compatible code and an
+  `ЭСТАФЕТА - III` banner. Strong Estafeta-03 family attribution; exact board
+  provenance and firmware revision remain unconfirmed.
 - [`K573RF5 set 41-44`](unknown/k573rf5-set-41-44/) — four 2 KiB EPROMs from
   an unidentified board, reported not to be from a Juku computer.
 
