@@ -6,6 +6,9 @@ with chip markings, physical placement, acquisition details, and checksums.
 
 ## Sets
 
+- [`TMS2764 LHP8749 set`](unknown/tms2764-lhp8749/) — two reported 8 KiB
+  EPROMs labelled `01` and `02`, each repeat-read; interleaved strings identify
+  an `ЭСТАФЕТА - III` banner and ring-network diagnostics. Exact hardware unknown.
 - [`K573RF5 set 41-44`](unknown/k573rf5-set-41-44/) — four 2 KiB EPROMs from
   an unidentified board, reported not to be from a Juku computer.
 

@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "status": "unidentified",
+  "expected_chips": 2,
+  "acquisition_status": "complete; both labels independently read twice",
+  "reported_common_marking": "TMS 2764-20JL LHP8749",
+  "analysis": {
+    "status": "provisional identification from strings",
+    "combined_bytes": 16384,
+    "even_offset_label": "01",
+    "odd_offset_label": "02",
+    "observed_banner": "ЭСТАФЕТА - III",
+    "banner_text_offset_hex": "0989",
+    "encoding": "KOI-7-style Cyrillic with 0E/0F shift delimiters",
+    "hypothesis": "ring-network controller or diagnostic firmware",
+    "hardware_identity_confirmed": false,
+    "reproduction_script": "analyze_strings.py"
+  },
+  "acquisition": {
+    "date": "2026-09-06",
+    "date_basis": "host UTC; DOS clock unset",
+    "programmer": "Willem PCB5.0E",
+    "machine": "Pocket8086, existing documented setup",
+    "device_route": "2764 read-only",
+    "expected_vcc_volts": 5,
+    "voltages_remeasured": false,
+    "software_vpp_enabled": false,
+    "profile": "conservative",
+    "lpt_base_hex": "378",
+    "required_dip_mask_hex": "12B",
+    "reader": "https://github.com/ddanila/willem-v30",
+    "reader_checkout": "c3629065d11bf3b11878b8abf24161d5e1d4e3e9",
+    "reader_build_id": "dosravi-m2764a-write-v1",
+    "reader_binary_sha256": "3909c219d41f6db463817ee45543cc063e024917b2adc4646a4019f9eb1ebe03",
+    "transport": "https://github.com/ddanila/dosravi",
+    "transport_commit": "0cc0927f3f9624eedd01f9460c97681685fbebed",
+    "baud": 57600
+  },
+  "chips": [
+    {
+      "label": "01",
+      "part": "TMS2764-20JL",
+      "additional_marking": "LHP8749",
+      "filename": "label01.bin",
+      "bytes": 8192,
+      "matching_reads": 2,
+      "trusted_reference": null,
+      "crc16_ccitt": "7557",
+      "crc32": "F4FFFEA1",
+      "sha256": "82a53447a1832d5040bcb919c8cc45e54a8f59f1ba7991040965285d5f843c9c",
+      "reads": [
+        {"execution_id": 2067182507, "dos_filename": "U01A.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label01-read1.log"},
+        {"execution_id": 3480211927, "dos_filename": "U01B.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label01-read2.log"}
+      ]
+    },
+    {
+      "label": "02",
+      "part": "TMS2764-20JL",
+      "additional_marking": "LHP8749",
+      "filename": "label02.bin",
+      "bytes": 8192,
+      "matching_reads": 2,
+      "trusted_reference": null,
+      "crc16_ccitt": "8845",
+      "crc32": "F404B705",
+      "sha256": "4b1fcd3ec5b051ec9b189e6badc088d928d64f5eeceeaad87740543bd295b5fa",
+      "reads": [
+        {"execution_id": 3253823782, "dos_filename": "U02A.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label02-read1.log"},
+        {"execution_id": 4251646868, "dos_filename": "U02B.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label02-read2.log"}
+      ]
+    }
+  ]
+}
