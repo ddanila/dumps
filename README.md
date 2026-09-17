@@ -8,6 +8,10 @@ confidence and any unresolved provenance.
 
 ## Sets
 
+- [`FACIT 4431 LAT/CYR keyboard`](facit/keyboard-2716/) — repeat-read 2 KiB
+  ROM labelled `4431 KBCL, LAT/CYR. 6800 U3`, from an English/Russian
+  keyboard with an Intel 8035. Internal checksum passes; MAME execution
+  confirms matrix scanning and serial key output for two layout settings.
 - [`Estafeta-03 / TMS2764 LHP8749 set`](estafeta-03/tms2764-lhp8749/) — two
   repeat-read 8 KiB EPROMs; confirmed 8086-compatible code and an
   `ЭСТАФЕТА - III` banner. Strong Estafeta-03 family attribution; exact board

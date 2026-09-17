@@ -1,0 +1,1261 @@
+{
+  "artifacts": [
+    {
+      "crc32": "d4164322",
+      "name": "upload:RD2716.COM",
+      "sha256": "3909c219d41f6db463817ee45543cc063e024917b2adc4646a4019f9eb1ebe03",
+      "size": 27696
+    },
+    {
+      "crc32": "21956bdc",
+      "name": "executions.json",
+      "sha256": "ccc1226963d5ae086231a8befe0eb76c7b0dbd4f3b00ebf08861006476b59ede",
+      "size": 369
+    },
+    {
+      "crc32": "f012e971",
+      "name": "STDOUT.TXT",
+      "sha256": "a7a3a8292c2adcf086a59e9d9436df8a3d1b8004cd58e82b735eff5534fe6634",
+      "size": 2076
+    },
+    {
+      "crc32": "00000000",
+      "name": "STDERR.TXT",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "crc32": "7ab50d44",
+      "name": "FACIT1.BIN",
+      "sha256": "9e99be945655d39d9fbb34a32ec66969612442eda4f1e6992a43e454991a2034",
+      "size": 2048
+    },
+    {
+      "crc32": "910d6a43",
+      "name": "WILLEM.LOG",
+      "sha256": "53f4477f8141665331928b994d61c75b307f4041ef8335edc3771b078f1bb977",
+      "size": 4772
+    }
+  ],
+  "command_line": [
+    "/home/ddanila/fun/dosravi/dosravi/cli.py",
+    "--serial",
+    "/dev/ttyUSB0",
+    "--baud",
+    "57600",
+    "--timeout",
+    "5",
+    "--session-dir",
+    "sessions/facit-keyboard-20260917-read1",
+    "run",
+    "--put",
+    "/home/ddanila/fun/willem-v30/build/dos/WILLEM.COM:RD2716.COM",
+    "--exec",
+    "RD2716.COM RRF5 FACIT1.BIN 378 /PROFILE:conservative",
+    "--get",
+    "FACIT1.BIN",
+    "--get",
+    "WILLEM.LOG",
+    "--note",
+    "device=FACIT keyboard ROM; assumed 2716; markings covered",
+    "--note",
+    "machine=Pocket8086",
+    "--note",
+    "cable-adapter=CP2102 existing serial connection; Willem PCB5.0E LPT"
+  ],
+  "completed_utc": "2026-09-17T07:53:20.230743+00:00",
+  "error": null,
+  "exit_status": 0,
+  "hardware_notes": {
+    "cable-adapter": "CP2102 existing serial connection; Willem PCB5.0E LPT",
+    "device": "FACIT keyboard ROM; assumed 2716; markings covered",
+    "machine": "Pocket8086"
+  },
+  "host_version": "0.1.1",
+  "negotiated": {
+    "agent": "DOSRAVI.COM",
+    "bios_equipment_word": 21613,
+    "build": "uart-txdiag-v1",
+    "capabilities": [
+      "replay",
+      "resume",
+      "exec-capture",
+      "self-update"
+    ],
+    "chunk_size": 512,
+    "com_base": 1016,
+    "conventional_kb": 639,
+    "dos": "6.22",
+    "free_disk": 407486464,
+    "free_memory": 477936,
+    "protocol": 1,
+    "uart_fifo_bits": 192,
+    "version": "0.1.1"
+  },
+  "programmer_stats": {
+    "exec_elapsed_ms": 29150,
+    "execution_id": 2931923383
+  },
+  "serial_stats": {
+    "get:Ec199b7.ERR": {
+      "bytes": 0,
+      "bytes_per_second": 0.0,
+      "crc32": "00000000",
+      "elapsed_seconds": 0.10590724204666913
+    },
+    "get:FACIT1.BIN": {
+      "bytes": 2048,
+      "bytes_per_second": 1740.0316887888607,
+      "crc32": "7ab50d44",
+      "elapsed_seconds": 1.176990058971569
+    },
+    "get:Oc199b7.OUT": {
+      "bytes": 2076,
+      "bytes_per_second": 1672.5580873688089,
+      "crc32": "f012e971",
+      "elapsed_seconds": 1.2412124969996512
+    },
+    "get:WILLEM.LOG": {
+      "bytes": 4772,
+      "bytes_per_second": 1768.5970450392613,
+      "crc32": "910d6a43",
+      "elapsed_seconds": 2.6981838589999825
+    },
+    "put:RD2716.COM": {
+      "bytes": 27696,
+      "bytes_per_second": 774.9140169289656,
+      "crc32": "d4164322",
+      "elapsed_seconds": 35.740739481989294
+    }
+  },
+  "session_id": "facit-keyboard-20260917-read1",
+  "source_commit": "0cc0927f3f9624eedd01f9460c97681685fbebed",
+  "source_dirty": false,
+  "started_utc": "2026-09-17T07:52:03.372610+00:00",
+  "transactions": [
+    {
+      "attempt": 0,
+      "command": "INFO",
+      "direction": "tx",
+      "transaction": 763020440
+    },
+    {
+      "command": "INFO",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020440
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_BEGIN",
+      "direction": "tx",
+      "transaction": 763020441
+    },
+    {
+      "attempt": 1,
+      "command": "PUT_BEGIN",
+      "direction": "tx",
+      "transaction": 763020441
+    },
+    {
+      "command": "PUT_BEGIN",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020441
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020442
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020442
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020443
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020443
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020444
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020444
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020445
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020445
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020446
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020446
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020447
+    },
+    {
+      "attempt": 1,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020447
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020447
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020448
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020448
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020449
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020449
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020450
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020450
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020451
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020451
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020452
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020452
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020453
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020453
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020454
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020454
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020455
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020455
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020456
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020456
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020457
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020457
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020458
+    },
+    {
+      "attempt": 1,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020458
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020458
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020459
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020459
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020460
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020460
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020461
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020461
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020462
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020462
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020463
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020463
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020464
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020464
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020465
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020465
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020466
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020466
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020467
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020467
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020468
+    },
+    {
+      "attempt": 1,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020468
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020468
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020469
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020469
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020470
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020470
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020471
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020471
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020472
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020472
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020473
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020473
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020474
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020474
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020475
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020475
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020476
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020476
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020477
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020477
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020478
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020478
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020479
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020479
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020480
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020480
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020481
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020481
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020482
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020482
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020483
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020483
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020484
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020484
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020485
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020485
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020486
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020486
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020487
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020487
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020488
+    },
+    {
+      "attempt": 1,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020488
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020488
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020489
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020489
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020490
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020490
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020491
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020491
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020492
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020492
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020493
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020493
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020494
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020494
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020495
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020495
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_DATA",
+      "direction": "tx",
+      "transaction": 763020496
+    },
+    {
+      "command": "PUT_DATA",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020496
+    },
+    {
+      "attempt": 0,
+      "command": "PUT_COMMIT",
+      "direction": "tx",
+      "transaction": 763020497
+    },
+    {
+      "command": "PUT_COMMIT",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020497
+    },
+    {
+      "attempt": 0,
+      "command": "EXEC",
+      "direction": "tx",
+      "transaction": 763020498
+    },
+    {
+      "command": "EXEC",
+      "direction": "event",
+      "message": "STARTED",
+      "status": "OK",
+      "transaction": 763020498
+    },
+    {
+      "command": "EXEC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020498
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020499
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020499
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020500
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020500
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020501
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020501
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020502
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020502
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020503
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020503
+    },
+    {
+      "attempt": 0,
+      "command": "CRC",
+      "direction": "tx",
+      "transaction": 763020504
+    },
+    {
+      "command": "CRC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020504
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020505
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020505
+    },
+    {
+      "attempt": 0,
+      "command": "CRC",
+      "direction": "tx",
+      "transaction": 763020506
+    },
+    {
+      "command": "CRC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020506
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020507
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020507
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020508
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020508
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020509
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020509
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020510
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020510
+    },
+    {
+      "attempt": 0,
+      "command": "CRC",
+      "direction": "tx",
+      "transaction": 763020511
+    },
+    {
+      "command": "CRC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020511
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020512
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020512
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020513
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020513
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020514
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020514
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020515
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020515
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020516
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020516
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020517
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020517
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020518
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020518
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020519
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020519
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020520
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020520
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 763020521
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020521
+    },
+    {
+      "attempt": 0,
+      "command": "CRC",
+      "direction": "tx",
+      "transaction": 763020522
+    },
+    {
+      "command": "CRC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 763020522
+    }
+  ],
+  "transport": {
+    "baud": 57600,
+    "device": "/dev/ttyUSB0",
+    "exec_timeout_seconds": 300.0,
+    "retries": 5,
+    "timeout_seconds": 5.0,
+    "type": "serial"
+  }
+}

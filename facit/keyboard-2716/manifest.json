@@ -1,0 +1,47 @@
+{
+  "system": "FACIT terminal keyboard",
+  "attribution": "4431 on ROM sticker; English/Russian layouts reported by owner",
+  "rom_sticker": "4431 KBCL, LAT/CYR. 6800 U3",
+  "cpu": "Intel 8035",
+  "package_pins": 24,
+  "chip_type": "Unconfirmed; read with 2716-compatible profile",
+  "acquisition_date": "2026-09-17",
+  "programmer": "2015 Willem PCB5.0E",
+  "reader": {
+    "repository": "https://github.com/ddanila/willem-v30",
+    "sha256": "3909c219d41f6db463817ee45543cc063e024917b2adc4646a4019f9eb1ebe03",
+    "command": "RRF5",
+    "profile": "conservative"
+  },
+  "transport": "DOSRAVI 0.1.1; CP2102 at 57600 baud",
+  "matching_reads": 2,
+  "execution_ids": [
+    2931923383,
+    3127652455
+  ],
+  "image": {
+    "file": "keyboard.bin",
+    "size": 2048,
+    "crc32": "7ab50d44",
+    "sha1": "d1be9d741cfce62edd53f64fd4c1ac2dab78e932",
+    "sha256": "9e99be945655d39d9fbb34a32ec66969612442eda4f1e6992a43e454991a2034",
+    "sum8": 0
+  },
+  "emulation": {
+    "emulator": "MAME 0.285",
+    "driver": "f4431",
+    "cpu_device": ":kbd:mcu",
+    "main_cpu": "Halted with synthetic ROM; original terminal firmware unavailable",
+    "strap_e0_uart_bytes": [
+      "ff",
+      "61",
+      "41"
+    ],
+    "strap_c0_uart_bytes": [
+      "ff",
+      "66",
+      "46"
+    ],
+    "limitations": "Cyrillic glyph encoding and physical layout-toggle sequence remain unverified"
+  }
+}
