@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-19",
+  "owner_description": "27256-class chip; jumpers set and chip inserted by owner",
+  "full_marking": "Not provided",
+  "programmer": "2015 Willem PCB5.0E",
+  "setup": "Normal 28-pin routing, DIP1B3, J9/J10 toward DB25, expected 5V VCC, software VPP off; rails not independently measured",
+  "command": "RD27256.COM R27256 E25601A.BIN 378 /PROFILE:conservative",
+  "reader_build": "dosravi-27256-read-v1",
+  "reader_size": 27920,
+  "reader_sha256": "a56caa4f4692c06bb616fab3037afdcc1561c69ff7c97911de198b88280b3fc4",
+  "reader_crc32": "6dc66f68",
+  "file": "chip01-read.bin",
+  "size": 32768,
+  "sha256": "f2eb97ac1bbd8052618388cc163b19b54d2a50f807e408578e5f6909c2a71bd6",
+  "crc32": "5e0d6cb3",
+  "crc16_ccitt": "5dfa",
+  "histogram": {
+    "00": 1,
+    "04": 16383,
+    "06": 16384
+  },
+  "execution_id": 870272488,
+  "exit_code": 0,
+  "read_ms": 448250,
+  "session": "/home/ddanila/fun/dosravi/sessions/27256-20260919-chip01-read1",
+  "reads": 1,
+  "safe_shutdown_reported": true,
+  "status": "Anomalous capture, not established ROM contents; same pattern as preceding RF5 suggests shared read-path fault",
+  "second_read": "Skipped because the cross-chip pattern warrants checking the read path first",
+  "known_programmed_control_checked_today": false,
+  "recheck_20260920": {
+    "session": "/home/ddanila/fun/dosravi/sessions/27256-20260920-chip01-recheck-read1",
+    "execution_id": 1913729354,
+    "read_ms": 448195,
+    "exit_code": 0,
+    "safe_shutdown_reported": true,
+    "exact_match_to_original": true,
+    "crc16_ccitt": "5dfa",
+    "status": "Same programmer-output echo signature persists; actual chip contents unknown"
+  },
+  "powercycle_recheck_20260920": {
+    "session": "/home/ddanila/fun/dosravi/sessions/27256-20260920-chip01-powercycle-read1",
+    "execution_id": 3765177300,
+    "owner_action": "Power-cycled Willem before read",
+    "read_ms": 448250,
+    "exit_code": 0,
+    "safe_shutdown_reported": true,
+    "exact_match_to_original": true,
+    "crc16_ccitt": "5dfa",
+    "status": "Power cycle did not change output-echo pattern; contents remain unknown"
+  }
+}

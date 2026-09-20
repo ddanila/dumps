@@ -1,0 +1,595 @@
+diff --git a/README.md b/README.md
+index f6dd19c..69deb82 100644
+--- a/README.md
++++ b/README.md
+@@ -53,6 +53,7 @@ matching known-Juku physical reads.
+ ```text
+ WILLEM RRF5   OUT.BIN [378] [/PROFILE:name] [/TRACE]
+ WILLEM R2764  OUT.BIN [378] [/PROFILE:name] [/TRACE]
++WILLEM R27256 OUT.BIN [378] [/PROFILE:name] [/TRACE]
+ WILLEM R28C64 OUT.BIN [378] [/PROFILE:name] [/TRACE]
+ WILLEM B2764          [378] [/TRACE]
+ WILLEM B28C64         [378] [/TRACE]
+@@ -70,6 +71,14 @@ bank. `RRF5` always creates exactly 2048 bytes and has no corresponding
+ blank, verify, or write command. Verification images for the other devices
+ must be exactly 8192 bytes.
+ 
++`R27256` reads exactly 32768 bytes from a 27256/27C256 using the EPROM
++read sequence with VPP off. Use Normal 28-pin routing, DIP mask `1B3h`
++(ON: 1,2,5,6,8,9), and bottom alignment with two empty rows at the lever.
++At conservative timing, allow approximately eight minutes per read; use a
++DOSRAVI execution timeout of at least 900 seconds. Build `dosravi-27256-ce-fix-v2` corrects the original R27256 CE polarity
++error (27256 requires pin17 low, unlike 2764). Earlier captures showed output
++echo; corrected physical validation remains pending.
++
+ Read commands accept audited runtime timing tables through `/PROFILE:name`.
+ The ordered experimental sequence is `conservative,address2,oe2,latch2,`
+ `balanced,address1,oe1,latch1,fast,powerfast`; each adjacent table changes
+@@ -164,3 +173,13 @@ python3 tools/validate_read.py --unlock WRITE.OK \
+ 
+ The tool rejects wrong sizes, non-repeatable reads, disagreement with the known
+ image, and repeatable all-zero/all-FF stuck-bus captures.
++
++### 27512 / 27C512 reads
++
++`WILLEM R27512 BIOS.BIN 378 /PROFILE:conservative` reads all 64 KiB using
++DIP `1D4h` (ON 3,5,7,8,9), Normal 28-pin routing, 5 V VCC, and VPP off.
++See `docs/hardware.md` for placement. Build `dosravi-27512-read-v1` streams
++8 KiB chunks with a 32-bit offset and a continuous CRC16, avoiding the DOS
++64 KiB segment limit. Use DOSRAVI EXEC timeout 1800 seconds; a conservative
++read takes approximately 15 minutes. Only the read command is implemented
++for this device.
+diff --git a/docs/geepro-audit.md b/docs/geepro-audit.md
+index ddbf4a7..3fb1520 100644
+--- a/docs/geepro-audit.md
++++ b/docs/geepro-audit.md
+@@ -40,6 +40,26 @@ OE. `wl_begin_2764_read` and `wl_read_byte` reproduce those transitions. Both
+ finish with VPP off, VCC off, address zero, and data zero. The DOS port adds
+ hardware-clocked minimum delays but does not change the signal order.
+ 
++## 27256 read sequence and September 2026 correction
++
++The pinned `chips/27xx.cpp` registers **27256 with ce=0**, while 2764 and
++27128 use ce=1. `chips/modules.h` passes that value through `start_action`
++to `hw_set_ce`; the Willem driver drives DB25 pin17 accordingly. DIP1B3
++routes this as the 27256 enable path, whereas DIP12B uses the 2764 PGM path.
++
++The initial `dosravi-27256-read-v1` incorrectly reused `wl_begin_2764_read`,
++holding pin17 high. This is a software defect independent of correct jumper
++settings and plausibly explains the exact programmer-output echo observed
++on two chips. Virtual tests originally checked capacity/addressing without
++modeling 27256 CE; they consequently missed it.
++
++`dosravi-27256-ce-fix-v2` uses `wl_begin_27256_read`, with the same startup
++levels as 2716 (pin17 low), but its own physical routing and 32 KiB capacity.
++The virtual model now disables 27256 ROM data when CE is high and explicitly
++checks CE low, VCC on, VPP off, and the full A13/A14 range. Restoring the old
++startup in a mutation test fails. Corrected hardware validation is pending.
++Do not treat the old echo captures as chip data or proof of defective chips.
++
+ ## 2764 program routing
+ 
+ The same pinned `chips/27xx.cpp` registers 2764 programming as
+diff --git a/docs/hardware.md b/docs/hardware.md
+index 79eb3f2..f08ce3b 100644
+--- a/docs/hardware.md
++++ b/docs/hardware.md
+@@ -54,6 +54,45 @@ The 2764/27C64 and AT28C64 DIP mask is `12Bh` (ON: 1, 2, 4, 6, 9).
+ AT28C64 control-pin measurements confirmed the required idle, read, and write
+ levels with this setting. Mask bit 0 maps to numbered switch 1 in Geepro.
+ 
++## 27256 / 27C256 read-only settings
++
++Use the same Normal 28-pin J1/J2 routing and bottom-aligned placement as the
++2764 above, with two empty rows at the lever end and the notch toward the lever.
++Keep J9/J10 toward DB25, VCC at 5 V, and software VPP off.
++Set DIP mask `1B3h`: ON 1,2,5,6,8,9; OFF 3,4,7,10,11,12.
++This mask and placement come from the pinned Geepro `family=27256` entry.
++
++`R27256` reads addresses `0000h` through `7FFFh` and saves exactly 32768 bytes
++after safe shutdown. Output is transferred in 8 KiB chunks to avoid Dev86's
++signed 16-bit stdio count boundary. Conservative hardware reads are expected
++to take roughly eight minutes; set DOSRAVI `--exec-timeout 900` or longer.
++The virtual-board test covers active-low CE and A13/A14, and DOSBox checks
++the complete file. Use build `dosravi-27256-ce-fix-v2` or later: the original
++R27256 implementation held CE high and produced programmer-output echo.
++DIP1B3 and Normal routing remain the required settings.
++
++## 27512 / 27C512 read-only settings
++
++Use Normal 28-pin J1/J2 routing and the same bottom-aligned placement as
++27256: two empty rows at the lever end, notch toward the lever. Keep J9/J10
++toward DB25, 5 V VCC, and software programming VPP off.
++DIP mask `1D4h`: ON 3,5,7,8,9; OFF 1,2,4,6,10,11,12.
++Geepro's pinned `family=27512` entry supplies this mask; its `read_27512`
++uses `start_action(0, 0)`, with CE low. A15 is chip pin 1.
++
++`R27512` captures exactly 65536 bytes, addresses 0000h through FFFFh.
++It streams 8 KiB chunks because a full image cannot fit in the COM segment;
++OE is inactive between byte reads, including during file writes. The offset
++and progress counters are 32-bit. CRC16 carries across chunks. On output
++failure, the reader shuts down VCC/VPP and returns failure; any partial file
++is not a successful dump. The read metric includes chunk file I/O and CRC.
++Use build `dosravi-27512-read-v1` or later. Conservative reads take about
++15 minutes; use DOSRAVI `--exec-timeout 1800`. `R27256` is not a substitute.
++
++Sources:
++- https://github.com/danielg4/geepro/blob/a08efcaf6479730d552c5f96bad0a2a01bf0635f/drivers/willem.xml.in#L93-L102
++- https://github.com/danielg4/geepro/blob/a08efcaf6479730d552c5f96bad0a2a01bf0635f/chips/27xx.cpp#L336-L339
++
+ ## К573РФ5 / 2716 read-only settings
+ 
+ К573РФ5 is a 24-pin, 2K x 8 2716-class EPROM. It must not use the normal
+diff --git a/include/willem.h b/include/willem.h
+index ef1c82f..c717ec0 100644
+--- a/include/willem.h
++++ b/include/willem.h
+@@ -53,6 +53,8 @@ void wl_set_data(struct willem *wl, int value);
+ wl_u8 wl_get_data(struct willem *wl);
+ void wl_begin_2716_read(struct willem *wl);
+ void wl_begin_2764_read(struct willem *wl);
++void wl_begin_27256_read(struct willem *wl);
++void wl_begin_27512_read(struct willem *wl);
+ void wl_begin_28c64_read(struct willem *wl);
+ void wl_begin_28c64_write(struct willem *wl);
+ void wl_begin_m2764a_program(struct willem *wl);
+diff --git a/src/dosmain.c b/src/dosmain.c
+index ff91e7c..972db12 100644
+--- a/src/dosmain.c
++++ b/src/dosmain.c
+@@ -6,6 +6,7 @@
+ 
+ #define ROM_SIZE 8192
+ #define RF5_SIZE 2048
++#define EPROM256_SIZE 32768U
+ #define LOG_NAME "WILLEM.LOG"
+ #define TRACE_NAME "WTRACE.BIN"
+ #define LOG_ROTATE_SIZE 24576UL
+@@ -13,7 +14,7 @@
+ #define M2764A_GATE_NAME "M2764A.OK"
+ #define WILLEM_VERSION "0.2.0-dev"
+ #ifndef WILLEM_BUILD_ID
+-#define WILLEM_BUILD_ID "dosravi-m2764a-write-v1"
++#define WILLEM_BUILD_ID "dosravi-27512-read-v1"
+ #endif
+ 
+ #define ACTION_READ 1
+@@ -25,6 +26,8 @@
+ #define DEVICE_28C64 2
+ #define DEVICE_RF5 3
+ #define DEVICE_M2764A 4
++#define DEVICE_27256 5
++#define DEVICE_27512 6
+ 
+ extern void dos_outb(unsigned port, unsigned value);
+ extern unsigned dos_inb(unsigned port);
+@@ -68,7 +71,7 @@ struct dos_context {
+ };
+ 
+ static FILE *log_file;
+-static unsigned char rom_buffer[ROM_SIZE];
++static unsigned char rom_buffer[EPROM256_SIZE];
+ 
+ static int archive_append_file(name, binary)
+ char *name;
+@@ -223,12 +226,12 @@ unsigned milliseconds;
+     dos_m2764a_pulse(ctx->base, milliseconds);
+ }
+ 
+-static unsigned crc16(data, size)
++static unsigned crc16_update(crc, data, size)
++unsigned crc;
+ unsigned char *data;
+ unsigned size;
+ {
+-    unsigned crc, i, bit;
+-    crc = 0xffffU;
++    unsigned i, bit;
+     for (i = 0; i < size; i++) {
+         crc ^= (unsigned)data[i] << 8;
+         for (bit = 0; bit < 8; bit++)
+@@ -237,6 +240,13 @@ unsigned size;
+     return crc;
+ }
+ 
++static unsigned crc16(data, size)
++unsigned char *data;
++unsigned size;
++{
++    return crc16_update(0xffffU, data, size);
++}
++
+ static unsigned long crc32(data, size)
+ unsigned char *data;
+ unsigned size;
+@@ -394,6 +404,8 @@ static void usage()
+     puts("WILLEM V30 read/check/gated-write utility");
+     puts("Usage: WILLEM RRF5  output.bin [base] [/PROFILE:name] [/TRACE]");
+     puts("       WILLEM R2764 output.bin [base] [/PROFILE:name] [/TRACE]");
++    puts("       WILLEM R27512 output.bin [base] [/PROFILE:name] [/TRACE]");
++    puts("       WILLEM R27256 output.bin [base] [/PROFILE:name] [/TRACE]");
+     puts("       WILLEM R28C64 output.bin [base] [/PROFILE:name] [/TRACE]");
+     puts("       WILLEM B2764 [base] [/TRACE]");
+     puts("       WILLEM B28C64 [base] [/TRACE]");
+@@ -414,6 +426,10 @@ int *device;
+         *action = ACTION_READ; *device = DEVICE_RF5;
+     } else if (same_command(text, "R2764")) {
+         *action = ACTION_READ; *device = DEVICE_2764;
++    } else if (same_command(text, "R27512")) {
++        *action = ACTION_READ; *device = DEVICE_27512;
++    } else if (same_command(text, "R27256")) {
++        *action = ACTION_READ; *device = DEVICE_27256;
+     } else if (same_command(text, "R28C64")) {
+         *action = ACTION_READ; *device = DEVICE_28C64;
+     } else if (same_command(text, "B2764")) {
+@@ -451,6 +467,8 @@ int action;
+ static char *device_name(device)
+ int device;
+ {
++    if (device == DEVICE_27512) return "27512/27C512";
++    if (device == DEVICE_27256) return "27256/27C256";
+     if (device == DEVICE_RF5) return "K573RF5/2716";
+     if (device == DEVICE_M2764A) return "ST-M2764A";
+     return device == DEVICE_2764 ? "2764/27C64" : "AT28C64";
+@@ -459,12 +477,17 @@ int device;
+ static unsigned device_size(device)
+ int device;
+ {
++    /* 27512 uses the separate streaming path, never a 16-bit image size. */
++    if (device == DEVICE_27512) return 0;
++    if (device == DEVICE_27256) return EPROM256_SIZE;
+     return device == DEVICE_RF5 ? RF5_SIZE : ROM_SIZE;
+ }
+ 
+ static unsigned device_dip_mask(device)
+ int device;
+ {
++    if (device == DEVICE_27512) return 0x1d4U;
++    if (device == DEVICE_27256) return 0x1b3U;
+     return device == DEVICE_RF5 ? 0x1a3U : 0x12bU;
+ }
+ 
+@@ -604,6 +627,49 @@ struct dos_context *context;
+     wait_enter("Confirm pin 1 no longer has 12.5V");
+ }
+ 
++/* The COM memory segment cannot hold a 64 KiB image. Stream bounded chunks
++   with OE inactive between reads; use a long offset so FFFF does not wrap. */
++static int read_27512(wl, file, profile)
++struct willem *wl;
++FILE *file;
++struct read_profile *profile;
++{
++    unsigned long offset, started, elapsed;
++    unsigned i, crc;
++    int result;
++
++    crc = 0xffffU;
++    result = 1;
++    started = dos_bios_ticks();
++    logmsg("Power transition: enabling VCC, VPP off");
++    wl_begin_27512_read(wl);
++    for (offset = 0; offset < 65536UL; offset += ROM_SIZE) {
++        for (i = 0; i < ROM_SIZE; i++)
++            rom_buffer[i] = wl_read_byte(wl, (wl_u16)(offset + i));
++        crc = crc16_update(crc, rom_buffer, ROM_SIZE);
++        if (fwrite(rom_buffer, 1, ROM_SIZE, file) != ROM_SIZE) {
++            logmsg("ERROR: failed writing output image at offset %lu", offset);
++            goto shutdown;
++        }
++        logmsg("Scan progress: %lu/65536 bytes", offset + ROM_SIZE);
++    }
++    if (fflush(file) != 0) {
++        logmsg("ERROR: failed flushing output image");
++        goto shutdown;
++    }
++    result = 0;
++shutdown:
++    elapsed = (dos_bios_ticks() - started) * 55UL;
++    logmsg("DOSRAVI_METRIC read_ms=%lu profile=%s includes_chunk_io=1",
++           elapsed, profile->name);
++    logmsg("Power transition: safe shutdown begins");
++    wl_end_read(wl);
++    logmsg("Safe shutdown complete: VCC off, VPP off");
++    if (!result)
++        logmsg("Read complete: bytes=65536 CRC16-CCITT=%04X", crc);
++    return result;
++}
++
+ int main(argc, argv)
+ int argc;
+ char **argv;
+@@ -617,7 +683,7 @@ char **argv;
+     unsigned retry_bytes, total_retries, late_bytes;
+     unsigned pulse_count, total_initial_pulses, max_initial_pulses;
+     unsigned overprogram_pulses, blank_mismatches;
+-    unsigned power_on_ms, image_size, dip_mask;
++    unsigned power_on_ms, image_size, dip_mask, chunk;
+     unsigned long read_started, read_ms, program_started, program_ms;
+     unsigned long verify_started, verify_ms, image_crc32;
+     unsigned char actual, expected, verified;
+@@ -825,6 +891,11 @@ char **argv;
+         goto close_trace;
+     }
+ 
++    if (device == DEVICE_27512) {
++        result = read_27512(&wl, file, profile);
++        goto close_trace;
++    }
++
+     mismatch_count = 0;
+     written = 0;
+     unchanged = 0;
+@@ -871,6 +942,7 @@ char **argv;
+     } else {
+         if (action == ACTION_WRITE) wl_begin_28c64_write(&wl);
+         else if (device == DEVICE_RF5) wl_begin_2716_read(&wl);
++        else if (device == DEVICE_27256) wl_begin_27256_read(&wl);
+         else if (device == DEVICE_2764) wl_begin_2764_read(&wl);
+         else wl_begin_28c64_read(&wl);
+         powered = 1;
+@@ -1038,11 +1110,17 @@ char **argv;
+             result = 0;
+         }
+     } else if (action == ACTION_READ) {
+-        if (fwrite(rom_buffer, 1, image_size, file) != image_size) {
+-            logmsg("ERROR: failed writing output image");
+-            fclose(file);
+-            file = 0;
+-            goto close_trace;
++        /* Dev86 stdio cannot reliably report a single 32768-byte write.
++           Keep transfers below its signed 16-bit count boundary. */
++        for (address = 0; address < image_size; address += chunk) {
++            chunk = image_size - address;
++            if (chunk > ROM_SIZE) chunk = ROM_SIZE;
++            if (fwrite(rom_buffer + address, 1, chunk, file) != chunk) {
++                logmsg("ERROR: failed writing output image");
++                fclose(file);
++                file = 0;
++                goto close_trace;
++            }
+         }
+         fclose(file);
+         file = 0;
+diff --git a/src/willem.c b/src/willem.c
+index ddbeef2..a291046 100644
+--- a/src/willem.c
++++ b/src/willem.c
+@@ -209,6 +209,24 @@ struct willem *wl;
+     if (milliseconds) delay_us(wl, (int)milliseconds * 1000);
+ }
+ 
++void wl_begin_27256_read(wl)
++struct willem *wl;
++{
++    /* Geepro 27xx.cpp: read_27256 uses start_action(0, 0), unlike
++       2764's start_action(0, 1). With DIP 1B3, DB25 pin 17 must be
++       low to select the 27256. The 2716 startup has the same levels;
++       the physical routing and capacity remain device-specific. */
++    wl_begin_2716_read(wl);
++}
++
++void wl_begin_27512_read(wl)
++struct willem *wl;
++{
++    /* Geepro read_27512 also uses start_action(0, 0). DIP1D4 routes
++       A15 to chip pin 1; CE stays low and programming VPP stays off. */
++    wl_begin_2716_read(wl);
++}
++
+ void wl_begin_2764_read(wl)
+ struct willem *wl;
+ {
+diff --git a/tests/test_virtual.c b/tests/test_virtual.c
+index 4b94147..b5eaf7e 100644
+--- a/tests/test_virtual.c
++++ b/tests/test_virtual.c
+@@ -5,9 +5,10 @@
+ 
+ #define ROM_SIZE 8192
+ #define RF5_SIZE 2048
++#define EPROM256_SIZE 32768U
+ 
+ struct virtual_willem {
+-    wl_u8 rom[ROM_SIZE];
++    wl_u8 rom[65536UL];
+     wl_u8 data;
+     wl_u8 control;
+     wl_u8 read_shift;
+@@ -16,6 +17,7 @@ struct virtual_willem {
+     wl_u16 address_bits;
+     wl_u16 address;
+     int read_loaded;
++    int route_27256;
+     unsigned long data_writes;
+     unsigned long control_writes;
+     unsigned long status_reads;
+@@ -58,14 +60,17 @@ int value;
+                                ((value & WL_D1) ? 1UL : 0UL);
+             v->address_bits++;
+             if (v->address_bits == 24) {
+-                v->address = (wl_u16)(v->address_shift & 0x1fffUL);
++                v->address = (wl_u16)(v->address_shift & 0xffffUL);
+                 v->address_bits = 0;
+                 v->address_shift = 0;
+             }
+         }
+ 
+         if (!(old & WL_D1) && (value & WL_D1) && (value & WL_D2)) {
+-            if ((v->busy_reads || v->busy_forever) &&
++            if (v->route_27256 && (v->control & WL_CTL_WE)) {
++                /* DIP1B3 routes pin17 to active-low 27256 CE. */
++                v->read_shift = 0xff;
++            } else if ((v->busy_reads || v->busy_forever) &&
+                 v->address == v->pending_address) {
+                 v->read_shift = v->pending_data ^ 0x80U;
+                 if (!v->busy_forever) {
+@@ -103,7 +108,7 @@ int raw_value;
+     if ((old & WL_CTL_VCC) && !(v->control & WL_CTL_VCC) &&
+         (old & WL_CTL_VPP)) v->vcc_removed_before_vpp = 1;
+     if (v->control & WL_CTL_VPP) v->vpp_seen = 1;
+-    if (!(old & WL_CTL_WE) && (v->control & WL_CTL_WE) &&
++    if (!v->route_27256 && !(old & WL_CTL_WE) && (v->control & WL_CTL_WE) &&
+         (v->control & WL_CTL_VCC) && !(v->control & WL_CTL_MUX)) {
+         if (v->require_sdp && v->sdp_state == 0 &&
+             v->address == 0x1555U && v->data == 0xaaU) {
+@@ -184,7 +189,7 @@ unsigned milliseconds;
+ static wl_u8 pattern(address)
+ wl_u16 address;
+ {
+-    return (wl_u8)(((address * 73U) ^ (address >> 3) ^ 0xa5U) & 0xffU);
++    return (wl_u8)(((address * 73U) ^ (address >> 3) ^ (address >> 8) ^ 0xa5U) & 0xffU);
+ }
+ 
+ int main()
+@@ -193,6 +198,7 @@ int main()
+     struct willem wl;
+     struct wl_io io;
+     wl_u16 address;
++    unsigned long full_address;
+     wl_u8 actual;
+ 
+     memset(&v, 0, sizeof(v));
+@@ -253,6 +259,68 @@ int main()
+     printf("virtual 2764 read passed: %u bytes, %lu status reads\n",
+            ROM_SIZE, v.status_reads);
+ 
++    /* Include A13/A14 in both addresses and data: an 8 KiB alias must fail. */
++    for (address = 0; address < EPROM256_SIZE; address++)
++        v.rom[address] = pattern(address);
++    v.status_reads = 0;
++    v.route_27256 = 1;
++    /* Prove the old 2764 startup leaves a 27256 disabled. */
++    wl_begin_2764_read(&wl);
++    if (wl_read_byte(&wl, 0) != 0xffU) {
++        fprintf(stderr, "27256 model did not reject inactive CE\n");
++        return 1;
++    }
++    wl_end_read(&wl);
++    v.status_reads = 0;
++    wl_begin_27256_read(&wl);
++    if (!(v.control & WL_CTL_VCC) ||
++        (v.control & (WL_CTL_WE | WL_CTL_VPP))) {
++        fprintf(stderr, "27256 must hold CE low and VPP off\n");
++        return 1;
++    }
++    for (address = 0; address < EPROM256_SIZE; address++) {
++        actual = wl_read_byte(&wl, address);
++        if (actual != pattern(address) || v.address != address) {
++            fprintf(stderr, "27256 address/data mismatch at %04x\n", address);
++            return 1;
++        }
++    }
++    wl_end_read(&wl);
++    if (v.status_reads != EPROM256_SIZE * 8UL || v.vpp_seen ||
++        (v.control & (WL_CTL_VPP | WL_CTL_VCC))) {
++        fprintf(stderr, "unsafe or incomplete 27256 read\n");
++        return 1;
++    }
++    v.route_27256 = 0;
++    printf("virtual 27256 read passed: 32768 bytes, active-low CE and A13/A14 checked\n");
++
++    for (full_address = 0; full_address < 65536UL; full_address++)
++        v.rom[full_address] = pattern((wl_u16)full_address);
++    v.route_27256 = 1; /* Both routes require active-low CE. */
++    v.status_reads = 0;
++    wl_begin_27512_read(&wl);
++    if (!(v.control & WL_CTL_VCC) ||
++        (v.control & (WL_CTL_WE | WL_CTL_VPP))) {
++        fprintf(stderr, "27512 must hold CE low and VPP off\n");
++        return 1;
++    }
++    for (full_address = 0; full_address < 65536UL; full_address++) {
++        actual = wl_read_byte(&wl, (wl_u16)full_address);
++        if (actual != pattern((wl_u16)full_address) ||
++            v.address != full_address) {
++            fprintf(stderr, "27512 address/data mismatch at %04lx\n", full_address);
++            return 1;
++        }
++    }
++    wl_end_read(&wl);
++    if (v.status_reads != 65536UL * 8UL || v.vpp_seen ||
++        (v.control & (WL_CTL_VPP | WL_CTL_VCC))) {
++        fprintf(stderr, "unsafe or incomplete 27512 read\n");
++        return 1;
++    }
++    v.route_27256 = 0;
++    printf("virtual 27512 read passed: 65536 bytes, CE and A15 checked\n");
++
+     v.status_reads = 0;
+     wl_begin_28c64_read(&wl);
+     for (address = 0; address < ROM_SIZE; address++) {
+diff --git a/tools/test_dosbox.sh b/tools/test_dosbox.sh
+index 0c22b78..a3799d1 100644
+--- a/tools/test_dosbox.sh
++++ b/tools/test_dosbox.sh
+@@ -28,11 +28,15 @@ run_dosbox() {
+     cp "$program" "$drive/WILLEM.COM"
+     dd if=/dev/zero of="$drive/ZERO.BIN" bs=8192 count=1 status=none
+     dd if=/dev/zero of="$drive/RF5ZERO.BIN" bs=2048 count=1 status=none
++    dd if=/dev/zero of="$drive/256ZERO.BIN" bs=32768 count=1 status=none
++    dd if=/dev/zero of="$drive/512ZERO.BIN" bs=65536 count=1 status=none
+     printf 'WILLEM-WRITE-GATE-1\r\n' >"$drive/WRITE.OK"
+     printf 'WILLEM-M2764A-WRITE-GATE-1\r\n' >"$drive/M2764A.OK"
+     printf '\r\n\r\n\r\n\r\n' >"$drive/ENTERS.TXT"
+     printf '%s\r\n' \
+         'WILLEM RRF5 RF5.BIN 378 /PROFILE:conservative' \
++        'WILLEM R27512 R27512.BIN 378' \
++        'WILLEM R27256 R27256.BIN 378' \
+         'WILLEM R2764 R2764.BIN 378' \
+         'WILLEM R2764 PROFILE.BIN 378 /PROFILE:conservative' \
+         'WILLEM R28C64 R28C64.BIN 378 /PROFILE:powerfast' \
+@@ -89,32 +93,38 @@ run_dosbox() {
+     [[ ! -e "$drive/BADPROF.BIN" ]]
+     [[ $(stat -c %s "$drive/R28C64.BIN") == 8192 ]]
+     cmp "$drive/RF5ZERO.BIN" "$drive/RF5.BIN"
++    cmp "$drive/512ZERO.BIN" "$drive/R27512.BIN"
++    cmp "$drive/256ZERO.BIN" "$drive/R27256.BIN"
+     cmp "$drive/ZERO.BIN" "$drive/R2764.BIN"
+     cmp "$drive/ZERO.BIN" "$drive/PROFILE.BIN"
+     cmp "$drive/ZERO.BIN" "$drive/R28C64.BIN"
+     cat "$drive"/WILL[0-9][0-9][0-9][0-9].LOG \
+         "$drive/WILLEM.LOG" >"$drive/ALLLOG.TXT"
++    [[ $(grep -ic 'Read complete: bytes=65536 CRC16-CCITT=1d0f' "$drive/ALLLOG.TXT") == 1 ]]
++    [[ $(grep -ic 'Required DIP mask=1d4h' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'Read complete: bytes=8192' "$drive/ALLLOG.TXT") == 3 ]]
++    [[ $(grep -ic 'Read complete: bytes=32768 CRC16-CCITT=e1f0' "$drive/ALLLOG.TXT") == 1 ]]
++    [[ $(grep -ic 'Required DIP mask=1b3h' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'Read complete: bytes=2048' "$drive/ALLLOG.TXT") == 1 ]]
+-    [[ $(grep -c 'DOSRAVI_PROFILE name=conservative address_setup_us=4 oe_settle_us=4 input_latch_us=4 input_clock_us=4 power_on_ms=5 build_id=dosravi-m2764a-write-v1' "$drive/ALLLOG.TXT") == 2 ]]
++    [[ $(grep -c 'DOSRAVI_PROFILE name=conservative address_setup_us=4 oe_settle_us=4 input_latch_us=4 input_clock_us=4 power_on_ms=5 build_id=dosravi-27512-read-v1' "$drive/ALLLOG.TXT") == 2 ]]
+     [[ $(grep -Ec 'DOSRAVI_METRIC read_ms=[1-9][0-9]* profile=conservative' "$drive/ALLLOG.TXT") == 2 ]]
+-    [[ $(grep -c 'DOSRAVI_PROFILE name=powerfast address_setup_us=1 oe_settle_us=1 input_latch_us=1 input_clock_us=1 power_on_ms=150 build_id=dosravi-m2764a-write-v1' "$drive/ALLLOG.TXT") == 1 ]]
++    [[ $(grep -c 'DOSRAVI_PROFILE name=powerfast address_setup_us=1 oe_settle_us=1 input_latch_us=1 input_clock_us=1 power_on_ms=150 build_id=dosravi-27512-read-v1' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -Ec 'DOSRAVI_METRIC read_ms=[1-9][0-9]* profile=powerfast' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'ERROR: unknown read profile <unknown>' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'ERROR: invalid command line' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'VERIFY PASSED: all 8192 bytes match ZERO.BIN' "$drive/ALLLOG.TXT") == 2 ]]
+     [[ $(grep -c 'BLANK FAILED: mismatches=8192' "$drive/ALLLOG.TXT") == 2 ]]
+-    [[ $(grep -c 'Safe shutdown complete: VCC off, VPP off' "$drive/ALLLOG.TXT") == 11 ]]
++    [[ $(grep -c 'Safe shutdown complete: VCC off, VPP off' "$drive/ALLLOG.TXT") == 13 ]]
+     [[ $(grep -c 'Safe shutdown complete after blank check: VCC off, VPP off' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'physical read gate is locked' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c '12.5V write gate is locked' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'DM2764A requires explicit /VPP confirmation and an empty socket' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'WRITE PASSED: programmed=0 unchanged=8192 verified=8192' "$drive/ALLLOG.TXT") == 1 ]]
+-    [[ $(grep -Ec 'DOSRAVI_WRITE_METRIC program_ms=[0-9]+ verify_ms=[0-9]+ changed=0 unchanged=8192 retry_bytes=0 retries=0 late=0 image_crc32=[0-9A-Fa-f]{8} build_id=dosravi-m2764a-write-v1' "$drive/ALLLOG.TXT") == 1 ]]
+-    [[ $(grep -Ec 'DOSRAVI_M2764A_METRIC program_ms=0 high_voltage_verify_ms=0 programmed=0 ff_skipped=0 initial_pulses=0 retry_bytes=0 retries=0 overprogram_pulses=0 max_initial=0 blank_mismatches=8192 image_crc32=[0-9A-Fa-f]{8} final_5v_verify_required=1 build_id=dosravi-m2764a-write-v1' "$drive/ALLLOG.TXT") == 1 ]]
++    [[ $(grep -Ec 'DOSRAVI_WRITE_METRIC program_ms=[0-9]+ verify_ms=[0-9]+ changed=0 unchanged=8192 retry_bytes=0 retries=0 late=0 image_crc32=[0-9A-Fa-f]{8} build_id=dosravi-27512-read-v1' "$drive/ALLLOG.TXT") == 1 ]]
++    [[ $(grep -Ec 'DOSRAVI_M2764A_METRIC program_ms=0 high_voltage_verify_ms=0 programmed=0 ff_skipped=0 initial_pulses=0 retry_bytes=0 retries=0 overprogram_pulses=0 max_initial=0 blank_mismatches=8192 image_crc32=[0-9A-Fa-f]{8} final_5v_verify_required=1 build_id=dosravi-27512-read-v1' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'DIP ON.*\[X\]\[X\]\[ \]\[X\]\[ \]\[X\]\[ \]\[ \]\[X\]' "$drive/ALLLOG.TXT") == 10 ]]
+     [[ $(grep -c 'DIP ON.*\[X\]\[X\]\[ \]\[ \]\[ \]\[X\]\[ \]\[X\]\[X\]' "$drive/ALLLOG.TXT") == 1 ]]
+-    [[ $(grep -c 'Leave TWO complete rows empty at lever end' "$drive/ALLLOG.TXT") == 10 ]]
++    [[ $(grep -c 'Leave TWO complete rows empty at lever end' "$drive/ALLLOG.TXT") == 12 ]]
+     [[ $(grep -c 'Leave FOUR rows empty at lever end' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ $(grep -c 'Diagnostic complete; power transition: safe shutdown begins' "$drive/ALLLOG.TXT") == 1 ]]
+     [[ -s "$drive/WTRACE.BIN" ]]
+@@ -137,7 +147,7 @@ run_dosbox() {
+     )
+     SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy \
+         timeout 30s "${rotate_args[@]}" >>"$drive/DOSBOX.OUT" 2>&1
+-    [[ $(stat -c %s "$drive/WILL0002.LOG") == 36000 ]]
++    find "$drive" -name 'WILL????.LOG' -size 36000c | grep -q .
+     grep -q 'ERROR: invalid command line' "$drive/WILLEM.LOG"
+     echo "DOSBox-X $cpu diagnostic matrix passed"
+ }

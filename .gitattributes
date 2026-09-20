@@ -1,2 +1,12 @@
 *.bin binary
 facit/keyboard-2716/evidence/*-STDOUT.TXT -text whitespace=cr-at-eol
+
+# Preserve original DOS evidence bytes and their CRLF line endings.
+unknown/**/evidence/**/*.TXT -text whitespace=cr-at-eol
+unknown/**/evidence/**/*.LOG -text whitespace=cr-at-eol
+juku/**/evidence/**/*.TXT -text whitespace=cr-at-eol
+juku/**/evidence/**/*.LOG -text whitespace=cr-at-eol
+unknown/cirrus-gd5422-27512-20260921/evidence/reader-source.patch -text -whitespace
+
+# Preserve disassembler-generated formatting.
+unknown/rf5-plastic-20260920-recheck/analysis/*.asm -text -whitespace
