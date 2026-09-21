@@ -30,7 +30,8 @@ same pattern across 32 KiB, with its first 2 KiB identical to this image.
 This points toward a shared read-path problem; this РФ5 has not been
 established as faulty. The owner deferred further investigation of the chip.
 
-A later [known EktaSoft AT28C64 control](../../juku/ekta37-low-control-20260919/)
+A later known EktaSoft AT28C64 control (captures retained in local DOSRAVI
+sessions `at28c64-ek37-low-20260919-control-read1` and `read2`)
 passed two exact 8 KiB comparisons after changing to its DIP12B setup.
 That validates the later AT28C64 configuration, but does not resolve this
 capture or prove this chip faulty.

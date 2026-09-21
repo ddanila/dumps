@@ -14,10 +14,6 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
-
-- [`Juku / EktaSoft 3.7 low EEPROM control`](juku/ekta37-low-control-20260919/) —
-  two 8 KiB reads exactly match the known D15 image; programmer control check.
-
 - [`FACIT 4431 LAT/CYR keyboard`](facit/keyboard-2716/) — repeat-read 2 KiB
   ROM labelled `4431 KBCL, LAT/CYR. 6800 U3`, from an English/Russian
   keyboard with an Intel 8035. Internal checksum passes; MAME execution

@@ -24,7 +24,8 @@ transcript remains in the DOSRAVI session identified in `manifest.json`.
 WILLEM.LOG is cumulative and can include previous operations. DOS timestamps
 are not the acquisition date.
 
-A later [known EktaSoft AT28C64 control](../../juku/ekta37-low-control-20260919/)
+A later known EktaSoft AT28C64 control (captures retained in local DOSRAVI
+sessions `at28c64-ek37-low-20260919-control-read1` and `read2`)
 passed two exact 8 KiB comparisons after changing to its DIP12B setup.
 That validates the later AT28C64 configuration, but does not resolve this
 capture or prove this chip faulty.
