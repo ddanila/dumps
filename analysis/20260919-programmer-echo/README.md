@@ -101,11 +101,13 @@ cc -std=c89 -Wall -Wextra -Werror \
   analysis/20260919-programmer-echo/model.c -o /tmp/willem-echo-model
 /tmp/willem-echo-model rf5 > /tmp/rf5-echo.bin
 /tmp/willem-echo-model 27256 > /tmp/27256-echo.bin
-cmp /tmp/rf5-echo.bin unknown/rf5-plastic-20260919/chip10-read.bin
-cmp /tmp/27256-echo.bin unknown/27256-20260919-chip01/chip01-read.bin
+cmp /tmp/rf5-echo.bin /home/ddanila/fun/dosravi/sessions/rf5-20260919-chip10-read1/RF510A.BIN
+cmp /tmp/27256-echo.bin /home/ddanila/fun/dosravi/sessions/27256-20260919-chip01-read1/E25601A.BIN
 ```
 
-Both comparisons exit zero. Capture and model SHA-256 values are in
+The anomalous captures and acquisition records are retained only in local
+DOSRAVI sessions, because output echo is not ROM content. The comparisons
+require those local files and originally exited zero. Capture and model SHA-256 values are in
 `results.json`. No programmer access is required.
 
 ## Later finding

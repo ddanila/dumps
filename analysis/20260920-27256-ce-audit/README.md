@@ -68,7 +68,8 @@ Corrected local build: `dosravi-27256-ce-fix-v2`.
 The previous binary on the Pocket8086 remains unchanged; upload and verify the
 corrected executable before the next owner-authorized read. No further read,
 serial operation, programming, or jumper change was performed during the audit.
-The old raw captures remain preserved as diagnostic evidence.
+The old raw captures remain in local DOSRAVI sessions as diagnostic evidence;
+they are excluded from this repository because they are not ROM contents.
 
 All portable tests and the complete DOSBox-X 8086/80186 matrices passed.
 Build identity and validation status are recorded in `build.json`.
