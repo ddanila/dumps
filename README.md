@@ -6,11 +6,14 @@ with chip markings, physical placement, acquisition details, and checksums.
 Attributed sets are grouped by system; individual READMEs record identification
 confidence and any unresolved provenance.
 
+The preservation target is firmware not already available in public Internet
+collections. Compare new acquisitions against existing dumps before adding
+them. Exact known matches, including matches after removing padding or
+converting documented byte layouts, stay in local acquisition sessions rather
+than the firmware collection. Keep all-FF captures local as well.
+
 ## Sets
 
-- [`Cirrus Logic GD-5422 VGA BIOS`](unknown/cirrus-gd5422-27512-20260921/) —
-  version 1.00d, embedded date 08/07/92; single 64 KiB capture with a valid
-  32 KiB option-ROM checksum and zero-filled upper half.
 
 - [`Juku / EktaSoft 3.7 low EEPROM control`](juku/ekta37-low-control-20260919/) —
   two 8 KiB reads exactly match the known D15 image; programmer control check.
