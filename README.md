@@ -14,6 +14,11 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [`Landis & Gyr UNIGYR PRU_AC`](landis-gyr/pru-ac-20260924/) — six-chip
+  set, likely a PAA1 program card for PRU1. 68HC11 firmware dated 1993-11-04;
+  recovered bank map and passing original ROM checksum. Four EEPROMs include
+  Estonian/Finnish configuration text; chip 2's repeated-page capture remains
+  unverified. [Deep analysis and CPU survey](landis-gyr/pru-ac-20260924/analysis/).
 - [`FACIT 4431 LAT/CYR keyboard`](facit/keyboard-2716/) — repeat-read 2 KiB
   ROM labelled `4431 KBCL, LAT/CYR. 6800 U3`, from an English/Russian
   keyboard with an Intel 8035. Internal checksum passes; MAME execution

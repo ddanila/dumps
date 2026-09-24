@@ -1,0 +1,969 @@
+Linear alternative decodes of the SAME 48-byte bank6 function entry (complete instructions only).
+Not a probability ranking. Data and intentional traps invalidate whole-ROM illegal-opcode scoring.
+
+=== hc11 ===
+4000: 3c        pshx
+4001: 3a        abx
+4002: ef 0d     stx (X+0x0D)
+4004: 1a ee 0b  ldy (X+0x0B)
+4007: 18 ee 0b  ldy (Y+0x0B)
+400a: 18 ee 08  ldy (Y+0x08)
+400d: 18 a6 1a  ldaa (Y+0x1A)
+4010: 26 07     bne [0x4019]
+4012: a6 00     ldaa (X+0x00)
+4014: 26 03     bne [0x4019]
+4016: 5f        clrb
+4017: 20 02     bra [0x401B]
+4019: c6 01     ldab 0x01
+401b: e7 0f     stab (X+0x0F)
+401d: a6 01     ldaa (X+0x01)
+401f: 26 11     bne [0x4032]
+4021: 4f        clra
+4022: 1a ee 03  ldy (X+0x03)
+4025: 18 a7 00  staa (Y+0x00)
+4028: 4f        clra
+4029: 1a ee 05  ldy (X+0x05)
+402c: 18 a7 00  staa (Y+0x00)
+
+=== m6800 ===
+4000: 3c        illegal
+4001: 3a        illegal
+4002: ef 0d     stx  $0D,x
+4004: 1a        illegal
+4005: ee 0b     ldx  $0B,x
+4007: 18        illegal
+4008: ee 0b     ldx  $0B,x
+400a: 18        illegal
+400b: ee 08     ldx  $08,x
+400d: 18        illegal
+400e: a6 1a     lda  $1A,x
+4010: 26 07     bne  $4019
+4012: a6 00     lda  $00,x
+4014: 26 03     bne  $4019
+4016: 5f        clrb
+4017: 20 02     bra  $401B
+4019: c6 01     ldb  #$01
+401b: e7 0f     stb  $0F,x
+401d: a6 01     lda  $01,x
+401f: 26 11     bne  $4032
+4021: 4f        clra
+4022: 1a        illegal
+4023: ee 03     ldx  $03,x
+4025: 18        illegal
+4026: a7 00     sta  $00,x
+4028: 4f        clra
+4029: 1a        illegal
+402a: ee 05     ldx  $05,x
+402c: 18        illegal
+402d: a7 00     sta  $00,x
+
+=== m6801 ===
+4000: 3c        pshx
+4001: 3a        abx
+4002: ef 0d     stx  $0D,x
+4004: 1a        illegal
+4005: ee 0b     ldx  $0B,x
+4007: 18        illegal
+4008: ee 0b     ldx  $0B,x
+400a: 18        illegal
+400b: ee 08     ldx  $08,x
+400d: 18        illegal
+400e: a6 1a     lda  $1A,x
+4010: 26 07     bne  $4019
+4012: a6 00     lda  $00,x
+4014: 26 03     bne  $4019
+4016: 5f        clrb
+4017: 20 02     bra  $401B
+4019: c6 01     ldb  #$01
+401b: e7 0f     stb  $0F,x
+401d: a6 01     lda  $01,x
+401f: 26 11     bne  $4032
+4021: 4f        clra
+4022: 1a        illegal
+4023: ee 03     ldx  $03,x
+4025: 18        illegal
+4026: a7 00     sta  $00,x
+4028: 4f        clra
+4029: 1a        illegal
+402a: ee 05     ldx  $05,x
+402c: 18        illegal
+402d: a7 00     sta  $00,x
+
+=== m6803 ===
+4000: 3c        pshx
+4001: 3a        abx
+4002: ef 0d     stx  $0D,x
+4004: 1a        illegal
+4005: ee 0b     ldx  $0B,x
+4007: 18        illegal
+4008: ee 0b     ldx  $0B,x
+400a: 18        illegal
+400b: ee 08     ldx  $08,x
+400d: 18        illegal
+400e: a6 1a     lda  $1A,x
+4010: 26 07     bne  $4019
+4012: a6 00     lda  $00,x
+4014: 26 03     bne  $4019
+4016: 5f        clrb
+4017: 20 02     bra  $401B
+4019: c6 01     ldb  #$01
+401b: e7 0f     stb  $0F,x
+401d: a6 01     lda  $01,x
+401f: 26 11     bne  $4032
+4021: 4f        clra
+4022: 1a        illegal
+4023: ee 03     ldx  $03,x
+4025: 18        illegal
+4026: a7 00     sta  $00,x
+4028: 4f        clra
+4029: 1a        illegal
+402a: ee 05     ldx  $05,x
+402c: 18        illegal
+402d: a7 00     sta  $00,x
+
+=== hd6301 ===
+4000: 3c        pshx
+4001: 3a        abx
+4002: ef 0d     stx  $0D,x
+4004: 1a        slp
+4005: ee 0b     ldx  $0B,x
+4007: 18        xgdx
+4008: ee 0b     ldx  $0B,x
+400a: 18        xgdx
+400b: ee 08     ldx  $08,x
+400d: 18        xgdx
+400e: a6 1a     lda  $1A,x
+4010: 26 07     bne  $4019
+4012: a6 00     lda  $00,x
+4014: 26 03     bne  $4019
+4016: 5f        clrb
+4017: 20 02     bra  $401B
+4019: c6 01     ldb  #$01
+401b: e7 0f     stb  $0F,x
+401d: a6 01     lda  $01,x
+401f: 26 11     bne  $4032
+4021: 4f        clra
+4022: 1a        slp
+4023: ee 03     ldx  $03,x
+4025: 18        xgdx
+4026: a7 00     sta  $00,x
+4028: 4f        clra
+4029: 1a        slp
+402a: ee 05     ldx  $05,x
+402c: 18        xgdx
+402d: a7 00     sta  $00,x
+
+=== hd63701 ===
+4000: 3c        pshx
+4001: 3a        abx
+4002: ef 0d     stx  $0D,x
+4004: 1a        slp
+4005: ee 0b     ldx  $0B,x
+4007: 18        xgdx
+4008: ee 0b     ldx  $0B,x
+400a: 18        xgdx
+400b: ee 08     ldx  $08,x
+400d: 18        xgdx
+400e: a6 1a     lda  $1A,x
+4010: 26 07     bne  $4019
+4012: a6 00     lda  $00,x
+4014: 26 03     bne  $4019
+4016: 5f        clrb
+4017: 20 02     bra  $401B
+4019: c6 01     ldb  #$01
+401b: e7 0f     stb  $0F,x
+401d: a6 01     lda  $01,x
+401f: 26 11     bne  $4032
+4021: 4f        clra
+4022: 1a        slp
+4023: ee 03     ldx  $03,x
+4025: 18        xgdx
+4026: a7 00     sta  $00,x
+4028: 4f        clra
+4029: 1a        slp
+402a: ee 05     ldx  $05,x
+402c: 18        xgdx
+402d: a7 00     sta  $00,x
+
+=== m6805 ===
+4000: 3c 3a     inc   $3A
+4002: ef 0d     stx   $0D,x
+4004: 1a ee     bset  5, $EE
+4006: 0b 18 ee  brclr 5, $18, $3FF7
+4009: 0b 18 ee  brclr 5, $18, $3FFA
+400c: 08 18 a6  brset 4, $18, $3FB5
+400f: 1a 26     bset  5, $26
+4011: 07 a6 00  brclr 3, $A6, $4014
+4014: 26 03     bne   $4019
+4016: 5f        clrx
+4017: 20 02     bra   $401B
+4019: c6 01 e7  lda   $01E7
+401c: 0f a6 01  brclr 7, $A6, $4020
+401f: 26 11     bne   $4032
+4021: 4f        clra
+4022: 1a ee     bset  5, $EE
+4024: 03 18 a7  brclr 1, $18, $3FCE
+4027: 00 4f 1a  brset 0, $4F, $4044
+402a: ee 05     ldx   $05,x
+402c: 18 a7     bset  4, $A7
+
+=== m68hc05 ===
+4000: 3c 3a     inc   $3A
+4002: ef 0d     stx   $0D,x
+4004: 1a ee     bset  5, $EE
+4006: 0b 18 ee  brclr 5, $18, $3FF7
+4009: 0b 18 ee  brclr 5, $18, $3FFA
+400c: 08 18 a6  brset 4, $18, $3FB5
+400f: 1a 26     bset  5, $26
+4011: 07 a6 00  brclr 3, $A6, $4014
+4014: 26 03     bne   $4019
+4016: 5f        clrx
+4017: 20 02     bra   $401B
+4019: c6 01 e7  lda   $01E7
+401c: 0f a6 01  brclr 7, $A6, $4020
+401f: 26 11     bne   $4032
+4021: 4f        clra
+4022: 1a ee     bset  5, $EE
+4024: 03 18 a7  brclr 1, $18, $3FCE
+4027: 00 4f 1a  brset 0, $4F, $4044
+402a: ee 05     ldx   $05,x
+402c: 18 a7     bset  4, $A7
+
+=== m6809 ===
+4000: 3c 3a     CWAI   #$3A
+4002: ef 0d     STU    $D,X
+4004: 1a ee     ORCC   #$EE
+4006: 0b 18     XDEC   <$18
+4008: ee 0b     LDU    $B,X
+400a: 18        X18
+400b: ee 08     LDU    $8,X
+400d: 18        X18
+400e: a6 1a     LDA    -$6,X
+4010: 26 07     BNE    $4019
+4012: a6 00     LDA    $0,X
+4014: 26 03     BNE    $4019
+4016: 5f        CLRB
+4017: 20 02     BRA    $401B
+4019: c6 01     LDB    #$01
+401b: e7 0f     STB    $F,X
+401d: a6 01     LDA    $1,X
+401f: 26 11     BNE    $4032
+4021: 4f        CLRA
+4022: 1a ee     ORCC   #$EE
+4024: 03 18     COM    <$18
+4026: a7 00     STA    $0,X
+4028: 4f        CLRA
+4029: 1a ee     ORCC   #$EE
+402b: 05 18     LSR    <$18
+402d: a7 00     STA    $0,X
+
+=== hd6309 ===
+4000: 3c 3a     CWAI   #$3A
+4002: ef 0d     STU    $D,X
+4004: 1a ee     ORCC   #$EE
+4006: 0b 18 ee  TIM    #$18;<$EE
+4009: 0b 18 ee  TIM    #$18;<$EE
+400c: 08 18     ASL    <$18
+400e: a6 1a     LDA    -$6,X
+4010: 26 07     BNE    $4019
+4012: a6 00     LDA    $0,X
+4014: 26 03     BNE    $4019
+4016: 5f        CLRB
+4017: 20 02     BRA    $401B
+4019: c6 01     LDB    #$01
+401b: e7 0f     STB    $F,X
+401d: a6 01     LDA    $1,X
+401f: 26 11     BNE    $4032
+4021: 4f        CLRA
+4022: 1a ee     ORCC   #$EE
+4024: 03 18     COM    <$18
+4026: a7 00     STA    $0,X
+4028: 4f        CLRA
+4029: 1a ee     ORCC   #$EE
+402b: 05 18 a7  EIM    #$18;<$A7
+402e: 00 7e     NEG    <$7E
+
+=== i8051 ===
+4000: 3c        addc  a,r4
+4001: 3a        addc  a,r2
+4002: ef        mov   a,r7
+4003: 0d        inc   r5
+4004: 1a        dec   r2
+4005: ee        mov   a,r6
+4006: 0b        inc   r3
+4007: 18        dec   r0
+4008: ee        mov   a,r6
+4009: 0b        inc   r3
+400a: 18        dec   r0
+400b: ee        mov   a,r6
+400c: 08        inc   r0
+400d: 18        dec   r0
+400e: a6 1a     mov   @r0,rb3r2
+4010: 26        add   a,@r0
+4011: 07        inc   @r1
+4012: a6 00     mov   @r0,rb0r0
+4014: 26        add   a,@r0
+4015: 03        rr    a
+4016: 5f        anl   a,r7
+4017: 20 02 c6  jb    $20.2,$3FE0
+401a: 01 e7     ajmp  $40E7
+401c: 0f        inc   r7
+401d: a6 01     mov   @r0,rb0r1
+401f: 26        add   a,@r0
+4020: 11 4f     acall $404F
+4022: 1a        dec   r2
+4023: ee        mov   a,r6
+4024: 03        rr    a
+4025: 18        dec   r0
+4026: a7 00     mov   @r1,rb0r0
+4028: 4f        orl   a,r7
+4029: 1a        dec   r2
+402a: ee        mov   a,r6
+402b: 05 18     inc   rb3r0
+402d: a7 00     mov   @r1,rb0r0
+
+=== sab80515 ===
+4000: 3c        addc  a,r4
+4001: 3a        addc  a,r2
+4002: ef        mov   a,r7
+4003: 0d        inc   r5
+4004: 1a        dec   r2
+4005: ee        mov   a,r6
+4006: 0b        inc   r3
+4007: 18        dec   r0
+4008: ee        mov   a,r6
+4009: 0b        inc   r3
+400a: 18        dec   r0
+400b: ee        mov   a,r6
+400c: 08        inc   r0
+400d: 18        dec   r0
+400e: a6 1a     mov   @r0,rb3r2
+4010: 26        add   a,@r0
+4011: 07        inc   @r1
+4012: a6 00     mov   @r0,rb0r0
+4014: 26        add   a,@r0
+4015: 03        rr    a
+4016: 5f        anl   a,r7
+4017: 20 02 c6  jb    $20.2,$3FE0
+401a: 01 e7     ajmp  $40E7
+401c: 0f        inc   r7
+401d: a6 01     mov   @r0,rb0r1
+401f: 26        add   a,@r0
+4020: 11 4f     acall $404F
+4022: 1a        dec   r2
+4023: ee        mov   a,r6
+4024: 03        rr    a
+4025: 18        dec   r0
+4026: a7 00     mov   @r1,rb0r0
+4028: 4f        orl   a,r7
+4029: 1a        dec   r2
+402a: ee        mov   a,r6
+402b: 05 18     inc   rb3r0
+402d: a7 00     mov   @r1,rb0r0
+
+=== mcs48 ===
+8:000: 3c     movd p4,a
+8:001: 3a     outl p2,a
+8:002: ef 0d  djnz r7,$00D
+8:004: 1a     inc  r2
+8:005: ee 0b  djnz r6,$00B
+8:007: 18     inc  r0
+8:008: ee 0b  djnz r6,$00B
+8:00a: 18     inc  r0
+8:00b: ee 08  djnz r6,$008
+8:00d: 18     inc  r0
+8:00e: a6     illegal
+8:00f: 1a     inc  r2
+8:010: 26 07  jnt0 $007
+8:012: a6     illegal
+8:013: 00     nop
+8:014: 26 03  jnt0 $003
+8:016: 5f     anl  a,r7
+8:017: 20     xch  a,@r0
+8:018: 02     outl bus,a
+8:019: c6 01  jz   $001
+8:01b: e7     rl   a
+8:01c: 0f     movd a,p7
+8:01d: a6     illegal
+8:01e: 01     idl
+8:01f: 26 11  jnt0 $011
+8:021: 4f     orl  a,r7
+8:022: 1a     inc  r2
+8:023: ee 03  djnz r6,$003
+8:025: 18     inc  r0
+8:026: a7     cpl  c
+8:027: 00     nop
+8:028: 4f     orl  a,r7
+8:029: 1a     inc  r2
+8:02a: ee 05  djnz r6,$005
+8:02c: 18     inc  r0
+8:02d: a7     cpl  c
+8:02e: 00     nop
+8:02f: 7e     addc a,r6
+
+=== i8085 ===
+4000: 3c        inr  a
+4001: 3a ef 0d  lda  $0def
+4004: 1a        ldax d
+4005: ee 0b     xri  $0b
+4007: 18        rdel (*)
+4008: ee 0b     xri  $0b
+400a: 18        rdel (*)
+400b: ee 08     xri  $08
+400d: 18        rdel (*)
+400e: a6        ana  m
+400f: 1a        ldax d
+4010: 26 07     mvi  h,$07
+4012: a6        ana  m
+4013: 00        nop
+4014: 26 03     mvi  h,$03
+4016: 5f        mov  e,a
+4017: 20        rim
+4018: 02        stax b
+4019: c6 01     adi  $01
+401b: e7        rst  4
+401c: 0f        rrc
+401d: a6        ana  m
+401e: 01 26 11  lxi  b,$1126
+4021: 4f        mov  c,a
+4022: 1a        ldax d
+4023: ee 03     xri  $03
+4025: 18        rdel (*)
+4026: a7        ana  a
+4027: 00        nop
+4028: 4f        mov  c,a
+4029: 1a        ldax d
+402a: ee 05     xri  $05
+402c: 18        rdel (*)
+402d: a7        ana  a
+402e: 00        nop
+402f: 7e        mov  a,m
+
+=== z80 ===
+4000: 3c        inc  a
+4001: 3a ef 0d  ld   a,($0DEF)
+4004: 1a        ld   a,(de)
+4005: ee 0b     xor  $0B
+4007: 18 ee     jr   $3FF7
+4009: 0b        dec  bc
+400a: 18 ee     jr   $3FFA
+400c: 08        ex   af,af'
+400d: 18 a6     jr   $3FB5
+400f: 1a        ld   a,(de)
+4010: 26 07     ld   h,$07
+4012: a6        and  (hl)
+4013: 00        nop
+4014: 26 03     ld   h,$03
+4016: 5f        ld   e,a
+4017: 20 02     jr   nz,$401B
+4019: c6 01     add  a,$01
+401b: e7        rst  $20
+401c: 0f        rrca
+401d: a6        and  (hl)
+401e: 01 26 11  ld   bc,$1126
+4021: 4f        ld   c,a
+4022: 1a        ld   a,(de)
+4023: ee 03     xor  $03
+4025: 18 a7     jr   $3FCE
+4027: 00        nop
+4028: 4f        ld   c,a
+4029: 1a        ld   a,(de)
+402a: ee 05     xor  $05
+402c: 18 a7     jr   $3FD5
+402e: 00        nop
+402f: 7e        ld   a,(hl)
+
+=== z180 ===
+4000: 3c        inc   a
+4001: 3a ef 0d  ld    a,($0DEF)
+4004: 1a        ld    a,(de)
+4005: ee 0b     xor   $0B
+4007: 18 ee     jr    $3FF7
+4009: 0b        dec   bc
+400a: 18 ee     jr    $3FFA
+400c: 08        ex    af,af'
+400d: 18 a6     jr    $3FB5
+400f: 1a        ld    a,(de)
+4010: 26 07     ld    h,$07
+4012: a6        and   (hl)
+4013: 00        nop
+4014: 26 03     ld    h,$03
+4016: 5f        ld    e,a
+4017: 20 02     jr    nz,$401B
+4019: c6 01     add   a,$01
+401b: e7        rst   $20
+401c: 0f        rrca
+401d: a6        and   (hl)
+401e: 01 26 11  ld    bc,$1126
+4021: 4f        ld    c,a
+4022: 1a        ld    a,(de)
+4023: ee 03     xor   $03
+4025: 18 a7     jr    $3FCE
+4027: 00        nop
+4028: 4f        ld    c,a
+4029: 1a        ld    a,(de)
+402a: ee 05     xor   $05
+402c: 18 a7     jr    $3FD5
+402e: 00        nop
+402f: 7e        ld    a,(hl)
+
+=== z8 ===
+4000: 3c 3a     LD   R3, #3Ah
+4002: ef        CCF
+4003: 0d 1a ee  JP   F, 1AEEh
+4006: 0b 18     JR   F, 4020h
+4008: ee        INC  R14
+4009: 0b 18     JR   F, 4023h
+400b: ee        INC  R14
+400c: 08 18     LD   R0, 18h
+400e: a6 1a 26  CP   1Ah, #26h
+4011: 07 a6 00  ADD  @A6h, #00h
+4014: 26 03 5f  SUB  P3, #5Fh
+4017: 20 02     INC  P2
+4019: c6        Illegal
+401a: 01 e7     DEC  @R7
+401c: 0f        Illegal
+401d: a6 01 26  CP   P1, #26h
+4020: 11 4f     RLC  @4Fh
+4022: 1a ee     DJNZ R1, 4012h
+4024: 03 18     ADD  R1, @R8
+4026: a7 00 4f  CP   @00h, #4Fh
+4029: 1a ee     DJNZ R1, 4019h
+402b: 05 18 a7  ADD  A7h, @18h
+402e: 00 7e     DEC  7Eh
+
+=== m6502 ===
+4000: 3c 3a ef  nop $ef3a, x
+4003: 0d 1a ee  ora $ee1a
+4006: 0b 18     anc #$18
+4008: ee 0b 18  inc $180b
+400b: ee 08 18  inc $1808
+400e: a6 1a     ldx $1a
+4010: 26 07     rol $07
+4012: a6 00     ldx $00
+4014: 26 03     rol $03
+4016: 5f 20 02  sre $0220, x
+4019: c6 01     dec $01
+401b: e7 0f     isb $0f
+401d: a6 01     ldx $01
+401f: 26 11     rol $11
+4021: 4f 1a ee  sre $ee1a
+4024: 03 18     slo ($18, x)
+4026: a7 00     lax $00
+4028: 4f 1a ee  sre $ee1a
+402b: 05 18     ora $18
+402d: a7 00     lax $00
+
+=== w65c02 ===
+4000: 3c 3a ef  bit $ef3a, x
+4003: 0d 1a ee  ora $ee1a
+4006: 0b        nop
+4007: 18        clc
+4008: ee 0b 18  inc $180b
+400b: ee 08 18  inc $1808
+400e: a6 1a     ldx $1a
+4010: 26 07     rol $07
+4012: a6 00     ldx $00
+4014: 26 03     rol $03
+4016: 5f        nop
+4017: 20 02 c6  jsr $c602
+401a: 01 e7     ora ($e7, x)
+401c: 0f        nop
+401d: a6 01     ldx $01
+401f: 26 11     rol $11
+4021: 4f        nop
+4022: 1a        inc a
+4023: ee 03 18  inc $1803
+4026: a7        nop
+4027: 00        brk
+4028: 4f        nop
+4029: 1a        inc a
+402a: ee 05 18  inc $1805
+402d: a7        nop
+402e: 00        brk
+
+=== x86_16 ===
+4000: 3c 3a        cmp     al,3Ah
+4002: ef           out     dx,ax
+4003: 0d 1a ee     or      ax,0EE1Ah
+4006: 0b 18        or      bx,[bx+si]
+4008: ee           out     dx,al
+4009: 0b 18        or      bx,[bx+si]
+400b: ee           out     dx,al
+400c: 08 18        or      [bx+si],bl
+400e: a6           cmpsb
+400f: 1a 26 07 a6  sbb     ah,[0A607h]
+4013: 00 26 03 5f  add     [5F03h],ah
+4017: 20 02        and     [bp+si],al
+4019: c6 01 e7     mov     byte ptr [bx+di],0E7h
+401c: 0f a6        ???
+401e: 01 26 11 4f  add     [4F11h],sp
+4022: 1a ee        sbb     ch,dh
+4024: 03 18        add     bx,[bx+si]
+4026: a7           cmpsw
+4027: 00 4f 1a     add     [bx+1Ah],cl
+402a: ee           out     dx,al
+402b: 05 18 a7     add     ax,0A718h
+
+=== i8x9x ===
+4000: 3c 3a ef        jbs 3a, 4, 3ff2
+4003: 0d 1a ee        shll ee, 1a
+4006: 0b              ???
+4007: 18 ee 0b        shrb 0b, ee
+400a: 18 ee 08        shrb int_mask, ee
+400d: 18 a6 1a        shrb 1a, a6
+4010: 26 07           sjmp 3e19
+4012: a6 00 26        addc 26, [0]
+4015: 03 5f           neg 5f
+4017: 20 02           sjmp 401b
+4019: c6 01 e7        stb e7, [0]+
+401c: 0f a6 01        norml 01, a6
+401f: 26 11           sjmp 3e32
+4021: 4f 1a ee 03 18  mulu sp, 03, -12[1a]
+4026: a7 00 4f 1a     addc 1a, 4f
+402a: ee              ???
+402b: 05 18           dec sp
+
+=== i8xc196 ===
+4000: 3c 3a ef        jbs 3a, 4, 3ff2
+4003: 0d 1a ee        shll ee, 1a
+4006: 0b              ???
+4007: 18 ee 0b        shrb 0b, ee
+400a: 18 ee 08        shrb int_mask, ee
+400d: 18 a6 1a        shrb 1a, a6
+4010: 26 07           sjmp 3e19
+4012: a6 00 26        addc 26, [0]
+4015: 03 5f           neg 5f
+4017: 20 02           sjmp 401b
+4019: c6 01 e7        stb e7, [0]+
+401c: 0f a6 01        norml 01, a6
+401f: 26 11           sjmp 3e32
+4021: 4f 1a ee 03 18  mulu sp, 03, -12[1a]
+4026: a7 00 4f 1a     addc 1a, 4f
+402a: ee              ???
+402b: 05 18           dec sp
+
+=== h8 ===
+4000: 3c3a  mov.b   r4l, @h'ff3a
+4002: ef0d  and.b   #h'0d, r7l
+4004: 1aee  illegal
+4006: 0b18  illegal
+4008: ee0b  and.b   #h'0b, r6l
+400a: 18ee  sub.b   r6l, r6l
+400c: 0818  add.b   r1h, r0l
+400e: a61a  cmp.b   #h'1a, r6h
+4010: 2607  mov.b   @h'ff07, r6h
+4012: a600  cmp.b   #h'00, r6h
+4014: 2603  mov.b   @h'ff03, r6h
+4016: 5f20  jsr     @h'20
+4018: 02c6  illegal
+401a: 01e7  illegal
+401c: 0fa6  illegal
+401e: 0126  illegal
+4020: 114f  illegal
+4022: 1aee  illegal
+4024: 0318  illegal
+4026: a700  cmp.b   #h'00, r7h
+4028: 4f1a  ble     h'4044
+402a: ee05  and.b   #h'05, r6l
+402c: 18a7  sub.b   r2l, r7h
+402e: 007e  illegal
+
+=== h8h ===
+4000: 3c3a  mov.b   r4l, @h'ffff3a
+4002: ef0d  and.b   #h'0d, r7l
+4004: 1aee  illegal
+4006: 0b18  illegal
+4008: ee0b  and.b   #h'0b, r6l
+400a: 18ee  sub.b   r6l, r6l
+400c: 0818  add.b   r1h, r0l
+400e: a61a  cmp.b   #h'1a, r6h
+4010: 2607  mov.b   @h'ffff07, r6h
+4012: a600  cmp.b   #h'00, r6h
+4014: 2603  mov.b   @h'ffff03, r6h
+4016: 5f20  jsr     @h'20
+4018: 02c6  illegal
+401a: 01e7  illegal
+401c: 0fa6  mov.l   er2, er6
+401e: 0126  illegal
+4020: 114f  illegal
+4022: 1aee  illegal
+4024: 0318  illegal
+4026: a700  cmp.b   #h'00, r7h
+4028: 4f1a  ble     h'004044
+402a: ee05  and.b   #h'05, r6l
+402c: 18a7  sub.b   r2l, r7h
+402e: 007e  illegal
+
+=== tlcs870 ===
+4000: 3c        ??
+4001: 3a        ??
+4002: ef 0d     ??
+4004: 1a        dec   DE
+4005: ee 0b     das   L
+4007: 18        dec   WA
+4008: ee 0b     das   L
+400a: 18        dec   WA
+400b: ee 08     ??
+400d: 18        dec   WA
+400e: a6        jrs   F,$4016
+400f: 1a        dec   DE
+4010: 26 07 a6  ld    ($a6), ($07)
+4013: 00        nop
+4014: 26 03 5f  ld    ($5f), ($03)
+4017: 20 02     inc   ($02)
+4019: c6        callv ($ffcc)
+401a: 01        swap  A
+401b: e7 0f     ??
+401d: a6        jrs   F,$4025
+401e: 01        swap  A
+401f: 26 11 4f  ld    ($4f), ($11)
+4022: 1a        dec   DE
+4023: ee 03     div   DE, C
+4025: 18        dec   WA
+4026: a7        jrs   F,$402f
+4027: 00        nop
+4028: 4f 1a     clr   ($1a).BIT_7
+402a: ee 05     ??
+402c: 18        dec   WA
+402d: a7        jrs   F,$4036
+402e: 00        nop
+
+=== tmp90c051 ===
+4000: 3c 3a ef  ld    ix,$EF3A
+4003: 0d        scf
+4004: 1a ee 0b  jp    ,$0BEE
+4007: 18 ee     djnz  $3FF7
+4009: 0b        daa   a
+400a: 18 ee     djnz  $3FFA
+400c: 08        ex    de,hl
+400d: 18 a6     djnz  $3FB5
+400f: 1a 26 07  jp    ,$0726
+4012: a6        sll   a
+4013: 00        nop
+4014: 26        ld    a,a
+4015: 03        ei
+4016: 5f        ??
+4017: 20        ld    a,b
+4018: 02        di
+4019: c6 01     jr    z,$401C
+401b: e7 0f a6  sll   ($FF0F)
+401e: 01        halt
+401f: 26        ld    a,a
+4020: 11        neg   a
+4021: 4f 1a     ld    ($FF1A),hl
+4023: ee 03     ??
+4025: 18 a7     djnz  $3FCE
+4027: 00        nop
+4028: 4f 1a     ld    ($FF1A),hl
+402a: ee 05     ??
+402c: 18 a7     djnz  $3FD5
+402e: 00        nop
+
+=== tlcs900 ===
+4000: 3c        push XIX
+4001: 3a        push XDE
+4002: ef 0d     unlk XSP
+4004: 1a ee 0b  jp 0x0bee
+4007: 18        push F
+4008: ee 0b     db
+400a: 18        push F
+400b: ee 08     db
+400d: 18        push F
+400e: a6 1a     db
+4010: 26 07     ld H,0x07
+4012: a6 00     db
+4014: 26 03     ld H,0x03
+4016: 5f        pop XSP
+4017: 20 02     ld W,0x02
+4019: c6        db
+401a: 01        normal
+401b: e7 0f a6  sub XIZ,r0FL
+401e: 01        normal
+401f: 26 11     ld H,0x11
+4021: 4f        pop SP
+4022: 1a ee 03  jp 0x03ee
+4025: 18        push F
+4026: a7 00     db
+4028: 4f        pop SP
+4029: 1a ee 05  jp 0x05ee
+402c: 18        push F
+402d: a7 00     db
+
+=== upd7810 ===
+4000: 3c        STAX    (DE+)
+4001: 3a        STAX    (DE)
+4002: ef        JR      $3FF2
+4003: 0d        MOV     A,E
+4004: 1a        MOV     B,A
+4005: ee        JR      $3FF4
+4006: 0b        MOV     A,C
+4007: 18        MOV     EAH,A
+4008: ee        JR      $3FF7
+4009: 0b        MOV     A,C
+400a: 18        MOV     EAH,A
+400b: ee        JR      $3FFA
+400c: 08        MOV     A,EAH
+400d: 18        MOV     EAH,A
+400e: a6        DMOV    EA,DE
+400f: 1a        MOV     B,A
+4010: 26 07     ADINC   A,$07
+4012: a6        DMOV    EA,DE
+4013: 00        NOP
+4014: 26 03     ADINC   A,$03
+4016: 5f 20     BIT     7,VV:20
+4018: 02        INX     SP
+4019: c6        JR      $4020
+401a: 01 e7     LDAW    VV:E7
+401c: 0f        MOV     A,L
+401d: a6        DMOV    EA,DE
+401e: 01 26     LDAW    VV:26
+4020: 11        EXX
+4021: 4f 1a     JRE     $3F3D
+4023: ee        JR      $4012
+4024: 03        DCX     SP
+4025: 18        MOV     EAH,A
+4026: a7        DMOV    EA,HL
+4027: 00        NOP
+4028: 4f 1a     JRE     $3F44
+402a: ee        JR      $4019
+402b: 05 18 a7  ANIW    VV:18,$A7
+402e: 00        NOP
+
+=== upd78k0kx1 ===
+4000: 3c 3a        CALLF   !0B3AH
+4002: ef           CALLT   [006EH]
+4003: 0d 1a        ADD     A,#1AH
+4005: ee 0b 18 ee  MOVW    0FF0BH,#0EE18H
+4009: 0b 18        CLR1    CMP00.0
+400b: ee 08 18 a6  MOVW    ADCR,#0A618H
+400f: 1a 26        SET1    0FE26H.1
+4011: 07           XCH     A,[HL]
+4012: a6 00        MOV     L,#00H
+4014: 26           ROL     A,1
+4015: 03 5f 20     MOVW    !205FH,AX
+4018: 02 c6 01     MOVW    AX,!01C6H
+401b: e7           CALLT   [0066H]
+401c: 0f           ADD     A,[HL]
+401d: a6 01        MOV     L,#01H
+401f: 26           ROL     A,1
+4020: 11 4f 1a     MOV     0FE4FH,#1AH
+4023: ee 03 18 a7  MOVW    0FF03H,#0A718H
+4027: 00           NOP
+4028: 4f           CMP     A,[HL]
+4029: 1a ee        SET1    0FEEEH.1
+402b: 05           XCH     A,[DE]
+402c: 18 a7 00     SUB     A,!00A7H
+
+=== tms7000 ===
+4000: 3c 3a        MPY R58,B
+4002: ef           TRAP 16
+4003: 0d           LDSP
+4004: 1a ee        SUB R238,A
+4006: 0b           RETI
+4007: 18 ee        ADD R238,A
+4009: 0b           RETI
+400a: 18 ee        ADD R238,A
+400c: 08           POP ST
+400d: 18 a6        ADD R166,A
+400f: 1a 26        SUB R38,A
+4011: 07           SETC
+4012: a6 00 26 03  BTJOP %>00,P38,>4019
+4016: 5f 20        DSB %>20,B
+4018: 02           Illegal Opcode
+4019: c6           XCHB B
+401a: 01           IDLE
+401b: e7 0f        JL >402C
+401d: a6 01 26 11  BTJOP %>01,P38,>4032
+4021: 4f 1a ee     DSB R26,R238
+4024: 03           Illegal Opcode
+4025: 18 a7        ADD R167,A
+4027: 00           NOP
+4028: 4f 1a ee     DSB R26,R238
+402b: 05           EINT
+402c: 18 a7        ADD R167,A
+402e: 00           NOP
+
+=== m37710 ===
+4000: 3c 3a ef 0d 1a ee  BBC #$1a0d, $ef3a, 003ff4 (-$12)
+4006: 0b                 PHD
+4007: 18                 CLC
+4008: ee 0b 18           INC $180b
+400b: ee 08 18           INC $1808
+400e: a6 1a              LDX $1a
+4010: 26 07              ROL $07
+4012: a6 00              LDX $00
+4014: 26 03              ROL $03
+4016: 5f 20 02 c6        EOR $c60220,X
+401a: 01 e7              ORA ($e7,X)
+401c: 0f a6 01 26        ORA $2601a6
+4020: 11 4f              ORA ($4f),Y
+4022: 1a                 DEA
+4023: ee 03 18           INC $1803
+4026: a7 00              LDA [$00]
+4028: 4f 1a ee 05        EOR $05ee1a
+402c: 18                 CLC
+402d: a7 00              LDA [$00]
+
+=== m68000 ===
+4000: 3c3a ef0d  move.w  ($2f0f,PC), D6
+4004: 1aee 0b18  move.b  ($b18,A6), (A5)+
+4008: ee0b       lsr.b   #7, D3
+400a: 18ee 0818  move.b  ($818,A6), (A4)+
+400e: a61a       dc.w    $a61a; opcode 1010
+4010: 2607       move.l  D7, D3
+4012: a600       dc.w    $a600; opcode 1010
+4014: 2603       move.l  D3, D3
+4016: 5f20       subq.b  #7, -(A0)
+4018: 02c6       dc.w    $02c6; ILLEGAL
+401a: 01e7       bset    D0, -(A7)
+401c: 0fa6       bclr    D7, -(A6)
+401e: 0126       btst    D0, -(A6)
+4020: 114f       dc.w    $114f; ILLEGAL
+4022: 1aee 0318  move.b  ($318,A6), (A5)+
+4026: a700       dc.w    $a700; opcode 1010
+4028: 4f1a       dc.w    $4f1a; ILLEGAL
+402a: ee05       asr.b   #7, D5
+402c: 18a7       move.b  -(A7), (A4)
+402e: 007e       dc.w    $007e; ILLEGAL
+
+=== cpu16 ===
+4000: 3c3a            aix   #$3A
+4002: ef0d            lds   $D, z
+4004: 1aee 0b18 ee0b  brclr $B18, y, #$EE, $02E15
+400a: 18ee 0818       bclr  $818, y, #$EE
+400e: a61a            andd  $1A, z
+4010: 2607            tst   7, z
+4012: a600            andd  0, z
+4014: 2603            tst   3, z
+4016: 5f20            cps   $20, y
+4018: 02c6            neg   $C6, x
+401a: 01e7            dec   $E7, x
+401c: 0fa6            lsr   $A6, x
+401e: 0126            dec   $26, x
+4020: 114f            dec   $4F, y
+4022: 1aee 0318 a700  brclr $318, y, #$EE, $FE728
+4028: 4f1a            cps   $1A, x
+402a: ee05            ldz   5, z
+402c: 18a7 007e       bclr  $7E, y, #$A7
+
+=== t11 ===
+4000: 3a3c 0def  BIT   @-(R0),@6757(R4)
+4004: ee1a 180b  SUB   @14013(R0),@(R2)+
+4008: 0bee       TST   @-(SP)
+400a: ee18 1808  SUB   @14010(R0),@(R0)+
+400e: 1aa6       MOV   @-(R2),-(SP)
+4010: 0726       BLE   040136
+4012: 00a6       Ccc   #06
+4014: 0326       BEQ   040142
+4016: 205f c602  CMP   R1,@#143002
+401a: e701       SUB   @(R4)+,R1
+401c: a60f       CMPB  @(R0)+,(PC)
+401e: 2601       CMP   @(R0)+,R1
+4020: 4f11 ee1a  BIC   @-10746(R4),(R1)+
+4024: 1803       MOV   -(R0),R3
+4026: 00a7       Ccc   #07
+4028: 1a4f       MOV   @-(R1),(PC)
+402a: 05ee       BLT   040010
+402c: a718       CMPB  @(R4)+,@(R0)+
+402e: 7e00       SOB   R0,040060

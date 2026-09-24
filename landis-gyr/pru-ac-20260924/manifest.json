@@ -1,0 +1,346 @@
+{
+  "acquired_date": "2026-09-24",
+  "attribution": "Landis & Gyr UNIGYR PRU_AC; Motorola 68HC11 firmware, likely PAA1-family program card for PRU1; exact card and MCU variant unconfirmed",
+  "owner_provenance": "Six chips in a row on one PCB, marked 1\u20136 by owner; 1\u20134 are 28C64, 5\u20136 M27C1001. All six captured. Chip2 address validity unresolved.",
+  "setup": {
+    "programmer": "2015 Willem PCB5.0E",
+    "host": "Pocket8086",
+    "lpt": "378h",
+    "j1_j2": "Normal",
+    "j9_j10": "toward DB25 (tested PCB3B mode on this clone)",
+    "vcc_volts": 5,
+    "programming_vpp": "off"
+  },
+  "known_rom_status": "No matching public dump located by recorded searches; not a proof of uniqueness.",
+  "chips": [
+    {
+      "chip_number": 1,
+      "reported_marking": "28C64",
+      "sticker_text": null,
+      "image": "chip01-28c64.bin",
+      "size": 8192,
+      "sha256": "b60273ce5c952e11f6fcc5080c1539999e8f70c5ba6887e24c669802a72445ad",
+      "sha1": "c7a4d6d73cde9d292c2e9c1400bf1177e0cdd658",
+      "crc32": "8ab497de",
+      "crc16_ccitt": "4198",
+      "all_ff": false,
+      "unique_bytes": 162,
+      "reader_crc16_matches": true,
+      "read_ms": 112310,
+      "read_count": 1,
+      "routing": {
+        "dip_on": [
+          1,
+          2,
+          4,
+          6,
+          9
+        ],
+        "dip_off": [
+          3,
+          5,
+          7,
+          8,
+          10,
+          11,
+          12
+        ],
+        "socket": "far end from lever, two empty rows at lever end, notch toward lever"
+      },
+      "verification": "Single physical read; host CRC16 matches reader and downloaded CRC32 verified against DOSRAVI. Not repeat-read verified.",
+      "reads": [
+        {
+          "session": "/home/ddanila/fun/dosravi/sessions/pcb-six-20260924-chip01-28c64-read1",
+          "command": "RD010V2.COM R28C64 C1EEP1.BIN 378 /PROFILE:conservative",
+          "execution_id": 921028312,
+          "read_ms": 112310
+        }
+      ]
+    },
+    {
+      "chip_number": 2,
+      "reported_marking": "28C64",
+      "sticker_text": null,
+      "image": "chip02-28c64.bin",
+      "size": 8192,
+      "sha256": "3474e719859a4509cd201c3397ef4295791459fcd4c837efd93df02b6fe29054",
+      "sha1": "f195acec1a0bf4f0de10691216956fd62c2365b1",
+      "crc32": "3ee0f6fd",
+      "crc16_ccitt": "e332",
+      "all_ff": false,
+      "unique_bytes": 37,
+      "read_ms": 112255,
+      "reader_crc16_matches": true,
+      "identical_to_chip1": false,
+      "bytes_differing_from_chip1": 6499,
+      "read_count": 1,
+      "smallest_repetition_period_bytes": 128,
+      "distinct_128_byte_pages": 1,
+      "validity": "Unresolved: repeated stored data or address aliasing; single read cannot distinguish.",
+      "routing": {
+        "dip_on": [
+          1,
+          2,
+          4,
+          6,
+          9
+        ],
+        "dip_off": [
+          3,
+          5,
+          7,
+          8,
+          10,
+          11,
+          12
+        ],
+        "socket": "far end from lever, two empty rows at lever end, notch toward lever"
+      },
+      "verification": "Single physical read; host CRC16 matches reader and downloaded CRC32 verified against DOSRAVI. Not repeat-read verified. Identical 128-byte pages throughout: full-address validity unresolved.",
+      "reads": [
+        {
+          "session": "/home/ddanila/fun/dosravi/sessions/pcb-six-20260924-chip02-28c64-read1",
+          "command": "RD010V2.COM R28C64 C2EEP1.BIN 378 /PROFILE:conservative",
+          "execution_id": 3225631687,
+          "read_ms": 112255
+        }
+      ]
+    },
+    {
+      "chip_number": 3,
+      "reported_marking": "28C64",
+      "sticker_text": null,
+      "image": "chip03-28c64.bin",
+      "size": 8192,
+      "sha256": "78f4dddd7deeb1fe4ae552d9deeaac8fed70661e3bdce46be8650624d1775854",
+      "sha1": "8d61c6561a7a7d86122e2210d390e782747eb38b",
+      "crc32": "c18f8919",
+      "crc16_ccitt": "54d2",
+      "all_ff": false,
+      "unique_bytes": 150,
+      "read_ms": 112310,
+      "reader_crc16_matches": true,
+      "smallest_repetition_period_bytes": null,
+      "distinct_128_byte_pages": 64,
+      "read_count": 1,
+      "identical_to_chip1": false,
+      "bytes_differing_from_chip1": 7465,
+      "identical_to_chip2": false,
+      "bytes_differing_from_chip2": 7138,
+      "routing": {
+        "dip_on": [
+          1,
+          2,
+          4,
+          6,
+          9
+        ],
+        "dip_off": [
+          3,
+          5,
+          7,
+          8,
+          10,
+          11,
+          12
+        ],
+        "socket": "far end from lever, two empty rows at lever end, notch toward lever"
+      },
+      "content_observations": "Readable Estonian and Finnish control labels, including lighting, alarms and pulse counters; suggests application/configuration text. Exact installation unconfirmed.",
+      "verification": "Single physical read; host CRC16 matches reader and downloaded CRC32 verified against DOSRAVI. Not repeat-read verified. All 64 128-byte pages differ.",
+      "reads": [
+        {
+          "session": "/home/ddanila/fun/dosravi/sessions/pcb-six-20260924-chip03-28c64-read1",
+          "command": "RD010V2.COM R28C64 C3EEP1.BIN 378 /PROFILE:conservative",
+          "execution_id": 1212862826,
+          "read_ms": 112310
+        }
+      ]
+    },
+    {
+      "chip_number": 4,
+      "reported_marking": "28C64",
+      "sticker_text": null,
+      "image": "chip04-28c64.bin",
+      "size": 8192,
+      "sha256": "43d4d3f61605718d4945fbefe630c49e337db96fa7e0274f4d61a1d605fa92b5",
+      "sha1": "9c34eda70f1a8a97ee52dfd60d28b6065183f923",
+      "crc32": "d0fe2145",
+      "crc16_ccitt": "a24f",
+      "all_ff": false,
+      "unique_bytes": 80,
+      "read_ms": 112310,
+      "reader_crc16_matches": true,
+      "smallest_repetition_period_bytes": null,
+      "distinct_128_byte_pages": 41,
+      "read_count": 1,
+      "identical_to_chip1": false,
+      "bytes_differing_from_chip1": 8052,
+      "identical_to_chip2": false,
+      "bytes_differing_from_chip2": 7918,
+      "identical_to_chip3": false,
+      "bytes_differing_from_chip3": 7957,
+      "acquired_date": "2026-09-25",
+      "date_timezone": "Europe/Tallinn",
+      "routing": {
+        "dip_on": [
+          1,
+          2,
+          4,
+          6,
+          9
+        ],
+        "dip_off": [
+          3,
+          5,
+          7,
+          8,
+          10,
+          11,
+          12
+        ],
+        "socket": "far end from lever, two empty rows at lever end, notch toward lever"
+      },
+      "content_observations": "Readable Estonian and Finnish control labels, including lighting sensors, alarms and pulse counters; suggests application/configuration text. Exact installation unconfirmed.",
+      "verification": "Single physical read; host CRC16 matches reader and downloaded CRC32 verified against DOSRAVI. Not repeat-read verified. 41 distinct 128-byte pages; no whole-image power-of-two repetition.",
+      "reads": [
+        {
+          "session": "/home/ddanila/fun/dosravi/sessions/pcb-six-20260924-chip04-28c64-read1",
+          "command": "RD010V2.COM R28C64 C4EEP1.BIN 378 /PROFILE:conservative",
+          "execution_id": 3175519607,
+          "read_ms": 112310,
+          "started_utc": "2026-09-24T21:00:04.860651+00:00",
+          "completed_utc": "2026-09-24T21:02:37.894299+00:00"
+        }
+      ]
+    },
+    {
+      "chip_number": 5,
+      "reported_marking": "M27C1001",
+      "sticker_text": null,
+      "image": "chip05-m27c1001.bin",
+      "size": 131072,
+      "sha256": "9789107c12b6630e8d48b6a65411e80f2ededcee6ab05c23093bbb864fc01e7b",
+      "sha1": "0bcfaf89ae59f5857e9334f27fc3bd8379603835",
+      "crc32": "b134c0a6",
+      "crc16_ccitt": "401c",
+      "verification": {
+        "identical": true,
+        "size": 131072,
+        "sha256": "9789107c12b6630e8d48b6a65411e80f2ededcee6ab05c23093bbb864fc01e7b",
+        "crc32": "b134c0a6",
+        "crc16_ccitt": "401c",
+        "portable_fast_read_ms": 1803065,
+        "assembly_conservative_read_ms": 715935,
+        "speedup": 2.518475839287086,
+        "both_safe_shutdown": true,
+        "difference_count": 0
+      },
+      "reads": [
+        {
+          "session": "/home/ddanila/fun/dosravi/sessions/pcb-six-20260924-chip05-fast-read1",
+          "command": "RD010V1.COM R27C010 C5FAST1.BIN 378 /PROFILE:fast",
+          "execution_id": 1384659688,
+          "read_ms": 1803065
+        },
+        {
+          "session": "/home/ddanila/fun/dosravi/sessions/pcb-six-20260924-chip05-fastaddr-read2",
+          "command": "RD010V2.COM R27C010 C5ASM2.BIN 378 /PROFILE:conservative /FASTADDR",
+          "execution_id": 1604334898,
+          "read_ms": 715935
+        }
+      ],
+      "routing": {
+        "dip_on": [
+          3,
+          5,
+          6,
+          10,
+          11
+        ],
+        "dip_off": [
+          1,
+          2,
+          4,
+          7,
+          8,
+          9,
+          12
+        ],
+        "socket": "all 32 contacts, notch toward lever"
+      }
+    },
+    {
+      "chip_number": 6,
+      "reported_marking": "M27C1001",
+      "sticker_text": null,
+      "image": "chip06-m27c1001.bin",
+      "size": 131072,
+      "sha256": "38c3e5063a880da016f630b11faba7d5e9292268ab0e90f475df86641ef7c749",
+      "sha1": "036ab6f66ec37d77fb4302682952af32a10d4b3f",
+      "crc32": "a0a09b07",
+      "crc16_ccitt": "10d4",
+      "reader_crc16_matches": true,
+      "read_ms": 716320,
+      "identical_64KiB_halves": false,
+      "identical_to_chip5": false,
+      "bytes_differing_from_chip5": 113288,
+      "blank": false,
+      "verification": "One physical read; host CRC16 matches DOS reader and download verified remote CRC32. Not repeat-read verified. Reader method previously validated on chip5.",
+      "reads": [
+        {
+          "session": "/home/ddanila/fun/dosravi/sessions/pcb-six-20260924-chip06-fastaddr-read1",
+          "command": "RD010V2.COM R27C010 C6ASM1.BIN 378 /PROFILE:conservative /FASTADDR",
+          "execution_id": 1548946029,
+          "read_ms": 716320
+        }
+      ],
+      "routing": {
+        "dip_on": [
+          3,
+          5,
+          6,
+          10,
+          11
+        ],
+        "dip_off": [
+          1,
+          2,
+          4,
+          7,
+          8,
+          9,
+          12
+        ],
+        "socket": "all 32 contacts, notch toward lever"
+      }
+    }
+  ],
+  "acquired_through_date": "2026-09-25",
+  "date_timezone": "Europe/Tallinn",
+  "analysis": {
+    "date": "2026-09-25",
+    "report": "analysis/README.md",
+    "reproduce": "analysis/analyze.py",
+    "results": "analysis/results.json",
+    "cpu_isa": "Motorola 68HC11",
+    "cpu_variant": "A1/A8 or E1/E9-class external-ROM configuration plausible; not uniquely identified",
+    "likely_system": "UNIGYR PRU1 process unit with PAA1 program card",
+    "firmware_build_string": "PRU_AC  4-NOV-1993 14:47:13",
+    "firmware_checksum": {
+      "algorithm": "ones-complement 8-bit byte sum",
+      "expected_hex": "c9",
+      "calculated_hex": "c9",
+      "matches": true,
+      "covered_bytes": 229352,
+      "limitations": "Only documented regions of chips 5/6; no EEPROM coverage; additive checksum does not validate bank order"
+    },
+    "full_system_emulation_performed": false,
+    "chip02_address_validity": "unresolved",
+    "configuration_languages": [
+      "Estonian",
+      "Finnish"
+    ],
+    "text_encoding": "CP850 working interpretation for many labels; raw bytes retained"
+  }
+}
