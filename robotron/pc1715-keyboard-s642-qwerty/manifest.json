@@ -1,0 +1,63 @@
+{
+  "system": "Robotron PC1715 keyboard",
+  "firmware_marking": "S642",
+  "chip_owner_reported": "RF2 (2716 equivalent), visually same chip and label as previous S642",
+  "layout_owner_reported": "QWERTY/ЯВЕРТЫ; previous acquisition is ЙЦУКЕН/JCUKEN",
+  "acquisition_date": "2026-10-10",
+  "matching_reads": 2,
+  "execution_ids": [
+    3178798368,
+    1612434649
+  ],
+  "read_ms": [
+    28050,
+    28050
+  ],
+  "both_safe_shutdown": true,
+  "reader": {
+    "command": "RRF5",
+    "profile": "conservative",
+    "build": "dosravi-27c010-fastaddr-v2",
+    "sha256": "45dac9a7159c29afc5b0048e3aa136393071f8e9b82adf33e3e0fde56a435ae4"
+  },
+  "programmer": "2015 Willem PCB5.0E; Pocket8086 LPT 378h; DOSRAVI CP2102 57600",
+  "image": {
+    "file": "s642-qwerty.bin",
+    "size": 2048,
+    "crc32": "1cdfa673",
+    "sha1": "40bfa73bab31ac7156750e38bdba5e6f2588752f",
+    "sha256": "a5e07d8c7b5738c79af8e23847a5d0e7a5bbcde6a73e2826689e3d38c8c02748"
+  },
+  "comparison": {
+    "previous_s642_differing_bytes": 154,
+    "differing_range": "0x0460-0x065f",
+    "s600_differing_bytes": 85,
+    "s618_differing_bytes": 92
+  },
+  "tests": {
+    "status": "passed",
+    "isolated_emulator": "MAME 0.285",
+    "matrix_positions": 91,
+    "general_assertions": 205,
+    "language_position_shift_combinations": 182,
+    "continuous_language_cases": 548,
+    "alphabet_expected_code_checks": 52,
+    "end_to_end": {
+      "driver": "rt1715w",
+      "patched_version": "MAME 0.289 with ddanila/mame PR #6",
+      "os": "Original TOS/M r1715mt.cqm; original COMMON0/KOI71 font order",
+      "result": "qwerty -> ЯВЕРТЫ -> qwerty; unchanged stock/patch host traces; exact static-heading restoration",
+      "rom_and_os_binaries": "unchanged",
+      "manual_verification": "Not performed for this second QWERTY acquisition."
+    },
+    "limitations": "Physical timing and every printed key legend not independently validated; emulated 1715W host, not full original rt1715lc hardware.",
+    "bios_selection": "Passed: -bios jcuken and -bios qwerty load their intended 2048-byte ROMs; default is JCUKEN."
+  },
+  "historical_checksum": {
+    "mame_comment": "CCITT 962e (next to NO_DUMP before PR #5)",
+    "crc16_ccitt_init_ffff": "7d59",
+    "crc16_ccitt_init_0000": "b8dd",
+    "matches_historical_comment": false,
+    "convention": "Unresolved"
+  }
+}

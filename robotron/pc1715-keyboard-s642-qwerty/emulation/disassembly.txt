@@ -1,0 +1,1579 @@
+0000: AF          xor  a
+0001: 67          ld   h,a
+0002: 6F          ld   l,a
+0003: 47          ld   b,a
+0004: 4F          ld   c,a
+0005: 57          ld   d,a
+0006: 5F          ld   e,a
+0007: D9          exx
+0008: 67          ld   h,a
+0009: 6F          ld   l,a
+000A: 47          ld   b,a
+000B: 4F          ld   c,a
+000C: 57          ld   d,a
+000D: 5F          ld   e,a
+000E: ED 47       ld   i,a
+0010: 08          ex   af,af'
+0011: F3          di
+0012: 2E 70       ld   l,$70
+0014: 7D          ld   a,l
+0015: FE 68       cp   $68
+0017: CA 48 41    jp   z,$4148
+001A: FE 58       cp   $58
+001C: CA 48 41    jp   z,$4148
+001F: 60          ld   h,b
+0020: 06 80       ld   b,$80
+0022: CB 00       rlc  b
+0024: D6 10       sub  $10
+0026: 30 FA       jr   nc,$0022
+0028: 79          ld   a,c
+0029: 0E 00       ld   c,$00
+002B: CB 5D       bit  3,l
+002D: 20 03       jr   nz,$0032
+002F: 48          ld   c,b
+0030: 06 00       ld   b,$00
+0032: CB F8       set  7,b
+0034: ED 40       in   b,(c)
+0036: 4F          ld   c,a
+0037: 78          ld   a,b
+0038: 08          ex   af,af'
+0039: CB 6B       bit  5,e
+003B: 20 0C       jr   nz,$0049
+003D: CB 5F       bit  3,a
+003F: 20 08       jr   nz,$0049
+0041: CB 5B       bit  3,e
+0043: 20 10       jr   nz,$0055
+0045: 06 00       ld   b,$00
+0047: 18 0E       jr   $0057
+0049: CB 5B       bit  3,e
+004B: 20 04       jr   nz,$0051
+004D: 06 40       ld   b,$40
+004F: 18 06       jr   $0057
+0051: 06 60       ld   b,$60
+0053: 18 02       jr   $0057
+0055: 06 20       ld   b,$20
+0057: ED 40       in   b,(c)
+0059: 08          ex   af,af'
+005A: 44          ld   b,h
+005B: 67          ld   h,a
+005C: 7D          ld   a,l
+005D: FE 08       cp   $08
+005F: CA F8 42    jp   z,$42F8
+0062: ED 57       ld   a,i
+0064: 28 1C       jr   z,$0082
+0066: E6 78       and  $78
+0068: BD          cp   l
+0069: 20 17       jr   nz,$0082
+006B: 7C          ld   a,h
+006C: D9          exx
+006D: 5F          ld   e,a
+006E: ED 57       ld   a,i
+0070: E6 07       and  $07
+0072: 28 05       jr   z,$0079
+0074: CB 3B       srl  e
+0076: 3D          dec  a
+0077: 20 FB       jr   nz,$0074
+0079: CB 43       bit  0,e
+007B: 20 04       jr   nz,$0081
+007D: AF          xor  a
+007E: ED 47       ld   i,a
+0080: F3          di
+0081: D9          exx
+0082: 7D          ld   a,l
+0083: D9          exx
+0084: B8          cp   b
+0085: 20 3E       jr   nz,$00C5
+0087: D9          exx
+0088: 7C          ld   a,h
+0089: B8          cp   b
+008A: CA 47 41    jp   z,$4147
+008D: B0          or   b
+008E: 94          sub  h
+008F: 20 0A       jr   nz,$009B
+0091: 7C          ld   a,h
+0092: B0          or   b
+0093: 90          sub  b
+0094: C2 5A 42    jp   nz,$425A
+0097: 44          ld   b,h
+0098: C3 47 41    jp   $4147
+009B: D9          exx
+009C: CB 7D       bit  7,l
+009E: 28 22       jr   z,$00C2
+00A0: 5F          ld   e,a
+00A1: 7D          ld   a,l
+00A2: E6 78       and  $78
+00A4: D9          exx
+00A5: BD          cp   l
+00A6: 20 E9       jr   nz,$0091
+00A8: D9          exx
+00A9: CB FF       set  7,a
+00AB: 3D          dec  a
+00AC: 3C          inc  a
+00AD: CB 3B       srl  e
+00AF: 30 FB       jr   nc,$00AC
+00B1: BD          cp   l
+00B2: 28 06       jr   z,$00BA
+00B4: 1C          inc  e
+00B5: 1D          dec  e
+00B6: 28 0A       jr   z,$00C2
+00B8: 18 F2       jr   $00AC
+00BA: AF          xor  a
+00BB: 6F          ld   l,a
+00BC: 08          ex   af,af'
+00BD: B7          or   a
+00BE: 20 01       jr   nz,$00C1
+00C0: 67          ld   h,a
+00C1: 08          ex   af,af'
+00C2: D9          exx
+00C3: 18 CC       jr   $0091
+00C5: B9          cp   c
+00C6: 20 3C       jr   nz,$0104
+00C8: D9          exx
+00C9: 7C          ld   a,h
+00CA: B9          cp   c
+00CB: 28 7A       jr   z,$0147
+00CD: B1          or   c
+00CE: 94          sub  h
+00CF: 20 09       jr   nz,$00DA
+00D1: 7C          ld   a,h
+00D2: B1          or   c
+00D3: 91          sub  c
+00D4: C2 5A 42    jp   nz,$425A
+00D7: 4C          ld   c,h
+00D8: 18 6D       jr   $0147
+00DA: D9          exx
+00DB: CB 7D       bit  7,l
+00DD: 28 22       jr   z,$0101
+00DF: 5F          ld   e,a
+00E0: 7D          ld   a,l
+00E1: E6 78       and  $78
+00E3: D9          exx
+00E4: BD          cp   l
+00E5: 20 EA       jr   nz,$00D1
+00E7: D9          exx
+00E8: CB FF       set  7,a
+00EA: 3D          dec  a
+00EB: 3C          inc  a
+00EC: CB 3B       srl  e
+00EE: 30 FB       jr   nc,$00EB
+00F0: BD          cp   l
+00F1: 28 06       jr   z,$00F9
+00F3: 1C          inc  e
+00F4: 1D          dec  e
+00F5: 28 0A       jr   z,$0101
+00F7: 18 F2       jr   $00EB
+00F9: AF          xor  a
+00FA: 6F          ld   l,a
+00FB: 08          ex   af,af'
+00FC: B7          or   a
+00FD: 20 01       jr   nz,$0100
+00FF: 67          ld   h,a
+0100: 08          ex   af,af'
+0101: D9          exx
+0102: 18 CD       jr   $00D1
+0104: BA          cp   d
+0105: D9          exx
+0106: 7C          ld   a,h
+0107: 20 3A       jr   nz,$0143
+0109: BA          cp   d
+010A: 28 3B       jr   z,$0147
+010C: B2          or   d
+010D: 94          sub  h
+010E: 20 09       jr   nz,$0119
+0110: 7C          ld   a,h
+0111: B2          or   d
+0112: 92          sub  d
+0113: C2 5A 42    jp   nz,$425A
+0116: 54          ld   d,h
+0117: 18 2E       jr   $0147
+0119: D9          exx
+011A: CB 7D       bit  7,l
+011C: 28 22       jr   z,$0140
+011E: 5F          ld   e,a
+011F: 7D          ld   a,l
+0120: E6 78       and  $78
+0122: D9          exx
+0123: BD          cp   l
+0124: 20 EA       jr   nz,$0110
+0126: D9          exx
+0127: CB FF       set  7,a
+0129: 3D          dec  a
+012A: 3C          inc  a
+012B: CB 3B       srl  e
+012D: 30 FB       jr   nc,$012A
+012F: BD          cp   l
+0130: 28 06       jr   z,$0138
+0132: 1C          inc  e
+0133: 1D          dec  e
+0134: 28 0A       jr   z,$0140
+0136: 18 F2       jr   $012A
+0138: AF          xor  a
+0139: 6F          ld   l,a
+013A: 08          ex   af,af'
+013B: B7          or   a
+013C: 20 01       jr   nz,$013F
+013E: 67          ld   h,a
+013F: 08          ex   af,af'
+0140: D9          exx
+0141: 18 CD       jr   $0110
+0143: B7          or   a
+0144: C2 5A 42    jp   nz,$425A
+0147: 7D          ld   a,l
+0148: D6 08       sub  $08
+014A: 6F          ld   l,a
+014B: D2 15 40    jp   nc,$4015
+014E: D9          exx
+014F: 7C          ld   a,h
+0150: B7          or   a
+0151: 28 01       jr   z,$0154
+0153: 25          dec  h
+0154: 3D          dec  a
+0155: D9          exx
+0156: C2 12 40    jp   nz,$4012
+0159: 08          ex   af,af'
+015A: B7          or   a
+015B: C2 44 42    jp   nz,$4244
+015E: D9          exx
+015F: 08          ex   af,af'
+0160: ED 57       ld   a,i
+0162: BD          cp   l
+0163: 28 01       jr   z,$0166
+0165: F3          di
+0166: 3E 8A       ld   a,$8A
+0168: BD          cp   l
+0169: 28 14       jr   z,$017F
+016B: 3E C3       ld   a,$C3
+016D: BD          cp   l
+016E: 20 12       jr   nz,$0182
+0170: D9          exx
+0171: CB 5B       bit  3,e
+0173: 28 05       jr   z,$017A
+0175: CB 9B       res  3,e
+0177: D9          exx
+0178: 18 08       jr   $0182
+017A: CB DB       set  3,e
+017C: D9          exx
+017D: 18 03       jr   $0182
+017F: AF          xor  a
+0180: 18 01       jr   $0183
+0182: 7D          ld   a,l
+0183: ED 47       ld   i,a
+0185: AF          xor  a
+0186: D9          exx
+0187: 08          ex   af,af'
+0188: CB 5F       bit  3,a
+018A: 28 02       jr   z,$018E
+018C: CB EB       set  5,e
+018E: 08          ex   af,af'
+018F: CB 43       bit  0,e
+0191: 28 02       jr   z,$0195
+0193: F6 01       or   $01
+0195: CB 5B       bit  3,e
+0197: 28 02       jr   z,$019B
+0199: F6 04       or   $04
+019B: CB 6B       bit  5,e
+019D: 28 02       jr   z,$01A1
+019F: F6 08       or   $08
+01A1: CB 63       bit  4,e
+01A3: 20 08       jr   nz,$01AD
+01A5: CB 4B       bit  1,e
+01A7: 20 04       jr   nz,$01AD
+01A9: F6 E0       or   $E0
+01AB: 18 02       jr   $01AF
+01AD: F6 E2       or   $E2
+01AF: D9          exx
+01B0: 5F          ld   e,a
+01B1: 60          ld   h,b
+01B2: 06 1F       ld   b,$1F
+01B4: 3E 01       ld   a,$01
+01B6: ED 79       out  (c),a
+01B8: 00          nop
+01B9: ED 79       out  (c),a
+01BB: AF          xor  a
+01BC: ED 79       out  (c),a
+01BE: 83          add  a,e
+01BF: 1E 08       ld   e,$08
+01C1: ED 79       out  (c),a
+01C3: 0F          rrca
+01C4: 1D          dec  e
+01C5: 20 FA       jr   nz,$01C1
+01C7: 3E 01       ld   a,$01
+01C9: ED 79       out  (c),a
+01CB: 00          nop
+01CC: ED 79       out  (c),a
+01CE: 44          ld   b,h
+01CF: AF          xor  a
+01D0: 67          ld   h,a
+01D1: D9          exx
+01D2: CB 63       bit  4,e
+01D4: D9          exx
+01D5: 20 08       jr   nz,$01DF
+01D7: D9          exx
+01D8: CB 4B       bit  1,e
+01DA: D9          exx
+01DB: 20 02       jr   nz,$01DF
+01DD: CB BD       res  7,l
+01DF: D9          exx
+01E0: CB 6B       bit  5,e
+01E2: D9          exx
+01E3: 28 05       jr   z,$01EA
+01E5: 31 60 45    ld   sp,$4560
+01E8: 18 03       jr   $01ED
+01EA: 31 60 44    ld   sp,$4460
+01ED: 39          add  hl,sp
+01EE: AF          xor  a
+01EF: 5E          ld   e,(hl)
+01F0: 6F          ld   l,a
+01F1: 60          ld   h,b
+01F2: 06 1F       ld   b,$1F
+01F4: 3E 01       ld   a,$01
+01F6: ED 79       out  (c),a
+01F8: 00          nop
+01F9: ED 79       out  (c),a
+01FB: 00          nop
+01FC: AF          xor  a
+01FD: ED 79       out  (c),a
+01FF: 83          add  a,e
+0200: 1E 08       ld   e,$08
+0202: ED 79       out  (c),a
+0204: 0F          rrca
+0205: 1D          dec  e
+0206: 20 FA       jr   nz,$0202
+0208: 3E 01       ld   a,$01
+020A: ED 79       out  (c),a
+020C: 00          nop
+020D: ED 79       out  (c),a
+020F: 44          ld   b,h
+0210: ED 57       ld   a,i
+0212: D9          exx
+0213: CB AB       res  5,e
+0215: CB 63       bit  4,e
+0217: 20 06       jr   nz,$021F
+0219: CB 4B       bit  1,e
+021B: 20 02       jr   nz,$021F
+021D: CB BF       res  7,a
+021F: D9          exx
+0220: 6F          ld   l,a
+0221: AF          xor  a
+0222: 67          ld   h,a
+0223: 39          add  hl,sp
+0224: 7E          ld   a,(hl)
+0225: 00          nop
+0226: DD 21 F8 00 ld   ix,$00F8
+022A: DD 39       add  ix,sp
+022C: 1E 08       ld   e,$08
+022E: DD BE 00    cp   (ix+$00)
+0231: D9          exx
+0232: 2E 78       ld   l,$78
+0234: CA 1E 43    jp   z,$431E
+0237: D9          exx
+0238: DD 23       inc  ix
+023A: 1D          dec  e
+023B: 20 F1       jr   nz,$022E
+023D: AF          xor  a
+023E: 6F          ld   l,a
+023F: 67          ld   h,a
+0240: D9          exx
+0241: C3 12 40    jp   $4012
+0244: CB 5F       bit  3,a
+0246: 20 03       jr   nz,$024B
+0248: AF          xor  a
+0249: 18 02       jr   $024D
+024B: 3E 08       ld   a,$08
+024D: 00          nop
+024E: D9          exx
+024F: CB 7D       bit  7,l
+0251: D9          exx
+0252: C2 5E 41    jp   nz,$415E
+0255: 08          ex   af,af'
+0256: C3 12 40    jp   $4012
+0259: 2C          inc  l
+025A: CB 3F       srl  a
+025C: 30 FB       jr   nc,$0259
+025E: 7D          ld   a,l
+025F: D9          exx
+0260: 20 48       jr   nz,$02AA
+0262: CB 7D       bit  7,l
+0264: C2 ED 42    jp   nz,$42ED
+0267: 26 03       ld   h,$03
+0269: 6F          ld   l,a
+026A: CB FD       set  7,l
+026C: D9          exx
+026D: E6 78       and  $78
+026F: 6F          ld   l,a
+0270: D9          exx
+0271: B8          cp   b
+0272: 20 05       jr   nz,$0279
+0274: D9          exx
+0275: 44          ld   b,h
+0276: C3 48 41    jp   $4148
+0279: B9          cp   c
+027A: 20 05       jr   nz,$0281
+027C: D9          exx
+027D: 4C          ld   c,h
+027E: C3 48 41    jp   $4148
+0281: BA          cp   d
+0282: 20 05       jr   nz,$0289
+0284: D9          exx
+0285: 54          ld   d,h
+0286: C3 48 41    jp   $4148
+0289: D9          exx
+028A: 04          inc  b
+028B: 05          dec  b
+028C: 20 04       jr   nz,$0292
+028E: D9          exx
+028F: 47          ld   b,a
+0290: 18 E2       jr   $0274
+0292: 0C          inc  c
+0293: 0D          dec  c
+0294: 20 04       jr   nz,$029A
+0296: D9          exx
+0297: 4F          ld   c,a
+0298: 18 E2       jr   $027C
+029A: 14          inc  d
+029B: 15          dec  d
+029C: 20 04       jr   nz,$02A2
+029E: D9          exx
+029F: 57          ld   d,a
+02A0: 18 E2       jr   $0284
+02A2: D9          exx
+02A3: 26 00       ld   h,$00
+02A5: 6C          ld   l,h
+02A6: D9          exx
+02A7: C3 12 40    jp   $4012
+02AA: CB 7D       bit  7,l
+02AC: 28 F8       jr   z,$02A6
+02AE: ED 57       ld   a,i
+02B0: BD          cp   l
+02B1: CA E6 42    jp   z,$42E6
+02B4: 3E 8A       ld   a,$8A
+02B6: BD          cp   l
+02B7: 20 09       jr   nz,$02C2
+02B9: AF          xor  a
+02BA: 67          ld   h,a
+02BB: 6F          ld   l,a
+02BC: D9          exx
+02BD: CB 93       res  2,e
+02BF: C3 12 40    jp   $4012
+02C2: 7D          ld   a,l
+02C3: E6 07       and  $07
+02C5: 26 80       ld   h,$80
+02C7: 3C          inc  a
+02C8: CB 04       rlc  h
+02CA: 3D          dec  a
+02CB: 20 FB       jr   nz,$02C8
+02CD: 7D          ld   a,l
+02CE: E6 78       and  $78
+02D0: B8          cp   b
+02D1: 20 06       jr   nz,$02D9
+02D3: 7C          ld   a,h
+02D4: D9          exx
+02D5: A8          xor  b
+02D6: 47          ld   b,a
+02D7: 18 C9       jr   $02A2
+02D9: B9          cp   c
+02DA: 7C          ld   a,h
+02DB: D9          exx
+02DC: 20 04       jr   nz,$02E2
+02DE: A9          xor  c
+02DF: 4F          ld   c,a
+02E0: 18 C0       jr   $02A2
+02E2: AA          xor  d
+02E3: 57          ld   d,a
+02E4: 18 BC       jr   $02A2
+02E6: AF          xor  a
+02E7: 67          ld   h,a
+02E8: 6F          ld   l,a
+02E9: D9          exx
+02EA: C3 12 40    jp   $4012
+02ED: ED 57       ld   a,i
+02EF: BD          cp   l
+02F0: 20 C2       jr   nz,$02B4
+02F2: D9          exx
+02F3: 7D          ld   a,l
+02F4: D9          exx
+02F5: C3 67 42    jp   $4267
+02F8: 7C          ld   a,h
+02F9: BB          cp   e
+02FA: 28 09       jr   z,$0305
+02FC: B3          or   e
+02FD: 94          sub  h
+02FE: 20 34       jr   nz,$0334
+0300: 84          add  a,h
+0301: 93          sub  e
+0302: C2 D5 43    jp   nz,$43D5
+0305: 08          ex   af,af'
+0306: B7          or   a
+0307: 28 08       jr   z,$0311
+0309: FE 08       cp   $08
+030B: 28 04       jr   z,$0311
+030D: 08          ex   af,af'
+030E: C3 47 41    jp   $4147
+0311: 08          ex   af,af'
+0312: CB 73       bit  6,e
+0314: CA 47 41    jp   z,$4147
+0317: D9          exx
+0318: CB 7D       bit  7,l
+031A: D9          exx
+031B: C2 47 41    jp   nz,$4147
+031E: ED 57       ld   a,i
+0320: CA 47 41    jp   z,$4147
+0323: D9          exx
+0324: EA 30 43    jp   pe,$4330
+0327: 26 6B       ld   h,$6B
+0329: FB          ei
+032A: 6F          ld   l,a
+032B: 00          nop
+032C: D9          exx
+032D: C3 47 41    jp   $4147
+0330: 26 0B       ld   h,$0B
+0332: 18 F6       jr   $032A
+0334: D9          exx
+0335: 5F          ld   e,a
+0336: CB 53       bit  2,e
+0338: 28 0C       jr   z,$0346
+033A: 3E 8A       ld   a,$8A
+033C: BD          cp   l
+033D: 20 03       jr   nz,$0342
+033F: AF          xor  a
+0340: 67          ld   h,a
+0341: 6F          ld   l,a
+0342: D9          exx
+0343: CB 93       res  2,e
+0345: D9          exx
+0346: CB 43       bit  0,e
+0348: 28 12       jr   z,$035C
+034A: 08          ex   af,af'
+034B: CB 47       bit  0,a
+034D: 28 08       jr   z,$0357
+034F: CB 87       res  0,a
+0351: CB 7D       bit  7,l
+0353: 20 02       jr   nz,$0357
+0355: 26 00       ld   h,$00
+0357: 08          ex   af,af'
+0358: D9          exx
+0359: CB 83       res  0,e
+035B: D9          exx
+035C: CB 7B       bit  7,e
+035E: 28 12       jr   z,$0372
+0360: 08          ex   af,af'
+0361: CB 7F       bit  7,a
+0363: 28 08       jr   z,$036D
+0365: CB BF       res  7,a
+0367: CB 7D       bit  7,l
+0369: 20 02       jr   nz,$036D
+036B: 26 00       ld   h,$00
+036D: 08          ex   af,af'
+036E: D9          exx
+036F: CB BB       res  7,e
+0371: D9          exx
+0372: CB 6B       bit  5,e
+0374: 28 12       jr   z,$0388
+0376: 08          ex   af,af'
+0377: CB 6F       bit  5,a
+0379: 28 08       jr   z,$0383
+037B: CB AF       res  5,a
+037D: CB 7D       bit  7,l
+037F: 20 02       jr   nz,$0383
+0381: 26 00       ld   h,$00
+0383: 08          ex   af,af'
+0384: D9          exx
+0385: CB AB       res  5,e
+0387: D9          exx
+0388: CB 63       bit  4,e
+038A: 28 13       jr   z,$039F
+038C: 08          ex   af,af'
+038D: CB 67       bit  4,a
+038F: 28 09       jr   z,$039A
+0391: 00          nop
+0392: CB A7       res  4,a
+0394: CB 7D       bit  7,l
+0396: 20 02       jr   nz,$039A
+0398: 26 00       ld   h,$00
+039A: 08          ex   af,af'
+039B: D9          exx
+039C: CB A3       res  4,e
+039E: D9          exx
+039F: CB 4B       bit  1,e
+03A1: 28 12       jr   z,$03B5
+03A3: 08          ex   af,af'
+03A4: CB 4F       bit  1,a
+03A6: 28 08       jr   z,$03B0
+03A8: CB 8F       res  1,a
+03AA: CB 7D       bit  7,l
+03AC: 20 02       jr   nz,$03B0
+03AE: 26 00       ld   h,$00
+03B0: 08          ex   af,af'
+03B1: D9          exx
+03B2: CB 8B       res  1,e
+03B4: D9          exx
+03B5: CB 73       bit  6,e
+03B7: 28 19       jr   z,$03D2
+03B9: 08          ex   af,af'
+03BA: CB B7       res  6,a
+03BC: 08          ex   af,af'
+03BD: ED 57       ld   a,i
+03BF: BD          cp   l
+03C0: 20 08       jr   nz,$03CA
+03C2: 2E 00       ld   l,$00
+03C4: 08          ex   af,af'
+03C5: B7          or   a
+03C6: 20 01       jr   nz,$03C9
+03C8: 65          ld   h,l
+03C9: 08          ex   af,af'
+03CA: D9          exx
+03CB: CB B3       res  6,e
+03CD: 7C          ld   a,h
+03CE: B3          or   e
+03CF: C3 01 43    jp   $4301
+03D2: D9          exx
+03D3: 18 F8       jr   $03CD
+03D5: D9          exx
+03D6: 5F          ld   e,a
+03D7: CB 53       bit  2,e
+03D9: 28 0D       jr   z,$03E8
+03DB: CB 7D       bit  7,l
+03DD: C2 C2 42    jp   nz,$42C2
+03E0: 2E 8A       ld   l,$8A
+03E2: 26 03       ld   h,$03
+03E4: D9          exx
+03E5: CB D3       set  2,e
+03E7: D9          exx
+03E8: CB 43       bit  0,e
+03EA: 28 0A       jr   z,$03F6
+03EC: 26 03       ld   h,$03
+03EE: 08          ex   af,af'
+03EF: CB C7       set  0,a
+03F1: 08          ex   af,af'
+03F2: D9          exx
+03F3: CB C3       set  0,e
+03F5: D9          exx
+03F6: CB 7B       bit  7,e
+03F8: 28 14       jr   z,$040E
+03FA: 26 03       ld   h,$03
+03FC: 08          ex   af,af'
+03FD: CB FF       set  7,a
+03FF: 08          ex   af,af'
+0400: D9          exx
+0401: CB FB       set  7,e
+0403: CB 5B       bit  3,e
+0405: 20 04       jr   nz,$040B
+0407: CB DB       set  3,e
+0409: 18 02       jr   $040D
+040B: CB 9B       res  3,e
+040D: D9          exx
+040E: CB 6B       bit  5,e
+0410: 28 14       jr   z,$0426
+0412: 26 03       ld   h,$03
+0414: 08          ex   af,af'
+0415: CB EF       set  5,a
+0417: CB 5F       bit  3,a
+0419: 20 04       jr   nz,$041F
+041B: CB DF       set  3,a
+041D: 18 02       jr   $0421
+041F: CB 9F       res  3,a
+0421: 08          ex   af,af'
+0422: D9          exx
+0423: CB EB       set  5,e
+0425: D9          exx
+0426: CB 63       bit  4,e
+0428: 28 0A       jr   z,$0434
+042A: 26 03       ld   h,$03
+042C: 08          ex   af,af'
+042D: CB E7       set  4,a
+042F: 08          ex   af,af'
+0430: D9          exx
+0431: CB E3       set  4,e
+0433: D9          exx
+0434: CB 4B       bit  1,e
+0436: 28 0A       jr   z,$0442
+0438: 26 03       ld   h,$03
+043A: 08          ex   af,af'
+043B: CB CF       set  1,a
+043D: 08          ex   af,af'
+043E: D9          exx
+043F: CB CB       set  1,e
+0441: D9          exx
+0442: CB 73       bit  6,e
+0444: 28 0C       jr   z,$0452
+0446: 26 03       ld   h,$03
+0448: 08          ex   af,af'
+0449: CB F7       set  6,a
+044B: 08          ex   af,af'
+044C: D9          exx
+044D: CB F3       set  6,e
+044F: C3 47 41    jp   $4147
+0452: D9          exx
+0453: C3 47 41    jp   $4147
+0456: FF          rst  $38
+0457: FF          rst  $38
+0458: FF          rst  $38
+0459: FF          rst  $38
+045A: FF          rst  $38
+045B: FF          rst  $38
+045C: FF          rst  $38
+045D: FF          rst  $38
+045E: FF          rst  $38
+045F: FF          rst  $38
+0460: 72          ld   (hl),d
+0461: D0          ret  nc
+0462: 23          inc  hl
+0463: D0          ret  nc
+0464: 76          halt
+0465: 66          ld   h,(hl)
+0466: CE BD       adc  a,$BD
+0468: 00          nop
+0469: 00          nop
+046A: 1B          dec  de
+046B: 00          nop
+046C: 00          nop
+046D: 00          nop
+046E: 00          nop
+046F: 00          nop
+0470: 65          ld   h,l
+0471: AC          xor  h
+0472: 22 B3 63    ld   ($63B3),hl
+0475: 64          ld   h,h
+0476: B9          cp   c
+0477: B6          or   (hl)
+0478: 69          ld   l,c
+0479: CD 27 C2    call $C227
+047C: 2C          inc  l
+047D: 6B          ld   l,e
+047E: C1          pop  bc
+047F: C0          ret  nz
+0480: 77          ld   (hl),a
+0481: BB          cp   e
+0482: 21 B2 78    ld   hl,$78B2
+0485: 73          ld   (hl),e
+0486: B8          cp   b
+0487: B5          or   l
+0488: 6F          ld   l,a
+0489: D3 28       out  ($28),a
+048B: D4 2E 6C    call nc,$6C2E
+048E: CF          rst  $08
+048F: 83          add  a,e
+0490: 7B          ld   a,e
+0491: 9E          sbc  a,(hl)
+0492: 2F          cpl
+0493: 9D          sbc  a,l
+0494: 9E          sbc  a,(hl)
+0495: 60          ld   h,b
+0496: 00          nop
+0497: 8A          adc  a,d
+0498: 74          ld   (hl),h
+0499: A3          and  e
+049A: 24          inc  h
+049B: A2          and  d
+049C: 62          ld   h,d
+049D: 67          ld   h,a
+049E: A0          and  b
+049F: A1          and  c
+04A0: 70          ld   (hl),b
+04A1: 00          nop
+04A2: 29          add  hl,hl
+04A3: 00          nop
+04A4: 3F          ccf
+04A5: 3A D2 D1    ld   a,($D1D2)
+04A8: 79          ld   a,c
+04A9: 20 25       jr   nz,$04D0
+04AB: 88          adc  a,b
+04AC: 6E          ld   l,(hl)
+04AD: 68          ld   l,b
+04AE: 8D          adc  a,l
+04AF: 87          add  a,a
+04B0: 7D          ld   a,l
+04B1: 00          nop
+04B2: 2D          dec  l
+04B3: 8C          adc  a,h
+04B4: 7A          ld   a,d
+04B5: 7E          ld   a,(hl)
+04B6: 82          add  a,d
+04B7: 8B          adc  a,e
+04B8: 00          nop
+04B9: 00          nop
+04BA: 00          nop
+04BB: 00          nop
+04BC: 00          nop
+04BD: 00          nop
+04BE: 00          nop
+04BF: 00          nop
+04C0: 75          ld   (hl),l
+04C1: 8E          adc  a,(hl)
+04C2: 26 86       ld   h,$86
+04C4: 6D          ld   l,l
+04C5: 6A          ld   l,d
+04C6: 7F          ld   a,a
+04C7: 89          adc  a,c
+04C8: 00          nop
+04C9: 00          nop
+04CA: 00          nop
+04CB: 00          nop
+04CC: 00          nop
+04CD: 00          nop
+04CE: 00          nop
+04CF: 00          nop
+04D0: 71          ld   (hl),c
+04D1: B0          or   b
+04D2: 3B          dec  sp
+04D3: B1          or   c
+04D4: 7C          ld   a,h
+04D5: 61          ld   h,c
+04D6: B7          or   a
+04D7: B4          or   h
+04D8: 00          nop
+04D9: 00          nop
+04DA: 00          nop
+04DB: 00          nop
+04DC: 00          nop
+04DD: 00          nop
+04DE: 00          nop
+04DF: 00          nop
+04E0: 52          ld   d,d
+04E1: D0          ret  nc
+04E2: 33          inc  sp
+04E3: D0          ret  nc
+04E4: 56          ld   d,(hl)
+04E5: 46          ld   b,(hl)
+04E6: CE BD       adc  a,$BD
+04E8: 00          nop
+04E9: 00          nop
+04EA: 1B          dec  de
+04EB: 00          nop
+04EC: 00          nop
+04ED: 00          nop
+04EE: 00          nop
+04EF: 00          nop
+04F0: 45          ld   b,l
+04F1: AC          xor  h
+04F2: 32 B3 43    ld   ($43B3),a
+04F5: 44          ld   b,h
+04F6: B9          cp   c
+04F7: B6          or   (hl)
+04F8: 49          ld   c,c
+04F9: CD 37 C2    call $C237
+04FC: 3E 4B       ld   a,$4B
+04FE: C1          pop  bc
+04FF: C0          ret  nz
+0500: 57          ld   d,a
+0501: BB          cp   e
+0502: 31 B2 58    ld   sp,$58B2
+0505: 53          ld   d,e
+0506: B8          cp   b
+0507: B5          or   l
+0508: 4F          ld   c,a
+0509: D3 38       out  ($38),a
+050B: D4 3C 4C    call nc,$4C3C
+050E: CF          rst  $08
+050F: 83          add  a,e
+0510: 5B          ld   e,e
+0511: 9E          sbc  a,(hl)
+0512: 30 9D       jr   nc,$04B1
+0514: 9E          sbc  a,(hl)
+0515: 40          ld   b,b
+0516: 00          nop
+0517: 8A          adc  a,d
+0518: 54          ld   d,h
+0519: A3          and  e
+051A: 34          inc  (hl)
+051B: A2          and  d
+051C: 42          ld   b,d
+051D: 47          ld   b,a
+051E: A0          and  b
+051F: A1          and  c
+0520: 50          ld   d,b
+0521: 00          nop
+0522: 39          add  hl,sp
+0523: 00          nop
+0524: 5F          ld   e,a
+0525: 2A D2 D1    ld   hl,($D1D2)
+0528: 59          ld   e,c
+0529: 20 35       jr   nz,$0560
+052B: 88          adc  a,b
+052C: 4E          ld   c,(hl)
+052D: 48          ld   c,b
+052E: 8D          adc  a,l
+052F: 87          add  a,a
+0530: 5D          ld   e,l
+0531: 00          nop
+0532: 3D          dec  a
+0533: 8C          adc  a,h
+0534: 5A          ld   e,d
+0535: 5E          ld   e,(hl)
+0536: 82          add  a,d
+0537: 8B          adc  a,e
+0538: 00          nop
+0539: 00          nop
+053A: 00          nop
+053B: 00          nop
+053C: 00          nop
+053D: 00          nop
+053E: 00          nop
+053F: 00          nop
+0540: 55          ld   d,l
+0541: 8E          adc  a,(hl)
+0542: 36 86       ld   (hl),$86
+0544: 4D          ld   c,l
+0545: 4A          ld   c,d
+0546: 7F          ld   a,a
+0547: 89          adc  a,c
+0548: 00          nop
+0549: 00          nop
+054A: 00          nop
+054B: 00          nop
+054C: 00          nop
+054D: 00          nop
+054E: 00          nop
+054F: 00          nop
+0550: 51          ld   d,c
+0551: B0          or   b
+0552: 2B          dec  hl
+0553: B1          or   c
+0554: 5C          ld   e,h
+0555: 41          ld   b,c
+0556: B7          or   a
+0557: B4          or   h
+0558: 9D          sbc  a,l
+0559: 20 8A       jr   nz,$04E5
+055B: 88          adc  a,b
+055C: 2A 86 8B    ld   hl,($8B86)
+055F: 2D          dec  l
+0560: 52          ld   d,d
+0561: D0          ret  nc
+0562: 23          inc  hl
+0563: D0          ret  nc
+0564: 56          ld   d,(hl)
+0565: 46          ld   b,(hl)
+0566: CE BD       adc  a,$BD
+0568: 00          nop
+0569: 00          nop
+056A: 1B          dec  de
+056B: 00          nop
+056C: 00          nop
+056D: 00          nop
+056E: 00          nop
+056F: 00          nop
+0570: 45          ld   b,l
+0571: AC          xor  h
+0572: 22 B3 43    ld   ($43B3),hl
+0575: 44          ld   b,h
+0576: B9          cp   c
+0577: B6          or   (hl)
+0578: 49          ld   c,c
+0579: CD 27 C2    call $C227
+057C: 2C          inc  l
+057D: 4B          ld   c,e
+057E: C1          pop  bc
+057F: C0          ret  nz
+0580: 57          ld   d,a
+0581: BB          cp   e
+0582: 21 B2 58    ld   hl,$58B2
+0585: 53          ld   d,e
+0586: B8          cp   b
+0587: B5          or   l
+0588: 4F          ld   c,a
+0589: D3 28       out  ($28),a
+058B: D4 2E 4C    call nc,$4C2E
+058E: CF          rst  $08
+058F: 83          add  a,e
+0590: 5B          ld   e,e
+0591: 9E          sbc  a,(hl)
+0592: 2F          cpl
+0593: 9D          sbc  a,l
+0594: 9E          sbc  a,(hl)
+0595: 40          ld   b,b
+0596: 00          nop
+0597: 8A          adc  a,d
+0598: 54          ld   d,h
+0599: A3          and  e
+059A: 24          inc  h
+059B: A2          and  d
+059C: 42          ld   b,d
+059D: 47          ld   b,a
+059E: A0          and  b
+059F: A1          and  c
+05A0: 50          ld   d,b
+05A1: 00          nop
+05A2: 29          add  hl,hl
+05A3: 00          nop
+05A4: 3F          ccf
+05A5: 3A D2 D1    ld   a,($D1D2)
+05A8: 59          ld   e,c
+05A9: 20 25       jr   nz,$05D0
+05AB: 88          adc  a,b
+05AC: 4E          ld   c,(hl)
+05AD: 48          ld   c,b
+05AE: 8D          adc  a,l
+05AF: 87          add  a,a
+05B0: 5D          ld   e,l
+05B1: 00          nop
+05B2: 2D          dec  l
+05B3: 8C          adc  a,h
+05B4: 5A          ld   e,d
+05B5: 5E          ld   e,(hl)
+05B6: 82          add  a,d
+05B7: 8B          adc  a,e
+05B8: 00          nop
+05B9: 00          nop
+05BA: 00          nop
+05BB: 00          nop
+05BC: 00          nop
+05BD: 00          nop
+05BE: 00          nop
+05BF: 00          nop
+05C0: 55          ld   d,l
+05C1: 8E          adc  a,(hl)
+05C2: 26 86       ld   h,$86
+05C4: 4D          ld   c,l
+05C5: 4A          ld   c,d
+05C6: 7F          ld   a,a
+05C7: 89          adc  a,c
+05C8: 00          nop
+05C9: 00          nop
+05CA: 00          nop
+05CB: 00          nop
+05CC: 00          nop
+05CD: 00          nop
+05CE: 00          nop
+05CF: 00          nop
+05D0: 51          ld   d,c
+05D1: B0          or   b
+05D2: 3B          dec  sp
+05D3: B1          or   c
+05D4: 5C          ld   e,h
+05D5: 41          ld   b,c
+05D6: B7          or   a
+05D7: B4          or   h
+05D8: 00          nop
+05D9: 00          nop
+05DA: 00          nop
+05DB: 00          nop
+05DC: 00          nop
+05DD: 00          nop
+05DE: 00          nop
+05DF: 00          nop
+05E0: 52          ld   d,d
+05E1: D0          ret  nc
+05E2: 33          inc  sp
+05E3: D0          ret  nc
+05E4: 56          ld   d,(hl)
+05E5: 46          ld   b,(hl)
+05E6: CE BD       adc  a,$BD
+05E8: 00          nop
+05E9: 00          nop
+05EA: 1B          dec  de
+05EB: 00          nop
+05EC: 00          nop
+05ED: 00          nop
+05EE: 00          nop
+05EF: 00          nop
+05F0: 45          ld   b,l
+05F1: AC          xor  h
+05F2: 32 B3 43    ld   ($43B3),a
+05F5: 44          ld   b,h
+05F6: B9          cp   c
+05F7: B6          or   (hl)
+05F8: 49          ld   c,c
+05F9: CD 37 C2    call $C237
+05FC: 3E 4B       ld   a,$4B
+05FE: C1          pop  bc
+05FF: C0          ret  nz
+0600: 57          ld   d,a
+0601: BB          cp   e
+0602: 31 B2 58    ld   sp,$58B2
+0605: 53          ld   d,e
+0606: B8          cp   b
+0607: B5          or   l
+0608: 4F          ld   c,a
+0609: D3 38       out  ($38),a
+060B: D4 3C 4C    call nc,$4C3C
+060E: CF          rst  $08
+060F: 83          add  a,e
+0610: 5B          ld   e,e
+0611: 9E          sbc  a,(hl)
+0612: 30 9D       jr   nc,$05B1
+0614: 9E          sbc  a,(hl)
+0615: 40          ld   b,b
+0616: 00          nop
+0617: 8A          adc  a,d
+0618: 54          ld   d,h
+0619: A3          and  e
+061A: 34          inc  (hl)
+061B: A2          and  d
+061C: 42          ld   b,d
+061D: 47          ld   b,a
+061E: A0          and  b
+061F: A1          and  c
+0620: 50          ld   d,b
+0621: 00          nop
+0622: 39          add  hl,sp
+0623: 00          nop
+0624: 5F          ld   e,a
+0625: 2A D2 D1    ld   hl,($D1D2)
+0628: 59          ld   e,c
+0629: 20 35       jr   nz,$0660
+062B: 88          adc  a,b
+062C: 4E          ld   c,(hl)
+062D: 48          ld   c,b
+062E: 8D          adc  a,l
+062F: 87          add  a,a
+0630: 5D          ld   e,l
+0631: 00          nop
+0632: 3D          dec  a
+0633: 8C          adc  a,h
+0634: 5A          ld   e,d
+0635: 5E          ld   e,(hl)
+0636: 82          add  a,d
+0637: 8B          adc  a,e
+0638: 00          nop
+0639: 00          nop
+063A: 00          nop
+063B: 00          nop
+063C: 00          nop
+063D: 00          nop
+063E: 00          nop
+063F: 00          nop
+0640: 55          ld   d,l
+0641: 8E          adc  a,(hl)
+0642: 36 86       ld   (hl),$86
+0644: 4D          ld   c,l
+0645: 4A          ld   c,d
+0646: 7F          ld   a,a
+0647: 89          adc  a,c
+0648: 00          nop
+0649: 00          nop
+064A: 00          nop
+064B: 00          nop
+064C: 00          nop
+064D: 00          nop
+064E: 00          nop
+064F: 00          nop
+0650: 51          ld   d,c
+0651: B0          or   b
+0652: 2B          dec  hl
+0653: B1          or   c
+0654: 5C          ld   e,h
+0655: 41          ld   b,c
+0656: B7          or   a
+0657: B4          or   h
+0658: 9D          sbc  a,l
+0659: 20 8A       jr   nz,$05E5
+065B: 88          adc  a,b
+065C: 2A 86 8B    ld   hl,($8B86)
+065F: 2D          dec  l
+0660: FF          rst  $38
+0661: FF          rst  $38
+0662: FF          rst  $38
+0663: FF          rst  $38
+0664: FF          rst  $38
+0665: FF          rst  $38
+0666: FF          rst  $38
+0667: FF          rst  $38
+0668: FF          rst  $38
+0669: FF          rst  $38
+066A: FF          rst  $38
+066B: FF          rst  $38
+066C: FF          rst  $38
+066D: FF          rst  $38
+066E: FF          rst  $38
+066F: FF          rst  $38
+0670: FF          rst  $38
+0671: FF          rst  $38
+0672: FF          rst  $38
+0673: FF          rst  $38
+0674: FF          rst  $38
+0675: FF          rst  $38
+0676: FF          rst  $38
+0677: FF          rst  $38
+0678: FF          rst  $38
+0679: FF          rst  $38
+067A: FF          rst  $38
+067B: FF          rst  $38
+067C: FF          rst  $38
+067D: FF          rst  $38
+067E: FF          rst  $38
+067F: FF          rst  $38
+0680: FF          rst  $38
+0681: FF          rst  $38
+0682: FF          rst  $38
+0683: FF          rst  $38
+0684: FF          rst  $38
+0685: FF          rst  $38
+0686: FF          rst  $38
+0687: FF          rst  $38
+0688: FF          rst  $38
+0689: FF          rst  $38
+068A: FF          rst  $38
+068B: FF          rst  $38
+068C: FF          rst  $38
+068D: FF          rst  $38
+068E: FF          rst  $38
+068F: FF          rst  $38
+0690: FF          rst  $38
+0691: FF          rst  $38
+0692: FF          rst  $38
+0693: FF          rst  $38
+0694: FF          rst  $38
+0695: FF          rst  $38
+0696: FF          rst  $38
+0697: FF          rst  $38
+0698: FF          rst  $38
+0699: FF          rst  $38
+069A: FF          rst  $38
+069B: FF          rst  $38
+069C: FF          rst  $38
+069D: FF          rst  $38
+069E: FF          rst  $38
+069F: FF          rst  $38
+06A0: FF          rst  $38
+06A1: FF          rst  $38
+06A2: FF          rst  $38
+06A3: FF          rst  $38
+06A4: FF          rst  $38
+06A5: FF          rst  $38
+06A6: FF          rst  $38
+06A7: FF          rst  $38
+06A8: FF          rst  $38
+06A9: FF          rst  $38
+06AA: FF          rst  $38
+06AB: FF          rst  $38
+06AC: FF          rst  $38
+06AD: FF          rst  $38
+06AE: FF          rst  $38
+06AF: FF          rst  $38
+06B0: FF          rst  $38
+06B1: FF          rst  $38
+06B2: FF          rst  $38
+06B3: FF          rst  $38
+06B4: FF          rst  $38
+06B5: FF          rst  $38
+06B6: FF          rst  $38
+06B7: FF          rst  $38
+06B8: FF          rst  $38
+06B9: FF          rst  $38
+06BA: FF          rst  $38
+06BB: FF          rst  $38
+06BC: FF          rst  $38
+06BD: FF          rst  $38
+06BE: FF          rst  $38
+06BF: FF          rst  $38
+06C0: FF          rst  $38
+06C1: FF          rst  $38
+06C2: FF          rst  $38
+06C3: FF          rst  $38
+06C4: FF          rst  $38
+06C5: FF          rst  $38
+06C6: FF          rst  $38
+06C7: FF          rst  $38
+06C8: FF          rst  $38
+06C9: FF          rst  $38
+06CA: FF          rst  $38
+06CB: FF          rst  $38
+06CC: FF          rst  $38
+06CD: FF          rst  $38
+06CE: FF          rst  $38
+06CF: FF          rst  $38
+06D0: FF          rst  $38
+06D1: FF          rst  $38
+06D2: FF          rst  $38
+06D3: FF          rst  $38
+06D4: FF          rst  $38
+06D5: FF          rst  $38
+06D6: FF          rst  $38
+06D7: FF          rst  $38
+06D8: FF          rst  $38
+06D9: FF          rst  $38
+06DA: FF          rst  $38
+06DB: FF          rst  $38
+06DC: FF          rst  $38
+06DD: FF          rst  $38
+06DE: FF          rst  $38
+06DF: FF          rst  $38
+06E0: FF          rst  $38
+06E1: FF          rst  $38
+06E2: FF          rst  $38
+06E3: FF          rst  $38
+06E4: FF          rst  $38
+06E5: FF          rst  $38
+06E6: FF          rst  $38
+06E7: FF          rst  $38
+06E8: FF          rst  $38
+06E9: FF          rst  $38
+06EA: FF          rst  $38
+06EB: FF          rst  $38
+06EC: FF          rst  $38
+06ED: FF          rst  $38
+06EE: FF          rst  $38
+06EF: FF          rst  $38
+06F0: FF          rst  $38
+06F1: FF          rst  $38
+06F2: FF          rst  $38
+06F3: FF          rst  $38
+06F4: FF          rst  $38
+06F5: FF          rst  $38
+06F6: FF          rst  $38
+06F7: FF          rst  $38
+06F8: FF          rst  $38
+06F9: FF          rst  $38
+06FA: FF          rst  $38
+06FB: FF          rst  $38
+06FC: FF          rst  $38
+06FD: FF          rst  $38
+06FE: FF          rst  $38
+06FF: FF          rst  $38
+0700: FF          rst  $38
+0701: FF          rst  $38
+0702: FF          rst  $38
+0703: FF          rst  $38
+0704: FF          rst  $38
+0705: FF          rst  $38
+0706: FF          rst  $38
+0707: FF          rst  $38
+0708: FF          rst  $38
+0709: FF          rst  $38
+070A: FF          rst  $38
+070B: FF          rst  $38
+070C: FF          rst  $38
+070D: FF          rst  $38
+070E: FF          rst  $38
+070F: FF          rst  $38
+0710: FF          rst  $38
+0711: FF          rst  $38
+0712: FF          rst  $38
+0713: FF          rst  $38
+0714: FF          rst  $38
+0715: FF          rst  $38
+0716: FF          rst  $38
+0717: FF          rst  $38
+0718: FF          rst  $38
+0719: FF          rst  $38
+071A: FF          rst  $38
+071B: FF          rst  $38
+071C: FF          rst  $38
+071D: FF          rst  $38
+071E: FF          rst  $38
+071F: FF          rst  $38
+0720: FF          rst  $38
+0721: FF          rst  $38
+0722: FF          rst  $38
+0723: FF          rst  $38
+0724: FF          rst  $38
+0725: FF          rst  $38
+0726: FF          rst  $38
+0727: FF          rst  $38
+0728: FF          rst  $38
+0729: FF          rst  $38
+072A: FF          rst  $38
+072B: FF          rst  $38
+072C: FF          rst  $38
+072D: FF          rst  $38
+072E: FF          rst  $38
+072F: FF          rst  $38
+0730: FF          rst  $38
+0731: FF          rst  $38
+0732: FF          rst  $38
+0733: FF          rst  $38
+0734: FF          rst  $38
+0735: FF          rst  $38
+0736: FF          rst  $38
+0737: FF          rst  $38
+0738: FF          rst  $38
+0739: FF          rst  $38
+073A: FF          rst  $38
+073B: FF          rst  $38
+073C: FF          rst  $38
+073D: FF          rst  $38
+073E: FF          rst  $38
+073F: FF          rst  $38
+0740: FF          rst  $38
+0741: FF          rst  $38
+0742: FF          rst  $38
+0743: FF          rst  $38
+0744: FF          rst  $38
+0745: FF          rst  $38
+0746: FF          rst  $38
+0747: FF          rst  $38
+0748: FF          rst  $38
+0749: FF          rst  $38
+074A: FF          rst  $38
+074B: FF          rst  $38
+074C: FF          rst  $38
+074D: FF          rst  $38
+074E: FF          rst  $38
+074F: FF          rst  $38
+0750: FF          rst  $38
+0751: FF          rst  $38
+0752: FF          rst  $38
+0753: FF          rst  $38
+0754: FF          rst  $38
+0755: FF          rst  $38
+0756: FF          rst  $38
+0757: FF          rst  $38
+0758: FF          rst  $38
+0759: FF          rst  $38
+075A: FF          rst  $38
+075B: FF          rst  $38
+075C: FF          rst  $38
+075D: FF          rst  $38
+075E: FF          rst  $38
+075F: FF          rst  $38
+0760: FF          rst  $38
+0761: FF          rst  $38
+0762: FF          rst  $38
+0763: FF          rst  $38
+0764: FF          rst  $38
+0765: FF          rst  $38
+0766: FF          rst  $38
+0767: FF          rst  $38
+0768: FF          rst  $38
+0769: FF          rst  $38
+076A: FF          rst  $38
+076B: FF          rst  $38
+076C: FF          rst  $38
+076D: FF          rst  $38
+076E: FF          rst  $38
+076F: FF          rst  $38
+0770: FF          rst  $38
+0771: FF          rst  $38
+0772: FF          rst  $38
+0773: FF          rst  $38
+0774: FF          rst  $38
+0775: FF          rst  $38
+0776: FF          rst  $38
+0777: FF          rst  $38
+0778: FF          rst  $38
+0779: FF          rst  $38
+077A: FF          rst  $38
+077B: FF          rst  $38
+077C: FF          rst  $38
+077D: FF          rst  $38
+077E: FF          rst  $38
+077F: FF          rst  $38
+0780: FF          rst  $38
+0781: FF          rst  $38
+0782: FF          rst  $38
+0783: FF          rst  $38
+0784: FF          rst  $38
+0785: FF          rst  $38
+0786: FF          rst  $38
+0787: FF          rst  $38
+0788: FF          rst  $38
+0789: FF          rst  $38
+078A: FF          rst  $38
+078B: FF          rst  $38
+078C: FF          rst  $38
+078D: FF          rst  $38
+078E: FF          rst  $38
+078F: FF          rst  $38
+0790: FF          rst  $38
+0791: FF          rst  $38
+0792: FF          rst  $38
+0793: FF          rst  $38
+0794: FF          rst  $38
+0795: FF          rst  $38
+0796: FF          rst  $38
+0797: FF          rst  $38
+0798: FF          rst  $38
+0799: FF          rst  $38
+079A: FF          rst  $38
+079B: FF          rst  $38
+079C: FF          rst  $38
+079D: FF          rst  $38
+079E: FF          rst  $38
+079F: FF          rst  $38
+07A0: FF          rst  $38
+07A1: FF          rst  $38
+07A2: FF          rst  $38
+07A3: FF          rst  $38
+07A4: FF          rst  $38
+07A5: FF          rst  $38
+07A6: FF          rst  $38
+07A7: FF          rst  $38
+07A8: FF          rst  $38
+07A9: FF          rst  $38
+07AA: FF          rst  $38
+07AB: FF          rst  $38
+07AC: FF          rst  $38
+07AD: FF          rst  $38
+07AE: FF          rst  $38
+07AF: FF          rst  $38
+07B0: FF          rst  $38
+07B1: FF          rst  $38
+07B2: FF          rst  $38
+07B3: FF          rst  $38
+07B4: FF          rst  $38
+07B5: FF          rst  $38
+07B6: FF          rst  $38
+07B7: FF          rst  $38
+07B8: FF          rst  $38
+07B9: FF          rst  $38
+07BA: FF          rst  $38
+07BB: FF          rst  $38
+07BC: FF          rst  $38
+07BD: FF          rst  $38
+07BE: FF          rst  $38
+07BF: FF          rst  $38
+07C0: FF          rst  $38
+07C1: FF          rst  $38
+07C2: FF          rst  $38
+07C3: FF          rst  $38
+07C4: FF          rst  $38
+07C5: FF          rst  $38
+07C6: FF          rst  $38
+07C7: FF          rst  $38
+07C8: FF          rst  $38
+07C9: FF          rst  $38
+07CA: FF          rst  $38
+07CB: FF          rst  $38
+07CC: FF          rst  $38
+07CD: FF          rst  $38
+07CE: FF          rst  $38
+07CF: FF          rst  $38
+07D0: FF          rst  $38
+07D1: FF          rst  $38
+07D2: FF          rst  $38
+07D3: FF          rst  $38
+07D4: FF          rst  $38
+07D5: FF          rst  $38
+07D6: FF          rst  $38
+07D7: FF          rst  $38
+07D8: FF          rst  $38
+07D9: FF          rst  $38
+07DA: FF          rst  $38
+07DB: FF          rst  $38
+07DC: FF          rst  $38
+07DD: FF          rst  $38
+07DE: FF          rst  $38
+07DF: FF          rst  $38
+07E0: FF          rst  $38
+07E1: FF          rst  $38
+07E2: FF          rst  $38
+07E3: FF          rst  $38
+07E4: FF          rst  $38
+07E5: FF          rst  $38
+07E6: FF          rst  $38
+07E7: FF          rst  $38
+07E8: FF          rst  $38
+07E9: FF          rst  $38
+07EA: FF          rst  $38
+07EB: FF          rst  $38
+07EC: FF          rst  $38
+07ED: FF          rst  $38
+07EE: FF          rst  $38
+07EF: FF          rst  $38
+07F0: FF          rst  $38
+07F1: FF          rst  $38
+07F2: FF          rst  $38
+07F3: FF          rst  $38
+07F4: FF          rst  $38
+07F5: FF          rst  $38
+07F6: FF          rst  $38
+07F7: FF          rst  $38
+07F8: FF          rst  $38
+07F9: FF          rst  $38
+07FA: FF          rst  $38
+07FB: FF          rst  $38
+07FC: FF          rst  $38
+07FD: FF          rst  $38
+07FE: FF          rst  $38
+07FF: FF          rst  $38

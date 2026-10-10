@@ -1,0 +1,31 @@
+{
+  "biossets": {
+    "jcuken": {
+      "name": "jcuken",
+      "description": "Keyboard: JCUKEN (Latin/Cyrillic)",
+      "default": "yes"
+    },
+    "qwerty": {
+      "name": "qwerty",
+      "description": "Keyboard: QWERTY (Latin/Cyrillic)",
+      "default": "no"
+    }
+  },
+  "rom_loads": [
+    {
+      "bios": "jcuken",
+      "bytes_match": true,
+      "size": 2048
+    },
+    {
+      "bios": "qwerty",
+      "bytes_match": true,
+      "size": 2048
+    },
+    {
+      "bios": "default",
+      "bytes_match": true,
+      "size": 2048
+    }
+  ]
+}

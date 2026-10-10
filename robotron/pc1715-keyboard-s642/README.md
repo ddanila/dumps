@@ -1,7 +1,7 @@
 # Robotron PC1715 S642 keyboard firmware
 
 2 KiB firmware marked **S642**, read from an owner-identified Soviet РФ2
-(2716 equivalent) EPROM. The owner identifies the keyboard as dual-language.
+(2716 equivalent) EPROM. The owner identifies the keyboard as dual-language, with ЙЦУКЕН/JCUKEN legends.
 S642 is documented for PC1715 Latin/Cyrillic keyboard variants; the exact
 keyboard subtype has not been independently established.
 
@@ -40,6 +40,10 @@ include the keyboard/port traces, display captures and automated pixel checks.
 This validates the emulated keyboard-to-OS-to-display path on the 1715W;
 physical timing, independent key-legend validation, full original `rt1715lc`
 machine operation and a bit-perfect match to a reference ROM remain unverified.
+
+A second, identically labelled S642 from a
+[QWERTY/ЯВЕРТЫ keyboard](../pc1715-keyboard-s642-qwerty/) differs only in the
+keycode tables (154 bytes); it has separate acquisition and test records.
 
 ## Acquisition
 

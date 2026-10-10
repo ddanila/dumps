@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [`Robotron PC1715 S642 QWERTY/ЯВЕРТЫ keyboard`](robotron/pc1715-keyboard-s642-qwerty/) —
+  two matching 2 KiB reads; differs from JCUKEN S642 only in keycode tables.
+  Matrix/modifier, alphabet and automated TOS/M end-to-end tests pass.
+
 - [`Robotron PC1715 S642 keyboard`](robotron/pc1715-keyboard-s642/) —
   repeat-read 2 KiB dual-language firmware; MAME matrix, modifier and
   persistent language-toggle tests pass.
