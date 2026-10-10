@@ -35,6 +35,21 @@
     "matrix_positions": 91,
     "language_combinations": 182,
     "language_toggle": "Persistent status bit 0x04; second toggle restores original output",
-    "limitations": "No full-system boot, physical timing or independent key-legend validation."
+    "limitations": "Isolated keyboard harness; physical timing and independent key-legend validation not covered. See end_to_end for separate full-system testing."
+  },
+  "end_to_end": {
+    "date": "2026-10-10",
+    "driver": "rt1715w",
+    "os": "Original TOS/M disk r1715mt.cqm; original font order",
+    "os_image_sha256": "5c97d7145a6fae21033ec42407d455cff473ade2cefe4b2a58380343c59d1bab",
+    "baseline": "Stock MAME 0.285",
+    "patched_version": "MAME 0.289",
+    "patch": "https://github.com/ddanila/mame/pull/6",
+    "patch_commit": "0fdc895312c",
+    "rom_and_os_binaries": "Unmodified",
+    "automated_result": "Passed: identical keyboard/OS traces; patched display Latin -> Cyrillic -> Latin; SI/SO alone waits for the next ordinary key; stock display does not switch.",
+    "manual_result": "Owner confirmed end-to-end typing and Latin/Cyrillic switching in the patched emulator.",
+    "evidence": "emulation/end-to-end/",
+    "limitations": "Emulated 1715W, not a physical-host test or full original rt1715lc validation."
   }
 }

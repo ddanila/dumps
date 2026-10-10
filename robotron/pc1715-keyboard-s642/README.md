@@ -22,10 +22,24 @@ MAME 0.285 executed the unchanged ROM in its existing keyboard model:
   the keycode byte, and a second toggle restored the original output.
 - Published S600 passed the same functional harness; a blank-ROM control failed.
 
-These tests establish useful keyboard behavior, not full-system boot,
-physical timing accuracy, or a bit-perfect match to an original reference.
-Host/display interpretation of the language flag and physical key legends
-remain unverified.
+Full-system testing on 2026-10-10 also booted the original TOS/M disk in
+MAME's `rt1715w` with this unchanged S642 dump. A local MAME 0.289 build with
+[PC1715W font-switch support](https://github.com/ddanila/mame/pull/6)
+passed automated Latin → Cyrillic → Latin display checks. Stock MAME 0.285
+received the same keyboard bytes and OS port writes but did not switch fonts.
+
+**The owner also manually verified end-to-end typing and Latin/Cyrillic
+switching in the patched emulator.** SI/SO changes the keyboard's persistent
+language flag; TOS/M acts on that flag when the next ordinary key is pressed,
+switching the whole screen's font. A second toggle and key restore Latin.
+The final test used the original disk and font order, without forced Cyrillic
+fonts or changes to the keyboard/OS binaries.
+
+[End-to-end evidence and reproduction](emulation/end-to-end/README.md)
+include the keyboard/port traces, display captures and automated pixel checks.
+This validates the emulated keyboard-to-OS-to-display path on the 1715W;
+physical timing, independent key-legend validation, full original `rt1715lc`
+machine operation and a bit-perfect match to a reference ROM remain unverified.
 
 ## Acquisition
 
