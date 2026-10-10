@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [`Robotron PC1715 S642 keyboard`](robotron/pc1715-keyboard-s642/) —
+  repeat-read 2 KiB dual-language firmware; MAME matrix, modifier and
+  persistent language-toggle tests pass.
+
 - [`Landis & Gyr UNIGYR PRU_AC`](landis-gyr/pru-ac-20260924/) — six-chip
   set, likely a PAA1 program card for PRU1. 68HC11 firmware dated 1993-11-04;
   recovered bank map and passing original ROM checksum. Four EEPROMs include

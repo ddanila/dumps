@@ -1,0 +1,40 @@
+{
+  "system": "Robotron PC1715 dual-language keyboard",
+  "firmware_marking": "S642",
+  "chip_owner_reported": "RF2 (2716 equivalent)",
+  "attribution": "Owner identifies a dual-language keyboard; S642 is documented for PC1715 Latin/Cyrillic and USSR keyboard variants. Exact keyboard subtype unconfirmed.",
+  "acquisition_date": "2026-10-10",
+  "programmer": "2015 Willem PCB5.0E",
+  "reader": {
+    "command": "RRF5",
+    "profile": "conservative",
+    "build": "dosravi-27c010-fastaddr-v2",
+    "sha256": "45dac9a7159c29afc5b0048e3aa136393071f8e9b82adf33e3e0fde56a435ae4"
+  },
+  "transport": "DOSRAVI 0.1.1; Pocket8086 LPT 378h; CP2102 57600 baud",
+  "matching_reads": 2,
+  "execution_ids": [
+    3925104574,
+    1314006933
+  ],
+  "read_ms": [
+    28050,
+    28105
+  ],
+  "both_safe_shutdown": true,
+  "image": {
+    "file": "s642.ic8",
+    "size": 2048,
+    "crc32": "5c9ca8dc",
+    "sha1": "73800997e8fe6410d63573330126d4e12feb7267",
+    "sha256": "dd093bd3daf1901393cb31308d94a52f8a8e02e3f970ab9783029fa53143f314"
+  },
+  "emulation": {
+    "version": "MAME 0.285",
+    "driver": "rt1715, isolated keyboard with synthetic HALT host",
+    "matrix_positions": 91,
+    "language_combinations": 182,
+    "language_toggle": "Persistent status bit 0x04; second toggle restores original output",
+    "limitations": "No full-system boot, physical timing or independent key-legend validation."
+  }
+}
