@@ -21,3 +21,16 @@ locally in /home/ddanila/fun/dosravi/sessions/norma-vmd4-at29c512-20261107-read1
 No anomalous binary is added to the firmware collection. One capture only.
 The program's printed external-adapter wording differs from the actual onboard
 normal PLCC32 socket used, as recorded in the original session notes.
+
+## Retry after reseating
+
+Owner tried fitting the chip better and authorized a second read on 2026-11-07.
+Session: /home/ddanila/fun/dosravi/sessions/norma-vmd4-at29c512-20261107-read2/.
+Read time 358985 ms; 65536 bytes; reader exit 0; VCC/VPP-off logged.
+The new capture is FF at offset 0000 followed by 65535 BF bytes. Only the first
+byte differs from read1 (02 became FF); the suspicious constant body remains.
+CRC32 `7e2d3475`, SHA256
+`d58d884ededd937eb904b994fb6efe3baf145785dd131564096b04201cea5635`.
+Reseating has not produced a plausible image. Continue electrical/routing
+checks rather than treating either capture as valid firmware. Both files
+remain in local diagnostic sessions.
