@@ -57,3 +57,5 @@ checksums are supplied for identification, preservation, and research.
   stored-data validity remains unresolved.
 - [Blank 27256 read records](analysis/20260921-27256-blank-records/) —
   metadata only; all-FF binaries are excluded.
+
+- [Norma Systems VMD-4 v1.1](norma-systems/vmd-4/27c512/) — 64 KiB 27C512 capture, firmware 1.01, single read.
