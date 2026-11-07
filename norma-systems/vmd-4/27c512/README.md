@@ -36,3 +36,5 @@ Full serial logs remain in the local source session recorded in manifest.json.
 Targeted web searches on acquisition date for Norma Systems VMD-4, the exact
 firmware banner/author and CRC32 found no matching dump. No candidate binary
 was available to compare; this is not an exhaustive search or proof of uniqueness.
+
+[Static firmware analysis: parallel flash and persistent settings](../analysis/README.md).

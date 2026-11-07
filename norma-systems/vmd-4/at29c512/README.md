@@ -47,8 +47,8 @@ must be high for reading. The reader therefore had a confirmed control-level
 error, a likely cause of the BF captures. Those captures remain invalid.
 
 Build `dosravi-at29c512-we-fix-v2` corrects startup/shutdown and has a
-regression model that rejects the old startup. It has not yet been used on
-the physical chip, so contact or other hardware faults are not ruled out.
+regression model that rejects the old startup. It was subsequently used for read3 below; contact or other hardware faults
+are not ruled out.
 No jumper change is indicated by the original-software comparison.
 
 [Reader investigation and reproducible tools](https://github.com/ddanila/willem-v30/blob/main/docs/original-at29c512.md).
@@ -79,10 +79,13 @@ VPP-off shutdown logged. Download size and CRC verified. Result:
 - CRC32 `695c465d`; SHA256
   `68568fe682e451dc8166761c658522c527bd2187d14285c4c5bab0b249ea204c`.
 
-The constant BF output is gone, but the address-correlated 04/06 pattern is
-still anomalous. This is not accepted firmware and does not establish a blank
-or defective chip. A remaining read-path issue is suspected; its cause has
-not been established. No further read was started automatically.
+The constant BF output is gone. This remains an unverified candidate data
+capture, not evidence of a blank or defective chip. Subsequent EPROM analysis
+found 128-byte flash read/write routines and deliberate page-end data storage;
+the spacing alone does not establish a read-path fault. The inferred access-code
+bytes are FF in this capture, so meaningful configuration is not yet confirmed.
+See [firmware analysis](../analysis/README.md). No further read was started
+automatically.
 
 Raw capture and complete evidence remain locally in
 `~/fun/dosravi/sessions/norma-vmd4-at29c512-20261107-read3-resume/`.
