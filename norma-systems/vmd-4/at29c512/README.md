@@ -34,3 +34,23 @@ CRC32 `7e2d3475`, SHA256
 Reseating has not produced a plausible image. Continue electrical/routing
 checks rather than treating either capture as valid firmware. Both files
 remain in local diagnostic sessions.
+
+## Original-software investigation and reader correction
+
+On 2026-11-07 the unmodified Willem 0.97ja application was run under Wine
+with a synthetic IO.DLL, PCB3 mode and AT29C512 selected. Its DIP setting
+matched the photographed switches (3,5,6,10,11 ON). One complete virtual read
+visited 0000-FFFF; all 524288 data samples used raw LPT CONTROL=05h.
+That holds DB25 pin17 HIGH. RD29V1 instead used 0Dh and held pin17 LOW.
+The PCB5.0 schematic routes pin17 through DIP11 to chip pin31 /WE; /WE
+must be high for reading. The reader therefore had a confirmed control-level
+error, a likely cause of the BF captures. Those captures remain invalid.
+
+Build `dosravi-at29c512-we-fix-v2` corrects startup/shutdown and has a
+regression model that rejects the old startup. It has not yet been used on
+the physical chip, so contact or other hardware faults are not ruled out.
+No jumper change is indicated by the original-software comparison.
+
+[Reader investigation and reproducible tools](https://github.com/ddanila/willem-v30/blob/main/docs/original-at29c512.md).
+Private emulator evidence is in
+`~/fun/dosravi/sessions/willem-original-at29c512-20261107/`.
