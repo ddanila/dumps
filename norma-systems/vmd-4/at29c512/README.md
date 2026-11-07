@@ -54,3 +54,36 @@ No jumper change is indicated by the original-software comparison.
 [Reader investigation and reproducible tools](https://github.com/ddanila/willem-v30/blob/main/docs/original-at29c512.md).
 Private emulator evidence is in
 `~/fun/dosravi/sessions/willem-original-at29c512-20261107/`.
+
+## Corrected-reader physical attempt (read3)
+
+Owner authorized one more read with the existing PLCC32/DIP634 setup.
+`RD29V2.COM`, build `dosravi-at29c512-we-fix-v2`, SHA256
+`937e232bd00ee32480c3ed29dd6378f3792888921b9ab7fb70fc7dd6901397e4`,
+was uploaded and executed with `R29C512 VMD29R3.BIN 378
+/PROFILE:conservative /FASTADDR`.
+
+The initial upload timed out after 20992 acknowledged bytes, before any EXEC
+request. DOSRAVI's exception incorrectly mentioned an EXEC timeout; the
+transaction log shows PUT_DATA was the failing command. A new session resumed
+the same upload at offset 20992 and completed it with CRC32 `593c23e7`.
+There was only one physical read, execution ID `929376241`.
+
+Read time 359370 ms; execution time 360525 ms; exit 0; explicit VCC-off and
+VPP-off shutdown logged. Download size and CRC verified. Result:
+
+- 64742 bytes FF, 732 bytes 04, 62 bytes 06.
+- Every non-FF byte falls at offset 125, 126 or 127 within a 128-byte block.
+- Distribution `(offset modulo 128, value)`: `(125,04)` 222,
+  `(126,04)` 284, `(127,04)` 226, `(127,06)` 62.
+- CRC32 `695c465d`; SHA256
+  `68568fe682e451dc8166761c658522c527bd2187d14285c4c5bab0b249ea204c`.
+
+The constant BF output is gone, but the address-correlated 04/06 pattern is
+still anomalous. This is not accepted firmware and does not establish a blank
+or defective chip. A remaining read-path issue is suspected; its cause has
+not been established. No further read was started automatically.
+
+Raw capture and complete evidence remain locally in
+`~/fun/dosravi/sessions/norma-vmd4-at29c512-20261107-read3-resume/`.
+The incomplete-upload evidence is in the corresponding `...-read3/` session.
