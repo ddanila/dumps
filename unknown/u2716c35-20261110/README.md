@@ -15,11 +15,14 @@ identify the image and reader binaries.
 
 ## Contents and address-line check
 
-There are recognizable Z80 instruction sequences (DD/FD prefixes, CB bit
-operations and ED instructions), with several code references in the 6xxx/7xxx
-ranges. This is preliminary inspection, not board identification or execution
-validation; no readable product banner was found. This is not the diagnostic
-pattern previously written to the RF2.
+[Functional analysis and isolated Z80 execution](analysis/README.md) identify
+keyboard matrix scanning, key translation, held-key handling, and a 64-byte
+event queue. The inferred load address is **6800h–6FFFh**. A 122-entry jump
+table and references to external code/tables establish that this is one part
+of a larger firmware set. All 96 matrix positions and queue wraparound pass
+emulator checks; the originating machine and keyboard layout remain unknown.
+No readable product banner was found. This is not the diagnostic pattern
+previously written to the RF2.
 
 Every address bit A0–A10 distinguishes some contents. A6 pairs differ in 1508
 of 2048 comparisons; A9 pairs differ in 2032 of 2048 comparisons (pairs counted

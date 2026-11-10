@@ -15,8 +15,9 @@ than the firmware collection. Keep all-FF captures local as well.
 ## Sets
 
 - [`Unidentified U2716C35`](unknown/u2716c35-20261110/) — two matching
-  2 KiB reads using different address shifters; likely Z80 code. Possibly
-  Robotron according to the owner; exact system unknown. All address bits
+  2 KiB reads using different address shifters; Z80 keyboard-handling component
+  linked at 6800h, with emulator-verified 12 × 8 scan and 64-byte event queue.
+  Possibly Robotron according to the owner; exact system unknown. All address bits
   distinguish data, unlike the RF2 diagnostic candidates.
 
 - [`Robotron PC1715 S642 QWERTY/ЯВЕРТЫ keyboard`](robotron/pc1715-keyboard-s642-qwerty/) —
