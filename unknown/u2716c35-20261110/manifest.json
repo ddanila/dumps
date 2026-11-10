@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "date": "2026-11-10",
+  "status": "unidentified",
+  "part_marking": "U2716C35",
+  "provenance": "Owner: possibly Robotron, keyboard or another ROM; not certain. Loose chip supplied as control for RF2 address-alias investigation.",
+  "architecture": "Z80-compatible instruction patterns; preliminary inspection, not executed",
+  "file": "rom.bin",
+  "bytes": 2048,
+  "sha256": "b97cfb4b68b56690c27730daaa347a8780579c8aa75d0169979cc63e33044b34",
+  "sha1": "e2ec5132c01d16a650d4653450aaab9935f19dfd",
+  "crc32": "e54de9f5",
+  "crc16_ccitt": "1eee",
+  "matching_reads": 2,
+  "readers": [
+    {
+      "file": "RD2716.COM",
+      "bytes": 27696,
+      "crc32": "d4164322",
+      "command": "RD2716.COM RRF5 U2716A.BIN 378 /PROFILE:conservative",
+      "execution_id": 1765036003,
+      "exit_code": 0
+    },
+    {
+      "file": "RF2EXP.COM",
+      "bytes": 13408,
+      "crc32": "6bb403ac",
+      "command": "RF2EXP.COM R U2716B.BIN 0 4",
+      "execution_id": 837206548,
+      "exit_code": 0
+    }
+  ],
+  "acquisition": {
+    "programmer": "Willem PCB5.0E 2015 clone",
+    "host": "Pocket8086",
+    "transport": "DOSRAVI COM1 57600 via CP2102",
+    "lpt": "378h",
+    "setup": "Existing standard 2716 setup, DIP1A3, J1/J2 toward ZIF",
+    "read_vcc_setting": 5,
+    "programming_vpp_enabled": false,
+    "programming_pulses": 0,
+    "rails_at_end": "VPP off, VCC off"
+  },
+  "address_bit_pair_differences": {
+    "A0": 1434,
+    "A1": 1436,
+    "A2": 1396,
+    "A3": 1458,
+    "A4": 1452,
+    "A5": 1498,
+    "A6": 1508,
+    "A7": 1500,
+    "A8": 1510,
+    "A9": 2032,
+    "A10": 2034
+  },
+  "public_match_check": {
+    "exact_match_found": false,
+    "embedded_match_found": false,
+    "reference_images_compared": 161,
+    "distinct_reference_images": 134,
+    "known_keyboard_references": [
+      "S600",
+      "S642 JCUKEN",
+      "S642 QWERTY/\u042f\u0412\u0415\u0420\u0422\u042b"
+    ],
+    "other_references": "PC1715 boot/font/FDC ROMs, K8915, and broader DDR ROM/EPROM collection; local MAME source/hash SHA1 catalog",
+    "details": "comparison.json",
+    "scope_limit": "These collections were checked; no claim of exhaustive Internet coverage."
+  }
+}

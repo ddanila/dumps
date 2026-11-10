@@ -1,0 +1,336 @@
+{
+  "artifacts": [
+    {
+      "crc32": "d95a9361",
+      "name": "executions.json",
+      "sha256": "b4d3959f395cbe742ad8f7eb4921ee261934b34ad38384b43c383e0de117f3b5",
+      "size": 211
+    },
+    {
+      "crc32": "00675b12",
+      "name": "STDOUT.TXT",
+      "sha256": "4c18ce904d3faf7b58d6b3e6b4f8df1616390bdbf5c9ac12b4717562a216f019",
+      "size": 2076
+    },
+    {
+      "crc32": "00000000",
+      "name": "STDERR.TXT",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "crc32": "e54de9f5",
+      "name": "U2716A.BIN",
+      "sha256": "b97cfb4b68b56690c27730daaa347a8780579c8aa75d0169979cc63e33044b34",
+      "size": 2048
+    }
+  ],
+  "command_line": [
+    "/home/ddanila/fun/dosravi/dosravi/cli.py",
+    "--serial",
+    "/dev/ttyUSB0",
+    "--baud",
+    "57600",
+    "--timeout",
+    "5",
+    "--exec-timeout",
+    "120",
+    "--retries",
+    "2",
+    "--session-dir",
+    "sessions/u2716c35-20261110-unknown-read1",
+    "run",
+    "--exec",
+    "RD2716.COM RRF5 U2716A.BIN 378 /PROFILE:conservative",
+    "--get",
+    "U2716A.BIN",
+    "--note",
+    "machine=Pocket8086",
+    "--note",
+    "cable-adapter=CP2102 serial; Willem PCB5.0E LPT 378h",
+    "--note",
+    "device=U2716C35; owner supplied random unknown-content 2716 for read/address-alias comparison; existing 2716 setup retained; READ ONLY"
+  ],
+  "completed_utc": "2026-11-10T19:56:51.640907+00:00",
+  "error": null,
+  "exit_status": 0,
+  "hardware_notes": {
+    "cable-adapter": "CP2102 serial; Willem PCB5.0E LPT 378h",
+    "device": "U2716C35; owner supplied random unknown-content 2716 for read/address-alias comparison; existing 2716 setup retained; READ ONLY",
+    "machine": "Pocket8086"
+  },
+  "host_version": "0.1.1",
+  "negotiated": {
+    "agent": "DOSRAVI.COM",
+    "bios_equipment_word": 21613,
+    "build": "crc8088-v1",
+    "capabilities": [
+      "replay",
+      "resume",
+      "exec-capture",
+      "self-update"
+    ],
+    "chunk_size": 512,
+    "com_base": 1016,
+    "conventional_kb": 639,
+    "dos": "6.22",
+    "free_disk": 407527424,
+    "free_memory": 477936,
+    "protocol": 1,
+    "rejected_frames": 1,
+    "uart_fifo_bits": 192,
+    "uart_fifo_enabled": 1,
+    "uart_line_errors": 0,
+    "uart_overruns": 0,
+    "version": "0.1.1"
+  },
+  "programmer_stats": {
+    "exec_elapsed_ms": 29425,
+    "execution_id": 1765036003
+  },
+  "serial_stats": {
+    "get:E344fe3.ERR": {
+      "bytes": 0,
+      "bytes_per_second": 0.0,
+      "crc32": "00000000",
+      "elapsed_seconds": 0.10255227657034993,
+      "payload_bytes": 0,
+      "resumed_bytes": 0,
+      "skipped": false
+    },
+    "get:O344fe3.OUT": {
+      "bytes": 2076,
+      "bytes_per_second": 2095.274890261632,
+      "crc32": "00675b12",
+      "elapsed_seconds": 0.9908007821068168,
+      "payload_bytes": 2076,
+      "resumed_bytes": 0,
+      "skipped": false
+    },
+    "get:U2716A.BIN": {
+      "bytes": 2048,
+      "bytes_per_second": 2208.71126503426,
+      "crc32": "e54de9f5",
+      "elapsed_seconds": 0.9272375400178134,
+      "payload_bytes": 2048,
+      "resumed_bytes": 0,
+      "skipped": false
+    }
+  },
+  "session_id": "u2716c35-20261110-unknown-read1",
+  "source_commit": "a6275b3ba5ac775a39baf40a95665d959b7497d3",
+  "source_dirty": false,
+  "started_utc": "2026-11-10T19:56:19.859876+00:00",
+  "transactions": [
+    {
+      "attempt": 0,
+      "command": "INFO",
+      "direction": "tx",
+      "transaction": 4136108129
+    },
+    {
+      "command": "INFO",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108129
+    },
+    {
+      "attempt": 0,
+      "command": "EXEC",
+      "direction": "tx",
+      "transaction": 4136108130
+    },
+    {
+      "command": "EXEC",
+      "direction": "event",
+      "message": "STARTED",
+      "status": "OK",
+      "transaction": 4136108130
+    },
+    {
+      "command": "EXEC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108130
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108131
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108131
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108132
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108132
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108133
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108133
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108134
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108134
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108135
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108135
+    },
+    {
+      "attempt": 0,
+      "command": "CRC",
+      "direction": "tx",
+      "transaction": 4136108136
+    },
+    {
+      "command": "CRC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108136
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108137
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108137
+    },
+    {
+      "attempt": 0,
+      "command": "CRC",
+      "direction": "tx",
+      "transaction": 4136108138
+    },
+    {
+      "command": "CRC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108138
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108139
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108139
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108140
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108140
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108141
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108141
+    },
+    {
+      "attempt": 0,
+      "command": "GET",
+      "direction": "tx",
+      "transaction": 4136108142
+    },
+    {
+      "command": "GET",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108142
+    },
+    {
+      "attempt": 0,
+      "command": "CRC",
+      "direction": "tx",
+      "transaction": 4136108143
+    },
+    {
+      "command": "CRC",
+      "direction": "rx",
+      "replay": false,
+      "status": "OK",
+      "transaction": 4136108143
+    }
+  ],
+  "transport": {
+    "baud": 57600,
+    "device": "/dev/ttyUSB0",
+    "exec_timeout_seconds": 120.0,
+    "retries": 2,
+    "timeout_seconds": 5.0,
+    "type": "serial"
+  }
+}
