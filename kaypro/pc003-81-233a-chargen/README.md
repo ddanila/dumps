@@ -17,6 +17,20 @@ its 81-146A (the latter matches MAME's 81-146.u43 SHA-1). These differences also
 exist in the low five pixel bits. Raw and inverted capture hashes do not match
 MAME's listed image. Reference URLs and checksums are in manifest.json.
 This establishes a distinct capture from those two references, not proof of
-an unpublished or owner-modified font. Detailed glyph identification is pending.
+an unpublished or owner-modified font.
+
+## Glyph analysis and visualizations
+
+[Full analysis, reference comparison and reproducible tools](analysis/README.md).
+
+The closest checked reference differs in **42 of 128 visible glyphs**. All 32
+alternate slots change, largely to accented Latin letters and European symbols;
+ten ordinary glyphs also have shape changes. This is consistent with a regional
+font variant, but the country, maker and official status of the handwritten
+81-233A designation remain unknown.
+
+![PC003 visible glyph atlas](analysis/atlas.svg)
+
+[View every changed glyph side by side with 81-146A](analysis/differences.svg).
 
 No license is asserted over this historical ROM. The binary is unmodified.
