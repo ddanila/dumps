@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-13",
+  "machine": "PC003 Kaypro 2, S/N 139936, PC81-240A",
+  "label": "81-233A (handwritten; previously recorded owner observation)",
+  "chip_marking": "covered; not exposed",
+  "profile_basis": "Kaypro 81-241 sheet 2C, U43 labelled 2716, pin 21 tied to supply; technical manual 1484-E PDF page 35 / printed 6-15",
+  "schematic_url": "https://retrocmp.de/kaypro/1985_1484-E_KayproTechnicalManual.pdf#page=35",
+  "profile": "t48-2716-read",
+  "read_count": 2,
+  "reads_identical": true,
+  "size": 2048,
+  "sha256": "a01b7398e41170d0cf81f7974260cfd38f06f84c3390f1e871869387eee93d99",
+  "sha1": "35db54b2799cedf7587dfa2f77cfa8d1eb9f335c",
+  "crc32": "e7019c90",
+  "contact_checks": "passed twice",
+  "shutdown": "reported-off after each read",
+  "programming": false,
+  "comparisons": [
+    {
+      "reference": "https://retrocmp.de/dwnld/U43_CHAR_81-146_2716_2K.ROM",
+      "sha1": "dccf07bb543b81358c65fa99e5cb43df9f76d318",
+      "differing_bytes": 256,
+      "differing_low5_bytes": 256
+    },
+    {
+      "reference": "https://retrocmp.de/dwnld/U43_CHAR_81-146A_2716_2K.ROM",
+      "sha1": "5cb880083b94bd8220aac1f87d537db7cfeb9013",
+      "differing_bytes": 236,
+      "differing_low5_bytes": 236
+    }
+  ]
+}

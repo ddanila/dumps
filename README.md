@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [`Kaypro 2 PC003 character ROM, 81-233A`](kaypro/pc003-81-233a-chargen/) —
+  two matching 2 KiB T48 reads; differs from the compared 81-146/81-146A images.
+
 - [`Unidentified U2716C35`](unknown/u2716c35-20261110/) — two matching
   2 KiB reads using different address shifters; Z80 keyboard-handling component
   linked at 6800h, with emulator-verified 12 × 8 scan and 64-byte event queue.
