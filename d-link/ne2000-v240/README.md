@@ -120,3 +120,12 @@ and the canonical image byte-for-byte, CRC32 `d03c2ee5`, checksum 00.
 Logs and acquisition metadata are in `evidence/second-chip-20261114/`;
 no duplicate ROM binary is stored. Full markings and originating board
 remain unknown.
+
+## Third matching acquisition
+
+Another owner-supplied 2764 was read twice in session
+`orphan-2764-t48-20261114-223304`. Both 8192-byte captures match the
+canonical image exactly, CRC32 `d03c2ee5`, option-ROM checksum 00.
+Evidence is in `evidence/third-chip-20261114/`; no duplicate ROM is stored.
+This confirms successful nonblank reading after several intervening all-FF
+chips; it does not establish whether those earlier chips were erased or faulty.
