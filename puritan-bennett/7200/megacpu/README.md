@@ -1,7 +1,8 @@
 # Puritan Bennett 7200 MEGACPU EPROMs
 
 Owner reports nine EPROM positions numbered 0 through 8, with chip 7
-missing. Chips 0–6 have been read; chip 8 remains pending.
+missing. All eight available chips (0–6 and 8) have now been read twice and preserved.
+The ROM set remains incomplete because chip 7 is missing.
 Board reference photo: `/home/ddanila/Downloads/133870106.jpg`.
 Chip 0's socket designation and full sticker text are not yet confirmed.
 Other visible ROMs carry `26300-85-V`; that label is not assigned to chip 0
@@ -170,3 +171,32 @@ performed. The empty printable-runs result is recorded in
 Public searches by capture SHA-256, CRC32 and version/socket returned no
 matching candidate. Internet uniqueness is not established. The full raw
 capture and original acquisition evidence are preserved.
+
+## Chip 8 / U606: 26300-85-V
+
+Read twice on 2026-11-14 with the same T48 and provisional `M27512@DIP28`
+profile, ID probing disabled. Both operations exited zero and produced
+identical 65536-byte captures. CRC32 is `0c039250`. All 256 byte values occur;
+there is no repetition at 2, 4, 8, 16 or 32 KiB boundaries. Physical chip
+type and capacity remain unconfirmed.
+
+The overview sticker reads `8 U606 / 26300-85-V`. The image starts with
+repeated alphabet/digit strings (`ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`).
+The printable-runs extraction finds 11 runs of at least eight bytes; later
+runs include short labels such as `EST`, `ALARM` and `PTRND` alongside other
+printable bytes. These local string repetitions do not make the whole ROM
+a repeated smaller image. The final 64 bytes are CC-filled. No complete
+code/data classification or execution has been performed. Printable runs
+and offsets are saved in `evidence/chip8-strings.json`.
+
+Public searches by capture SHA-256, CRC32 and version/socket returned no
+matching candidate. Internet uniqueness is not established. The complete
+raw capture and original acquisition evidence are preserved.
+
+## Acquisition status
+
+All eight present EPROMs have two matching reads, each preserved as a raw
+64 KiB capture (512 KiB total). Chip 7/U605 is physically absent and has
+not been reconstructed or replaced by a fabricated image. Repeatability
+and the coherent text/code observations do not establish an executable
+complete set or confirm the physical device types.

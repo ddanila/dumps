@@ -14,9 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
-- [Puritan Bennett 7200 MEGACPU](puritan-bennett/7200/megacpu/) — chips 0–6,
+- [Puritan Bennett 7200 MEGACPU](puritan-bennett/7200/megacpu/) — all eight available chips (0–6, 8),
   two matching 64 KiB T48 reads each; x86 boot diagnostics and 26300-85-V text;
-  provisional device type. Remaining ROM acquisition pending; chip 7 missing.
+  provisional device type. Acquisition complete for present chips; chip 7 missing.
 
 - [Puritan Bennett 7200 display controller](puritan-bennett/7200/display-controller/) —
   Q1 oxygen-flow, Q2 air-flow and Q3 exhalation sensor EPROMs, two matching T48
