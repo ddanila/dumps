@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [Puritan Bennett 7200 display controller](puritan-bennett/7200/display-controller/) —
+  Q1 oxygen-flow sensor EPROM, two matching T48 reads; duplicated 2 KiB image
+  with embedded sensor identifier. Physical chip type remains provisional.
+
 - [`Kaypro 2 PC003 character ROM, 81-233A`](kaypro/pc003-81-233a-chargen/) —
   two matching 2 KiB T48 reads; accented Latin alternate glyphs. Includes an
   atlas, pixel-difference visualizations and reproducible analysis against 81-146A.
