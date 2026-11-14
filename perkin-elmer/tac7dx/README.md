@@ -1,7 +1,7 @@
-# Perkin-Elmer TAC7/DX U35
+# Perkin-Elmer TAC7/DX U35 and U36
 
 Owner reports board TAC7/DX N519-9407 ISSUE T. U35 sticker reads
-`N5208003 / U35 1999 / PERKIN-ELMER`. U36 (N5208004) is pending.
+`N5208003 / U35 1999 / PERKIN-ELMER`. U36 sticker reads `N5208004 / U36 1999 / PERKIN-ELMER`.
 
 Read twice on 2026-11-14 with T48 firmware 00.1.03 and minipro 0.7.4:
 `minipro -p M27256@DIP28 -x -r OUTPUT.bin`. Both operations exited 0.
@@ -22,3 +22,18 @@ firmware. Original read logs are in evidence; reader hash and acquisition
 metadata are in manifest.json. Searches for the sticker and controller ROMs
 found no relevant downloadable candidate to compare; Internet uniqueness is
 not established. Full sessions remain at the path recorded in the manifest.
+
+## U36 acquisition
+
+Read U36 twice on 2026-11-14 with the same T48 and M27256 profile, with
+ID probing disabled. Both commands exited 0 and produced identical
+32768-byte nonblank captures. Unlike U35, U36 has different lower and upper
+16 KiB halves. All 256 byte values are present. The full raw image is
+`u36-n5208004-27256-read.bin`; CRC32 is `d6d56190`.
+
+The result is consistent with the schematic's 27256 capacity, but exact
+physical device identity remains unconfirmed. Repeatability alone is not
+functional validation of the firmware. U36 logs are in evidence and its
+metadata is the second entry in manifest.json. Public searches found the
+service manual and hardware listings, but no downloadable ROM candidate
+to compare. Both chips are now captured; U35's raw duplicated half is retained.

@@ -18,9 +18,9 @@ than the firmware collection. Keep all-FF captures local as well.
   two matching 2 KiB T48 reads; accented Latin alternate glyphs. Includes an
   atlas, pixel-difference visualizations and reproducible analysis against 81-146A.
 
-- [Perkin-Elmer TAC7/DX U35](perkin-elmer/tac7dx/) — two matching T48
-  reads as 27256; raw 32 KiB capture has identical 16 KiB halves. Chip type
-  remains provisional; U36 pending.
+- [Perkin-Elmer TAC7/DX U35/U36](perkin-elmer/tac7dx/) — two matching T48
+  reads per chip as 27256; U35 has identical 16 KiB halves, U36 has distinct
+  halves. Raw 32 KiB captures retained; exact chip types remain provisional.
 
 - [`Unidentified U2716C35`](unknown/u2716c35-20261110/) — two matching
   2 KiB reads using different address shifters; Z80 keyboard-handling component
