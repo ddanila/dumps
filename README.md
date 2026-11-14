@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [EFA IES16 Novell RPL boot ROM](efa/ies16-rpl-v100/) — two matching 8 KiB
+  2764 reads, valid option-ROM checksum; RPL v1.00 (920626),
+  EFA NE2000-compatible MLID v1.0B (940331). No exact public match found.
+
 - [D-Link NE2000 BootROM V2.40](d-link/ne2000-v240/) — two matching 8 KiB
   2764 reads; Novell NetWare remote DOS loader, valid PC option-ROM checksum
   and emulator-verified INT 19h installer. No exact public match found.
