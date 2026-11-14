@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [Edimax ISA-16 boot ROM V3.2](edimax/isa16-v32/) — two matching 8 KiB
+  2764 reads, valid PC option-ROM checksum; Novell NetWare V2.10 loader,
+  Edimax version dated 931201. No exact public match found.
+
 - [EFA IES16 Novell RPL boot ROM](efa/ies16-rpl-v100/) — two matching 8 KiB
   2764 reads, valid option-ROM checksum; RPL v1.00 (920626),
   EFA NE2000-compatible MLID v1.0B (940331). No exact public match found.
