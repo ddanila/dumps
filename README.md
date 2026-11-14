@@ -14,7 +14,7 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
-- [Puritan Bennett 7200 MEGACPU](puritan-bennett/7200/megacpu/) — chips 0–5,
+- [Puritan Bennett 7200 MEGACPU](puritan-bennett/7200/megacpu/) — chips 0–6,
   two matching 64 KiB T48 reads each; x86 boot diagnostics and 26300-85-V text;
   provisional device type. Remaining ROM acquisition pending; chip 7 missing.
 

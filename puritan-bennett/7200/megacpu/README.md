@@ -1,7 +1,7 @@
 # Puritan Bennett 7200 MEGACPU EPROMs
 
 Owner reports nine EPROM positions numbered 0 through 8, with chip 7
-missing. Chips 0–5 have been read; 6 and 8 remain pending.
+missing. Chips 0–6 have been read; chip 8 remains pending.
 Board reference photo: `/home/ddanila/Downloads/133870106.jpg`.
 Chip 0's socket designation and full sticker text are not yet confirmed.
 Other visible ROMs carry `26300-85-V`; that label is not assigned to chip 0
@@ -147,6 +147,25 @@ finds 11 runs, including comma-separated templates beginning `TIME,` and
 `VCHG,`. Most of the capture is binary content consistent with code/tables;
 no complete disassembly or execution has been performed. Printable runs
 and offsets are saved in `evidence/chip5-strings.json`.
+
+Public searches by capture SHA-256, CRC32 and version/socket returned no
+matching candidate. Internet uniqueness is not established. The full raw
+capture and original acquisition evidence are preserved.
+
+## Chip 6 / U506: 26300-85-V
+
+Read twice on 2026-11-14 with the same T48 and provisional `M27512@DIP28`
+profile, with ID probing disabled. Both operations exited zero and the
+65536-byte captures match exactly. CRC32 is `a6cc92b3`. All 256 byte values
+occur; no repetition was found at 2, 4, 8, 16 or 32 KiB boundaries. Physical
+chip type and capacity remain unconfirmed.
+
+The overview sticker reads `6 U506 / 26300-85-V`. No runs of eight or more
+printable ASCII bytes were found; this does not exclude shorter text or
+other encodings. The image contains binary content consistent with code
+and ends in CC-filled bytes. No complete disassembly or execution has been
+performed. The empty printable-runs result is recorded in
+`evidence/chip6-strings.json`.
 
 Public searches by capture SHA-256, CRC32 and version/socket returned no
 matching candidate. Internet uniqueness is not established. The full raw
