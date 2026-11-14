@@ -8,6 +8,15 @@ Chip 0's socket designation and full sticker text are not yet confirmed.
 Other visible ROMs carry `26300-85-V`; that label is not assigned to chip 0
 without a readable photograph or independent evidence.
 
+## Firmware analysis and emulation
+
+The [firmware investigation](analysis/README.md) includes a reproducible 16-bit
+x86 execution harness, seven recorded experiments, a feature inventory, observed
+call/read references, and a [searchable catalog of 2,856 printable runs](analysis/catalog/strings.html).
+Original code reaches application startup, scheduler/serial activity and fault
+message formatting under documented peripheral mocks. Normal operation is not
+emulated; chip 7 remains missing and was not accessed by these paths.
+
 ## Chip 0 acquisition
 
 Read twice on 2026-11-14 with T48 firmware 00.1.03, minipro 0.7.4:
