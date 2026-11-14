@@ -1,0 +1,31 @@
+{
+  "cpu": "Motorola 6809",
+  "mapping": {
+    "U35": "4000-7fff (upper half of raw capture)",
+    "U36": "8000-ffff"
+  },
+  "checksums": {
+    "U35": {
+      "stored": "0415",
+      "computed": "0415",
+      "pass": true,
+      "sha256": "054dfcdc4fcb7d04c06237bf1d404ccc8b44d916839e1bf1d50c4799fa88509d"
+    },
+    "U36": {
+      "stored": "1aa9",
+      "computed": "1aa9",
+      "pass": true,
+      "sha256": "c86e51e80783964514a94d8a46e3b9caad7cea4cf3bffeab89e80f6fe5729c26"
+    }
+  },
+  "vectors": {
+    "SWI3": "0000",
+    "SWI2": "0000",
+    "FIRQ": "0000",
+    "IRQ": "a56a",
+    "SWI": "0000",
+    "NMI": "5b57",
+    "RESET": "8002"
+  },
+  "command_count": 53
+}

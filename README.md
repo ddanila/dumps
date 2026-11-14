@@ -21,6 +21,8 @@ than the firmware collection. Keep all-FF captures local as well.
 - [Perkin-Elmer TAC7/DX U35/U36](perkin-elmer/tac7dx/) — two matching T48
   reads per chip as 27256; U35 has identical 16 KiB halves, U36 has distinct
   halves. Raw 32 KiB captures retained; exact chip types remain provisional.
+  Includes [6809 firmware analysis and execution](perkin-elmer/tac7dx/analysis/):
+  embedded checksums, synthetic boot, 64 command cases and an acquisition IRQ.
 
 - [`Unidentified U2716C35`](unknown/u2716c35-20261110/) — two matching
   2 KiB reads using different address shifters; Z80 keyboard-handling component

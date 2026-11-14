@@ -37,3 +37,13 @@ functional validation of the firmware. U36 logs are in evidence and its
 metadata is the second entry in manifest.json. Public searches found the
 service manual and hardware listings, but no downloadable ROM candidate
 to compare. Both chips are now captured; U35's raw duplicated half is retained.
+
+## Firmware analysis and execution
+
+The [analysis report and reproducible harness](analysis/README.md) establish
+that these images contain a 6809 program identifying itself as
+`TAC7,N5208003REVA`. Both embedded checksums pass. With synthetic peripherals,
+the original ROMs pass startup diagnostics and reach the main service loop.
+The analysis also exercises 64 parser requests, two startup failures and
+the periodic acquisition interrupt. This is functional evidence beyond
+repeat reads; the harness is not a complete physical-instrument emulator.
