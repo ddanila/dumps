@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [D-Link NE2000 BootROM V2.40](d-link/ne2000-v240/) — two matching 8 KiB
+  2764 reads; Novell NetWare remote DOS loader, valid PC option-ROM checksum
+  and emulator-verified INT 19h installer. No exact public match found.
+
 - [Puritan Bennett 7200 MEGACPU](puritan-bennett/7200/megacpu/) — all eight available chips (0–6, 8),
   two matching 64 KiB T48 reads each; x86 boot diagnostics and 26300-85-V text;
   provisional device type. Acquisition complete for present chips; chip 7 missing.
