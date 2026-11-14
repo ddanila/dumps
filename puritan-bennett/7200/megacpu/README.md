@@ -1,7 +1,7 @@
 # Puritan Bennett 7200 MEGACPU EPROMs
 
 Owner reports nine EPROM positions numbered 0 through 8, with chip 7
-missing. Chips 0 and 1 have been read; 2–6 and 8 remain pending.
+missing. Chips 0–2 have been read; 3–6 and 8 remain pending.
 Board reference photo: `/home/ddanila/Downloads/133870106.jpg`.
 Chip 0's socket designation and full sticker text are not yet confirmed.
 Other visible ROMs carry `26300-85-V`; that label is not assigned to chip 0
@@ -71,3 +71,24 @@ no execution or complete code/data classification has yet been performed.
 independently lists `26300-85-V` as a PB7200 software version. Public searches
 by this version and the capture hashes found documentation but no matching
 downloadable ROM candidate. This does not establish Internet uniqueness.
+
+## Chip 2 / U305: 26300-85-V
+
+Read twice on 2026-11-14 with the same T48 and provisional `M27512@DIP28`
+profile, with ID probing disabled. Both operations exited zero and the
+65536-byte captures match exactly. CRC32 is `b4257daa`; 250 distinct byte
+values occur, and the capture does not repeat at 2, 4, 8, 16 or 32 KiB
+boundaries. Physical chip type and capacity remain unconfirmed.
+
+The overview sticker reads `2 U305 / 26300-85-V`. The image begins with
+extensive display text, including compliance and resistance measurements,
+inspiratory pressure, vital capacity, waveform ranges, trending, cursor
+movement and printing prompts. For example: `PRESS ALARM RESET TWICE TO
+ABORT PRINTING` and `ACCESS FUNCTION 61 TO CHANGE OR EXIT TRENDING`.
+The last 64 bytes are CC-filled. This is another component of the
+application ROM set; no complete code/data classification or execution has
+been performed. Printable runs and offsets are in `evidence/chip2-strings.json`.
+
+Public searches by SHA-256, CRC32 and version/socket found no downloadable
+matching candidate. This does not establish Internet uniqueness. Full raw
+bytes and original read evidence are retained unchanged.
