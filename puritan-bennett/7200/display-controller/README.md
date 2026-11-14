@@ -2,7 +2,7 @@
 
 Board photographed by owner: Display Controller Assy 19570, revision label
 `-30D`. The three yellow-labelled EPROMs are Q1/U406, Q2/U504 and Q3/U507.
-Only Q1 has been acquired so far. Photo reference:
+Q1 and Q2 have been acquired; Q3 is still pending. Photo reference:
 `/home/ddanila/Downloads/133870084.jpg`.
 
 ## Q1 / U406: Q1-962269, 19536-H
@@ -48,3 +48,21 @@ Public searches by sticker, candidate-image SHA-256 and system name found
 no downloadable matching dump. This does not establish Internet uniqueness.
 Original logs and session metadata are preserved in `evidence/`; both raw
 reads remain in the local session path recorded in `manifest.json`.
+
+## Q2 / U504: Q2-962379, 19535-H
+
+Read twice on 2026-11-14 with the same T48 and provisional `M2732A@DIP24`
+profile, with ID probing disabled. Both reads exited zero and match exactly.
+The 4096-byte raw capture contains identical 2048-byte halves, each with
+254 distinct byte values. Its CRC32 is `3e4746fc`. As for Q1, repetition
+supports a 2 KiB image but does not prove the physical device type.
+
+The identifier `Q2-962379` occurs at offset 0x7f5 in each half and matches
+the sticker. The body contains increasing little-endian 16-bit values,
+consistent with air-flow sensor calibration data. The table differs from Q1;
+its values after the first two words rise from zero to 5449 before FF
+padding, the identifier and two trailing bytes. Units and checksum meaning
+remain unconfirmed. The full duplicated capture is retained unchanged.
+
+Searches by Q2 label and candidate-image hash found no matching downloadable
+candidate. Original read logs and session metadata are in `evidence/`.
