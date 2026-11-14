@@ -2,7 +2,7 @@
 
 Board photographed by owner: Display Controller Assy 19570, revision label
 `-30D`. The three yellow-labelled EPROMs are Q1/U406, Q2/U504 and Q3/U507.
-Q1 and Q2 have been acquired; Q3 is still pending. Photo reference:
+All three have been acquired with two matching reads per chip. Photo reference:
 `/home/ddanila/Downloads/133870084.jpg`.
 
 ## Q1 / U406: Q1-962269, 19536-H
@@ -66,3 +66,25 @@ remain unconfirmed. The full duplicated capture is retained unchanged.
 
 Searches by Q2 label and candidate-image hash found no matching downloadable
 candidate. Original read logs and session metadata are in `evidence/`.
+
+## Q3 / U507: Q3-963423, 18256-E
+
+Read twice on 2026-11-14 using the same T48 and provisional `M2732A@DIP24`
+profile, with ID probing disabled. Both reads exited zero and match exactly.
+The 4096-byte capture contains identical 2048-byte halves, each with 253
+distinct byte values. CRC32 of the raw capture is `ed178012`. The physical
+chip type remains unconfirmed; the full duplicated capture is preserved.
+
+Each half contains `Q3-963423` at offset 0x7f5, matching the sticker. The
+little-endian 16-bit table following the first two words rises from zero
+to 6001 before FF padding, the identifier and two trailing bytes. This is
+consistent with the exhalation-flow sensor calibration interpretation.
+Physical units and any checksum interpretation remain unresolved.
+
+Public searches by Q3 label and candidate-image hash found no matching
+downloadable candidate. Both original read logs and metadata are preserved
+in `evidence/`; the complete two-read session remains at the recorded path.
+
+All three captured images have the same broad layout but different numeric
+tables and matching individual sensor identifiers. All three yellow-labelled
+sensor EPROMs on this display controller are now preserved.
