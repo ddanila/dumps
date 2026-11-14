@@ -1,7 +1,7 @@
 # Puritan Bennett 7200 MEGACPU EPROMs
 
 Owner reports nine EPROM positions numbered 0 through 8, with chip 7
-missing. Only chip 0 has been read so far; 1–6 and 8 remain pending.
+missing. Chips 0 and 1 have been read; 2–6 and 8 remain pending.
 Board reference photo: `/home/ddanila/Downloads/133870106.jpg`.
 Chip 0's socket designation and full sticker text are not yet confirmed.
 Other visible ROMs carry `26300-85-V`; that label is not assigned to chip 0
@@ -47,3 +47,27 @@ The manufacturer's [parts list](https://doczz.net/doc/2483138/puritan-bennett-72
 identifies the MegaCPU as 80188-based, consistent with the x86 reset sequence.
 Public searches by capture SHA-256, CRC32 and system name found no matching
 downloadable dump. Internet uniqueness is not established.
+
+## Chip 1 / U304: 26300-85-V
+
+Read twice on 2026-11-14 with the same T48 and provisional `M27512@DIP28`
+profile, ID probing disabled. Both reads exited zero and match exactly.
+The unchanged capture is 65536 bytes, CRC32 `894e6c09`, and includes all
+256 byte values. It does not repeat at 2, 4, 8, 16 or 32 KiB boundaries;
+physical chip type and capacity remain provisional.
+
+The overview photo identifies the sticker as `1 U304 / 26300-85-V`. The
+capture contains the matching ASCII identifier `26300-85-V`, model strings
+`7200e`, `7200spe`, and `7200ae`, and `19951018080000`, plausibly a build
+timestamp of 1995-10-18 08:00:00 (interpretation not independently verified).
+There are extensive keyboard prompts, self-test and display messages,
+including `PUSH ALRM RESET`, `INVALID KEY`, `CONNECT AIR`, `CONNECT O2`,
+`EST PASS`, `EST FAIL`, and a message about turning off trending before
+accessing a results screen. Printable runs and offsets are saved in
+`evidence/chip1-strings.json`. This is part of the application ROM set;
+no execution or complete code/data classification has yet been performed.
+
+[Fukuda's DS-7200 maintenance manual](https://www.fukuda.co.uk/products/sitefiles/DS-7200_MAINT_4L010032C_CE.pdf)
+independently lists `26300-85-V` as a PB7200 software version. Public searches
+by this version and the capture hashes found documentation but no matching
+downloadable ROM candidate. This does not establish Internet uniqueness.
