@@ -111,3 +111,12 @@ claim that this image has never been published.
   returned HTTP 406 and remains untested.
 
 Comparator files stay in the local session, outside this preservation directory.
+
+## Second matching chip
+
+A second owner-supplied 2764 was read twice on 2026-11-14 (session
+`orphan-2764-t48-20261114-222425`). Both 8192-byte captures match each other
+and the canonical image byte-for-byte, CRC32 `d03c2ee5`, checksum 00.
+Logs and acquisition metadata are in `evidence/second-chip-20261114/`;
+no duplicate ROM binary is stored. Full markings and originating board
+remain unknown.
