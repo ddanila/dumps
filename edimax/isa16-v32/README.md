@@ -65,3 +65,10 @@ public match. This is a bounded search, not proof of uniqueness.
 
 Comparator copies remain in the earlier local D-Link acquisition session;
 comparison results are preserved in `evidence/comparisons.json`.
+
+## Second matching acquisition
+
+Another owner-supplied 2764 was read twice on 2026-11-15 in session
+`orphan-2764-t48-20261115-144157`. Both 8192-byte captures match the
+canonical image exactly, CRC32 `7aae0416`, option-ROM checksum 00.
+Evidence is in `evidence/second-chip-20261115/`; no duplicate ROM is stored.
