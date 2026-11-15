@@ -66,3 +66,10 @@ and [E1160C NetWare ROM](https://github.com/dlitz/E1160C-Netware-BootROM): neith
 contains this 8192-byte image at any offset. Searches of the local MAME source
 found no matching CRC32, SHA-1 or IES16 identifier. Other public archives have
 not been exhaustively checked.
+
+## Second matching acquisition
+
+Another owner-supplied 2764 was read twice on 2026-11-15 in session
+`orphan-2764-t48-20261115-144302`. Both 8192-byte captures match the
+canonical image exactly, CRC32 `95abede4`, option-ROM checksum 00.
+Evidence is in `evidence/second-chip-20261115/`; no duplicate ROM is stored.
