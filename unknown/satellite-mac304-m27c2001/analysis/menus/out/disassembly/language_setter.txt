@@ -1,0 +1,52 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 92 @ 60809 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x0000ed89      906871         mov dptr, #0x6871
+0x0000ed8c      ef             mov a, r7
+0x0000ed8d      f0             movx @dptr, a
+0x0000ed8e      906951         mov dptr, #0x6951
+0x0000ed91      ef             mov a, r7
+0x0000ed92      f0             movx @dptr, a
+0x0000ed93      906871         mov dptr, #0x6871
+0x0000ed96      e0             movx a, @dptr
+0x0000ed97      907447         mov dptr, #0x7447
+0x0000ed9a      f0             movx @dptr, a
+0x0000ed9b      906864         mov dptr, #0x6864
+0x0000ed9e      7401           mov a, #0x01
+0x0000eda0      f0             movx @dptr, a
+0x0000eda1      a3             inc dptr
+0x0000eda2      f0             movx @dptr, a
+0x0000eda3      a3             inc dptr
+0x0000eda4      7469           mov a, #0x69
+0x0000eda6      f0             movx @dptr, a
+0x0000eda7      a3             inc dptr
+0x0000eda8      7451           mov a, #0x51
+0x0000edaa      f0             movx @dptr, a
+0x0000edab      7f14           mov r7, #0x14
+0x0000edad      7e00           mov r6, #0x00
+0x0000edaf      7402           mov a, #0x02
+0x0000edb1      908dee         mov dptr, #0x8dee
+0x0000edb4      1207c5         lcall 0x07c5
+0x0000edb7      906964         mov dptr, #0x6964
+0x0000edba      e0             movx a, @dptr
+0x0000edbb      54fe           anl a, #0xfe
+0x0000edbd      f0             movx @dptr, a
+0x0000edbe      906864         mov dptr, #0x6864
+0x0000edc1      7401           mov a, #0x01
+0x0000edc3      f0             movx @dptr, a
+0x0000edc4      a3             inc dptr
+0x0000edc5      f0             movx @dptr, a
+0x0000edc6      a3             inc dptr
+0x0000edc7      7469           mov a, #0x69
+0x0000edc9      f0             movx @dptr, a
+0x0000edca      a3             inc dptr
+0x0000edcb      7464           mov a, #0x64
+0x0000edcd      f0             movx @dptr, a
+0x0000edce      7f27           mov r7, #0x27
+0x0000edd0      7e00           mov r6, #0x00
+0x0000edd2      7402           mov a, #0x02
+0x0000edd4      908dee         mov dptr, #0x8dee
+0x0000edd7      1207c5         lcall 0x07c5
+0x0000edda      7400           mov a, #0x00
+0x0000eddc      90dcd3         mov dptr, #0xdcd3
+0x0000eddf      1207c5         lcall 0x07c5
+0x0000ede2      0207e4         ljmp 0x07e4

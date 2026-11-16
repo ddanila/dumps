@@ -1,0 +1,40 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 69 @ 72629 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x00011bb5      7902           mov r1, #0x02
+0x00011bb7      7a77           mov r2, #0x77
+0x00011bb9      7bce           mov r3, #0xce
+0x00011bbb      741b           mov a, #0x1b
+0x00011bbd      122753         lcall 0x2753
+0x00011bc0      122625         lcall 0x2625
+0x00011bc3      906aff         mov dptr, #0x6aff
+0x00011bc6      ef             mov a, r7
+0x00011bc7      f0             movx @dptr, a
+0x00011bc8      906869         mov dptr, #0x6869
+0x00011bcb      e0             movx a, @dptr
+0x00011bcc      906863         mov dptr, #0x6863
+0x00011bcf      f0             movx @dptr, a
+0x00011bd0      a3             inc dptr
+0x00011bd1      7406           mov a, #0x06
+0x00011bd3      f0             movx @dptr, a
+0x00011bd4      906868         mov dptr, #0x6868
+0x00011bd7      e0             movx a, @dptr
+0x00011bd8      ff             mov r7, a
+0x00011bd9      7e00           mov r6, #0x00
+0x00011bdb      ef             mov a, r7
+0x00011bdc      75f01b         mov 0xf0, #0x1b
+0x00011bdf      a4             mul ab
+0x00011be0      ce             xch a, r6
+0x00011be1      aff0           mov r7, 0xf0
+0x00011be3      75f01b         mov 0xf0, #0x1b
+0x00011be6      a4             mul ab
+0x00011be7      2f             add a, r7
+0x00011be8      ce             xch a, r6
+0x00011be9      24d6           add a, #0xd6
+0x00011beb      ff             mov r7, a
+0x00011bec      ee             mov a, r6
+0x00011bed      3477           addc a, #0x77
+0x00011bef      fe             mov r6, a
+0x00011bf0      7d02           mov r5, #0x02
+0x00011bf2      7402           mov a, #0x02
+0x00011bf4      90a215         mov dptr, #0xa215
+0x00011bf7      1207c5         lcall 0x07c5

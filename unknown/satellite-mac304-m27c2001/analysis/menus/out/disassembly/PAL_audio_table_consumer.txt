@@ -1,0 +1,39 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 59 @ 150819 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x00024d23      906863         mov dptr, #0x6863
+0x00024d26      7405           mov a, #0x05
+0x00024d28      f0             movx @dptr, a
+0x00024d29      a3             inc dptr
+0x00024d2a      7413           mov a, #0x13
+0x00024d2c      f0             movx @dptr, a
+0x00024d2d      9068ec         mov dptr, #0x68ec
+0x00024d30      e0             movx a, @dptr
+0x00024d31      24d3           add a, #0xd3
+0x00024d33      f582           mov 0x82, a
+0x00024d35      e4             clr a
+0x00024d36      347e           addc a, #0x7e
+0x00024d38      f583           mov 0x83, a
+0x00024d3a      e4             clr a
+0x00024d3b      93             movc a, @a+dptr
+0x00024d3c      540f           anl a, #0x0f
+0x00024d3e      75f003         mov 0xf0, #0x03
+0x00024d41      a4             mul ab
+0x00024d42      24ac           add a, #0xac
+0x00024d44      f582           mov 0x82, a
+0x00024d46      e4             clr a
+0x00024d47      347e           addc a, #0x7e
+0x00024d49      f583           mov 0x83, a
+0x00024d4b      e4             clr a
+0x00024d4c      93             movc a, @a+dptr
+0x00024d4d      fd             mov r5, a
+0x00024d4e      a3             inc dptr
+0x00024d4f      e4             clr a
+0x00024d50      93             movc a, @a+dptr
+0x00024d51      fe             mov r6, a
+0x00024d52      a3             inc dptr
+0x00024d53      e4             clr a
+0x00024d54      93             movc a, @a+dptr
+0x00024d55      ff             mov r7, a
+0x00024d56      7402           mov a, #0x02
+0x00024d58      90a215         mov dptr, #0xa215
+0x00024d5b      1207c5         lcall 0x07c5

@@ -1,0 +1,28 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 59 @ 144357 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x000233e5      9068a7         mov dptr, #0x68a7
+0x000233e8      e0             movx a, @dptr
+0x000233e9      ff             mov r7, a
+0x000233ea      7403           mov a, #0x03
+0x000233ec      90ad43         mov dptr, #0xad43
+0x000233ef      1207c5         lcall 0x07c5
+0x000233f2      ef             mov a, r7
+0x000233f3      702b           jnz 0x3420
+0x000233f5      9077ef         mov dptr, #0x77ef
+0x000233f8      7405           mov a, #0x05
+0x000233fa      f0             movx @dptr, a
+0x000233fb      7402           mov a, #0x02
+0x000233fd      90abf1         mov dptr, #0xabf1
+0x00023400      1207c5         lcall 0x07c5
+0x00023403      7402           mov a, #0x02
+0x00023405      909739         mov dptr, #0x9739
+0x00023408      1207c5         lcall 0x07c5
+0x0002340b      9068a9         mov dptr, #0x68a9
+0x0002340e      e0             movx a, @dptr
+0x0002340f      906886         mov dptr, #0x6886
+0x00023412      f0             movx @dptr, a
+0x00023413      7fff           mov r7, #0xff
+0x00023415      7403           mov a, #0x03
+0x00023417      90a847         mov dptr, #0xa847
+0x0002341a      1207c5         lcall 0x07c5
+0x0002341d      0207e4         ljmp 0x07e4

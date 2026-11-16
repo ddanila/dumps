@@ -1,0 +1,38 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 67 @ 142291 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x00022bd3      9077be         mov dptr, #0x77be
+0x00022bd6      e0             movx a, @dptr
+0x00022bd7      ff             mov r7, a
+0x00022bd8      7037           jnz 0x2c11
+0x00022bda      9077be         mov dptr, #0x77be
+0x00022bdd      7401           mov a, #0x01
+0x00022bdf      f0             movx @dptr, a
+0x00022be0      7403           mov a, #0x03
+0x00022be2      90ac16         mov dptr, #0xac16
+0x00022be5      1207c5         lcall 0x07c5
+0x00022be8      9077bf         mov dptr, #0x77bf
+0x00022beb      e0             movx a, @dptr
+0x00022bec      90686a         mov dptr, #0x686a
+0x00022bef      f0             movx @dptr, a
+0x00022bf0      a3             inc dptr
+0x00022bf1      e4             clr a
+0x00022bf2      f0             movx @dptr, a
+0x00022bf3      9077be         mov dptr, #0x77be
+0x00022bf6      e0             movx a, @dptr
+0x00022bf7      c3             clr c
+0x00022bf8      33             rlc a
+0x00022bf9      247d           add a, #0x7d
+0x00022bfb      ff             mov r7, a
+0x00022bfc      e4             clr a
+0x00022bfd      3468           addc a, #0x68
+0x00022bff      fe             mov r6, a
+0x00022c00      7d01           mov r5, #0x01
+0x00022c02      7403           mov a, #0x03
+0x00022c04      90a7d0         mov dptr, #0xa7d0
+0x00022c07      1207c5         lcall 0x07c5
+0x00022c0a      9077bf         mov dptr, #0x77bf
+0x00022c0d      ef             mov a, r7
+0x00022c0e      f0             movx @dptr, a
+0x00022c0f      8000           sjmp 0x2c11
+0x00022c11      8000           sjmp 0x2c13
+0x00022c13      0207e4         ljmp 0x07e4

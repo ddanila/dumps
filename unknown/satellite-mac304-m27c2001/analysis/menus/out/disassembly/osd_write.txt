@@ -1,0 +1,51 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 96 @ 121044 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x0001d8d4      90685d         mov dptr, #0x685d
+0x0001d8d7      ee             mov a, r6
+0x0001d8d8      f0             movx @dptr, a
+0x0001d8d9      a3             inc dptr
+0x0001d8da      ef             mov a, r7
+0x0001d8db      f0             movx @dptr, a
+0x0001d8dc      4e             orl a, r6
+0x0001d8dd      6019           jz 0xd8f8
+0x0001d8df      7402           mov a, #0x02
+0x0001d8e1      90d876         mov dptr, #0xd876
+0x0001d8e4      1207c5         lcall 0x07c5
+0x0001d8e7      90685d         mov dptr, #0x685d
+0x0001d8ea      e0             movx a, @dptr
+0x0001d8eb      f55c           mov 0x5c, a
+0x0001d8ed      a3             inc dptr
+0x0001d8ee      e0             movx a, @dptr
+0x0001d8ef      f55d           mov 0x5d, a
+0x0001d8f1      7f7a           mov r7, #0x7a
+0x0001d8f3      7e01           mov r6, #0x01
+0x0001d8f5      1203c8         lcall 0x03c8
+0x0001d8f8      7402           mov a, #0x02
+0x0001d8fa      90d876         mov dptr, #0xd876
+0x0001d8fd      1207c5         lcall 0x07c5
+0x0001d900      90685f         mov dptr, #0x685f
+0x0001d903      e0             movx a, @dptr
+0x0001d904      f55c           mov 0x5c, a
+0x0001d906      7f7c           mov r7, #0x7c
+0x0001d908      7e01           mov r6, #0x01
+0x0001d90a      120354         lcall 0x0354
+0x0001d90d      0207e4         ljmp 0x07e4
+0x0001d910      90685d         mov dptr, #0x685d
+0x0001d913      ee             mov a, r6
+0x0001d914      f0             movx @dptr, a
+0x0001d915      a3             inc dptr
+0x0001d916      ef             mov a, r7
+0x0001d917      f0             movx @dptr, a
+0x0001d918      7402           mov a, #0x02
+0x0001d91a      90d876         mov dptr, #0xd876
+0x0001d91d      1207c5         lcall 0x07c5
+0x0001d920      90685d         mov dptr, #0x685d
+0x0001d923      e0             movx a, @dptr
+0x0001d924      f55c           mov 0x5c, a
+0x0001d926      a3             inc dptr
+0x0001d927      e0             movx a, @dptr
+0x0001d928      f55d           mov 0x5d, a
+0x0001d92a      7f7a           mov r7, #0x7a
+0x0001d92c      7e01           mov r6, #0x01
+0x0001d92e      1203c8         lcall 0x03c8
+0x0001d931      0207e4         ljmp 0x07e4

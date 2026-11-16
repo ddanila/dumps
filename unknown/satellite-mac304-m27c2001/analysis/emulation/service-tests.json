@@ -1,0 +1,8849 @@
+{
+  "status": "static test specifications; not executed",
+  "call_convention": "All banked entries through common07c5; target returns07e4. Hardware I/O/draw routines need emulator support. Setup maps are hexadecimal addresses, numeric values decimal. Capture expected scratch before any dependent redraw/peripheral side effects.",
+  "mac_rows": [
+    {
+      "row": 0,
+      "file": "0x77ce",
+      "label": "VCO          DMA14",
+      "flags": "0x20",
+      "device": 0,
+      "register": 14,
+      "setting_index": 0,
+      "lower_comparison_threshold": 128,
+      "upper_comparison_threshold": 127,
+      "default": 0,
+      "step": 1,
+      "signed": true,
+      "scratch": "0x6b02",
+      "coupled_next_row": false
+    },
+    {
+      "row": 1,
+      "file": "0x77e9",
+      "label": "EDC         DMA198",
+      "flags": "0x80",
+      "device": 0,
+      "register": 198,
+      "setting_index": 37,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 63,
+      "default": 56,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b03",
+      "coupled_next_row": false
+    },
+    {
+      "row": 2,
+      "file": "0x7804",
+      "label": "PLL gain    DMA199",
+      "flags": "0x40",
+      "device": 4,
+      "register": 199,
+      "setting_index": 35,
+      "lower_comparison_threshold": 15,
+      "upper_comparison_threshold": 48,
+      "default": 0,
+      "step": 16,
+      "signed": false,
+      "scratch": "0x6b04",
+      "coupled_next_row": false
+    },
+    {
+      "row": 3,
+      "file": "0x781f",
+      "label": "Slice level DMA199",
+      "flags": "0x42",
+      "device": 4,
+      "register": 199,
+      "setting_index": 35,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 255,
+      "default": 36,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b05",
+      "coupled_next_row": false
+    },
+    {
+      "row": 4,
+      "file": "0x783a",
+      "label": "Color  Vsat  DMA23",
+      "flags": "0x10",
+      "device": 0,
+      "register": 23,
+      "setting_index": 2,
+      "lower_comparison_threshold": 3,
+      "upper_comparison_threshold": 252,
+      "default": 92,
+      "step": 4,
+      "signed": false,
+      "scratch": "0x6b06",
+      "coupled_next_row": true
+    },
+    {
+      "row": 5,
+      "file": "0x7855",
+      "label": "Color  Usat  DMA23",
+      "flags": "0x2",
+      "device": 0,
+      "register": 23,
+      "setting_index": 2,
+      "lower_comparison_threshold": 3,
+      "upper_comparison_threshold": 252,
+      "default": 64,
+      "step": 4,
+      "signed": false,
+      "scratch": "0x6b07",
+      "coupled_next_row": false
+    },
+    {
+      "row": 6,
+      "file": "0x7870",
+      "label": "Luma delay  DMA200",
+      "flags": "0x0",
+      "device": 0,
+      "register": 200,
+      "setting_index": 4,
+      "lower_comparison_threshold": 7,
+      "upper_comparison_threshold": 240,
+      "default": 96,
+      "step": 8,
+      "signed": false,
+      "scratch": "0x6b08",
+      "coupled_next_row": false
+    },
+    {
+      "row": 7,
+      "file": "0x788b",
+      "label": "Contrast    DMA200",
+      "flags": "0x2",
+      "device": 0,
+      "register": 200,
+      "setting_index": 4,
+      "lower_comparison_threshold": 3,
+      "upper_comparison_threshold": 252,
+      "default": 109,
+      "step": 4,
+      "signed": false,
+      "scratch": "0x6b09",
+      "coupled_next_row": false
+    },
+    {
+      "row": 8,
+      "file": "0x78a6",
+      "label": "Blank delay DMA202",
+      "flags": "0x0",
+      "device": 0,
+      "register": 202,
+      "setting_index": 6,
+      "lower_comparison_threshold": 1,
+      "upper_comparison_threshold": 254,
+      "default": 96,
+      "step": 2,
+      "signed": false,
+      "scratch": "0x6b0a",
+      "coupled_next_row": false
+    },
+    {
+      "row": 9,
+      "file": "0x78c1",
+      "label": "Sync delay  DMA202",
+      "flags": "0x2",
+      "device": 0,
+      "register": 202,
+      "setting_index": 6,
+      "lower_comparison_threshold": 1,
+      "upper_comparison_threshold": 254,
+      "default": 124,
+      "step": 2,
+      "signed": false,
+      "scratch": "0x6b0b",
+      "coupled_next_row": false
+    },
+    {
+      "row": 10,
+      "file": "0x78dc",
+      "label": "Brightness   VCU16",
+      "flags": "0x0",
+      "device": 0,
+      "register": 16,
+      "setting_index": 8,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 255,
+      "default": 127,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b0c",
+      "coupled_next_row": false
+    },
+    {
+      "row": 11,
+      "file": "0x78f7",
+      "label": "VCU flags    VCU16",
+      "flags": "0x2",
+      "device": 0,
+      "register": 16,
+      "setting_index": 8,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 0,
+      "default": 188,
+      "step": 0,
+      "signed": false,
+      "scratch": "0x6b0d",
+      "coupled_next_row": false
+    },
+    {
+      "row": 12,
+      "file": "0x7912",
+      "label": "Red drive    VCU17",
+      "flags": "0x0",
+      "device": 0,
+      "register": 17,
+      "setting_index": 10,
+      "lower_comparison_threshold": 1,
+      "upper_comparison_threshold": 254,
+      "default": 225,
+      "step": 2,
+      "signed": false,
+      "scratch": "0x6b0e",
+      "coupled_next_row": false
+    },
+    {
+      "row": 13,
+      "file": "0x792d",
+      "label": "Red cutoff   VCU17",
+      "flags": "0x2",
+      "device": 0,
+      "register": 17,
+      "setting_index": 10,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 255,
+      "default": 100,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b0f",
+      "coupled_next_row": false
+    },
+    {
+      "row": 14,
+      "file": "0x7948",
+      "label": "Green drive  VCU18",
+      "flags": "0x0",
+      "device": 0,
+      "register": 18,
+      "setting_index": 12,
+      "lower_comparison_threshold": 1,
+      "upper_comparison_threshold": 254,
+      "default": 225,
+      "step": 2,
+      "signed": false,
+      "scratch": "0x6b10",
+      "coupled_next_row": false
+    },
+    {
+      "row": 15,
+      "file": "0x7963",
+      "label": "Green cutoff VCU18",
+      "flags": "0x2",
+      "device": 0,
+      "register": 18,
+      "setting_index": 12,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 255,
+      "default": 100,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b11",
+      "coupled_next_row": false
+    },
+    {
+      "row": 16,
+      "file": "0x797e",
+      "label": "Blue drive   VCU19",
+      "flags": "0x0",
+      "device": 0,
+      "register": 19,
+      "setting_index": 14,
+      "lower_comparison_threshold": 1,
+      "upper_comparison_threshold": 254,
+      "default": 224,
+      "step": 2,
+      "signed": false,
+      "scratch": "0x6b12",
+      "coupled_next_row": false
+    },
+    {
+      "row": 17,
+      "file": "0x7999",
+      "label": "Blue cutoff  VCU19",
+      "flags": "0x2",
+      "device": 0,
+      "register": 19,
+      "setting_index": 14,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 255,
+      "default": 100,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b13",
+      "coupled_next_row": false
+    },
+    {
+      "row": 18,
+      "file": "0x79b4",
+      "label": "OSD contrast VCU27",
+      "flags": "0x0",
+      "device": 0,
+      "register": 27,
+      "setting_index": 16,
+      "lower_comparison_threshold": 3,
+      "upper_comparison_threshold": 252,
+      "default": 71,
+      "step": 4,
+      "signed": false,
+      "scratch": "0x6b14",
+      "coupled_next_row": false
+    },
+    {
+      "row": 19,
+      "file": "0x79cf",
+      "label": "Volume         K34",
+      "flags": "0x1",
+      "device": 3,
+      "register": 98,
+      "setting_index": 18,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 29,
+      "default": 24,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b15",
+      "coupled_next_row": false
+    },
+    {
+      "row": 20,
+      "file": "0x79ea",
+      "label": "Text delay     TPU",
+      "flags": "0x9",
+      "device": 0,
+      "register": 0,
+      "setting_index": 19,
+      "lower_comparison_threshold": 0,
+      "upper_comparison_threshold": 63,
+      "default": 14,
+      "step": 1,
+      "signed": false,
+      "scratch": "0x6b16",
+      "coupled_next_row": false
+    }
+  ],
+  "cases": [
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 0,
+      "event": 0,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 127,
+      "event": 1,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 128,
+      "event": 0,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 128,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 0,
+      "start": 255,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 0,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 2,
+      "expected": 4,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 3,
+      "expected": 8,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 4,
+      "expected": 16,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 5,
+      "expected": 32,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 6,
+      "expected": 64,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 0,
+      "start": 0,
+      "event": 7,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 0,
+        "6aff": 32,
+        "0x6b02": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 56,
+      "event": 0,
+      "expected": 55,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 56,
+      "event": 1,
+      "expected": 57,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 63,
+      "event": 0,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 63
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 63,
+      "event": 1,
+      "expected": 63,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 63
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 127,
+      "event": 1,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 128,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 1,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 0,
+      "expected": 57,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 1,
+      "expected": 58,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 2,
+      "expected": 60,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 3,
+      "expected": 48,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 4,
+      "expected": 40,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 5,
+      "expected": 24,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 6,
+      "expected": 120,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 1,
+      "start": 56,
+      "event": 7,
+      "expected": 184,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 1,
+        "6aff": 128,
+        "0x6b03": 56
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 0,
+      "event": 1,
+      "expected": 16,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 15,
+      "event": 0,
+      "expected": 15,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 15
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 15,
+      "event": 1,
+      "expected": 31,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 15
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 48,
+      "event": 0,
+      "expected": 32,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 48
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 48,
+      "event": 1,
+      "expected": 48,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 48
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 127,
+      "event": 0,
+      "expected": 111,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 127,
+      "event": 1,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 128,
+      "event": 0,
+      "expected": 112,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 128,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 255,
+      "event": 0,
+      "expected": 239,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 2,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 0,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 2,
+      "expected": 4,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 3,
+      "expected": 8,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 4,
+      "expected": 16,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 5,
+      "expected": 32,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 6,
+      "expected": 64,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 2,
+      "start": 0,
+      "event": 7,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 2,
+        "6aff": 64,
+        "0x6b04": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 36,
+      "event": 0,
+      "expected": 35,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 36,
+      "event": 1,
+      "expected": 37,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 127,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 128,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 3,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 0,
+      "expected": 37,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 1,
+      "expected": 38,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 2,
+      "expected": 32,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 3,
+      "expected": 44,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 4,
+      "expected": 52,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 5,
+      "expected": 4,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 6,
+      "expected": 100,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 3,
+      "start": 36,
+      "event": 7,
+      "expected": 164,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 3,
+        "6aff": 66,
+        "0x6b05": 36
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 0,
+      "event": 1,
+      "expected": 4,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 3,
+      "event": 0,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 3,
+      "event": 1,
+      "expected": 7,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 92,
+      "event": 0,
+      "expected": 88,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 92,
+      "event": 1,
+      "expected": 96,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 127,
+      "event": 0,
+      "expected": 123,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 127,
+      "event": 1,
+      "expected": 131,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 128,
+      "event": 0,
+      "expected": 124,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 128,
+      "event": 1,
+      "expected": 132,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 252,
+      "event": 0,
+      "expected": 248,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 252,
+      "event": 1,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 255,
+      "event": 0,
+      "expected": 251,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 4,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 0,
+      "expected": 93,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 1,
+      "expected": 94,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 2,
+      "expected": 88,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 3,
+      "expected": 84,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 4,
+      "expected": 76,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 5,
+      "expected": 124,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 6,
+      "expected": 28,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 4,
+      "start": 92,
+      "event": 7,
+      "expected": 220,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 4,
+        "6aff": 16,
+        "0x6b06": 92
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 0,
+      "event": 1,
+      "expected": 4,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 3,
+      "event": 0,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 3,
+      "event": 1,
+      "expected": 7,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 64,
+      "event": 0,
+      "expected": 60,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 64,
+      "event": 1,
+      "expected": 68,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 127,
+      "event": 0,
+      "expected": 123,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 127,
+      "event": 1,
+      "expected": 131,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 128,
+      "event": 0,
+      "expected": 124,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 128,
+      "event": 1,
+      "expected": 132,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 252,
+      "event": 0,
+      "expected": 248,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 252,
+      "event": 1,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 255,
+      "event": 0,
+      "expected": 251,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 5,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 0,
+      "expected": 65,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 1,
+      "expected": 66,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 2,
+      "expected": 68,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 3,
+      "expected": 72,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 4,
+      "expected": 80,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 5,
+      "expected": 96,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 6,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 5,
+      "start": 64,
+      "event": 7,
+      "expected": 192,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 5,
+        "6aff": 2,
+        "0x6b07": 64
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 0,
+      "event": 1,
+      "expected": 8,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 7,
+      "event": 0,
+      "expected": 7,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 7
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 7,
+      "event": 1,
+      "expected": 15,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 7
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 96,
+      "event": 0,
+      "expected": 88,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 96,
+      "event": 1,
+      "expected": 104,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 127,
+      "event": 0,
+      "expected": 119,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 127,
+      "event": 1,
+      "expected": 135,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 128,
+      "event": 0,
+      "expected": 120,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 128,
+      "event": 1,
+      "expected": 136,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 240,
+      "event": 0,
+      "expected": 232,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 240
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 240,
+      "event": 1,
+      "expected": 240,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 240
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 255,
+      "event": 0,
+      "expected": 247,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 6,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 0,
+      "expected": 97,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 1,
+      "expected": 98,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 2,
+      "expected": 100,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 3,
+      "expected": 104,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 4,
+      "expected": 112,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 5,
+      "expected": 64,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 6,
+      "expected": 32,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 6,
+      "start": 96,
+      "event": 7,
+      "expected": 224,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 6,
+        "6aff": 0,
+        "0x6b08": 96
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 0,
+      "event": 1,
+      "expected": 4,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 3,
+      "event": 0,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 3,
+      "event": 1,
+      "expected": 7,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 109,
+      "event": 0,
+      "expected": 105,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 109,
+      "event": 1,
+      "expected": 113,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 127,
+      "event": 0,
+      "expected": 123,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 127,
+      "event": 1,
+      "expected": 131,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 128,
+      "event": 0,
+      "expected": 124,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 128,
+      "event": 1,
+      "expected": 132,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 252,
+      "event": 0,
+      "expected": 248,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 252,
+      "event": 1,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 255,
+      "event": 0,
+      "expected": 251,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 7,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 0,
+      "expected": 108,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 1,
+      "expected": 111,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 2,
+      "expected": 105,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 3,
+      "expected": 101,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 4,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 5,
+      "expected": 77,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 6,
+      "expected": 45,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 7,
+      "start": 109,
+      "event": 7,
+      "expected": 237,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 7,
+        "6aff": 2,
+        "0x6b09": 109
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 0,
+      "event": 1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 1,
+      "event": 0,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 1,
+      "event": 1,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 96,
+      "event": 0,
+      "expected": 94,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 96,
+      "event": 1,
+      "expected": 98,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 127,
+      "event": 0,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 127,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 128,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 128,
+      "event": 1,
+      "expected": 130,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 254,
+      "event": 0,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 254,
+      "event": 1,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 255,
+      "event": 0,
+      "expected": 253,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 8,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 0,
+      "expected": 97,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 1,
+      "expected": 98,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 2,
+      "expected": 100,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 3,
+      "expected": 104,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 4,
+      "expected": 112,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 5,
+      "expected": 64,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 6,
+      "expected": 32,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 8,
+      "start": 96,
+      "event": 7,
+      "expected": 224,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 8,
+        "6aff": 0,
+        "0x6b0a": 96
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 0,
+      "event": 1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 1,
+      "event": 0,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 1,
+      "event": 1,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 124,
+      "event": 0,
+      "expected": 122,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 124,
+      "event": 1,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 127,
+      "event": 0,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 127,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 128,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 128,
+      "event": 1,
+      "expected": 130,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 254,
+      "event": 0,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 254,
+      "event": 1,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 255,
+      "event": 0,
+      "expected": 253,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 9,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 0,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 1,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 2,
+      "expected": 120,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 3,
+      "expected": 116,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 4,
+      "expected": 108,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 5,
+      "expected": 92,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 6,
+      "expected": 60,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 9,
+      "start": 124,
+      "event": 7,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 9,
+        "6aff": 2,
+        "0x6b0b": 124
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 127,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 128,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 10,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 1,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 2,
+      "expected": 123,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 3,
+      "expected": 119,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 4,
+      "expected": 111,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 5,
+      "expected": 95,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 6,
+      "expected": 63,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 10,
+      "start": 127,
+      "event": 7,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 10,
+        "6aff": 0,
+        "0x6b0c": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 0,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 127,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 127,
+      "event": 1,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 128,
+      "event": 0,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 128,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 188,
+      "event": 0,
+      "expected": 188,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 188,
+      "event": 1,
+      "expected": 188,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 255,
+      "event": 0,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 11,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 0,
+      "expected": 189,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 1,
+      "expected": 190,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 2,
+      "expected": 184,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 3,
+      "expected": 180,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 4,
+      "expected": 172,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 5,
+      "expected": 156,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 6,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 11,
+      "start": 188,
+      "event": 7,
+      "expected": 60,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 11,
+        "6aff": 2,
+        "0x6b0d": 188
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 0,
+      "event": 1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 1,
+      "event": 0,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 1,
+      "event": 1,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 127,
+      "event": 0,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 127,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 128,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 128,
+      "event": 1,
+      "expected": 130,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 225,
+      "event": 0,
+      "expected": 223,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 225,
+      "event": 1,
+      "expected": 227,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 254,
+      "event": 0,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 254,
+      "event": 1,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 255,
+      "event": 0,
+      "expected": 253,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 12,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 0,
+      "expected": 224,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 1,
+      "expected": 227,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 2,
+      "expected": 229,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 3,
+      "expected": 233,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 4,
+      "expected": 241,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 5,
+      "expected": 193,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 6,
+      "expected": 161,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 12,
+      "start": 225,
+      "event": 7,
+      "expected": 97,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 12,
+        "6aff": 0,
+        "0x6b0e": 225
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 100,
+      "event": 0,
+      "expected": 99,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 100,
+      "event": 1,
+      "expected": 101,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 127,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 128,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 13,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 0,
+      "expected": 101,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 1,
+      "expected": 102,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 2,
+      "expected": 96,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 3,
+      "expected": 108,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 4,
+      "expected": 116,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 5,
+      "expected": 68,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 6,
+      "expected": 36,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 13,
+      "start": 100,
+      "event": 7,
+      "expected": 228,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 13,
+        "6aff": 2,
+        "0x6b0f": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 0,
+      "event": 1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 1,
+      "event": 0,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 1,
+      "event": 1,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 127,
+      "event": 0,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 127,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 128,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 128,
+      "event": 1,
+      "expected": 130,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 225,
+      "event": 0,
+      "expected": 223,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 225,
+      "event": 1,
+      "expected": 227,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 254,
+      "event": 0,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 254,
+      "event": 1,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 255,
+      "event": 0,
+      "expected": 253,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 14,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 0,
+      "expected": 224,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 1,
+      "expected": 227,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 2,
+      "expected": 229,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 3,
+      "expected": 233,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 4,
+      "expected": 241,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 5,
+      "expected": 193,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 6,
+      "expected": 161,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 14,
+      "start": 225,
+      "event": 7,
+      "expected": 97,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 14,
+        "6aff": 0,
+        "0x6b10": 225
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 100,
+      "event": 0,
+      "expected": 99,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 100,
+      "event": 1,
+      "expected": 101,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 127,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 128,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 15,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 0,
+      "expected": 101,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 1,
+      "expected": 102,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 2,
+      "expected": 96,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 3,
+      "expected": 108,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 4,
+      "expected": 116,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 5,
+      "expected": 68,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 6,
+      "expected": 36,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 15,
+      "start": 100,
+      "event": 7,
+      "expected": 228,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 15,
+        "6aff": 2,
+        "0x6b11": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 0,
+      "event": 1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 1,
+      "event": 0,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 1,
+      "event": 1,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 1
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 127,
+      "event": 0,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 127,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 128,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 128,
+      "event": 1,
+      "expected": 130,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 224,
+      "event": 0,
+      "expected": 222,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 224,
+      "event": 1,
+      "expected": 226,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 254,
+      "event": 0,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 254,
+      "event": 1,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 254
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 255,
+      "event": 0,
+      "expected": 253,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 16,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 0,
+      "expected": 225,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 1,
+      "expected": 226,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 2,
+      "expected": 228,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 3,
+      "expected": 232,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 4,
+      "expected": 240,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 5,
+      "expected": 192,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 6,
+      "expected": 160,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 16,
+      "start": 224,
+      "event": 7,
+      "expected": 96,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 16,
+        "6aff": 0,
+        "0x6b12": 224
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 100,
+      "event": 0,
+      "expected": 99,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 100,
+      "event": 1,
+      "expected": 101,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 127,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 128,
+      "event": 1,
+      "expected": 129,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 17,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 0,
+      "expected": 101,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 1,
+      "expected": 102,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 2,
+      "expected": 96,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 3,
+      "expected": 108,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 4,
+      "expected": 116,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 5,
+      "expected": 68,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 6,
+      "expected": 36,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 17,
+      "start": 100,
+      "event": 7,
+      "expected": 228,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 17,
+        "6aff": 2,
+        "0x6b13": 100
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 0,
+      "event": 1,
+      "expected": 4,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 3,
+      "event": 0,
+      "expected": 3,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 3,
+      "event": 1,
+      "expected": 7,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 3
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 71,
+      "event": 0,
+      "expected": 67,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 71,
+      "event": 1,
+      "expected": 75,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 127,
+      "event": 0,
+      "expected": 123,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 127,
+      "event": 1,
+      "expected": 131,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 128,
+      "event": 0,
+      "expected": 124,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 128,
+      "event": 1,
+      "expected": 132,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 252,
+      "event": 0,
+      "expected": 248,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 252,
+      "event": 1,
+      "expected": 252,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 252
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 255,
+      "event": 0,
+      "expected": 251,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 18,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 0,
+      "expected": 70,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 1,
+      "expected": 69,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 2,
+      "expected": 67,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 3,
+      "expected": 79,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 4,
+      "expected": 87,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 5,
+      "expected": 103,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 6,
+      "expected": 7,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 18,
+      "start": 71,
+      "event": 7,
+      "expected": 199,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 18,
+        "6aff": 0,
+        "0x6b14": 71
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 24,
+      "event": 0,
+      "expected": 23,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 24,
+      "event": 1,
+      "expected": 25,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 29,
+      "event": 0,
+      "expected": 28,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 29
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 29,
+      "event": 1,
+      "expected": 29,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 29
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 127,
+      "event": 1,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 128,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 19,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 0,
+      "expected": 25,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 1,
+      "expected": 26,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 2,
+      "expected": 28,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 3,
+      "expected": 16,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 4,
+      "expected": 8,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 5,
+      "expected": 56,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 6,
+      "expected": 88,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 19,
+      "start": 24,
+      "event": 7,
+      "expected": 152,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 19,
+        "6aff": 1,
+        "0x6b15": 24
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 0,
+      "event": 0,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 0
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 14,
+      "event": 0,
+      "expected": 13,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 14,
+      "event": 1,
+      "expected": 15,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 63,
+      "event": 0,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 63
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 63,
+      "event": 1,
+      "expected": 63,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 63
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 127,
+      "event": 0,
+      "expected": 126,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 127,
+      "event": 1,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 127
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 128,
+      "event": 0,
+      "expected": 127,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 128,
+      "event": 1,
+      "expected": 128,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 128
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 255,
+      "event": 0,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 255
+      }
+    },
+    {
+      "suite": "MAC_numeric",
+      "row": 20,
+      "start": 255,
+      "event": 1,
+      "expected": 255,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a3c1",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 255
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 0,
+      "expected": 15,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 0
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 1,
+      "expected": 12,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 1
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 2,
+      "expected": 10,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 2
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 3,
+      "expected": 6,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 3
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 4,
+      "expected": 30,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 4
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 5,
+      "expected": 46,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 5
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 6,
+      "expected": 78,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 6
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "MAC_bit",
+      "row": 20,
+      "start": 14,
+      "event": 7,
+      "expected": 142,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "a1f8",
+        "r7": 7
+      },
+      "setup": {
+        "6afe": 20,
+        "6aff": 9,
+        "0x6b16": 14
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 0,
+      "start": 0,
+      "event": -1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 0,
+        "0x6b18": 0,
+        "0x6b19": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 0,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 0,
+        "0x6b18": 0,
+        "0x6b19": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 0,
+      "start": 32,
+      "event": -1,
+      "expected": 31,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 0,
+        "0x6b18": 0,
+        "0x6b19": 32
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 0,
+      "start": 32,
+      "event": 1,
+      "expected": 33,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 0,
+        "0x6b18": 0,
+        "0x6b19": 32
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 0,
+      "start": 63,
+      "event": -1,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 0,
+        "0x6b18": 0,
+        "0x6b19": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 0,
+      "start": 63,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 0,
+        "0x6b18": 0,
+        "0x6b19": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 1,
+      "start": 0,
+      "event": -1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 1,
+        "0x6b1a": 0,
+        "0x6b1b": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 1,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 1,
+        "0x6b1a": 0,
+        "0x6b1b": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 1,
+      "start": 32,
+      "event": -1,
+      "expected": 31,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 1,
+        "0x6b1a": 0,
+        "0x6b1b": 32
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 1,
+      "start": 32,
+      "event": 1,
+      "expected": 33,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 1,
+        "0x6b1a": 0,
+        "0x6b1b": 32
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 1,
+      "start": 63,
+      "event": -1,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 1,
+        "0x6b1a": 0,
+        "0x6b1b": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 1,
+      "start": 63,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 1,
+        "0x6b1a": 0,
+        "0x6b1b": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 2,
+      "start": 0,
+      "event": -1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 2,
+        "0x6b1c": 0,
+        "0x6b1d": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 2,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 2,
+        "0x6b1c": 0,
+        "0x6b1d": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 2,
+      "start": 32,
+      "event": -1,
+      "expected": 31,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 2,
+        "0x6b1c": 0,
+        "0x6b1d": 32
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 2,
+      "start": 32,
+      "event": 1,
+      "expected": 33,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 2,
+        "0x6b1c": 0,
+        "0x6b1d": 32
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 2,
+      "start": 63,
+      "event": -1,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 2,
+        "0x6b1c": 0,
+        "0x6b1d": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 2,
+      "start": 63,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 2,
+        "0x6b1c": 0,
+        "0x6b1d": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 3,
+      "start": 0,
+      "event": -1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 3,
+        "0x6b1e": 0,
+        "0x6b1f": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 3,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 3,
+        "0x6b1e": 0,
+        "0x6b1f": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 3,
+      "start": 47,
+      "event": -1,
+      "expected": 46,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 3,
+        "0x6b1e": 0,
+        "0x6b1f": 47
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 3,
+      "start": 47,
+      "event": 1,
+      "expected": 48,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 3,
+        "0x6b1e": 0,
+        "0x6b1f": 47
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 3,
+      "start": 63,
+      "event": -1,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 3,
+        "0x6b1e": 0,
+        "0x6b1f": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 3,
+      "start": 63,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 3,
+        "0x6b1e": 0,
+        "0x6b1f": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 4,
+      "start": 0,
+      "event": -1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 4,
+        "0x6b20": 0,
+        "0x6b21": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 4,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 4,
+        "0x6b20": 0,
+        "0x6b21": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 4,
+      "start": 15,
+      "event": -1,
+      "expected": 14,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 4,
+        "0x6b20": 0,
+        "0x6b21": 15
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 4,
+      "start": 15,
+      "event": 1,
+      "expected": 16,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 4,
+        "0x6b20": 0,
+        "0x6b21": 15
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 4,
+      "start": 63,
+      "event": -1,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 4,
+        "0x6b20": 0,
+        "0x6b21": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 4,
+      "start": 63,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 4,
+        "0x6b20": 0,
+        "0x6b21": 63
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 5,
+      "start": 0,
+      "event": -1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 5,
+        "0x6b22": 0,
+        "0x6b23": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 5,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 5,
+        "0x6b22": 0,
+        "0x6b23": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 5,
+      "start": 3,
+      "event": -1,
+      "expected": 2,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 5,
+        "0x6b22": 0,
+        "0x6b23": 3
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 5,
+      "start": 3,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 5,
+        "0x6b22": 0,
+        "0x6b23": 3
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 6,
+      "start": 0,
+      "event": -1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 6,
+        "0x6b24": 0,
+        "0x6b25": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 6,
+      "start": 0,
+      "event": 1,
+      "expected": 1,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 6,
+        "0x6b24": 0,
+        "0x6b25": 0
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 6,
+      "start": 61,
+      "event": -1,
+      "expected": 60,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 6,
+        "0x6b24": 0,
+        "0x6b25": 61
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 6,
+      "start": 61,
+      "event": 1,
+      "expected": 62,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 6,
+        "0x6b24": 0,
+        "0x6b25": 61
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 6,
+      "start": 255,
+      "event": -1,
+      "expected": 254,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 255
+      },
+      "setup": {
+        "6874": 6,
+        "0x6b24": 0,
+        "0x6b25": 255
+      }
+    },
+    {
+      "suite": "receiver_numeric",
+      "row": 6,
+      "start": 255,
+      "event": 1,
+      "expected": 0,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "ade0",
+        "r7": 1
+      },
+      "setup": {
+        "6874": 6,
+        "0x6b24": 0,
+        "0x6b25": 255
+      }
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 0,
+      "expected": 60,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 0
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 1,
+      "expected": 63,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 1
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 2,
+      "expected": 57,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 2
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 3,
+      "expected": 53,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 3
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 4,
+      "expected": 45,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 4
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 5,
+      "expected": 29,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 5
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 6,
+      "expected": 125,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 6
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "OptionByte_bit",
+      "row": 6,
+      "start": 61,
+      "event": 7,
+      "expected": 189,
+      "status": "not_run",
+      "call": {
+        "bank": 1,
+        "cpu": "acca",
+        "r7": 7
+      },
+      "setup": {
+        "6876": 6,
+        "6b24": 0,
+        "6b25": 61
+      },
+      "expected_apply": "row6->afce no-op",
+      "expected_save_setting": "30"
+    },
+    {
+      "suite": "ChangeCode_save",
+      "row": 7,
+      "status": "not_run",
+      "start": "5678",
+      "setup": {
+        "74be..74c1": [
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      "call": {
+        "bank": 1,
+        "cpu": "afd5"
+      },
+      "expected_settings": {
+        "31": 53,
+        "32": 54,
+        "33": 55,
+        "34": 56
+      },
+      "expected_unchanged": [
+        "77c2",
+        "77c3",
+        "77c4"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+row	file	label	flags	lower_threshold	upper_threshold	default	step	signed
+0	0x77ce	VCO          DMA14	0x20	128	127	0	1	True
+1	0x77e9	EDC         DMA198	0x80	0	63	56	1	False
+2	0x7804	PLL gain    DMA199	0x40	15	48	0	16	False
+3	0x781f	Slice level DMA199	0x42	0	255	36	1	False
+4	0x783a	Color  Vsat  DMA23	0x10	3	252	92	4	False
+5	0x7855	Color  Usat  DMA23	0x2	3	252	64	4	False
+6	0x7870	Luma delay  DMA200	0x0	7	240	96	8	False
+7	0x788b	Contrast    DMA200	0x2	3	252	109	4	False
+8	0x78a6	Blank delay DMA202	0x0	1	254	96	2	False
+9	0x78c1	Sync delay  DMA202	0x2	1	254	124	2	False
+10	0x78dc	Brightness   VCU16	0x0	0	255	127	1	False
+11	0x78f7	VCU flags    VCU16	0x2	0	0	188	0	False
+12	0x7912	Red drive    VCU17	0x0	1	254	225	2	False
+13	0x792d	Red cutoff   VCU17	0x2	0	255	100	1	False
+14	0x7948	Green drive  VCU18	0x0	1	254	225	2	False
+15	0x7963	Green cutoff VCU18	0x2	0	255	100	1	False
+16	0x797e	Blue drive   VCU19	0x0	1	254	224	2	False
+17	0x7999	Blue cutoff  VCU19	0x2	0	255	100	1	False
+18	0x79b4	OSD contrast VCU27	0x0	3	252	71	4	False
+19	0x79cf	Volume         K34	0x1	0	29	24	1	False
+20	0x79ea	Text delay     TPU	0x9	0	63	14	1	False

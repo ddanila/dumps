@@ -1,0 +1,10 @@
+# Generated exports retain firmware padding, empty final fields and CSV CRLF.
+menus/out/*.tsv -text -whitespace
+menus/out/language-*.txt -text -whitespace
+
+# Preserve vendored core bytes and its exact upstream patch.
+emulation/emu8051/* -text -whitespace
+emulation/core-fixes.patch -text -whitespace
+# Generated character-memory views retain blank rows and address separators.
+emulation/output/gallery/frames.txt -whitespace
+emulation/output/gallery/index.html -whitespace

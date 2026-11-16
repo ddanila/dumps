@@ -1,0 +1,179 @@
+MAC4 v3.04: code, banks, hidden service entry
+Analysis 2026-11-16; all offsets hexadecimal, file offsets unless CPU explicitly stated.
+Input SHA256 8bea3d9a252bcb72c86594d4bed711c56cba43158baf454b0f53ba189e564d8a.
+Static-analysis notes. Runtime validation is separately documented in ../emulation/.
+
+KEY FINDING
+The hidden recognizer accepts INTERNAL EVENTS 06, 0A, 08, in order, within
+50 Timer-0 interrupts. These are NOT a numeric remote-button recipe.
+File22D43 (bank3 CPUAD43) compares R7 against XRAM[77C1+state], state at77C0.
+Initial state3; table77C1..77C4 = 00,08,0A,06. Match decrements state;
+mismatch resets3 without retrying the current key. After first match,68DE=32.
+On final match, a zero68DE resets3; otherwise return R7=0 means success.
+Timer0 ISR061B decrements nonzero bytes68D2..68DE at0634..063A. No exact
+seconds asserted without crystal frequency. Mode1 reload4000 is at061D.
+
+Confirmed caller233E5 supplies event XRAM68A7. On success233F5 sets77EF=5,
+calls bank2 ABF1 and9739, copies68A9 into6886, supplies synthetic FF to
+bank3 A847 (file22847). Its switch table22874 maps FF toABD3 (file22BD3).
+ABD3 requires77BE=0, sets it1, calls root rendererAC16 (file22C16).
+The service menu title is read from XRAM7796, not directly from ROM2D5E.
+
+Physical button attribution: event06 invokes save paths;07/08 invoke exit.
+This supports a save event and exit events, but the physical remote-button
+labels have not been established. No manufacturer-confirmed MAC4 IR command
+map was obtained. Do not present the internal IDs as a button recipe.
+
+A SECOND PATH uses the same recognizer from file17F93 (bank1 CPUFF93),
+in startup loopFF46. This path translates (incoming6EA9 &3F) through CODE
+7DD5, subject to incoming bit40 clear, and calls bank3 C26E on success.
+Thus the recognizer has both ordinary service and startup callers; do not
+assume every match simply renders the service menu. Startup also handles
+incoming B4 by calling bank3 C4A5. Those two actions remain unclassified.
+
+SERVICE DISPATCH AND CALLABLE ABI
+Bank3 A847: R7 internal event, XRAM6886 auxiliary key/digit value. Requires
+initialized XRAM and working drawing/hardware routines; not a pure renderer.
+77BE mode:0 inactive,1 root,2 receiver setup,3 MAC setup.77BF selected row.
+Root initial selected row4. Events00 and01 open selected row4 through
+bank3 AD30 -> bank1 A953 (file12953); row5 through bank3 AD1D -> bank1 9E50
+(file11E50). They also act as decrement/increment within submenus.
+Events02/03 navigate;06 invokes save;07/08 exit;09 edits bit/digit using6886.
+The exact switch destinations are in inventory.json, not guessed labels.
+
+Bank3 AC16: root renderer. Bank1 A953: receiver setup renderer.
+Bank1 9E50: MAC diagnostics renderer. Use far-call wrapper07C5 with A=bank,
+DPTR=CPU target. Wrapper pushes old bank and restores EA around latch write;
+target ends in LJMP07E4, which restores bank and RETs to original caller.
+Calling target directly with only a conventional return address is unsafe:
+07E4 expects the extra saved-bank byte. Supply the real wrapper convention.
+
+Bank2 A215 text draw uses R5=address-space tag, R6:R7=pointer; tag1 XRAM,
+tag2 CODE. XRAM6863/6864 provide placement. Bank2 A2E7 uses the same pointer
+convention with a field/layout context at686B..686D. These are observed
+call sites, not a complete ABI promise. Common26E9 reads three CODE bytes
+at DPTR into R5,R6,R7. Runtime2625 handles tag0 indirect internal RAM,
+tag1 MOVX DPTR,tag2 MOVC,other tag MOVX @R0.
+Version display11FA3 loads CODE pointer at7769 = 02,63,E6, then calls A215.
+FRONT version insertion uses XRAM6ECD at11FBB and numeric renderer bank2 A4F2.
+
+CHANGE CODE AND OPTION BYTE
+Receiver descriptors are eight 8-byte records at778E..77CD. Record structure:
+type, setting index, minimum, maximum, default, 3-byte generic string pointer.
+Type1 numeric;type2 bit editor;type8 four-character code editor. The min/max
+interpretation is for numeric fields; type8 zeros are NOT a zero-only range.
+The record table and raw bytes are reproduced in inventory.json.
+
+Option Byte: record77BE:02 30 00 FF 3D 02 64 6C.
+Type2, setting30, range00..FF, default3D, label646C. Scratch word for index6
+is6B24..6B25, value low byte6B25. File12CCA bit editor accepts bit index0..7
+from R7 and XORs 1<<index into the selected scratch word (12CEE..12D24).
+Apply dispatch12ED0 maps row6 toAFCE (file12FCE), which just branches to
+returnAFD2. It does NOT implement per-bit feature branches locally there.
+Save12FD5 loops eight fields; normal scalar write at13045..13070 sends low
+byte via0178 to the descriptor's setting index (30 for options).
+0178 -> bank2 8DEE constructs external-controller command traffic. Read014E
+-> bank2 8D63 builds command80 in6E93, length in6E94, address bytes6E95/96.
+Therefore bit meanings may belong to the FRONT controller; this is an
+inference, not proof that no MAC-side use exists. Do not transplant SAT1700
+option-bit meanings. No defensible per-bit feature-name map established.
+
+Change Code: record77C6:08 31 00 00 00 02 64 79.
+Four characters at XRAM74BE..74C1; special save branch12FFE..13041 writes
+four bytes through0178 to settings31,32,33,34. Editing/reset code is at
+12D42..12DDD; '-' placeholders and four-character iteration are present.
+This is a receiver/controller access-code field, separate from hidden entry
+state77C0 and its fixed default key table77C2..77C4. It does not rewrite the
+service key recognizer table along the traced save path. A relationship to
+receiver parental lock is plausible, but a full consumer PIN verifier has
+not been traced. Do not call it a smart-card PIN or claim a parental bypass.
+
+BANKS, STARTUP, PERIPHERALS
+Common CODE0000..7FFF = file00000..07FFF. Switch window CODE8000..FFFF:
+bank0 file08000..0FFFF, bank1 file10000..17FFF, bank2 file18000..1FFFF,
+bank3 file20000..27FFF. Software latch XDATA8000 value SWAP(bank+1), observed
+10/20/30/40. CPU CODE and XDATA address8000 are different address spaces.
+Last nonzero257C5;257C6..3FFFF all zero. No claimed hardware wiring proof.
+Reset0000 LJMP002E; startup RAM initialization and runtime library common.
+Descriptor00FE copies ROM29D5..2EFB to XRAM740D..7933 (delta4A38).
+Descriptor0104 is empty: destination7934, source start=end6682.
+Thus ROM2D5E/2D6B/2D7B map XRAM7796/77A3/77B3; hidden defaults ROM2D88..2D8C.
+This distinction is essential: CODE77BE is an option descriptor while
+XDATA77BE is menu mode; they are not the same storage.
+
+Philips80C652-compatible I2C peripheral: D8 S1CON,D9 S1STA,DA S1DAT,DB S1ADR.
+Init079F writesDB=2A (7-bit slave address15),07A6 writesD8=44 (enable+ACK),
+07A2/07A4 release P1.6/P1.7. Vector002B ->067F, ISR indexes status viaD9.
+Shared derivatives prevent exact MCU attribution. P1.0/1/2 bitbang beginning
+019D is compatible with an IM-bus connection, not independently wiring-proven.
+
+HARDWARE ATTRIBUTION BOUND
+Nokia MAC4-family is the best supported family, exact receiver unknown.
+Parent reports chip sticker MAC4 V:3.04, ST M27C2001-15F1, 9348C. Independently
+retrieved November1992 Haut-Parleur supplement PDF page17 lists Nokia Mac4
+SAT2002, Nokia MAC4 SAT2202, and Nokia DMAC4 DEC3002 without tuner. This is a
+contemporary advertisement, not a unique firmware match. Do not force SAT2202.
+Intermetall DMA2271/2280/2281 data sheet register map matches ROM VCO14,
+EDC198, PLL/slice199, saturation23, contrast/luma200, blank/sync202. Excellent
+chip-family evidence; exact DMA variant and installed MAC standards unknown.
+Public Nokia5914/SAT2200 service-manual catalog located, but hosted viewer
+and download did not yield readable manufacturer manual; no manual claims.
+Exact-version/menu web searches found no verified matching public firmware.
+
+REPRODUCTION / LIMITS
+python3 analyze.py [--rom ROM_PATH] [--out OUTPUT_DIRECTORY]
+Outputs inventory.json,functions.json,far_calls.tsv,evidence.asm; prints inventory to stdout.
+python3 range.py 22d43 22d94 prints focused disassembly with CPU addresses.
+far_calls.tsv scans explicit MOV A,#bank;MOV DPTR,#target;LCALL07C5 patterns.
+It is an incomplete static inventory: dynamic calls and nonadjacent setup
+are omitted; byte patterns can occur in data. Functions.json is curated.
+No huge linear disassembly is retained. Other code paths and hardware timing
+remain subject to emulator/manual confirmation. Report and HANDOFF are ready
+for parent and Galileo; no direct Galileo thread identifier was available.
+
+SOURCES (retrieved 2026-11-16)
+Primary Philips data sheet, SFR table p7:
+https://www.ic-components.nl/files/5a/P80C652EBA-04%2C512.pdf
+Primary Intermetall data sheet, register tables pp25-28, overview p31:
+https://elektronikjk.com/elementy_czynne/IC/DMA2281.pdf
+Contemporary advertisement, PDF page17 (local HP1806.pdf and extracted text):
+https://retronik.silicium.org/DOCUMENTS/revues/haut-parleur/1992/HP1806_11-1992_Supplement_Guide_pratique_reception_TV_par_satellite.pdf
+
+FOLLOW-UP: ROW SEMANTICS AND TEST HANDOFF
+service_tests.py generates service-tests.json (471 unexecuted static test
+specifications) and mac-rows.tsv. Includes all8 receiver and21 MAC rows,
+8 option bit toggles, four-character ChangeCode save separation, and MAC
+bit operations. This is a handoff for the emulator agent, not 471 passes.
+Each specification supplies bank/CPU/R7, XRAM setup and scratch expectation.
+Renderer/hardware side effects are outside the expected-value oracle.
+
+Receiver numeric handler12DE0 takes signed8 deltaR7, adds to a16-bit scratch
+word at6B18+2*row using276A. It compares the unsigned16 result against the
+8-bit minimum/maximum: below minimum -> maximum; above maximum -> minimum.
+All current receiver numeric minima are0. Consequently decrement0 becomes
+FFFF and is above maximum, returning0; maximum+1 also returns0. This is a
+static candidate UI asymmetry, not a confirmed runtime defect. Default and
+boundaries have generated cases. Type8 code record's min/max fields unused
+in its dedicated four-character path; do not exercise numeric stepping as
+normal code-entry behavior.
+
+MAC handler123C1: R7=0 decrement,nonzero increment; row6AFE, flags6AFF,
+current byte6B02+row. Signed flag20: saturating [-128,127],step1, stored as
+80..7F. Other rows: if current<upper_threshold add step; if current>
+lower_threshold subtract step; otherwise no change. These are PRE-step
+comparisons, without post-step clamping. Threshold3 and step4 can leave0..3
+as valid low residues. Default Contrast6D retains low bits1 while stepping4:
+F9 increments toFD although upper thresholdFC; next increment stops.
+Likewise bit-editing may create values not aligned to the ordinary step.
+Do not label threshold bytes as universal legal min/max or automatically
+call this a hardware bug; fields include packed/reserved-bit behavior.
+VCU flags row11 has step0, so numeric changes are no-ops; bit editing exists.
+Flag10 (Color Vsat row4) additionally changes the next row's byte in
+124ED..12529; the fixed-point formula is not fully decoded. Test specification
+expects only the selected scratch byte, and flags this coupled side effect.
+The MAC bit editor121F8 XORs selected bit0..7 regardless of numeric step;
+then redraws and applies through bank1 A76B. Invalid bit>=8 skips XOR.
+
+The initial emulator12screens x10languages/1424strings success belongs to the
+other agents' runs; it is not an independent result of this static report.
+No claim of all menu/hardware/state combinations has been made.

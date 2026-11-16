@@ -1,0 +1,44 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 85 @ 98147 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x00017f63      906ea9         mov dptr, #0x6ea9
+0x00017f66      e0             movx a, @dptr
+0x00017f67      604d           jz 0x7fb6
+0x00017f69      30054a         jnb 0x20.5, 0x7fb6
+0x00017f6c      906ea9         mov dptr, #0x6ea9
+0x00017f6f      e0             movx a, @dptr
+0x00017f70      906e6f         mov dptr, #0x6e6f
+0x00017f73      f0             movx @dptr, a
+0x00017f74      906ea9         mov dptr, #0x6ea9
+0x00017f77      e4             clr a
+0x00017f78      f0             movx @dptr, a
+0x00017f79      906e6f         mov dptr, #0x6e6f
+0x00017f7c      e0             movx a, @dptr
+0x00017f7d      5440           anl a, #0x40
+0x00017f7f      7025           jnz 0x7fa6
+0x00017f81      906e6f         mov dptr, #0x6e6f
+0x00017f84      e0             movx a, @dptr
+0x00017f85      543f           anl a, #0x3f
+0x00017f87      24d5           add a, #0xd5
+0x00017f89      f582           mov 0x82, a
+0x00017f8b      e4             clr a
+0x00017f8c      347d           addc a, #0x7d
+0x00017f8e      f583           mov 0x83, a
+0x00017f90      e4             clr a
+0x00017f91      93             movc a, @a+dptr
+0x00017f92      ff             mov r7, a
+0x00017f93      7403           mov a, #0x03
+0x00017f95      90ad43         mov dptr, #0xad43
+0x00017f98      1207c5         lcall 0x07c5
+0x00017f9b      ef             mov a, r7
+0x00017f9c      7008           jnz 0x7fa6
+0x00017f9e      7403           mov a, #0x03
+0x00017fa0      90c26e         mov dptr, #0xc26e
+0x00017fa3      1207c5         lcall 0x07c5
+0x00017fa6      906e6f         mov dptr, #0x6e6f
+0x00017fa9      e0             movx a, @dptr
+0x00017faa      64b4           xrl a, #0xb4
+0x00017fac      7008           jnz 0x7fb6
+0x00017fae      7403           mov a, #0x03
+0x00017fb0      90c4a5         mov dptr, #0xc4a5
+0x00017fb3      1207c5         lcall 0x07c5
+0x00017fb6      80ab           sjmp 0x7f63

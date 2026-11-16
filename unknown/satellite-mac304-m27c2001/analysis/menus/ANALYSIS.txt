@@ -1,0 +1,249 @@
+MAC 3.04 STATIC MENU AND LANGUAGE EXTRACTION
+==========================================
+Scope: supplied 262144-byte ROM only. This report covers static extraction;
+runtime results and their limitations are documented separately in ../emulation/.
+
+Input SHA256:
+8bea3d9a252bcb72c86594d4bed711c56cba43158baf454b0f53ba189e564d8a
+All addresses below are FILE OFFSETS unless explicitly marked CPU or XRAM.
+
+DELIVERABLE / REPRODUCTION
+-------------------------
+Keep extract.py, trace_refs.py, dispatch.py together. Python 3 standard library
+is sufficient; optional disassembly additionally requires radare2 with8051.
+From this directory:
+  python3 extract.py /path/to/mac304-m27c2001.bin --out ./out
+  python3 extract.py /path/to/mac304-m27c2001.bin --out ./out --disassemble
+The extractor refuses a different SHA256. It invokes both companion scripts
+using the active Python interpreter. No hardcoded ROM/home/tmp paths remain.
+Helpers can also be rerun after catalog extraction:
+  python3 trace_refs.py /path/to/rom.bin --out ./out
+  python3 dispatch.py /path/to/rom.bin --out ./out
+No changes are made to the source ROM or repository. No network is required.
+callables.json is a manually reviewed static test manifest, not generated
+reachability output. The emulation package documents the exercised callable ABI fixtures.
+
+PRIMARY RESULTS
+---------------
+Main pointer entries:                 1424
+Ten-language groups:                   130 (1300 slots)
+Shared/non-language-indexed slots:     124
+Unique main pointer targets:          1075
+Main entries shorter than8 bytes:      724 (includes empty/controls/spaces)
+Empty main slots:                       46
+Main slots with control bytes:           7
+Main slots with possible national codes:175
+Additional structural pointers:         35
+Receiver service records:                8
+Inline MAC service records:             21
+Whole identified pool: 14074 bytes /1146 NUL-separated segments
+All extracted resource records:1190, including supplemental code-referenced
+and candidate data; this last number is NOT a count of proven UI labels.
+
+The all-language matrix is out/all_languages.tsv. out/catalog.json/tsv has
+one row per actual pointer slot: table/index, pointer offset, target offset,
+terminator, exact hex and escaped bytes, language/group, mapping evidence,
+normalization proposal and special-byte positions. Aliases are not collapsed.
+out/groups.json explicitly enumerates the ten indices belonging to each group.
+out/resources.json/tsv includes every segment of the pool, including fragments
+not in the main tables. out/auxiliary.* includes language names, PAL audio
+modes and embedded service pointers. Receiver/MAC records retain raw metadata.
+out/catalog.html is an offline searchable catalog; raw byte spelling is the
+DEFAULT. It also includes auxiliary labels and supplemental resource records.
+
+STRUCTURE, NOT JUST STRINGS
+--------------------------
+A:0x6682..0x71D0 inclusive,965 entries.
+B:0x71DB..0x773B inclusive,459 entries.
+Each entry is [02,address-high,address-low]. The fixed ROM string pool occupies
+0x2F88..0x6681. Common code0x2637..2641 explicitly uses MOVC for pointer tag2;
+tag1 selects external RAM (MOVX). Three-byte pointer dereference is visible
+at0x269F and0x26C2 onward. These are typed data pointers, not LJMP instructions.
+
+A index layout (ranges inclusive):
+0..7 shared OSD/ACCESS;8..107 ten-label blocks;108 shared padding;
+109..528 ten-label blocks;529..648 months (10x12 language-major);
+649..818 genres (10x17, includes blank and ALL);
+819..898 audio choices (10x8, includes two empty slots);
+899..904 shared radio/MAC controls and labels;905..964 six ten-label blocks.
+
+B index layout:
+0..39 PAL help (10x4 lines, including padding blanks);
+40..100 shared channel-programming labels/options;
+101..160 six ten-label blocks;161..180 first/second ordinal (10x2);
+181..210 three ten-label blocks;211..216 shared options/TIMER;
+217..226 Clock;227..230 shared installation labels;
+231..260 three ten-label blocks;261 shared Access;
+262..321 six ten-label blocks;322..391 weekdays (10x7);
+392..411 FAVOURITES and language abbreviations (two groups);
+412..446 shared system labels/options/language-choice list;
+447..456 Frequency;457..458 shared Ch R/Ch L.
+
+Language index is XRAM7447:0English,1Swedish,2Danish,3Norwegian,4Finnish,
+5Dutch,6German,7French,8Italian,9Spanish. The five strings at0x62FB..6354
+explicitly print these choices. Many ordinary groups follow exactly this order,
+and caller code at0x181DC computes669A+3*X7447. Similar code at0x22DCF
+selects the localized SUBTITLES title. Language-major tables are distinguished
+from ordinary ten-entry groups by dimensions, coherent semantic sequences,
+and representative indexing code: weekdays0xD2CB uses language*21 bytes;
+ordinals0x11246 uses language*6; months0x1453E uses36; genres0x145F8 uses51;
+audio0x15E42 uses24; PAL help0x22E5B uses12 plus3*line.
+
+Bytes0x71D1..71DA are per-language PAL-help line counts:
+3,2,3,3,3,3,4,4,4,4. Caller0x22DFE/22E35 reads these. Four pointer slots
+are reserved per language regardless of visible line count.
+
+Auxiliary PAL audio table0x7EAC..7ED2 has13 pointers, including8 empty slots.
+Consumer0x24D30..24D5B selects an index from another table's low nibble,
+multiplies by3 and dereferences7EAC+index*3. Visible modes are Mono50usW,
+Mono50usN, Mono Panda, Stereo Panda and Mono J17W. The other auxiliary
+pointers are11 language-name entries (10+blank),3 service-header pointers,
+and8 receiver field pointers:35 in total.
+
+MENU CONTENT AND STATIC CALLABLE COVERAGE
+----------------------------------------
+Identified content includes main menu, audio, clock, timer event programming,
+favourites, parental lock, installation, channel/system programming,
+language/alternate language, subtitle selection/PAL teletext help, card/issuer
+selection, access control, PIN change/verification, subscription consultation,
+prebooked and impulse PPV, purchase confirmation, credit/overdraft, maturity,
+access/card errors, geographical blackout, receiver and MAC service screens.
+Shared English labels remain shared: no invented translations are supplied
+for channel/system/service labels that lack ten-language blocks.
+
+callables.json contains33 specific renderer/panel/notice candidates and their
+confidence/state inputs. Several are components or variants, not independent
+full screens. Confirmed prologue/title pairs include:
+CPU bank0:9BDC channel programming, C9EE main, CD3F parental,
+D028 installation, DF73 system programming, ECBE language popup.
+CPU bank1:93D3 timer event editor,9620 TIMER/CLOCK selector,
+B25E consultation header,B5DF category overview,B97E consultation detail,
+C069 credit/overdraft,DC08 purchase confirmation,DD0C maturity warning.
+CPU bank2:8161 access/card root,84D3 access-control settings.
+CPU bank3:8AC0 MAC audio,AD94 subtitles/PAL help,CBA6 PAL audio,
+AC16 service root. CPU bank1:A953 receiver service,9E50 MAC service.
+The CLOCK/TIMER9620 label must not be confused with the event editor93D3.
+Other manifest entries are clearly marked as boundary-derived candidates.
+
+Consultation detail bank1:B97E has a bounded sparse switch on X756E:
+1->B99E,2->BBAD,3->BC7A,4->BAB9,defaultBD4F (all bank1).
+Card/credit flags and actual card/programme data affect rendered branches.
+Calling a renderer once does not establish coverage of those conditions.
+
+The Start Scan string exists at0x5E59 (pointer0x748D). No literal use of that
+pointer/target was found in inspected code. Installation handler bank0:D0D9
+accepts selection6 and calls bank0:C8D1, which sets X7461=1,X77EF=0,
+X7587=0, calls bank2:B8D7/9739 and sets X7751=1. This is a scan-start
+candidate, not an identified standalone scan-screen renderer. The inspected
+installation screen draws Channel/System Programming only. This discrepancy
+may indicate unused text, a disabled item or another path; it is unresolved.
+
+NAVIGATION TABLES AND BOUNDS
+---------------------------
+Both dispatch matrices are startup-copied into mutable XRAM.
+Submenu dispatcher bank3:8000 uses eventX68A5 and stateX7587:
+ action=X[7588+event*15+state], next=X[762D+event*15+state].
+ROM action image2B50..2BF4, next-state image2BF5..2C99:
+11 event rows x15 state columns; dense action IDs1..66 plus default.
+Top-level dispatcher atfile23445 (bank3:B445) uses eventX68A7,stateX77EF:
+ action=X[77F0+event*7+state], next=X[788A+event*7+state].
+ROM images2DB8..2E51 and2E52..2EEB:
+22 event rows x7 mode columns; dense action IDs1..47 plus default.
+The common dispatcher2419 reads little-endian lower-bound/span followed by
+big-endian default and target CPU addresses. Exact target lists and all matrix
+cells are in out/dispatch_tables.json and *_matrix.tsv.
+These bounds are NOT a total number of screens. Some actions edit values,
+some navigate, some are no-ops, and nested state/conditional branches remain.
+
+SERVICE / HIDDEN-MENU EVIDENCE
+-----------------------------
+Boot descriptor0xFE contains740D 2EFC 29D5. Startup copies ROM29D5..2EFB
+to XRAM740D..7933. SERVICE MENU at2D5E therefore appears atX7796;
+RECEIVER SETUPS2D6B->X77A3; MAC SETUPS2D7B->X77B3. Executable code
+references these relocated strings, explaining the absence of direct ROM refs.
+
+Receiver fields:8 records of8 bytes at778E, typed pointer at+5.
+Labels at6424,6436,6448,645A,645F,6464,646C,6479:
+PAL/MAC/CVBS video gain,13V,18V,Volume,Option Byte,Change Code.
+First five bytes include type/parameter and apparent min/max/default data;
+raw values are retained, and unproven metadata meanings are not asserted.
+
+MAC records:21 records of27 bytes at77CE..7A04,8 metadata bytes followed
+by18 label bytes+NUL. Executable code11BDB..11BF7 multiplies index by27,
+adds77D6 and renders the label. Labels cover VCO,EDC,PLL gain,slice level,
+Vsat/Usat,luma delay,contrast,blank/sync delay,brightness,VCU flags,
+red/green/blue drive and cutoff,OSD contrast,volume,text delay. Full exact
+labels, offsets and metadata are in out/mac_service.tsv. Diagnostic strings
+at6489..6504 show preset/current values,bit patterns,white/black levels,
+frame and bit-error fields. They have executable references.
+
+Gate routine bank3:AD43 (file22D43) accepts an internal key ID inR7.
+X77C0 initially3; X77C1..C4 initially00 08 0A 06. It compares against
+X[77C1+state], decrementing on match/resetting to3 on mismatch. Thus the
+initial internal sequence is06,0A,08. State2 sets timerX68DE=50; completion
+is subject to the timer. Callerfile233E5 tests its zero return, setsX77EF=5
+and enters service handling. Physical button names and timer units are NOT
+established here. Literal1234 at652D is a displayed Change Code template,
+not evidence of a service password or bypass.
+
+CHARACTERS / OSD / NORMALIZATION LIMITS
+--------------------------------------
+Raw bytes are the source of truth. No Latin-1 assumption is made. Some ASCII
+punctuation slots serve language-dependent letters. JSON records preserve
+all national-code candidates and control-byte positions. All main pointed
+C strings use bytes<0x80; controls observed include01,02,03,04,06,07,0A,0B,
+0D,1B,1C,1D. Their presence does not prove a full control grammar.
+
+OSD init bank2:AADC (wrapperABF1) sets X6ED4:6ED5=F800 and writes
+register061C=A8|X[7532+X7447]. The subset table's ROM image2AFA..2B03 is:
+ en0 sv2 da2 no2 fi2 nl0 de1 fr4 it3 es5.
+This six-subset relationship is actual code/data evidence. Unicode proposals
+are ONLY LINGUISTIC NORMALIZATION HYPOTHESES. In particular, sv/da/no/fi
+all use subset2. A shared byte such as7C cannot simultaneously be physical
+ö for Swedish and ø for Danish/Norwegian in the same font unless another
+control changes. Firmware may display approximate Scandinavian letters.
+No such extra glyph-changing control or complete font was established here.
+The HTML checkbox is explicitly labeled accordingly and is off by default.
+
+The radio/antenna storage region531F..5332 contains embedded NULs.
+Normal NUL rendererbank2:A215 stops at5322; fixed-count rendererA284 can
+consume NUL/control bytes. Both the individual segments and the entire raw
+storage span are exported. No invented screen rendering joins them silently.
+
+Anomaly preserved: A257/258 (pointer6985/6988) assign Spanish-looking
+'Giro en descubierto' at3E88 to Italian and Italian-looking 'Ammontare
+scoperto' at3E9C to Spanish in the first overdraft line. Subsequent lines
+follow the expected order. Likely swapped pointers/translation defect, not
+repaired. Shared translations and spelling mistakes are likewise preserved.
+
+VALIDATION AND CLAIM LIMITS
+---------------------------
+Extractor assertions verify input hash, table tags/counts/bounds, target NULs,
+all ten slots per assigned group, byte-for-byte raw preservation, alias and
+anomaly offsets, PAL help counts, startup descriptor and gate initial data.
+Every byte in2F88..6681 is covered exactly once by the pool segmentation,
+including NUL separators. A second clean extraction is compared byte-for-byte.
+241 recognized table code-reference patterns are exported with exact contexts.
+These are bounded static pattern matches, NOT a complete executable CFG or
+proof every reference is reachable.86 additional raw tag02 patterns remain
+explicitly unvalidated; many are instructions/record bytes, not pointers.
+The full-ROM >=4-byte ASCII audit and page entropy inventory are supporting
+searches, not the source of the menu catalog. The zero tail starts257C6.
+
+Three distinct validation layers must remain separate:
+1. Exact extraction/table integrity (this package's assertions).
+2. Executing AC32 for1424 entries validates pointer/string outputs, not the
+   language-to-group assignments or real menu selection paths.
+3. Executing actual language-indexed screens tests their caller selection;
+   only the runtime team's recorded fixtures/results establish that coverage.
+Language groups are structural/semantic assignments corroborated by explicit
+selector and representative major-table indexing code; every group is not
+independently proven by execution. Runtime reports are deliberately excluded
+from this static report's success counts.
+
+Remaining limitations: no full code reachability proof, no exhaustive hardware
+state model, no physical font recovery, no proven scan screen, unresolved
+conditional card data/screens and some callable ABIs, no firmware checksum
+validation, no confirmed manufacturer/model. Structural coverage of identified
+resource tables is complete; universal coverage of every possible runtime
+screen or generated/broadcast string is not claimed.

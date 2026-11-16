@@ -1,0 +1,125 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 224 @ 46 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x0000002e      c2b1           clr 0xb0.1
+0x00000030      c2d3           clr 0xd0.3
+0x00000032      c2d4           clr 0xd0.4
+0x00000034      906000         mov dptr, #0x6000
+0x00000037      74ff           mov a, #0xff
+0x00000039      f0             movx @dptr, a
+0x0000003a      a3             inc dptr
+0x0000003b      e583           mov a, 0x83
+0x0000003d      b480f7         cjne a, #0x80, 0x0037
+0x00000040      7800           mov r0, #0x00
+0x00000042      7600           mov @r0, #0x00
+0x00000044      d8fc           djnz r0, 0x0042
+0x00000046      75d000         mov 0xd0, #0x00
+0x00000049      7581a9         mov 0x81, #0xa9
+0x0000004c      1207bb         lcall 0x07bb
+0x0000004f      120d20         lcall 0x0d20
+0x00000052      7581a9         mov 0x81, #0xa9
+0x00000055      75d000         mov 0xd0, #0x00
+0x00000058      90740d         mov dptr, #0x740d
+0x0000005b      ae83           mov r6, 0x83
+0x0000005d      af82           mov r7, 0x82
+0x0000005f      9068d0         mov dptr, #0x68d0
+0x00000062      120098         lcall 0x0098
+0x00000065      6005           jz 0x006c
+0x00000067      e4             clr a
+0x00000068      f0             movx @dptr, a
+0x00000069      a3             inc dptr
+0x0000006a      80f6           sjmp 0x0062
+0x0000006c      9000f6         mov dptr, #0x00f6
+0x0000006f      1200a1         lcall 0x00a1
+0x00000072      9000fa         mov dptr, #0x00fa
+0x00000075      1200a1         lcall 0x00a1
+0x00000078      9000fe         mov dptr, #0x00fe
+0x0000007b      1200bf         lcall 0x00bf
+0x0000007e      900104         mov dptr, #0x0104
+0x00000081      1200bf         lcall 0x00bf
+0x00000084      75d000         mov 0xd0, #0x00
+0x00000087      7581a9         mov 0x81, #0xa9
+0x0000008a      1207bb         lcall 0x07bb
+0x0000008d      7400           mov a, #0x00
+0x0000008f      90fee2         mov dptr, #0xfee2
+0x00000092      1207c5         lcall 0x07c5
+0x00000095      02010a         ljmp 0x010a
+0x00000098      ef             mov a, r7
+0x00000099      6582           xrl a, 0x82
+0x0000009b      7003           jnz 0x00a0
+0x0000009d      ee             mov a, r6
+0x0000009e      6583           xrl a, 0x83
+0x000000a0      22             ret
+0x000000a1      e4             clr a
+0x000000a2      93             movc a, @a+dptr
+0x000000a3      f8             mov r0, a
+0x000000a4      7401           mov a, #0x01
+0x000000a6      93             movc a, @a+dptr
+0x000000a7      f9             mov r1, a
+0x000000a8      7402           mov a, #0x02
+0x000000aa      93             movc a, @a+dptr
+0x000000ab      fe             mov r6, a
+0x000000ac      7403           mov a, #0x03
+0x000000ae      93             movc a, @a+dptr
+0x000000af      f582           mov 0x82, a
+0x000000b1      8e83           mov 0x83, r6
+0x000000b3      e8             mov a, r0
+0x000000b4      69             xrl a, r1
+0x000000b5      7001           jnz 0x00b8
+0x000000b7      22             ret
+0x000000b8      e4             clr a
+0x000000b9      93             movc a, @a+dptr
+0x000000ba      f6             mov @r0, a
+0x000000bb      a3             inc dptr
+0x000000bc      08             inc r0
+0x000000bd      80f4           sjmp 0x00b3
+0x000000bf      e4             clr a
+0x000000c0      93             movc a, @a+dptr
+0x000000c1      fc             mov r4, a
+0x000000c2      7401           mov a, #0x01
+0x000000c4      93             movc a, @a+dptr
+0x000000c5      fd             mov r5, a
+0x000000c6      7402           mov a, #0x02
+0x000000c8      93             movc a, @a+dptr
+0x000000c9      fe             mov r6, a
+0x000000ca      7403           mov a, #0x03
+0x000000cc      93             movc a, @a+dptr
+0x000000cd      ff             mov r7, a
+0x000000ce      7404           mov a, #0x04
+0x000000d0      93             movc a, @a+dptr
+0x000000d1      f8             mov r0, a
+0x000000d2      7405           mov a, #0x05
+0x000000d4      93             movc a, @a+dptr
+0x000000d5      f582           mov 0x82, a
+0x000000d7      8883           mov 0x83, r0
+0x000000d9      120098         lcall 0x0098
+0x000000dc      7001           jnz 0x00df
+0x000000de      22             ret
+0x000000df      e4             clr a
+0x000000e0      93             movc a, @a+dptr
+0x000000e1      a3             inc dptr
+0x000000e2      a883           mov r0, 0x83
+0x000000e4      a982           mov r1, 0x82
+0x000000e6      8c83           mov 0x83, r4
+0x000000e8      8d82           mov 0x82, r5
+0x000000ea      f0             movx @dptr, a
+0x000000eb      a3             inc dptr
+0x000000ec      ac83           mov r4, 0x83
+0x000000ee      ad82           mov r5, 0x82
+0x000000f0      8883           mov 0x83, r0
+0x000000f2      8982           mov 0x82, r1
+0x000000f4      80e3           sjmp 0x00d9
+0x000000f6      6e             xrl a, r6
+0x000000f7      6e             xrl a, r6
+0x000000f8      29             add a, r1
+0x000000f9      d5aaaa         djnz 0xaa, 0x00a6
+0x000000fc      29             add a, r1
+0x000000fd      d5740d         djnz 0x74, 0x010d
+0x00000100      2e             add a, r6
+0x00000101      fc             mov r4, a
+0x00000102      29             add a, r1
+0x00000103      d57934         djnz 0x79, 0x013a
+0x00000106      66             xrl a, @r0
+0x00000107      8266           anl c, 0x2c.6
+0x00000109      8280           anl c, 0x80.0
+0x0000010b      fe             mov r6, a
+0x0000010c      af06           mov r7, 0x06

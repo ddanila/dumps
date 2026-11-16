@@ -1,0 +1,176 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 226 @ 9760 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x00002620      2b             add a, r3
+0x00002621      fb             mov r3, a
+0x00002622      5001           jnc 0x2625
+0x00002624      0a             inc r2
+0x00002625      b90005         cjne r1, #0x00, 0x262d
+0x00002628      eb             mov a, r3
+0x00002629      f8             mov r0, a
+0x0000262a      e6             mov a, @r0
+0x0000262b      ff             mov r7, a
+0x0000262c      22             ret
+0x0000262d      b90107         cjne r1, #0x01, 0x2637
+0x00002630      8a83           mov 0x83, r2
+0x00002632      8b82           mov 0x82, r3
+0x00002634      e0             movx a, @dptr
+0x00002635      ff             mov r7, a
+0x00002636      22             ret
+0x00002637      b90208         cjne r1, #0x02, 0x2642
+0x0000263a      8a83           mov 0x83, r2
+0x0000263c      8b82           mov 0x82, r3
+0x0000263e      e4             clr a
+0x0000263f      93             movc a, @a+dptr
+0x00002640      ff             mov r7, a
+0x00002641      22             ret
+0x00002642      eb             mov a, r3
+0x00002643      f8             mov r0, a
+0x00002644      e2             movx a, @r0
+0x00002645      ff             mov r7, a
+0x00002646      22             ret
+0x00002647      2b             add a, r3
+0x00002648      fb             mov r3, a
+0x00002649      5001           jnc 0x264c
+0x0000264b      0a             inc r2
+0x0000264c      b90009         cjne r1, #0x00, 0x2658
+0x0000264f      eb             mov a, r3
+0x00002650      f8             mov r0, a
+0x00002651      e6             mov a, @r0
+0x00002652      fe             mov r6, a
+0x00002653      08             inc r0
+0x00002654      e6             mov a, @r0
+0x00002655      ff             mov r7, a
+0x00002656      4e             orl a, r6
+0x00002657      22             ret
+0x00002658      b9010a         cjne r1, #0x01, 0x2665
+0x0000265b      8a83           mov 0x83, r2
+0x0000265d      8b82           mov 0x82, r3
+0x0000265f      e0             movx a, @dptr
+0x00002660      fe             mov r6, a
+0x00002661      a3             inc dptr
+0x00002662      e0             movx a, @dptr
+0x00002663      80f0           sjmp 0x2655
+0x00002665      b9020c         cjne r1, #0x02, 0x2674
+0x00002668      8a83           mov 0x83, r2
+0x0000266a      8b82           mov 0x82, r3
+0x0000266c      e4             clr a
+0x0000266d      93             movc a, @a+dptr
+0x0000266e      fe             mov r6, a
+0x0000266f      7401           mov a, #0x01
+0x00002671      93             movc a, @a+dptr
+0x00002672      80e1           sjmp 0x2655
+0x00002674      eb             mov a, r3
+0x00002675      f8             mov r0, a
+0x00002676      e2             movx a, @r0
+0x00002677      fe             mov r6, a
+0x00002678      08             inc r0
+0x00002679      e2             movx a, @r0
+0x0000267a      80d9           sjmp 0x2655
+0x0000267c      2b             add a, r3
+0x0000267d      fb             mov r3, a
+0x0000267e      5001           jnc 0x2681
+0x00002680      0a             inc r2
+0x00002681      b9000b         cjne r1, #0x00, 0x268f
+0x00002684      eb             mov a, r3
+0x00002685      f8             mov r0, a
+0x00002686      e6             mov a, @r0
+0x00002687      f9             mov r1, a
+0x00002688      08             inc r0
+0x00002689      e6             mov a, @r0
+0x0000268a      fa             mov r2, a
+0x0000268b      08             inc r0
+0x0000268c      e6             mov a, @r0
+0x0000268d      fb             mov r3, a
+0x0000268e      22             ret
+0x0000268f      b9010d         cjne r1, #0x01, 0x269f
+0x00002692      8a83           mov 0x83, r2
+0x00002694      8b82           mov 0x82, r3
+0x00002696      e0             movx a, @dptr
+0x00002697      f9             mov r1, a
+0x00002698      a3             inc dptr
+0x00002699      e0             movx a, @dptr
+0x0000269a      fa             mov r2, a
+0x0000269b      a3             inc dptr
+0x0000269c      e0             movx a, @dptr
+0x0000269d      fb             mov r3, a
+0x0000269e      22             ret
+0x0000269f      b90210         cjne r1, #0x02, 0x26b2
+0x000026a2      8a83           mov 0x83, r2
+0x000026a4      8b82           mov 0x82, r3
+0x000026a6      e4             clr a
+0x000026a7      93             movc a, @a+dptr
+0x000026a8      f9             mov r1, a
+0x000026a9      7401           mov a, #0x01
+0x000026ab      93             movc a, @a+dptr
+0x000026ac      fa             mov r2, a
+0x000026ad      7402           mov a, #0x02
+0x000026af      93             movc a, @a+dptr
+0x000026b0      fb             mov r3, a
+0x000026b1      22             ret
+0x000026b2      eb             mov a, r3
+0x000026b3      f8             mov r0, a
+0x000026b4      e2             movx a, @r0
+0x000026b5      f9             mov r1, a
+0x000026b6      08             inc r0
+0x000026b7      e2             movx a, @r0
+0x000026b8      fa             mov r2, a
+0x000026b9      08             inc r0
+0x000026ba      e2             movx a, @r0
+0x000026bb      fb             mov r3, a
+0x000026bc      22             ret
+0x000026bd      2b             add a, r3
+0x000026be      fb             mov r3, a
+0x000026bf      5001           jnc 0x26c2
+0x000026c1      0a             inc r2
+0x000026c2      b9000c         cjne r1, #0x00, 0x26d1
+0x000026c5      eb             mov a, r3
+0x000026c6      f8             mov r0, a
+0x000026c7      e6             mov a, @r0
+0x000026c8      fd             mov r5, a
+0x000026c9      08             inc r0
+0x000026ca      e6             mov a, @r0
+0x000026cb      fe             mov r6, a
+0x000026cc      08             inc r0
+0x000026cd      e6             mov a, @r0
+0x000026ce      ff             mov r7, a
+0x000026cf      4e             orl a, r6
+0x000026d0      22             ret
+0x000026d1      b9010e         cjne r1, #0x01, 0x26e2
+0x000026d4      8a83           mov 0x83, r2
+0x000026d6      8b82           mov 0x82, r3
+0x000026d8      e0             movx a, @dptr
+0x000026d9      fd             mov r5, a
+0x000026da      a3             inc dptr
+0x000026db      e0             movx a, @dptr
+0x000026dc      fe             mov r6, a
+0x000026dd      a3             inc dptr
+0x000026de      e0             movx a, @dptr
+0x000026df      ff             mov r7, a
+0x000026e0      4e             orl a, r6
+0x000026e1      22             ret
+0x000026e2      b90211         cjne r1, #0x02, 0x26f6
+0x000026e5      8a83           mov 0x83, r2
+0x000026e7      8b82           mov 0x82, r3
+0x000026e9      e4             clr a
+0x000026ea      93             movc a, @a+dptr
+0x000026eb      fd             mov r5, a
+0x000026ec      7401           mov a, #0x01
+0x000026ee      93             movc a, @a+dptr
+0x000026ef      fe             mov r6, a
+0x000026f0      7402           mov a, #0x02
+0x000026f2      93             movc a, @a+dptr
+0x000026f3      ff             mov r7, a
+0x000026f4      4e             orl a, r6
+0x000026f5      22             ret
+0x000026f6      eb             mov a, r3
+0x000026f7      f8             mov r0, a
+0x000026f8      e2             movx a, @r0
+0x000026f9      fd             mov r5, a
+0x000026fa      08             inc r0
+0x000026fb      e2             movx a, @r0
+0x000026fc      fe             mov r6, a
+0x000026fd      08             inc r0
+0x000026fe      e2             movx a, @r0
+0x000026ff      ff             mov r7, a
+0x00002700      4e             orl a, r6
+0x00002701      22             ret

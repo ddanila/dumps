@@ -1,0 +1,122 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 218 @ 73407 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x00011ebf      7d01           mov r5, #0x01
+0x00011ec1      7e77           mov r6, #0x77
+0x00011ec3      7fb3           mov r7, #0xb3
+0x00011ec5      7402           mov a, #0x02
+0x00011ec7      90a2e7         mov dptr, #0xa2e7
+0x00011eca      1207c5         lcall 0x07c5
+0x00011ecd      906867         mov dptr, #0x6867
+0x00011ed0      7402           mov a, #0x02
+0x00011ed2      f0             movx @dptr, a
+0x00011ed3      a3             inc dptr
+0x00011ed4      7406           mov a, #0x06
+0x00011ed6      f0             movx @dptr, a
+0x00011ed7      a3             inc dptr
+0x00011ed8      7423           mov a, #0x23
+0x00011eda      f0             movx @dptr, a
+0x00011edb      a3             inc dptr
+0x00011edc      7401           mov a, #0x01
+0x00011ede      f0             movx @dptr, a
+0x00011edf      a3             inc dptr
+0x00011ee0      7406           mov a, #0x06
+0x00011ee2      f0             movx @dptr, a
+0x00011ee3      a3             inc dptr
+0x00011ee4      740c           mov a, #0x0c
+0x00011ee6      f0             movx @dptr, a
+0x00011ee7      7f02           mov r7, #0x02
+0x00011ee9      7402           mov a, #0x02
+0x00011eeb      90a9e3         mov dptr, #0xa9e3
+0x00011eee      1207c5         lcall 0x07c5
+0x00011ef1      906863         mov dptr, #0x6863
+0x00011ef4      7402           mov a, #0x02
+0x00011ef6      f0             movx @dptr, a
+0x00011ef7      a3             inc dptr
+0x00011ef8      7406           mov a, #0x06
+0x00011efa      f0             movx @dptr, a
+0x00011efb      7d02           mov r5, #0x02
+0x00011efd      7e64           mov r6, #0x64
+0x00011eff      7f89           mov r7, #0x89
+0x00011f01      7402           mov a, #0x02
+0x00011f03      90a215         mov dptr, #0xa215
+0x00011f06      1207c5         lcall 0x07c5
+0x00011f09      906867         mov dptr, #0x6867
+0x00011f0c      7415           mov a, #0x15
+0x00011f0e      f0             movx @dptr, a
+0x00011f0f      a3             inc dptr
+0x00011f10      7406           mov a, #0x06
+0x00011f12      f0             movx @dptr, a
+0x00011f13      a3             inc dptr
+0x00011f14      7423           mov a, #0x23
+0x00011f16      f0             movx @dptr, a
+0x00011f17      a3             inc dptr
+0x00011f18      7401           mov a, #0x01
+0x00011f1a      f0             movx @dptr, a
+0x00011f1b      a3             inc dptr
+0x00011f1c      7406           mov a, #0x06
+0x00011f1e      f0             movx @dptr, a
+0x00011f1f      a3             inc dptr
+0x00011f20      740c           mov a, #0x0c
+0x00011f22      f0             movx @dptr, a
+0x00011f23      7f15           mov r7, #0x15
+0x00011f25      7402           mov a, #0x02
+0x00011f27      90a9e3         mov dptr, #0xa9e3
+0x00011f2a      1207c5         lcall 0x07c5
+0x00011f2d      906863         mov dptr, #0x6863
+0x00011f30      7415           mov a, #0x15
+0x00011f32      f0             movx @dptr, a
+0x00011f33      a3             inc dptr
+0x00011f34      7406           mov a, #0x06
+0x00011f36      f0             movx @dptr, a
+0x00011f37      7d02           mov r5, #0x02
+0x00011f39      7e64           mov r6, #0x64
+0x00011f3b      7fa8           mov r7, #0xa8
+0x00011f3d      7402           mov a, #0x02
+0x00011f3f      90a215         mov dptr, #0xa215
+0x00011f42      1207c5         lcall 0x07c5
+0x00011f45      906867         mov dptr, #0x6867
+0x00011f48      7418           mov a, #0x18
+0x00011f4a      f0             movx @dptr, a
+0x00011f4b      a3             inc dptr
+0x00011f4c      7406           mov a, #0x06
+0x00011f4e      f0             movx @dptr, a
+0x00011f4f      a3             inc dptr
+0x00011f50      7423           mov a, #0x23
+0x00011f52      f0             movx @dptr, a
+0x00011f53      a3             inc dptr
+0x00011f54      7407           mov a, #0x07
+0x00011f56      f0             movx @dptr, a
+0x00011f57      a3             inc dptr
+0x00011f58      7404           mov a, #0x04
+0x00011f5a      f0             movx @dptr, a
+0x00011f5b      a3             inc dptr
+0x00011f5c      740c           mov a, #0x0c
+0x00011f5e      f0             movx @dptr, a
+0x00011f5f      7f16           mov r7, #0x16
+0x00011f61      7402           mov a, #0x02
+0x00011f63      90a9e3         mov dptr, #0xa9e3
+0x00011f66      1207c5         lcall 0x07c5
+0x00011f69      906863         mov dptr, #0x6863
+0x00011f6c      7416           mov a, #0x16
+0x00011f6e      f0             movx @dptr, a
+0x00011f6f      a3             inc dptr
+0x00011f70      7406           mov a, #0x06
+0x00011f72      f0             movx @dptr, a
+0x00011f73      7d02           mov r5, #0x02
+0x00011f75      7e64           mov r6, #0x64
+0x00011f77      7fc7           mov r7, #0xc7
+0x00011f79      7402           mov a, #0x02
+0x00011f7b      90a215         mov dptr, #0xa215
+0x00011f7e      1207c5         lcall 0x07c5
+0x00011f81      906863         mov dptr, #0x6863
+0x00011f84      7417           mov a, #0x17
+0x00011f86      f0             movx @dptr, a
+0x00011f87      a3             inc dptr
+0x00011f88      7406           mov a, #0x06
+0x00011f8a      f0             movx @dptr, a
+0x00011f8b      7d02           mov r5, #0x02
+0x00011f8d      7e64           mov r6, #0x64
+0x00011f8f      7fe6           mov r7, #0xe6
+0x00011f91      7402           mov a, #0x02
+0x00011f93      90a215         mov dptr, #0xa215
+0x00011f96      1207c5         lcall 0x07c5

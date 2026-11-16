@@ -1,15 +1,18 @@
-# Unidentified satellite receiver — MAC 3.04
+# Probable Nokia MAC4 family — MAC 3.04
 
 Owner-reported M27C2001, read on 2026-11-16 using the T48 with
-`M27C2001@DIP32`, ID test disabled. DIP32 package is assumed from the
-established socket workflow; full markings and source board are unknown.
+`M27C2001@DIP32`, ID test disabled. A subsequent owner-supplied
+[photo](photos/PXL_20261116_173434247.jpg) confirms the 32-pin ST EPROM marked
+`M27C2001 -15F1`, `V88AB`, `9348C`, `SINGAPORE`. The sticker reads
+`MAC4` and `V:3.04`; its worn lower identifier is not reliably transcribed.
+The source board remains unknown.
 Both read commands exited zero and produced identical 262144-byte (256 KiB)
 images. CRC32: `8012F03B`. SHA-256 is recorded in `SHA256SUMS`.
 No repeated whole-image period of 256, 1024, 8192, 32768, 65536 or 131072
 bytes was found. Repeatability does not independently validate every stored bit.
 No firmware-specific checksum has been identified or validated.
 
-## Initial identification
+## Identification and investigation
 
 The embedded string at file offset `0x63E6` is
 `FRONT:xxx   MAC:3.04  93-10-13`. Menu content strongly suggests an analog
@@ -30,8 +33,12 @@ The first bytes `02 00 2E` decode as 8051 `LJMP 002Eh`. At `002Eh`,
 `C2 B1 C2 D3 C2 D4` clear bits, followed by `90 60 00` (MOV DPTR,#6000h),
 `74 FF` (MOV A,#FFh), `F0` (MOVX @DPTR,A), and an external-memory fill loop.
 Further startup instructions clear internal RAM and initialize PSW and SP.
-This coherent startup supports an 8051-family interpretation. Exact CPU,
-ROM banking and peripheral mapping are unknown; firmware has not been run.
+This coherent startup supports an 8051-family interpretation. The subsequent [firmware investigation](analysis/README.md) recovered the
+banking and menu structures and executed original instructions with synthetic
+peripherals. Exact CPU marking and receiver model remain unconfirmed.
+
+The investigation includes a [searchable multilingual catalog](analysis/menus/out/catalog.html),
+service-menu analysis, code references and a reproducible emulator harness.
 
 ## Preservation and availability
 

@@ -1,0 +1,62 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 111 @ 107029 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x0001a215      906860         mov dptr, #0x6860
+0x0001a218      1225ce         lcall 0x25ce
+0x0001a21b      906863         mov dptr, #0x6863
+0x0001a21e      e0             movx a, @dptr
+0x0001a21f      ff             mov r7, a
+0x0001a220      7e00           mov r6, #0x00
+0x0001a222      ee             mov a, r6
+0x0001a223      7e06           mov r6, #0x06
+0x0001a225      cf             xch a, r7
+0x0001a226      c3             clr c
+0x0001a227      33             rlc a
+0x0001a228      cf             xch a, r7
+0x0001a229      33             rlc a
+0x0001a22a      def9           djnz r6, 0xa225
+0x0001a22c      fe             mov r6, a
+0x0001a22d      906ed5         mov dptr, #0x6ed5
+0x0001a230      e0             movx a, @dptr
+0x0001a231      2f             add a, r7
+0x0001a232      ff             mov r7, a
+0x0001a233      906ed4         mov dptr, #0x6ed4
+0x0001a236      e0             movx a, @dptr
+0x0001a237      3e             addc a, r6
+0x0001a238      fe             mov r6, a
+0x0001a239      906864         mov dptr, #0x6864
+0x0001a23c      e0             movx a, @dptr
+0x0001a23d      2f             add a, r7
+0x0001a23e      ff             mov r7, a
+0x0001a23f      e4             clr a
+0x0001a240      3e             addc a, r6
+0x0001a241      fe             mov r6, a
+0x0001a242      7402           mov a, #0x02
+0x0001a244      90d910         mov dptr, #0xd910
+0x0001a247      1207c5         lcall 0x07c5
+0x0001a24a      906861         mov dptr, #0x6861
+0x0001a24d      e0             movx a, @dptr
+0x0001a24e      ff             mov r7, a
+0x0001a24f      a3             inc dptr
+0x0001a250      e0             movx a, @dptr
+0x0001a251      4f             orl a, r7
+0x0001a252      602d           jz 0xa281
+0x0001a254      906860         mov dptr, #0x6860
+0x0001a257      122696         lcall 0x2696
+0x0001a25a      122625         lcall 0x2625
+0x0001a25d      6022           jz 0xa281
+0x0001a25f      7901           mov r1, #0x01
+0x0001a261      7a68           mov r2, #0x68
+0x0001a263      7b60           mov r3, #0x60
+0x0001a265      900001         mov dptr, #0x0001
+0x0001a268      1227ad         lcall 0x27ad
+0x0001a26b      122625         lcall 0x2625
+0x0001a26e      90685f         mov dptr, #0x685f
+0x0001a271      ef             mov a, r7
+0x0001a272      f0             movx @dptr, a
+0x0001a273      7f00           mov r7, #0x00
+0x0001a275      7e00           mov r6, #0x00
+0x0001a277      7402           mov a, #0x02
+0x0001a279      90d8d4         mov dptr, #0xd8d4
+0x0001a27c      1207c5         lcall 0x07c5
+0x0001a27f      80d3           sjmp 0xa254
+0x0001a281      0207e4         ljmp 0x07e4

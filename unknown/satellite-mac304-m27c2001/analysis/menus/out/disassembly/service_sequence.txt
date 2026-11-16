@@ -1,0 +1,46 @@
+# Command: r2 -q -e scr.color=0 -e asm.lines=false -e asm.comments=false -a 8051 -c pD 81 @ 142659 mac304-m27c2001.bin
+# Printed addresses are file offsets; banked branch targets require mapping.
+0x00022d43      90685b         mov dptr, #0x685b
+0x00022d46      ef             mov a, r7
+0x00022d47      f0             movx @dptr, a
+0x00022d48      9077c0         mov dptr, #0x77c0
+0x00022d4b      e0             movx a, @dptr
+0x00022d4c      24c1           add a, #0xc1
+0x00022d4e      f582           mov 0x82, a
+0x00022d50      e4             clr a
+0x00022d51      3477           addc a, #0x77
+0x00022d53      f583           mov 0x83, a
+0x00022d55      e0             movx a, @dptr
+0x00022d56      ff             mov r7, a
+0x00022d57      90685b         mov dptr, #0x685b
+0x00022d5a      e0             movx a, @dptr
+0x00022d5b      6f             xrl a, r7
+0x00022d5c      7008           jnz 0x2d66
+0x00022d5e      9077c0         mov dptr, #0x77c0
+0x00022d61      e0             movx a, @dptr
+0x00022d62      14             dec a
+0x00022d63      f0             movx @dptr, a
+0x00022d64      8006           sjmp 0x2d6c
+0x00022d66      9077c0         mov dptr, #0x77c0
+0x00022d69      7403           mov a, #0x03
+0x00022d6b      f0             movx @dptr, a
+0x00022d6c      9077c0         mov dptr, #0x77c0
+0x00022d6f      e0             movx a, @dptr
+0x00022d70      6402           xrl a, #0x02
+0x00022d72      7006           jnz 0x2d7a
+0x00022d74      9068de         mov dptr, #0x68de
+0x00022d77      7432           mov a, #0x32
+0x00022d79      f0             movx @dptr, a
+0x00022d7a      9077c0         mov dptr, #0x77c0
+0x00022d7d      e0             movx a, @dptr
+0x00022d7e      700c           jnz 0x2d8c
+0x00022d80      9068de         mov dptr, #0x68de
+0x00022d83      e0             movx a, @dptr
+0x00022d84      7006           jnz 0x2d8c
+0x00022d86      9077c0         mov dptr, #0x77c0
+0x00022d89      7403           mov a, #0x03
+0x00022d8b      f0             movx @dptr, a
+0x00022d8c      9077c0         mov dptr, #0x77c0
+0x00022d8f      e0             movx a, @dptr
+0x00022d90      ff             mov r7, a
+0x00022d91      0207e4         ljmp 0x07e4

@@ -1,0 +1,1 @@
+radare2 excerpts are linear decoding from manually selected instruction boundaries. Branch targets printed for file offsets >= 0x10000 are not reliable CPU addresses; see report for the bank mapping. No full reachability proof is claimed.
