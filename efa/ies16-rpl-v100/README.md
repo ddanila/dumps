@@ -185,3 +185,10 @@ Another owner-supplied 2764 was read twice on 2026-11-16 in session
 `orphan-2764-t48-20261116-200422`. Both 8192-byte captures match the
 canonical image exactly, CRC32 `95abede4`, option-ROM checksum 00.
 Evidence is in `evidence/eighteenth-chip-20261116/`; no duplicate ROM is stored.
+
+## Nineteenth matching acquisition
+
+Another owner-supplied 2764 was read twice on 2026-11-16 in session
+`orphan-2764-t48-20261116-200518`. Both 8192-byte captures match the
+canonical image exactly, CRC32 `95abede4`, option-ROM checksum 00.
+Evidence is in `evidence/nineteenth-chip-20261116/`; no duplicate ROM is stored.
