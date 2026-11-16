@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [Unidentified satellite receiver MAC 3.04](unknown/satellite-mac304-m27c2001/) —
+  two matching 256 KiB M27C2001 reads; probable 8051-family code, multilingual
+  menus and version dated 1993-10-13. Manufacturer and model unknown.
+
 - [Edimax ISA-16 boot ROM V3.2](edimax/isa16-v32/) — two matching 8 KiB
   2764 reads, valid PC option-ROM checksum; Novell NetWare V2.10 loader,
   Edimax version dated 931201. No exact public match found.
