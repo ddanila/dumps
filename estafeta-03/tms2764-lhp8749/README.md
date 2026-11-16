@@ -208,3 +208,17 @@ locally under the sibling `dosravi/sessions/tms2764-lhp8749-label01-read1`,
 `tms2764-lhp8749-label01-read2`, `tms2764-lhp8749-label02-read1`, and
 `tms2764-lhp8749-label02-read2` directories. See `manifest.json` for execution
 identities and `SHA256SUMS` for image verification.
+
+## Matching T48 acquisition, 2026-11-16
+
+An owner-reported orphan 2764 was read twice using the T48 and
+`M2764A@DIP28` profile, with the ID test disabled. Both commands exited zero;
+both 8192-byte captures match `label02.bin` exactly (CRC32 `F404B705`).
+This identifies the contents as the saved odd-byte lane, not the physical
+chip marking or source board. No duplicate binary is stored.
+
+Original read logs and metadata are in `evidence/label02-t48-20261116/`.
+Full captures remain in local session `orphan-2764-t48-20261116-105114`.
+Minipro reports incomplete T48 support and outdated programmer firmware;
+no programming or erasing was performed. The two matching T48 reads also
+agree with the previously preserved Willem capture.
