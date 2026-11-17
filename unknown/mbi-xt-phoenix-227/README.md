@@ -19,8 +19,8 @@ SHA-256: `3f2b7bce83b44a0c5fe49a115a9c7cd174c6721c9c7c9c0371dc77ea17b107eb`
 
 The full-image byte sum modulo 256 is **0xBE**, not zero. At offset **0x1F3A**,
 the expected `B` of `ROM BIOS Ver 2.27` is **0x00**, producing `ROM \0IOS`.
-Substituting 0x42 at that location would make the sum zero, but **no repair has
-been applied**. Three matching reads establish repeatability, not the cause of
+Substituting 0x42 at that location makes the sum zero. The raw capture remains
+unchanged; a separate `mbi-xt-phoenix-227-fixed.bin` applies only that correction. Three matching reads establish repeatability, not the cause of
 the anomaly or that the firmware is intact. A reseat/independent programmer
 check would help distinguish a reading issue from stored contents.
 
@@ -40,3 +40,17 @@ All other bytes match. This supports an MBI-customized variant with one suspect
 byte; it does not prove the physical chip's original contents. No exact public
 match was found in this limited comparison. Preserve as a raw acquisition with
 unresolved firmware integrity, not a verified working BIOS.
+
+## Corrected-image emulator validation
+
+The [emulation report](emulation/README.md) records an A/B test in 86Box 6.0:
+
+- Raw image: stops at `ROM bad Chksm = BEh`, requesting F1.
+- Corrected image: completes the 640 KiB memory test, boots MS-DOS 5.00,
+  and passes video, timer, memory-size, floppy read/seek and keyboard probes.
+  DOS writes the result file and reads it back with `TYPE`.
+
+The corrected image differs from the published Phoenix reference only at the
+board-name string and its checksum adjustment byte. This strongly supports the
+single-byte correction, but is not exhaustive testing or validation on the
+original motherboard. Neither image has been programmed into the physical chip.

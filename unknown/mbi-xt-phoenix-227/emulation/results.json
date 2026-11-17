@@ -1,0 +1,42 @@
+{
+  "emulator": "86Box 6.0 build 9001 macOS arm64",
+  "machine": "genxt",
+  "cpu": "8088 4.772728 MHz, interpreter",
+  "ram_kib": 640,
+  "video": "CGA",
+  "floppy": "360 KiB, 40 cylinders, 2 heads, 9 sectors",
+  "dos": "MS-DOS 5.00",
+  "raw_control": "Stops at ROM bad Chksm = BEh; Error. Press F1 key to continue. No F1 override used.",
+  "corrected": "POST reaches 640K; boots DOS; all BIOSCHK checks pass; returns to COMMAND.COM; TYPE BIOSCHK.TXT reads back the result file.",
+  "checks": [
+    "INT 12h reports 640 KiB",
+    "INT 10h reports mode 3 and 80 columns; teletype output visible",
+    "INT 1Ah advances at least three ticks",
+    "INT 13h reset and read boot sector with 55AA signature",
+    "INT 13h read C39 H1 S9 matches 512 bytes of A5",
+    "INT 16h physical key input returns 256Bh for lowercase k",
+    "DOS writes and closes BIOSCHK.TXT; host mtype and guest TYPE read it back"
+  ],
+  "fixed_vs_public_differing_offsets": [
+    19,
+    1720,
+    1721,
+    1722,
+    1723,
+    1724,
+    1725,
+    1726,
+    1727,
+    1728,
+    1729,
+    1730,
+    1731
+  ],
+  "limitations": [
+    "Tests cover one emulated XT configuration, not the original motherboard.",
+    "Not exhaustive coverage of every BIOS path or peripheral.",
+    "No physical EPROM programming or independent reader test performed."
+  ],
+  "sessions": "/tmp/mbi-xt-emulation",
+  "reproduction_run": "prepare.py produced a fresh VM and disk; independently booted and generated identical BIOSCHK.TXT."
+}
