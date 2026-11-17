@@ -94,6 +94,10 @@ checksums are supplied for identification, preservation, and research.
 
 ## Acquisition investigations
 
+- [MBI XT / Phoenix 2.27 BIOS](unknown/mbi-xt-phoenix-227/) — three matching
+  8 KiB 2764 reads; suspect zero byte in BIOS banner and nonzero checksum.
+  Raw image preserved; firmware integrity unresolved.
+
 - [RF5 recheck and CPU survey](unknown/rf5-plastic-20260920-recheck/) —
   two matching nonblank reads; identity unresolved.
 - [Programmer-output echo model](analysis/20260919-programmer-echo/) and
