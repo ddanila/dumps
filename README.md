@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [GW-VGA Chips 451 BIOS v2.1.0](chips/gw-vga-451-v210/) — two matching
+  32 KiB T48 reads, valid option-ROM checksum; 64 KiB probe repeats the image.
+  Physical EPROM type provisional; no match in three related 86Box candidates.
+
 - [Probable Nokia MAC4-family firmware, MAC 3.04](unknown/satellite-mac304-m27c2001/) —
   two matching 256 KiB M27C2001 reads; banked 8051 firmware dated 1993-10-13.
   [Investigation](unknown/satellite-mac304-m27c2001/analysis/) includes ten-language
