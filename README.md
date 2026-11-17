@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [MB007 286 system BIOS Low chip](unknown/mb007-286-bios/) — two matching
+  32 KiB 27256 reads; Phoenix firmware, awaiting High chip.
+
 - [VID004 ASUS GMIO-470 VGA BIOS v1.1](asus/vid004-gmio470-v11/) — two matching
   32 KiB reads, valid VGA checksum; matching 64 KiB probes retained, chip type unresolved.
 
