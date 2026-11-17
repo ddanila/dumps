@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [MB007 integrated video BIOS Low chip](unknown/mb007-video-bios/) — two matching
+  16 KiB 27128 reads; awaiting High chip.
+
 - [MB007 286 system BIOS Low / High pair](unknown/mb007-286-bios/) — two matching
   32 KiB reads per chip; reconstructed 64 KiB Phoenix 3.10 / CEC286 02.04 BIOS.
 
