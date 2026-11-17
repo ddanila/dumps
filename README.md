@@ -14,8 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
-- [MB005 LC-2516 ROM set](unknown/mb005-lc2516/) — LO/EVEN acquired with two
-  matching 32 KiB T48 reads as 27256; probable paired BIOS, companion pending.
+- [MB005 LC-2516 / LC-2517 BIOS pair](unknown/mb005-lc2516/) — two matching
+  32 KiB reads per chip; reconstructed 64 KiB Acer/Investronica 8086 XT-plus
+  BIOS 2.01B with zero byte sum. Related public dump awaits binary comparison.
 
 - [GW-VGA Chips 451 BIOS v2.1.0](chips/gw-vga-451-v210/) — two matching
   32 KiB T48 reads, valid option-ROM checksum; 64 KiB probe repeats the image.

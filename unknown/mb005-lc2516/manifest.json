@@ -292,7 +292,7 @@
   "physical_part": "28-pin 27-series EPROM; full chip markings unknown",
   "profile": "M27256@DIP28",
   "session_path": "/Users/ddanila/fun/rom-programmers/sessions/mb005-lc2516-lo-even-20261117-120607",
-  "interpretation": "Probable even-byte lane of paired BIOS; reconstruction awaits companion ROM. Zero sum of this lane alone does not validate a full BIOS.",
+  "interpretation": "Confirmed even byte lane by coherent reconstruction with LC-2517 HI/ODD; full firmware functionality not tested.",
   "public_comparison": {
     "collection": "https://github.com/86Box/roms",
     "revision": "52264223de5f3df1b51861481ee116eed47eca3e",
@@ -303,6 +303,39 @@
       131072
     ],
     "comparisons": "whole file, even byte lane, odd byte lane",
-    "exact_matches": []
+    "exact_matches": [],
+    "related_public_dump": {
+      "url": "https://phantom.sannata.org/viewtopic.php?t=21825&start=44",
+      "description": "2016 thread reports BIOS64.ROM with same identifying strings; binary equality unknown because attachment retrieval is blocked by site user verification."
+    }
+  },
+  "hi_odd": {
+    "size": 32768,
+    "matching_reads": 2,
+    "sha256": "672407c58f6dfae9a0865823d5716385fc0890ae1f25bdf638ec2ef3006b5f2a",
+    "crc32": "d835a05d",
+    "sum_mod_256": 0,
+    "file": "lc2517-hi-odd-27256.bin",
+    "label": [
+      "LC-2517",
+      "HI/ODD"
+    ],
+    "socket_silkscreen": "27256",
+    "profile": "M27256@DIP28",
+    "session_path": "/Users/ddanila/fun/rom-programmers/sessions/mb005-lc2517-hi-odd-20261117-121136"
+  },
+  "combined": {
+    "file": "mb005-xt-plus-201b-interleaved.bin",
+    "size": 65536,
+    "sha256": "6f23f71380ea7169abf3c6f25e0ddfd40dc7babe407ab32bf059eddc958250a4",
+    "crc32": "c8953be9",
+    "sum_mod_256": 0,
+    "layout": "combined[2*i] = LC-2516 LO/EVEN[i]; combined[2*i+1] = LC-2517 HI/ODD[i]",
+    "banner": "8086 XT-plus BIOS Version 2.01B",
+    "acer_identifier": "ACER0010XTplus10 1.0201/09/89",
+    "other_identifier": "***INVESTRONICA S.A.",
+    "reset_vector": "EA 5B E0 00 F0 = JMP FAR F000:E05B",
+    "reset_area_date": "05/20/88",
+    "validation": "Two identical reads per chip; coherent text, reset vector, zero whole-image sum. No emulator or physical-board boot test."
   }
 }
