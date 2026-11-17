@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [VID001 Phoenix S3 86C801/805 GENDAC BIOS 2.13.065](s3/vid001-phoenix-213065/) —
+  two matching 32 KiB 27C256 reads; valid VGA option-ROM checksum.
+
 - [MB005 LC-2516 / LC-2517 BIOS pair](unknown/mb005-lc2516/) — two matching
   32 KiB reads per chip; reconstructed 64 KiB Acer/Investronica 8086 XT-plus
   BIOS 2.01B with zero byte sum. Related public dump awaits binary comparison.
