@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [VID002 Phoenix S3 86C801/805 GENDAC BIOS 2.13.063F03](s3/vid002-phoenix-213063f03/) —
+  two matching 32 KiB 27256 reads; valid VGA option-ROM checksum.
+
 - [VID001 Phoenix S3 86C801/805 GENDAC BIOS 2.13.065](s3/vid001-phoenix-213065/) —
   two matching 32 KiB 27C256 reads; valid VGA option-ROM checksum.
 
