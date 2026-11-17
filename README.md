@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [VID004 ASUS GMIO-470 VGA BIOS v1.1](asus/vid004-gmio470-v11/) — two matching
+  32 KiB reads, valid VGA checksum; matching 64 KiB probes retained, chip type unresolved.
+
 - [VID003 Hercules Stingray VL BIOS 1.04.A](hercules/vid003-stingray-vl-104a/) —
   two matching 32 KiB T48 reads; valid VGA checksum, provisional 27256 type.
 
