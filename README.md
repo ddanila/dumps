@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [VID003 Hercules Stingray VL BIOS 1.04.A](hercules/vid003-stingray-vl-104a/) —
+  two matching 32 KiB T48 reads; valid VGA checksum, provisional 27256 type.
+
 - [VID002 Phoenix S3 86C801/805 GENDAC BIOS 2.13.063F03](s3/vid002-phoenix-213063f03/) —
   two matching 32 KiB 27256 reads; valid VGA option-ROM checksum.
 

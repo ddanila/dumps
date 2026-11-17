@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-17T15:01:42.696455+02:00",
+  "board": "VID003",
+  "device": "28-pin 27-series EPROM, exact type unknown",
+  "card": "Hercules VLB",
+  "serial": "297754",
+  "fcc_id": "JQDA2228AV9401",
+  "programmer": "T48",
+  "profile": "M27256@DIP28",
+  "reader_sha256": "67d6ac766cb67928100b3990fd924e036160969683379fc74ebf764dd68c008f",
+  "reads": [
+    {
+      "command": [
+        "/Users/ddanila/fun/rom-programmers/.tools/minipro/minipro",
+        "-p",
+        "M27256@DIP28",
+        "-x",
+        "-r",
+        "/Users/ddanila/fun/rom-programmers/sessions/vid003-hercules-vlb-20261117-150142/read1.bin"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/Users/ddanila/fun/rom-programmers/.tools/minipro/minipro",
+        "-p",
+        "M27256@DIP28",
+        "-x",
+        "-r",
+        "/Users/ddanila/fun/rom-programmers/sessions/vid003-hercules-vlb-20261117-150142/read2.bin"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "capacity_probe": {
+    "command": [
+      "/Users/ddanila/fun/rom-programmers/.tools/minipro/minipro",
+      "-p",
+      "M27C512@DIP28",
+      "-x",
+      "-r",
+      "/Users/ddanila/fun/rom-programmers/sessions/vid003-hercules-vlb-20261117-150142/read-64k.bin"
+    ],
+    "exit_code": 0
+  }
+}
