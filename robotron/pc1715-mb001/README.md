@@ -57,3 +57,11 @@ All three mainboard ROMs are now acquired: A25.3 S502, A25.2 S643 and
 A25.1 S605. Their hashes match the known Latin/Cyrillic PC1715 reference set;
 none of these acquisitions is an unknown variant.
 
+
+## Board-swap provenance clarification
+
+The owner subsequently reported a ROM swap between MB001 and MB002, after
+which MB001 began booting. The U2716C35 A25.3 originally from MB001 is now
+recorded under [MB002](../pc1715-mb002/); its contents match this collection's
+RF2 S502 exactly. This collection records the chips associated with MB001 at
+acquisition, not necessarily its original factory-installed ROMs.

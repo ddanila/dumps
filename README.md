@@ -82,6 +82,10 @@ than the firmware collection. Keep all-FF captures local as well.
   Possibly Robotron according to the owner; exact system unknown. All address bits
   distinguish data, unlike the RF2 diagnostic candidates.
 
+- [`Robotron PC1715 MB002, originally MB001`](robotron/pc1715-mb002/) —
+  U2716C35 A25.3, known S502 with two matching reads; owner-reported boot issue
+  before a ROM swap is not explained by content corruption.
+
 - [`Robotron PC1715 PC002`](robotron/pc1715-pc002/) — known S502 boot and S619/S605 character ROMs;
   two matching reads each. Boot matches MB001; A25.2 character ROM differs.
 
