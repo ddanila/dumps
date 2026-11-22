@@ -82,8 +82,8 @@ than the firmware collection. Keep all-FF captures local as well.
   Possibly Robotron according to the owner; exact system unknown. All address bits
   distinguish data, unlike the RF2 diagnostic candidates.
 
-- [`Robotron PC1715 PC002`](robotron/pc1715-pc002/) — white К573-series RF2
-  A25.3 boot ROM, two matching reads; known S502, identical to MB001.
+- [`Robotron PC1715 PC002`](robotron/pc1715-pc002/) — known S502 boot and S619 character ROMs;
+  two matching reads each. Boot matches MB001; A25.2 character ROM differs.
 
 - [`Robotron PC1715 MB001`](robotron/pc1715-mb001/) — known S502 boot and S643/S605 character ROMs;
   each acquired with two matching reads and identified by reference hashes.
