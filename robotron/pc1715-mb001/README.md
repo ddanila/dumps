@@ -37,4 +37,23 @@ VCC/read VPP and ordinary digital A9 addressing. Both contact tests passed;
 both reads reported pin-driver reset. No programming or new execution test
 was performed. Raw logs and session metadata are retained unchanged.
 
-A25.1 has not yet been acquired in this collection.
+## A25.1 character ROM
+
+Owner-identified **U2716C35**, acquired from MB001 socket A25.1 on
+2026-11-22. Two independent 2,048-byte reads match exactly and identify as
+**S605**, the other character ROM listed for MAME's Latin/Cyrillic `rt1715lc` set.
+The physical ROM label has not been recorded; S605 is identification by contents.
+
+[ROM](s605.a25.1) · [Acquisition evidence](evidence/a25.1-20261122/)
+
+CRC32: `38062024`; SHA-1: `798f62d4adeb7098b7dcbfe6caf28302853ee97d`.
+Both match the [MAME reference](https://github.com/mamedev/mame/blob/master/src/mame/robotron/rt1715.cpp).
+Used the explicit `t48-2716-read` profile (`read2716`), with nominal 5 V
+VCC/read VPP and ordinary digital A9 addressing. Both contact tests passed;
+both reads reported pin-driver reset. No programming or new execution test
+was performed. Raw logs and session metadata are retained unchanged.
+
+All three mainboard ROMs are now acquired: A25.3 S502, A25.2 S643 and
+A25.1 S605. Their hashes match the known Latin/Cyrillic PC1715 reference set;
+none of these acquisitions is an unknown variant.
+
