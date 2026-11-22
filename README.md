@@ -14,6 +14,10 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [Award VENUS-VIA 1993-04-14](unknown/award-venus-via-19930414/) —
+  unidentified-board 128 KiB Award 4.20 BIOS with Cirrus VGA; matching large
+  and small reads, no exact full-image match established in checked archives.
+
 - [MB007 integrated video BIOS Low / High pair](unknown/mb007-video-bios/) — two matching
   16 KiB reads per chip; reconstructed Chips 451 VGA BIOS 2.0.1, valid checksum.
 
