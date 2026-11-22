@@ -82,6 +82,9 @@ than the firmware collection. Keep all-FF captures local as well.
   Possibly Robotron according to the owner; exact system unknown. All address bits
   distinguish data, unlike the RF2 diagnostic candidates.
 
+- [`Robotron PC1715 MB001`](robotron/pc1715-mb001/) — A25.3 RF2 boot ROM;
+  two matching reads, identified as the known S502 image by reference hashes.
+
 - [`Robotron PC1715 S642 QWERTY/ЯВЕРТЫ keyboard`](robotron/pc1715-keyboard-s642-qwerty/) —
   two matching 2 KiB reads; differs from JCUKEN S642 only in keycode tables.
   Matrix/modifier, alphabet and automated TOS/M end-to-end tests pass.
