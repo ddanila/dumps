@@ -42,4 +42,33 @@ VCC/read VPP and ordinary digital A9 addressing. Both contact tests passed;
 both reads reported pin-driver reset. No programming or new execution test
 was performed. Raw logs and session metadata are retained unchanged.
 
-A25.1 has not yet been acquired in this collection.
+## A25.1 character ROM
+
+Owner-identified **white К573-series RF2, not КС**, acquired from PC002
+socket A25.1 on 2026-11-22. The complete chip marking and physical ROM
+label have not been recorded. Two independent 2,048-byte reads match
+exactly and are byte-identical to [MB001 A25.1](../pc1715-mb001/s605.a25.1).
+Contents identify as the known **S605** character ROM.
+
+[ROM](s605.a25.1) · [Acquisition evidence](evidence/a25.1-20261122/)
+
+CRC32: `38062024`; SHA-1: `798f62d4adeb7098b7dcbfe6caf28302853ee97d`.
+Both match [MAME's rt1715lc reference](https://github.com/mamedev/mame/blob/master/src/mame/robotron/rt1715.cpp).
+Used the explicit RF2 reader with A9 rail routing and requested VCC 5.18 V,
+read VPP routed to VCC. Both contact tests passed and both reads reported
+pin-driver reset. No programming or new execution test was performed.
+Raw logs and session metadata are preserved unchanged.
+
+## Complete mainboard set
+
+| Socket | PC002 | MB001 | Comparison |
+| --- | --- | --- | --- |
+| A25.3 boot | S502 | S502 | Identical |
+| A25.2 character ROM | S619 | S643 | Different known images |
+| A25.1 character ROM | S605 | S605 | Identical |
+
+All three PC002 images individually match known references. Its S619/S605
+character-ROM combination differs from both pairings listed in the consulted
+MAME definitions (S619/S602 for rt1715, S643/S605 for rt1715lc).
+This records the owner-reported installed set; it does not establish an error,
+a factory configuration, or the history of any replacements.
