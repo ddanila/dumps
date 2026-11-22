@@ -20,4 +20,21 @@ pin-driver reset. Raw logs and session metadata are preserved unchanged.
 No programming was performed. The session's programming-voltage setting is
 configuration metadata; this was a read operation with read VPP routed to VCC.
 
-A25.1 and A25.2 have not yet been acquired in this collection.
+## A25.2 character ROM
+
+Owner-identified **U2716C35**, acquired from MB001 socket A25.2 on
+2026-11-22. Two independent 2,048-byte reads match exactly and identify as
+**S643**, the character ROM listed for MAME's Latin/Cyrillic `rt1715lc` set.
+This is a known image, not a newly discovered variant. Its physical ROM label
+has not been recorded; S643 is identification by contents.
+
+[ROM](s643.a25.2) · [Acquisition evidence](evidence/a25.2-20261122/)
+
+CRC32: `ea37f0e6`; SHA-1: `357760974d944b9782734504b9820771e7e37645`.
+Both match the [MAME reference](https://github.com/mamedev/mame/blob/master/src/mame/robotron/rt1715.cpp).
+Used the explicit `t48-2716-read` profile (`read2716`), with nominal 5 V
+VCC/read VPP and ordinary digital A9 addressing. Both contact tests passed;
+both reads reported pin-driver reset. No programming or new execution test
+was performed. Raw logs and session metadata are retained unchanged.
+
+A25.1 has not yet been acquired in this collection.

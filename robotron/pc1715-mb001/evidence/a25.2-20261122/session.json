@@ -1,0 +1,103 @@
+{
+  "all_ff": false,
+  "artifacts": {
+    "read-1.bin": {
+      "sha256": "7d50ee9d35f00a983c5a3fc8c25b687f9f92a6c4bdb606fa2fce78c9c5e1263e",
+      "size": 2048
+    },
+    "read-1.log": {
+      "sha256": "d76c858034090186d1b5913231c536789b150750ecba716ada0bfa17cd7a1dae",
+      "size": 105
+    },
+    "read-2.bin": {
+      "sha256": "7d50ee9d35f00a983c5a3fc8c25b687f9f92a6c4bdb606fa2fce78c9c5e1263e",
+      "size": 2048
+    },
+    "read-2.log": {
+      "sha256": "01f3a1e95accf7aea1433dd24c02975831d801a2c5fb8126960b0475920b7ec4",
+      "size": 105
+    },
+    "readback.bin": {
+      "sha256": "7d50ee9d35f00a983c5a3fc8c25b687f9f92a6c4bdb606fa2fce78c9c5e1263e",
+      "size": 2048
+    }
+  },
+  "comparison": "two matching fresh reads",
+  "experimental": true,
+  "finished_utc": "2026-11-22T18:26:01.463485+00:00",
+  "request": {
+    "action": "read",
+    "config": {
+      "program_vpp": 25,
+      "rf2": "/Users/ddanila/fun/rom-programmers/.tools/minipro/rf2-direct",
+      "serial": "6MNNWV7B0LLRDYCAA5PF5744",
+      "sha256": {
+        "rf2": "e6e074c2816c27c77e8ee7f0c759e661b6254e0ca23ebd6d30271a7693202d6c"
+      },
+      "source_revision": "3e89e0fac87c9da21ab912cce2787aa3eaee8d07"
+    },
+    "image": null,
+    "profile": "t48-2716-read",
+    "profile_definition": {
+      "backend": "t48",
+      "experimental": true,
+      "program": false,
+      "read_command": "read2716",
+      "setup": "Standard single-supply M2716 DIP24 placement per T48 diagram. Explicit pin-control read: VCC and read VPP at 5 V; no programming pulses. Does not apply to three-supply TMS2716.",
+      "size": 2048,
+      "voltage": null
+    },
+    "setup_confirmed": false,
+    "tools": {
+      "rf2": {
+        "path": "/Users/ddanila/fun/rom-programmers/.tools/minipro/rf2-direct",
+        "sha256": "e6e074c2816c27c77e8ee7f0c759e661b6254e0ca23ebd6d30271a7693202d6c"
+      }
+    },
+    "version": "0.1.0",
+    "workflow_sha256": "19eb3079b51bcd762c23505880e7814f2b891a734502dc0ca7ec4eb02a71d9fc"
+  },
+  "result_sha256": "7d50ee9d35f00a983c5a3fc8c25b687f9f92a6c4bdb606fa2fce78c9c5e1263e",
+  "schema": 1,
+  "shutdown": "reported-off",
+  "started_utc": "2026-11-22T18:25:59.275470+00:00",
+  "status": "verified",
+  "steps": [
+    {
+      "command": [
+        "/Users/ddanila/fun/rom-programmers/.tools/minipro/rf2-direct",
+        "--serial",
+        "6MNNWV7B0LLRDYCAA5PF5744",
+        "read2716",
+        "/Users/ddanila/fun/rom-programmers/sessions/20261122-mb001-a25-2/read-1.bin"
+      ],
+      "cwd": "None",
+      "exit_code": 0,
+      "log": "read-1.log",
+      "name": "read-1",
+      "outputs": {
+        "read-1.bin": "7d50ee9d35f00a983c5a3fc8c25b687f9f92a6c4bdb606fa2fce78c9c5e1263e",
+        "read-1.log": "d76c858034090186d1b5913231c536789b150750ecba716ada0bfa17cd7a1dae"
+      },
+      "status": "complete"
+    },
+    {
+      "command": [
+        "/Users/ddanila/fun/rom-programmers/.tools/minipro/rf2-direct",
+        "--serial",
+        "6MNNWV7B0LLRDYCAA5PF5744",
+        "read2716",
+        "/Users/ddanila/fun/rom-programmers/sessions/20261122-mb001-a25-2/read-2.bin"
+      ],
+      "cwd": "None",
+      "exit_code": 0,
+      "log": "read-2.log",
+      "name": "read-2",
+      "outputs": {
+        "read-2.bin": "7d50ee9d35f00a983c5a3fc8c25b687f9f92a6c4bdb606fa2fce78c9c5e1263e",
+        "read-2.log": "01f3a1e95accf7aea1433dd24c02975831d801a2c5fb8126960b0475920b7ec4"
+      },
+      "status": "complete"
+    }
+  ]
+}
