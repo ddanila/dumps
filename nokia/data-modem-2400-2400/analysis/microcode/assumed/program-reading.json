@@ -666,6 +666,22 @@
         "fitted_original"
       ],
       "limitations": "Exhaustive local R0/Q pairs assume previous zero at entry to 3BC. Reset entry demonstrated only under q2 with D=01 and indices 12 modulo 16. Optional gate and output consumer remain unverified."
+    },
+    {
+      "name": "Q-zero conditional tail",
+      "ranges": [
+        [
+          "2CB",
+          "2CF"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2 reset states with R0=FF, expose Q-1/Q and branch at gated 2CE according to the previous Q zero flag. Q=0 falls through into 2CF, exposing D+Q+carry without storing it.",
+      "evidence": "Q-DISPATCH.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Reset entry uses optional BRT gate, constant dispatch index 12 and diagnostic zero read at 2A8. Q-driven dispatch instead routes Q=0 elsewhere in the tested scenario. Physical input, output consumer and gate wiring remain unidentified."
     }
   ]
 }

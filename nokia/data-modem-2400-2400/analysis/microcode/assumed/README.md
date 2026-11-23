@@ -462,3 +462,7 @@ reset paths. Actual flag and dispatch dependencies remain unresolved.
 [Expanded dispatch indices](DISPATCH-RANGE.md) reach 3BD–3BF in 16 q2 reset
 cases using actual flags. An exhaustive local check explains this tail's
 conditional difference and its choice between 287 and 3C0; RAM/Q are preserved.
+
+[Q input and dispatch](Q-DISPATCH.md) reaches 2CF from reset by changing the
+last Q-loading read to zero. Across 1,024 runs, Q-based dispatch removes that
+entry combination, while a later Q clear explains the fixed 3BF exit.

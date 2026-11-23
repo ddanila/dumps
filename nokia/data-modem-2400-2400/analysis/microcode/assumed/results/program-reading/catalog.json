@@ -651,6 +651,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-DISPATCH.md",
+        "limitations": "Reset entry uses optional BRT gate, constant dispatch index 12 and diagnostic zero read at 2A8. Q-driven dispatch instead routes Q=0 elsewhere in the tested scenario. Physical input, output consumer and gate wiring remain unidentified.",
+        "meaning": "Under q2 reset states with R0=FF, expose Q-1/Q and branch at gated 2CE according to the previous Q zero flag. Q=0 falls through into 2CF, exposing D+Q+carry without storing it.",
+        "name": "Q-zero conditional tail",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "2CB",
+            "2CF"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -671,7 +687,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 286,
+    "annotated_used_words": 291,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1965,6 +1981,7 @@
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
+    "Q-DISPATCH.md": "bf46fab50deda66a8a7e15756e568b53c0c4bb642674e42356b598ff9b37867a",
     "Q-INDEPENDENT.md": "e9db7896f01411aca4558ec872ebded36cb53e2ec3161ff3204eb66d077c7329",
     "Q2-ACCUMULATOR.md": "b9d74d2a5e83b0abf816937d06fcae2c2823bc43f59dec395da4d779857a001e",
     "Q2-CALLER.md": "37e8a096aebb72e83bf10649f783254c111ffaf8ee6a46c1a8bb365493cc0119",
