@@ -6,6 +6,10 @@ for target lists than the broad structural pools alone. It supports a candidate
 connection from the lookup ROM to sequencer address selection, but does not
 establish the intervening wiring, index generation or high address bits.
 
+A [ROM-tail follow-up](ROM-TAIL.md) tests D0/D1 at the outer call and
+site-specific restrictions at the nested call. It supplies the first observed
+2C4 lookup under that alternative while preserving this baseline.
+
 ## Independent ROM evidence
 
 | ROM range | Observed data | Proposed role |

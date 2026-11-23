@@ -1,0 +1,64 @@
+{
+  "status": "hypothesis",
+  "evidence": "D0/D1 bytes B3/BC continue the returning-entry pattern, but 2BC contains a nested computed call. Compare wider outer tables and a nested table excluding row 080 to respect the four-entry stack.",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "variants": {
+    "baseline": {},
+    "outer_tail": {
+      "543": {
+        "offset": 128,
+        "count": 82,
+        "bank": 512
+      }
+    },
+    "both_tail": {
+      "543": {
+        "offset": 128,
+        "count": 82,
+        "bank": 512
+      },
+      "708": {
+        "offset": 128,
+        "count": 82,
+        "bank": 512
+      }
+    },
+    "scoped_tail": {
+      "543": {
+        "offset": 128,
+        "count": 82,
+        "bank": 512
+      },
+      "708": {
+        "offset": 144,
+        "count": 64,
+        "bank": 512
+      }
+    },
+    "scoped_byte": {
+      "543": {
+        "offset": 128,
+        "count": 82,
+        "bank": 512
+      },
+      "708": {
+        "offset": 129,
+        "count": 79,
+        "bank": 512
+      }
+    }
+  },
+  "dynamic_variant": "scoped_tail",
+  "seeds": 128,
+  "cycles": 1000,
+  "witness_seed_limit": 2048,
+  "witness_pc": 708,
+  "limitations": [
+    "The 82-byte outer range and 64-byte inner range are proposed table boundaries, not recovered address decoding.",
+    "Excluding row 080 at the nested call is a context/stack constraint, not measured hardware selector behavior.",
+    "All duplicate bytes retain their positions; indices remain independent scenario inputs.",
+    "No overflow is repaired; failing alternatives remain recorded.",
+    "Unreachable-word boundary classifications do not count as explained exceptions.",
+    "Excluding only ROM byte 080 gives the same target set as excluding its entire row; stack constraints do not recover the exact inner range."
+  ]
+}

@@ -703,6 +703,24 @@ class AssumedTests(unittest.TestCase):
             self.assertEqual(completed['condition']['polarity'][select],scenario['condition']['polarity'][select])
         with self.assertRaisesRegex(ValueError,'mask'):complete(scenario,fit,16)
 
+    def test_rom_tail_nested_call_exposes_stack_constraint(self):
+        from rom_tail_study import variants
+        from rom_study import load_rom
+        config=read(HERE/'rom-tail-search.json')
+        scenarios=variants(read(HERE/'results/rom-study/scenario-rom_calls.json'),load_rom(config),config)
+        rows=decode(self.mapping)
+        self.assertEqual(scenarios['outer_tail']['dispatch']['tables']['543']['targets'][-2:],[0x2b3,0x2bc])
+        rejected=graph(rows,scenarios['outer_tail'])
+        self.assertIn('223: possible stack overflow',rejected['exceptions'])
+        nested=graph(rows,scenarios['both_tail'])
+        self.assertIn('2c4: possible stack overflow',nested['exceptions'])
+        scoped=graph(rows,scenarios['scoped_tail'])
+        self.assertFalse(scoped['exceptions'])
+        self.assertTrue(set(range(0x2bc,0x2c6))<=set(scoped['reached']))
+        self.assertNotIn(0x221,scenarios['scoped_tail']['dispatch']['tables']['708']['targets'])
+        self.assertEqual(set(scenarios['scoped_tail']['dispatch']['tables']['708']['targets']),
+                         set(scenarios['scoped_byte']['dispatch']['tables']['708']['targets']))
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

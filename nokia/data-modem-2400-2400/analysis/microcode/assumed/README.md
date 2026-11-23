@@ -45,6 +45,9 @@ and yields an input-dependent loop under the preserved fitted policies.
 [TERMINAL-TAIL.md](TERMINAL-TAIL.md) characterizes the common tail at 078–084
 and shows why a blanket fallthrough/restart interpretation is unsupported
 by the observed stack contexts.
+[ROM-TAIL.md](ROM-TAIL.md) adds a site-scoped ROM-table alternative reaching
+2BC–2C5, with explicit overflow counterexamples for unrestricted nesting.
+Its graph reaches 993 words; 28 remain unresolved.
 
 ## Datapath-derived lookup indices
 
