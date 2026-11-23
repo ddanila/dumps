@@ -1,0 +1,169 @@
+{
+  "name": "Nokia DSC2847 photo-only partial reconstruction",
+  "status": "incomplete-photo-evidence",
+  "components": {
+    "U2": {
+      "type": "AM2901",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved"
+    },
+    "U8": {
+      "type": "AM2901",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved"
+    },
+    "U9": {
+      "type": "SEQ8X02",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved"
+    },
+    "U10": {
+      "type": "PROM",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved",
+      "rom": {
+        "path": "../../../../unknown-modem-810237c/chip10-810237c.bin",
+        "sha256": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+      }
+    },
+    "U11": {
+      "type": "PROM",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved",
+      "rom": {
+        "path": "../../../../unknown-modem-810237c/chip11-810238c.bin",
+        "sha256": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939"
+      }
+    },
+    "U17": {
+      "type": "PROM",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved",
+      "rom": {
+        "path": "../../../../unknown-modem-810237c/chip17-810239c.bin",
+        "sha256": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231"
+      }
+    },
+    "U18": {
+      "type": "PROM",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved",
+      "rom": {
+        "path": "../../../../unknown-modem-810237c/chip18-810240c.bin",
+        "sha256": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      }
+    },
+    "U5": {
+      "type": "REG374",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved"
+    },
+    "U6": {
+      "type": "REG374",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved"
+    },
+    "U29": {
+      "type": "REG374",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved"
+    },
+    "U30": {
+      "type": "REG374",
+      "inputs": {},
+      "evidence": "inventory.json",
+      "connection_status": "unresolved"
+    }
+  },
+  "external": {},
+  "observables": {},
+  "unresolved": [
+    {
+      "id": "CLOCK",
+      "priority": 1,
+      "targets": [
+        "U9.25",
+        "U5.11",
+        "U6.11",
+        "U29.11",
+        "U30.11",
+        "U2.CLK",
+        "U8.CLK"
+      ],
+      "reason": "Oscillator visible, but divider/gating and phase relationship not reconstructed."
+    },
+    {
+      "id": "ADDRESS",
+      "priority": 2,
+      "targets": [
+        "U9.A",
+        "U10.A",
+        "U11.A",
+        "U17.A",
+        "U18.A"
+      ],
+      "reason": "Address permutations and PROM enable wiring unresolved."
+    },
+    {
+      "id": "REGISTER",
+      "priority": 3,
+      "targets": [
+        "U10.D -> U5.D",
+        "U11.D -> U6.D",
+        "U17.D -> U29.D",
+        "U18.D -> U30.D"
+      ],
+      "reason": "Pairings inferred from adjacent trace bundles; individual bit connections and output enables not established."
+    },
+    {
+      "id": "SEQUENCE",
+      "priority": 4,
+      "targets": [
+        "U9.27",
+        "U9.28",
+        "U9.1",
+        "U9.26",
+        "U9.B"
+      ],
+      "reason": "Commands, TEST selection and branch source unresolved."
+    },
+    {
+      "id": "DATAPATH",
+      "priority": 5,
+      "targets": [
+        "U2",
+        "U8"
+      ],
+      "reason": "Instruction/address fields, slice significance, carry, shifts, data buses and enables unresolved."
+    },
+    {
+      "id": "EXTERNAL",
+      "priority": 6,
+      "targets": [
+        "board connector",
+        "U20",
+        "U22",
+        "U23"
+      ],
+      "reason": "External pin functions and three component identifications unresolved."
+    }
+  ],
+  "limitations": [
+    "No complete pin-to-pin control path has been established from the supplied photos.",
+    "Unresolved cells outside the instantiated core are recorded in inventory.json, not silently simulated.",
+    "PROM ENn is a logical enable adapter; four physical select inputs still require explicit decoding.",
+    "Am2901 logic-mode carry/overflow outputs remain unknown; active-low carry-lookahead pins are not modeled.",
+    "8X02 adapter requires relevant controls stable from falling to rising phase; other timing is rejected.",
+    "No analog delay, setup/hold, inter-board interface, or hardware validation."
+  ]
+}

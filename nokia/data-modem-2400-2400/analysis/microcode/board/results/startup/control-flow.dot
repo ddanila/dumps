@@ -1,0 +1,6 @@
+digraph microcode {
+  rankdir=LR;
+  unknown [shape=box,label="unresolved / dynamic"];
+  reset [label="8X02 power-on address 000"];
+  reset -> unknown [style=dashed];
+}

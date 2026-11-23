@@ -1,0 +1,123 @@
+{
+  "errors": [],
+  "unconnected_inputs": [
+    "U2.I",
+    "U2.A",
+    "U2.B",
+    "U2.D",
+    "U2.Cn",
+    "U2.CLK",
+    "U2.OEn",
+    "U2.RAM0in",
+    "U2.RAM3in",
+    "U2.Q0in",
+    "U2.Q3in",
+    "U8.I",
+    "U8.A",
+    "U8.B",
+    "U8.D",
+    "U8.Cn",
+    "U8.CLK",
+    "U8.OEn",
+    "U8.RAM0in",
+    "U8.RAM3in",
+    "U8.Q0in",
+    "U8.Q3in",
+    "U9.AC",
+    "U9.B",
+    "U9.TEST",
+    "U9.CLK",
+    "U9.ENn",
+    "U10.A",
+    "U10.ENn",
+    "U11.A",
+    "U11.ENn",
+    "U17.A",
+    "U17.ENn",
+    "U18.A",
+    "U18.ENn",
+    "U5.D",
+    "U5.CLK",
+    "U5.OEn",
+    "U6.D",
+    "U6.CLK",
+    "U6.OEn",
+    "U29.D",
+    "U29.CLK",
+    "U29.OEn",
+    "U30.D",
+    "U30.CLK",
+    "U30.OEn"
+  ],
+  "unresolved_evidence": [
+    {
+      "id": "CLOCK",
+      "priority": 1,
+      "reason": "Oscillator visible, but divider/gating and phase relationship not reconstructed.",
+      "targets": [
+        "U9.25",
+        "U5.11",
+        "U6.11",
+        "U29.11",
+        "U30.11",
+        "U2.CLK",
+        "U8.CLK"
+      ]
+    },
+    {
+      "id": "ADDRESS",
+      "priority": 2,
+      "reason": "Address permutations and PROM enable wiring unresolved.",
+      "targets": [
+        "U9.A",
+        "U10.A",
+        "U11.A",
+        "U17.A",
+        "U18.A"
+      ]
+    },
+    {
+      "id": "REGISTER",
+      "priority": 3,
+      "reason": "Pairings inferred from adjacent trace bundles; individual bit connections and output enables not established.",
+      "targets": [
+        "U10.D -> U5.D",
+        "U11.D -> U6.D",
+        "U17.D -> U29.D",
+        "U18.D -> U30.D"
+      ]
+    },
+    {
+      "id": "SEQUENCE",
+      "priority": 4,
+      "reason": "Commands, TEST selection and branch source unresolved.",
+      "targets": [
+        "U9.27",
+        "U9.28",
+        "U9.1",
+        "U9.26",
+        "U9.B"
+      ]
+    },
+    {
+      "id": "DATAPATH",
+      "priority": 5,
+      "reason": "Instruction/address fields, slice significance, carry, shifts, data buses and enables unresolved.",
+      "targets": [
+        "U2",
+        "U8"
+      ]
+    },
+    {
+      "id": "EXTERNAL",
+      "priority": 6,
+      "reason": "External pin functions and three component identifications unresolved.",
+      "targets": [
+        "board connector",
+        "U20",
+        "U22",
+        "U23"
+      ]
+    }
+  ]
+}

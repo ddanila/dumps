@@ -59,6 +59,13 @@ executes two PROM words before encountering an unknown stack return. This is
 not faithful Nokia microcode execution; a pin-tracing worksheet records what
 is needed to establish the actual control fields.
 
+The [photo-only board reconstruction](analysis/microcode/board/README.md) now
+provides annotated views, a 30-position inventory, four-state event simulation,
+and separate Am2901 slices. Its 18 additional tests pass, including a synthetic
+control-store integration run. No complete executable Nokia pin-to-pin nets
+have been recovered: the strict real-board startup stops before its first
+cycle rather than using the earlier guessed instruction mapping.
+
 The first 16 Am27S31 bytes are **exactly**
 `round(127 × sin(2πn/16))`, interpreted as signed bytes. This strengthens the
 lookup-table interpretation; sample clock and actual modem carrier frequency

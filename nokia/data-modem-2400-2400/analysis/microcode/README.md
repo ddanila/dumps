@@ -1,5 +1,12 @@
 # DSC2847 bit-slice execution experiment
 
+A subsequent [photo-only board reconstruction](board/README.md) adds a
+four-state event model, separate slices, explicit storage/clock behavior,
+annotated evidence, static listings and a tested synthetic integration path.
+The real Nokia wiring remains unresolved; its strict startup scenario executes
+zero cycles. The illustrative experiment below is preserved as historical
+evidence and is not used as the new board configuration.
+
 The board contains a **Signetics N8X02AN control-store sequencer** at position 9,
 confirmed by the [close-up](../../photos/PXL_20261123_113232157.jpg) and
 [whole-board photograph](../../photos/PXL_20261123_114926601.jpg). It accompanies

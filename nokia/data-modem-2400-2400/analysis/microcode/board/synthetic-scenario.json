@@ -1,0 +1,33 @@
+{
+  "name": "Synthetic fetch then execute phases",
+  "initial_inputs": {
+    "sc": 1,
+    "rc": 0
+  },
+  "cycle": [
+    {
+      "name": "fetch rise",
+      "set": {
+        "rc": 1
+      }
+    },
+    {
+      "name": "fetch fall",
+      "set": {
+        "rc": 0
+      }
+    },
+    {
+      "name": "execute fall",
+      "set": {
+        "sc": 0
+      }
+    },
+    {
+      "name": "execute rise",
+      "set": {
+        "sc": 1
+      }
+    }
+  ]
+}

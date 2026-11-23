@@ -1,0 +1,90 @@
+{
+  "status": "partial-evidence-ledger",
+  "executable_nets": [],
+  "candidate_bundles": [
+    {
+      "source": "U10.D",
+      "destination": "U5.D",
+      "status": "inferred",
+      "evidence": "front-annotated.jpg",
+      "reason": "Adjacent visible fan-out; some paths cross vias or disappear beneath packages. Individual bit order remains unresolved."
+    },
+    {
+      "source": "U11.D",
+      "destination": "U6.D",
+      "status": "inferred",
+      "evidence": "front-annotated.jpg",
+      "reason": "Adjacent visible fan-out; some paths cross vias or disappear beneath packages. Individual bit order remains unresolved."
+    },
+    {
+      "source": "U17.D",
+      "destination": "U29.D",
+      "status": "inferred",
+      "evidence": "front-annotated.jpg",
+      "reason": "Adjacent visible fan-out; some paths cross vias or disappear beneath packages. Individual bit order remains unresolved."
+    },
+    {
+      "source": "U18.D",
+      "destination": "U30.D",
+      "status": "inferred",
+      "evidence": "front-annotated.jpg",
+      "reason": "Adjacent visible fan-out; some paths cross vias or disappear beneath packages. Individual bit order remains unresolved."
+    }
+  ],
+  "note": "A component pairing is not a pin connection. Candidate bundles are excluded from the executable board.",
+  "trace_fragments": [
+    {
+      "id": "F001",
+      "status": "directly-traced-fragment",
+      "endpoint": "U9.17 (B3)",
+      "other_endpoint": null,
+      "view": "evidence/front-rectified.jpg",
+      "polyline_pixels": [
+        [
+          909.5,
+          660
+        ],
+        [
+          909.5,
+          722.5
+        ],
+        [
+          882.5,
+          748
+        ],
+        [
+          882.5,
+          828
+        ]
+      ],
+      "note": "Visible component-side segment runs toward U4 and disappears beneath its package. No U4 pin assignment or executable connection asserted."
+    }
+  ],
+  "unresolved_groups": [
+    {
+      "id": "CLOCK",
+      "status": "unresolved",
+      "detail": "See dsc2847.json unresolved list."
+    },
+    {
+      "id": "ADDRESS",
+      "status": "unresolved",
+      "detail": "See dsc2847.json unresolved list."
+    },
+    {
+      "id": "SEQUENCE",
+      "status": "unresolved",
+      "detail": "See dsc2847.json unresolved list."
+    },
+    {
+      "id": "DATAPATH",
+      "status": "unresolved",
+      "detail": "See dsc2847.json unresolved list."
+    },
+    {
+      "id": "EXTERNAL",
+      "status": "unresolved",
+      "detail": "See dsc2847.json unresolved list."
+    }
+  ]
+}
