@@ -476,3 +476,8 @@ invariants exclude both entries; default unresolved labels remain unchanged.
 same inputs excluded by q2. The decisive difference is Q−1 versus Q−R0−1,
 not a nonzero Q in that witness. All 12 gate-added words now have reset
 witnesses across explicitly different retained mappings and scenarios.
+
+[Three-bit gate extension](THREE-BIT-GATES.md) exposes five more words in a
+clean 1,016-word graph. Matched q2 reset runs enter the adjustment selector
+when D+Q wraps R0 to zero; Q=FF selects the unadjusted tail. The gate remains
+an optional structural hypothesis, with five words still disconnected.

@@ -714,6 +714,22 @@
         "q3"
       ],
       "limitations": "Reset entry depends on q3, the optional BRT gate and index-12 D=01 diagnostic scenario. Physical output consumer is unidentified; default entry labels remain unresolved."
+    },
+    {
+      "name": "zero-sum entry and carry-selected adjustment",
+      "ranges": [
+        [
+          "251",
+          "257"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2, load R0=D+Q and R3=~R1; expose R0 at 254. An extended optional gate admits 256 when R0=0. Previous logical carry from XNOR(0,Q) selects 2DC for Q=FF and 2D9 otherwise.",
+      "evidence": "THREE-BIT-GATES.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Matched reset sweep uses Q-indexed 26F and diagnostic reads at 2A8/235/251. The three-bit gate is a branch-address correlation, not recovered wiring. Output consumer and default entry remain unresolved."
     }
   ]
 }

@@ -699,6 +699,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "THREE-BIT-GATES.md",
+        "limitations": "Matched reset sweep uses Q-indexed 26F and diagnostic reads at 2A8/235/251. The three-bit gate is a branch-address correlation, not recovered wiring. Output consumer and default entry remain unresolved.",
+        "meaning": "Under q2, load R0=D+Q and R3=~R1; expose R0 at 254. An extended optional gate admits 256 when R0=0. Previous logical carry from XNOR(0,Q) selects 2DC for Q=FF and 2D9 otherwise.",
+        "name": "zero-sum entry and carry-selected adjustment",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "251",
+            "257"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -719,7 +735,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 295,
+    "annotated_used_words": 300,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -2028,6 +2044,7 @@
     "TAIL-CONVERGENCE.md": "b1e6b58589106a25d44bfb1ae08829cd83dc52121a75e52b838f448a2a5d087a",
     "TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",
     "TERMINAL-TAIL.md": "cecf5637f41d6e5645425389710c113900a9319140c49d28e4a2b4cf752222da",
+    "THREE-BIT-GATES.md": "8d8abff5bb8a79a9af953c9c048f556e42149384307ff052e8ce2b746bf000da",
     "results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
     "results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
     "results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
