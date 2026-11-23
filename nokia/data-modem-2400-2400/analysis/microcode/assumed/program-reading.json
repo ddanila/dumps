@@ -350,11 +350,11 @@
       ],
       "status": "hypothesis",
       "meaning": "Calls two right-shift loops and one left-shift loop without initializing R7; constant-D fixtures often repeat.",
-      "evidence": "DRAIN-CALLER.md",
+      "evidence": "DRAIN-RESET.md",
       "profiles": [
         "fitted_original"
       ],
-      "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability."
+      "limitations": "Original-role previous-flag and zero-fill assumptions. Seeded reset dispatch reaches the wrapper with R7=FF and Q=D; physical dispatch and external-input behavior remain unresolved."
     },
     {
       "name": "input-matched left shift",
@@ -366,11 +366,11 @@
       ],
       "status": "hypothesis",
       "meaning": "Left-shift Q until previous F=D+Q is zero; after return clear Q and write D+1 to R0.",
-      "evidence": "DRAIN-CALLER.md",
+      "evidence": "DRAIN-RESET.md",
       "profiles": [
         "fitted_original"
       ],
-      "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability."
+      "limitations": "Original-role previous-flag and zero-fill assumptions. Seeded reset dispatch reaches the wrapper with R7=FF and Q=D; physical dispatch and external-input behavior remain unresolved."
     }
   ]
 }

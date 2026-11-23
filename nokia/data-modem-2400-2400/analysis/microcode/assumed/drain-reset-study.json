@@ -1,0 +1,29 @@
+{
+  "status": "hypothesis",
+  "evidence": "Reset with zero RAM/Q, selected original-role previous-flag mapping, seeded random scenario dispatch, and constant external D. Track full register writers and exact repeated states; this is not physical dispatch or input identification.",
+  "base": "results/polling-study/immediate-one",
+  "seeds": [
+    6,
+    14
+  ],
+  "cycles": 1000,
+  "witness_values": [
+    0,
+    1,
+    64,
+    128,
+    255
+  ],
+  "release_values": [
+    1,
+    64,
+    128,
+    255
+  ],
+  "release_input": {
+    "status": "stub",
+    "evidence": "Diagnostic only: first 299 read is D, later 299 reads zero; 187 reads zero. Other PCs keep D. No physical protocol claim.",
+    "right_pc": 665,
+    "left_pc": 391
+  }
+}

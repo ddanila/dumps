@@ -379,3 +379,8 @@ analytic return/repetition criterion; caller preconditions remain unresolved.
 [Shift-loop caller](DRAIN-CALLER.md) follows wrapper 248 through two right
 shifts and a left shift: 131,072 local cases match the composed termination
 criterion, with separate bounded reset-path observations.
+
+[Reset-driven shift callers](DRAIN-RESET.md) trace R7=FF and Q=D from reset
+through seeded dispatch entry 1 at 109. Of 256 constant bytes per seed, only
+zero lets the complete wrapper return; explicit changing-input diagnostics
+release the loops without altering the mapping or sequencer state.

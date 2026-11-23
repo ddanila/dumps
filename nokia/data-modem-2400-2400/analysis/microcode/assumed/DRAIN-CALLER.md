@@ -77,3 +77,8 @@ The default mapping and scenario are unchanged. This result strengthens the
 need to recover caller register values and external-D behavior, or revise the
 condition/datapath hypothesis if further evidence contradicts it. It does not
 justify forcing loop exits or labeling arbitrary local inputs as real hangs.
+
+Follow-up: [seeded reset paths](DRAIN-RESET.md) select a different dispatch
+entry and reach the wrapper with R7=FF and Q=D. They establish a modeled
+reset path for the repetition cases while leaving physical input/dispatch
+semantics unresolved.
