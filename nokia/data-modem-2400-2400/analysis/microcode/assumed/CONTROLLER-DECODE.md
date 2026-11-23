@@ -61,7 +61,9 @@ previous RAM 22.5, and a comparison of RAM 6E with FF. It selects one of four
 updates to RAM 22.4/22.5: set bit 4 and preserve bit 5; set both; set bit 4 and
 clear bit 5; or clear both. Some paths also set received bit F2. The reference
 keeps those actions distinct, especially the state-preserving case. The purpose
-of RAM 6E is not established by this local study.
+of RAM 6E is not established by this local study; the later
+[event study](CONTROLLER-EVENT.md) identifies its countdown-weighted accumulation
+and polling behavior.
 
 Finally, 072F–077B derives RAM 23.1–23.3 from E selector bits and A5/B4/B5/C5.
 RAM 22.5 forces 23.1 high. E3 forces both 23.2 and 23.3 high; otherwise those

@@ -337,3 +337,7 @@ None improves baseline coverage; its new path to 0FA loses 85 other words.
 The [controller input decoder](CONTROLLER-DECODE.md) translates routine 0620
 into explicit bit-field rules, checked against 10,144 unchanged-ROM executions.
 Physical signal names remain unresolved.
+
+The [controller event study](CONTROLLER-EVENT.md) follows a countdown-weighted
+external interrupt into byte 6E and two outgoing buffer bits, checked against
+30,436 ROM executions.

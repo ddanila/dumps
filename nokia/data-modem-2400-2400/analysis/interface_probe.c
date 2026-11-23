@@ -63,10 +63,12 @@ int main(int argc, char **argv) {
         if (sscanf(line,"%7s %31s %31s %u %u",mode,frame_text,prior_text,&delay,&completions)!=5 || !delay || delay>1000) return 2;
         int reading=!strcmp(mode,"read");
         int decoding=!strcmp(mode,"decode");
-        decoding_probe=decoding; memset(decode_seen,0,sizeof decode_seen);
-        unsigned stop=sentinel, entry=decoding?0x620:reading?0x800:0x899;
+        int edge=!strcmp(mode,"edge"), qualify=!strcmp(mode,"qualify");
+        int event_probe=edge || qualify;
+        decoding_probe=decoding || event_probe; memset(decode_seen,0,sizeof decode_seen);
+        unsigned stop=sentinel, entry=edge?0x13:qualify?0x1790:decoding?0x620:reading?0x800:0x899;
         port_probe=!strcmp(mode,"port") || !strcmp(mode,"poll1") || !strcmp(mode,"poll2") || !strcmp(mode,"main");
-        if (!reading && strcmp(mode,"write") && !port_probe && !decoding) return 2;
+        if (!reading && strcmp(mode,"write") && !port_probe && !decoding && !event_probe) return 2;
         if (port_probe) {
             entry=0x8dd;
             if (!strcmp(mode,"poll1")) { entry=0x1e37; stop=0x1e3c; }
@@ -74,7 +76,7 @@ int main(int argc, char **argv) {
             if (!strcmp(mode,"main")) { entry=0x1ed3; stop=0x81d; reading=1; }
         }
         unsigned char frame[9]={0}, prior[6]={0};
-        if (!bytes(frame_text,frame,port_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
+        if (!bytes(frame_text,frame,port_probe?9:event_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
         struct em8051 c={0};
         c.mCodeMem=code; c.mCodeMemMaxIdx=65535;
         c.except=exception; c.xread=xread; c.xwrite=xwrite;
@@ -84,13 +86,21 @@ int main(int argc, char **argv) {
         c.mLowerData[initial_sp-1]=sentinel&255; c.mLowerData[initial_sp]=sentinel>>8; c.mSFR[REG_SP]=initial_sp;
         c.mPC=entry;
         c.mSFR[REG_P1]=initial_p1;
-        memcpy(c.mLowerData+0x2a,prior,6);
-        if (!reading && !port_probe && !decoding) memcpy(c.mLowerData+0x30,frame,4);
+        if (!event_probe) memcpy(c.mLowerData+0x2a,prior,6);
+        if (!reading && !port_probe && !decoding && !event_probe) memcpy(c.mLowerData+0x30,frame,4);
         if (port_probe) {
             port_value=frame[0]; c.mSFR[REG_P2]=frame[1]; c.mLowerData[0x17]=prior[0];
             memmove(frame,frame+2,7);
         }
-        if (decoding) {
+        if (event_probe) {
+            c.mLowerData[0x12]=frame[0]; c.mLowerData[0x13]=frame[1];
+            c.mLowerData[0x6e]=frame[2]; c.mLowerData[0x34]=frame[3];
+            c.mLowerData[0x30]=frame[4]; c.mLowerData[0x31]=frame[5];
+            c.mSFR[REG_PSW]=frame[6]; c.mSFR[REG_ACC]=frame[7];
+            if (frame[8]&0x80) return 2; /* Local probes keep global interrupts disabled. */
+            c.mSFR[REG_IE]=frame[8];
+            memcpy(c.mLowerData+0x22,prior,6);
+        } else if (decoding) {
             /* Six normalized inputs plus byte 6E; prior holds RAM 22-27. */
             memcpy(c.mLowerData+0x2a,frame,6);
             memcpy(c.mLowerData+0x22,prior,6);
@@ -118,14 +128,14 @@ int main(int argc, char **argv) {
         printf("],\"events\":[");
         for (unsigned i=0;i<event_count;i++) printf("%s{\"cycle\":%u,\"pc\":%u,\"kind\":\"%s\",\"value\":%u}",i?",":"",events[i].cycle,events[i].pc,events[i].kind,events[i].value);
         printf("]");
-        if (port_probe || decoding) {
+        if (port_probe || decoding || event_probe) {
             printf(",\"reached_stop\":%s,\"acc\":%u,\"p2\":%u,\"iram\":[",c.mPC==stop?"true":"false",c.mSFR[REG_ACC],c.mSFR[REG_P2]);
             for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mLowerData[i]);
             printf("],\"sfr\":[");
             for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mSFR[i]);
             printf("]");
         }
-        if (decoding) {
+        if (decoding || event_probe) {
             unsigned count=0; printf(",\"visited\":[");
             for (unsigned i=0;i<8192;i++) if (decode_seen[i]) printf("%s%u",count++?",":"",i);
             printf("]");
