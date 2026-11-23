@@ -1,0 +1,54 @@
+{
+  "status": "hypothesis",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+  "branch_lookups": {
+    "8": {
+      "offset": 224,
+      "count": 8,
+      "bank": 0
+    },
+    "623": {
+      "offset": 240,
+      "count": 16,
+      "bank": 512
+    }
+  },
+  "call_lookup": {
+    "offset": 128,
+    "count": 80,
+    "bank": 512
+  },
+  "call_sites": [
+    543,
+    708
+  ],
+  "rejected_alternative": {
+    "site": 543,
+    "offset": 208,
+    "count": 16,
+    "bank": 512
+  },
+  "banks_to_compare": [
+    0,
+    256,
+    512,
+    768
+  ],
+  "seeds": 128,
+  "cycles": 1000,
+  "integration": {
+    "variant": 2,
+    "seed": 2,
+    "external_read": 85
+  },
+  "limitations": [
+    "ROM bytes are measured; their association with microcode dispatch sites and high address bits remains a hypothesis.",
+    "All 80 entries from five 16-byte call tables are indexed uniformly by the scenario; physical row/index selection is unknown.",
+    "Repeated targets retain separate lookup indices; these are not inferred probabilities of real commands.",
+    "Lookup logs reconstruct the proposed address path from executed dispatches, not measured bus transfers.",
+    "Physical association of the Am27S31 with device 810241 on DSC3557 is still unconfirmed; DAC and sample clock connections remain unknown."
+  ],
+  "lookup_example_seed": 3,
+  "trace_selection": "Seed 2 exercises 26F and 21F; seed 3 exercises 008. Selected for inspecting lookups, not as a coverage ranking."
+}

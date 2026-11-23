@@ -69,7 +69,10 @@ cycle rather than using the earlier guessed instruction mapping.
 The first 16 Am27S31 bytes are **exactly**
 `round(127 × sin(2πn/16))`, interpreted as signed bytes. This strengthens the
 lookup-table interpretation; sample clock and actual modem carrier frequency
-are still unknown. [Plot](analysis/results/sine-table.svg) ·
+are still unknown. A later [dispatch study](analysis/microcode/assumed/ROM-DISPATCH.md)
+also identifies an exact 65-sample quarter sine at 100–140 and ROM byte ranges
+matching candidate microcode branch/call targets. The inter-board address path
+remains a hypothesis. [Plot](analysis/results/sine-table.svg) ·
 [all 512 values](analysis/results/am27s31.csv).
 
 ## Controller execution and recovered interfaces

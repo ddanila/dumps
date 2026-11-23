@@ -94,6 +94,8 @@ def table_targets(table):
         if any(type(v) is not int for v in (base,count,stride)) or not 1<=count<=1024 or stride<1:
             raise ValueError('invalid dispatch table bounds')
         targets=[base+i*stride for i in range(count)]
-    if any(type(p) is not int or not 0<=p<1024 for p in targets) or len(set(targets))!=len(targets):
+    allow_duplicates=table.get('allow_duplicate_targets',False)
+    if type(allow_duplicates) is not bool:raise ValueError('invalid duplicate-target policy')
+    if any(type(p) is not int or not 0<=p<1024 for p in targets) or (not allow_duplicates and len(set(targets))!=len(targets)):
         raise ValueError('invalid or duplicate dispatch targets')
     return targets

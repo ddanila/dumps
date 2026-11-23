@@ -9,6 +9,14 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Independent lookup-ROM dispatch evidence
+
+[ROM-DISPATCH.md](ROM-DISPATCH.md) replaces several permissive target pools
+with actual Am27S31 bytes, reaching 91.97% coverage while retaining explicit
+site/bank/index assumptions. The ROM also contains an exact 65-sample quarter
+sine table. Sparse targets may retain repeated entries with the explicit
+`allow_duplicate_targets: true` flag; default duplicate rejection is unchanged.
+
 ## Structurally constrained target pools
 
 [TARGET-POOLS.md](TARGET-POOLS.md) classifies disconnected entries by stack

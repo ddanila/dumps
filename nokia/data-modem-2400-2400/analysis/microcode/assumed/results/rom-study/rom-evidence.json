@@ -1,0 +1,352 @@
+{
+  "branch_bytes": {
+    "623": [
+      198,
+      198,
+      198,
+      48,
+      128,
+      128,
+      48,
+      0,
+      0,
+      0,
+      0,
+      23,
+      203,
+      0,
+      0,
+      0
+    ],
+    "8": [
+      9,
+      15,
+      11,
+      19,
+      34,
+      13,
+      50,
+      84
+    ]
+  },
+  "call_bank_roles": {
+    "0": [
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 33
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 36
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 37
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 41
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 43
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 44
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 45
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 179
+      }
+    ],
+    "256": [
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 289
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 292
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 293
+      },
+      {
+        "exceptions": [
+          "12b: possible stack underflow"
+        ],
+        "returns": true,
+        "target": 297
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 299
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 300
+      },
+      {
+        "exceptions": [
+          "130: possible stack underflow"
+        ],
+        "returns": true,
+        "target": 301
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 435
+      }
+    ],
+    "512": [
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 545
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 548
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 549
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 553
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 555
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 556
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 557
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 691
+      }
+    ],
+    "768": [
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 801
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 804
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 805
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 809
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 811
+      },
+      {
+        "exceptions": [],
+        "returns": false,
+        "target": 812
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 813
+      },
+      {
+        "exceptions": [],
+        "returns": true,
+        "target": 947
+      }
+    ]
+  },
+  "call_bytes": [
+    33,
+    36,
+    36,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    179,
+    45,
+    36,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    179,
+    43,
+    36,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    179,
+    41,
+    36,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    179,
+    44,
+    36,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37
+  ],
+  "configuration": {
+    "banks_to_compare": [
+      0,
+      256,
+      512,
+      768
+    ],
+    "branch_lookups": {
+      "623": {
+        "bank": 512,
+        "count": 16,
+        "offset": 240
+      },
+      "8": {
+        "bank": 0,
+        "count": 8,
+        "offset": 224
+      }
+    },
+    "call_lookup": {
+      "bank": 512,
+      "count": 80,
+      "offset": 128
+    },
+    "call_sites": [
+      543,
+      708
+    ],
+    "cycles": 1000,
+    "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+    "integration": {
+      "external_read": 85,
+      "seed": 2,
+      "variant": 2
+    },
+    "limitations": [
+      "ROM bytes are measured; their association with microcode dispatch sites and high address bits remains a hypothesis.",
+      "All 80 entries from five 16-byte call tables are indexed uniformly by the scenario; physical row/index selection is unknown.",
+      "Repeated targets retain separate lookup indices; these are not inferred probabilities of real commands.",
+      "Lookup logs reconstruct the proposed address path from executed dispatches, not measured bus transfers.",
+      "Physical association of the Am27S31 with device 810241 on DSC3557 is still unconfirmed; DAC and sample clock connections remain unknown."
+    ],
+    "lookup_example_seed": 3,
+    "rejected_alternative": {
+      "bank": 512,
+      "count": 16,
+      "offset": 208,
+      "site": 543
+    },
+    "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "seeds": 128,
+    "status": "hypothesis",
+    "trace_selection": "Seed 2 exercises 26F and 21F; seed 3 exercises 008. Selected for inspecting lookups, not as a coverage ranking."
+  },
+  "sine_full_period": {
+    "count": 16,
+    "exact_match": true,
+    "offset": 0
+  },
+  "sine_quarter_period": {
+    "count": 65,
+    "exact_match": true,
+    "offset": 256
+  }
+}

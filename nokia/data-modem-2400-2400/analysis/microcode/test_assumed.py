@@ -445,6 +445,34 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(len(bounded['reached']),1004)
         self.assertEqual(alternatives['bounded']['dispatch']['tables'][str(0x2c4)]['targets'],[0x22b,0x22c,0x22d,0x2b3])
 
+    def test_rom_dispatch_preserves_bytes_indices_and_repeated_targets(self):
+        from rom_study import load_rom,rom_table,scenarios,reconstruct_lookups
+        from common import table_targets
+        config=read(HERE/'rom-dispatch.json');data=load_rom(config)
+        table=rom_table(data,config['branch_lookups'][str(0x26f)],config)
+        self.assertEqual(len(table_targets(table)),16)
+        self.assertEqual(table_targets(table)[:3],[0x2c6]*3)
+        bad=copy.deepcopy(table);bad['allow_duplicate_targets']=False
+        with self.assertRaises(ValueError):table_targets(bad)
+        bad['allow_duplicate_targets']='yes'
+        with self.assertRaises(ValueError):table_targets(bad)
+        base=read(HERE/'results/target-study/scenario-bounded.json')
+        scenario=scenarios(base,data,config)['rom_calls']
+        self.assertEqual(scenario['branch_tables']['8']['targets'],[9,15,11,19,34,13,50,84])
+        scenario['initial']['pc']=8
+        scenario['dispatch'].update(mode='sequence',sequence=[1])
+        result=execute(self.mapping,scenario,1)
+        self.assertEqual(result['final_state']['pc'],15)
+        self.assertEqual(result['stack']['writes'],0)
+        records=[dict(cycle=0,pc=8,command=6,dispatch_entry=1,next_pc=15)]
+        lookup=reconstruct_lookups(records,scenario,data)[0]
+        self.assertEqual((lookup['rom_address'],lookup['rom_value'],lookup['target']),(0xe1,15,15))
+        records[0]['next_pc']=13
+        with self.assertRaisesRegex(ValueError,'reproduce executed target'):
+            reconstruct_lookups(records,scenario,data)
+        bad_config=dict(config,rom_sha256='wrong')
+        with self.assertRaisesRegex(ValueError,'hash mismatch'):load_rom(bad_config)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():
