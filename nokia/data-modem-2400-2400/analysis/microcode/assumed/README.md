@@ -33,6 +33,9 @@ register-role hypotheses. This supplies concrete downstream predictions.
 [FIRST-USE.md](FIRST-USE.md) distinguishes unused surviving values from
 actual downstream operand uses and records preparation-dependent arithmetic
 under one candidate from each register-role hypothesis.
+[CONDITION-FIT.md](CONDITION-FIT.md) replays both numerical-use witnesses in
+the main runner with consistent previous-flag selectors and explicit PC-keyed
+input stubs, replacing the local per-instruction branch choices.
 
 ## Datapath-derived lookup indices
 

@@ -1,0 +1,61 @@
+{
+  "status": "hypothesis",
+  "evidence": "Check whether each saved numerical-use witness has one consistent source and polarity per condition select across its zero and marked traces.",
+  "sources": [
+    "zero",
+    "sign",
+    "carry",
+    "overflow"
+  ],
+  "timings": [
+    "current",
+    "previous"
+  ],
+  "limitations": [
+    "Prescribed paths are not measurements of hardware branch outcomes.",
+    "Current versus previous means current versus preceding executed instruction, not a recovered latch phase.",
+    "Unknown logical carry/overflow rejects a verified fit but does not prove the physical pin cannot supply the condition.",
+    "Constant candidates represent fixed external inputs for the local trace, not identified signals.",
+    "Unused selectors remain unconstrained; no global execution claim is made."
+  ],
+  "replay_policies": {
+    "original": {
+      "0": [
+        "zero",
+        1
+      ],
+      "2": [
+        "carry",
+        0
+      ],
+      "3": [
+        "carry",
+        1
+      ],
+      "7": [
+        "zero",
+        0
+      ]
+    },
+    "swapped": {
+      "0": [
+        "zero",
+        1
+      ],
+      "3": [
+        "zero",
+        0
+      ],
+      "6": [
+        "zero",
+        0
+      ],
+      "7": [
+        "zero",
+        1
+      ]
+    }
+  },
+  "replay_status": "hypothesis",
+  "replay_evidence": "One previous-flag assignment selected from the local fits solely to verify that the main integrated runner can reproduce the witness; unused selectors use constant zero."
+}

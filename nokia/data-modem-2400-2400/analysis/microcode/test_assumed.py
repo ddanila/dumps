@@ -649,6 +649,34 @@ class AssumedTests(unittest.TestCase):
         # A write with an unchanged numerical value still ends the old value's path.
         self.assertNotIn(3,[r['pc'] for r in result['reads']])
 
+    def test_condition_fit_does_not_accept_unknown_flags(self):
+        from condition_fit import fit
+        observations=[dict(test=1,current=dict(carry=None,zero=1)),dict(test=1,current=dict(carry=0,zero=0))]
+        options=fit(observations,'current',['carry','zero'])
+        self.assertFalse(any(o['fits'] for o in options))
+        carry=next(o for o in options if o['source']=='carry' and o['polarity']==1)
+        self.assertEqual((carry['unknown'],carry['mismatches']),(1,0))
+        self.assertTrue(fit([dict(test=0,current=dict(zero=1))],'current',['zero'])[1]['fits'])
+
+    def test_pc_keyed_external_read_fixture(self):
+        import json
+        mapping=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,i=7|(1<<6),a=0,b=0,d=0).items():
+            mapping['fields'][name]=dict(bits=bits,status='stub',evidence='PC read fixture')
+        scenario=copy.deepcopy(self.scenario)
+        scenario['io']['read'].update(mode='pc_table',value=56,pc_values={'0':12,'2':34},status='stub',evidence='fixture')
+        with tempfile.TemporaryDirectory() as out:
+            result=execute(mapping,scenario,3,mode='integrated',out=out,trace_limit=3)
+            records=[json.loads(line) for line in (Path(out)/'trace.jsonl').read_text().splitlines()]
+        self.assertTrue(result['clean'])
+        self.assertEqual([r['alu']['y'] for r in records],[12,56,34])
+        self.assertTrue(all(r['external_read']['source']=='scenario_pc' for r in records))
+        scenario['io']['read']['pc_values']['1024']=1
+        with self.assertRaisesRegex(ValueError,'PC-keyed'):validate_scenario(scenario)
+        scenario['io']['read']['pc_values']={}
+        del scenario['io']['read']['evidence']
+        with self.assertRaisesRegex(ValueError,'provenance'):validate_scenario(scenario)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

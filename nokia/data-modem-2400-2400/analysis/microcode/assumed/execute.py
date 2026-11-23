@@ -69,8 +69,15 @@ def validate_scenario(s):
     if d['source']=='previous_y' or any(t.get('index_source')=='previous_y' for t in tables):
         if type(d.get('initial_y')) is not int or not 0<=d['initial_y']<=255:
             raise ValueError('previous Y requires an explicit initial_y byte')
-    if s['io']['read']['mode'] not in ('immediate','constant','table','am27s31'):
+    if s['io']['read']['mode'] not in ('immediate','constant','table','am27s31','pc_table'):
         raise ValueError('unknown IO read mode')
+    source_read=s['io']['read']
+    if source_read['mode']=='pc_table':
+        values=source_read.get('pc_values')
+        if not isinstance(values,dict) or any(not isinstance(pc,str) or not pc.isdecimal() or str(int(pc))!=pc or not 0<=int(pc)<1024 or type(value) is not int or not 0<=value<=255 for pc,value in values.items()):
+            raise ValueError('invalid PC-keyed read bytes')
+        if source_read.get('status') not in ('hypothesis','stub','recovered-from-data') or not source_read.get('evidence'):
+            raise ValueError('PC-keyed reads require provenance')
     read_policy=s['io']['read'].get('address')
     if read_policy is not None:
         if s['io']['read']['mode']!='am27s31' or read_policy.get('source')!='previous_y':
@@ -172,6 +179,10 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
             if source_read['mode']=='constant': d=source_read['value'];assumptions['constant external read']+=1
+            elif source_read['mode']=='pc_table':
+                d=source_read['pc_values'].get(str(pc),source_read['value'])
+                assumptions['PC-keyed external read']+=1
+                read_event=dict(value=d,source='scenario_pc',selected_by_alu=(r['i']&7) in (5,6,7),status=source_read['status'])
             elif source_read['mode'] in ('table','am27s31'):
                 address=(read_policy['bank']+previous.get('y',read_policy['initial_y'])) if read_policy is not None else d%len(table)
                 d=table[address]; assumptions['table external read']+=1

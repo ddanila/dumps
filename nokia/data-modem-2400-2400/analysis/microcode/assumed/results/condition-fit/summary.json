@@ -1,0 +1,1614 @@
+{
+  "configuration": {
+    "evidence": "Check whether each saved numerical-use witness has one consistent source and polarity per condition select across its zero and marked traces.",
+    "limitations": [
+      "Prescribed paths are not measurements of hardware branch outcomes.",
+      "Current versus previous means current versus preceding executed instruction, not a recovered latch phase.",
+      "Unknown logical carry/overflow rejects a verified fit but does not prove the physical pin cannot supply the condition.",
+      "Constant candidates represent fixed external inputs for the local trace, not identified signals.",
+      "Unused selectors remain unconstrained; no global execution claim is made."
+    ],
+    "replay_evidence": "One previous-flag assignment selected from the local fits solely to verify that the main integrated runner can reproduce the witness; unused selectors use constant zero.",
+    "replay_policies": {
+      "original": {
+        "0": [
+          "zero",
+          1
+        ],
+        "2": [
+          "carry",
+          0
+        ],
+        "3": [
+          "carry",
+          1
+        ],
+        "7": [
+          "zero",
+          0
+        ]
+      },
+      "swapped": {
+        "0": [
+          "zero",
+          1
+        ],
+        "3": [
+          "zero",
+          0
+        ],
+        "6": [
+          "zero",
+          0
+        ],
+        "7": [
+          "zero",
+          1
+        ]
+      }
+    },
+    "replay_status": "hypothesis",
+    "sources": [
+      "zero",
+      "sign",
+      "carry",
+      "overflow"
+    ],
+    "status": "hypothesis",
+    "timings": [
+      "current",
+      "previous"
+    ]
+  },
+  "interpretation": "Fits to prescribed local paths, not independent condition-wiring recovery. Constants are external-line hypotheses; unknown flags are not treated as evidence.",
+  "witnesses": [
+    {
+      "mapping": "preparation-source-31",
+      "replays": [
+        {
+          "clean": true,
+          "cycles": 57,
+          "input": "zero",
+          "matches": true,
+          "trace_digest": "fde37e5122d9ecca518ac23e33f5580fbf2f44bc710564ac70d13800c03011d6"
+        },
+        {
+          "clean": true,
+          "cycles": 57,
+          "input": "marked",
+          "matches": true,
+          "trace_digest": "c972ac77b6f4aeb8d6f6857160474f785e76c07bac8953824f2ec050c01f6ac3"
+        }
+      ],
+      "selectors": [
+        {
+          "constant_candidates": [
+            0
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 13,
+              "input": "zero",
+              "pc": 1005,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 0,
+              "test": 0
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 13,
+              "input": "marked",
+              "pc": 1005,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 0,
+              "test": 0
+            }
+          ],
+          "select": 0,
+          "timings": {
+            "current": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 2
+              }
+            ],
+            "previous": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 0
+              }
+            ]
+          }
+        },
+        {
+          "constant_candidates": [
+            0
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 54,
+              "input": "zero",
+              "pc": 482,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 2,
+              "test": 0
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 54,
+              "input": "marked",
+              "pc": 482,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 1,
+                "zero": 0
+              },
+              "select": 2,
+              "test": 0
+            }
+          ],
+          "select": 2,
+          "timings": {
+            "current": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 2
+              }
+            ],
+            "previous": [
+              {
+                "fits": false,
+                "mismatches": 1,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 1,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 1,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 1,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 0
+              }
+            ]
+          }
+        },
+        {
+          "constant_candidates": [
+            1
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 19,
+              "input": "zero",
+              "pc": 626,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 1,
+                "zero": 0
+              },
+              "cycle": 24,
+              "input": "zero",
+              "pc": 632,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 27,
+              "input": "zero",
+              "pc": 637,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 1,
+                "zero": 0
+              },
+              "cycle": 19,
+              "input": "marked",
+              "pc": 626,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 0
+              },
+              "cycle": 24,
+              "input": "marked",
+              "pc": 632,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 27,
+              "input": "marked",
+              "pc": 637,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 1,
+                "zero": 0
+              },
+              "select": 3,
+              "test": 1
+            }
+          ],
+          "select": 3,
+          "timings": {
+            "current": [
+              {
+                "fits": false,
+                "mismatches": 3,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 3,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 4,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 6
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 6
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 6
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 6
+              }
+            ],
+            "previous": [
+              {
+                "fits": false,
+                "mismatches": 1,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 5,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 5,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 1,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 6,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 6,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 0
+              }
+            ]
+          }
+        },
+        {
+          "constant_candidates": [
+            1
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 51,
+              "input": "zero",
+              "pc": 405,
+              "previous": {
+                "carry": 1,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 7,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 51,
+              "input": "marked",
+              "pc": 405,
+              "previous": {
+                "carry": 1,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 7,
+              "test": 1
+            }
+          ],
+          "select": 7,
+          "timings": {
+            "current": [
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 2
+              }
+            ],
+            "previous": [
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 0
+              }
+            ]
+          }
+        }
+      ],
+      "swap": false,
+      "witness": "original"
+    },
+    {
+      "mapping": "preparation-source-31",
+      "replays": [
+        {
+          "clean": true,
+          "cycles": 62,
+          "input": "zero",
+          "matches": true,
+          "trace_digest": "53e8c103d53984ddba20d0ec22d08e50037e45efc0679a15755ad78f9ac9cc2b"
+        },
+        {
+          "clean": true,
+          "cycles": 62,
+          "input": "marked",
+          "matches": true,
+          "trace_digest": "a35d83b28fc330b77748c604328b09c2e30b0d6fb61baccd8b9af9d3700ecce7"
+        }
+      ],
+      "selectors": [
+        {
+          "constant_candidates": [
+            0
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 13,
+              "input": "zero",
+              "pc": 1005,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 0,
+              "test": 0
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 13,
+              "input": "marked",
+              "pc": 1005,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 0,
+              "test": 0
+            }
+          ],
+          "select": 0,
+          "timings": {
+            "current": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 2
+              }
+            ],
+            "previous": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 0
+              }
+            ]
+          }
+        },
+        {
+          "constant_candidates": [
+            1
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 19,
+              "input": "zero",
+              "pc": 626,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 1,
+                "zero": 0
+              },
+              "cycle": 24,
+              "input": "zero",
+              "pc": 632,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 27,
+              "input": "zero",
+              "pc": 637,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 19,
+              "input": "marked",
+              "pc": 626,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 1,
+                "zero": 0
+              },
+              "cycle": 24,
+              "input": "marked",
+              "pc": 632,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 27,
+              "input": "marked",
+              "pc": 637,
+              "previous": {
+                "carry": 0,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 3,
+              "test": 1
+            }
+          ],
+          "select": 3,
+          "timings": {
+            "current": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 4,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 4,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 6
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 6
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 6
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 6
+              }
+            ],
+            "previous": [
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 6,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 6,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 6,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 6,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 0
+              }
+            ]
+          }
+        },
+        {
+          "constant_candidates": [
+            1
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": 1,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 52,
+              "input": "zero",
+              "pc": 406,
+              "previous": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 6,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 55,
+              "input": "zero",
+              "pc": 410,
+              "previous": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 6,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": 1,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 52,
+              "input": "marked",
+              "pc": 406,
+              "previous": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 6,
+              "test": 1
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 55,
+              "input": "marked",
+              "pc": 410,
+              "previous": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 6,
+              "test": 1
+            }
+          ],
+          "select": 6,
+          "timings": {
+            "current": [
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 4,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 4,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 2
+              }
+            ],
+            "previous": [
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 4,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 4,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 4
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 4
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 4
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 4
+              }
+            ]
+          }
+        },
+        {
+          "constant_candidates": [
+            0
+          ],
+          "observations": [
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 51,
+              "input": "zero",
+              "pc": 405,
+              "previous": {
+                "carry": 1,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 7,
+              "test": 0
+            },
+            {
+              "current": {
+                "carry": null,
+                "overflow": null,
+                "sign": 0,
+                "zero": 1
+              },
+              "cycle": 51,
+              "input": "marked",
+              "pc": 405,
+              "previous": {
+                "carry": 1,
+                "overflow": 0,
+                "sign": 0,
+                "zero": 1
+              },
+              "select": 7,
+              "test": 0
+            }
+          ],
+          "select": 7,
+          "timings": {
+            "current": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 2
+              },
+              {
+                "fits": false,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 2
+              }
+            ],
+            "previous": [
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "zero",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "sign",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 0,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 1,
+                "source": "carry",
+                "unknown": 0
+              },
+              {
+                "fits": true,
+                "mismatches": 0,
+                "polarity": 0,
+                "source": "overflow",
+                "unknown": 0
+              },
+              {
+                "fits": false,
+                "mismatches": 2,
+                "polarity": 1,
+                "source": "overflow",
+                "unknown": 0
+              }
+            ]
+          }
+        }
+      ],
+      "swap": true,
+      "witness": "swapped"
+    }
+  ]
+}

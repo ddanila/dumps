@@ -6,6 +6,10 @@ unused values from values that actually affect later arithmetic. Both register
 assignments still have a viable local use, but in different candidates and
 on different branches.
 
+A [condition-fit follow-up](CONDITION-FIT.md) now reproduces both continuation
+witnesses in the main runner using shared previous-flag policies per selector,
+without per-instruction condition overrides.
+
 ## First accesses under the declared control flow
 
 The analysis starts at 195 with empty stack and the saved ROM-backed dispatch
