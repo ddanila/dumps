@@ -353,3 +353,7 @@ The [third output-byte builder](CONTROLLER-OUTPUT32.md) combines state-code
 bits with counter-controlled fields, verified in 103,424 local ROM executions.
 All four byte builders now have local references; their full composition remains
 to be checked.
+
+[Continuous output construction](CONTROLLER-OUTPUT-BUILD.md) verifies all four
+builders together and the immediate rotating-pattern/P1 and RAM30 override:
+32,768 cases match uninterrupted ROM execution through 046A.

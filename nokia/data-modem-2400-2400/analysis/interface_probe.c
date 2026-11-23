@@ -57,19 +57,20 @@ int main(int argc, char **argv) {
     memset(code,255,sizeof code);
     if (fread(code,1,8192,rom)!=8192 || fgetc(rom)!=EOF) return 2;
     fclose(rom);
-    char line[256], mode[8], frame_text[32], prior_text[32];
+    char line[256], mode[8], frame_text[40], prior_text[32];
     unsigned completions;
     while (fgets(line,sizeof line,stdin)) {
-        if (sscanf(line,"%7s %31s %31s %u %u",mode,frame_text,prior_text,&delay,&completions)!=5 || !delay || delay>1000) return 2;
+        if (sscanf(line,"%7s %39s %31s %u %u",mode,frame_text,prior_text,&delay,&completions)!=5 || !delay || delay>1000) return 2;
         int reading=!strcmp(mode,"read");
         int decoding=!strcmp(mode,"decode");
         int edge=!strcmp(mode,"edge"), qualify=!strcmp(mode,"qualify");
         int event_probe=edge || qualify;
         int output01=!strcmp(mode,"out01"), output32=!strcmp(mode,"out32");
-        int output_probe=output01 || output32 || !strcmp(mode,"out33");
+        int build=!strcmp(mode,"build");
+        int output_probe=build || output01 || output32 || !strcmp(mode,"out33");
         decoding_probe=decoding || event_probe || output_probe; memset(decode_seen,0,sizeof decode_seen);
         unsigned stop=sentinel, entry=edge?0x13:qualify?0x1790:decoding?0x620:reading?0x800:0x899;
-        if (output_probe) { entry=output01?0x266:output32?0x12f:0x6e; stop=output01?0x433:output32?0x266:0x12f; }
+        if (output_probe) { entry=output01?0x266:output32?0x12f:0x6e; stop=build?0x46c:output01?0x433:output32?0x266:0x12f; }
         port_probe=!strcmp(mode,"port") || !strcmp(mode,"poll1") || !strcmp(mode,"poll2") || !strcmp(mode,"main");
         if (!reading && strcmp(mode,"write") && !port_probe && !decoding && !event_probe && !output_probe) return 2;
         if (port_probe) {
@@ -78,8 +79,8 @@ int main(int argc, char **argv) {
             if (!strcmp(mode,"poll2")) { entry=0x1e72; stop=0x1e77; }
             if (!strcmp(mode,"main")) { entry=0x1ed3; stop=0x81d; reading=1; }
         }
-        unsigned char frame[9]={0}, prior[6]={0};
-        if (!bytes(frame_text,frame,port_probe?9:output32?7:output01?9:event_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
+        unsigned char frame[16]={0}, prior[6]={0};
+        if (!bytes(frame_text,frame,build?16:port_probe?9:output32?7:output01?9:event_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
         struct em8051 c={0};
         c.mCodeMem=code; c.mCodeMemMaxIdx=65535;
         c.except=exception; c.xread=xread; c.xwrite=xwrite;
@@ -97,7 +98,13 @@ int main(int argc, char **argv) {
         }
         if (output_probe) {
             c.mLowerData[0x34]=frame[0];
-            if (output32) {
+            if (build) {
+                memcpy(c.mLowerData+0x30,frame+1,4);
+                memcpy(c.mLowerData+0x2a,frame+5,6);
+                c.mLowerData[0x49]=frame[11]; c.mLowerData[0x4a]=frame[12];
+                c.mLowerData[0x65]=frame[13];
+                c.mLowerData[0x3d]=frame[14]; c.mLowerData[0x3e]=frame[15];
+            } else if (output32) {
                 c.mLowerData[3]=frame[0]; c.mLowerData[2]=frame[6];
                 c.mLowerData[0x32]=frame[1]; c.mLowerData[0x49]=frame[2];
                 c.mLowerData[0x4a]=frame[3]; c.mLowerData[0x65]=frame[4];

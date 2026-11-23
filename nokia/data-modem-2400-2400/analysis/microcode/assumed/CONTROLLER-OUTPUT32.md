@@ -89,6 +89,6 @@ python3 nokia/data-modem-2400-2400/analysis/controller_output32_study.py
 
 [Report](../../results/controller-output32-study/report.json) includes source
 and ROM hashes, execution/fixture digests, coverage, and 32 complete witnesses.
-The other three builders remain separately checked. A continuous execution
-through all four builders, later overrides, and the serial transfer is still
-needed to validate their composition as a complete output stage.
+The [continuous construction study](CONTROLLER-OUTPUT-BUILD.md) now checks all
+four builders together and the immediate RAM30/P1 override. The rest of the
+006E routine and its composition with serial transfer remain to be verified.

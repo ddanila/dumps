@@ -97,3 +97,25 @@ def output32(rom,state,previous,flags,input_c,count49,count4a,count65):
     else:pair=2 if state in (0,1) else 0
     value=(value&~3)|pair
     return dict(code=code,value=value,count49=count49,count4a=count4a,count65=count65,action=action)
+
+
+def output_build(rom,state,previous,flags,payload,counters,patterns,initial_p1):
+    """Compose 006E–046A, including rotating P1 patterns and C0 override."""
+    fourth=output33(rom,state,flags[1],flags[2],payload[3],previous[0])
+    third=output32(rom,state,previous[2],flags,payload[2],*counters)
+    pair=output01(state,*previous[:2],flags,payload)
+    values=[pair['out0'],pair['out1'],third['value'],fourth['value']]
+    rotated=[];p1=initial_p1
+    for pattern,output_bit,pin in zip(patterns,(3,5),(3,4)):
+        if values[0]&(1<<output_bit):
+            pattern=((pattern<<1)|(pattern>>7))&255
+            level=pattern>>7
+        else:pattern=255;level=1
+        rotated.append(pattern)
+        p1=(p1&~(1<<pin))|(level<<pin)
+    p1=(p1&~32)|((fourth['code']&2)<<4)
+    scratch=values[0]
+    if payload[2]&1:values[0]|=254;p1&=~24
+    return dict(values=values,code=fourth['code'],psw_f0=pair['psw_f0'],
+                counters=[third['count49'],third['count4a'],third['count65']],
+                patterns=rotated,p1=p1,scratch=scratch)
