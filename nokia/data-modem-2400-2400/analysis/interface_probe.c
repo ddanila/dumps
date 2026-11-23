@@ -7,6 +7,7 @@
 
 static unsigned char code[65536];
 static unsigned cycle, pc, delay, tx_due, errors, event_count;
+static unsigned port_probe, port_value;
 struct event { unsigned cycle, pc, value; const char *kind; };
 static struct event events[128];
 static void event(const char *kind, unsigned at, unsigned value) {
@@ -22,9 +23,15 @@ static void sfr_write(struct em8051 *c, uint8_t address) {
     if (address == 0x99) { event("tx",pc,c->mSFR[REG_SBUF]); tx_due = cycle+delay; }
     if (address == 0x90) event("p1",pc,c->mSFR[REG_P1]);
     if (address == 0x98) event("scon",pc,c->mSFR[REG_SCON]);
+    if (port_probe && address == 0xa0) event("p2",pc,c->mSFR[REG_P2]);
 }
 static unsigned char xread(struct em8051 *c, uint16_t address) {
-    (void)c; errors++; event("unexpected_read",pc,address); return 0;
+    if (port_probe && pc==0x8e5) {
+        address |= (unsigned)c->mSFR[REG_P2]<<8;
+        event("read_address",pc,address); event("read_value",pc,port_value);
+        return port_value;
+    }
+    errors++; event("unexpected_read",pc,address); return 0;
 }
 static void xwrite(struct em8051 *c, uint16_t address, uint8_t value) {
     (void)c; (void)value; errors++; event("unexpected_write",pc,address);
@@ -53,9 +60,17 @@ int main(int argc, char **argv) {
     while (fgets(line,sizeof line,stdin)) {
         if (sscanf(line,"%7s %31s %31s %u %u",mode,frame_text,prior_text,&delay,&completions)!=5 || !delay || delay>1000) return 2;
         int reading=!strcmp(mode,"read");
-        if (!reading && strcmp(mode,"write")) return 2;
-        unsigned char frame[7]={0}, prior[6]={0};
-        if (!bytes(frame_text,frame,reading?7:4) || !bytes(prior_text,prior,6)) return 2;
+        unsigned stop=sentinel, entry=reading?0x800:0x899;
+        port_probe=!strcmp(mode,"port") || !strcmp(mode,"poll1") || !strcmp(mode,"poll2") || !strcmp(mode,"main");
+        if (!reading && strcmp(mode,"write") && !port_probe) return 2;
+        if (port_probe) {
+            entry=0x8dd;
+            if (!strcmp(mode,"poll1")) { entry=0x1e37; stop=0x1e3c; }
+            if (!strcmp(mode,"poll2")) { entry=0x1e72; stop=0x1e77; }
+            if (!strcmp(mode,"main")) { entry=0x1ed3; stop=0x81d; reading=1; }
+        }
+        unsigned char frame[9]={0}, prior[6]={0};
+        if (!bytes(frame_text,frame,port_probe?9:reading?7:4) || !bytes(prior_text,prior,6)) return 2;
         struct em8051 c={0};
         c.mCodeMem=code; c.mCodeMemMaxIdx=65535;
         c.except=exception; c.xread=xread; c.xwrite=xwrite;
@@ -63,14 +78,18 @@ int main(int argc, char **argv) {
         for (unsigned i=0;i<128;i++) c.sfrwrite[i]=sfr_write;
         /* Explicit local caller: RET reaches a sentinel before another tick. */
         c.mLowerData[initial_sp-1]=sentinel&255; c.mLowerData[initial_sp]=sentinel>>8; c.mSFR[REG_SP]=initial_sp;
-        c.mPC=reading?0x800:0x899;
+        c.mPC=entry;
         c.mSFR[REG_P1]=initial_p1;
         memcpy(c.mLowerData+0x2a,prior,6);
-        if (!reading) memcpy(c.mLowerData+0x30,frame,4);
+        if (!reading && !port_probe) memcpy(c.mLowerData+0x30,frame,4);
+        if (port_probe) {
+            port_value=frame[0]; c.mSFR[REG_P2]=frame[1]; c.mLowerData[0x17]=prior[0];
+            memmove(frame,frame+2,7);
+        }
         c.mLowerData[0x22]=initial_changed;
         tx_due=errors=event_count=0;
         unsigned rx_due=0, received=0, completed=0;
-        for (cycle=0;cycle<limit && c.mPC!=sentinel;cycle++) {
+        for (cycle=0;cycle<limit && c.mPC!=stop;cycle++) {
             tick(&c);
             if (reading && (c.mSFR[REG_SCON]&0x11)==0x10 && received<7 && received<completions) {
                 if (!rx_due) rx_due=cycle+delay;
@@ -89,7 +108,15 @@ int main(int argc, char **argv) {
         for (unsigned i=0;i<6;i++) printf("%s%u",i?",":"",c.mLowerData[0x2a+i]);
         printf("],\"events\":[");
         for (unsigned i=0;i<event_count;i++) printf("%s{\"cycle\":%u,\"pc\":%u,\"kind\":\"%s\",\"value\":%u}",i?",":"",events[i].cycle,events[i].pc,events[i].kind,events[i].value);
-        puts("]}");
+        printf("]");
+        if (port_probe) {
+            printf(",\"reached_stop\":%s,\"acc\":%u,\"p2\":%u,\"iram\":[",c.mPC==stop?"true":"false",c.mSFR[REG_ACC],c.mSFR[REG_P2]);
+            for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mLowerData[i]);
+            printf("],\"sfr\":[");
+            for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mSFR[i]);
+            printf("]");
+        }
+        puts("}");
     }
     return 0;
 }

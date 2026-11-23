@@ -1,0 +1,21 @@
+{
+  "status": "stub",
+  "evidence": "Vary the byte returned by the real MOVX at 08E5 and observe its lifetime through the three recorded caller continuations.",
+  "interface_scenario": "interface-scenario.json",
+  "recorded_coverage": "results/preseed-zero.trace",
+  "modes": {
+    "port": {"entry": 2269, "stop": 8192},
+    "poll1": {"entry": 7735, "stop": 7740},
+    "poll2": {"entry": 7794, "stop": 7799},
+    "main": {"entry": 7891, "stop": 2077}
+  },
+  "p2_for_value_sweep": 0,
+  "poll_backedge_pc": 7915,
+  "read_value_for_p2_sweep": 165,
+  "limitations": [
+    "Local callers, timer byte and receive completions use the declared synthetic fixture; interrupts are disabled.",
+    "Only the three observed direct callers are tested; unseen indirect entry paths are not excluded.",
+    "The read callback supplies a byte but no external device side effect. Ignoring the byte does not imply that the read bus cycle is unnecessary.",
+    "P2 latch addressing is modeled as in the existing controller harness; physical address decoding is untraced."
+  ]
+}

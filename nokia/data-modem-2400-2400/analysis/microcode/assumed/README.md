@@ -71,6 +71,9 @@ different predictions prevent identifying a strobe from these patterns alone.
 8031 six-byte input/four-byte output protocol, normalization masks and P1
 handshake ordering in 4,362 local ROM executions. Its physical link to the
 microprogram remains unassigned.
+[CONTROLLER-READ.md](CONTROLLER-READ.md) shows that the three observed callers
+of the repeated 8004 read overwrite its returned byte. Any external side effect
+of the bus cycle remains unknown; it is not an identified sample/status input.
 
 ## Datapath-derived lookup indices
 

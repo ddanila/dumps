@@ -107,6 +107,11 @@ ordering with 4,362 varying-byte and completion-delay fixtures. In particular,
 P1.2 is not pulsed until the fourth transmitted byte completes. These tests
 do not identify the physical destination of the serial chains.
 
+The [external-read study](analysis/microcode/assumed/CONTROLLER-READ.md) finds
+that the three observed callers of 08DD overwrite the byte returned from the
+8004 read before using it. The main loop still executes that bus cycle on each
+iteration; an external side effect remains possible and unidentified.
+
 For example, synthetic zero shift inputs cause control writes
 `80 00 40 6E 35` to 0006 and `80 00 40 CC FF 15` to 0005.
 These match an 8251-style initialization pattern. The early mode-0 output frame
