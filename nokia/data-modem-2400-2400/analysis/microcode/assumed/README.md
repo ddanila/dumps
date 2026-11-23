@@ -375,3 +375,7 @@ instructions in the local byte-processing routines.
 [Biased Q shifting](BIASED-DRAIN.md) characterizes 296–29E under the selected
 original-role/previous-flag policy. All 131,072 local D/Q cases match an
 analytic return/repetition criterion; caller preconditions remain unresolved.
+
+[Shift-loop caller](DRAIN-CALLER.md) follows wrapper 248 through two right
+shifts and a left shift: 131,072 local cases match the composed termination
+criterion, with separate bounded reset-path observations.

@@ -339,6 +339,38 @@
         "fitted_original"
       ],
       "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown."
+    },
+    {
+      "name": "three-loop shift wrapper",
+      "ranges": [
+        [
+          "248",
+          "24E"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Calls two right-shift loops and one left-shift loop without initializing R7; constant-D fixtures often repeat.",
+      "evidence": "DRAIN-CALLER.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability."
+    },
+    {
+      "name": "input-matched left shift",
+      "ranges": [
+        [
+          "187",
+          "18A"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Left-shift Q until previous F=D+Q is zero; after return clear Q and write D+1 to R0.",
+      "evidence": "DRAIN-CALLER.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability."
     }
   ]
 }

@@ -324,6 +324,38 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "DRAIN-CALLER.md",
+        "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability.",
+        "meaning": "Calls two right-shift loops and one left-shift loop without initializing R7; constant-D fixtures often repeat.",
+        "name": "three-loop shift wrapper",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "248",
+            "24E"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "DRAIN-CALLER.md",
+        "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability.",
+        "meaning": "Left-shift Q until previous F=D+Q is zero; after return clear Q and write D+1 to R0.",
+        "name": "input-matched left shift",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "187",
+            "18A"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -344,7 +376,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 169,
+    "annotated_used_words": 180,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -532,7 +564,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "DRAIN-CALLER.md",
+          "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability.",
+          "meaning": "Left-shift Q until previous F=D+Q is zero; after return clear Q and write D+1 to R0.",
+          "name": "input-matched left shift",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "187",
+              "18A"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "24D"
       ],
@@ -676,7 +725,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "DRAIN-CALLER.md",
+          "limitations": "Original-role previous-flag policy with zero fill. Local caller experiments do not establish physical external input or reset reachability.",
+          "meaning": "Calls two right-shift loops and one left-shift loop without initializing R7; constant-D fixtures often repeat.",
+          "name": "three-loop shift wrapper",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "248",
+              "24E"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "150",
         "157"
@@ -1344,6 +1410,7 @@
   "source_sha256": {
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
+    "DRAIN-CALLER.md": "9ec3ea561f8deb522413d4ad92bee9718e4b5987221301f3450d6a7fb361b096",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",

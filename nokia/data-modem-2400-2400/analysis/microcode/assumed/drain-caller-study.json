@@ -1,0 +1,15 @@
+{
+  "status": "hypothesis",
+  "evidence": "Start at actual BSR 150 into wrapper 248; test all initial Q and constant external D with supplied R7 masks. This does not establish reset reachability or real input stability. Preserve original-role previous-flag, zero-fill, defined logical-carry assumptions.",
+  "base": "results/polling-study/immediate-one",
+  "bias": 165,
+  "masks": [
+    0,
+    255
+  ],
+  "reset_cycles": 1000,
+  "reset_profiles": {
+    "constant": "D is the same byte at every instruction.",
+    "successor": "D defaults to zero; 18D reads X and 1EC reads (X+1) mod 256, following the existing poll-caller experiment."
+  }
+}
