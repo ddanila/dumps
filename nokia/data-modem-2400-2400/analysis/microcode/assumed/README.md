@@ -433,3 +433,8 @@ three-call path is checked with arithmetic flags over 400 local boundary cases.
 [30B mapping comparison](MASKED-DRAIN.md) distinguishes a cleared-Q one-pass
 helper under q1–q4 from a masked-Q drain under fitted_original. Across all
 R0/Q pairs, final R5 differs in 56,788 cases; both interpretations clear R0/Q.
+
+[Drain caller prefix](DRAIN-PREFIX.md) shows that a second call overwrites
+the first R5 result before any selected consumer. Full-prefix state and timing
+are checked across 139,264 cases; the existing 302 condition bypasses this
+path, so these remain explicitly local caller fixtures.

@@ -578,6 +578,27 @@
         "fitted_original"
       ],
       "limitations": "Previous-zero policy and zero shift fill; one to five iterations in local fixtures. Physical operation and reset caller operands remain unresolved; swapped register roles are not covered."
+    },
+    {
+      "name": "double drain and input preparation prefix",
+      "ranges": [
+        [
+          "304",
+          "308"
+        ],
+        [
+          "311",
+          "318"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Two drain calls clear R0/Q and overwrite first R5 before any selected consumer. Two 311 calls retain the second external byte in R12; final preparation copies R10/R11 under q2 or external bytes under fitted_original.",
+      "evidence": "DRAIN-PREFIX.md",
+      "profiles": [
+        "q2",
+        "fitted_original"
+      ],
+      "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified."
     }
   ]
 }

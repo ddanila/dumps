@@ -563,6 +563,27 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "DRAIN-PREFIX.md",
+        "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified.",
+        "meaning": "Two drain calls clear R0/Q and overwrite first R5 before any selected consumer. Two 311 calls retain the second external byte in R12; final preparation copies R10/R11 under q2 or external bytes under fitted_original.",
+        "name": "double drain and input preparation prefix",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "304",
+            "308"
+          ],
+          [
+            "311",
+            "318"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -583,7 +604,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 237,
+    "annotated_used_words": 250,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1198,7 +1219,29 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "DRAIN-PREFIX.md",
+          "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified.",
+          "meaning": "Two drain calls clear R0/Q and overwrite first R5 before any selected consumer. Two 311 calls retain the second external byte in R12; final preparation copies R10/R11 under q2 or external bytes under fitted_original.",
+          "name": "double drain and input preparation prefix",
+          "profiles": [
+            "q2",
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "304",
+              "308"
+            ],
+            [
+              "311",
+              "318"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "1FA",
         "1FE",
@@ -1214,7 +1257,29 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "DRAIN-PREFIX.md",
+          "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified.",
+          "meaning": "Two drain calls clear R0/Q and overwrite first R5 before any selected consumer. Two 311 calls retain the second external byte in R12; final preparation copies R10/R11 under q2 or external bytes under fitted_original.",
+          "name": "double drain and input preparation prefix",
+          "profiles": [
+            "q2",
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "304",
+              "308"
+            ],
+            [
+              "311",
+              "318"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "259",
         "308",
@@ -1822,6 +1887,7 @@
     "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",
     "DISPATCH109.md": "c1bacc10b862be013766e19dcbdd234fad53848ea066e53152afd561b9f92403",
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
+    "DRAIN-PREFIX.md": "78015a54cfbeb1ef74a8bff7fe9d1a40bb3396c44f5849901d938f185e606796",
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",

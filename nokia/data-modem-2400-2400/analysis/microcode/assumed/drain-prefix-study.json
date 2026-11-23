@@ -1,0 +1,8 @@
+{
+  "status": "hypothesis",
+  "evidence": "Local 304 entry through two real calls to 30B and 311, then 314; stop at 309. Shared previous flags and zero shift fill. Separate read bytes at both 311 visits and 314–317. Existing select-5 stub at 302 bypasses this path, so no reset reachability claim.",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "initial_ram": [0,17,34,51,68,85,102,119,136,153,170,187,204,221,238,255],
+  "seed": 304,
+  "independent_cases": 4096
+}
