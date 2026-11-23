@@ -1,0 +1,1493 @@
+{
+  "configuration": {
+    "evidence": "Follow locations retaining preparation effects at 195 under the alternate caller study; use ROM-backed control edges with full stack context.",
+    "limitations": [
+      "Reads include selected ALU operands and A-output/Q-shift paths, not proven numerical dependence.",
+      "Each search stops at the first possible read or replacement on each explored path.",
+      "All declared condition and dispatch choices are considered; feasibility under actual data flags is not established.",
+      "Possible external bus consumers and unmodeled input selection are excluded.",
+      "Non-access cycles may persist; a possible read does not imply every execution reads the value."
+    ],
+    "profiles": [
+      {
+        "locations": [
+          "Q"
+        ],
+        "mapping": "preparation-source-23",
+        "swap": false
+      },
+      {
+        "locations": [
+          "Q"
+        ],
+        "mapping": "preparation-source-27",
+        "swap": false
+      },
+      {
+        "locations": [
+          "Q",
+          "R2"
+        ],
+        "mapping": "preparation-source-31",
+        "swap": false
+      },
+      {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-07",
+        "swap": true
+      },
+      {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-23",
+        "swap": true
+      },
+      {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-27",
+        "swap": true
+      },
+      {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-31",
+        "swap": true
+      }
+    ],
+    "start": 405,
+    "status": "hypothesis",
+    "witnesses": {
+      "original": {
+        "checkpoints": [
+          405,
+          481,
+          482,
+          412
+        ],
+        "condition_mask": 7,
+        "condition_overrides": {
+          "405": 1,
+          "482": 0
+        },
+        "data": [
+          18,
+          52,
+          86,
+          120
+        ],
+        "entry": 0,
+        "evidence": "Continue the original-role marked-input witness through the Q-read branch at 195, holding external D at zero after preparation.",
+        "mapping": "preparation-source-31",
+        "q": 0,
+        "status": "hypothesis",
+        "stop": 412,
+        "swap": false
+      },
+      "swapped": {
+        "checkpoints": [
+          405,
+          417,
+          418
+        ],
+        "condition_mask": 7,
+        "condition_overrides": {
+          "405": 0,
+          "406": 1,
+          "410": 1
+        },
+        "data": [
+          18,
+          52,
+          86,
+          120
+        ],
+        "entry": 1,
+        "evidence": "Follow a swapped-role R12 witness into its first operand read at 1A1.",
+        "mapping": "preparation-source-31",
+        "q": 0,
+        "status": "hypothesis",
+        "stop": 418,
+        "swap": true
+      }
+    }
+  },
+  "profiles": [
+    {
+      "exceptions": [],
+      "graph_states": 192,
+      "locations": [
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "Q",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 0,
+                "b": 8,
+                "branch": 336,
+                "carry": 1,
+                "carry_select": 0,
+                "command": 0,
+                "command_name": "TSK",
+                "d": 0,
+                "direct": 0,
+                "i": 11,
+                "operation": "R,S=0,B; F=~R+S+C; Q=F",
+                "output_slot": 0,
+                "pc": 406,
+                "raw": [
+                  21,
+                  0,
+                  96,
+                  60
+                ],
+                "register": 8,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 56
+                },
+                "select": 6,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ]
+              ],
+              "pc": 406,
+              "stack": []
+            }
+          ],
+          "reads": [
+            {
+              "instruction": {
+                "a": 11,
+                "b": 0,
+                "branch": 349,
+                "carry": 1,
+                "carry_select": 1,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 74,
+                "operation": "R,S=0,Q; F=~R+S+C; no load",
+                "output_slot": 6,
+                "pc": 480,
+                "raw": [
+                  117,
+                  155,
+                  4,
+                  60
+                ],
+                "register": 0,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 56
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  480,
+                  []
+                ]
+              ],
+              "pc": 480,
+              "stack": []
+            }
+          ],
+          "visited_states": 3
+        }
+      ],
+      "profile": {
+        "locations": [
+          "Q"
+        ],
+        "mapping": "preparation-source-23",
+        "swap": false
+      }
+    },
+    {
+      "exceptions": [],
+      "graph_states": 192,
+      "locations": [
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "Q",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 0,
+                "b": 8,
+                "branch": 336,
+                "carry": 1,
+                "carry_select": 0,
+                "command": 0,
+                "command_name": "TSK",
+                "d": 0,
+                "direct": 0,
+                "i": 11,
+                "operation": "R,S=0,B; F=~R+S+C; Q=F",
+                "output_slot": 0,
+                "pc": 406,
+                "raw": [
+                  21,
+                  0,
+                  96,
+                  60
+                ],
+                "register": 8,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 52
+                },
+                "select": 6,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ]
+              ],
+              "pc": 406,
+              "stack": []
+            }
+          ],
+          "reads": [
+            {
+              "instruction": {
+                "a": 11,
+                "b": 0,
+                "branch": 349,
+                "carry": 1,
+                "carry_select": 1,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 74,
+                "operation": "R,S=0,Q; F=~R+S+C; no load",
+                "output_slot": 6,
+                "pc": 480,
+                "raw": [
+                  117,
+                  155,
+                  4,
+                  60
+                ],
+                "register": 0,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 52
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  480,
+                  []
+                ]
+              ],
+              "pc": 480,
+              "stack": []
+            }
+          ],
+          "visited_states": 3
+        }
+      ],
+      "profile": {
+        "locations": [
+          "Q"
+        ],
+        "mapping": "preparation-source-27",
+        "swap": false
+      }
+    },
+    {
+      "exceptions": [],
+      "graph_states": 192,
+      "locations": [
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "Q",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 0,
+                "b": 8,
+                "branch": 336,
+                "carry": 1,
+                "carry_select": 0,
+                "command": 0,
+                "command_name": "TSK",
+                "d": 0,
+                "direct": 0,
+                "i": 11,
+                "operation": "R,S=0,B; F=~R+S+C; Q=F",
+                "output_slot": 0,
+                "pc": 406,
+                "raw": [
+                  21,
+                  0,
+                  96,
+                  60
+                ],
+                "register": 8,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 44
+                },
+                "select": 6,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ]
+              ],
+              "pc": 406,
+              "stack": []
+            }
+          ],
+          "reads": [
+            {
+              "instruction": {
+                "a": 11,
+                "b": 0,
+                "branch": 349,
+                "carry": 1,
+                "carry_select": 1,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 74,
+                "operation": "R,S=0,Q; F=~R+S+C; no load",
+                "output_slot": 6,
+                "pc": 480,
+                "raw": [
+                  117,
+                  155,
+                  4,
+                  60
+                ],
+                "register": 0,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 44
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  480,
+                  []
+                ]
+              ],
+              "pc": 480,
+              "stack": []
+            }
+          ],
+          "visited_states": 3
+        },
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R2",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 10,
+                "b": 2,
+                "branch": 768,
+                "carry": 0,
+                "carry_select": 0,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 196,
+                "operation": "R,S=0,A; F=R+S+C; RAM[B]=F",
+                "output_slot": 0,
+                "pc": 414,
+                "raw": [
+                  1,
+                  202,
+                  4,
+                  197
+                ],
+                "register": 2,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 68
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ]
+              ],
+              "pc": 414,
+              "stack": []
+            }
+          ],
+          "reads": [],
+          "visited_states": 15
+        }
+      ],
+      "profile": {
+        "locations": [
+          "Q",
+          "R2"
+        ],
+        "mapping": "preparation-source-31",
+        "swap": false
+      }
+    },
+    {
+      "exceptions": [],
+      "graph_states": 192,
+      "locations": [
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R10",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 2,
+                "b": 10,
+                "branch": 768,
+                "carry": 0,
+                "carry_select": 0,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 198,
+                "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+                "output_slot": 0,
+                "pc": 414,
+                "raw": [
+                  1,
+                  202,
+                  4,
+                  197
+                ],
+                "register": 2,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 68
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ]
+              ],
+              "pc": 414,
+              "stack": []
+            }
+          ],
+          "reads": [],
+          "visited_states": 15
+        },
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R12",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 0,
+                "b": 12,
+                "branch": 339,
+                "carry": 1,
+                "carry_select": 1,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 204,
+                "operation": "R,S=0,A; F=~R+S+C; RAM[B]=F",
+                "output_slot": 8,
+                "pc": 437,
+                "raw": [
+                  149,
+                  199,
+                  28,
+                  108
+                ],
+                "register": 0,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 108
+                },
+                "select": 1,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ],
+                [
+                  415,
+                  []
+                ],
+                [
+                  416,
+                  []
+                ],
+                [
+                  417,
+                  []
+                ],
+                [
+                  418,
+                  []
+                ],
+                [
+                  485,
+                  [
+                    419
+                  ]
+                ],
+                [
+                  419,
+                  []
+                ],
+                [
+                  489,
+                  [
+                    420
+                  ]
+                ],
+                [
+                  490,
+                  [
+                    420,
+                    489
+                  ]
+                ],
+                [
+                  491,
+                  [
+                    420
+                  ]
+                ],
+                [
+                  420,
+                  []
+                ],
+                [
+                  421,
+                  []
+                ],
+                [
+                  422,
+                  []
+                ],
+                [
+                  489,
+                  [
+                    423
+                  ]
+                ],
+                [
+                  490,
+                  [
+                    423,
+                    489
+                  ]
+                ],
+                [
+                  491,
+                  [
+                    423
+                  ]
+                ],
+                [
+                  423,
+                  []
+                ],
+                [
+                  424,
+                  []
+                ],
+                [
+                  425,
+                  []
+                ],
+                [
+                  426,
+                  []
+                ],
+                [
+                  427,
+                  []
+                ],
+                [
+                  428,
+                  []
+                ],
+                [
+                  429,
+                  []
+                ],
+                [
+                  430,
+                  []
+                ],
+                [
+                  431,
+                  []
+                ],
+                [
+                  432,
+                  []
+                ],
+                [
+                  433,
+                  []
+                ],
+                [
+                  434,
+                  []
+                ],
+                [
+                  435,
+                  []
+                ],
+                [
+                  436,
+                  []
+                ],
+                [
+                  437,
+                  []
+                ]
+              ],
+              "pc": 437,
+              "stack": []
+            }
+          ],
+          "reads": [],
+          "visited_states": 48
+        }
+      ],
+      "profile": {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-07",
+        "swap": true
+      }
+    },
+    {
+      "exceptions": [],
+      "graph_states": 192,
+      "locations": [
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R10",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 2,
+                "b": 10,
+                "branch": 768,
+                "carry": 0,
+                "carry_select": 0,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 198,
+                "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+                "output_slot": 0,
+                "pc": 414,
+                "raw": [
+                  1,
+                  202,
+                  4,
+                  197
+                ],
+                "register": 2,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 64
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ]
+              ],
+              "pc": 414,
+              "stack": []
+            }
+          ],
+          "reads": [],
+          "visited_states": 15
+        },
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R12",
+          "overwrites": [],
+          "reads": [
+            {
+              "instruction": {
+                "a": 12,
+                "b": 11,
+                "branch": 305,
+                "carry": 1,
+                "carry_select": 1,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 1,
+                "i": 80,
+                "operation": "R,S=A,Q; F=R+~S+C; no load",
+                "output_slot": 0,
+                "pc": 417,
+                "raw": [
+                  25,
+                  155,
+                  196,
+                  104
+                ],
+                "register": 12,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 104
+                },
+                "select": 4,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ],
+                [
+                  415,
+                  []
+                ],
+                [
+                  416,
+                  []
+                ],
+                [
+                  417,
+                  []
+                ]
+              ],
+              "pc": 417,
+              "stack": []
+            }
+          ],
+          "visited_states": 18
+        }
+      ],
+      "profile": {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-23",
+        "swap": true
+      }
+    },
+    {
+      "exceptions": [],
+      "graph_states": 192,
+      "locations": [
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R10",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 2,
+                "b": 10,
+                "branch": 768,
+                "carry": 0,
+                "carry_select": 0,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 196,
+                "operation": "R,S=0,A; F=R+S+C; RAM[B]=F",
+                "output_slot": 0,
+                "pc": 414,
+                "raw": [
+                  1,
+                  202,
+                  4,
+                  197
+                ],
+                "register": 2,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 68
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ]
+              ],
+              "pc": 414,
+              "stack": []
+            }
+          ],
+          "reads": [],
+          "visited_states": 15
+        },
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R12",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 0,
+                "b": 12,
+                "branch": 339,
+                "carry": 1,
+                "carry_select": 1,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 206,
+                "operation": "R,S=D,Q; F=~R+S+C; RAM[B]=F",
+                "output_slot": 8,
+                "pc": 437,
+                "raw": [
+                  149,
+                  199,
+                  28,
+                  108
+                ],
+                "register": 0,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 8,
+                  "18": 100
+                },
+                "select": 1,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ],
+                [
+                  415,
+                  []
+                ],
+                [
+                  416,
+                  []
+                ],
+                [
+                  417,
+                  []
+                ],
+                [
+                  418,
+                  []
+                ],
+                [
+                  485,
+                  [
+                    419
+                  ]
+                ],
+                [
+                  419,
+                  []
+                ],
+                [
+                  489,
+                  [
+                    420
+                  ]
+                ],
+                [
+                  490,
+                  [
+                    420,
+                    489
+                  ]
+                ],
+                [
+                  491,
+                  [
+                    420
+                  ]
+                ],
+                [
+                  420,
+                  []
+                ],
+                [
+                  421,
+                  []
+                ],
+                [
+                  422,
+                  []
+                ],
+                [
+                  489,
+                  [
+                    423
+                  ]
+                ],
+                [
+                  490,
+                  [
+                    423,
+                    489
+                  ]
+                ],
+                [
+                  491,
+                  [
+                    423
+                  ]
+                ],
+                [
+                  423,
+                  []
+                ],
+                [
+                  424,
+                  []
+                ],
+                [
+                  425,
+                  []
+                ],
+                [
+                  426,
+                  []
+                ],
+                [
+                  427,
+                  []
+                ],
+                [
+                  428,
+                  []
+                ],
+                [
+                  429,
+                  []
+                ],
+                [
+                  430,
+                  []
+                ],
+                [
+                  431,
+                  []
+                ],
+                [
+                  432,
+                  []
+                ],
+                [
+                  433,
+                  []
+                ],
+                [
+                  434,
+                  []
+                ],
+                [
+                  435,
+                  []
+                ],
+                [
+                  436,
+                  []
+                ],
+                [
+                  437,
+                  []
+                ]
+              ],
+              "pc": 437,
+              "stack": []
+            }
+          ],
+          "reads": [],
+          "visited_states": 48
+        }
+      ],
+      "profile": {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-27",
+        "swap": true
+      }
+    },
+    {
+      "exceptions": [],
+      "graph_states": 192,
+      "locations": [
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R10",
+          "overwrites": [
+            {
+              "instruction": {
+                "a": 2,
+                "b": 10,
+                "branch": 768,
+                "carry": 0,
+                "carry_select": 0,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 0,
+                "i": 196,
+                "operation": "R,S=0,A; F=R+S+C; RAM[B]=F",
+                "output_slot": 0,
+                "pc": 414,
+                "raw": [
+                  1,
+                  202,
+                  4,
+                  197
+                ],
+                "register": 2,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 68
+                },
+                "select": 0,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ]
+              ],
+              "pc": 414,
+              "stack": []
+            }
+          ],
+          "reads": [],
+          "visited_states": 15
+        },
+        {
+          "interpretation": "Potential operand accesses, not proven numerical dependence. Cycles without access may persist; this is not an all-path liveness proof.",
+          "location": "R12",
+          "overwrites": [],
+          "reads": [
+            {
+              "instruction": {
+                "a": 12,
+                "b": 11,
+                "branch": 305,
+                "carry": 1,
+                "carry_select": 1,
+                "command": 1,
+                "command_name": "INC",
+                "d": 0,
+                "direct": 1,
+                "i": 80,
+                "operation": "R,S=A,Q; F=R+~S+C; no load",
+                "output_slot": 0,
+                "pc": 417,
+                "raw": [
+                  25,
+                  155,
+                  196,
+                  104
+                ],
+                "register": 12,
+                "remaining_raw": {
+                  "10": 0,
+                  "11": 0,
+                  "17": 0,
+                  "18": 104
+                },
+                "select": 4,
+                "unused": false
+              },
+              "path": [
+                [
+                  405,
+                  []
+                ],
+                [
+                  406,
+                  []
+                ],
+                [
+                  408,
+                  []
+                ],
+                [
+                  409,
+                  []
+                ],
+                [
+                  410,
+                  []
+                ],
+                [
+                  412,
+                  []
+                ],
+                [
+                  413,
+                  []
+                ],
+                [
+                  414,
+                  []
+                ],
+                [
+                  415,
+                  []
+                ],
+                [
+                  416,
+                  []
+                ],
+                [
+                  417,
+                  []
+                ]
+              ],
+              "pc": 417,
+              "stack": []
+            }
+          ],
+          "visited_states": 18
+        }
+      ],
+      "profile": {
+        "locations": [
+          "R10",
+          "R12"
+        ],
+        "mapping": "preparation-source-31",
+        "swap": true
+      }
+    }
+  ]
+}

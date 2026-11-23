@@ -9,6 +9,10 @@ choose the register assignment.
 These are conditional model results, not identified hardware transfers or
 proof of a modem algorithm. The paths are local fixtures and stop before 195.
 
+A [first-use follow-up](FIRST-USE.md) now identifies which surviving values
+are read before replacement and traces two preparation-dependent arithmetic
+results beyond 195.
+
 ## What ran
 
 [single-caller-search.json](single-caller-search.json) supplies the assumptions.

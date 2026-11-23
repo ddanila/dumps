@@ -1,0 +1,122 @@
+{
+  "status": "hypothesis",
+  "evidence": "Follow locations retaining preparation effects at 195 under the alternate caller study; use ROM-backed control edges with full stack context.",
+  "start": 405,
+  "profiles": [
+    {
+      "mapping": "preparation-source-23",
+      "swap": false,
+      "locations": [
+        "Q"
+      ]
+    },
+    {
+      "mapping": "preparation-source-27",
+      "swap": false,
+      "locations": [
+        "Q"
+      ]
+    },
+    {
+      "mapping": "preparation-source-31",
+      "swap": false,
+      "locations": [
+        "Q",
+        "R2"
+      ]
+    },
+    {
+      "mapping": "preparation-source-07",
+      "swap": true,
+      "locations": [
+        "R10",
+        "R12"
+      ]
+    },
+    {
+      "mapping": "preparation-source-23",
+      "swap": true,
+      "locations": [
+        "R10",
+        "R12"
+      ]
+    },
+    {
+      "mapping": "preparation-source-27",
+      "swap": true,
+      "locations": [
+        "R10",
+        "R12"
+      ]
+    },
+    {
+      "mapping": "preparation-source-31",
+      "swap": true,
+      "locations": [
+        "R10",
+        "R12"
+      ]
+    }
+  ],
+  "limitations": [
+    "Reads include selected ALU operands and A-output/Q-shift paths, not proven numerical dependence.",
+    "Each search stops at the first possible read or replacement on each explored path.",
+    "All declared condition and dispatch choices are considered; feasibility under actual data flags is not established.",
+    "Possible external bus consumers and unmodeled input selection are excluded.",
+    "Non-access cycles may persist; a possible read does not imply every execution reads the value."
+  ],
+  "witnesses": {
+    "original": {
+      "mapping": "preparation-source-31",
+      "condition_mask": 7,
+      "stop": 412,
+      "checkpoints": [
+        405,
+        481,
+        482,
+        412
+      ],
+      "entry": 0,
+      "q": 0,
+      "data": [
+        18,
+        52,
+        86,
+        120
+      ],
+      "status": "hypothesis",
+      "evidence": "Continue the original-role marked-input witness through the Q-read branch at 195, holding external D at zero after preparation.",
+      "swap": false,
+      "condition_overrides": {
+        "405": 1,
+        "482": 0
+      }
+    },
+    "swapped": {
+      "mapping": "preparation-source-31",
+      "condition_mask": 7,
+      "stop": 418,
+      "checkpoints": [
+        405,
+        417,
+        418
+      ],
+      "entry": 1,
+      "q": 0,
+      "data": [
+        18,
+        52,
+        86,
+        120
+      ],
+      "status": "hypothesis",
+      "evidence": "Follow a swapped-role R12 witness into its first operand read at 1A1.",
+      "swap": true,
+      "condition_overrides": {
+        "405": 0,
+        "406": 1,
+        "410": 1
+      }
+    }
+  }
+}

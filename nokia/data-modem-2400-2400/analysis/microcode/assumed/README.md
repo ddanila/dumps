@@ -30,6 +30,9 @@ from final internal state. It does not assume a rotation formula.
 [SINGLE-CALLER.md](SINGLE-CALLER.md) follows the separate 18B caller and finds
 surviving preparation effects in different internal registers under both
 register-role hypotheses. This supplies concrete downstream predictions.
+[FIRST-USE.md](FIRST-USE.md) distinguishes unused surviving values from
+actual downstream operand uses and records preparation-dependent arithmetic
+under one candidate from each register-role hypothesis.
 
 ## Datapath-derived lookup indices
 

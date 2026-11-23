@@ -636,6 +636,19 @@ class AssumedTests(unittest.TestCase):
         self.assertNotEqual(zero['stages']['195']['q'],marked['stages']['195']['q'])
         self.assertNotEqual(zero['stages']['195']['ram'][2],marked['stages']['195']['ram'][2])
 
+    def test_first_access_stops_at_replacement_and_reads_before_writes(self):
+        from first_use_study import accesses, first_access
+        rows=[dict(i=7|(1<<6),a=0,b=0),dict(i=7,a=0,b=0),
+              dict(i=2,a=0,b=0),dict(i=2|(1<<6),a=0,b=0)]
+        edges=[((0,()),(1,())),((0,()),(2,())),((1,()),(3,())),((2,()),(3,()))]
+        result=first_access(rows,edges,(0,()),'Q')
+        self.assertEqual([r['pc'] for r in result['reads']],[2])
+        self.assertEqual([r['pc'] for r in result['overwrites']],[1])
+        self.assertEqual(accesses(dict(i=7|(2<<6),a=10,b=12)),({'R10'},{'R12'}))
+        self.assertEqual(accesses(dict(i=7|(4<<6),a=10,b=12)),({'Q'},{'Q','R12'}))
+        # A write with an unchanged numerical value still ends the old value's path.
+        self.assertNotIn(3,[r['pc'] for r in result['reads']])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():
