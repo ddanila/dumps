@@ -67,6 +67,10 @@ is needed before assigning it a sample-processing role.
 [OUTPUT-CONTROL.md](OUTPUT-CONTROL.md) tests raw-bit output-enable predicates.
 Forty-three different predicates fit the assumed example groups; their broad,
 different predictions prevent identifying a strobe from these patterns alone.
+[CONTROLLER-INTERFACE.md](CONTROLLER-INTERFACE.md) independently verifies the
+8031 six-byte input/four-byte output protocol, normalization masks and P1
+handshake ordering in 4,362 local ROM executions. Its physical link to the
+microprogram remains unassigned.
 
 ## Datapath-derived lookup indices
 

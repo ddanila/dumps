@@ -101,6 +101,12 @@ Afterwards the program clears RAM, sets SP=6F, initializes hardware and enters:
 | MOVX 0002 / 0006 | Second USART data / control-status, same evidence |
 | MOVX 8004 | Repeated hardware read selected with P2.7; purpose unconfirmed |
 
+A [local interface study](analysis/microcode/assumed/CONTROLLER-INTERFACE.md)
+verifies byte order, XOR masks, input changed-state detection and P1 handshake
+ordering with 4,362 varying-byte and completion-delay fixtures. In particular,
+P1.2 is not pulsed until the fourth transmitted byte completes. These tests
+do not identify the physical destination of the serial chains.
+
 For example, synthetic zero shift inputs cause control writes
 `80 00 40 6E 35` to 0006 and `80 00 40 CC FF 15` to 0005.
 These match an 8251-style initialization pattern. The early mode-0 output frame

@@ -1,0 +1,20 @@
+{
+  "status": "stub",
+  "evidence": "Local execution of controller routines 0800 and 0899 with synthetic mode-0 completion events; no DSC2847 signal association is assumed.",
+  "base_payload": [18, 52, 86, 120, 154, 188],
+  "discarded_byte": 165,
+  "completion_delays": [8, 16, 32],
+  "default_delay": 8,
+  "initial_p1": 248,
+  "initial_changed_flag": 1,
+  "initial_sp": 113,
+  "return_sentinel": 8192,
+  "cycle_limit": 10000,
+  "interrupts": "disabled by local CPU reset state",
+  "limitations": [
+    "Local routine starts and an explicit caller frame are diagnostics, not reset-started execution.",
+    "Byte completions are synthetic events, not a model of serial pins, bit order, or oscillator timing.",
+    "Firmware byte order, masks and latch ordering do not identify physical switches, LEDs, sample channels, or DSP connections.",
+    "All-byte fixtures vary one payload position at a time, not all possible frames."
+  ]
+}

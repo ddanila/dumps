@@ -1,0 +1,2627 @@
+{
+  "all_checks_pass": true,
+  "assumptions": {
+    "base_payload": [
+      18,
+      52,
+      86,
+      120,
+      154,
+      188
+    ],
+    "completion_delays": [
+      8,
+      16,
+      32
+    ],
+    "cycle_limit": 10000,
+    "default_delay": 8,
+    "discarded_byte": 165,
+    "evidence": "Local execution of controller routines 0800 and 0899 with synthetic mode-0 completion events; no DSC2847 signal association is assumed.",
+    "initial_changed_flag": 1,
+    "initial_p1": 248,
+    "initial_sp": 113,
+    "interrupts": "disabled by local CPU reset state",
+    "limitations": [
+      "Local routine starts and an explicit caller frame are diagnostics, not reset-started execution.",
+      "Byte completions are synthetic events, not a model of serial pins, bit order, or oscillator timing.",
+      "Firmware byte order, masks and latch ordering do not identify physical switches, LEDs, sample channels, or DSP connections.",
+      "All-byte fixtures vary one payload position at a time, not all possible frames."
+    ],
+    "return_sentinel": 8192,
+    "status": "stub"
+  },
+  "cases": 4362,
+  "execution_sha256": "9ad8102e6298d08261f30b7b42c0568a763329bd7d226c7e72a50cc8ce60fc11",
+  "fixture_sha256": "920856de3b3af687adfca5e6f53b988a21a628fd5898eb64444f5d22154beb26",
+  "interpretation": "Controller-side frame and handshake constraints only. No physical switch/LED mapping or DSC2847 connection is established.",
+  "rom_sha256": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/interface-scenario.json": "a909e7f69f4d74329777766e56c9d1b691484e0eb6779d407c74452fabf2684e",
+    "nokia/data-modem-2400-2400/analysis/interface_probe.c": "d51d1247525f17187aeec38404459926e761e84308cede83e257af1e2a42d172",
+    "nokia/data-modem-2400-2400/analysis/interface_study.py": "6ec76dc2488f8bddfa5821a539ea74fc6cca6a80181ca4906da81ee26f037414",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "witnesses": [
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 8,
+        "frame": [
+          165,
+          0,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "read-equal-0-0",
+        "prior": [
+          7,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 0,
+        "cycles": 106,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 0
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 42,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 50,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 55,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 63,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 68,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 76,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 81,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 89,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 102,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 103,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 104,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          7,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 8,
+        "frame": [
+          165,
+          0,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "read-changed-0-0",
+        "prior": [
+          6,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 107,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 0
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 43,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 51,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 56,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 64,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 69,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 77,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 82,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 90,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 103,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 104,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 105,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          7,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 8,
+        "frame": [
+          165,
+          255,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "read-equal-0-255",
+        "prior": [
+          248,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 0,
+        "cycles": 106,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 255
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 42,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 50,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 55,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 63,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 68,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 76,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 81,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 89,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 102,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 103,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 104,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          248,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 8,
+        "frame": [
+          165,
+          255,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "read-changed-0-255",
+        "prior": [
+          249,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 107,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 255
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 43,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 51,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 56,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 64,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 69,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 77,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 82,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 90,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 103,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 104,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 105,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          248,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 8,
+        "frame": [
+          0,
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "discard-0",
+        "prior": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 0,
+        "cycles": 106,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 0
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 18
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 42,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 50,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 55,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 63,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 68,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 76,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 81,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 89,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 102,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 103,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 104,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 8,
+        "frame": [
+          255,
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "discard-255",
+        "prior": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 0,
+        "cycles": 106,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 255
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 18
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 42,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 50,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 55,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 63,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 68,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 76,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 81,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 89,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 102,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 103,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 104,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 4,
+        "delay": 8,
+        "frame": [
+          0,
+          52,
+          86,
+          120
+        ],
+        "mode": "write",
+        "name": "write-0-0",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 64,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 0,
+            "kind": "p1",
+            "pc": 2201,
+            "value": 248
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2204,
+            "value": 3
+          },
+          {
+            "cycle": 8,
+            "kind": "scon",
+            "pc": 2213,
+            "value": 1
+          },
+          {
+            "cycle": 9,
+            "kind": "tx",
+            "pc": 2215,
+            "value": 0
+          },
+          {
+            "cycle": 17,
+            "kind": "tx_complete",
+            "pc": 2224,
+            "value": 1
+          },
+          {
+            "cycle": 21,
+            "kind": "scon",
+            "pc": 2227,
+            "value": 1
+          },
+          {
+            "cycle": 22,
+            "kind": "tx",
+            "pc": 2229,
+            "value": 55
+          },
+          {
+            "cycle": 30,
+            "kind": "tx_complete",
+            "pc": 2238,
+            "value": 2
+          },
+          {
+            "cycle": 34,
+            "kind": "scon",
+            "pc": 2241,
+            "value": 1
+          },
+          {
+            "cycle": 35,
+            "kind": "tx",
+            "pc": 2243,
+            "value": 86
+          },
+          {
+            "cycle": 43,
+            "kind": "tx_complete",
+            "pc": 2252,
+            "value": 3
+          },
+          {
+            "cycle": 47,
+            "kind": "scon",
+            "pc": 2255,
+            "value": 1
+          },
+          {
+            "cycle": 48,
+            "kind": "tx",
+            "pc": 2257,
+            "value": 128
+          },
+          {
+            "cycle": 56,
+            "kind": "tx_complete",
+            "pc": 2260,
+            "value": 4
+          },
+          {
+            "cycle": 60,
+            "kind": "p1",
+            "pc": 2263,
+            "value": 252
+          },
+          {
+            "cycle": 62,
+            "kind": "p1",
+            "pc": 2266,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 3,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 4,
+        "delay": 8,
+        "frame": [
+          255,
+          52,
+          86,
+          120
+        ],
+        "mode": "write",
+        "name": "write-0-255",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 64,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 0,
+            "kind": "p1",
+            "pc": 2201,
+            "value": 248
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2204,
+            "value": 3
+          },
+          {
+            "cycle": 8,
+            "kind": "scon",
+            "pc": 2213,
+            "value": 1
+          },
+          {
+            "cycle": 9,
+            "kind": "tx",
+            "pc": 2215,
+            "value": 255
+          },
+          {
+            "cycle": 17,
+            "kind": "tx_complete",
+            "pc": 2224,
+            "value": 1
+          },
+          {
+            "cycle": 21,
+            "kind": "scon",
+            "pc": 2227,
+            "value": 1
+          },
+          {
+            "cycle": 22,
+            "kind": "tx",
+            "pc": 2229,
+            "value": 55
+          },
+          {
+            "cycle": 30,
+            "kind": "tx_complete",
+            "pc": 2238,
+            "value": 2
+          },
+          {
+            "cycle": 34,
+            "kind": "scon",
+            "pc": 2241,
+            "value": 1
+          },
+          {
+            "cycle": 35,
+            "kind": "tx",
+            "pc": 2243,
+            "value": 86
+          },
+          {
+            "cycle": 43,
+            "kind": "tx_complete",
+            "pc": 2252,
+            "value": 3
+          },
+          {
+            "cycle": 47,
+            "kind": "scon",
+            "pc": 2255,
+            "value": 1
+          },
+          {
+            "cycle": 48,
+            "kind": "tx",
+            "pc": 2257,
+            "value": 128
+          },
+          {
+            "cycle": 56,
+            "kind": "tx_complete",
+            "pc": 2260,
+            "value": 4
+          },
+          {
+            "cycle": 60,
+            "kind": "p1",
+            "pc": 2263,
+            "value": 252
+          },
+          {
+            "cycle": 62,
+            "kind": "p1",
+            "pc": 2266,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 3,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 8,
+        "frame": [
+          165,
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "delay-read-8",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 107,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 18
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 43,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 51,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 56,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 64,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 69,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 77,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 82,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 90,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 103,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 104,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 105,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 4,
+        "delay": 8,
+        "frame": [
+          18,
+          52,
+          86,
+          120
+        ],
+        "mode": "write",
+        "name": "delay-write-8",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 64,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 0,
+            "kind": "p1",
+            "pc": 2201,
+            "value": 248
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2204,
+            "value": 3
+          },
+          {
+            "cycle": 8,
+            "kind": "scon",
+            "pc": 2213,
+            "value": 1
+          },
+          {
+            "cycle": 9,
+            "kind": "tx",
+            "pc": 2215,
+            "value": 18
+          },
+          {
+            "cycle": 17,
+            "kind": "tx_complete",
+            "pc": 2224,
+            "value": 1
+          },
+          {
+            "cycle": 21,
+            "kind": "scon",
+            "pc": 2227,
+            "value": 1
+          },
+          {
+            "cycle": 22,
+            "kind": "tx",
+            "pc": 2229,
+            "value": 55
+          },
+          {
+            "cycle": 30,
+            "kind": "tx_complete",
+            "pc": 2238,
+            "value": 2
+          },
+          {
+            "cycle": 34,
+            "kind": "scon",
+            "pc": 2241,
+            "value": 1
+          },
+          {
+            "cycle": 35,
+            "kind": "tx",
+            "pc": 2243,
+            "value": 86
+          },
+          {
+            "cycle": 43,
+            "kind": "tx_complete",
+            "pc": 2252,
+            "value": 3
+          },
+          {
+            "cycle": 47,
+            "kind": "scon",
+            "pc": 2255,
+            "value": 1
+          },
+          {
+            "cycle": 48,
+            "kind": "tx",
+            "pc": 2257,
+            "value": 128
+          },
+          {
+            "cycle": 56,
+            "kind": "tx_complete",
+            "pc": 2260,
+            "value": 4
+          },
+          {
+            "cycle": 60,
+            "kind": "p1",
+            "pc": 2263,
+            "value": 252
+          },
+          {
+            "cycle": 62,
+            "kind": "p1",
+            "pc": 2266,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 3,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 16,
+        "frame": [
+          165,
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "delay-read-16",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 163,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 18,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 22,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 23,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 24,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 40,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 18
+          },
+          {
+            "cycle": 45,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 61,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 67,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 83,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 88,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 104,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 109,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 125,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 130,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 146,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 159,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 160,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 161,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 4,
+        "delay": 16,
+        "frame": [
+          18,
+          52,
+          86,
+          120
+        ],
+        "mode": "write",
+        "name": "delay-write-16",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 96,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 0,
+            "kind": "p1",
+            "pc": 2201,
+            "value": 248
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2204,
+            "value": 3
+          },
+          {
+            "cycle": 8,
+            "kind": "scon",
+            "pc": 2213,
+            "value": 1
+          },
+          {
+            "cycle": 9,
+            "kind": "tx",
+            "pc": 2215,
+            "value": 18
+          },
+          {
+            "cycle": 25,
+            "kind": "tx_complete",
+            "pc": 2224,
+            "value": 1
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2227,
+            "value": 1
+          },
+          {
+            "cycle": 30,
+            "kind": "tx",
+            "pc": 2229,
+            "value": 55
+          },
+          {
+            "cycle": 46,
+            "kind": "tx_complete",
+            "pc": 2238,
+            "value": 2
+          },
+          {
+            "cycle": 50,
+            "kind": "scon",
+            "pc": 2241,
+            "value": 1
+          },
+          {
+            "cycle": 51,
+            "kind": "tx",
+            "pc": 2243,
+            "value": 86
+          },
+          {
+            "cycle": 67,
+            "kind": "tx_complete",
+            "pc": 2252,
+            "value": 3
+          },
+          {
+            "cycle": 71,
+            "kind": "scon",
+            "pc": 2255,
+            "value": 1
+          },
+          {
+            "cycle": 72,
+            "kind": "tx",
+            "pc": 2257,
+            "value": 128
+          },
+          {
+            "cycle": 88,
+            "kind": "tx_complete",
+            "pc": 2260,
+            "value": 4
+          },
+          {
+            "cycle": 92,
+            "kind": "p1",
+            "pc": 2263,
+            "value": 252
+          },
+          {
+            "cycle": 94,
+            "kind": "p1",
+            "pc": 2266,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 3,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 7,
+        "delay": 32,
+        "frame": [
+          165,
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "delay-read-32",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 275,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 34,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 38,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 39,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 40,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 72,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 18
+          },
+          {
+            "cycle": 77,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 109,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 115,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 147,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 152,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 184,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 189,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 221,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 226,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          },
+          {
+            "cycle": 258,
+            "kind": "rx",
+            "pc": 2174,
+            "value": 188
+          },
+          {
+            "cycle": 271,
+            "kind": "scon",
+            "pc": 2194,
+            "value": 1
+          },
+          {
+            "cycle": 272,
+            "kind": "scon",
+            "pc": 2196,
+            "value": 0
+          },
+          {
+            "cycle": 273,
+            "kind": "p1",
+            "pc": 2198,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 0,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 4,
+        "delay": 32,
+        "frame": [
+          18,
+          52,
+          86,
+          120
+        ],
+        "mode": "write",
+        "name": "delay-write-32",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 160,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 0,
+            "kind": "p1",
+            "pc": 2201,
+            "value": 248
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2204,
+            "value": 3
+          },
+          {
+            "cycle": 8,
+            "kind": "scon",
+            "pc": 2213,
+            "value": 1
+          },
+          {
+            "cycle": 9,
+            "kind": "tx",
+            "pc": 2215,
+            "value": 18
+          },
+          {
+            "cycle": 41,
+            "kind": "tx_complete",
+            "pc": 2224,
+            "value": 1
+          },
+          {
+            "cycle": 45,
+            "kind": "scon",
+            "pc": 2227,
+            "value": 1
+          },
+          {
+            "cycle": 46,
+            "kind": "tx",
+            "pc": 2229,
+            "value": 55
+          },
+          {
+            "cycle": 78,
+            "kind": "tx_complete",
+            "pc": 2238,
+            "value": 2
+          },
+          {
+            "cycle": 82,
+            "kind": "scon",
+            "pc": 2241,
+            "value": 1
+          },
+          {
+            "cycle": 83,
+            "kind": "tx",
+            "pc": 2243,
+            "value": 86
+          },
+          {
+            "cycle": 115,
+            "kind": "tx_complete",
+            "pc": 2252,
+            "value": 3
+          },
+          {
+            "cycle": 119,
+            "kind": "scon",
+            "pc": 2255,
+            "value": 1
+          },
+          {
+            "cycle": 120,
+            "kind": "tx",
+            "pc": 2257,
+            "value": 128
+          },
+          {
+            "cycle": 152,
+            "kind": "tx_complete",
+            "pc": 2260,
+            "value": 4
+          },
+          {
+            "cycle": 156,
+            "kind": "p1",
+            "pc": 2263,
+            "value": 252
+          },
+          {
+            "cycle": 158,
+            "kind": "p1",
+            "pc": 2266,
+            "value": 248
+          }
+        ],
+        "p1": 248,
+        "pc": 8192,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": true,
+        "scon": 3,
+        "sp": 111
+      }
+    },
+    {
+      "fixture": {
+        "completions": 0,
+        "delay": 8,
+        "frame": [
+          165,
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "incomplete-read-0",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 0,
+        "cycles": 10000,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          }
+        ],
+        "p1": 250,
+        "pc": 2055,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": false,
+        "scon": 16,
+        "sp": 113
+      }
+    },
+    {
+      "fixture": {
+        "completions": 6,
+        "delay": 8,
+        "frame": [
+          165,
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "mode": "read",
+        "name": "incomplete-read-6",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 10000,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 1,
+            "kind": "p1",
+            "pc": 2050,
+            "value": 250
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2052,
+            "value": 16
+          },
+          {
+            "cycle": 10,
+            "kind": "rx",
+            "pc": 2055,
+            "value": 165
+          },
+          {
+            "cycle": 14,
+            "kind": "p1",
+            "pc": 2058,
+            "value": 248
+          },
+          {
+            "cycle": 15,
+            "kind": "p1",
+            "pc": 2060,
+            "value": 249
+          },
+          {
+            "cycle": 16,
+            "kind": "scon",
+            "pc": 2062,
+            "value": 16
+          },
+          {
+            "cycle": 24,
+            "kind": "rx",
+            "pc": 2064,
+            "value": 18
+          },
+          {
+            "cycle": 29,
+            "kind": "scon",
+            "pc": 2070,
+            "value": 16
+          },
+          {
+            "cycle": 37,
+            "kind": "rx",
+            "pc": 2086,
+            "value": 52
+          },
+          {
+            "cycle": 43,
+            "kind": "scon",
+            "pc": 2092,
+            "value": 16
+          },
+          {
+            "cycle": 51,
+            "kind": "rx",
+            "pc": 2108,
+            "value": 86
+          },
+          {
+            "cycle": 56,
+            "kind": "scon",
+            "pc": 2114,
+            "value": 16
+          },
+          {
+            "cycle": 64,
+            "kind": "rx",
+            "pc": 2130,
+            "value": 120
+          },
+          {
+            "cycle": 69,
+            "kind": "scon",
+            "pc": 2136,
+            "value": 16
+          },
+          {
+            "cycle": 77,
+            "kind": "rx",
+            "pc": 2152,
+            "value": 154
+          },
+          {
+            "cycle": 82,
+            "kind": "scon",
+            "pc": 2158,
+            "value": 16
+          }
+        ],
+        "p1": 249,
+        "pc": 2174,
+        "ram": [
+          21,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": false,
+        "scon": 16,
+        "sp": 113
+      }
+    },
+    {
+      "fixture": {
+        "completions": 0,
+        "delay": 8,
+        "frame": [
+          18,
+          52,
+          86,
+          120
+        ],
+        "mode": "write",
+        "name": "incomplete-write-0",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 10000,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 0,
+            "kind": "p1",
+            "pc": 2201,
+            "value": 248
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2204,
+            "value": 3
+          },
+          {
+            "cycle": 8,
+            "kind": "scon",
+            "pc": 2213,
+            "value": 1
+          },
+          {
+            "cycle": 9,
+            "kind": "tx",
+            "pc": 2215,
+            "value": 18
+          }
+        ],
+        "p1": 248,
+        "pc": 2224,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": false,
+        "scon": 1,
+        "sp": 113
+      }
+    },
+    {
+      "fixture": {
+        "completions": 3,
+        "delay": 8,
+        "frame": [
+          18,
+          52,
+          86,
+          120
+        ],
+        "mode": "write",
+        "name": "incomplete-write-3",
+        "prior": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "save": true
+      },
+      "result": {
+        "changed": 1,
+        "cycles": 10000,
+        "errors": 0,
+        "events": [
+          {
+            "cycle": 0,
+            "kind": "p1",
+            "pc": 2201,
+            "value": 248
+          },
+          {
+            "cycle": 2,
+            "kind": "scon",
+            "pc": 2204,
+            "value": 3
+          },
+          {
+            "cycle": 8,
+            "kind": "scon",
+            "pc": 2213,
+            "value": 1
+          },
+          {
+            "cycle": 9,
+            "kind": "tx",
+            "pc": 2215,
+            "value": 18
+          },
+          {
+            "cycle": 17,
+            "kind": "tx_complete",
+            "pc": 2224,
+            "value": 1
+          },
+          {
+            "cycle": 21,
+            "kind": "scon",
+            "pc": 2227,
+            "value": 1
+          },
+          {
+            "cycle": 22,
+            "kind": "tx",
+            "pc": 2229,
+            "value": 55
+          },
+          {
+            "cycle": 30,
+            "kind": "tx_complete",
+            "pc": 2238,
+            "value": 2
+          },
+          {
+            "cycle": 34,
+            "kind": "scon",
+            "pc": 2241,
+            "value": 1
+          },
+          {
+            "cycle": 35,
+            "kind": "tx",
+            "pc": 2243,
+            "value": 86
+          },
+          {
+            "cycle": 43,
+            "kind": "tx_complete",
+            "pc": 2252,
+            "value": 3
+          },
+          {
+            "cycle": 47,
+            "kind": "scon",
+            "pc": 2255,
+            "value": 1
+          },
+          {
+            "cycle": 48,
+            "kind": "tx",
+            "pc": 2257,
+            "value": 128
+          }
+        ],
+        "p1": 248,
+        "pc": 2260,
+        "ram": [
+          18,
+          52,
+          86,
+          120,
+          154,
+          188
+        ],
+        "returned": false,
+        "scon": 1,
+        "sp": 113
+      }
+    }
+  ]
+}
