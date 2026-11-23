@@ -4,7 +4,7 @@ import copy
 from collections import deque
 from pathlib import Path
 from common import HERE, decode, field_value, load, read, save, table_targets, unconditional_transfer
-from analyze import graph
+from analyze import graph, allowed_tests
 from model import X8X02
 
 
@@ -17,9 +17,9 @@ def alternative(rows,lanes,command,select,position,token):
     return result
 
 
-def witness(rows,scenario,target_pc,unconditional_policy=None):
+def witness(rows,scenario,target_pc,unconditional_policy=None,test_policy=None):
     policy=unconditional_policy or unconditional_transfer
-    cfg=graph(rows,scenario,include_states=True,unconditional_policy=policy);adjacent={}
+    cfg=graph(rows,scenario,include_states=True,unconditional_policy=policy,test_policy=test_policy);adjacent={}
     for source,target in cfg['state_edges']:adjacent.setdefault(source,[]).append(target)
     root=(0,());parents={root:None};queue=deque([root]);end=None
     while queue:
@@ -38,7 +38,8 @@ def witness(rows,scenario,target_pc,unconditional_policy=None):
         branches=table_targets(table) if table else [row['branch']]
         choices=[]
         for branch in branches:
-            for test in ([True] if policy(row,scenario) else [False,True]):
+            for outcome in allowed_tests(row,scenario,policy,test_policy):
+                test=bool(outcome)
                 trial=copy.deepcopy(seq);trial.step(row['command'],branch,test)
                 depth=trial.pushes-trial.pops
                 stack=tuple(trial.stack[(trial.sp-depth+1+i)&3] for i in range(depth))

@@ -63,12 +63,23 @@ def walk(rows, start):
     return dict(end=1023,reason='end of store',balanced=False)
 
 
+def allowed_tests(row, scenario, unconditional_policy=None, test_policy=None):
+    """Share test constraints between graph exploration and sequencer replay."""
+    if (unconditional_policy or unconditional_transfer)(row,scenario):
+        return [1]
+    tests=list(test_policy(row,scenario)) if test_policy else [0,1]
+    if not tests or any(t not in (0,1) for t in tests):
+        raise ValueError('test policy must return a nonempty subset of 0,1')
+    return tests
+
+
 def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None, include_states=False,
-          unconditional_policy=None):
+          unconditional_policy=None, test_policy=None):
     """Conservative stack exploration; local entry probes are separate from reset coverage.
 
     Optional unconditional_policy is an analysis-only predicate. It changes which
     tests the graph explores, without changing decoded rows or runtime policy.
+    Optional test_policy returns allowed Boolean outcomes for conditional words.
     """
     if not 0<=start<len(rows) or len(initial_stack)>4:
         raise ValueError('invalid graph entry/stack')
@@ -92,8 +103,7 @@ def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None, inclu
         r = rows[pc]; c = r['command']; nxt = (pc+1)&1023
         if r['unused']:
             exceptions.add(f'{pc:03x}: unused word reached'); continue
-        policy = unconditional_policy or unconditional_transfer
-        tests = [1] if policy(r,scenario) else [0,1]
+        tests = allowed_tests(r,scenario,unconditional_policy,test_policy)
         for test in tests:
             dest, ns, kind = nxt, stack, 'fallthrough'
             if c==0: dest=(nxt+test)&1023; kind='skip' if test else kind

@@ -17,6 +17,64 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_fixed_condition_graph_and_replay(self):
+        from constant_condition_study import fixed_tests
+        from context_branch_study import witness
+        rows=decode(self.mapping)
+        scenario=read(HERE/'results/constant-condition-study/gated-scenario.json')
+        baseline=graph(rows,scenario)
+        constrained=graph(rows,scenario,test_policy=fixed_tests)
+        self.assertFalse(constrained['exceptions'])
+        self.assertEqual(len(constrained['reached']),796)
+        self.assertTrue(set(constrained['reached'])<set(baseline['reached']))
+        for pc in (0x2d9,0x3bd):
+            path=witness(rows,scenario,pc,test_policy=fixed_tests)
+            self.assertEqual(path[-1]['next_pc'],pc)
+            from common import unconditional_transfer
+            for step in path:
+                row=rows[step['pc']]
+                if not unconditional_transfer(row,scenario):
+                    self.assertIn(step['test'],fixed_tests(row,scenario))
+        self.assertEqual(graph(rows,scenario),baseline)
+
+    def test_test_policy_false_skip_and_loop_pop(self):
+        rows=decode(self.mapping)
+        scenario=copy.deepcopy(self.scenario)
+        # False TSK falls through; false BLT still consumes its stack entry.
+        rows[0].update(command=0,unused=False)
+        rows[1].update(command=2,unused=False)
+        rows[2].update(command=3,unused=False)
+        result=graph(rows,scenario,initial_stack=(1025,1),return_sentinel=1025,
+                     test_policy=lambda r,s:[0],include_states=True)
+        self.assertFalse(result['exceptions'])
+        self.assertTrue(result['terminal_return_reached'])
+        self.assertEqual(result['reached'],[0,1,2])
+        self.assertIn(((1,(1025,1)),(2,(1025,))),result['state_edges'])
+        for values in ([],[2]):
+            with self.assertRaises(ValueError):
+                graph(rows,scenario,test_policy=lambda r,s:values)
+
+    def test_fixed_condition_modes_and_unconditional_override(self):
+        from constant_condition_study import fixed_tests
+        from analyze import allowed_tests
+        scenario=copy.deepcopy(self.scenario)
+        row=decode(self.mapping)[0]
+        row['select']=3
+        scenario['condition']['polarity'][3]=1
+        for mode in ('constant','per-select','flags'):
+            scenario['condition'].update(mode=mode,value=0,per_select=[0]*8,
+                                         sources=['constant']*8)
+            self.assertEqual(fixed_tests(row,scenario),[1])
+        scenario['condition']['sources'][3]='external'
+        scenario['inputs']['external']=1
+        self.assertEqual(fixed_tests(row,scenario),[0])
+        scenario['condition']['sources'][3]='carry'
+        self.assertEqual(fixed_tests(row,scenario),[0,1])
+        scenario['condition']['mode']='random'
+        self.assertEqual(fixed_tests(row,scenario),[0,1])
+        row.update(command=4,select=0,direct=True)
+        self.assertEqual(allowed_tests(row,scenario,test_policy=lambda r,s:[0]),[1])
+
     def test_unconditional_brt_gate_preserves_default_and_calls(self):
         from unconditional_gate_study import relaxed_pcs, policy_for
         from common import unconditional_transfer

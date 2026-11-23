@@ -453,3 +453,8 @@ meaning; the default graph and its 22 unresolved words remain unchanged.
 gate with provenance validation and tests it in 8,192 matched reset runs.
 Actual flags reach 2D9–2DB in both mappings and 0FA in one fitted-original
 case. The default condition policy and unresolved-entry labels remain intact.
+
+[Fixed-condition reachability](CONSTANT-CONDITIONS.md) restricts the graph to
+the integrated scenario's constant inputs. The optional gated graph narrows
+to 796 words, but all 12 previously added words retain sequencer-replayed
+reset paths. Actual flag and dispatch dependencies remain unresolved.
