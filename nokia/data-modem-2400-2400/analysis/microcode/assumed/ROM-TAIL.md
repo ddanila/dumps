@@ -11,6 +11,9 @@ overflow. A site-scoped target hypothesis avoids it and reaches 993 of 1,021
 used words statically. The 28 remaining words stay explicitly unresolved;
 they are not relabeled as explained exceptions.
 
+A [local-case follow-up](LOCAL-CASES.md) independently tests three of the
+remaining boundary candidates. With all enabled, 22 words remain unresolved.
+
 ## Alternatives and counterexamples
 
 All tables are reconstructed from the hash-checked ROM bytes, retaining

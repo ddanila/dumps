@@ -48,6 +48,9 @@ by the observed stack contexts.
 [ROM-TAIL.md](ROM-TAIL.md) adds a site-scoped ROM-table alternative reaching
 2BC–2C5, with explicit overflow counterexamples for unrestricted nesting.
 Its graph reaches 993 words; 28 remain unresolved.
+[LOCAL-CASES.md](LOCAL-CASES.md) compares additional case bodies at three
+local dispatch boundaries. The combined alternative reaches 999 words
+statically and leaves 22 unresolved; its table sizes remain hypotheses.
 
 ## Datapath-derived lookup indices
 

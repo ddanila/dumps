@@ -1,0 +1,420 @@
+{
+  "branch_tables": {
+    "265": {
+      "base": 266,
+      "count": 8,
+      "evidence": "8 consecutive direct BRT instructions immediately follow 109; index remains scenario supplied",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "54": {
+      "base": 55,
+      "count": 4,
+      "evidence": "At 036,03C,34C a run of direct branch entries is followed by a disconnected non-branch body. Test that body as an additional variable-length case; adjacency alone does not identify the dispatch index.",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "60": {
+      "base": 61,
+      "count": 3,
+      "evidence": "At 036,03C,34C a run of direct branch entries is followed by a disconnected non-branch body. Test that body as an additional variable-length case; adjacency alone does not identify the dispatch index.",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "623": {
+      "allow_duplicate_targets": true,
+      "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+      "lookup": {
+        "bank": 512,
+        "count": 16,
+        "offset": 240,
+        "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+        "source": "Am27S31"
+      },
+      "status": "hypothesis",
+      "targets": [
+        710,
+        710,
+        710,
+        560,
+        640,
+        640,
+        560,
+        512,
+        512,
+        512,
+        512,
+        535,
+        715,
+        512,
+        512,
+        512
+      ]
+    },
+    "8": {
+      "allow_duplicate_targets": true,
+      "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+      "lookup": {
+        "bank": 0,
+        "count": 8,
+        "offset": 224,
+        "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+        "source": "Am27S31"
+      },
+      "status": "hypothesis",
+      "targets": [
+        9,
+        15,
+        11,
+        19,
+        34,
+        13,
+        50,
+        84
+      ]
+    },
+    "844": {
+      "base": 845,
+      "count": 2,
+      "evidence": "2 consecutive direct BRT instructions immediately follow 34C; index remains scenario supplied",
+      "status": "hypothesis",
+      "stride": 1
+    }
+  },
+  "condition": {
+    "flag_timing": "current",
+    "mode": "random",
+    "per_select": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "polarity": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sources": [
+      "constant",
+      "zero",
+      "sign",
+      "carry",
+      "overflow",
+      "external",
+      "external",
+      "external"
+    ],
+    "unconditional_requires_direct": false,
+    "unconditional_select": 0,
+    "unknown": 0,
+    "value": 0
+  },
+  "dispatch": {
+    "mode": "random",
+    "sequence": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "scenario",
+    "tables": {
+      "1004": {
+        "base": 1007,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "126": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "129": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "418": {
+        "base": 485,
+        "count": 4,
+        "evidence": "Four adjacent POP words, no direct callers, same A/B register fields, differing arithmetic controls; association with 1A2 remains tentative.",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "543": {
+        "allow_duplicate_targets": true,
+        "evidence": "D0/D1 bytes B3/BC continue the returning-entry pattern, but 2BC contains a nested computed call. Compare wider outer tables and a nested table excluding row 080 to respect the four-entry stack.",
+        "lookup": {
+          "bank": 512,
+          "count": 82,
+          "offset": 128,
+          "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "source": "Am27S31"
+        },
+        "status": "hypothesis",
+        "targets": [
+          545,
+          548,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          557,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          555,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          553,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          556,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          700
+        ]
+      },
+      "708": {
+        "allow_duplicate_targets": true,
+        "evidence": "D0/D1 bytes B3/BC continue the returning-entry pattern, but 2BC contains a nested computed call. Compare wider outer tables and a nested table excluding row 080 to respect the four-entry stack.",
+        "lookup": {
+          "bank": 512,
+          "count": 64,
+          "offset": 144,
+          "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "source": "Am27S31"
+        },
+        "status": "hypothesis",
+        "targets": [
+          691,
+          557,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          555,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          553,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          556,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549
+        ]
+      },
+      "886": {
+        "base": 889,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "911": {
+        "base": 914,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "936": {
+        "base": 939,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "962": {
+        "base": 965,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "983": {
+        "base": 986,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      }
+    },
+    "value": 0
+  },
+  "evidence": "At 036,03C,34C a run of direct branch entries is followed by a disconnected non-branch body. Test that body as an additional variable-length case; adjacency alone does not identify the dispatch index.",
+  "indirect_branch": {
+    "evidence": "Five BRT words have 17.7 clear; address source unresolved. Preserve encoded target as an explicit fallback.",
+    "source": "microword",
+    "status": "stub",
+    "value": 0
+  },
+  "initial": {
+    "pc": 0,
+    "q": 0,
+    "ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "inputs": {
+    "carry": 0,
+    "external": 0,
+    "q_in": 0,
+    "ram_in": 0
+  },
+  "io": {
+    "read": {
+      "mode": "immediate",
+      "table": [
+        0
+      ],
+      "value": 0
+    },
+    "writes": []
+  },
+  "name": "third-case-low_both",
+  "stack_fallback": null,
+  "status": "hypothesis"
+}

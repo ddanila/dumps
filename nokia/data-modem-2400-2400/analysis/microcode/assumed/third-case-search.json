@@ -1,0 +1,54 @@
+{
+  "status": "hypothesis",
+  "evidence": "At 036,03C,34C a run of direct branch entries is followed by a disconnected non-branch body. Test that body as an additional variable-length case; adjacency alone does not identify the dispatch index.",
+  "variants": {
+    "baseline": [],
+    "low_third": [
+      60
+    ],
+    "high_third": [
+      844
+    ],
+    "both_thirds": [
+      60,
+      844
+    ],
+    "low_fourth": [
+      54
+    ],
+    "low_both": [
+      54,
+      60
+    ],
+    "outer_cases": [
+      54,
+      844
+    ],
+    "all_cases": [
+      54,
+      60,
+      844
+    ]
+  },
+  "candidate_entries": [
+    58,
+    63,
+    847
+  ],
+  "seeds": 128,
+  "cycles": 1000,
+  "excerpt_cycles": 24,
+  "limitations": [
+    "The low third-case alternative was tested earlier; this comparison uses the newer site-scoped ROM-call scenario.",
+    "Three entries are an explicit table-size hypothesis; no hardware index source or range is recovered.",
+    "Changing a table size changes random-number consumption and later choices, so coverage changes are not isolated arithmetic effects.",
+    "Only clean structural alternatives are run; no stack or address repair is applied.",
+    "A third variable-length case is not assumed to imply that further adjacent words are additional cases."
+  ],
+  "baseline_counts": {
+    "54": 3,
+    "60": 2,
+    "844": 2
+  },
+  "trace_variant": "all_cases"
+}

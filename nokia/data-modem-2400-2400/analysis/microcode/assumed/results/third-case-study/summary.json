@@ -1,0 +1,448 @@
+{
+  "configuration": {
+    "baseline_counts": {
+      "54": 3,
+      "60": 2,
+      "844": 2
+    },
+    "candidate_entries": [
+      58,
+      63,
+      847
+    ],
+    "cycles": 1000,
+    "evidence": "At 036,03C,34C a run of direct branch entries is followed by a disconnected non-branch body. Test that body as an additional variable-length case; adjacency alone does not identify the dispatch index.",
+    "excerpt_cycles": 24,
+    "limitations": [
+      "The low third-case alternative was tested earlier; this comparison uses the newer site-scoped ROM-call scenario.",
+      "Three entries are an explicit table-size hypothesis; no hardware index source or range is recovered.",
+      "Changing a table size changes random-number consumption and later choices, so coverage changes are not isolated arithmetic effects.",
+      "Only clean structural alternatives are run; no stack or address repair is applied.",
+      "A third variable-length case is not assumed to imply that further adjacent words are additional cases."
+    ],
+    "seeds": 128,
+    "status": "hypothesis",
+    "trace_variant": "all_cases",
+    "variants": {
+      "all_cases": [
+        54,
+        60,
+        844
+      ],
+      "baseline": [],
+      "both_thirds": [
+        60,
+        844
+      ],
+      "high_third": [
+        844
+      ],
+      "low_both": [
+        54,
+        60
+      ],
+      "low_fourth": [
+        54
+      ],
+      "low_third": [
+        60
+      ],
+      "outer_cases": [
+        54,
+        844
+      ]
+    }
+  },
+  "interpretation": "Adjacent third-case hypotheses, not recovered dispatch encoding. Reports are independent comparisons; coverage does not rank hardware truth.",
+  "variants": [
+    {
+      "all_clean": true,
+      "dynamic_gained": [],
+      "dynamic_lost": [],
+      "dynamic_words": 939,
+      "exceptions": [],
+      "gained": [],
+      "name": "baseline",
+      "remaining": [
+        58,
+        63,
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        847,
+        848,
+        849,
+        850,
+        957,
+        958,
+        959
+      ],
+      "static_words": 993
+    },
+    {
+      "all_clean": true,
+      "dynamic_gained": [
+        63
+      ],
+      "dynamic_lost": [
+        61
+      ],
+      "dynamic_words": 939,
+      "exceptions": [],
+      "gained": [
+        63
+      ],
+      "name": "low_third",
+      "remaining": [
+        58,
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        847,
+        848,
+        849,
+        850,
+        957,
+        958,
+        959
+      ],
+      "static_words": 994
+    },
+    {
+      "all_clean": true,
+      "dynamic_gained": [
+        847,
+        848,
+        849,
+        850
+      ],
+      "dynamic_lost": [
+        824,
+        825
+      ],
+      "dynamic_words": 941,
+      "exceptions": [],
+      "gained": [
+        847,
+        848,
+        849,
+        850
+      ],
+      "name": "high_third",
+      "remaining": [
+        58,
+        63,
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        957,
+        958,
+        959
+      ],
+      "static_words": 997
+    },
+    {
+      "all_clean": true,
+      "dynamic_gained": [
+        63,
+        847,
+        848,
+        849,
+        850
+      ],
+      "dynamic_lost": [
+        61,
+        824,
+        825
+      ],
+      "dynamic_words": 941,
+      "exceptions": [],
+      "gained": [
+        63,
+        847,
+        848,
+        849,
+        850
+      ],
+      "name": "both_thirds",
+      "remaining": [
+        58,
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        957,
+        958,
+        959
+      ],
+      "static_words": 998
+    },
+    {
+      "all_clean": true,
+      "dynamic_gained": [
+        58,
+        62
+      ],
+      "dynamic_lost": [
+        55,
+        70
+      ],
+      "dynamic_words": 939,
+      "exceptions": [],
+      "gained": [
+        58
+      ],
+      "name": "low_fourth",
+      "remaining": [
+        63,
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        847,
+        848,
+        849,
+        850,
+        957,
+        958,
+        959
+      ],
+      "static_words": 994
+    },
+    {
+      "all_clean": true,
+      "dynamic_gained": [
+        58,
+        62,
+        63
+      ],
+      "dynamic_lost": [
+        55,
+        61,
+        70
+      ],
+      "dynamic_words": 939,
+      "exceptions": [],
+      "gained": [
+        58,
+        63
+      ],
+      "name": "low_both",
+      "remaining": [
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        847,
+        848,
+        849,
+        850,
+        957,
+        958,
+        959
+      ],
+      "static_words": 995
+    },
+    {
+      "all_clean": true,
+      "dynamic_gained": [
+        58,
+        62,
+        847,
+        848,
+        849,
+        850
+      ],
+      "dynamic_lost": [
+        55,
+        70,
+        824,
+        825
+      ],
+      "dynamic_words": 941,
+      "exceptions": [],
+      "gained": [
+        58,
+        847,
+        848,
+        849,
+        850
+      ],
+      "name": "outer_cases",
+      "remaining": [
+        63,
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        957,
+        958,
+        959
+      ],
+      "static_words": 998
+    },
+    {
+      "all_clean": true,
+      "dynamic_gained": [
+        58,
+        62,
+        63,
+        847,
+        848,
+        849,
+        850
+      ],
+      "dynamic_lost": [
+        55,
+        61,
+        70,
+        824,
+        825
+      ],
+      "dynamic_words": 941,
+      "exceptions": [],
+      "gained": [
+        58,
+        63,
+        847,
+        848,
+        849,
+        850
+      ],
+      "name": "all_cases",
+      "remaining": [
+        250,
+        253,
+        254,
+        255,
+        598,
+        599,
+        600,
+        647,
+        648,
+        649,
+        650,
+        719,
+        729,
+        730,
+        731,
+        732,
+        733,
+        734,
+        735,
+        957,
+        958,
+        959
+      ],
+      "static_words": 999
+    }
+  ]
+}
