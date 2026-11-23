@@ -1,0 +1,45 @@
+# Nokia external modem — 810237C PROM set
+
+The owner identifies the source as an old Nokia external modem, exact model
+unknown. Four socketed PROMs are visible in the supplied
+[board photo](photos/PXL_20261123_112138062.jpg). No inventory tag has been supplied.
+
+| Board position | Sticker | Acquisition |
+| --- | --- | --- |
+| 10 | 810237C | Two matching 1,024-byte reads |
+| Not visible in photo | 810238C | Pending |
+| 17 | 810239C | Pending |
+| 18 | 810240C | Pending |
+
+The owner identifies chip 10 as **MMI 6381, 24-pin DIP**, with no further
+readable suffix. Neighboring chips show partially exposed MMI 6381 markings;
+their exact variants are not asserted from this photograph.
+
+## Chip 10 acquisition — 2026-11-23
+
+[Raw dump: chip10-810237c.bin](chip10-810237c.bin)
+
+Two independent T48 reads using MiniPro's `82S181` custom read algorithm
+produced identical, nonblank 1,024-byte images (146 distinct byte values).
+Chip-ID probing was skipped. No programming was performed.
+
+- SHA-256: `eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc`
+- CRC32: `34da9bb6`
+- Byte sum modulo 256: `0F`; no internal checksum scheme is established.
+
+The initial invocation incorrectly included the display suffix `(custom)` in
+the device name. It failed with “Device ... not found” before reading; its log
+is retained. The successful CLI device name is `82S181`.
+
+The [MMI 1981 databook](https://bitsavers.trailing-edge.com/components/mmi/_dataBooks/1981_MMI_Biploar_LSI_Databook_4ed.pdf),
+printed pages 3-24–3-25 (PDF pages 37–38), documents the 6381 family as a 5 V,
+1K × 8 bipolar PROM. Its pinout agrees with the local reader's type-8 mapping:
+VCC 24, GND 12; A0–A9 on 8,7,6,5,4,3,2,1,23,22; D0–D7 on
+9,10,11,13,14,15,16,17; enables 20/21 low and 18/19 high.
+
+The repeat reads establish reproducibility, not modem operation. CPU/logic
+architecture, PROM role and relationship among the four images are unconfirmed.
+Searches for Nokia modem / 810237 and the CRC32 found no relevant public dump;
+this limited search does not establish uniqueness.
+
+[Manifest](manifest.json) · [Acquisition metadata and logs](evidence/chip10/)
