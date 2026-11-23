@@ -1,0 +1,230 @@
+{
+  "counts": {
+    "287": 65280,
+    "3C0": 256
+  },
+  "examples": [
+    {
+      "events": [
+        {
+          "f": 255,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 957,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 0,
+      "r0": 0,
+      "tail_outputs": [
+        16,
+        17,
+        0,
+        254
+      ],
+      "tail_q": 17,
+      "tail_ram": [
+        0,
+        85,
+        0,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        255,
+        85,
+        85,
+        85
+      ]
+    },
+    {
+      "events": [
+        {
+          "f": 252,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 2,
+          "next_pc": 959,
+          "pc": 957,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 647,
+          "pc": 959,
+          "test": 1
+        }
+      ],
+      "q": 2,
+      "r0": 1,
+      "tail_outputs": [
+        22,
+        23,
+        1,
+        251
+      ],
+      "tail_q": 23,
+      "tail_ram": [
+        1,
+        85,
+        2,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        253,
+        85,
+        85,
+        85
+      ]
+    },
+    {
+      "events": [
+        {
+          "f": 0,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 1,
+          "next_pc": 958,
+          "pc": 957,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 958,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 1,
+      "r0": 254,
+      "tail_outputs": [
+        19,
+        20,
+        3,
+        255
+      ],
+      "tail_q": 20,
+      "tail_ram": [
+        254,
+        85,
+        1,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        254,
+        85,
+        85,
+        85
+      ]
+    },
+    {
+      "events": [
+        {
+          "f": 0,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 958,
+          "pc": 957,
+          "test": 0
+        },
+        {
+          "f": 255,
+          "next_pc": 959,
+          "pc": 958,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 647,
+          "pc": 959,
+          "test": 1
+        }
+      ],
+      "q": 0,
+      "r0": 255,
+      "tail_outputs": [
+        16,
+        17,
+        1,
+        255
+      ],
+      "tail_q": 17,
+      "tail_ram": [
+        255,
+        85,
+        0,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        85,
+        255,
+        85,
+        85,
+        85
+      ]
+    }
+  ],
+  "interpretation": "Local 3BC entry assumes previous zero set. q3 tail preserves RAM/Q; 287..28A separately expose arithmetic values without storing them. Local pairs are not all claimed reachable from reset.",
+  "mapping": "results/independent-study/variant-3.json",
+  "output_register_pairs": 65536,
+  "scenario": "results/constant-condition-study/gated-scenario.json",
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/conditional_tail_study.py": "51153718ca4b74acc7e0ae8aa292daef25902e9bf8b24db2bc653e3cac083d5f",
+    "assumed/execute.py": "5a92df72447522918fbb3db64610f5bb9e65db5609e76a95627e4a264786a0de",
+    "assumed/q3_tail_study.py": "cef3e2927b373a40109e53fce7f385e2c06d0a797b3af25ddef6d2785e6c5242",
+    "assumed/results/constant-condition-study/gated-scenario.json": "5c1ed431e18c45403e2e3db28aaf6dd22dc759207090f9c3256ff460607ae020",
+    "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "tail_entry_pairs": 65536
+}

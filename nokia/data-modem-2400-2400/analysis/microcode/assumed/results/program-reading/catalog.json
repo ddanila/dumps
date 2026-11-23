@@ -667,6 +667,38 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-VARIANTS.md",
+        "limitations": "Local rule assumes previous zero at 3BC. Reset index 12, D=01 reaches 287 with R0=FF/Q=00 under the optional gate; hardware decode and output consumer remain unknown.",
+        "meaning": "Under q3, expose Q and optionally Q-1 when Q complements R0; gated 3BF branches to 287 for a nonzero preceding result. RAM/Q are preserved.",
+        "name": "conditional Q decrement tail",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "3BC",
+            "3BF"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-VARIANTS.md",
+        "limitations": "Reset entry depends on q3, the optional BRT gate and index-12 D=01 diagnostic scenario. Physical output consumer is unidentified; default entry labels remain unresolved.",
+        "meaning": "Under q3, expose Q-1, Q, R2-R0 and R12-R0-1 in sequence without changing RAM/Q, then continue to 28B.",
+        "name": "transient Q and register differences",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "287",
+            "28A"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -687,7 +719,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 291,
+    "annotated_used_words": 295,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1994,6 +2026,7 @@
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",
     "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
     "TAIL-CONVERGENCE.md": "b1e6b58589106a25d44bfb1ae08829cd83dc52121a75e52b838f448a2a5d087a",
+    "TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",
     "TERMINAL-TAIL.md": "cecf5637f41d6e5645425389710c113900a9319140c49d28e4a2b4cf752222da",
     "results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
     "results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",

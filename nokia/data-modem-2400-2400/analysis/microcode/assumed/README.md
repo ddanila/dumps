@@ -471,3 +471,8 @@ entry combination, while a later Q clear explains the fixed 3BF exit.
 from zero reset under the optional gate, even with arbitrary byte reads and
 declared dispatch entries. Complete predecessor checks and local register
 invariants exclude both entries; default unresolved labels remain unchanged.
+
+[Retained tail variants](TAIL-VARIANTS.md) reach 287–28A under q3 with the
+same inputs excluded by q2. The decisive difference is Q−1 versus Q−R0−1,
+not a nonzero Q in that witness. All 12 gate-added words now have reset
+witnesses across explicitly different retained mappings and scenarios.

@@ -682,6 +682,38 @@
         "q2"
       ],
       "limitations": "Reset entry uses optional BRT gate, constant dispatch index 12 and diagnostic zero read at 2A8. Q-driven dispatch instead routes Q=0 elsewhere in the tested scenario. Physical input, output consumer and gate wiring remain unidentified."
+    },
+    {
+      "name": "conditional Q decrement tail",
+      "ranges": [
+        [
+          "3BC",
+          "3BF"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q3, expose Q and optionally Q-1 when Q complements R0; gated 3BF branches to 287 for a nonzero preceding result. RAM/Q are preserved.",
+      "evidence": "TAIL-VARIANTS.md",
+      "profiles": [
+        "q3"
+      ],
+      "limitations": "Local rule assumes previous zero at 3BC. Reset index 12, D=01 reaches 287 with R0=FF/Q=00 under the optional gate; hardware decode and output consumer remain unknown."
+    },
+    {
+      "name": "transient Q and register differences",
+      "ranges": [
+        [
+          "287",
+          "28A"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q3, expose Q-1, Q, R2-R0 and R12-R0-1 in sequence without changing RAM/Q, then continue to 28B.",
+      "evidence": "TAIL-VARIANTS.md",
+      "profiles": [
+        "q3"
+      ],
+      "limitations": "Reset entry depends on q3, the optional BRT gate and index-12 D=01 diagnostic scenario. Physical output consumer is unidentified; default entry labels remain unresolved."
     }
   ]
 }
