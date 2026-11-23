@@ -326,3 +326,7 @@ that poll with two shift loops, matching all 256 saved reset timing cases.
 A [contextual branch-bit search](CONTEXT-BRANCH.md) tests 1,024 alternatives.
 One class of hypotheses adds 28A without losing coverage, but does not recover
 the bit source or change the default runtime mapping.
+
+The [joint branch study](JOINT-BRANCH.md) tests 7,489 pairs of clean contextual
+alternatives. Its best coverage remains 1,000 words; new paths into 0FD come
+with substantial coverage loss elsewhere.

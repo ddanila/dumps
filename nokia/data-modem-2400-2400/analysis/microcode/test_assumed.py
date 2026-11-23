@@ -754,6 +754,24 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(len(sites),5)
         self.assertEqual(rows,decode(self.mapping))
 
+    def test_joint_branch_deduplication_and_class_separation(self):
+        from joint_branch_study import alternatives, combine
+        candidate=dict(command=6,select=2,position=0,token='10.0',exceptions=[],
+                       changed=[dict(pc=1,before=3,after=2)])
+        duplicate=dict(candidate,token='10.1')
+        second=dict(candidate,select=3,changed=[dict(pc=2,before=5,after=4)])
+        failed=dict(candidate,exceptions=['underflow'])
+        choices=alternatives(dict(candidates=[candidate,duplicate,second,failed]))
+        self.assertEqual(len(choices),2)
+        self.assertEqual(len(choices[0]['sources']),2)
+        rows=[dict(pc=i,branch=2*i+1) for i in range(3)]
+        original=copy.deepcopy(rows)
+        result=combine(rows,*choices)
+        self.assertEqual([r['branch'] for r in result],[1,2,4])
+        self.assertEqual(rows,original)
+        same_class=copy.deepcopy(choices[1]);same_class['sources'][0]['select']=2
+        self.assertIsNone(combine(rows,choices[0],same_class))
+
     def test_unknown_decision_audit_excludes_unused_test_values(self):
         from condition_extension import unknown_decisions
         scenario=copy.deepcopy(self.scenario)
