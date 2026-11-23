@@ -1,0 +1,111 @@
+{
+  "status": "hypothesis",
+  "evidence": "Refit the prescribed local preparation-use paths after enabling defined logical flags; preserve all decoder and external-data assumptions.",
+  "sources": [
+    "zero",
+    "sign",
+    "carry",
+    "overflow"
+  ],
+  "timings": [
+    "current",
+    "previous"
+  ],
+  "reset_cycles": 1000,
+  "variants": {
+    "original_previous": {
+      "roles": "original",
+      "timing": "previous",
+      "policy": {
+        "0": [
+          "zero",
+          1
+        ],
+        "2": [
+          "carry",
+          0
+        ],
+        "3": [
+          "carry",
+          1
+        ],
+        "7": [
+          "zero",
+          0
+        ]
+      }
+    },
+    "original_current_external": {
+      "roles": "original",
+      "timing": "current",
+      "policy": {
+        "0": [
+          "zero",
+          1
+        ],
+        "2": [
+          "carry",
+          0
+        ],
+        "3": [
+          "constant",
+          1
+        ],
+        "7": [
+          "zero",
+          0
+        ]
+      }
+    },
+    "swapped_previous": {
+      "roles": "swapped",
+      "timing": "previous",
+      "policy": {
+        "0": [
+          "zero",
+          1
+        ],
+        "3": [
+          "zero",
+          0
+        ],
+        "6": [
+          "zero",
+          0
+        ],
+        "7": [
+          "zero",
+          1
+        ]
+      }
+    },
+    "swapped_current": {
+      "roles": "swapped",
+      "timing": "current",
+      "policy": {
+        "0": [
+          "zero",
+          1
+        ],
+        "3": [
+          "overflow",
+          1
+        ],
+        "6": [
+          "zero",
+          0
+        ],
+        "7": [
+          "zero",
+          1
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Desired local branches were constructed in prior studies, not measured on hardware.",
+    "Constant observed outcomes weakly constrain a flag source; fitting them does not identify wiring.",
+    "The original current-flag alternative uses an explicit constant-one external-condition hypothesis at select 3.",
+    "Reset trials preserve the previously completed free selectors, including select 5=1, and fixed index 2; this is not an exhaustive policy search."
+  ]
+}

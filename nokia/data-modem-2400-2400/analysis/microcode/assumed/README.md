@@ -17,6 +17,9 @@ profiles, evidence-linked routine names, and explicitly unresolved entries.
 Am2901B logical carry/overflow equations. Historical scenarios retain unknown
 logical flags; the new comparison removes carry substitutions and checks the
 effect on fitted reset paths without changing their condition policies.
+[DEFINED-CONDITIONS.md](DEFINED-CONDITIONS.md) then refits current/previous
+condition sources with the defined flags, replays the local numerical-use
+witnesses, and compares their reset extensions without promoting a timing.
 
 ## ROM bytes as ALU input
 
