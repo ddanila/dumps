@@ -50,11 +50,12 @@ into one address listing.
 | 3C5–3D4, 3DA–3E9 | Paired quarter-turn transform | Identities were search constraints; nonzero evidence is local |
 | 3EF–3FE | Source-overlapping transform | Cannot reuse the independent quarter-turn formula |
 | 2BC–2C5 | Nested computed-call wrapper | Needs site-scoped dispatch assumptions |
+| 2D0–2D8 | Paired Q drains | Previous-zero policy; transient output meaning unknown |
 | 256–257 | Conditional adjustment selector | Entry from reset and condition meaning unknown |
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 151 used words, including overlaps and disconnected
+These annotations cover 160 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.

@@ -292,6 +292,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "DOUBLE-DRAIN.md",
+        "limitations": "Previous-zero condition, zero shift fill and original register roles; transient ALU outputs may matter externally. Not an established multiply/divide or physical delay.",
+        "meaning": "Load and drain shifted S+C and S from R4; preserves R1-R15 and clears Q/R0 in tested local fixtures.",
+        "name": "paired Q drains",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "2D0",
+            "2D8"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -312,7 +328,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 151,
+    "annotated_used_words": 160,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1276,6 +1292,7 @@
   ],
   "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
   "source_sha256": {
+    "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",

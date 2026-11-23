@@ -730,6 +730,15 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(events[2]['r4_writer'],dict(pc=0x19c,cycle=1))
         self.assertEqual(events[2]['r4_before'],255)
 
+    def test_drain_trace_rejects_truncation_and_preserves_initial_q(self):
+        from double_drain_study import drains
+        trace=[dict(pc=0x2d2,q=2),dict(pc=0x1e9,q=1),dict(pc=0x1ea,q=1),
+               dict(pc=0x1e9,q=0),dict(pc=0x1ea,q=0),dict(pc=0x1e9,q=0),
+               dict(pc=0x1ea,q=0),dict(pc=0x1eb,q=0)]
+        self.assertEqual(drains(trace),[dict(initial_q=2,shifted_q=[1,0,0])])
+        with self.assertRaisesRegex(ValueError,'unfinished'):drains(trace[:-1])
+        with self.assertRaisesRegex(ValueError,'without observed'):drains([trace[-1]])
+
     def test_unknown_decision_audit_excludes_unused_test_values(self):
         from condition_extension import unknown_decisions
         scenario=copy.deepcopy(self.scenario)

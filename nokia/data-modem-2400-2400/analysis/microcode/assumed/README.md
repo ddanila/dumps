@@ -319,3 +319,6 @@ The input source remains an explicit instruction-address-keyed stub.
 The [poll caller study](POLL-CALLER.md) traces that comparison to an earlier
 external byte: all 256 successor responses release the loop, while unchanged
 responses do not, under the fixed original-register reset scenario.
+
+The [paired Q-drain study](DOUBLE-DRAIN.md) explains the variable time before
+that poll with two shift loops, matching all 256 saved reset timing cases.

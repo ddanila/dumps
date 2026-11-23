@@ -307,6 +307,22 @@
         "fitted_original"
       ],
       "limitations": "Flag timing is hypothetical; physical input channel and protocol unknown. Current-flag control tests a different value."
+    },
+    {
+      "name": "paired Q drains",
+      "ranges": [
+        [
+          "2D0",
+          "2D8"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Load and drain shifted S+C and S from R4; preserves R1-R15 and clears Q/R0 in tested local fixtures.",
+      "evidence": "DOUBLE-DRAIN.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Previous-zero condition, zero shift fill and original register roles; transient ALU outputs may matter externally. Not an established multiply/divide or physical delay."
     }
   ]
 }
