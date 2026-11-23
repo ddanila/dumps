@@ -21,7 +21,7 @@ indicators; a Hayes-style command interface is not established.
 | DSU 3556, Nokia 1177954 | Intel P8031, two AMD P8251A USARTs, EPROM 810244E; controller/interface board | [Front](photos/PXL_20261123_114723348.jpg) / [back](photos/PXL_20261123_114730247.jpg) |
 | DSC 3557, Nokia 9970356a, 1177033 | Four MCM93422 SRAMs; socketed 810241 and additional labelled devices 810111/810112 | [Front](photos/PXL_20261123_114811760.jpg) / [back](photos/PXL_20261123_114818924.jpg) |
 | DED 3558, Nokia 9970362 B, 1176272 | Digital logic and DAC0830; conversion/timing role inferred | [Front](photos/PXL_20261123_114854803.jpg) / [back](photos/PXL_20261123_114901193.jpg) |
-| DSC 2847, Nokia 9996446 C, 1177201 | Two Am2901BDC slices, four MMI PROMs and output latches; microprogrammed datapath | [Front](photos/PXL_20261123_114926601.jpg) / [back](photos/PXL_20261123_114932814.jpg) |
+| DSC 2847, Nokia 9996446 C, 1177201 | Two Am2901BDC slices, Signetics N8X02AN sequencer, four MMI PROMs and output latches; microprogrammed datapath | [Front](photos/PXL_20261123_114926601.jpg) / [back](photos/PXL_20261123_114932814.jpg) |
 
 The owner explicitly confirmed **810244E** as the dumped 2764 on DSU 3556.
 The full DSC2847 photograph also confirms **position 11 = 810238C**, previously
@@ -46,11 +46,18 @@ SHA-256 values are in [photos/manifest.json](photos/manifest.json).
 The four MMI PROMs and four nearby octal latches suggest **1024 × 32 bits of
 control store**. The two 4-bit Am2901 slices suggest an 8-bit datapath. These are
 architecture inferences, not a traced netlist. PROM output order, address wiring,
-branch/sequencing logic and ALU control fields must be established before a
+sequencer command/branch wiring and ALU control fields must be established before a
 credible bit-slice emulator can execute them. [PROM lane CSV](analysis/results/prom-lanes.csv)
 keeps physical chip columns without claiming a 32-bit instruction order.
-The [AMD Am2900 databook](https://www.bitsavers.org/components/amd/bitslice/1978_The_Am2900_Family_Data_Book.pdf)
+The [AMD Am2901B/C datasheet](https://pccomponents.com/datasheets/ADVAN-AM2901BDMB.pdf)
 provides the slice semantics, but cannot supply Nokia's board-specific wiring.
+
+A subsequent [bit-slice execution experiment](analysis/microcode/README.md)
+identified position 9 as a **Signetics N8X02AN**, built functional Am2901/8X02
+models, and passed 11 component tests. An explicitly unverified wiring map
+executes two PROM words before encountering an unknown stack return. This is
+not faithful Nokia microcode execution; a pin-tracing worksheet records what
+is needed to establish the actual control fields.
 
 The first 16 Am27S31 bytes are **exactly**
 `round(127 × sin(2πn/16))`, interpreted as signed bytes. This strengthens the
