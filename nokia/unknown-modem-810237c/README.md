@@ -8,7 +8,7 @@ unknown. Four socketed PROMs are visible in the supplied
 | --- | --- | --- |
 | 10 | 810237C | Two matching 1,024-byte reads |
 | Not visible in photo | 810238C | Pending |
-| 17 | 810239C | Pending |
+| 17 | 810239C | Two matching 1,024-byte reads |
 | 18 | 810240C | Pending |
 
 The owner identifies chip 10 as **MMI 6381, 24-pin DIP**, with no further
@@ -43,3 +43,24 @@ Searches for Nokia modem / 810237 and the CRC32 found no relevant public dump;
 this limited search does not establish uniqueness.
 
 [Manifest](manifest.json) · [Acquisition metadata and logs](evidence/chip10/)
+
+## Chip 17 acquisition — 2026-11-23
+
+[Raw dump: chip17-810239c.bin](chip17-810239c.bin)
+
+Chip 17 was identified by the owner’s insertion report and the photo’s board
+position and `810239C` sticker. The exposed marking identifies the MMI 6381
+family; the exact suffix is not established. Two independent T48 reads using
+the same `82S181` custom read algorithm, with ID probing skipped, produced
+identical nonblank 1,024-byte images (69 distinct byte values). No programming
+was performed. This image differs from chip 10.
+
+- SHA-256: `52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231`
+- CRC32: `cf455d53`
+- Byte sum modulo 256: `A0`; no internal checksum scheme is established.
+
+Web searches for `810239C` / Nokia PROM and the CRC32 returned no results.
+This does not establish uniqueness. PROM role, byte arrangement across chips
+and modem operation remain unverified.
+
+[Chip 17 acquisition metadata and logs](evidence/chip17/)
