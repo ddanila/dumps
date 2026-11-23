@@ -434,7 +434,27 @@
       "profiles": [
         "q2"
       ],
-      "limitations": "Shared previous-flag and defined logical-carry policy is a local hypothesis. Physical D source and surrounding q2 caller behavior remain unverified; default unchanged."
+      "limitations": "Shared previous-flag and defined logical-carry policy. Modeled reset reaches a zero target with explicit external replies; physical D and nonzero target provenance unknown."
+    },
+    {
+      "name": "carry-qualified external wait",
+      "ranges": [
+        [
+          "106",
+          "107"
+        ],
+        [
+          "117",
+          "118"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2 and previous-carry control, repeat while R0+D carries; tested reset R0=FF makes this a wait for D=0.",
+      "evidence": "Q2-CALLER.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Shared previous-flag policy and diagnostic external replies; physical source and protocol unresolved."
     }
   ]
 }

@@ -1,0 +1,805 @@
+{
+  "branch_tables": {
+    "265": {
+      "base": 266,
+      "count": 8,
+      "evidence": "8 consecutive direct BRT instructions immediately follow 109; index remains scenario supplied",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "54": {
+      "base": 55,
+      "count": 3,
+      "evidence": "036 immediately precedes three select-zero direct BRT entries at 037-039; overrides the probable direct-source bit.",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "60": {
+      "base": 61,
+      "count": 2,
+      "evidence": "03C immediately precedes two select-zero direct BRT entries at 03D-03E.",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "623": {
+      "allow_duplicate_targets": true,
+      "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+      "lookup": {
+        "bank": 512,
+        "count": 16,
+        "offset": 240,
+        "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+        "source": "Am27S31"
+      },
+      "status": "hypothesis",
+      "targets": [
+        710,
+        710,
+        710,
+        560,
+        640,
+        640,
+        560,
+        512,
+        512,
+        512,
+        512,
+        535,
+        715,
+        512,
+        512,
+        512
+      ]
+    },
+    "8": {
+      "allow_duplicate_targets": true,
+      "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+      "lookup": {
+        "bank": 0,
+        "count": 8,
+        "offset": 224,
+        "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+        "source": "Am27S31"
+      },
+      "status": "hypothesis",
+      "targets": [
+        9,
+        15,
+        11,
+        19,
+        34,
+        13,
+        50,
+        84
+      ]
+    },
+    "844": {
+      "base": 845,
+      "count": 2,
+      "evidence": "2 consecutive direct BRT instructions immediately follow 34C; index remains scenario supplied",
+      "status": "hypothesis",
+      "stride": 1
+    }
+  },
+  "condition": {
+    "flag_timing": "previous",
+    "mode": "flags",
+    "per_select": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "polarity": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    "sources": [
+      "zero",
+      "constant",
+      "carry",
+      "carry",
+      "constant",
+      "constant",
+      "constant",
+      "zero"
+    ],
+    "unconditional_requires_direct": false,
+    "unconditional_select": 0,
+    "unknown": 0,
+    "value": 0
+  },
+  "dispatch": {
+    "mode": "constant",
+    "sequence": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "scenario",
+    "tables": {
+      "1004": {
+        "base": 1007,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "126": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "129": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "418": {
+        "base": 485,
+        "count": 4,
+        "evidence": "Four adjacent POP words, no direct callers, same A/B register fields, differing arithmetic controls; association with 1A2 remains tentative.",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "543": {
+        "allow_duplicate_targets": true,
+        "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+        "lookup": {
+          "bank": 512,
+          "count": 80,
+          "offset": 128,
+          "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "source": "Am27S31"
+        },
+        "status": "hypothesis",
+        "targets": [
+          545,
+          548,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          557,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          555,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          553,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          556,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549
+        ]
+      },
+      "708": {
+        "allow_duplicate_targets": true,
+        "evidence": "Independent Am27S31 bytes at 0E0 match low-address handlers; 0F0 bytes match bank-200 branch targets; 080-0CF bytes point to short returning arithmetic paths in bank 200.",
+        "lookup": {
+          "bank": 512,
+          "count": 80,
+          "offset": 128,
+          "sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "source": "Am27S31"
+        },
+        "status": "hypothesis",
+        "targets": [
+          545,
+          548,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          557,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          555,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          553,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          691,
+          556,
+          548,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549,
+          549
+        ]
+      },
+      "886": {
+        "base": 889,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "911": {
+        "base": 914,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "936": {
+        "base": 939,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "962": {
+        "base": 965,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "983": {
+        "base": 986,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      }
+    },
+    "value": 0
+  },
+  "evidence": "Refit the prescribed local preparation-use paths after enabling defined logical flags; preserve all decoder and external-data assumptions.",
+  "indirect_branch": {
+    "evidence": "Five BRT words have 17.7 clear; address source unresolved. Preserve encoded target as an explicit fallback.",
+    "source": "microword",
+    "status": "stub",
+    "value": 0
+  },
+  "initial": {
+    "pc": 0,
+    "q": 0,
+    "ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "inputs": {
+    "carry": {
+      "constant_field": "carry",
+      "evidence": "11.0 selects preceding arithmetic carry for high bytes; otherwise 10.4 supplies carry. Logical carry unknown falls back to zero.",
+      "initial": 0,
+      "mode": "mapped-or-previous",
+      "select_field": "carry_select",
+      "status": "hypothesis",
+      "unknown": 0
+    },
+    "external": 0,
+    "logic_flags": {
+      "evidence": "AMD 01566B Figure 9; carry cascades between slices, without recovered Nokia carry-lookahead wiring.",
+      "mode": "am2901b-ripple",
+      "status": "hypothesis"
+    },
+    "q_in": 0,
+    "ram_in": 0
+  },
+  "io": {
+    "read": {
+      "evidence": "Use retained q2 mapping with the separately hypothesized original previous-flag/defined-carry scenario and dispatch index zero. Compare constant D, zero replies at early carry waits, and zero replies at both early waits and masked polls. No physical protocol claim.",
+      "mode": "pc_sequence",
+      "pc_sequences": {
+        "262": [
+          85,
+          0
+        ],
+        "279": [
+          85,
+          0
+        ],
+        "297": [
+          85,
+          0
+        ],
+        "302": [
+          85,
+          0
+        ]
+      },
+      "sequence_end": "hold-last",
+      "status": "stub",
+      "table": [
+        0
+      ],
+      "value": 85
+    },
+    "writes": [
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 889,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 890,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 891,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 892,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 893,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 894,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 895,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 896,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 897,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 898,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 899,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 900,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 901,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 902,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 903,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 904,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 914,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 915,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 916,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 917,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 918,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 919,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 920,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 921,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 922,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 923,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 924,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 925,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 926,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 927,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 928,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 929,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 939,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 940,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 941,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 942,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 943,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 944,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 945,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 946,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 947,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 948,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 949,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 950,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[10]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 951,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[11]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 952,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[8]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 953,
+        "source": "y",
+        "status": "stub"
+      },
+      {
+        "address": "virtual-phase-output[9]",
+        "evidence": "Capture table ALU-Y by opcode slot tags; physical output enable and address are unresolved",
+        "pc": 954,
+        "source": "y",
+        "status": "stub"
+      }
+    ]
+  },
+  "name": "external-poll-immediate-one",
+  "stack_fallback": null,
+  "status": "hypothesis"
+}

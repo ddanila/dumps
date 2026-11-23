@@ -402,3 +402,7 @@ so changing the read stub cannot release a failed containment test.
 interprets 12C as an external equality poll under the shared previous-flag
 policy. All 65,536 mask/Q targets release on the diagnostic input change;
 no default mapping or physical channel is selected.
+
+[q2 reset callers](Q2-CALLER.md) establish zero-target masked polls after
+carry-qualified early waits. Three external-input profiles across all byte
+values give 768 clean runs; physical replies and nonzero targets remain unknown.

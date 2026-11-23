@@ -51,6 +51,7 @@ into one address listing.
 | 3EF–3FE | Source-overlapping transform | Cannot reuse the independent quarter-turn formula |
 | 2BC–2C5 | Nested computed-call wrapper | Needs site-scoped dispatch assumptions |
 | 187–18A | Input-matched left shift | Constant nonzero D can prevent return after Q reaches zero |
+| 106–107 / 117–118 (q2) | Carry-qualified external waits | Reset R0=FF; zero replies are diagnostic stubs |
 | 12C–130 (q2) | Masked external-byte equality poll | Local previous-flag hypothesis; physical input and caller target unknown |
 | 126–130 | Idempotent Q-mask tests | No D operand inside helpers; previous/current timing selects different predicates |
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
@@ -62,7 +63,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 195 used words, including overlaps and disconnected
+These annotations cover 199 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.

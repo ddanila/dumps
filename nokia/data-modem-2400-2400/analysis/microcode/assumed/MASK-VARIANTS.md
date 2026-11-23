@@ -80,3 +80,7 @@ The physical input channel, caller-selected target, surrounding reset behavior
 under q2, and compatible condition sources elsewhere still need validation.
 The q2 mapping is not promoted to the default. The fitted-original reset
 counterexamples remain valid under their own explicitly recorded assumptions.
+
+[Caller follow-up](Q2-CALLER.md) now reaches the q2 polls from reset through
+explicit early replies, with R10 still at its reset-zero value. Nonzero target
+provenance and physical I/O remain unresolved.
