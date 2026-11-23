@@ -3,7 +3,7 @@ import argparse
 import csv
 import itertools
 from collections import Counter, deque
-from common import HERE, NAMES, decode, digest, field_value, load, read, save
+from common import HERE, NAMES, decode, digest, field_value, load, read, save, unconditional_transfer
 
 
 def must_targets(rows):
@@ -75,7 +75,7 @@ def graph(rows, scenario):
         r = rows[pc]; c = r['command']; nxt = (pc+1)&1023
         if r['unused']:
             exceptions.add(f'{pc:03x}: unused word reached'); continue
-        tests = [1] if c in (4,6) and r['direct'] and r['select']==0 else [0,1]
+        tests = [1] if unconditional_transfer(r,scenario) else [0,1]
         for test in tests:
             dest, ns, kind = nxt, stack, 'fallthrough'
             if c==0: dest=(nxt+test)&1023; kind='skip' if test else kind
@@ -99,6 +99,12 @@ def graph(rows, scenario):
                         continue
             elif c==6 and test:
                 dest=r['branch']; kind='branch'
+                table=scenario.get('branch_tables',{}).get(str(pc))
+                if table is not None:
+                    for i in range(table['count']):
+                        target=table['base']+i*table['stride']
+                        edges.add((pc,target,'branch-dispatch:'+table['status']));queue.append((target,ns))
+                    continue
                 if not r['direct']:
                     policy=scenario['indirect_branch'];kind='indirect-branch:'+policy['status']
                     if policy['source']=='constant': dest=policy['value']

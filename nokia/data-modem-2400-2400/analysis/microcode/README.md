@@ -1,12 +1,12 @@
 # DSC2847 bit-slice execution experiment
 
 **Current experiment:** [the assumption-driven workflow](assumed/README.md)
-implements the analysis and execution tooling from [PLAN.md](PLAN.md). Its
-fixed suite completes 61 million cycles without stack violations, with three
-explicit datapath hypotheses. Aggregate sequencer coverage is 28.8%, below the
-90% target; much execution stays in short loops. See [measured results and
-remaining uncertainties](assumed/RESULTS.md). This does not establish faithful
-Nokia execution.
+implements the analysis and execution tooling from [PLAN.md](PLAN.md). A new
+[local branch-table hypothesis](assumed/BRANCH-TABLES.md) raises measured
+sequencer coverage from 28.8% to **55.3%**, with clean million-cycle runs and
+three speculative datapath variants. The 90% coverage target and identification
+of the actual datapath/I/O remain unmet. Historical results are preserved in
+[the baseline report](assumed/RESULTS.md).
 
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,

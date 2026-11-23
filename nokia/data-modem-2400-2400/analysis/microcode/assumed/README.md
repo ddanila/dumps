@@ -9,6 +9,16 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Later branch-table experiment
+
+[BRANCH-TABLES.md](BRANCH-TABLES.md) records a separately configured hypothesis
+that reaches 55.34% of used words. Optional `branch_tables` entries use the same
+base/count/stride/provenance format as computed-call tables and the same index
+source. Unlike a call, a branch-table transfer does not push the stack.
+`condition.unconditional_requires_direct` defaults to `true` for compatibility
+with existing scenarios; `false` lets select-zero BSR/BRT remain unconditional
+when bit 17.7 is clear. Static analysis and execution share this rule.
+
 ## Reproduce
 
 From the repository root, with Python 3 and its standard library:

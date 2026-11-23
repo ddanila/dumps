@@ -6,7 +6,7 @@ import random
 from contextlib import ExitStack
 from collections import Counter
 from pathlib import Path
-from common import HERE, decode, digest, load, read, save
+from common import HERE, decode, digest, load, read, save, unconditional_transfer
 from model import Am2901, X8X02, UnknownStack
 
 
@@ -34,7 +34,9 @@ def validate_scenario(s):
         raise ValueError('invalid dispatch mode/source')
     if not d['sequence'] or any(not isinstance(v,int) or v<0 for v in d['sequence']):
         raise ValueError('invalid dispatch sequence')
-    for pc,t in d['tables'].items():
+    if not isinstance(c.get('unconditional_requires_direct', True), bool):
+        raise ValueError('unconditional_requires_direct must be boolean')
+    for pc,t in [*d['tables'].items(), *s.get('branch_tables',{}).items()]:
         if not 0<=int(pc)<1024 or t['count']<1 or t['stride']<1 or t['base']<0 or t['base']+(t['count']-1)*t['stride']>=1024:
             raise ValueError('invalid dispatch table bounds')
         if t['status'] not in ('hypothesis','stub','recovered-from-data') or not t.get('evidence'):
@@ -81,6 +83,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     for row in rows:
         if row['command']==4 and not row['direct'] and str(row['pc']) not in dispatch['tables']:
             raise ValueError(f"missing dispatch site {row['pc']:03x}")
+    for site in scenario.get('branch_tables',{}):
+        if rows[int(site)]['command'] != 6: raise ValueError('branch table site must be BRT')
     rng=random.Random(seed); initial=scenario['initial']
     seq=X8X02(pc=initial['pc']);cpu=Am2901(ram=initial['ram'][:],q=initial['q'])
     visited=Counter();edges=Counter();assumptions=Counter();events=[];depth=maximum=0
@@ -112,8 +116,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             result=cpu.step(r['i'],r['a'],r['b'],d,inputs['carry'],inputs['ram_in'],inputs['q_in'])
             flags=result
             register_changes+=sum(a!=b for a,b in zip(old_ram,cpu.ram))+(old_q!=cpu.q)
-        if c in (4,6) and r['direct'] and select==cond['unconditional_select']:
-            test=1;assumptions['unconditional direct transfer']+=1
+        always=unconditional_transfer(r,scenario)
+        if always:
+            test=1;assumptions['unconditional direct transfer' if r['direct'] else 'unconditional computed transfer']+=1
         elif cond['mode']=='constant': test=cond['value']
         elif cond['mode']=='per-select': test=cond['per_select'][select]
         elif cond['mode']=='random': test=rng.getrandbits(1)
@@ -126,16 +131,17 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 test=cond['unknown'];assumptions['unknown '+source]+=1
                 if len(events)<32: events.append(dict(cycle=cycle,pc=pc,event='unknown '+source,value=test))
         # Unconditional transfers are invariant under per-select test polarity.
-        if not(c in (4,6) and r['direct'] and select==cond['unconditional_select']):
+        if not always:
             test ^= cond['polarity'][select]
         branch=r['branch'];entry=None
-        if c==6 and not r['direct']:
+        branch_table=scenario.get('branch_tables',{}).get(str(pc)) if c==6 else None
+        if c==6 and not r['direct'] and branch_table is None:
             policy=scenario['indirect_branch'];assumptions['indirect BRT '+policy['status']]+=1
             if policy['source']=='constant': branch=policy['value']
             elif policy['source']=='y': branch=result['y']
             elif policy['source']=='q': branch=cpu.q
-        if c==4 and test and not r['direct']:
-            t=dispatch['tables'][str(pc)];count=t['count']
+        if test and ((c==4 and not r['direct']) or branch_table is not None):
+            t=branch_table if branch_table is not None else dispatch['tables'][str(pc)];count=t['count']
             if dispatch['source']=='y': index=result['y']
             elif dispatch['source']=='q': index=cpu.q
             elif dispatch['mode']=='constant': index=dispatch['value']

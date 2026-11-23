@@ -127,6 +127,33 @@ class AssumedTests(unittest.TestCase):
             event=json.loads((Path(out)/'io.jsonl').read_text())
             self.assertEqual((event['address'],event['value']),(17,34))
 
+    def test_branch_table_dispatch_does_not_push_stack(self):
+        scenario=read(HERE/'branch-tables.json')
+        scenario['initial']['pc']=0x109
+        scenario['dispatch'].update(mode='sequence',sequence=[2])
+        scenario['condition']['polarity'][0]=1
+        result=execute(self.mapping,scenario,1)
+        self.assertEqual(result['final_state']['pc'],0x10c)
+        self.assertEqual(result['stack']['writes'],0)
+        self.assertEqual(result['stack']['final_depth'],0)
+        self.assertEqual(result['dispatch_counts'],{0x109:1})
+        self.assertEqual(result['assumption_counts']['unconditional computed transfer'],1)
+
+    def test_local_branch_table_evidence_and_graph(self):
+        scenario=read(HERE/'branch-tables.json');rows=decode(self.mapping)
+        for site,table in scenario['branch_tables'].items():
+            for i in range(table['count']):
+                row=rows[table['base']+i*table['stride']]
+                self.assertEqual((row['command'],row['select'],row['direct']),(6,0,1))
+        baseline=graph(rows,self.scenario);expanded=graph(rows,scenario)
+        self.assertEqual(len(baseline['reached']),338)
+        self.assertEqual(len(expanded['reached']),682)
+        self.assertEqual(expanded['exceptions'],[])
+        self.assertIn((0x109,0x111,'branch-dispatch:hypothesis'),expanded['edges'])
+        scenario['branch_tables']['0']=scenario['branch_tables']['265']
+        with self.assertRaisesRegex(ValueError,'site must be BRT'):
+            execute(self.mapping,scenario,1)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

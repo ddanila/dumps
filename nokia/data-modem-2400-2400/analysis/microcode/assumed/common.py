@@ -72,3 +72,10 @@ def decode(mapping, lanes=None):
         row['unused'] = row['raw'] == [255] * 4
         rows.append(row)
     return rows
+
+
+def unconditional_transfer(row, scenario):
+    condition = scenario['condition']
+    return (row['command'] in (4, 6)
+            and row['select'] == condition['unconditional_select']
+            and (row['direct'] or not condition.get('unconditional_requires_direct', True)))

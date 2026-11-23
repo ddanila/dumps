@@ -1,5 +1,9 @@
 # Measured results
 
+**Later experiment:** [local branch tables](BRANCH-TABLES.md) improve runtime
+coverage to 55.34% with clean runs. The measurements below describe the original
+baseline, preserved for comparison. Overall research acceptance remains unmet.
+
 The software workflow is implemented, but **the overall research acceptance
 criteria are not met**. Long runs are clean under the declared assumptions;
 coverage and identification of the actual datapath remain unresolved.
