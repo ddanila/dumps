@@ -11,6 +11,8 @@ class Am2901:
     width: int = 8
     ram: list = field(default_factory=lambda: [0] * 16)
     q: int = 0
+    # Opt in explicitly: historical experiments leave these pins unknown.
+    logic_flags: bool = False
 
     def step(self, instruction, a, b, d=0, carry=0, ram_in=0, q_in=0):
         mask = (1 << self.width) - 1
@@ -30,9 +32,28 @@ class Am2901:
             overflow = int(bool((~(lhs ^ rhs) & (lhs ^ f)) & (1 << (self.width - 1))))
         else:
             f = [r | s, r & s, (r ^ mask) & s, r ^ s, (r ^ s) ^ mask][fn - 3]
-            # Logic-function carry/overflow pins are not implemented. Fail closed
-            # if a future board adapter tries to use them as branch conditions.
+            # Preserve unknown pins unless the caller selects the defined model.
             cout = overflow = None
+            if self.logic_flags:
+                # AMD 01566B, p.5-8, Fig.9. '+' in that table means OR.
+                if fn in (3, 6):
+                    propagate = ((r ^ mask) if fn == 6 else r) | s
+                    cout = int(propagate != mask or bool(carry))
+                    overflow = cout
+                elif fn in (4, 5):
+                    generate = ((r ^ mask) if fn == 5 else r) & s
+                    cout = int(bool(generate) or bool(carry))
+                    overflow = cout
+                else:
+                    # XNOR's complemented lookahead equation is equivalent
+                    # to c[i+1] = !P[i] OR (!G[i] AND c[i]).
+                    cout = carry
+                    for bit in range(self.width):
+                        before = cout
+                        p = ((r | s) >> bit) & 1
+                        g = ((r & s) >> bit) & 1
+                        cout = (1-p) | ((1-g) & cout)
+                    overflow = before ^ cout
         dest = (instruction >> 6) & 7
         if dest == 0:
             self.q = f

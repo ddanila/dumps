@@ -91,7 +91,10 @@ eight destination modes, sixteen registers and Q register. Width 8 represents
 two ordinarily cascaded slices; width 4 is available for individual slices.
 Arithmetic carry and overflow, ALU zero/sign, A-output selection, and explicit
 external shift input bits are modeled. Logical-operation carry/overflow pins
-return `None`, because their hardware equations are not yet implemented.
+default to `None` for historical experiments. Explicit `logic_flags=True`
+implements the manufacturer's Figure 9 equations with ordinary slice carry
+cascading; the [flag study](assumed/LOGIC-FLAGS.md) records its effect on fitted
+reset paths. It does not identify the board's flag-selection wiring.
 
 The 8X02 implements all eight commands, modulo-1024 address arithmetic, its
 four-entry circular stack, and conditional calls/branches. BLT decrements the
@@ -99,10 +102,12 @@ stack pointer even with TEST low; RST changes the address without clearing the
 stack. Power-on stack contents remain unknown. Stack index origin is arbitrary
 and does not imply a documented physical power-on pointer value.
 
-All **11 tests pass**, including exhaustive 8-bit add and both subtraction
+All **13 component tests pass**, including exhaustive 8-bit add and both subtraction
 operations for both carry inputs, signed-add overflow, each operand/destination
 selection, logic results, inter-slice carry, nested calls, skip/wrap, and the
-BLT/RST details. These validate modeled components, not Nokia's wiring.
+BLT/RST details. Logical flags are additionally checked against the expanded
+four-bit datasheet equations and two-slice cascading. These validate modeled
+components, not Nokia's wiring.
 
 This is a functional step model, not a circuit or clock-phase simulation.
 PROM output latches, clock gating, tri-state buses, internal carry-lookahead

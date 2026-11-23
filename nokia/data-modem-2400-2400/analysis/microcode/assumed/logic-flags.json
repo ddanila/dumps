@@ -1,0 +1,34 @@
+{
+  "status": "hypothesis",
+  "evidence": "AMD Am2901B/C document 01566B Figure 9 defines logical flag outputs; ordinary carry cascading between two slices remains the declared connection model.",
+  "source": {
+    "url": "https://pccomponents.com/datasheets/ADVAN-AM2901BDMB.pdf",
+    "document": "AMD 01566B",
+    "page": "5-8",
+    "figure": 9,
+    "pdf_sha256": "1eef9e6c56f892bc2bb2c894a985ba9381a717e8344b19c2c33d0bd03a0e380a"
+  },
+  "profiles": [
+    "original-zero",
+    "original-marked",
+    "swapped-zero",
+    "swapped-marked"
+  ],
+  "cycles": 1000,
+  "logic_flags": {
+    "mode": "am2901b-ripple",
+    "status": "hypothesis",
+    "evidence": "AMD 01566B Figure 9; carry cascades between slices, without recovered Nokia carry-lookahead wiring."
+  },
+  "limitations": [
+    "Only logical carry/overflow outputs change; decoder, external inputs, condition sources and dispatch assumptions are preserved.",
+    "Historical scenarios omit logic_flags and retain unknown logical flag behavior.",
+    "Defined chip flags do not validate board condition-multiplexer wiring or fitted branch meanings."
+  ],
+  "long_profiles": [
+    "original-zero",
+    "original-marked"
+  ],
+  "long_cycles": 1000000,
+  "long_trace_limit": 200
+}

@@ -788,6 +788,25 @@ class AssumedTests(unittest.TestCase):
         invalid=copy.deepcopy(config);invalid['annotations'][0]['ranges']=[['3FE','400']]
         with self.assertRaisesRegex(ValueError,'outside control store'):annotations_by_pc(invalid)
 
+    def test_logical_flags_are_explicit_and_remove_unknown_feedback(self):
+        m=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,select=3,i=7|(3<<3)|(1<<6),a=0,b=0,d=0,carry=0,carry_select=1).items():
+            m['fields'][name]=dict(bits=bits,status='stub',evidence='OR zero fixture')
+        s=copy.deepcopy(self.scenario)
+        s['inputs']['carry']=dict(mode='mapped-or-previous',initial=0,unknown=0,
+            constant_field='carry',select_field='carry_select',status='stub',evidence='fixture')
+        old=execute(m,s,2,mode='integrated')
+        self.assertEqual(old['carry_model']['counts']['unknown_feedback'],1)
+        s['inputs']['logic_flags']=dict(mode='am2901b-ripple',status='hypothesis',evidence='AMD Figure 9; ripple connection')
+        new=execute(m,s,2,mode='integrated')
+        self.assertEqual(new['carry_model']['previous'],1)
+        self.assertNotIn('unknown_feedback',new['carry_model']['counts'])
+        with self.assertRaisesRegex(ValueError,'logical flag model requires integrated mode'):execute(m,s,2)
+        del s['inputs']['logic_flags']['evidence']
+        with self.assertRaisesRegex(ValueError,'logic flags'):execute(m,s,2,mode='integrated')
+        s['inputs']['logic_flags']=None
+        with self.assertRaisesRegex(ValueError,'logic flags'):execute(m,s,2,mode='integrated')
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

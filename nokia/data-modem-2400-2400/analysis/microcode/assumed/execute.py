@@ -37,6 +37,11 @@ def validate_scenario(s):
         raise ValueError('scenario requires provenance')
     if s.get('stack_fallback') is not None:
         raise ValueError('stack repair is unsupported: diagnose mapping instead')
+    logic_flags=s['inputs'].get('logic_flags')
+    if 'logic_flags' in s['inputs']:
+        if (not isinstance(logic_flags,dict) or logic_flags.get('mode') not in ('unknown','am2901b-ripple')
+                or logic_flags.get('status') not in ('hypothesis','recovered-from-data','stub') or not logic_flags.get('evidence')):
+            raise ValueError('logic flags require a supported mode and provenance')
     c=s['condition'];d=s['dispatch']
     if c['mode'] not in ('constant','per-select','random','flags'):
         raise ValueError('unknown condition mode')
@@ -129,6 +134,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     if mode=='integrated' and any(k not in mapping['fields'] for k in ('i','a','b','d')):
         raise ValueError('integrated mode requires datapath fields')
     cond=scenario['condition'];dispatch=scenario['dispatch'];inputs=scenario['inputs']
+    if inputs.get('logic_flags',{}).get('mode')=='am2901b-ripple' and mode!='integrated':
+        raise ValueError('logical flag model requires integrated mode')
     if mode=='sequencer' and (cond['mode']=='flags' or dispatch['source']!='scenario' or scenario['indirect_branch']['source'] in ('y','q')):
         raise ValueError('datapath source requires integrated mode')
     all_tables=[*dispatch['tables'].values(),*scenario.get('branch_tables',{}).values()]
@@ -151,7 +158,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     branch_targets={pc:table_targets(t) for pc,t in scenario.get('branch_tables',{}).items()}
     carry_input=CarryInput(inputs['carry'])
     rng=random.Random(seed); initial=scenario['initial']
-    seq=X8X02(pc=initial['pc']);cpu=Am2901(ram=initial['ram'][:],q=initial['q'])
+    seq=X8X02(pc=initial['pc']);cpu=Am2901(ram=initial['ram'][:],q=initial['q'],
+        logic_flags=inputs.get('logic_flags',{}).get('mode')=='am2901b-ripple')
     visited=Counter();edges=Counter();assumptions=Counter();events=[];depth=maximum=0
     stack_reads=stack_writes=underflows=overflows=unused=0
     source_read=scenario['io']['read'];table=source_read['table'];rom_hash=None
@@ -287,6 +295,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     if read_policy is not None:summary['rom_reads']=dict(address_counts=dict(read_counts),selected_by_alu=selected_reads,policy=read_policy)
     if isinstance(inputs['carry'],dict):
         summary['carry_model']=dict(previous=carry_input.previous,counts=dict(carry_input.counts))
+    if 'logic_flags' in inputs:summary['logic_flag_model']=inputs['logic_flags']
     if out:
         out=Path(out);out.mkdir(parents=True,exist_ok=True);save(out/'summary.json',summary)
         save(out/'mapping.json',mapping);save(out/'scenario.json',scenario)

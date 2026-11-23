@@ -45,6 +45,47 @@ class DatapathTests(unittest.TestCase):
             self.assertEqual(cpu.ram[1], [0x40, 0x40, 0xA5, 0xA5, 0xD2, 0xD2, 0x4B, 0x4B][dest])
             self.assertEqual(cpu.q, [0xA5, 0x81, 0x81, 0x81, 0x40, 0x81, 0x02, 0x81][dest])
 
+    def test_datasheet_logic_flags_four_bit_equations(self):
+        cpu=Am2901(width=4,logic_flags=True)
+        for r in range(16):
+            for s in range(16):
+                cpu.ram[0],cpu.ram[1]=r,s
+                for carry in (0,1):
+                    for fn in range(3,8):
+                        rr=r^15 if fn in (5,6) else r
+                        p=[((rr|s)>>i)&1 for i in range(4)]
+                        g=[((rr&s)>>i)&1 for i in range(4)]
+                        if fn in (3,6):
+                            expected=(1-(p[3]&p[2]&p[1]&p[0]))|carry
+                            overflow=expected
+                        elif fn in (4,5):
+                            expected=g[3]|g[2]|g[1]|g[0]|carry
+                            overflow=expected
+                        else:
+                            # Expanded Cn+4 and OVR expressions from Figure 9,
+                            # separately from the model's bitwise recurrence.
+                            expected=1-(g[3]|(p[3]&g[2])|(p[3]&p[2]&g[1])|
+                                        (p[3]&p[2]&p[1]&p[0]&(g[0]|(1-carry))))
+                            ng=[1-x for x in g];np=[1-x for x in p]
+                            c3=np[2]|(ng[2]&np[1])|(ng[2]&ng[1]&np[0])|(ng[2]&ng[1]&ng[0]&carry)
+                            c4=np[3]|(ng[3]&np[2])|(ng[3]&ng[2]&np[1])|(ng[3]&ng[2]&ng[1]&np[0])|(ng[3]&ng[2]&ng[1]&ng[0]&carry)
+                            overflow=c3^c4
+                        got=cpu.step(op(1,fn,1),0,1,carry=carry)
+                        self.assertEqual((got['carry'],got['overflow']),(expected,overflow),(r,s,carry,fn))
+
+    def test_logic_flags_ripple_across_two_slices(self):
+        for r in (0,1,15,16,127,128,240,254,255):
+            for s in (0,1,15,16,127,128,240,254,255):
+                for carry in (0,1):
+                    for fn in range(3,8):
+                        lo=Am2901(width=4,logic_flags=True,ram=[r&15,s&15]+[0]*14)
+                        hi=Am2901(width=4,logic_flags=True,ram=[r>>4,s>>4]+[0]*14)
+                        wide=Am2901(logic_flags=True,ram=[r,s]+[0]*14)
+                        l=lo.step(op(1,fn,1),0,1,carry=carry)
+                        h=hi.step(op(1,fn,1),0,1,carry=l['carry'])
+                        w=wide.step(op(1,fn,1),0,1,carry=carry)
+                        self.assertEqual((w['f'],w['carry'],w['overflow']),((h['f']<<4)|l['f'],h['carry'],h['overflow']))
+
     def test_two_slice_carry(self):
         lo, hi, wide = Am2901(width=4), Am2901(width=4), Am2901()
         lo.ram[0], lo.ram[1] = 15, 1

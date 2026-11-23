@@ -1,0 +1,1017 @@
+{
+  "configuration": {
+    "cycles": 1000,
+    "evidence": "AMD Am2901B/C document 01566B Figure 9 defines logical flag outputs; ordinary carry cascading between two slices remains the declared connection model.",
+    "limitations": [
+      "Only logical carry/overflow outputs change; decoder, external inputs, condition sources and dispatch assumptions are preserved.",
+      "Historical scenarios omit logic_flags and retain unknown logical flag behavior.",
+      "Defined chip flags do not validate board condition-multiplexer wiring or fitted branch meanings."
+    ],
+    "logic_flags": {
+      "evidence": "AMD 01566B Figure 9; carry cascades between slices, without recovered Nokia carry-lookahead wiring.",
+      "mode": "am2901b-ripple",
+      "status": "hypothesis"
+    },
+    "long_cycles": 1000000,
+    "long_profiles": [
+      "original-zero",
+      "original-marked"
+    ],
+    "long_trace_limit": 200,
+    "profiles": [
+      "original-zero",
+      "original-marked",
+      "swapped-zero",
+      "swapped-marked"
+    ],
+    "source": {
+      "document": "AMD 01566B",
+      "figure": 9,
+      "page": "5-8",
+      "pdf_sha256": "1eef9e6c56f892bc2bb2c894a985ba9381a717e8344b19c2c33d0bd03a0e380a",
+      "url": "https://pccomponents.com/datasheets/ADVAN-AM2901BDMB.pdf"
+    },
+    "status": "hypothesis"
+  },
+  "interpretation": "Defined component flag experiment, not a refit of condition wiring or proof of modem behavior.",
+  "long_runs": [
+    {
+      "carry_model": {
+        "counts": {
+          "feedback": 52,
+          "mapped_constant": 999948,
+          "value_0": 999955,
+          "value_1": 45
+        },
+        "previous": 0
+      },
+      "clean": true,
+      "cycles": 1000000,
+      "final_pc": 492,
+      "profile": "original-zero",
+      "stack": {
+        "final_depth": 1,
+        "max_depth": 3,
+        "overflows": 0,
+        "reads": 499930,
+        "underflows": 0,
+        "writes": 499939
+      },
+      "trace_digest": "09fd618c62d765e7cec44791bb41be82df9f3cb7634ef3eff4aa4e1abfcd4011",
+      "words": 162
+    },
+    {
+      "carry_model": {
+        "counts": {
+          "feedback": 56,
+          "mapped_constant": 999944,
+          "value_0": 999948,
+          "value_1": 52
+        },
+        "previous": 0
+      },
+      "clean": true,
+      "cycles": 1000000,
+      "final_pc": 132,
+      "profile": "original-marked",
+      "stack": {
+        "final_depth": 0,
+        "max_depth": 3,
+        "overflows": 0,
+        "reads": 30,
+        "underflows": 0,
+        "writes": 39
+      },
+      "trace_digest": "b5e75b41f06fd0c0ddbea94ea6aa1acb0d630b8d6b647a420abac044b621849b",
+      "words": 187
+    }
+  ],
+  "profiles": [
+    {
+      "after": {
+        "carry_model": {
+          "counts": {
+            "feedback": 52,
+            "mapped_constant": 948,
+            "value_0": 955,
+            "value_1": 45
+          },
+          "previous": 0
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 492,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            255,
+            255,
+            0,
+            255,
+            255,
+            0,
+            0,
+            0,
+            0,
+            255,
+            0,
+            255,
+            255
+          ],
+          "sp": 1,
+          "stack": [
+            null,
+            467,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 1,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 430,
+          "underflows": 0,
+          "writes": 439
+        },
+        "trace_digest": "64fc9cf3cd0fa02b67cc01894c009967deb4e0ba9d71387ba28d2e6772dbd685",
+        "unknown_decisions": {},
+        "words": 162
+      },
+      "before": {
+        "carry_model": {
+          "counts": {
+            "feedback": 52,
+            "mapped_constant": 948,
+            "unknown_feedback": 19,
+            "value_0": 957,
+            "value_1": 43
+          },
+          "previous": null
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 492,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            255,
+            255,
+            0,
+            255,
+            255,
+            0,
+            0,
+            0,
+            0,
+            255,
+            0,
+            255,
+            255
+          ],
+          "sp": 1,
+          "stack": [
+            null,
+            467,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 1,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 430,
+          "underflows": 0,
+          "writes": 439
+        },
+        "trace_digest": "64507b77b1d6c1c46faa838df0888b30680aa17c185398cef5f2d33ced8e5337",
+        "unknown_decisions": {},
+        "words": 162
+      },
+      "first_alu_difference": {
+        "after": {
+          "alu": {
+            "carry": 1,
+            "f": 255,
+            "overflow": 0,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "before": {
+          "alu": {
+            "carry": null,
+            "f": 255,
+            "overflow": null,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "cycle": 5
+      },
+      "first_control_difference": {
+        "after": {
+          "alu": {
+            "carry": 0,
+            "f": 0,
+            "overflow": 0,
+            "sign": 0,
+            "y": 0,
+            "zero": 1
+          },
+          "branch": 0,
+          "carry_in": 0,
+          "command": 2,
+          "cycle": 144,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 491,
+          "pc": 490,
+          "q": 0,
+          "raw": [
+            0,
+            128,
+            10,
+            32
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              723,
+              489,
+              1005
+            ]
+          },
+          "stack_before": {
+            "depth": 2,
+            "sp": 2
+          },
+          "test": 0
+        },
+        "before": {
+          "alu": {
+            "carry": null,
+            "f": 63,
+            "overflow": null,
+            "sign": 0,
+            "y": 63,
+            "zero": 0
+          },
+          "branch": 0,
+          "carry_in": 0,
+          "command": 2,
+          "cycle": 144,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 489,
+          "pc": 490,
+          "q": 63,
+          "raw": [
+            0,
+            128,
+            10,
+            32
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              723,
+              489,
+              1005
+            ]
+          },
+          "stack_before": {
+            "depth": 2,
+            "sp": 2
+          },
+          "test": 1
+        },
+        "cycle": 144
+      },
+      "gained": [],
+      "lost": [],
+      "profile": "original-zero"
+    },
+    {
+      "after": {
+        "carry_model": {
+          "counts": {
+            "feedback": 56,
+            "mapped_constant": 944,
+            "value_0": 948,
+            "value_1": 52
+          },
+          "previous": 0
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 132,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            127,
+            255,
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            255,
+            255
+          ],
+          "sp": 0,
+          "stack": [
+            null,
+            130,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 30,
+          "underflows": 0,
+          "writes": 39
+        },
+        "trace_digest": "c360efd5f7722cf7e056f05e201a6fed911af27777c38b2f2a8a720edccc6e31",
+        "unknown_decisions": {},
+        "words": 187
+      },
+      "before": {
+        "carry_model": {
+          "counts": {
+            "feedback": 56,
+            "mapped_constant": 944,
+            "unknown_feedback": 21,
+            "value_0": 951,
+            "value_1": 49
+          },
+          "previous": null
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 132,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            127,
+            255,
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            255,
+            255
+          ],
+          "sp": 0,
+          "stack": [
+            null,
+            130,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 30,
+          "underflows": 0,
+          "writes": 39
+        },
+        "trace_digest": "4524ddd712149da6f9b2291b51b4c6181ec1468ca24e2238001e0c2c3b0c8e9a",
+        "unknown_decisions": {},
+        "words": 187
+      },
+      "first_alu_difference": {
+        "after": {
+          "alu": {
+            "carry": 1,
+            "f": 255,
+            "overflow": 0,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "before": {
+          "alu": {
+            "carry": null,
+            "f": 255,
+            "overflow": null,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "cycle": 5
+      },
+      "first_control_difference": null,
+      "gained": [],
+      "lost": [],
+      "profile": "original-marked"
+    },
+    {
+      "after": {
+        "carry_model": {
+          "counts": {
+            "feedback": 54,
+            "mapped_constant": 946,
+            "value_0": 947,
+            "value_1": 53
+          },
+          "previous": 0
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 132,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            255,
+            0,
+            0,
+            0
+          ],
+          "sp": 0,
+          "stack": [
+            null,
+            130,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 22,
+          "underflows": 0,
+          "writes": 31
+        },
+        "trace_digest": "43337f7504215084f40cb68a32ade8ffbb2c27fe8b41d75b9b16cf45b8e6ec8d",
+        "unknown_decisions": {},
+        "words": 186
+      },
+      "before": {
+        "carry_model": {
+          "counts": {
+            "feedback": 54,
+            "mapped_constant": 946,
+            "unknown_feedback": 20,
+            "value_0": 949,
+            "value_1": 51
+          },
+          "previous": null
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 132,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            255,
+            0,
+            0,
+            0
+          ],
+          "sp": 0,
+          "stack": [
+            null,
+            130,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 22,
+          "underflows": 0,
+          "writes": 31
+        },
+        "trace_digest": "1a2ca839da26be345944c251a24efed0f4d694905a65ecfa660a4c8bde7eee6f",
+        "unknown_decisions": {},
+        "words": 186
+      },
+      "first_alu_difference": {
+        "after": {
+          "alu": {
+            "carry": 1,
+            "f": 255,
+            "overflow": 0,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "before": {
+          "alu": {
+            "carry": null,
+            "f": 255,
+            "overflow": null,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "cycle": 5
+      },
+      "first_control_difference": null,
+      "gained": [],
+      "lost": [],
+      "profile": "swapped-zero"
+    },
+    {
+      "after": {
+        "carry_model": {
+          "counts": {
+            "feedback": 54,
+            "mapped_constant": 946,
+            "value_0": 950,
+            "value_1": 50
+          },
+          "previous": 0
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 132,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            255,
+            0,
+            0,
+            0
+          ],
+          "sp": 0,
+          "stack": [
+            null,
+            130,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 22,
+          "underflows": 0,
+          "writes": 31
+        },
+        "trace_digest": "4ed20c55731f4b6cc90f6bc225377ce002e6ba389fe824a68bfc33db6c37916d",
+        "unknown_decisions": {},
+        "words": 186
+      },
+      "before": {
+        "carry_model": {
+          "counts": {
+            "feedback": 54,
+            "mapped_constant": 946,
+            "unknown_feedback": 20,
+            "value_0": 952,
+            "value_1": 48
+          },
+          "previous": null
+        },
+        "clean": true,
+        "completed_cycles": 1000,
+        "final_state": {
+          "pc": 132,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            255,
+            0,
+            0,
+            0
+          ],
+          "sp": 0,
+          "stack": [
+            null,
+            130,
+            492,
+            937
+          ]
+        },
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 22,
+          "underflows": 0,
+          "writes": 31
+        },
+        "trace_digest": "66c78199691684dd658efd020e853bb6a1080ab54ff04e4d9fc81b0e8218adb3",
+        "unknown_decisions": {},
+        "words": 186
+      },
+      "first_alu_difference": {
+        "after": {
+          "alu": {
+            "carry": 1,
+            "f": 255,
+            "overflow": 0,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "before": {
+          "alu": {
+            "carry": null,
+            "f": 255,
+            "overflow": null,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 111,
+          "carry_in": 0,
+          "command": 4,
+          "cycle": 5,
+          "dispatch_entry": null,
+          "external_read": {
+            "selected_by_alu": false,
+            "source": "scenario_pc",
+            "status": "stub",
+            "value": 0
+          },
+          "next_pc": 111,
+          "pc": 257,
+          "q": 0,
+          "raw": [
+            236,
+            155,
+            129,
+            61
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 1,
+            "sp": 1,
+            "values": [
+              null,
+              258,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        },
+        "cycle": 5
+      },
+      "first_control_difference": null,
+      "gained": [],
+      "lost": [],
+      "profile": "swapped-marked"
+    }
+  ]
+}

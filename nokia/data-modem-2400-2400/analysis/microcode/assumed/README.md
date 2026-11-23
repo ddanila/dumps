@@ -13,6 +13,11 @@ the original hash-checked PROM loader. No raw dumps or photographs are modified.
 reading the microprogram: a 1,024-word annotated listing, six separate datapath
 profiles, evidence-linked routine names, and explicitly unresolved entries.
 
+[LOGIC-FLAGS.md](LOGIC-FLAGS.md) adds an explicit scenario option for the
+Am2901B logical carry/overflow equations. Historical scenarios retain unknown
+logical flags; the new comparison removes carry substitutions and checks the
+effect on fitted reset paths without changing their condition policies.
+
 ## ROM bytes as ALU input
 
 [ALU-FEEDBACK.md](ALU-FEEDBACK.md) tests retained-Y addressing of the actual
