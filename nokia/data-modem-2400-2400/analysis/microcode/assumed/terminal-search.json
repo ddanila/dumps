@@ -1,0 +1,17 @@
+{
+  "status": "hypothesis",
+  "evidence": "Both reset/input witnesses converge on 084. Inspect its direct self-branch, shared tail, and full stack contexts before treating it as a completion or restart boundary.",
+  "mappings": ["original", "swapped"],
+  "terminal": 132,
+  "tail_start": 120,
+  "escape_entry": 133,
+  "helper_end": 137,
+  "a_values": [0,1,85,128,255],
+  "external_values": [0,255],
+  "limitations": [
+    "The graph considers all declared condition outcomes and dispatch targets; a graph witness need not satisfy the fitted flag policy.",
+    "Escape probes start at 085 with the derived logical stack; they are counterfactual diagnostics and excluded from reset coverage.",
+    "No interrupt, restart, stack reset, polling signal or output strobe is added.",
+    "A no-load self-loop in the component model does not rule out external effects of real control lines."
+  ]
+}

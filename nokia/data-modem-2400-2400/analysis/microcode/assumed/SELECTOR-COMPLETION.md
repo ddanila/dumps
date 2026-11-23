@@ -10,6 +10,9 @@ This is a coherent reset-started execution under explicit input and dispatch
 hypotheses. It is not recovered hardware wiring, a complete modem boot, or
 proof that the physical selector 5 is a constant signal.
 
+A [terminal-tail follow-up](TERMINAL-TAIL.md) now characterizes 084 and
+shows why a blanket escape or restart would need additional assumptions.
+
 ## Search and preserved constraints
 
 [selector-completion.json](selector-completion.json) enumerates all sixteen

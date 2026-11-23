@@ -42,6 +42,9 @@ of the reset cases reaches preparation, and some use unknown decision flags.
 [SELECTOR-COMPLETION.md](SELECTOR-COMPLETION.md) then varies only previously
 unconstrained selectors. Asserting selector 5 reaches preparation from reset
 and yields an input-dependent loop under the preserved fitted policies.
+[TERMINAL-TAIL.md](TERMINAL-TAIL.md) characterizes the common tail at 078–084
+and shows why a blanket fallthrough/restart interpretation is unsupported
+by the observed stack contexts.
 
 ## Datapath-derived lookup indices
 

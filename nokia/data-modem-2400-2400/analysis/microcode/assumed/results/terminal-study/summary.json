@@ -1,0 +1,62 @@
+{
+  "configuration": {
+    "a_values": [
+      0,
+      1,
+      85,
+      128,
+      255
+    ],
+    "escape_entry": 133,
+    "evidence": "Both reset/input witnesses converge on 084. Inspect its direct self-branch, shared tail, and full stack contexts before treating it as a completion or restart boundary.",
+    "external_values": [
+      0,
+      255
+    ],
+    "helper_end": 137,
+    "limitations": [
+      "The graph considers all declared condition outcomes and dispatch targets; a graph witness need not satisfy the fitted flag policy.",
+      "Escape probes start at 085 with the derived logical stack; they are counterfactual diagnostics and excluded from reset coverage.",
+      "No interrupt, restart, stack reset, polling signal or output strobe is added.",
+      "A no-load self-loop in the component model does not rule out external effects of real control lines."
+    ],
+    "mappings": [
+      "original",
+      "swapped"
+    ],
+    "status": "hypothesis",
+    "tail_start": 120,
+    "terminal": 132
+  },
+  "interpretation": "Common terminal tail is a structural label. Completion, external restart and physical I/O roles are unresolved.",
+  "profiles": [
+    {
+      "contexts": [
+        [],
+        [
+          43
+        ]
+      ],
+      "incoming_branches": 15,
+      "mapping": "original",
+      "self_branches": [
+        132
+      ],
+      "stationary_checks": 2560
+    },
+    {
+      "contexts": [
+        [],
+        [
+          43
+        ]
+      ],
+      "incoming_branches": 15,
+      "mapping": "swapped",
+      "self_branches": [
+        132
+      ],
+      "stationary_checks": 2560
+    }
+  ]
+}
