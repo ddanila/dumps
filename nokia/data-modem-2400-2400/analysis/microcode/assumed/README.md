@@ -9,6 +9,13 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## ROM bytes as ALU input
+
+[ALU-FEEDBACK.md](ALU-FEEDBACK.md) tests retained-Y addressing of the actual
+lookup ROM. The trace distinguishes sampled bytes from operands selected by
+the ALU. All 128 short runs finish cleanly, but the sampled paired-arithmetic
+calls still have zero source pairs; this does not establish signal processing.
+
 ## Datapath-derived lookup indices
 
 [INDEX-SOURCES.md](INDEX-SOURCES.md) compares current Y, updated Q and retained

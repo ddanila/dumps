@@ -502,6 +502,32 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_alu_rom_feedback_reads_prior_output_and_records_consumption(self):
+        import json
+        mapping=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,i=7|(1<<6),a=0,b=0,d=0).items():
+            mapping['fields'][name]=dict(bits=bits,status='stub',evidence='ROM feedback fixture')
+        config=read(HERE/'feedback-search.json')
+        scenario=copy.deepcopy(self.scenario)
+        scenario['io']['read'].update(mode='am27s31',expected_sha256=config['rom_sha256'],
+            address=dict(source='previous_y',bank=0,initial_y=1,status='hypothesis',evidence='fixture'))
+        with tempfile.TemporaryDirectory() as out:
+            result=execute(mapping,scenario,3,mode='integrated',out=out,trace_limit=3)
+            records=[json.loads(line) for line in (Path(out)/'trace.jsonl').read_text().splitlines()]
+        self.assertEqual([(r['external_read']['address'],r['external_read']['value'],r['alu']['y']) for r in records],
+                         [(1,49,49),(49,255,255),(255,0,0)])
+        self.assertEqual(result['rom_reads']['selected_by_alu'],3)
+        self.assertEqual(result['rom_reads']['address_counts'],{1:1,49:1,255:1})
+        self.assertEqual(result['final_state']['previous_y'],0)
+        mapping['fields']['i']['bits']=2|(1<<6)
+        unused=execute(mapping,scenario,3,mode='integrated')
+        self.assertEqual(unused['rom_reads']['selected_by_alu'],0)
+        with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
+        scenario['io']['read']['expected_sha256']='0'*64
+        with self.assertRaisesRegex(ValueError,'hash mismatch'):execute(mapping,scenario,1,mode='integrated')
+        scenario['io']['read']['address']['bank']=1
+        with self.assertRaisesRegex(ValueError,'bank/initial'):validate_scenario(scenario)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

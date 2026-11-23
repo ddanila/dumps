@@ -1,0 +1,52 @@
+{
+  "status": "hypothesis",
+  "evidence": "The independent ROM contains arithmetic and address tables. Test previous ALU-Y as a retained address for ALU-D reads, rather than a constant external byte.",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "banks": [
+    0,
+    256
+  ],
+  "initial_y": 0,
+  "variants": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "cycles": 1000,
+  "integration": {
+    "variant": 2,
+    "bank": 256,
+    "seed": 2
+  },
+  "limitations": [
+    "Every instruction updates the candidate address; real latch qualification is unknown.",
+    "The high ROM address bit is fixed per profile, not decoded from the board.",
+    "Branch/call indices remain scenario-driven to isolate datapath feedback. Their reconstructed address lookups and these ALU input reads are separate model inputs, not a coherent physical shared-bus model.",
+    "Only Am2901 source codes 5,6,7 select D as an operand. The result may still be insensitive to that operand; sampled-but-unselected values are counted separately.",
+    "External RAM, DAC strobes, timing and controller links remain unmodeled."
+  ],
+  "arithmetic_call_sites": [
+    962,
+    983,
+    1004
+  ]
+}

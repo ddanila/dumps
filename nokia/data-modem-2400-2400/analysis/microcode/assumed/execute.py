@@ -71,6 +71,17 @@ def validate_scenario(s):
             raise ValueError('previous Y requires an explicit initial_y byte')
     if s['io']['read']['mode'] not in ('immediate','constant','table','am27s31'):
         raise ValueError('unknown IO read mode')
+    read_policy=s['io']['read'].get('address')
+    if read_policy is not None:
+        if s['io']['read']['mode']!='am27s31' or read_policy.get('source')!='previous_y':
+            raise ValueError('address feedback requires Am27S31 previous_y policy')
+        if read_policy.get('bank') not in (0,256) or type(read_policy.get('initial_y')) is not int or not 0<=read_policy['initial_y']<=255:
+            raise ValueError('invalid ROM bank/initial address')
+        if read_policy.get('status') not in ('hypothesis','stub','recovered-from-data') or not read_policy.get('evidence'):
+            raise ValueError('ROM address policy requires provenance')
+        expected=s['io']['read'].get('expected_sha256','')
+        if not isinstance(expected,str) or len(expected)!=64 or any(c not in '0123456789abcdef' for c in expected):
+            raise ValueError('ROM feedback requires expected_sha256')
     if c['unconditional_select'] is not None and c['unconditional_select'] not in range(8):
         raise ValueError('invalid unconditional select')
     if any(not isinstance(v,int) or not 0<=v<=255 for v in s['io']['read']['table']) or not 0<=s['io']['read']['value']<=255:
@@ -116,6 +127,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     all_tables=[*dispatch['tables'].values(),*scenario.get('branch_tables',{}).values()]
     if mode=='sequencer' and any(t.get('index_source','scenario')!='scenario' for t in all_tables):
         raise ValueError('table datapath source requires integrated mode')
+    read_policy=scenario['io']['read'].get('address')
+    if read_policy is not None and mode!='integrated':raise ValueError('ROM address feedback requires integrated mode')
     track_previous_y=dispatch['source']=='previous_y' or any(t.get('index_source')=='previous_y' for t in all_tables)
     for row in rows:
         if row['command']==4 and not row['direct'] and str(row['pc']) not in dispatch['tables']:
@@ -139,6 +152,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         p=HERE.parents[3]/'unknown-modem-am27s31dc'/'nokia-modem-am27s31dc.bin'
         table=list(p.read_bytes());rom_hash=hashlib.sha256(bytes(table)).hexdigest()
         if not table: raise ValueError('empty Am27S31 dump')
+        if read_policy is not None and (len(table)!=512 or rom_hash!=source_read['expected_sha256']):
+            raise ValueError('Am27S31 feedback dump size/hash mismatch')
+    read_counts=Counter();selected_reads=0
     writes={int(w['pc']):w for w in scenario['io']['writes']}
     trace_count=0;io_count=0;dispatch_counts=Counter();register_changes=0
     routine_entries={r['branch'] for r in rows if r['command']==4 and r['direct']}
@@ -151,13 +167,18 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         old_ram=tuple(cpu.ram) if mode=='integrated' else ();old_q=cpu.q
         if r['unused']: unused+=1
         previous=flags
-        result=None
+        result=None;read_event=None
         if mode=='integrated':
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
             if source_read['mode']=='constant': d=source_read['value'];assumptions['constant external read']+=1
             elif source_read['mode'] in ('table','am27s31'):
-                d=table[d%len(table)]; assumptions['table external read']+=1
+                address=(read_policy['bank']+previous.get('y',read_policy['initial_y'])) if read_policy is not None else d%len(table)
+                d=table[address]; assumptions['table external read']+=1
+                if read_policy is not None:
+                    consumed=(r['i']&7) in (5,6,7)
+                    selected_reads+=consumed;read_counts[address]+=1
+                    read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
             carry=carry_input.resolve(r)
             result=cpu.step(r['i'],r['a'],r['b'],d,carry,inputs['ram_in'],inputs['q_in'])
             carry_input.observe(result)
@@ -222,7 +243,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if len(events)<32: events.append(dict(cycle=cycle,pc=pc,event='stack depth violation',depth=depth))
         h.update(bytes((pc&255,pc>>8,seq.pc&255,seq.pc>>8,test,cpu.q)))
         if result: h.update(bytes(cpu.ram))
-        if track_previous_y:h.update(bytes((result['y'],)))
+        if track_previous_y or read_policy is not None:h.update(bytes((result['y'],)))
         if isinstance(inputs['carry'],dict):h.update(bytes((2 if carry_input.previous is None else carry_input.previous,)))
         if pc in writes:
             w=writes[pc];value=result[w.get('source','y')] if result else w.get('value',0)
@@ -235,6 +256,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 stack_before=before,stack_after=dict(sp=seq.sp,depth=depth,values=seq.stack[:]),next_pc=seq.pc,
                 registers={str(i):v for i,v in enumerate(cpu.ram) if mode=='integrated' and old_ram[i]!=v},q=cpu.q,alu=result)
             if isinstance(inputs['carry'],dict):record['carry_in']=carry
+            if read_event is not None:record['external_read']=read_event
             if trace_index:record.update(dispatch_input=index,dispatch_source=index_source)
             if pc in routine_entries and pc not in routine_samples: routine_samples[pc]=record
             if trace_count<trace_limit:
@@ -250,7 +272,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         register_changes=register_changes,routine_samples=routine_samples,io_writes=io_count,trace_digest=h.hexdigest(),final_state=dict(pc=seq.pc,sp=seq.sp,stack=seq.stack,ram=cpu.ram,q=cpu.q),
         clean=completed==cycles and not(underflows or overflows),
         interpretation='Runs under declared assumptions; neither recovered wiring nor verified Nokia execution.')
-    if track_previous_y:summary['final_state']['previous_y']=flags.get('y',dispatch['initial_y'])
+    if track_previous_y or read_policy is not None:summary['final_state']['previous_y']=flags['y']
+    if read_policy is not None:summary['rom_reads']=dict(address_counts=dict(read_counts),selected_by_alu=selected_reads,policy=read_policy)
     if isinstance(inputs['carry'],dict):
         summary['carry_model']=dict(previous=carry_input.previous,counts=dict(carry_input.counts))
     if out:

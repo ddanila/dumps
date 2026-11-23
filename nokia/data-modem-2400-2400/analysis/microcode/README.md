@@ -8,7 +8,9 @@ both candidate address tables and exact sine-wave tables. Target associations,
 high address bits, condition sources and physical DAC/controller connections
 remain hypotheses or unresolved. A [datapath index comparison](assumed/INDEX-SOURCES.md)
 now tests current versus retained ALU outputs at the ROM-backed branches.
-The full plan is not finished.
+An [ALU feedback experiment](assumed/ALU-FEEDBACK.md) now supplies actual ROM
+bytes through retained-Y addressing; sampled arithmetic calls still have zero
+source pairs. The full plan is not finished.
 
 Historical [baseline](assumed/RESULTS.md), [branch-table](assumed/BRANCH-TABLES.md),
 [low-address handler](assumed/LOW-HANDLERS.md), and
