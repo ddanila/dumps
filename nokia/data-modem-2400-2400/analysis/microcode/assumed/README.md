@@ -9,6 +9,13 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Separated source-bit search
+
+[Q-INDEPENDENT.md](Q-INDEPENDENT.md) broadens source wiring beyond contiguous
+fields. Four candidates remove the table arithmetic's Q=0 requirement and
+support a conditional shift-until-zero interpretation of 1E9. Nonzero fixtures
+pass, while reset-path table inputs still fail to provide independent evidence.
+
 ## Caller-state study
 
 [CALLER-STATES.md](CALLER-STATES.md) tests the arithmetic preconditions on

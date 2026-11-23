@@ -1,0 +1,44 @@
+{
+  "status": "hypothesis",
+  "evidence": "Broaden source wiring beyond contiguous fields; require Q-independent copy/negation tables and a Q-shift at 1E9 with a data-dependent AND test at 1EA.",
+  "source_constraints": {
+    "889": 1,
+    "965": 4,
+    "489": 2,
+    "490": 0
+  },
+  "function_bits": [
+    "10.2",
+    "10.3",
+    "!10.0"
+  ],
+  "function_evidence": "Swap low two function bits of rotation candidate: positive opcodes ADD and negative opcodes R+~S+C with source 0,A implement copy/negation independently of Q.",
+  "q_values": [
+    0,
+    1,
+    85,
+    128,
+    255
+  ],
+  "limitations": [
+    "Source constraints encode an arithmetic interpretation, not measured wiring.",
+    "1E9 shifting Q and 1EA testing A AND Q are hypotheses used to select candidates, not independent validation.",
+    "The aliasing table 3EF still overwrites a source pair.",
+    "Carry, shift fill, external D and output addresses remain assumptions."
+  ],
+  "loop_probe": {
+    "entry": 489,
+    "return_pc": 0,
+    "continue_if": "nonzero",
+    "external_d": 85,
+    "carry": 0,
+    "shift_fill": 0,
+    "cycle_limit": 20,
+    "status": "hypothesis",
+    "evidence": "Local routine fixture: select-zero BLT repeats while current ALU zero is false; this condition assignment is not applied globally."
+  },
+  "integration": {
+    "seed": 11,
+    "external_read": 85
+  }
+}

@@ -260,6 +260,35 @@ class AssumedTests(unittest.TestCase):
         check_rotation(sample,decode(mapping),scenario,bases)
         self.assertTrue(sample['rotation_check']['matches'])
 
+    def test_separated_source_candidates_and_q_shift_loop(self):
+        from common import load
+        from independent_study import search_sources, arithmetic
+        from model import Am2901, X8X02
+        config=read(HERE/'independent-search.json');base=read(HERE/'rotation-search.json')
+        candidates=search_sources(load(),config,base)
+        self.assertEqual(len(candidates),4)
+        for index,source in enumerate(candidates,1):
+            mapping=read(HERE/f'results/independent-study/variant-{index}.json')
+            self.assertEqual(mapping['fields']['i']['bits'][:3],source)
+            self.assertEqual(arithmetic(mapping,config,base)['failures'],[])
+            rows=decode(mapping)
+            for initial_q in range(256):
+                cpu=Am2901(q=initial_q)
+                seq=X8X02(pc=0x123);seq.step(4,0x1e9,True)
+                iterations=0
+                while seq.pc!=0x1eb:
+                    row=rows[seq.pc]
+                    result=cpu.step(row['i'],row['a'],row['b'],0x55,0)
+                    seq.step(row['command'],row['branch'],not result['zero'])
+                    if row['pc']==0x1e9:iterations+=1
+                    self.assertLessEqual(iterations,8)
+                self.assertEqual(cpu.q,0)
+                self.assertEqual(iterations,max(1,initial_q.bit_length()))
+                self.assertEqual(cpu.ram[0],0)
+                seq.step(3)
+                self.assertEqual(seq.pc,0x124)
+                self.assertEqual(seq.pushes,seq.pops)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

@@ -63,12 +63,16 @@ def summarize(samples,sites):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out',type=Path,default=HERE/'results/caller-study')
+    parser.add_argument('--mapping-dir',type=Path,default=HERE/'results/rotation-study')
     args=parser.parse_args();args.out.mkdir(parents=True,exist_ok=True)
     config=read(HERE/'caller-search.json')
     reports=[]
-    for variant in range(1,4):
-        mapping=read(HERE/f'results/rotation-study/variant-{variant}.json')
-        scenario=read(HERE/f'results/rotation-study/scenario-{variant}.json')
+    mappings=sorted(args.mapping_dir.glob('variant-*.json'))
+    if not mappings:parser.error('mapping directory has no variant files')
+    for path in mappings:
+        variant=path.stem.split('-')[-1]
+        mapping=read(path)
+        scenario=read(args.mapping_dir/f'scenario-{variant}.json')
         rows=decode(mapping);sites=sorted(map(int,scenario['dispatch']['tables']))
         samples=[];runs=[]
         with tempfile.TemporaryDirectory() as tmp:

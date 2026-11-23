@@ -1,0 +1,5800 @@
+{
+  "configuration": {
+    "cycles": 1000,
+    "evidence": "Check whether table fixture preconditions occur along reset paths; perturb the unknown external D input without injecting PCs or register contents.",
+    "external_read_values": [
+      0,
+      1,
+      85,
+      255
+    ],
+    "limitations": [
+      "All external reads in a profile use the same byte; this is a sensitivity experiment, not a realistic signal source.",
+      "Control conditions and dispatch indices remain seeded scenario inputs.",
+      "Candidate indices are low bits of current Y, current Q, or previous Y; these do not establish a physical address source."
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "status": "hypothesis"
+  },
+  "interpretation": "Observed caller states under saved rotation scenarios; indices are counterfactual candidates, not evidence of physical wiring. Unobserved sites remain unresolved.",
+  "variants": [
+    {
+      "all_clean": true,
+      "by_input": {
+        "0": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                3
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3
+            ],
+            "q_zero": 13,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 0
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3
+            ],
+            "q_zero": 13,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 0
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              3
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              0
+            ],
+            "q_zero": 3,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              0
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "1": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                1,
+                3,
+                4,
+                5
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                2,
+                3,
+                4
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              3,
+              4
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 2
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                2,
+                3,
+                4
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              3,
+              4
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 3
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              4
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              2
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              2
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              3,
+              4
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              3,
+              4
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1,
+                2
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              3,
+              4
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "255": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                2,
+                11,
+                12,
+                13,
+                14,
+                15
+              ],
+              "previous_y": [
+                15
+              ],
+              "q": [
+                0,
+                3,
+                12,
+                13,
+                14,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              15,
+              240,
+              252,
+              253,
+              254
+            ],
+            "q_zero": 5,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 3
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                15
+              ],
+              "q": [
+                0,
+                3,
+                12,
+                13,
+                14,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              15,
+              240,
+              252,
+              253,
+              254
+            ],
+            "q_zero": 5,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 4
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              3,
+              15
+            ],
+            "q_zero": 5,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                1,
+                2
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              253,
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                1,
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              253,
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1,
+                2
+              ],
+              "q": [
+                1,
+                2
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              253,
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "85": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                4,
+                5,
+                9,
+                15
+              ],
+              "previous_y": [
+                5
+              ],
+              "q": [
+                0,
+                4,
+                10,
+                11,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              10,
+              11,
+              26,
+              84,
+              170,
+              255
+            ],
+            "q_zero": 5,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 3
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                5
+              ],
+              "q": [
+                0,
+                4,
+                10,
+                11,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              10,
+              11,
+              26,
+              84,
+              170,
+              255
+            ],
+            "q_zero": 5,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 5
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                2,
+                3
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              10,
+              11,
+              26
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              170
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              170
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              84,
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              84,
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1,
+                2
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              84,
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        }
+      },
+      "mapping": "q-independent-1",
+      "sites": {
+        "07E": {
+          "candidate_indices": {
+            "current_y": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "previous_y": [
+              0,
+              1,
+              5,
+              15
+            ],
+            "q": [
+              0,
+              2,
+              3,
+              4,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            2,
+            3,
+            4,
+            10,
+            11,
+            15,
+            26,
+            84,
+            170,
+            240,
+            252,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 30,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 8
+        },
+        "081": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              5,
+              15
+            ],
+            "q": [
+              0,
+              2,
+              3,
+              4,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            2,
+            3,
+            4,
+            10,
+            11,
+            15,
+            26,
+            84,
+            170,
+            240,
+            252,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 30,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 12
+        },
+        "21F": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "2C4": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "376": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2,
+              3
+            ]
+          },
+          "observations": 28,
+          "q_values": [
+            0,
+            3,
+            4,
+            10,
+            11,
+            15,
+            26
+          ],
+          "q_zero": 21,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            3
+          ],
+          "source_pair_nonzero": 0
+        },
+        "38F": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2
+            ]
+          },
+          "observations": 8,
+          "q_values": [
+            0,
+            2,
+            170,
+            254
+          ],
+          "q_zero": 2,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            3
+          ],
+          "source_pair_nonzero": 6
+        },
+        "3A8": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0,
+            2,
+            170,
+            254
+          ],
+          "q_zero": 4,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3C2": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "observations": 12,
+          "q_values": [
+            0,
+            3,
+            4,
+            84,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 3,
+          "rotation_checks": 12,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3D7": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0,
+            3,
+            4,
+            84,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 4,
+          "rotation_checks": 16,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3EC": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              2
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "observations": 24,
+          "q_values": [
+            0,
+            3,
+            4,
+            84,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 6,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        }
+      }
+    },
+    {
+      "all_clean": true,
+      "by_input": {
+        "0": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              255
+            ],
+            "q_zero": 11,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 1
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              255
+            ],
+            "q_zero": 11,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 2
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              0
+            ],
+            "q_zero": 3,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              0
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "1": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                1
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0,
+                1,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              1,
+              255
+            ],
+            "q_zero": 9,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 8
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1,
+                2
+              ],
+              "q": [
+                0,
+                1,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              1,
+              255
+            ],
+            "q_zero": 9,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 8
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                1
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              1
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                1
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              1
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                1
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              1
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "255": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                3,
+                15
+              ],
+              "previous_y": [
+                0,
+                1,
+                15
+              ],
+              "q": [
+                0,
+                3,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 8
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1,
+                15
+              ],
+              "q": [
+                0,
+                3,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 8
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              3
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                3
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                3
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                3
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "85": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                5
+              ],
+              "previous_y": [
+                0,
+                1,
+                5
+              ],
+              "q": [
+                0,
+                2,
+                5,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              85,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 8
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1,
+                5,
+                6
+              ],
+              "q": [
+                0,
+                2,
+                5,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              85,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 8
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                2
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              2
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                1
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              85
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                1
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              85
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                1
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              85
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        }
+      },
+      "mapping": "q-independent-2",
+      "sites": {
+        "07E": {
+          "candidate_indices": {
+            "current_y": [
+              0,
+              1,
+              3,
+              5,
+              15
+            ],
+            "previous_y": [
+              0,
+              1,
+              5,
+              15
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3,
+              5,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            1,
+            2,
+            3,
+            85,
+            255
+          ],
+          "q_zero": 36,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 25
+        },
+        "081": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              2,
+              5,
+              6,
+              15
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3,
+              5,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            1,
+            2,
+            3,
+            85,
+            255
+          ],
+          "q_zero": 36,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 26
+        },
+        "21F": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "2C4": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "376": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2,
+              3
+            ]
+          },
+          "observations": 28,
+          "q_values": [
+            0,
+            2,
+            3
+          ],
+          "q_zero": 26,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            3
+          ],
+          "source_pair_nonzero": 21
+        },
+        "38F": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0
+            ]
+          },
+          "observations": 8,
+          "q_values": [
+            0
+          ],
+          "q_zero": 8,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            3
+          ],
+          "source_pair_nonzero": 6
+        },
+        "3A8": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0
+            ],
+            "q": [
+              0
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0
+          ],
+          "q_zero": 16,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3C2": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              1,
+              3
+            ]
+          },
+          "observations": 12,
+          "q_values": [
+            0,
+            1,
+            85,
+            255
+          ],
+          "q_zero": 3,
+          "rotation_checks": 12,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3D7": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1
+            ],
+            "q": [
+              0,
+              1,
+              3
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0,
+            1,
+            85,
+            255
+          ],
+          "q_zero": 4,
+          "rotation_checks": 16,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3EC": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0
+            ],
+            "q": [
+              0,
+              1,
+              3
+            ]
+          },
+          "observations": 24,
+          "q_values": [
+            0,
+            1,
+            85,
+            255
+          ],
+          "q_zero": 6,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        }
+      }
+    },
+    {
+      "all_clean": true,
+      "by_input": {
+        "0": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                15
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              255
+            ],
+            "q_zero": 12,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 0
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              255
+            ],
+            "q_zero": 12,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 1
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              0
+            ],
+            "q_zero": 3,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              0
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "1": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                1,
+                2,
+                3,
+                5
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                1,
+                2,
+                4,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              1,
+              2,
+              4,
+              255
+            ],
+            "q_zero": 9,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 9
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                1,
+                2,
+                4,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              1,
+              2,
+              4,
+              255
+            ],
+            "q_zero": 9,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 10
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              2
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              2
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 4
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              3,
+              4
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              3,
+              4
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1,
+                2
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              3,
+              4
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 3
+          }
+        },
+        "255": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                2,
+                11,
+                13,
+                14,
+                15
+              ],
+              "previous_y": [
+                15
+              ],
+              "q": [
+                0,
+                3,
+                12,
+                14,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              252,
+              254,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 9
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                15
+              ],
+              "q": [
+                0,
+                3,
+                12,
+                14,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              252,
+              254,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 10
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              3
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 4
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                1,
+                2
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              253,
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                1,
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              253,
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1,
+                2
+              ],
+              "q": [
+                1,
+                2
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              253,
+              254
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 3
+          }
+        },
+        "85": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                4,
+                5,
+                7,
+                9,
+                10,
+                15
+              ],
+              "previous_y": [
+                5
+              ],
+              "q": [
+                0,
+                2,
+                4,
+                5,
+                10,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              84,
+              85,
+              170,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 10
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                5
+              ],
+              "q": [
+                0,
+                2,
+                4,
+                5,
+                10,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              84,
+              85,
+              170,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 11
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                2
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              2
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              170
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              170
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 4
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              84,
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              84,
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1,
+                2
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              84,
+              255
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 3
+          }
+        }
+      },
+      "mapping": "q-independent-3",
+      "sites": {
+        "07E": {
+          "candidate_indices": {
+            "current_y": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              9,
+              10,
+              11,
+              13,
+              14,
+              15
+            ],
+            "previous_y": [
+              0,
+              1,
+              5,
+              15
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              10,
+              12,
+              14,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            84,
+            85,
+            170,
+            252,
+            254,
+            255
+          ],
+          "q_zero": 37,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 28
+        },
+        "081": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              5,
+              15
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              10,
+              12,
+              14,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            84,
+            85,
+            170,
+            252,
+            254,
+            255
+          ],
+          "q_zero": 37,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 32
+        },
+        "21F": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "2C4": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "376": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2,
+              3
+            ]
+          },
+          "observations": 28,
+          "q_values": [
+            0,
+            2,
+            3
+          ],
+          "q_zero": 26,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            3
+          ],
+          "source_pair_nonzero": 21
+        },
+        "38F": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2
+            ]
+          },
+          "observations": 8,
+          "q_values": [
+            0,
+            2,
+            170,
+            254
+          ],
+          "q_zero": 2,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            3
+          ],
+          "source_pair_nonzero": 6
+        },
+        "3A8": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0,
+            2,
+            170,
+            254
+          ],
+          "q_zero": 4,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 12
+        },
+        "3C2": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "observations": 12,
+          "q_values": [
+            0,
+            3,
+            4,
+            84,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 3,
+          "rotation_checks": 12,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3D7": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0,
+            3,
+            4,
+            84,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 4,
+          "rotation_checks": 16,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3EC": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              2
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3
+            ]
+          },
+          "observations": 24,
+          "q_values": [
+            0,
+            3,
+            4,
+            84,
+            253,
+            254,
+            255
+          ],
+          "q_zero": 6,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 9
+        }
+      }
+    },
+    {
+      "all_clean": true,
+      "by_input": {
+        "0": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                15
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              255
+            ],
+            "q_zero": 13,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 0
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              255
+            ],
+            "q_zero": 13,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 0
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              0
+            ],
+            "q_zero": 3,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              0
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          }
+        },
+        "1": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                0,
+                1,
+                2
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0,
+                1,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              1,
+              255
+            ],
+            "q_zero": 9,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 11
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1,
+                2
+              ],
+              "q": [
+                0,
+                1,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              1,
+              255
+            ],
+            "q_zero": 9,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 11
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0
+            ],
+            "q_zero": 7,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 4
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              2
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              2
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              2
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 3
+          }
+        },
+        "255": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                2,
+                14,
+                15
+              ],
+              "previous_y": [
+                0,
+                1,
+                15
+              ],
+              "q": [
+                0,
+                3,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 10
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1,
+                15
+              ],
+              "q": [
+                0,
+                3,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              3,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 11
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                0,
+                3
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              3
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 4
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                3
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              0
+            ],
+            "q_zero": 3,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              0
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 3
+          }
+        },
+        "85": {
+          "07E": {
+            "candidate_indices": {
+              "current_y": [
+                4,
+                5,
+                7,
+                10
+              ],
+              "previous_y": [
+                0,
+                1,
+                5
+              ],
+              "q": [
+                0,
+                2,
+                5,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              85,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3,
+              5,
+              6,
+              7,
+              8,
+              9,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 11
+          },
+          "081": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1,
+                5,
+                6
+              ],
+              "q": [
+                0,
+                2,
+                5,
+                15
+              ]
+            },
+            "observations": 14,
+            "q_values": [
+              0,
+              2,
+              85,
+              255
+            ],
+            "q_zero": 8,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ],
+            "source_pair_nonzero": 12
+          },
+          "21F": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "2C4": {
+            "candidate_indices": {
+              "current_y": [],
+              "previous_y": [],
+              "q": []
+            },
+            "observations": 0,
+            "q_values": [],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [],
+            "source_pair_nonzero": 0
+          },
+          "376": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0,
+                2
+              ]
+            },
+            "observations": 7,
+            "q_values": [
+              0,
+              2
+            ],
+            "q_zero": 6,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              3
+            ],
+            "source_pair_nonzero": 7
+          },
+          "38F": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 2,
+            "q_values": [
+              0
+            ],
+            "q_zero": 2,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              3
+            ],
+            "source_pair_nonzero": 2
+          },
+          "3A8": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                0
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              0
+            ],
+            "q_zero": 4,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 4
+          },
+          "3C2": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 3,
+            "q_values": [
+              86
+            ],
+            "q_zero": 0,
+            "rotation_checks": 3,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3D7": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0,
+                1
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 4,
+            "q_values": [
+              86
+            ],
+            "q_zero": 0,
+            "rotation_checks": 4,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2
+            ],
+            "source_pair_nonzero": 0
+          },
+          "3EC": {
+            "candidate_indices": {
+              "current_y": [
+                0
+              ],
+              "previous_y": [
+                0
+              ],
+              "q": [
+                2
+              ]
+            },
+            "observations": 6,
+            "q_values": [
+              86
+            ],
+            "q_zero": 0,
+            "rotation_checks": 0,
+            "rotation_failures": 0,
+            "selected_entries": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "source_pair_nonzero": 3
+          }
+        }
+      },
+      "mapping": "q-independent-4",
+      "sites": {
+        "07E": {
+          "candidate_indices": {
+            "current_y": [
+              0,
+              1,
+              2,
+              4,
+              5,
+              7,
+              10,
+              14,
+              15
+            ],
+            "previous_y": [
+              0,
+              1,
+              5,
+              15
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3,
+              5,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            1,
+            2,
+            3,
+            85,
+            255
+          ],
+          "q_zero": 38,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            9,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 32
+        },
+        "081": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              2,
+              5,
+              6,
+              15
+            ],
+            "q": [
+              0,
+              1,
+              2,
+              3,
+              5,
+              15
+            ]
+          },
+          "observations": 56,
+          "q_values": [
+            0,
+            1,
+            2,
+            3,
+            85,
+            255
+          ],
+          "q_zero": 38,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "source_pair_nonzero": 34
+        },
+        "21F": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "2C4": {
+          "candidate_indices": {
+            "current_y": [],
+            "previous_y": [],
+            "q": []
+          },
+          "observations": 0,
+          "q_values": [],
+          "q_zero": 0,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [],
+          "source_pair_nonzero": 0
+        },
+        "376": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2,
+              3
+            ]
+          },
+          "observations": 28,
+          "q_values": [
+            0,
+            2,
+            3
+          ],
+          "q_zero": 26,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            3
+          ],
+          "source_pair_nonzero": 21
+        },
+        "38F": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0
+            ]
+          },
+          "observations": 8,
+          "q_values": [
+            0
+          ],
+          "q_zero": 8,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            3
+          ],
+          "source_pair_nonzero": 6
+        },
+        "3A8": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0
+            ],
+            "q": [
+              0
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0
+          ],
+          "q_zero": 16,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 12
+        },
+        "3C2": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1,
+              3
+            ],
+            "q": [
+              0,
+              2
+            ]
+          },
+          "observations": 12,
+          "q_values": [
+            0,
+            2,
+            86
+          ],
+          "q_zero": 6,
+          "rotation_checks": 12,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3D7": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0,
+              1
+            ],
+            "q": [
+              0,
+              2
+            ]
+          },
+          "observations": 16,
+          "q_values": [
+            0,
+            2,
+            86
+          ],
+          "q_zero": 8,
+          "rotation_checks": 16,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2
+          ],
+          "source_pair_nonzero": 0
+        },
+        "3EC": {
+          "candidate_indices": {
+            "current_y": [
+              0
+            ],
+            "previous_y": [
+              0
+            ],
+            "q": [
+              0,
+              2
+            ]
+          },
+          "observations": 24,
+          "q_values": [
+            0,
+            2,
+            86
+          ],
+          "q_zero": 12,
+          "rotation_checks": 0,
+          "rotation_failures": 0,
+          "selected_entries": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "source_pair_nonzero": 9
+        }
+      }
+    }
+  ]
+}

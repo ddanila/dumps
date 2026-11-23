@@ -15,6 +15,8 @@ function/carry controls, yielding conditional rotation and add/subtract
 interpretations, with an explicit overlapping-register counterexample.
 A [caller-state study](assumed/CALLER-STATES.md) additionally finds nonzero-Q
 counterexamples on reset paths when the external input stub is nonzero.
+The [separated source-bit search](assumed/Q-INDEPENDENT.md) removes that Q
+dependency and supports a conditional shift-until-zero interpretation of 1E9.
 
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,
