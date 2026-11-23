@@ -47,6 +47,7 @@ into one address listing.
 | 1E9–1EB | Conditional Q drain | Current versus previous zero flag changes iteration count |
 | 341–344 | Preparation with disputed register roles | External operand and destination roles remain hypotheses |
 | 379–388, 392–3A1, 3AB–3BA | Paired add/subtract and permute | Output slots are virtual |
+| 3C0–3C4 (q2) | Fixed-source transform high-byte loop | Constant dispatch; failed tests repeat without changing source data |
 | 3C5–3D4, 3DA–3E9 | Paired quarter-turn transform | Identities were search constraints; nonzero evidence is local |
 | 3EF–3FE | Source-overlapping transform | Cannot reuse the independent quarter-turn formula |
 | 2BC–2C5 | Nested computed-call wrapper | Needs site-scoped dispatch assumptions |
@@ -66,7 +67,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 216 used words, including overlaps and disconnected
+These annotations cover 221 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.

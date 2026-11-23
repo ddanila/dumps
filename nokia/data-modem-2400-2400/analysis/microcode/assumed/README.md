@@ -420,3 +420,8 @@ fixtures. This candidate releases 129 input cases from the arithmetic wrapper;
 gates transform calls, followed by an old-Q/R7 comparison. The 132,608 local
 checks cover the arithmetic and threshold boundaries; all 256 tested reset
 inputs start with Q=0 and bypass the calls.
+
+[q2 transform wrapper](Q2-TRANSFORM-LOOP.md) checks 3C0 with real loop control.
+It repeatedly transforms unchanged source words and returns when the second
+result high byte is zero; other fixed-index cases repeat every eight instructions.
+The study includes 263,344 local checks and 40 executions through the 133 gate.

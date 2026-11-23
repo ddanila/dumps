@@ -507,6 +507,22 @@
         "q2"
       ],
       "limitations": "Shared previous-flag policy. Nonzero-Q carry paths are local fixtures; tested reset executions skip every transform call. Repeated Q-to-R0 writes at 341\u2013344 remain a candidate-specific decode."
+    },
+    {
+      "name": "fixed-source transform high-byte loop",
+      "ranges": [
+        [
+          "3C0",
+          "3C4"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2, copy R0 to R1 and repeatedly transform R10\u2013R13 into R4\u2013R7. Previous-zero control returns when the second result high byte is zero; sources and Q remain unchanged.",
+      "evidence": "Q2-TRANSFORM-LOOP.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Constant dispatch index and shared previous-flag policy. Failed conditions repeat rather than converge; nonzero source/caller cases are local fixtures, with physical loop condition and output meaning unresolved."
     }
   ]
 }
