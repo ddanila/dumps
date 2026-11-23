@@ -1,0 +1,18 @@
+{
+  "status": "hypothesis",
+  "evidence": "Classify the remaining disconnected fragments without adding targets; compare their low bytes with the complete lookup ROM and test the paired 2D9/2DC tails locally.",
+  "scenario": "results/third-case-study/scenario-all_cases.json",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "variants": [1, 2, 3, 4],
+  "tails": [729, 732],
+  "a_values": [0, 1, 85, 128, 255],
+  "q_values": [0, 165],
+  "d_values": [0, 255],
+  "initial_carries": [0, 1],
+  "limitations": [
+    "Local entry and return-sentinel probes are diagnostics, not reset execution coverage.",
+    "ROM matching assumes an unchanged byte plus a separately selected 256-word bank.",
+    "A matching byte alone does not establish a dispatch table, source, or index.",
+    "Tail arithmetic uses retained candidate layouts and mapped/previous carry assumptions; physical outputs remain unknown."
+  ]
+}

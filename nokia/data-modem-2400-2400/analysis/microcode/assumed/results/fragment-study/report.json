@@ -1,0 +1,1752 @@
+{
+  "arithmetic": [
+    {
+      "decoded_tails": [
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 320,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 73,
+            "operation": "R,S=A,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 729,
+            "raw": [
+              5,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 36
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 65,
+            "operation": "R,S=A,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 730,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 20
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 122,
+            "operation": "R,S=0,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 731,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ],
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 336,
+            "carry": 1,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 73,
+            "operation": "R,S=A,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 732,
+            "raw": [
+              21,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 36
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 65,
+            "operation": "R,S=A,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 733,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 20
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 122,
+            "operation": "R,S=0,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 734,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ]
+      ],
+      "examples": [
+        {
+          "a": 85,
+          "b": 0,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                170,
+                175,
+                90
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                171,
+                175,
+                90
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        },
+        {
+          "a": 85,
+          "b": 255,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                169,
+                250,
+                90
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                170,
+                250,
+                90
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        }
+      ],
+      "failures": 0,
+      "paired_cases": 10240,
+      "variant": 1
+    },
+    {
+      "decoded_tails": [
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 320,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 75,
+            "operation": "R,S=0,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 729,
+            "raw": [
+              5,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 32
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 67,
+            "operation": "R,S=0,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 730,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 16
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 120,
+            "operation": "R,S=A,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 731,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ],
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 336,
+            "carry": 1,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 75,
+            "operation": "R,S=0,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 732,
+            "raw": [
+              21,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 32
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 67,
+            "operation": "R,S=0,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 733,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 16
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 120,
+            "operation": "R,S=A,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 734,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ]
+      ],
+      "examples": [
+        {
+          "a": 85,
+          "b": 0,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                255,
+                90,
+                15
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                0,
+                90,
+                15
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        },
+        {
+          "a": 85,
+          "b": 255,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                254,
+                165,
+                15
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                255,
+                165,
+                15
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        }
+      ],
+      "failures": 0,
+      "paired_cases": 10240,
+      "variant": 2
+    },
+    {
+      "decoded_tails": [
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 320,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 73,
+            "operation": "R,S=A,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 729,
+            "raw": [
+              5,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 36
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 65,
+            "operation": "R,S=A,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 730,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 20
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 120,
+            "operation": "R,S=A,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 731,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ],
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 336,
+            "carry": 1,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 73,
+            "operation": "R,S=A,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 732,
+            "raw": [
+              21,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 36
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 65,
+            "operation": "R,S=A,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 733,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 20
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 120,
+            "operation": "R,S=A,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 734,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ]
+      ],
+      "examples": [
+        {
+          "a": 85,
+          "b": 0,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                170,
+                175,
+                15
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                171,
+                175,
+                15
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        },
+        {
+          "a": 85,
+          "b": 255,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                169,
+                250,
+                15
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                170,
+                250,
+                15
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        }
+      ],
+      "failures": 0,
+      "paired_cases": 10240,
+      "variant": 3
+    },
+    {
+      "decoded_tails": [
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 320,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 73,
+            "operation": "R,S=A,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 729,
+            "raw": [
+              5,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 36
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 67,
+            "operation": "R,S=0,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 730,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 4
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 120,
+            "operation": "R,S=A,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 731,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ],
+        [
+          {
+            "a": 0,
+            "b": 12,
+            "branch": 336,
+            "carry": 1,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 73,
+            "operation": "R,S=A,B; F=~R+S+C; no load",
+            "output_slot": 0,
+            "pc": 732,
+            "raw": [
+              21,
+              128,
+              252,
+              36
+            ],
+            "register": 12,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 36
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 15,
+            "branch": 768,
+            "carry": 0,
+            "carry_select": 0,
+            "command": 1,
+            "command_name": "INC",
+            "d": 0,
+            "direct": 1,
+            "i": 67,
+            "operation": "R,S=0,B; F=R+S+C; no load",
+            "output_slot": 0,
+            "pc": 733,
+            "raw": [
+              1,
+              128,
+              252,
+              151
+            ],
+            "register": 15,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 8,
+              "18": 4
+            },
+            "select": 7,
+            "unused": false
+          },
+          {
+            "a": 0,
+            "b": 7,
+            "branch": 123,
+            "carry": 1,
+            "carry_select": 1,
+            "command": 6,
+            "command_name": "BRT",
+            "d": 0,
+            "direct": 1,
+            "i": 120,
+            "operation": "R,S=A,Q; F=~(R^S); no load",
+            "output_slot": 10,
+            "pc": 734,
+            "raw": [
+              188,
+              129,
+              131,
+              3
+            ],
+            "register": 7,
+            "remaining_raw": {
+              "10": 0,
+              "11": 0,
+              "17": 0,
+              "18": 0
+            },
+            "select": 0,
+            "unused": false
+          }
+        ]
+      ],
+      "examples": [
+        {
+          "a": 85,
+          "b": 0,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                170,
+                90,
+                15
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                171,
+                90,
+                15
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        },
+        {
+          "a": 85,
+          "b": 255,
+          "d": 255,
+          "initial_carry": 1,
+          "pair": [
+            {
+              "state_preserved": true,
+              "y": [
+                169,
+                165,
+                15
+              ]
+            },
+            {
+              "state_preserved": true,
+              "y": [
+                170,
+                165,
+                15
+              ]
+            }
+          ],
+          "q": 165,
+          "valid": true
+        }
+      ],
+      "failures": 0,
+      "paired_cases": 10240,
+      "variant": 4
+    }
+  ],
+  "configuration": {
+    "a_values": [
+      0,
+      1,
+      85,
+      128,
+      255
+    ],
+    "d_values": [
+      0,
+      255
+    ],
+    "evidence": "Classify the remaining disconnected fragments without adding targets; compare their low bytes with the complete lookup ROM and test the paired 2D9/2DC tails locally.",
+    "initial_carries": [
+      0,
+      1
+    ],
+    "limitations": [
+      "Local entry and return-sentinel probes are diagnostics, not reset execution coverage.",
+      "ROM matching assumes an unchanged byte plus a separately selected 256-word bank.",
+      "A matching byte alone does not establish a dispatch table, source, or index.",
+      "Tail arithmetic uses retained candidate layouts and mapped/previous carry assumptions; physical outputs remain unknown."
+    ],
+    "q_values": [
+      0,
+      165
+    ],
+    "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "scenario": "results/third-case-study/scenario-all_cases.json",
+    "status": "hypothesis",
+    "tails": [
+      729,
+      732
+    ],
+    "variants": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "fragments": [
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          250
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          250
+        ]
+      },
+      "pc": 250,
+      "raw": [
+        213,
+        192,
+        4,
+        101
+      ],
+      "rom_offsets": [
+        103,
+        123,
+        372,
+        483
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          253,
+          254,
+          255,
+          729,
+          730,
+          731
+        ]
+      },
+      "command": "BRT",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          253,
+          254,
+          255,
+          729,
+          730,
+          731
+        ]
+      },
+      "pc": 253,
+      "raw": [
+        54,
+        129,
+        227,
+        131
+      ],
+      "rom_offsets": [
+        449,
+        450,
+        451,
+        486
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          254,
+          255
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          254,
+          255
+        ]
+      },
+      "pc": 254,
+      "raw": [
+        1,
+        128,
+        252,
+        151
+      ],
+      "rom_offsets": [
+        374,
+        445,
+        446,
+        447,
+        448
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          255
+        ]
+      },
+      "command": "BRT",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          255
+        ]
+      },
+      "pc": 255,
+      "raw": [
+        188,
+        129,
+        131,
+        3
+      ],
+      "rom_offsets": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        90,
+        113,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        442,
+        443,
+        444
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          598,
+          599,
+          729,
+          730,
+          731,
+          732,
+          733,
+          734
+        ]
+      },
+      "command": "BRT",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          598,
+          599,
+          729,
+          730,
+          731,
+          732,
+          733,
+          734
+        ]
+      },
+      "pc": 598,
+      "raw": [
+        54,
+        129,
+        163,
+        131
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          599,
+          732,
+          733,
+          734
+        ]
+      },
+      "command": "BRT",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          599,
+          732,
+          733,
+          734
+        ]
+      },
+      "pc": 599,
+      "raw": [
+        118,
+        128,
+        131,
+        131
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [
+          "223: possible stack overflow",
+          "2c4: possible stack overflow"
+        ],
+        "returns": false,
+        "unresolved_reached": [
+          600
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          600
+        ]
+      },
+      "pc": 600,
+      "raw": [
+        21,
+        128,
+        4,
+        2
+      ],
+      "rom_offsets": [
+        62,
+        287
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650
+        ]
+      },
+      "pc": 647,
+      "raw": [
+        5,
+        128,
+        4,
+        30
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          648,
+          649,
+          650
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          648,
+          649,
+          650
+        ]
+      },
+      "pc": 648,
+      "raw": [
+        21,
+        128,
+        4,
+        62
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          649,
+          650
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          649,
+          650
+        ]
+      },
+      "pc": 649,
+      "raw": [
+        21,
+        128,
+        60,
+        37
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          650
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          650
+        ]
+      },
+      "pc": 650,
+      "raw": [
+        5,
+        128,
+        252,
+        20
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          719
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          719
+        ]
+      },
+      "pc": 719,
+      "raw": [
+        99,
+        129,
+        132,
+        126
+      ],
+      "rom_offsets": [
+        9,
+        15
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          729,
+          730,
+          731
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          729,
+          730,
+          731
+        ]
+      },
+      "pc": 729,
+      "raw": [
+        5,
+        128,
+        252,
+        36
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          730,
+          731
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          730,
+          731
+        ]
+      },
+      "pc": 730,
+      "raw": [
+        1,
+        128,
+        252,
+        151
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          731
+        ]
+      },
+      "command": "BRT",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          731
+        ]
+      },
+      "pc": 731,
+      "raw": [
+        188,
+        129,
+        131,
+        3
+      ],
+      "rom_offsets": [
+        491
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          732,
+          733,
+          734
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          732,
+          733,
+          734
+        ]
+      },
+      "pc": 732,
+      "raw": [
+        21,
+        128,
+        252,
+        36
+      ],
+      "rom_offsets": [
+        489
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          733,
+          734
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          733,
+          734
+        ]
+      },
+      "pc": 733,
+      "raw": [
+        1,
+        128,
+        252,
+        151
+      ],
+      "rom_offsets": [
+        487
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          734
+        ]
+      },
+      "command": "BRT",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          734
+        ]
+      },
+      "pc": 734,
+      "raw": [
+        188,
+        129,
+        131,
+        3
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": true,
+        "unresolved_reached": [
+          735
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [
+          "2ff: possible stack underflow"
+        ],
+        "unresolved_reached": [
+          735
+        ]
+      },
+      "pc": 735,
+      "raw": [
+        21,
+        128,
+        188,
+        52
+      ],
+      "rom_offsets": [
+        95
+      ]
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650,
+          957,
+          958,
+          959
+        ]
+      },
+      "command": "TSK",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650,
+          957,
+          958,
+          959
+        ]
+      },
+      "pc": 957,
+      "raw": [
+        21,
+        128,
+        0,
+        10
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650,
+          958,
+          959
+        ]
+      },
+      "command": "INC",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650,
+          958,
+          959
+        ]
+      },
+      "pc": 958,
+      "raw": [
+        5,
+        128,
+        4,
+        10
+      ],
+      "rom_offsets": []
+    },
+    {
+      "caller": {
+        "exceptions": [],
+        "returns": false,
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650,
+          959
+        ]
+      },
+      "command": "BRT",
+      "empty": {
+        "exceptions": [],
+        "unresolved_reached": [
+          647,
+          648,
+          649,
+          650,
+          959
+        ]
+      },
+      "pc": 959,
+      "raw": [
+        194,
+        129,
+        131,
+        131
+      ],
+      "rom_offsets": []
+    }
+  ],
+  "reset_reachable": 999,
+  "roots_absent_from_rom": [
+    598,
+    957
+  ],
+  "roots_without_internal_predecessor": [
+    250,
+    253,
+    598,
+    600,
+    719,
+    735,
+    957
+  ],
+  "unresolved": [
+    250,
+    253,
+    254,
+    255,
+    598,
+    599,
+    600,
+    647,
+    648,
+    649,
+    650,
+    719,
+    729,
+    730,
+    731,
+    732,
+    733,
+    734,
+    735,
+    957,
+    958,
+    959
+  ]
+}

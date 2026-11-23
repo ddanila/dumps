@@ -54,6 +54,9 @@ statically and leaves 22 unresolved; its table sizes remain hypotheses.
 [BRANCH-BITS.md](BRANCH-BITS.md) tests 128 global B0/B9 alternatives against
 that graph. None improves reachability; inversion witnesses expose empty-stack
 accesses. Context-dependent decoding and other dispatch families remain open.
+[FRAGMENTS.md](FRAGMENTS.md) classifies the seven remaining entry families,
+rules out unchanged ROM bytes for two roots, and tests a conditional one-unit
+ALU adjustment at 2D9/2DC. Local probes do not add reset coverage.
 
 ## Datapath-derived lookup indices
 

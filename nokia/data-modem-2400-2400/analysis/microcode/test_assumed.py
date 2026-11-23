@@ -748,6 +748,21 @@ class AssumedTests(unittest.TestCase):
             self.assertEqual(seq.pushes-seq.pops,0)
             self.assertEqual(rows[terminal]['command'],command)
 
+    def test_disconnected_tail_adjustment_preserves_internal_state(self):
+        from fragment_study import tail
+        for variant in range(1,5):
+            rows=decode(read(HERE/f'results/independent-study/variant-{variant}.json'))
+            policy=read(HERE/f'results/independent-study/scenario-{variant}.json')['inputs']['carry']
+            for a,b in ((0,0),(85,0),(255,255)):
+                ram=list(range(16));ram[0]=a;ram[12]=b
+                low=tail(rows,policy,0x2d9,ram,165,255,1)
+                high=tail(rows,policy,0x2dc,ram,165,255,1)
+                minuend=0 if variant==2 else a
+                self.assertEqual(low['y'][0],(b-minuend-1)&255)
+                self.assertEqual(high['y'][0],(b-minuend)&255)
+                self.assertEqual(low['y'][1:],high['y'][1:])
+                self.assertTrue(low['state_preserved'] and high['state_preserved'])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():
