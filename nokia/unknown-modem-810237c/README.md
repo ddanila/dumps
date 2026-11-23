@@ -9,11 +9,15 @@ unknown. Four socketed PROMs are visible in the supplied
 | 10 | 810237C | Two matching 1,024-byte reads |
 | 11 (owner; photo position number obscured) | 810238C (inferred association) | Two matching 1,024-byte reads |
 | 17 | 810239C | Two matching 1,024-byte reads |
-| 18 | 810240C | Pending |
+| 18 | 810240C | Two matching 1,024-byte reads |
 
 The owner identifies chip 10 as **MMI 6381, 24-pin DIP**, with no further
 readable suffix. Neighboring chips show partially exposed MMI 6381 markings;
 their exact variants are not asserted from this photograph.
+
+All four photographed PROMs have now been acquired: **4 × 1,024 bytes**,
+with two matching reads per chip. All four images differ. Their logical
+arrangement is unconfirmed, so the raw chips are preserved separately.
 
 ## Chip 10 acquisition — 2026-11-23
 
@@ -87,3 +91,23 @@ limited search does not establish uniqueness. Firmware role and arrangement
 across the PROMs remain unverified.
 
 [Chip 11 acquisition metadata and logs](evidence/chip11/)
+
+## Chip 18 acquisition — 2026-11-23
+
+[Raw dump: chip18-810240c.bin](chip18-810240c.bin)
+
+The owner inserted chip 18, identified as **810240C** in the board photo.
+Read as the same MMI 6381 DIP24 family; exact suffix remains unconfirmed.
+Two independent read-only T48 captures using `82S181`, with chip-ID probing
+skipped, produced identical nonblank 1,024-byte images (179 distinct byte
+values). No programming was performed.
+
+- SHA-256: `e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b`
+- CRC32: `ec11c215`
+- Byte sum modulo 256: `75`; no internal checksum scheme is established.
+
+Searches for `810240C` / Nokia PROM and the CRC32 found no relevant public dump.
+This limited search does not establish uniqueness. Modem model, firmware role
+and operational validity remain unconfirmed.
+
+[Chip 18 acquisition metadata and logs](evidence/chip18/)

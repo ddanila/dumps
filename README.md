@@ -14,8 +14,8 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
-- [Nokia external modem 810237C PROM set](nokia/unknown-modem-810237c/) — chips 10, 11 and 17,
-  two matching 1 KiB MMI 6381 reads each; chip 18 remains pending.
+- [Nokia external modem 810237C PROM set](nokia/unknown-modem-810237c/) — all four
+  MMI 6381 PROMs acquired, two matching 1 KiB reads each; modem model unknown.
 
 - [Award VENUS-VIA 1993-04-14](unknown/award-venus-via-19930414/) —
   unidentified-board 128 KiB Award 4.20 BIOS with Cirrus VGA; matching large
