@@ -1,0 +1,170 @@
+{
+  "name": "baseline",
+  "status": "hypothesis",
+  "evidence": "Explicit execution assumptions, not measured wiring",
+  "initial": {
+    "pc": 0,
+    "ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "q": 0
+  },
+  "condition": {
+    "mode": "random",
+    "value": 0,
+    "per_select": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "unconditional_select": 0,
+    "polarity": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "unknown": 0,
+    "flag_timing": "current",
+    "sources": [
+      "constant",
+      "zero",
+      "sign",
+      "carry",
+      "overflow",
+      "external",
+      "external",
+      "external"
+    ]
+  },
+  "dispatch": {
+    "mode": "random",
+    "value": 0,
+    "sequence": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "scenario",
+    "tables": {
+      "126": {
+        "base": 138,
+        "count": 16,
+        "stride": 1,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      },
+      "129": {
+        "base": 138,
+        "count": 16,
+        "stride": 1,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      },
+      "543": {
+        "base": 138,
+        "count": 16,
+        "stride": 1,
+        "status": "stub",
+        "evidence": "Unknown table; use 08A POP table to expose continuation, not evidence of target"
+      },
+      "708": {
+        "base": 138,
+        "count": 16,
+        "stride": 1,
+        "status": "stub",
+        "evidence": "Unknown table; use 08A POP table to expose continuation, not evidence of target"
+      },
+      "886": {
+        "base": 889,
+        "count": 4,
+        "stride": 4,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      },
+      "911": {
+        "base": 914,
+        "count": 4,
+        "stride": 4,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      },
+      "936": {
+        "base": 939,
+        "count": 4,
+        "stride": 4,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      },
+      "962": {
+        "base": 965,
+        "count": 4,
+        "stride": 4,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      },
+      "983": {
+        "base": 986,
+        "count": 4,
+        "stride": 4,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      },
+      "1004": {
+        "base": 1007,
+        "count": 4,
+        "stride": 4,
+        "status": "hypothesis",
+        "evidence": "Nearby POP-delimited table"
+      }
+    }
+  },
+  "inputs": {
+    "carry": 0,
+    "ram_in": 0,
+    "q_in": 0,
+    "external": 0
+  },
+  "io": {
+    "read": {
+      "mode": "immediate",
+      "value": 0,
+      "table": [
+        0
+      ]
+    },
+    "writes": []
+  },
+  "stack_fallback": null,
+  "indirect_branch": {
+    "source": "microword",
+    "value": 0,
+    "status": "stub",
+    "evidence": "Five BRT words have 17.7 clear; address source unresolved. Preserve encoded target as an explicit fallback."
+  }
+}

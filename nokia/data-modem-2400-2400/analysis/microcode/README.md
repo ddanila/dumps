@@ -1,7 +1,12 @@
 # DSC2847 bit-slice execution experiment
 
-**Current way forward:** [PLAN.md](PLAN.md) records sequencer fields recovered
-from the PROM data alone and the steps toward an error-free emulator run.
+**Current experiment:** [the assumption-driven workflow](assumed/README.md)
+implements the analysis and execution tooling from [PLAN.md](PLAN.md). Its
+fixed suite completes 61 million cycles without stack violations, with three
+explicit datapath hypotheses. Aggregate sequencer coverage is 28.8%, below the
+90% target; much execution stays in short loops. See [measured results and
+remaining uncertainties](assumed/RESULTS.md). This does not establish faithful
+Nokia execution.
 
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,

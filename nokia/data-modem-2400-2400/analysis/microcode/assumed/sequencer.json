@@ -1,0 +1,61 @@
+{
+  "name": "data-recovered-sequencer",
+  "address_wiring": {
+    "status": "hypothesis",
+    "value": "straight-through",
+    "evidence": "PROM structural analysis"
+  },
+  "fields": {
+    "command": {
+      "bits": [
+        "17.2",
+        "17.1",
+        "17.0"
+      ],
+      "status": "recovered-from-data",
+      "evidence": "PLAN.md command histogram"
+    },
+    "branch": {
+      "bits": [
+        "11.0",
+        "10.7",
+        "10.6",
+        "10.5",
+        "10.4",
+        "10.3",
+        "10.2",
+        "10.1",
+        "10.0",
+        "18.7"
+      ],
+      "status": "recovered-from-data",
+      "evidence": "PLAN.md target-window search; B0/B9 less certain"
+    },
+    "select": {
+      "bits": [
+        "17.4",
+        "17.5",
+        "17.6"
+      ],
+      "status": "hypothesis",
+      "evidence": "PLAN.md conditional-transfer statistics"
+    },
+    "direct": {
+      "bits": [
+        "17.7"
+      ],
+      "status": "hypothesis",
+      "evidence": "PLAN.md computed-call patterns"
+    },
+    "register": {
+      "bits": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "status": "hypothesis",
+      "evidence": "PLAN.md 0\u201315 table count; role unknown"
+    }
+  }
+}

@@ -1,0 +1,74 @@
+"""Shared, provenance-preserving decode for the assumption-driven experiment."""
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent))
+from run import load, field_value
+
+NAMES = ['TSK', 'INC', 'BLT', 'POP', 'BSR', 'PLP', 'BRT', 'RST']
+STATUS = {'recovered-from-data', 'hypothesis', 'stub'}
+WIDTHS = dict(command=3, branch=10, select=3, direct=1, i=9, a=4, b=4, d=8,
+              carry=1, ram_in=1, q_in=1)
+
+
+def read(path):
+    return json.loads(Path(path).read_text())
+
+
+def save(path, value):
+    Path(path).write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
+
+
+def digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True).encode()).hexdigest()
+
+
+def validate(mapping):
+    for name in ('command', 'branch', 'select', 'direct'):
+        if name not in mapping['fields']:
+            raise ValueError(f'missing field {name}')
+    for name, field in mapping['fields'].items():
+        if field['status'] not in STATUS or not field.get('evidence'):
+            raise ValueError(f'{name}: missing provenance')
+        bits = field['bits']
+        width = WIDTHS.get(name, 4)
+        if isinstance(bits, int):
+            if not 0 <= bits < 1 << width:
+                raise ValueError(f'{name}: constant out of range')
+        else:
+            if len(bits) != width:
+                raise ValueError(f'{name}: width mismatch')
+            for token in bits:
+                chip, bit = token.lstrip('!').split('.')
+                if chip not in ('10', '11', '17', '18') or not 0 <= int(bit) < 8:
+                    raise ValueError(f'{name}: invalid bit {token}')
+        contexts = field.get('commands', list(range(8)))
+        if not all(c in range(8) for c in contexts):
+            raise ValueError('invalid command context')
+
+
+def decode(mapping, lanes=None):
+    validate(mapping)
+    lanes = load() if lanes is None else lanes
+    rows = []
+    for pc in range(1024):
+        command = field_value(mapping['fields']['command']['bits'], lanes, pc)
+        row = {k: field_value(v['bits'], lanes, pc) for k, v in mapping['fields'].items()
+               if command in v.get('commands', range(8))}
+        row.update(pc=pc, raw=[lanes[c][pc] for c in ('10', '11', '17', '18')])
+        used_bits={t.lstrip('!') for v in mapping['fields'].values()
+                   if command in v.get('commands',range(8)) and isinstance(v['bits'],list) for t in v['bits']}
+        row['remaining_raw']={c:lanes[c][pc] & sum(1<<b for b in range(8) if f'{c}.{b}' not in used_bits) for c in lanes}
+        row['command_name']=NAMES[command]
+        if 'i' in row:
+            sources=['A,Q','A,B','0,Q','0,B','0,A','D,A','D,Q','D,0']
+            functions=['R+S+C','~R+S+C','R+~S+C','R|S','R&S','~R&S','R^S','~(R^S)']
+            destinations=['Q=F','no load','RAM[B]=F; Y=A','RAM[B]=F','RAM[B]=F>>1; Q>>1','RAM[B]=F>>1','RAM[B]=F<<1; Q<<1','RAM[B]=F<<1']
+            i=row['i']
+            row['operation']=f'R,S={sources[i&7]}; F={functions[(i>>3)&7]}; {destinations[(i>>6)&7]}'
+        row['unused'] = row['raw'] == [255] * 4
+        rows.append(row)
+    return rows
