@@ -27,5 +27,6 @@ for name,opts,cycles in scenarios:
  print(name,summary['scenarios'][name]['unique_instruction_starts'],'instruction addresses; checks pass')
 # Linear decoding is a navigation aid: embedded tables are not all instructions.
 r=subprocess.run([str(exe),str(ROM),'5','255','1',str(out/'disasm-unused.trace')],env=env|{'DISASM':'1'},capture_output=True,text=True,check=True)
-(out/'controller-linear.asm').write_text(r.stdout)
+(out/'controller-linear.asm').write_text('\n'.join(line.rstrip() for line in r.stdout.splitlines())+'\n')
+(out/'disasm-unused.trace').unlink(missing_ok=True)
 (out/'SUMMARY.json').write_text(json.dumps(summary,indent=2)+'\n')

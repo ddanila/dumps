@@ -1,3948 +1,3948 @@
-0000  LJMP  #1EAAh                    
-0003  LJMP  #078Eh                    
-0006  MOV   R7, A                     
-0007  MOV   R7, A                     
-0008  MOV   R7, A                     
-0009  MOV   R7, A                     
-000a  MOV   R7, A                     
-000b  JB   07h.0, #+66                
-000e  JB   07h.1, #+78                
-0011  AJMP  #0030h                    
-0013  PUSH  PSW                       
-0015  PUSH  ACC                       
-0017  LJMP  #1760h                    
-001a  MOV   R7, A                     
-001b  LJMP  #07D7h                    
-001e  MOV   R7, A                     
-001f  MOV   R7, A                     
-0020  MOV   R7, A                     
-0021  MOV   R7, A                     
-0022  MOV   R7, A                     
-0023  RETI                            
-0024  MOV   R7, A                     
-0025  MOV   R7, A                     
-0026  MOV   R7, A                     
-0027  MOV   R7, A                     
-0028  MOV   R7, A                     
-0029  MOV   R7, A                     
-002a  MOV   R7, A                     
-002b  MOV   R7, A                     
-002c  MOV   R7, A                     
-002d  MOV   R7, A                     
-002e  MOV   R7, A                     
-002f  MOV   R7, A                     
-0030  JB   07h.2, #+48                
-0033  JNB   06h.6, #+45               
-0036  SETB  P1.7                      
-0038  JB   0Dh.6, #+8                 
-003b  MOV   TL0, #F9h                 
-003e  MOV   TH0, #FFh                 
-0041  AJMP  #0049h                    
-0043  MOV   TL0, #F3h                 
-0046  MOV   TH0, #FFh                 
-0049  CLR   07h.0                     
-004b  CLR   07h.1                     
-004d  SETB  07h.2                     
-004f  RETI                            
-0050  CLR   P1.6                      
-0052  MOV   TL0, #F0h                 
-0055  MOV   TH0, #FFh                 
-0058  CLR   07h.0                     
-005a  SETB  07h.1                     
-005c  CLR   07h.2                     
-005e  RETI                            
-005f  SETB  P1.6                      
-0061  AJMP  #0033h                    
-0063  CLR   P1.7                      
-0065  CLR   IE.1                      
-0067  CLR   TCON.4                    
-0069  CLR   TCON.1                    
-006b  SETB  IE.0                      
-006d  RETI                            
-006e  MOV   R3, 34h                   
-0070  MOV   A, 34h                    
-0072  JB   ACC.7, #+4                 
-0075  MOV   R2, #00h                  
-0077  AJMP  #00D5h                    
-0079  JB   ACC.6, #+21                
-007c  JNB   ACC.5, #+9                
-007f  ANL   A, #1Fh                   
-0081  MOV   DPTR, #00095h             
-0084  MOVC  A, @A+DPTR                
-0085  MOV   R2, A                     
-0086  AJMP  #00D5h                    
-0088  ANL   A, #1Fh                   
-008a  MOV   DPTR, #000B5h             
-008d  MOVC  A, @A+DPTR                
-008e  MOV   R2, A                     
-008f  AJMP  #00D5h                    
-0091  MOV   R2, #5Ch                  
-0093  AJMP  #00D5h                    
-0095  MOVC  A, @A+PC                  
-0096  DIV   AB                        
-0097  AJMP  #0444h                    
-0099  ORL   A, #44h                   
-009b  XCH   A, SP                     
-009d  DIV   AB                        
-009e  AJMP  #0414h                    
-00a0  ACALL 0014h                     
-00a2  DEC   A                         
-00a3  DEC   A                         
-00a4  XRL   A, E4h                    
-00a6  DEC   A                         
-00a7  DEC   A                         
-00a8  DEC   A                         
-00a9  DEC   A                         
-00aa  DEC   A                         
-00ab  ANL   A, R4                     
-00ac  ANL   A, R4                     
-00ad  DJNZ  R4, #-36                  
-00af  ANL   A, R4                     
-00b0  ANL   A, R4                     
-00b1  ANL   A, R4                     
-00b2  ANL   A, R4                     
-00b3  ANL   A, R4                     
-00b4  ANL   A, R4                     
-00b5  INC   R5                        
-00b6  INC   R5                        
-00b7  INC   R5                        
-00b8  XCH   A, R5                     
-00b9  XCH   A, R1                     
-00ba  ORL   A, R6                     
-00bb  ORL   A, R6                     
-00bc  ORL   A, R6                     
-00bd  INC   R5                        
-00be  INC   R5                        
-00bf  INC   R5                        
-00c0  XCH   A, R5                     
-00c1  XCH   A, R5                     
-00c2  XCH   A, R5                     
-00c3  ADD   A, R4                     
-00c4  ADD   A, R5                     
-00c5  MOV   A, R4                     
-00c6  DEC   R4                        
-00c7  DEC   R4                        
-00c8  DEC   R4                        
-00c9  DEC   R4                        
-00ca  DEC   R4                        
-00cb  ANL   A, R4                     
-00cc  ANL   A, R4                     
-00cd  DJNZ  R4, #-36                  
-00cf  ANL   A, R4                     
-00d0  ANL   A, R4                     
-00d1  ANL   A, R4                     
-00d2  ANL   A, R4                     
-00d3  ANL   A, R4                     
-00d4  ANL   A, R4                     
-00d5  MOV   A, 33h                    
-00d7  ANL   A, #07h                   
-00d9  ORL   A, R2                     
-00da  MOV   20h, A                    
-00dc  MOV   A, 34h                    
-00de  ANL   A, #F8h                   
-00e0  CJNE  A, #E8h, #+2              
-00e3  AJMP  #011Eh                    
-00e5  JB   04h.6, #+15                
-00e8  JB   03h.7, #+18                
-00eb  JB   0Dh.7, #+15                
-00ee  MOV   A, 34h                    
-00f0  ANL   A, #F8h                   
-00f2  CJNE  A, #E8h, #+2              
-00f5  AJMP  #00FDh                    
-00f7  CLR   00h.2                     
-00f9  SETB  00h.1                     
-00fb  AJMP  #0128h                    
-00fd  MOV   A, 30h                    
-00ff  JNB   ACC.5, #+13               
-0102  MOV   A, 34h                    
-0104  CJNE  A, #B3h, #+2              
-0107  AJMP  #010Fh                    
-0109  JB   03h.5, #+3                 
-010c  JNB   03h.6, #+6                
-010f  SETB  00h.2                     
-0111  CLR   00h.1                     
-0113  AJMP  #0128h                    
-0115  JB   03h.7, #+6                 
-0118  JNB   0Dh.2, #+9                
-011b  JB   03h.1, #+6                 
-011e  SETB  00h.2                     
-0120  SETB  00h.1                     
-0122  AJMP  #0128h                    
-0124  CLR   00h.2                     
-0126  CLR   00h.1                     
-0128  MOV   C, 03h.5                  
-012a  MOV   00h.0, C                  
-012c  MOV   33h, 20h                  
-012f  MOV   20h, 32h                  
-0132  CJNE  R3, #C2h, #+2             
-0135  AJMP  #013Fh                    
-0137  CJNE  R3, #C3h, #+2             
-013a  AJMP  #013Fh                    
-013c  CJNE  R3, #E4h, #+54            
-013f  SETB  00h.7                     
-0141  JB   04h.5, #+3                 
-0144  JNB   0Ch.0, #+9                
-0147  CLR   A                         
-0148  MOV   49h, A                    
-014a  MOV   4Ah, A                    
-014c  SETB  00h.5                     
-014e  AJMP  #0213h                    
-0150  CLR   00h.5                     
-0152  MOV   A, 4Ah                    
-0154  ADD   A, #F6h                   
-0156  JNB   ACC.7, #+17               
-0159  MOV   A, 49h                    
-015b  SUBB  A, #15h                   
-015d  JNB   ACC.7, #+2                
-0160  AJMP  #0213h                    
-0162  MOV   49h, A                    
-0164  CPL   00h.6                     
-0166  INC   4Ah                       
-0168  AJMP  #0213h                    
-016a  ADD   A, #FBh                   
-016c  INC   49h                       
-016e  JB   ACC.7, #-24                
-0171  DEC   49h                       
-0173  AJMP  #0213h                    
-0175  MOV   A, 34h                    
-0177  JNB   ACC.6, #+2                
-017a  AJMP  #0211h                    
-017c  CJNE  R3, #B6h, #+2             
-017f  AJMP  #0211h                    
-0181  CJNE  R3, #96h, #+2             
-0184  AJMP  #0211h                    
-0186  CJNE  R3, #B7h, #+2             
-0189  AJMP  #0211h                    
-018b  SETB  00h.7                     
-018d  JB   04h.5, #+2                 
-0190  AJMP  #0199h                    
-0192  SETB  00h.5                     
-0194  MOV   49h, #0Ah                 
-0197  AJMP  #0213h                    
-0199  JB   00h.5, #+2                 
-019c  AJMP  #01FEh                    
-019e  MOV   A, 49h                    
-01a0  JZ    #+4                       
-01a2  DEC   49h                       
-01a4  AJMP  #0213h                    
-01a6  CLR   00h.5                     
-01a8  MOV   A, 34h                    
-01aa  JB   ACC.7, #+5                 
-01ad  MOV   49h, #00h                 
-01b0  AJMP  #0213h                    
-01b2  MOV   DPTR, #001BEh             
-01b5  ANL   A, #3Fh                   
-01b7  MOVC  A, @A+DPTR                
-01b8  RL    A                         
-01b9  RL    A                         
-01ba  MOV   49h, A                    
-01bc  AJMP  #0213h                    
-01be  AJMP  #0001h                    
-01c0  AJMP  #0002h                    
-01c2  RR    A                         
-01c3  RR    A                         
-01c4  RR    A                         
-01c5  RR    A                         
-01c6  INC   A                         
-01c7  INC   A                         
-01c8  INC   A                         
-01c9  INC   A                         
-01ca  INC   06h                       
-01cc  INC   @R1                       
-01cd  INC   @R1                       
-01ce  INC   R0                        
-01cf  INC   R0                        
-01d0  INC   R0                        
-01d1  INC   R1                        
-01d2  INC   R0                        
-01d3  INC   R1                        
-01d4  NOP                             
-01d5  INC   R6                        
-01d6  INC   R0                        
-01d7  INC   @R1                       
-01d8  NOP                             
-01d9  NOP                             
-01da  NOP                             
-01db  NOP                             
-01dc  NOP                             
-01dd  NOP                             
-01de  AJMP  #0001h                    
-01e0  AJMP  #0002h                    
-01e2  LJMP  #0203h                    
-01e5  INC   A                         
-01e6  INC   A                         
-01e7  INC   A                         
-01e8  INC   05h                       
-01ea  INC   @R0                       
-01eb  INC   @R0                       
-01ec  INC   @R0                       
-01ed  INC   @R1                       
-01ee  INC   R0                        
-01ef  INC   R0                        
-01f0  INC   R0                        
-01f1  INC   R1                        
-01f2  INC   R0                        
-01f3  INC   R1                        
-01f4  NOP                             
-01f5  INC   R6                        
-01f6  INC   R0                        
-01f7  INC   00h                       
-01f9  NOP                             
-01fa  NOP                             
-01fb  NOP                             
-01fc  NOP                             
-01fd  NOP                             
-01fe  CLR   00h.5                     
-0200  MOV   A, 49h                    
-0202  JZ    #+15                      
-0204  DEC   A                         
-0205  MOV   49h, A                    
-0207  JNB   ACC.0, #+9                
-020a  JNB   ACC.1, #+6                
-020d  CPL   00h.6                     
-020f  AJMP  #0213h                    
-0211  CLR   00h.7                     
-0213  JNB   04h.5, #+5                
-0216  MOV   65h, #00h                 
-0219  AJMP  #0229h                    
-021b  JB   03h.5, #+11                
-021e  MOV   A, #ECh                   
-0220  ADD   A, 65h                    
-0222  JB   ACC.7, #+4                 
-0225  SETB  00h.4                     
-0227  AJMP  #022Bh                    
-0229  CLR   00h.4                     
-022b  MOV   A, R2                     
-022c  RRC   A                         
-022d  MOV   00h.3, C                  
-022f  CJNE  R3, #00h, #+7             
-0232  JNB   04h.5, #+4                
-0235  SETB  00h.2                     
-0237  AJMP  #023Bh                    
-0239  CLR   00h.2                     
-023b  MOV   A, R2                     
-023c  JNB   ACC.2, #+18               
-023f  JNB   03h.5, #+6                
-0242  SETB  00h.1                     
-0244  CLR   00h.0                     
-0246  AJMP  #0263h                    
-0248  MOV   C, 02h.3                  
-024a  MOV   00h.1, C                  
-024c  CPL   C                         
-024d  MOV   00h.0, C                  
-024f  AJMP  #0263h                    
-0251  CJNE  R3, #00h, #+2             
-0254  AJMP  #0259h                    
-0256  CJNE  R3, #01h, #+6             
-0259  SETB  00h.1                     
-025b  CLR   00h.0                     
-025d  AJMP  #0263h                    
-025f  CLR   00h.1                     
-0261  CLR   00h.0                     
-0263  MOV   32h, 20h                  
-0266  MOV   20h, 30h                  
-0269  JB   02h.4, #+32                
-026c  JNB   02h.3, #+23               
-026f  JNB   0Fh.3, #+11               
-0272  JB   0Fh.4, #+23                
-0275  MOV   C, 0Bh.6                  
-0277  ORL   C, 03h.4                  
-0279  MOV   00h.7, C                  
-027b  AJMP  #0292h                    
-027d  JB   0Fh.4, #+6                 
-0280  MOV   C, 0Ch.6                  
-0282  MOV   00h.7, C                  
-0284  AJMP  #0292h                    
-0286  JB   02h.3, #+7                 
-0289  JB   0Fh.0, #+4                 
-028c  SETB  00h.7                     
-028e  AJMP  #0292h                    
-0290  CLR   00h.7                     
-0292  MOV   A, 34h                    
-0294  JNB   ACC.7, #+12               
-0297  JB   ACC.6, #+13                
-029a  ANL   A, #1Fh                   
-029c  CJNE  A, #03h, #+2              
-029f  AJMP  #02A7h                    
-02a1  JNC   #+4                       
-02a3  CLR   00h.6                     
-02a5  AJMP  #02ABh                    
-02a7  SETB  00h.6                     
-02a9  AJMP  #02ABh                    
-02ab  CJNE  R3, #B6h, #+2             
-02ae  AJMP  #02CCh                    
-02b0  CJNE  R3, #96h, #+2             
-02b3  AJMP  #02CCh                    
-02b5  CJNE  R3, #93h, #+2             
-02b8  AJMP  #02CCh                    
-02ba  CJNE  R3, #95h, #+2             
-02bd  AJMP  #02CCh                    
-02bf  CJNE  R3, #B5h, #+2             
-02c2  AJMP  #02CCh                    
-02c4  MOV   A, 34h                    
-02c6  ANL   A, #F8h                   
-02c8  XRL   A, #E0h                   
-02ca  JNZ   #+4                       
-02cc  SETB  00h.5                     
-02ce  AJMP  #02E6h                    
-02d0  MOV   A, 34h                    
-02d2  ANL   A, #FCh                   
-02d4  CJNE  A, #C0h, #+2              
-02d7  AJMP  #02DEh                    
-02d9  ANL   A, #E8h                   
-02db  CJNE  A, #E8h, #+6              
-02de  MOV   C, 0Ah.2                  
-02e0  MOV   00h.5, C                  
-02e2  AJMP  #02E6h                    
-02e4  CLR   00h.5                     
-02e6  CJNE  R3, #C1h, #+2             
-02e9  AJMP  #02F2h                    
-02eb  MOV   A, 34h                    
-02ed  ANL   A, #E8h                   
-02ef  CJNE  A, #E8h, #+6              
-02f2  MOV   C, 0Ah.2                  
-02f4  MOV   00h.4, C                  
-02f6  AJMP  #0306h                    
-02f8  JB   04h.6, #+3                 
-02fb  JB   0Eh.0, #+4                 
-02fe  SETB  00h.4                     
-0300  AJMP  #0306h                    
-0302  MOV   C, 0Bh.7                  
-0304  MOV   00h.4, C                  
-0306  JB   00h.6, #+2                 
-0309  CLR   00h.4                     
-030b  CJNE  R3, #B6h, #+2             
-030e  AJMP  #033Bh                    
-0310  CJNE  R3, #96h, #+2             
-0313  AJMP  #033Bh                    
-0315  CJNE  R3, #C0h, #+2             
-0318  AJMP  #033Bh                    
-031a  CJNE  R3, #B7h, #+2             
-031d  AJMP  #033Bh                    
-031f  CJNE  R3, #E0h, #+2             
-0322  AJMP  #034Ah                    
-0324  CJNE  R3, #E4h, #+2             
-0327  AJMP  #034Ah                    
-0329  CJNE  R3, #F0h, #+2             
-032c  AJMP  #034Ah                    
-032e  CJNE  R3, #F4h, #+2             
-0331  AJMP  #034Ah                    
-0333  MOV   A, 34h                    
-0335  ANL   A, #E8h                   
-0337  XRL   A, #E0h                   
-0339  JNZ   #+15                      
-033b  SETB  PSW.5                     
-033d  JB   0Eh.0, #+4                 
-0340  SETB  00h.3                     
-0342  AJMP  #0372h                    
-0344  MOV   C, 0Bh.7                  
-0346  MOV   00h.3, C                  
-0348  AJMP  #0372h                    
-034a  CLR   PSW.5                     
-034c  CJNE  R3, #C1h, #+2             
-034f  AJMP  #0359h                    
-0351  MOV   A, 34h                    
-0353  ANL   A, #E8h                   
-0355  XRL   A, #E8h                   
-0357  JNZ   #+6                       
-0359  MOV   C, 0Ah.2                  
-035b  MOV   00h.3, C                  
-035d  AJMP  #0372h                    
-035f  CJNE  R3, #C2h, #+2             
-0362  AJMP  #036Ch                    
-0364  CJNE  R3, #E4h, #+2             
-0367  AJMP  #036Ch                    
-0369  CJNE  R3, #C3h, #+4             
-036c  SETB  00h.3                     
-036e  AJMP  #0372h                    
-0370  CLR   00h.3                     
-0372  MOV   A, 34h                    
-0374  ANL   A, #E0h                   
-0376  CJNE  A, #E0h, #+23             
-0379  MOV   A, 34h                    
-037b  JB   ACC.3, #+14                
-037e  JB   ACC.2, #+11                
-0381  ANL   A, #03h                   
-0383  CJNE  A, #03h, #+2              
-0386  AJMP  #038Ch                    
-0388  CLR   00h.1                     
-038a  AJMP  #0394h                    
-038c  SETB  00h.1                     
-038e  AJMP  #0394h                    
-0390  MOV   C, 03h.4                  
-0392  MOV   00h.1, C                  
-0394  MOV   C, 0Dh.7                  
-0396  MOV   00h.0, C                  
-0398  MOV   30h, 20h                  
-039b  MOV   20h, 31h                  
-039e  JB   03h.7, #+18                
-03a1  JB   04h.6, #+15                
-03a4  MOV   A, 34h                    
-03a6  ANL   A, #E8h                   
-03a8  CJNE  A, #E8h, #+2              
-03ab  AJMP  #03B3h                    
-03ad  MOV   C, PSW.5                  
-03af  MOV   00h.7, C                  
-03b1  AJMP  #03B5h                    
-03b3  CLR   00h.7                     
-03b5  JB   03h.7, #+20                
-03b8  JB   04h.6, #+17                
-03bb  MOV   A, 34h                    
-03bd  ANL   A, #E8h                   
-03bf  CJNE  A, #E8h, #+2              
-03c2  AJMP  #03CCh                    
-03c4  MOV   A, 30h                    
-03c6  MOV   C, ACC.6                  
-03c8  MOV   00h.6, C                  
-03ca  AJMP  #03CEh                    
-03cc  CLR   00h.6                     
-03ce  JB   03h.7, #+20                
-03d1  JB   04h.6, #+17                
-03d4  MOV   A, 34h                    
-03d6  ANL   A, #E8h                   
-03d8  CJNE  A, #E8h, #+2              
-03db  AJMP  #03E5h                    
-03dd  MOV   A, 30h                    
-03df  MOV   C, ACC.5                  
-03e1  MOV   00h.5, C                  
-03e3  AJMP  #03E7h                    
-03e5  CLR   00h.5                     
-03e7  MOV   A, 30h                    
-03e9  MOV   C, ACC.1                  
-03eb  MOV   00h.3, C                  
-03ed  MOV   A, 34h                    
-03ef  JNB   ACC.7, #+15               
-03f2  JB   ACC.6, #+12                
-03f5  ANL   A, #1Fh                   
-03f7  CLR   C                         
-03f8  SUBB  A, #09h                   
-03fa  JNB   ACC.7, #+4                
-03fd  CLR   00h.2                     
-03ff  AJMP  #0416h                    
-0401  JB   03h.5, #+6                 
-0404  JNB   0Eh.3, #+3                
-0407  JB   0Eh.6, #+6                 
-040a  MOV   C, 03h.3                  
-040c  MOV   00h.2, C                  
-040e  AJMP  #0416h                    
-0410  MOV   C, 03h.3                  
-0412  ANL   C, 04h.3                  
-0414  MOV   00h.2, C                  
-0416  MOV   A, 34h                    
-0418  CJNE  A, #00h, #+2              
-041b  AJMP  #0429h                    
-041d  JNB   02h.3, #+9                
-0420  JB   03h.5, #+6                 
-0423  MOV   C, 02h.4                  
-0425  MOV   00h.1, C                  
-0427  AJMP  #042Bh                    
-0429  CLR   00h.1                     
-042b  MOV   C, 00h.2                  
-042d  CPL   C                         
-042e  MOV   00h.0, C                  
-0430  MOV   31h, 20h                  
-0433  MOV   20h, 30h                  
-0436  JNB   00h.3, #+10               
-0439  MOV   A, 3Dh                    
-043b  RL    A                         
-043c  MOV   3Dh, A                    
-043e  RLC   A                         
-043f  MOV   P1.3, C                   
-0441  AJMP  #0448h                    
-0443  SETB  P1.3                      
-0445  MOV   3Dh, #FFh                 
-0448  MOV   20h, 30h                  
-044b  JNB   00h.5, #+10               
-044e  MOV   A, 3Eh                    
-0450  RL    A                         
-0451  MOV   3Eh, A                    
-0453  RLC   A                         
-0454  MOV   P1.4, C                   
-0456  AJMP  #045Dh                    
-0458  SETB  P1.4                      
-045a  MOV   3Eh, #FFh                 
-045d  MOV   A, R2                     
-045e  MOV   C, ACC.1                  
-0460  MOV   P1.5, C                   
-0462  JNB   0Ch.0, #+7                
-0465  ORL   30h, #FEh                 
-0468  CLR   P1.3                      
-046a  CLR   P1.4                      
-046c  MOV   R4, 35h                   
-046e  LCALL #1CE1h                    
-0471  MOV   A, R4                     
-0472  XRL   A, 35h                    
-0474  JNZ   #+17                      
-0476  JNB   04h.5, #+38               
-0479  MOV   A, 34h                    
-047b  CJNE  A, #00h, #+33             
-047e  MOV   R0, #05h                  
-0480  MOV   R3, #CCh                  
-0482  MOV   R2, #15h                  
-0484  LCALL #1D05h                    
-0487  MOV   R0, #06h                  
-0489  MOV   R3, 35h                   
-048b  MOV   A, #35h                   
-048d  MOV   C, 0Eh.0                  
-048f  CPL   C                         
-0490  MOV   ACC.5, C                  
-0492  MOV   R2, A                     
-0493  LCALL #1D05h                    
-0496  LCALL #1933h                    
-0499  LCALL #0C5Bh                    
-049c  LCALL #077Ch                    
-049f  MOV   20h, 30h                  
-04a2  JNB   0Fh.2, #+31               
-04a5  JNB   00h.5, #+19               
-04a8  MOV   A, 15h                    
-04aa  CJNE  A, #4Eh, #+0              
-04ad  JNC   #+21                      
-04af  CLR   IE.3                      
-04b1  MOV   15h, #75h                 
-04b4  MOV   14h, #30h                 
-04b7  SETB  IE.3                      
-04b9  AJMP  #04C4h                    
-04bb  MOV   A, 15h                    
-04bd  JNB   ACC.7, #+4                
-04c0  CLR   02h.5                     
-04c2  AJMP  #04EFh                    
-04c4  JNB   0Fh.1, #+40               
-04c7  JNB   00h.3, #+4                
-04ca  MOV   A, 37h                    
-04cc  JZ    #+5                       
-04ce  MOV   11h, #0Dh                 
-04d1  AJMP  #04DCh                    
-04d3  MOV   A, 11h                    
-04d5  JNB   ACC.7, #+4                
-04d8  CLR   02h.5                     
-04da  AJMP  #04EFh                    
-04dc  JNB   00h.5, #+4                
-04df  MOV   A, 3Ah                    
-04e1  JZ    #+5                       
-04e3  MOV   10h, #04h                 
-04e6  AJMP  #04EFh                    
-04e8  MOV   A, 10h                    
-04ea  JNB   ACC.7, #+2                
-04ed  CLR   02h.5                     
-04ef  MOV   C, 03h.1                  
-04f1  MOV   04h.0, C                  
-04f3  JB   03h.5, #+1                 
-04f6  CPL   C                         
-04f7  MOV   04h.1, C                  
-04f9  RET                             
-04fa  MOV   R7, A                     
-04fb  MOV   R7, A                     
-04fc  MOV   R7, A                     
-04fd  MOV   R7, A                     
-04fe  MOV   R7, A                     
-04ff  MOV   R7, A                     
-0500  JB   04h.0, #+12                
-0503  AJMP  #0505h                    
-0505  MOV   3Fh, #60h                 
-0508  MOV   40h, #FFh                 
-050b  MOV   41h, #F9h                 
-050e  RET                             
-050f  MOV   3Fh, #07h                 
-0512  MOV   40h, #07h                 
-0515  MOV   41h, #06h                 
-0518  RET                             
-0519  MOV   3Ah, #FFh                 
-051c  RET                             
-051d  JB   01h.1, #+5                 
-0520  MOV   37h, #00h                 
-0523  SETB  01h.1                     
-0525  RET                             
-0526  JNB   04h.5, #+3                
-0529  MOV   64h, #00h                 
-052c  JB   01h.1, #+7                 
-052f  MOV   37h, #FFh                 
-0532  SETB  01h.1                     
-0534  INC   64h                       
-0536  RET                             
-0537  MOV   R0, #05h                  
-0539  MOVX  A, @R0                    
-053a  JB   ACC.0, #+1                 
-053d  RET                             
-053e  JB   04h.0, #+2                 
-0541  AJMP  #0576h                    
-0543  JB   01h.2, #+47                
-0546  JNB   01h.1, #+44               
-0549  CLR   01h.1                     
-054b  MOV   A, 3Fh                    
-054d  ANL   A, #7Fh                   
-054f  XCH   A, 40h                    
-0551  XCH   A, 41h                    
-0553  MOV   R3, A                     
-0554  MOV   A, 40h                    
-0556  RR    A                         
-0557  RR    A                         
-0558  ANL   A, #1Fh                   
-055a  MOV   R2, A                     
-055b  MOV   A, 37h                    
-055d  XRL   A, R2                     
-055e  XRL   A, R3                     
-055f  SWAP  A                         
-0560  RL    A                         
-0561  ANL   A, #E0h                   
-0563  ORL   A, R2                     
-0564  MOV   R2, A                     
-0565  MOV   A, 37h                    
-0567  XRL   A, R2                     
-0568  XRL   A, R3                     
-0569  MOV   38h, A                    
-056b  CLR   C                         
-056c  RRC   A                         
-056d  MOV   3Fh, A                    
-056f  CLR   A                         
-0570  RRC   A                         
-0571  ORL   40h, A                    
-0573  SETB  01h.2                     
-0575  RET                             
-0576  JB   01h.2, #+41                
-0579  JNB   01h.1, #+38               
-057c  CLR   01h.1                     
-057e  MOV   A, 3Fh                    
-0580  ANL   A, #7Fh                   
-0582  XCH   A, 40h                    
-0584  XCH   A, 41h                    
-0586  MOV   R3, A                     
-0587  ANL   A, #E0h                   
-0589  MOV   R2, A                     
-058a  MOV   A, 41h                    
-058c  ANL   A, #1Fh                   
-058e  ORL   A, R2                     
-058f  SWAP  A                         
-0590  RR    A                         
-0591  MOV   R2, A                     
-0592  MOV   A, 37h                    
-0594  XRL   A, R2                     
-0595  XRL   A, R3                     
-0596  MOV   38h, A                    
-0598  CLR   C                         
-0599  RRC   A                         
-059a  MOV   3Fh, A                    
-059c  CLR   A                         
-059d  RRC   A                         
-059e  ORL   40h, A                    
-05a0  SETB  01h.2                     
-05a2  RET                             
-05a3  JB   04h.1, #+2                 
-05a6  AJMP  #05E6h                    
-05a8  JB   01h.4, #+58                
-05ab  JNB   01h.3, #+55               
-05ae  CLR   01h.3                     
-05b0  MOV   A, 42h                    
-05b2  ANL   A, #7Fh                   
-05b4  XCH   A, 43h                    
-05b6  XCH   A, 44h                    
-05b8  MOV   R3, A                     
-05b9  MOV   A, 43h                    
-05bb  RR    A                         
-05bc  RR    A                         
-05bd  ANL   A, #1Fh                   
-05bf  MOV   R2, A                     
-05c0  MOV   A, 39h                    
-05c2  SWAP  A                         
-05c3  RL    A                         
-05c4  ANL   A, #E0h                   
-05c6  ORL   A, R2                     
-05c7  MOV   R2, A                     
-05c8  MOV   A, 39h                    
-05ca  XRL   A, R2                     
-05cb  XRL   A, R3                     
-05cc  MOV   20h, A                    
-05ce  MOV   A, 39h                    
-05d0  CLR   C                         
-05d1  RRC   A                         
-05d2  MOV   42h, A                    
-05d4  CLR   A                         
-05d5  RRC   A                         
-05d6  ORL   43h, A                    
-05d8  MOV   3Ah, 20h                  
-05db  MOV   3Eh, 20h                  
-05de  MOV   3Ch, 20h                  
-05e1  SETB  01h.6                     
-05e3  SETB  01h.4                     
-05e5  RET                             
-05e6  JB   01h.4, #+54                
-05e9  JNB   01h.3, #+51               
-05ec  CLR   01h.3                     
-05ee  MOV   A, 42h                    
-05f0  ANL   A, #7Fh                   
-05f2  XCH   A, 43h                    
-05f4  XCH   A, 44h                    
-05f6  MOV   R3, A                     
-05f7  ANL   A, #E0h                   
-05f9  MOV   R2, A                     
-05fa  MOV   A, 44h                    
-05fc  ANL   A, #1Fh                   
-05fe  ORL   A, R2                     
-05ff  SWAP  A                         
-0600  RR    A                         
-0601  MOV   R2, A                     
-0602  MOV   A, 39h                    
-0604  XRL   A, R2                     
-0605  XRL   A, R3                     
-0606  MOV   20h, A                    
-0608  MOV   A, 39h                    
-060a  CLR   C                         
-060b  RRC   A                         
-060c  MOV   42h, A                    
-060e  CLR   A                         
-060f  RRC   A                         
-0610  ORL   43h, A                    
-0612  MOV   3Ah, 20h                  
-0615  MOV   3Eh, 20h                  
-0618  MOV   3Ch, 20h                  
-061b  SETB  01h.6                     
-061d  SETB  01h.4                     
-061f  RET                             
-0620  CLR   02h.1                     
-0622  MOV   C, 0Ch.7                  
-0624  ANL   C, 0Ch.6                  
-0626  ANL   C, 0Dh.0                  
-0628  ANL   C, 0Bh.1                  
-062a  ANL   C, 0Bh.0                  
-062c  ANL   C, 0Bh.3                  
-062e  ANL   C, 0Bh.2                  
-0630  JNC   #+14                      
-0632  CLR   0Fh.6                     
-0634  SETB  0Fh.5                     
-0636  SETB  0Dh.7                     
-0638  CLR   0Dh.0                     
-063a  CLR   0Bh.1                     
-063c  CLR   0Eh.7                     
-063e  CLR   0Eh.6                     
-0640  SETB  02h.2                     
-0642  MOV   C, 02h.3                  
-0644  MOV   00h.0, C                  
-0646  JB   0Fh.6, #+9                 
-0649  JB   0Fh.5, #+13                
-064c  MOV   C, 0Ch.7                  
-064e  MOV   02h.3, C                  
-0650  AJMP  #0661h                    
-0652  JB   0Fh.5, #+8                 
-0655  SETB  02h.3                     
-0657  AJMP  #0661h                    
-0659  CLR   02h.3                     
-065b  AJMP  #0661h                    
-065d  MOV   C, 0Bh.4                  
-065f  MOV   02h.3, C                  
-0661  MOV   C, 02h.3                  
-0663  JNB   00h.0, #+1                
-0666  CPL   C                         
-0667  ORL   C, 02h.1                  
-0669  MOV   02h.1, C                  
-066b  CLR   03h.4                     
-066d  CLR   04h.6                     
-066f  CLR   03h.5                     
-0671  CLR   03h.6                     
-0673  CLR   03h.7                     
-0675  JNB   0Ch.3, #+10               
-0678  SETB  03h.4                     
-067a  SETB  03h.5                     
-067c  MOV   C, 0Ch.4                  
-067e  MOV   04h.6, C                  
-0680  AJMP  #06B7h                    
-0682  JNB   0Ch.1, #+6                
-0685  SETB  03h.4                     
-0687  SETB  03h.7                     
-0689  AJMP  #06B7h                    
-068b  JNB   0Ch.2, #+10               
-068e  SETB  03h.4                     
-0690  SETB  03h.6                     
-0692  MOV   C, 0Ch.4                  
-0694  MOV   04h.6, C                  
-0696  AJMP  #06B7h                    
-0698  JNB   0Ch.4, #+6                
-069b  SETB  03h.4                     
-069d  SETB  04h.6                     
-069f  AJMP  #06B7h                    
-06a1  JNB   0Bh.2, #+9                
-06a4  JNB   0Bh.1, #+6                
-06a7  SETB  03h.4                     
-06a9  SETB  03h.5                     
-06ab  AJMP  #06B7h                    
-06ad  JNB   0Bh.3, #+7                
-06b0  JNB   0Dh.0, #+4                
-06b3  SETB  03h.4                     
-06b5  SETB  03h.6                     
-06b7  JB   0Ch.3, #+107               
-06ba  JNB   02h.3, #+77               
-06bd  JB   0Fh.4, #+16                
-06c0  JB   0Fh.3, #+18                
-06c3  SETB  0Fh.2                     
-06c5  JB   0Ah.7, #+83                
-06c8  JB   0Ah.5, #+80                
-06cb  JB   0Ch.6, #+50                
-06ce  AJMP  #072Bh                    
-06d0  JB   0Fh.3, #+34                
-06d3  AJMP  #070Dh                    
-06d5  JB   0Ah.7, #+6                 
-06d8  JB   03h.5, #+3                 
-06db  JNB   0Ah.5, #+12               
-06de  JB   0Bh.6, #+58                
-06e1  JB   04h.6, #+55                
-06e4  JB   0Ch.2, #+52                
-06e7  JB   03h.7, #+49                
-06ea  JB   0Bh.6, #+19                
-06ed  JB   04h.6, #+16                
-06f0  JB   03h.7, #+13                
-06f3  AJMP  #072Bh                    
-06f5  SETB  0Fh.2                     
-06f7  JB   0Ah.7, #+33                
-06fa  JB   0Ah.5, #+30                
-06fd  JB   03h.5, #+27                
-0700  JB   02h.5, #+28                
-0703  MOV   A, 6Eh                    
-0705  CPL   A                         
-0706  JZ    #+23                      
-0708  AJMP  #072Bh                    
-070a  JNB   0Fh.0, #+24               
-070d  JB   0Bh.6, #+21                
-0710  JB   04h.6, #+18                
-0713  JB   0Ch.2, #+15                
-0716  JB   03h.7, #+12                
-0719  AJMP  #072Bh                    
-071b  SETB  02h.4                     
-071d  AJMP  #072Fh                    
-071f  SETB  02h.4                     
-0721  SETB  02h.5                     
-0723  AJMP  #072Fh                    
-0725  SETB  02h.4                     
-0727  CLR   02h.5                     
-0729  AJMP  #072Fh                    
-072b  CLR   02h.4                     
-072d  CLR   02h.5                     
-072f  JB   02h.5, #+15                
-0732  JB   0Eh.5, #+9                 
-0735  JB   0Eh.4, #+13                
-0738  MOV   C, 0Ah.5                  
-073a  MOV   03h.1, C                  
-073c  AJMP  #074Dh                    
-073e  JB   0Eh.4, #+8                 
-0741  SETB  03h.1                     
-0743  AJMP  #074Dh                    
-0745  CLR   03h.1                     
-0747  AJMP  #074Dh                    
-0749  MOV   C, 0Bh.4                  
-074b  MOV   03h.1, C                  
-074d  JNB   0Eh.3, #+6                
-0750  SETB  03h.2                     
-0752  SETB  03h.3                     
-0754  AJMP  #077Bh                    
-0756  JB   0Eh.2, #+12                
-0759  JB   0Eh.1, #+18                
-075c  MOV   C, 0Ch.5                  
-075e  MOV   03h.2, C                  
-0760  CPL   C                         
-0761  MOV   03h.3, C                  
-0763  AJMP  #077Bh                    
-0765  JB   0Eh.1, #+12                
-0768  CLR   03h.2                     
-076a  SETB  03h.3                     
-076c  AJMP  #077Bh                    
-076e  SETB  03h.2                     
-0770  CLR   03h.3                     
-0772  AJMP  #077Bh                    
-0774  MOV   C, 0Bh.5                  
-0776  MOV   03h.3, C                  
-0778  CPL   C                         
-0779  MOV   03h.2, C                  
-077b  RET                             
-077c  CLR   IE.0                      
-077e  CLR   IE.1                      
-0780  JB   0Dh.7, #+10                
-0783  SETB  IP.1                      
-0785  SETB  IP.0                      
-0787  SETB  TCON.0                    
-0789  CLR   TCON.1                    
-078b  SETB  IE.0                      
-078d  RET                             
-078e  JB   0Dh.5, #+5                 
-0791  JB   0Dh.4, #+26                
-0794  AJMP  #07A7h                    
-0796  JNB   0Dh.4, #+7                
-0799  MOV   TL0, #8Fh                 
-079c  CLR   07h.0                     
-079e  AJMP  #07C1h                    
-07a0  MOV   TL0, #7Fh                 
-07a3  CLR   07h.0                     
-07a5  AJMP  #07C1h                    
-07a7  MOV   TL0, #6Fh                 
-07aa  CLR   07h.0                     
-07ac  AJMP  #07C1h                    
-07ae  JNB   07h.3, #+9                
-07b1  MOV   TL0, #70h                 
-07b4  SETB  07h.0                     
-07b6  CLR   07h.4                     
-07b8  AJMP  #07C1h                    
-07ba  MOV   TL0, #5Fh                 
-07bd  CLR   07h.0                     
-07bf  CLR   07h.4                     
-07c1  MOV   TH0, #FFh                 
-07c4  SETB  TCON.4                    
-07c6  CLR   07h.1                     
-07c8  CLR   07h.2                     
-07ca  CLR   TCON.5                    
-07cc  SETB  IE.1                      
-07ce  CLR   IE.0                      
-07d0  CLR   TCON.1                    
-07d2  CLR   P1.6                      
-07d4  SETB  P1.6                      
-07d6  RETI                            
-07d7  PUSH  PSW                       
-07d9  ANL   PSW, #F7h                 
-07dc  ORL   PSW, #10h                 
-07df  MOV   TH1, #FCh                 
-07e2  MOV   TL1, #21h                 
-07e5  CJNE  R6, #00h, #+1             
-07e8  DEC   R7                        
-07e9  DEC   R6                        
-07ea  CJNE  R4, #00h, #+3             
-07ed  DEC   R5                        
-07ee  DEC   R1                        
-07ef  DEC   R0                        
-07f0  DEC   R4                        
-07f1  CJNE  R2, #00h, #+1             
-07f4  DEC   R3                        
-07f5  DEC   R2                        
-07f6  POP   PSW                       
-07f8  RETI                            
-07f9  MOV   R7, A                     
-07fa  MOV   R7, A                     
-07fb  MOV   R7, A                     
-07fc  MOV   R7, A                     
-07fd  MOV   R7, A                     
-07fe  MOV   R7, A                     
-07ff  MOV   R7, A                     
-0800  CLR   02h.0                     
-0802  SETB  P1.1                      
-0804  MOV   SCON, #10h                
-0807  JNB   SCON.0, #-3               
-080a  CLR   P1.1                      
-080c  SETB  P1.0                      
-080e  CLR   SCON.0                    
-0810  JNB   SCON.0, #-3               
-0813  MOV   20h, SBUF                 
-0816  CLR   SCON.0                    
-0818  XRL   20h, #07h                 
-081b  MOV   A, 20h                    
-081d  XRL   A, 2Ah                    
-081f  JZ    #+2                       
-0821  SETB  02h.0                     
-0823  MOV   2Ah, 20h                  
-0826  JNB   SCON.0, #-3               
-0829  MOV   20h, SBUF                 
-082c  CLR   SCON.0                    
-082e  XRL   20h, #00h                 
-0831  MOV   A, 20h                    
-0833  XRL   A, 2Bh                    
-0835  JZ    #+2                       
-0837  SETB  02h.0                     
-0839  MOV   2Bh, 20h                  
-083c  JNB   SCON.0, #-3               
-083f  MOV   20h, SBUF                 
-0842  CLR   SCON.0                    
-0844  XRL   20h, #00h                 
-0847  MOV   A, 20h                    
-0849  XRL   A, 2Ch                    
-084b  JZ    #+2                       
-084d  SETB  02h.0                     
-084f  MOV   2Ch, 20h                  
-0852  JNB   SCON.0, #-3               
-0855  MOV   20h, SBUF                 
-0858  CLR   SCON.0                    
-085a  XRL   20h, #00h                 
-085d  MOV   A, 20h                    
-085f  XRL   A, 2Dh                    
-0861  JZ    #+2                       
-0863  SETB  02h.0                     
-0865  MOV   2Dh, 20h                  
-0868  JNB   SCON.0, #-3               
-086b  MOV   20h, SBUF                 
-086e  CLR   SCON.0                    
-0870  XRL   20h, #00h                 
-0873  MOV   A, 20h                    
-0875  XRL   A, 2Eh                    
-0877  JZ    #+2                       
-0879  SETB  02h.0                     
-087b  MOV   2Eh, 20h                  
-087e  JNB   SCON.0, #-3               
-0881  MOV   20h, SBUF                 
-0884  XRL   20h, #00h                 
-0887  MOV   A, 20h                    
-0889  XRL   A, 2Fh                    
-088b  JZ    #+2                       
-088d  SETB  02h.0                     
-088f  MOV   2Fh, 20h                  
-0892  CLR   SCON.4                    
-0894  CLR   SCON.0                    
-0896  CLR   P1.0                      
-0898  RET                             
-0899  ANL   P1, #FAh                  
-089c  MOV   SCON, #03h                
-089f  MOV   20h, 30h                  
-08a2  XRL   20h, #00h                 
-08a5  CLR   SCON.1                    
-08a7  MOV   SBUF, 20h                 
-08aa  MOV   20h, 31h                  
-08ad  XRL   20h, #03h                 
-08b0  JNB   SCON.1, #-3               
-08b3  CLR   SCON.1                    
-08b5  MOV   SBUF, 20h                 
-08b8  MOV   20h, 32h                  
-08bb  XRL   20h, #00h                 
-08be  JNB   SCON.1, #-3               
-08c1  CLR   SCON.1                    
-08c3  MOV   SBUF, 20h                 
-08c6  MOV   20h, 33h                  
-08c9  XRL   20h, #F8h                 
-08cc  JNB   SCON.1, #-3               
-08cf  CLR   SCON.1                    
-08d1  MOV   SBUF, 20h                 
-08d4  JNB   SCON.1, #-3               
-08d7  SETB  P1.2                      
-08d9  NOP                             
-08da  CLR   P1.2                      
-08dc  RET                             
-08dd  CLR   P2.5                      
-08df  SETB  P2.7                      
-08e1  CLR   P2.6                      
-08e3  MOV   R0, #04h                  
-08e5  MOVX  A, @R0                    
-08e6  CLR   P2.7                      
-08e8  RET                             
-08e9  MOV   A, 34h                    
-08eb  JB   ACC.7, #+7                 
-08ee  JNB   ACC.0, #+2                
-08f1  AJMP  #0A1Ch                    
-08f3  AJMP  #0A1Ch                    
-08f5  MOV   DPTR, #008FDh             
-08f8  ANL   A, #70h                   
-08fa  SWAP  A                         
-08fb  RL    A                         
-08fc  JMP   @A+DPTR                   
-08fd  AJMP  #090Dh                    
-08ff  AJMP  #0936h                    
-0901  AJMP  #095Fh                    
-0903  AJMP  #0988h                    
-0905  AJMP  #09B1h                    
-0907  AJMP  #0A1Ch                    
-0909  AJMP  #09CAh                    
-090b  AJMP  #09F3h                    
-090d  MOV   DPTR, #00916h             
-0910  MOV   A, 34h                    
-0912  ANL   A, #0Fh                   
-0914  RL    A                         
-0915  JMP   @A+DPTR                   
-0916  AJMP  #0ADAh                    
-0918  AJMP  #0ADAh                    
-091a  AJMP  #0ADAh                    
-091c  AJMP  #0A38h                    
-091e  AJMP  #0ADBh                    
-0920  AJMP  #0A1Dh                    
-0922  AJMP  #0A1Eh                    
-0924  AJMP  #0A2Eh                    
-0926  AJMP  #0ADCh                    
-0928  AJMP  #0ADDh                    
-092a  AJMP  #0ADDh                    
-092c  AJMP  #0ADDh                    
-092e  AJMP  #0ADDh                    
-0930  AJMP  #0ADDh                    
-0932  AJMP  #0A43h                    
-0934  AJMP  #0ADFh                    
-0936  MOV   DPTR, #0093Fh             
-0939  MOV   A, 34h                    
-093b  ANL   A, #0Fh                   
-093d  RL    A                         
-093e  JMP   @A+DPTR                   
-093f  AJMP  #0A1Dh                    
-0941  AJMP  #0A1Eh                    
-0943  AJMP  #0AE0h                    
-0945  AJMP  #0AF8h                    
-0947  AJMP  #0B16h                    
-0949  AJMP  #0B18h                    
-094b  AJMP  #0B1Ah                    
-094d  AJMP  #0B39h                    
-094f  AJMP  #0AC0h                    
-0951  AJMP  #0AD0h                    
-0953  AJMP  #0A1Ch                    
-0955  AJMP  #0A1Ch                    
-0957  AJMP  #0A1Ch                    
-0959  AJMP  #0A1Ch                    
-095b  AJMP  #0A1Ch                    
-095d  AJMP  #0A1Ch                    
-095f  MOV   DPTR, #00968h             
-0962  MOV   A, 34h                    
-0964  ANL   A, #0Fh                   
-0966  RL    A                         
-0967  JMP   @A+DPTR                   
-0968  AJMP  #0A1Ch                    
-096a  AJMP  #0A1Ch                    
-096c  AJMP  #0A1Ch                    
-096e  AJMP  #0A1Dh                    
-0970  AJMP  #0A1Eh                    
-0972  AJMP  #0A2Eh                    
-0974  AJMP  #0A38h                    
-0976  AJMP  #0A42h                    
-0978  AJMP  #0A42h                    
-097a  AJMP  #0A42h                    
-097c  AJMP  #0A43h                    
-097e  AJMP  #0A4Dh                    
-0980  AJMP  #0A1Dh                    
-0982  AJMP  #0A1Eh                    
-0984  AJMP  #0AE0h                    
-0986  AJMP  #0A4Eh                    
-0988  MOV   DPTR, #00991h             
-098b  MOV   A, 34h                    
-098d  ANL   A, #0Fh                   
-098f  RL    A                         
-0990  JMP   @A+DPTR                   
-0991  AJMP  #0A1Dh                    
-0993  AJMP  #0A1Eh                    
-0995  AJMP  #0A58h                    
-0997  AJMP  #0A6Eh                    
-0999  AJMP  #0A8Bh                    
-099b  AJMP  #0AA2h                    
-099d  AJMP  #0B1Ah                    
-099f  AJMP  #0B39h                    
-09a1  AJMP  #0AC0h                    
-09a3  AJMP  #0AD0h                    
-09a5  AJMP  #0A1Ch                    
-09a7  AJMP  #0A1Ch                    
-09a9  AJMP  #0A1Ch                    
-09ab  AJMP  #0A1Ch                    
-09ad  AJMP  #0A1Ch                    
-09af  AJMP  #0A1Ch                    
-09b1  MOV   DPTR, #009BAh             
-09b4  MOV   A, 34h                    
-09b6  ANL   A, #07h                   
-09b8  RL    A                         
-09b9  JMP   @A+DPTR                   
-09ba  AJMP  #0B60h                    
-09bc  AJMP  #0B62h                    
-09be  AJMP  #0B75h                    
-09c0  AJMP  #0B8Eh                    
-09c2  AJMP  #0B39h                    
-09c4  AJMP  #0A1Ch                    
-09c6  AJMP  #0A1Ch                    
-09c8  AJMP  #0A1Ch                    
-09ca  MOV   DPTR, #009D3h             
-09cd  MOV   A, 34h                    
-09cf  ANL   A, #0Fh                   
-09d1  RL    A                         
-09d2  JMP   @A+DPTR                   
-09d3  AJMP  #0B90h                    
-09d5  AJMP  #0BACh                    
-09d7  AJMP  #0BCBh                    
-09d9  AJMP  #0BCBh                    
-09db  AJMP  #0BE7h                    
-09dd  AJMP  #0BE9h                    
-09df  AJMP  #0C02h                    
-09e1  AJMP  #0A1Ch                    
-09e3  AJMP  #0C04h                    
-09e5  AJMP  #0C06h                    
-09e7  AJMP  #0A1Ch                    
-09e9  AJMP  #0C19h                    
-09eb  AJMP  #0A1Ch                    
-09ed  AJMP  #0A1Ch                    
-09ef  AJMP  #0C2Fh                    
-09f1  AJMP  #0A1Ch                    
-09f3  MOV   DPTR, #009FCh             
-09f6  MOV   A, 34h                    
-09f8  ANL   A, #0Fh                   
-09fa  RL    A                         
-09fb  JMP   @A+DPTR                   
-09fc  AJMP  #0C31h                    
-09fe  AJMP  #0C3Ch                    
-0a00  AJMP  #0C3Ch                    
-0a02  AJMP  #0C3Ch                    
-0a04  AJMP  #0C3Ch                    
-0a06  AJMP  #0C3Eh                    
-0a08  AJMP  #0C49h                    
-0a0a  AJMP  #0A1Ch                    
-0a0c  AJMP  #0C4Bh                    
-0a0e  AJMP  #0C4Dh                    
-0a10  AJMP  #0A1Ch                    
-0a12  AJMP  #0C58h                    
-0a14  AJMP  #0A1Ch                    
-0a16  AJMP  #0A1Ch                    
-0a18  AJMP  #0C58h                    
-0a1a  AJMP  #0A1Ch                    
-0a1c  RET                             
-0a1d  RET                             
-0a1e  LCALL #0526h                    
-0a21  JNB   04h.5, #+3                
-0a24  LCALL #0500h                    
-0a27  LCALL #0537h                    
-0a2a  LCALL #1D9Bh                    
-0a2d  RET                             
-0a2e  LCALL #1BDDh                    
-0a31  LCALL #0537h                    
-0a34  LCALL #1D9Bh                    
-0a37  RET                             
-0a38  LCALL #1DB8h                    
-0a3b  LCALL #05A3h                    
-0a3e  LCALL #1C07h                    
-0a41  RET                             
-0a42  RET                             
-0a43  LCALL #0526h                    
-0a46  LCALL #0537h                    
-0a49  LCALL #1D9Bh                    
-0a4c  RET                             
-0a4d  RET                             
-0a4e  LCALL #1DB8h                    
-0a51  LCALL #05A3h                    
-0a54  LCALL #1BBBh                    
-0a57  RET                             
-0a58  LCALL #051Dh                    
-0a5b  LCALL #0537h                    
-0a5e  LCALL #1D9Bh                    
-0a61  LCALL #1DB8h                    
-0a64  LCALL #05A3h                    
-0a67  LCALL #1BBBh                    
-0a6a  LCALL #1C72h                    
-0a6d  RET                             
-0a6e  LCALL #0526h                    
-0a71  LCALL #0537h                    
-0a74  LCALL #1D9Bh                    
-0a77  LCALL #1DB8h                    
-0a7a  LCALL #05A3h                    
-0a7d  LCALL #1BC4h                    
-0a80  LCALL #1D67h                    
-0a83  CLR   01h.0                     
-0a85  CLR   01h.5                     
-0a87  LCALL #1C72h                    
-0a8a  RET                             
-0a8b  LCALL #0526h                    
-0a8e  LCALL #0537h                    
-0a91  LCALL #1D9Bh                    
-0a94  LCALL #1DB8h                    
-0a97  LCALL #05A3h                    
-0a9a  CLR   01h.4                     
-0a9c  CLR   01h.5                     
-0a9e  LCALL #1C72h                    
-0aa1  RET                             
-0aa2  LCALL #0526h                    
-0aa5  LCALL #0537h                    
-0aa8  LCALL #1D9Bh                    
-0aab  LCALL #1DB8h                    
-0aae  LCALL #05A3h                    
-0ab1  LCALL #0CBBh                    
-0ab4  LCALL #1D31h                    
-0ab7  LCALL #1D67h                    
-0aba  CLR   01h.0                     
-0abc  LCALL #1C72h                    
-0abf  RET                             
-0ac0  LCALL #051Dh                    
-0ac3  JNB   04h.5, #+3                
-0ac6  LCALL #0500h                    
-0ac9  LCALL #0537h                    
-0acc  LCALL #1D9Bh                    
-0acf  RET                             
-0ad0  LCALL #0526h                    
-0ad3  LCALL #0537h                    
-0ad6  LCALL #1D9Bh                    
-0ad9  RET                             
-0ada  RET                             
-0adb  RET                             
-0adc  RET                             
-0add  AJMP  #0A4Eh                    
-0adf  RET                             
-0ae0  LCALL #051Dh                    
-0ae3  LCALL #0537h                    
-0ae6  LCALL #1D9Bh                    
-0ae9  LCALL #1DB8h                    
-0aec  LCALL #05A3h                    
-0aef  LCALL #1BB1h                    
-0af2  CLR   01h.5                     
-0af4  LCALL #1C72h                    
-0af7  RET                             
-0af8  LCALL #0526h                    
-0afb  LCALL #0537h                    
-0afe  LCALL #1D9Bh                    
-0b01  LCALL #1DB8h                    
-0b04  LCALL #05A3h                    
-0b07  LCALL #0CBBh                    
-0b0a  LCALL #1D31h                    
-0b0d  LCALL #1D67h                    
-0b10  CLR   01h.0                     
-0b12  LCALL #1C72h                    
-0b15  RET                             
-0b16  AJMP  #0A8Bh                    
-0b18  AJMP  #0AA2h                    
-0b1a  LCALL #1D67h                    
-0b1d  LCALL #195Dh                    
-0b20  LCALL #0537h                    
-0b23  LCALL #1D9Bh                    
-0b26  LCALL #1DB8h                    
-0b29  LCALL #05A3h                    
-0b2c  LCALL #18EEh                    
-0b2f  LCALL #0CBBh                    
-0b32  LCALL #1D31h                    
-0b35  LCALL #1C72h                    
-0b38  RET                             
-0b39  JNB   04h.6, #+5                
-0b3c  LCALL #1811h                    
-0b3f  AJMP  #0B47h                    
-0b41  LCALL #1D67h                    
-0b44  LCALL #195Dh                    
-0b47  LCALL #0537h                    
-0b4a  LCALL #1D9Bh                    
-0b4d  LCALL #1DB8h                    
-0b50  LCALL #05A3h                    
-0b53  LCALL #0519h                    
-0b56  LCALL #0CBBh                    
-0b59  LCALL #1D31h                    
-0b5c  LCALL #1C72h                    
-0b5f  RET                             
-0b60  AJMP  #0B1Ah                    
-0b62  LCALL #1DB8h                    
-0b65  LCALL #05A3h                    
-0b68  LCALL #1800h                    
-0b6b  LCALL #0537h                    
-0b6e  LCALL #1D9Bh                    
-0b71  LCALL #1C72h                    
-0b74  RET                             
-0b75  LCALL #1811h                    
-0b78  LCALL #0537h                    
-0b7b  LCALL #1D9Bh                    
-0b7e  LCALL #1DB8h                    
-0b81  LCALL #05A3h                    
-0b84  LCALL #18EEh                    
-0b87  LCALL #184Dh                    
-0b8a  LCALL #1C72h                    
-0b8d  RET                             
-0b8e  AJMP  #0B75h                    
-0b90  LCALL #18A6h                    
-0b93  LCALL #0537h                    
-0b96  LCALL #1D9Bh                    
-0b99  LCALL #1DB8h                    
-0b9c  LCALL #05A3h                    
-0b9f  LCALL #18F3h                    
-0ba2  LCALL #0CBBh                    
-0ba5  LCALL #1D31h                    
-0ba8  LCALL #1C72h                    
-0bab  RET                             
-0bac  LCALL #1D67h                    
-0baf  LCALL #195Dh                    
-0bb2  LCALL #0537h                    
-0bb5  LCALL #1D9Bh                    
-0bb8  LCALL #1DB8h                    
-0bbb  LCALL #05A3h                    
-0bbe  LCALL #18F3h                    
-0bc1  LCALL #0CBBh                    
-0bc4  LCALL #1D31h                    
-0bc7  LCALL #1C72h                    
-0bca  RET                             
-0bcb  LCALL #1D67h                    
-0bce  LCALL #195Dh                    
-0bd1  LCALL #0537h                    
-0bd4  LCALL #1D9Bh                    
-0bd7  LCALL #1DB8h                    
-0bda  LCALL #05A3h                    
-0bdd  LCALL #0CBBh                    
-0be0  LCALL #1D31h                    
-0be3  LCALL #1C72h                    
-0be6  RET                             
-0be7  AJMP  #0B75h                    
-0be9  LCALL #18ABh                    
-0bec  LCALL #0537h                    
-0bef  LCALL #1D9Bh                    
-0bf2  LCALL #1DB8h                    
-0bf5  LCALL #05A3h                    
-0bf8  LCALL #0CBBh                    
-0bfb  LCALL #1D31h                    
-0bfe  LCALL #1C72h                    
-0c01  RET                             
-0c02  AJMP  #0AA2h                    
-0c04  AJMP  #0AA2h                    
-0c06  LCALL #18ABh                    
-0c09  LCALL #0537h                    
-0c0c  LCALL #1D9Bh                    
-0c0f  LCALL #1DB8h                    
-0c12  LCALL #05A3h                    
-0c15  LCALL #1C72h                    
-0c18  RET                             
-0c19  LCALL #1DB8h                    
-0c1c  LCALL #05A3h                    
-0c1f  LCALL #18F3h                    
-0c22  LCALL #1800h                    
-0c25  LCALL #0537h                    
-0c28  LCALL #1D9Bh                    
-0c2b  LCALL #1C72h                    
-0c2e  RET                             
-0c2f  AJMP  #0B62h                    
-0c31  LCALL #18A6h                    
-0c34  LCALL #0537h                    
-0c37  LCALL #1D9Bh                    
-0c3a  AJMP  #0B4Dh                    
-0c3c  AJMP  #0B39h                    
-0c3e  LCALL #18ABh                    
-0c41  LCALL #0537h                    
-0c44  LCALL #1D9Bh                    
-0c47  AJMP  #0B4Dh                    
-0c49  AJMP  #0AA2h                    
-0c4b  AJMP  #0B39h                    
-0c4d  LCALL #18ABh                    
-0c50  LCALL #0537h                    
-0c53  LCALL #1D9Bh                    
-0c56  AJMP  #0B4Dh                    
-0c58  AJMP  #0B39h                    
-0c5a  RET                             
-0c5b  PUSH  PSW                       
-0c5d  ANL   PSW, #EFh                 
-0c60  ORL   PSW, #08h                 
-0c63  MOV   R1, #5Bh                  
-0c65  CLR   01h.4                     
-0c67  CLR   01h.5                     
-0c69  CLR   08h.3                     
-0c6b  CLR   06h.0                     
-0c6d  CLR   06h.1                     
-0c6f  CLR   06h.2                     
-0c71  CLR   06h.3                     
-0c73  CLR   06h.4                     
-0c75  CLR   06h.5                     
-0c77  CLR   07h.3                     
-0c79  CLR   06h.6                     
-0c7b  CLR   07h.7                     
-0c7d  CLR   08h.4                     
-0c7f  CLR   07h.4                     
-0c81  CLR   08h.2                     
-0c83  MOV   60h, #00h                 
-0c86  MOV   61h, #00h                 
-0c89  MOV   57h, #00h                 
-0c8c  MOV   58h, #00h                 
-0c8f  MOV   59h, #00h                 
-0c92  MOV   5Ah, #00h                 
-0c95  MOV   3Ah, #00h                 
-0c98  MOV   3Bh, #00h                 
-0c9b  JNB   0Dh.5, #+5                
-0c9e  JNB   0Dh.4, #+11               
-0ca1  AJMP  #0CA8h                    
-0ca3  JNB   0Dh.4, #+10               
-0ca6  AJMP  #0CB4h                    
-0ca8  MOV   R3, #08h                  
-0caa  AJMP  #0CB8h                    
-0cac  MOV   R3, #09h                  
-0cae  AJMP  #0CB8h                    
-0cb0  MOV   R3, #0Ah                  
-0cb2  AJMP  #0CB8h                    
-0cb4  MOV   R3, #0Bh                  
-0cb6  AJMP  #0CB8h                    
-0cb8  POP   PSW                       
-0cba  RET                             
-0cbb  PUSH  PSW                       
-0cbd  ANL   PSW, #EFh                 
-0cc0  ORL   PSW, #08h                 
-0cc3  JNB   0Dh.7, #+27               
-0cc6  JB   01h.4, #+2                 
-0cc9  AJMP  #0F1Dh                    
-0ccb  MOV   R0, #06h                  
-0ccd  MOVX  A, @R0                    
-0cce  JB   ACC.0, #+2                 
-0cd1  AJMP  #0F1Dh                    
-0cd3  JNB   01h.5, #+2                
-0cd6  AJMP  #0F1Dh                    
-0cd8  MOV   3Bh, 3Ah                  
-0cdb  CLR   01h.4                     
-0cdd  SETB  01h.5                     
-0cdf  AJMP  #0F1Dh                    
-0ce1  JB   01h.4, #+2                 
-0ce4  AJMP  #0CF1h                    
-0ce6  CLR   C                         
-0ce7  MOV   A, R1                     
-0ce8  SUBB  A, #5Fh                   
-0cea  JNC   #+5                       
-0cec  INC   R1                        
-0ced  MOV   @R1, 3Ah                  
-0cef  CLR   01h.4                     
-0cf1  CLR   C                         
-0cf2  MOV   A, R1                     
-0cf3  SUBB  A, #5Eh                   
-0cf5  CPL   C                         
-0cf6  MOV   06h.6, C                  
-0cf8  JNB   06h.2, #+44               
-0cfb  JB   07h.7, #+69                
-0cfe  MOV   A, 61h                    
-0d00  CLR   C                         
-0d01  SUBB  A, R3                     
-0d02  JNC   #+2                       
-0d04  AJMP  #0D20h                    
-0d06  JNB   06h.4, #+14               
-0d09  JNB   08h.3, #+11               
-0d0c  MOV   A, 58h                    
-0d0e  ORL   A, 59h                    
-0d10  ORL   A, 3Bh                    
-0d12  JNZ   #+3                       
-0d14  CJNE  R1, #5Bh, #+2             
-0d17  AJMP  #0D20h                    
-0d19  MOV   A, 5Ch                    
-0d1b  LCALL #0F20h                    
-0d1e  AJMP  #0D73h                    
-0d20  JNB   06h.0, #+2                
-0d23  AJMP  #0E49h                    
-0d25  AJMP  #0DA2h                    
-0d27  CJNE  R1, #5Bh, #+7             
-0d2a  JNB   07h.7, #+2                
-0d2d  AJMP  #0F1Dh                    
-0d2f  AJMP  #0E8Ch                    
-0d31  MOV   4Eh, R1                   
-0d33  CLR   A                         
-0d34  XCH   A, @R1                    
-0d35  DEC   R1                        
-0d36  CJNE  R1, #5Bh, #-5             
-0d39  MOV   R1, 4Eh                   
-0d3b  DEC   R1                        
-0d3c  MOV   58h, A                    
-0d3e  SETB  06h.2                     
-0d40  MOV   57h, #08h                 
-0d43  JNB   07h.7, #+40               
-0d46  JB   08h.4, #+37                
-0d49  MOV   A, 58h                    
-0d4b  CJNE  A, #00h, #+7              
-0d4e  CLR   06h.2                     
-0d50  MOV   57h, #00h                 
-0d53  AJMP  #0CF8h                    
-0d55  JB   ACC.0, #+9                 
-0d58  CLR   C                         
-0d59  RRC   A                         
-0d5a  DJNZ  57h, #-8                  
-0d5d  CLR   06h.2                     
-0d5f  AJMP  #0CF8h                    
-0d61  MOV   58h, A                    
-0d63  CLR   08h.2                     
-0d65  CLR   08h.4                     
-0d67  CLR   07h.7                     
-0d69  MOV   61h, #00h                 
-0d6c  AJMP  #0DA2h                    
-0d6e  MOV   A, 58h                    
-0d70  LCALL #0F20h                    
-0d73  JNB   08h.4, #+7                
-0d76  JNB   07h.7, #+2                
-0d79  AJMP  #0F1Dh                    
-0d7b  AJMP  #0E8Ch                    
-0d7d  JNB   07h.7, #+2                
-0d80  AJMP  #0CF8h                    
-0d82  JNB   06h.4, #+2                
-0d85  AJMP  #0E8Ch                    
-0d87  JNB   06h.5, #+2                
-0d8a  AJMP  #0E6Eh                    
-0d8c  JNB   06h.3, #+2                
-0d8f  AJMP  #0DF8h                    
-0d91  JNB   06h.0, #+2                
-0d94  AJMP  #0E49h                    
-0d96  MOV   A, 58h                    
-0d98  CJNE  A, #FFh, #+4              
-0d9b  CLR   06h.2                     
-0d9d  AJMP  #0CF8h                    
-0d9f  MOV   57h, #08h                 
-0da2  MOV   A, 58h                    
-0da4  JNB   ACC.0, #+9                
-0da7  CLR   C                         
-0da8  RRC   A                         
-0da9  DJNZ  57h, #-8                  
-0dac  CLR   06h.2                     
-0dae  AJMP  #0CF8h                    
-0db0  MOV   58h, A                    
-0db2  JNB   06h.3, #+2                
-0db5  AJMP  #0E8Ch                    
-0db7  DEC   57h                       
-0db9  MOV   A, 57h                    
-0dbb  JNZ   #+6                       
-0dbd  CLR   06h.2                     
-0dbf  SETB  06h.0                     
-0dc1  AJMP  #0DCDh                    
-0dc3  MOV   A, 58h                    
-0dc5  CLR   C                         
-0dc6  RRC   A                         
-0dc7  MOV   59h, A                    
-0dc9  SETB  06h.3                     
-0dcb  CLR   06h.2                     
-0dcd  CLR   C                         
-0dce  MOV   A, R3                     
-0dcf  DEC   A                         
-0dd0  DEC   A                         
-0dd1  SUBB  A, 57h                    
-0dd3  MOV   5Ah, A                    
-0dd5  JZ    #+4                       
-0dd7  JC    #+2                       
-0dd9  AJMP  #0CF8h                    
-0ddb  SETB  06h.4                     
-0ddd  SETB  06h.3                     
-0ddf  MOV   5Ah, #00h                 
-0de2  CJNE  R3, #08h, #+17            
-0de5  CLR   C                         
-0de6  MOV   A, 57h                    
-0de8  SUBB  A, #07h                   
-0dea  JNZ   #+10                      
-0dec  MOV   A, 58h                    
-0dee  RL    A                         
-0def  MOV   58h, A                    
-0df1  MOV   57h, #01h                 
-0df4  SETB  06h.2                     
-0df6  AJMP  #0E8Ch                    
-0df8  MOV   5Bh, 5Ah                  
-0dfb  CJNE  R3, #0Bh, #+2             
-0dfe  DEC   5Bh                       
-0e00  MOV   4Eh, #00h                 
-0e03  MOV   A, 58h                    
-0e05  RR    A                         
-0e06  MOV   58h, A                    
-0e08  MOV   A, 4Eh                    
-0e0a  SETB  C                         
-0e0b  RRC   A                         
-0e0c  MOV   4Eh, A                    
-0e0e  DJNZ  5Bh, #-14                 
-0e11  MOV   A, 58h                    
-0e13  ANL   A, 4Eh                    
-0e15  CJNE  R3, #08h, #+6             
-0e18  CLR   C                         
-0e19  RRC   A                         
-0e1a  CLR   C                         
-0e1b  RRC   A                         
-0e1c  AJMP  #0E23h                    
-0e1e  CJNE  R3, #09h, #+2             
-0e21  CLR   C                         
-0e22  RRC   A                         
-0e23  ORL   59h, A                    
-0e25  XRL   4Eh, #FFh                 
-0e28  MOV   A, 58h                    
-0e2a  ANL   A, 4Eh                    
-0e2c  MOV   58h, A                    
-0e2e  MOV   A, #08h                   
-0e30  CJNE  R3, #0Bh, #+2             
-0e33  MOV   A, #09h                   
-0e35  CLR   C                         
-0e36  SUBB  A, 5Ah                    
-0e38  MOV   57h, A                    
-0e3a  CJNE  R3, #0Bh, #+6             
-0e3d  SETB  06h.5                     
-0e3f  SETB  06h.3                     
-0e41  AJMP  #0E6Eh                    
-0e43  SETB  06h.4                     
-0e45  SETB  06h.3                     
-0e47  AJMP  #0E8Ch                    
-0e49  JNB   06h.4, #+2                
-0e4c  AJMP  #0E8Ch                    
-0e4e  MOV   59h, 58h                  
-0e51  MOV   A, 58h                    
-0e53  CJNE  R3, #08h, #+8             
-0e56  RL    A                         
-0e57  RL    A                         
-0e58  ANL   A, #03h                   
-0e5a  MOV   58h, A                    
-0e5c  AJMP  #0E6Ah                    
-0e5e  CJNE  R3, #09h, #+7             
-0e61  RL    A                         
-0e62  ANL   A, #01h                   
-0e64  MOV   58h, A                    
-0e66  AJMP  #0E6Ah                    
-0e68  CLR   06h.2                     
-0e6a  CLR   06h.0                     
-0e6c  AJMP  #0E2Eh                    
-0e6e  JB   06h.2, #+2                 
-0e71  AJMP  #0CF8h                    
-0e73  MOV   A, 58h                    
-0e75  CLR   C                         
-0e76  RRC   A                         
-0e77  MOV   06h.1, C                  
-0e79  MOV   58h, A                    
-0e7b  DEC   57h                       
-0e7d  MOV   A, 57h                    
-0e7f  CJNE  A, #00h, #+2              
-0e82  CLR   06h.2                     
-0e84  SETB  06h.4                     
-0e86  SETB  06h.5                     
-0e88  SETB  06h.3                     
-0e8a  AJMP  #0E8Ch                    
-0e8c  CJNE  R3, #0Bh, #+5             
-0e8f  MOV   A, 60h                    
-0e91  JB   ACC.0, #+96                
-0e94  JB   08h.3, #+93                
-0e97  JB   01h.5, #+90                
-0e9a  JNB   06h.4, #+87               
-0e9d  MOV   3Bh, 59h                  
-0ea0  CJNE  R3, #0Bh, #+61            
-0ea3  MOV   A, 59h                    
-0ea5  MOV   20h, PSW                  
-0ea8  MOV   C, 06h.1                  
-0eaa  RLC   A                         
-0eab  XRL   A, 20h                    
-0ead  RRC   A                         
-0eae  MOV   00h.7, C                  
-0eb0  MOV   A, 60h                    
-0eb2  ANL   A, #0Fh                   
-0eb4  JZ    #+2                       
-0eb6  AJMP  #0EC3h                    
-0eb8  CLR   A                         
-0eb9  MOV   C, 00h.7                  
-0ebb  MOV   ACC.7, C                  
-0ebd  SETB  ACC.3                     
-0ebf  MOV   60h, A                    
-0ec1  AJMP  #0EE0h                    
-0ec3  JNB   00h.7, #+5                
-0ec6  MOV   20h, #F0h                 
-0ec9  AJMP  #0ECEh                    
-0ecb  MOV   20h, #00h                 
-0ece  MOV   A, 60h                    
-0ed0  ANL   A, #0Fh                   
-0ed2  RR    A                         
-0ed3  MOV   4Eh, A                    
-0ed5  SWAP  A                         
-0ed6  ANL   A, 20h                    
-0ed8  ORL   A, 60h                    
-0eda  ANL   A, #F0h                   
-0edc  ORL   A, 4Eh                    
-0ede  MOV   60h, A                    
-0ee0  SETB  08h.3                     
-0ee2  CLR   06h.4                     
-0ee4  CLR   06h.3                     
-0ee6  CLR   06h.5                     
-0ee8  CJNE  R3, #08h, #+3             
-0eeb  ANL   3Bh, #3Fh                 
-0eee  CJNE  R3, #09h, #+3             
-0ef1  ANL   3Bh, #7Fh                 
-0ef4  CJNE  R3, #0Bh, #+21            
-0ef7  JB   07h.4, #+18                
-0efa  MOV   A, 60h                    
-0efc  ANL   A, #0Fh                   
-0efe  JZ    #+12                      
-0f00  MOV   A, 60h                    
-0f02  CLR   C                         
-0f03  RLC   A                         
-0f04  ANL   A, #EEh                   
-0f06  MOV   60h, A                    
-0f08  MOV   07h.3, C                  
-0f0a  SETB  07h.4                     
-0f0c  MOV   A, 3Bh                    
-0f0e  JNZ   #+6                       
-0f10  MOV   A, 61h                    
-0f12  CLR   C                         
-0f13  SUBB  A, R3                     
-0f14  JNC   #+7                       
-0f16  JNB   08h.3, #+4                
-0f19  SETB  01h.5                     
-0f1b  CLR   08h.3                     
-0f1d  POP   PSW                       
-0f1f  RET                             
-0f20  MOV   4Eh, A                    
-0f22  JNB   07h.7, #+2                
-0f25  AJMP  #0FC2h                    
-0f27  JNB   08h.4, #+2                
-0f2a  AJMP  #0FB3h                    
-0f2c  JNZ   #+10                      
-0f2e  MOV   A, 61h                    
-0f30  ADD   A, #08h                   
-0f32  MOV   61h, A                    
-0f34  SETB  08h.2                     
-0f36  AJMP  #0F93h                    
-0f38  JB   08h.2, #+46                
-0f3b  MOV   A, 4Eh                    
-0f3d  JB   ACC.7, #+39                
-0f40  SETB  08h.2                     
-0f42  INC   61h                       
-0f44  JB   ACC.6, #+123               
-0f47  INC   61h                       
-0f49  JB   ACC.5, #+118               
-0f4c  INC   61h                       
-0f4e  JB   ACC.4, #+113               
-0f51  INC   61h                       
-0f53  JB   ACC.3, #+108               
-0f56  INC   61h                       
-0f58  JB   ACC.2, #+103               
-0f5b  INC   61h                       
-0f5d  JB   ACC.1, #+98                
-0f60  INC   61h                       
-0f62  JB   ACC.0, #+93                
-0f65  INC   61h                       
-0f67  AJMP  #0FC2h                    
-0f69  JB   ACC.0, #+43                
-0f6c  INC   61h                       
-0f6e  JB   ACC.1, #+38                
-0f71  INC   61h                       
-0f73  JB   ACC.2, #+33                
-0f76  INC   61h                       
-0f78  JB   ACC.3, #+28                
-0f7b  INC   61h                       
-0f7d  JB   ACC.4, #+23                
-0f80  INC   61h                       
-0f82  JB   ACC.5, #+18                
-0f85  INC   61h                       
-0f87  JB   ACC.6, #+13                
-0f8a  INC   61h                       
-0f8c  JB   ACC.7, #+8                 
-0f8f  INC   61h                       
-0f91  AJMP  #0F93h                    
-0f93  CLR   00h.0                     
-0f95  AJMP  #0F99h                    
-0f97  SETB  00h.0                     
-0f99  MOV   A, R3                     
-0f9a  ADD   A, R3                     
-0f9b  ADD   A, #02h                   
-0f9d  CLR   C                         
-0f9e  SUBB  A, 61h                    
-0fa0  JC    #+17                      
-0fa2  JNB   00h.0, #+29               
-0fa5  CLR   08h.2                     
-0fa7  MOV   61h, #00h                 
-0faa  JNB   08h.3, #+4                
-0fad  SETB  01h.5                     
-0faf  CLR   08h.3                     
-0fb1  AJMP  #0F3Bh                    
-0fb3  SETB  08h.4                     
-0fb5  JB   01h.5, #+10                
-0fb8  CLR   08h.3                     
-0fba  CLR   06h.4                     
-0fbc  CLR   06h.3                     
-0fbe  CLR   06h.5                     
-0fc0  SETB  07h.7                     
-0fc2  RET                             
-0fc3  MOV   R7, A                     
-0fc4  MOV   R7, A                     
-0fc5  MOV   R7, A                     
-0fc6  MOV   R7, A                     
-0fc7  MOV   R7, A                     
-0fc8  MOV   R7, A                     
-0fc9  MOV   R7, A                     
-0fca  MOV   R7, A                     
-0fcb  MOV   R7, A                     
-0fcc  MOV   R7, A                     
-0fcd  MOV   R7, A                     
-0fce  MOV   R7, A                     
-0fcf  MOV   R7, A                     
-0fd0  MOV   R7, A                     
-0fd1  MOV   R7, A                     
-0fd2  MOV   R7, A                     
-0fd3  MOV   R7, A                     
-0fd4  MOV   R7, A                     
-0fd5  MOV   R7, A                     
-0fd6  MOV   R7, A                     
-0fd7  MOV   R7, A                     
-0fd8  MOV   R7, A                     
-0fd9  MOV   R7, A                     
-0fda  MOV   R7, A                     
-0fdb  MOV   R7, A                     
-0fdc  MOV   R7, A                     
-0fdd  MOV   R7, A                     
-0fde  MOV   R7, A                     
-0fdf  MOV   R7, A                     
-0fe0  MOV   R7, A                     
-0fe1  MOV   R7, A                     
-0fe2  MOV   R7, A                     
-0fe3  MOV   R7, A                     
-0fe4  MOV   R7, A                     
-0fe5  MOV   R7, A                     
-0fe6  MOV   R7, A                     
-0fe7  MOV   R7, A                     
-0fe8  MOV   R7, A                     
-0fe9  MOV   R7, A                     
-0fea  MOV   R7, A                     
-0feb  MOV   R7, A                     
-0fec  MOV   R7, A                     
-0fed  MOV   R7, A                     
-0fee  MOV   R7, A                     
-0fef  MOV   R7, A                     
-0ff0  MOV   R7, A                     
-0ff1  MOV   R7, A                     
-0ff2  MOV   R7, A                     
-0ff3  MOV   R7, A                     
-0ff4  MOV   R7, A                     
-0ff5  MOV   R7, A                     
-0ff6  MOV   R7, A                     
-0ff7  MOV   R7, A                     
-0ff8  MOV   R7, A                     
-0ff9  MOV   R7, A                     
-0ffa  MOV   R7, A                     
-0ffb  MOV   R7, A                     
-0ffc  MOV   R7, A                     
-0ffd  MOV   R7, A                     
-0ffe  MOV   R7, A                     
-0fff  MOV   R7, A                     
-1000  MOV   20h, 31h                  
-1003  MOV   R2, 34h                   
-1005  MOV   A, 34h                    
-1007  JNB   ACC.7, #+11               
-100a  JB   02h.1, #+3                 
-100d  JB   02h.4, #+5                 
-1010  MOV   34h, #00h                 
-1013  AJMP  #1755h                    
-1015  MOV   A, 34h                    
-1017  JNB   ACC.7, #+20               
-101a  JB   ACC.6, #+17                
-101d  ANL   A, #1Fh                   
-101f  CJNE  A, #16h, #+0              
-1022  JNC   #+10                      
-1024  MOV   A, 15h                    
-1026  JNB   ACC.7, #+5                
-1029  MOV   34h, #00h                 
-102c  AJMP  #1755h                    
-102e  MOV   A, 34h                    
-1030  JB   ACC.7, #+7                 
-1033  JNB   ACC.0, #+2                
-1036  AJMP  #117Ah                    
-1038  AJMP  #1161h                    
-103a  MOV   DPTR, #01042h             
-103d  ANL   A, #70h                   
-103f  SWAP  A                         
-1040  RL    A                         
-1041  JMP   @A+DPTR                   
-1042  AJMP  #1052h                    
-1044  AJMP  #107Bh                    
-1046  AJMP  #10A4h                    
-1048  AJMP  #10CDh                    
-104a  AJMP  #10F6h                    
-104c  AJMP  #1161h                    
-104e  AJMP  #110Fh                    
-1050  AJMP  #1138h                    
-1052  MOV   DPTR, #0105Bh             
-1055  MOV   A, 34h                    
-1057  ANL   A, #0Fh                   
-1059  RL    A                         
-105a  JMP   @A+DPTR                   
-105b  AJMP  #13AAh                    
-105d  AJMP  #13C9h                    
-105f  AJMP  #13E5h                    
-1061  AJMP  #13F8h                    
-1063  AJMP  #1270h                    
-1065  AJMP  #1208h                    
-1067  AJMP  #1220h                    
-1069  AJMP  #122Bh                    
-106b  AJMP  #1406h                    
-106d  AJMP  #1424h                    
-106f  AJMP  #142Eh                    
-1071  AJMP  #145Ch                    
-1073  AJMP  #1471h                    
-1075  AJMP  #1471h                    
-1077  AJMP  #148Dh                    
-1079  AJMP  #12D2h                    
-107b  MOV   DPTR, #01084h             
-107e  MOV   A, 34h                    
-1080  ANL   A, #0Fh                   
-1082  RL    A                         
-1083  JMP   @A+DPTR                   
-1084  AJMP  #1208h                    
-1086  AJMP  #1220h                    
-1088  AJMP  #130Eh                    
-108a  AJMP  #14A6h                    
-108c  AJMP  #14C4h                    
-108e  AJMP  #14CCh                    
-1090  AJMP  #14CEh                    
-1092  AJMP  #14EFh                    
-1094  AJMP  #1515h                    
-1096  AJMP  #1539h                    
-1098  AJMP  #1161h                    
-109a  AJMP  #1161h                    
-109c  AJMP  #1161h                    
-109e  AJMP  #1161h                    
-10a0  AJMP  #1161h                    
-10a2  AJMP  #1161h                    
-10a4  MOV   DPTR, #010ADh             
-10a7  MOV   A, 34h                    
-10a9  ANL   A, #0Fh                   
-10ab  RL    A                         
-10ac  JMP   @A+DPTR                   
-10ad  AJMP  #11B6h                    
-10af  AJMP  #11CFh                    
-10b1  AJMP  #11E8h                    
-10b3  AJMP  #1208h                    
-10b5  AJMP  #1220h                    
-10b7  AJMP  #122Bh                    
-10b9  AJMP  #1236h                    
-10bb  AJMP  #1270h                    
-10bd  AJMP  #1288h                    
-10bf  AJMP  #12A0h                    
-10c1  AJMP  #12B9h                    
-10c3  AJMP  #12D2h                    
-10c5  AJMP  #1208h                    
-10c7  AJMP  #1220h                    
-10c9  AJMP  #12EAh                    
-10cb  AJMP  #1319h                    
-10cd  MOV   DPTR, #010D6h             
-10d0  MOV   A, 34h                    
-10d2  ANL   A, #0Fh                   
-10d4  RL    A                         
-10d5  JMP   @A+DPTR                   
-10d6  AJMP  #1208h                    
-10d8  AJMP  #1220h                    
-10da  AJMP  #130Eh                    
-10dc  AJMP  #132Ch                    
-10de  AJMP  #133Dh                    
-10e0  AJMP  #1345h                    
-10e2  AJMP  #14CEh                    
-10e4  AJMP  #14EFh                    
-10e6  AJMP  #1363h                    
-10e8  AJMP  #1387h                    
-10ea  AJMP  #1161h                    
-10ec  AJMP  #1161h                    
-10ee  AJMP  #1161h                    
-10f0  AJMP  #1161h                    
-10f2  AJMP  #1161h                    
-10f4  AJMP  #1161h                    
-10f6  MOV   DPTR, #010FFh             
-10f9  MOV   A, 34h                    
-10fb  ANL   A, #07h                   
-10fd  RL    A                         
-10fe  JMP   @A+DPTR                   
-10ff  AJMP  #159Bh                    
-1101  AJMP  #159Bh                    
-1103  AJMP  #157Ah                    
-1105  AJMP  #159Bh                    
-1107  AJMP  #14EFh                    
-1109  AJMP  #1161h                    
-110b  AJMP  #1161h                    
-110d  AJMP  #1161h                    
-110f  MOV   DPTR, #01118h             
-1112  MOV   A, 34h                    
-1114  ANL   A, #0Fh                   
-1116  RL    A                         
-1117  JMP   @A+DPTR                   
-1118  AJMP  #15ADh                    
-111a  AJMP  #15F7h                    
-111c  AJMP  #1611h                    
-111e  AJMP  #164Fh                    
-1120  AJMP  #1669h                    
-1122  AJMP  #1684h                    
-1124  AJMP  #16C2h                    
-1126  AJMP  #1161h                    
-1128  AJMP  #16F7h                    
-112a  AJMP  #16F9h                    
-112c  AJMP  #1161h                    
-112e  AJMP  #172Eh                    
-1130  AJMP  #1161h                    
-1132  AJMP  #1161h                    
-1134  AJMP  #1745h                    
-1136  AJMP  #1161h                    
-1138  MOV   DPTR, #01141h             
-113b  MOV   A, 34h                    
-113d  ANL   A, #0Fh                   
-113f  RL    A                         
-1140  JMP   @A+DPTR                   
-1141  AJMP  #174Ah                    
-1143  AJMP  #174Ah                    
-1145  AJMP  #174Ah                    
-1147  AJMP  #174Ah                    
-1149  AJMP  #174Ah                    
-114b  AJMP  #174Ah                    
-114d  AJMP  #174Ah                    
-114f  AJMP  #1161h                    
-1151  AJMP  #174Ah                    
-1153  AJMP  #174Ah                    
-1155  AJMP  #1161h                    
-1157  AJMP  #174Ah                    
-1159  AJMP  #1161h                    
-115b  AJMP  #1161h                    
-115d  AJMP  #174Ah                    
-115f  AJMP  #1161h                    
-1161  JNB   04h.5, #+12               
-1164  CLR   IE.3                      
-1166  MOV   17h, #03h                 
-1169  MOV   16h, #E8h                 
-116c  SETB  IE.3                      
-116e  AJMP  #1178h                    
-1170  MOV   A, 17h                    
-1172  JNB   ACC.7, #+3                
-1175  MOV   34h, #01h                 
-1178  AJMP  #1755h                    
-117a  CLR   IE.3                      
-117c  MOV   15h, #75h                 
-117f  MOV   14h, #30h                 
-1182  SETB  IE.3                      
-1184  JNB   02h.4, #+45               
-1187  JNB   03h.1, #+21               
-118a  JNB   0Eh.7, #+5                
-118d  MOV   34h, #A0h                 
-1190  AJMP  #1755h                    
-1192  JB   0Eh.6, #+5                 
-1195  MOV   34h, #B8h                 
-1198  AJMP  #1755h                    
-119a  MOV   34h, #A3h                 
-119d  AJMP  #1755h                    
-119f  JNB   0Eh.7, #+5                
-11a2  MOV   34h, #80h                 
-11a5  AJMP  #1755h                    
-11a7  JB   0Eh.6, #+5                 
-11aa  MOV   34h, #98h                 
-11ad  AJMP  #1755h                    
-11af  MOV   34h, #83h                 
-11b2  AJMP  #1755h                    
-11b4  AJMP  #1755h                    
-11b6  JNB   04h.5, #+12               
-11b9  CLR   IE.3                      
-11bb  MOV   17h, #07h                 
-11be  MOV   16h, #0Dh                 
-11c1  SETB  IE.3                      
-11c3  AJMP  #1755h                    
-11c5  MOV   A, 17h                    
-11c7  JNB   ACC.7, #+3                
-11ca  MOV   34h, #A1h                 
-11cd  AJMP  #1755h                    
-11cf  JNB   04h.5, #+12               
-11d2  CLR   IE.3                      
-11d4  MOV   17h, #0Ah                 
-11d7  MOV   16h, #2Dh                 
-11da  SETB  IE.3                      
-11dc  AJMP  #1755h                    
-11de  MOV   A, 17h                    
-11e0  JNB   ACC.7, #+3                
-11e3  MOV   34h, #A2h                 
-11e6  AJMP  #1755h                    
-11e8  JNB   04h.5, #+12               
-11eb  CLR   IE.3                      
-11ed  MOV   17h, #00h                 
-11f0  MOV   16h, #3Ch                 
-11f3  SETB  IE.3                      
-11f5  AJMP  #1206h                    
-11f7  MOV   A, 17h                    
-11f9  JNB   ACC.7, #+10               
-11fc  JB   0Eh.6, #+5                 
-11ff  MOV   34h, #B8h                 
-1202  AJMP  #1206h                    
-1204  INC   34h                       
-1206  AJMP  #1755h                    
-1208  JNB   04h.5, #+12               
-120b  CLR   IE.3                      
-120d  MOV   17h, #00h                 
-1210  MOV   16h, #17h                 
-1213  SETB  IE.3                      
-1215  AJMP  #121Eh                    
-1217  MOV   A, 17h                    
-1219  JNB   ACC.7, #+2                
-121c  INC   34h                       
-121e  AJMP  #1755h                    
-1220  MOV   A, #F8h                   
-1222  ADD   A, 64h                    
-1224  JB   ACC.7, #+2                 
-1227  INC   34h                       
-1229  AJMP  #1755h                    
-122b  MOV   A, #E0h                   
-122d  ADD   A, 64h                    
-122f  JB   ACC.7, #+2                 
-1232  INC   34h                       
-1234  AJMP  #1755h                    
-1236  JNB   04h.5, #+12               
-1239  CLR   IE.3                      
-123b  MOV   17h, #07h                 
-123e  MOV   16h, #D0h                 
-1241  SETB  IE.3                      
-1243  AJMP  #126Bh                    
-1245  MOV   A, 17h                    
-1247  JNB   ACC.7, #+5                
-124a  MOV   34h, #A3h                 
-124d  AJMP  #126Bh                    
-124f  MOV   A, #FCh                   
-1251  ADD   A, 63h                    
-1253  JB   ACC.7, #+21                
-1256  MOV   C, 03h.2                  
-1258  ANL   C, 04h.2                  
-125a  JC    #+6                       
-125c  MOV   C, 03h.3                  
-125e  ANL   C, 04h.3                  
-1260  JNC   #+4                       
-1262  INC   34h                       
-1264  AJMP  #1755h                    
-1266  MOV   34h, #00h                 
-1269  AJMP  #1755h                    
-126b  JB   03h.5, #-12                
-126e  AJMP  #1755h                    
-1270  JNB   04h.5, #+12               
-1273  CLR   IE.3                      
-1275  MOV   17h, #00h                 
-1278  MOV   16h, #FAh                 
-127b  SETB  IE.3                      
-127d  AJMP  #1755h                    
-127f  MOV   A, 17h                    
-1281  JNB   ACC.7, #+2                
-1284  INC   34h                       
-1286  AJMP  #1755h                    
-1288  JNB   04h.5, #+12               
-128b  CLR   IE.3                      
-128d  MOV   17h, #01h                 
-1290  MOV   16h, #C7h                 
-1293  SETB  IE.3                      
-1295  AJMP  #1755h                    
-1297  MOV   A, 17h                    
-1299  JNB   ACC.7, #+2                
-129c  INC   34h                       
-129e  AJMP  #1755h                    
-12a0  JNB   04h.5, #+12               
-12a3  CLR   IE.3                      
-12a5  MOV   17h, #00h                 
-12a8  MOV   16h, #3Ch                 
-12ab  SETB  IE.3                      
-12ad  AJMP  #1755h                    
-12af  MOV   A, 17h                    
-12b1  JNB   ACC.7, #+3                
-12b4  MOV   34h, #B9h                 
-12b7  AJMP  #1755h                    
-12b9  JNB   04h.5, #+12               
-12bc  CLR   IE.3                      
-12be  MOV   17h, #02h                 
-12c1  MOV   16h, #44h                 
-12c4  SETB  IE.3                      
-12c6  AJMP  #12D0h                    
-12c8  MOV   A, 17h                    
-12ca  JNB   ACC.7, #+3                
-12cd  MOV   34h, #ABh                 
-12d0  AJMP  #1755h                    
-12d2  JNB   04h.5, #+12               
-12d5  CLR   IE.3                      
-12d7  MOV   17h, #00h                 
-12da  MOV   16h, #19h                 
-12dd  SETB  IE.3                      
-12df  AJMP  #1755h                    
-12e1  MOV   A, 17h                    
-12e3  JNB   ACC.7, #+2                
-12e6  INC   34h                       
-12e8  AJMP  #1755h                    
-12ea  JB   04h.5, #+6                 
-12ed  JNB   0Ah.2, #+3                
-12f0  JB   0Ah.0, #+12                
-12f3  CLR   IE.3                      
-12f5  MOV   17h, #00h                 
-12f8  MOV   16h, #32h                 
-12fb  SETB  IE.3                      
-12fd  AJMP  #1755h                    
-12ff  MOV   A, 17h                    
-1301  JNB   ACC.7, #+8                
-1304  JB   03h.5, #+3                 
-1307  JNB   0Ah.2, #+2                
-130a  INC   34h                       
-130c  AJMP  #1755h                    
-130e  JNB   0Ah.2, #+22               
-1311  JNB   03h.5, #+5                
-1314  MOV   34h, #93h                 
-1317  AJMP  #132Ah                    
-1319  JB   03h.5, #+7                 
-131c  MOV   A, #F8h                   
-131e  ADD   A, 63h                    
-1320  JB   ACC.7, #+7                 
-1323  INC   34h                       
-1325  AJMP  #132Ah                    
-1327  MOV   63h, #00h                 
-132a  AJMP  #1755h                    
-132c  MOV   A, #F8h                   
-132e  ADD   A, 63h                    
-1330  JB   ACC.7, #+8                 
-1333  JNB   03h.4, #+2                
-1336  AJMP  #1552h                    
-1338  MOV   34h, #B6h                 
-133b  AJMP  #1755h                    
-133d  JNB   0Ah.2, #+3                
-1340  MOV   34h, #B5h                 
-1343  AJMP  #1755h                    
-1345  JNB   04h.5, #+12               
-1348  CLR   IE.3                      
-134a  MOV   17h, #07h                 
-134d  MOV   16h, #D0h                 
-1350  SETB  IE.3                      
-1352  AJMP  #1361h                    
-1354  MOV   A, 17h                    
-1356  JNB   ACC.7, #+8                
-1359  JNB   03h.4, #+2                
-135c  AJMP  #1552h                    
-135e  MOV   34h, #B6h                 
-1361  AJMP  #1755h                    
-1363  JNB   04h.5, #+12               
-1366  CLR   IE.3                      
-1368  MOV   17h, #00h                 
-136b  MOV   16h, #46h                 
-136e  SETB  IE.3                      
-1370  AJMP  #1385h                    
-1372  MOV   A, 17h                    
-1374  JNB   ACC.7, #+14               
-1377  JNB   02h.3, #+3                
-137a  JNB   03h.5, #+5                
-137d  MOV   34h, #B4h                 
-1380  AJMP  #1385h                    
-1382  MOV   34h, #B2h                 
-1385  AJMP  #1755h                    
-1387  JNB   04h.5, #+22               
-138a  CLR   IE.3                      
-138c  MOV   17h, #00h                 
-138f  MOV   16h, #46h                 
-1392  SETB  IE.3                      
-1394  CLR   IE.3                      
-1396  MOV   15h, #75h                 
-1399  MOV   14h, #30h                 
-139c  SETB  IE.3                      
-139e  AJMP  #13A8h                    
-13a0  MOV   A, 17h                    
-13a2  JNB   ACC.7, #+3                
-13a5  MOV   34h, #AAh                 
-13a8  AJMP  #1755h                    
-13aa  JNB   04h.5, #+12               
-13ad  CLR   IE.3                      
-13af  MOV   17h, #00h                 
-13b2  MOV   16h, #C8h                 
-13b5  SETB  IE.3                      
-13b7  AJMP  #1755h                    
-13b9  MOV   A, 17h                    
-13bb  JNB   ACC.7, #+9                
-13be  JB   0Ah.1, #+3                 
-13c1  JNB   03h.5, #+3                
-13c4  MOV   34h, #81h                 
-13c7  AJMP  #1755h                    
-13c9  JNB   04h.5, #+12               
-13cc  CLR   IE.3                      
-13ce  MOV   17h, #0Ah                 
-13d1  MOV   16h, #2Dh                 
-13d4  SETB  IE.3                      
-13d6  AJMP  #1755h                    
-13d8  JNB   0Ah.1, #+5                
-13db  MOV   A, 17h                    
-13dd  JNB   ACC.7, #+3                
-13e0  MOV   34h, #82h                 
-13e3  AJMP  #1755h                    
-13e5  JB   0Ah.1, #+3                 
-13e8  JNB   03h.5, #+11               
-13eb  JB   0Eh.6, #+5                 
-13ee  MOV   34h, #98h                 
-13f1  AJMP  #1755h                    
-13f3  MOV   34h, #83h                 
-13f6  AJMP  #1755h                    
-13f8  JB   03h.5, #+7                 
-13fb  MOV   A, #FCh                   
-13fd  ADD   A, 63h                    
-13ff  JB   ACC.7, #+2                 
-1402  INC   34h                       
-1404  AJMP  #1755h                    
-1406  JNB   04h.5, #+10               
-1409  CLR   IE.3                      
-140b  MOV   17h, #07h                 
-140e  MOV   16h, #D0h                 
-1411  SETB  IE.3                      
-1413  JB   0Ah.1, #+4                 
-1416  INC   34h                       
-1418  AJMP  #1755h                    
-141a  MOV   A, 17h                    
-141c  JNB   ACC.7, #+3                
-141f  MOV   34h, #85h                 
-1422  AJMP  #1755h                    
-1424  JB   03h.5, #+3                 
-1427  JNB   0Ah.1, #+2                
-142a  INC   34h                       
-142c  AJMP  #1755h                    
-142e  JNB   04h.5, #+12               
-1431  CLR   IE.3                      
-1433  MOV   17h, #00h                 
-1436  MOV   16h, #FAh                 
-1439  SETB  IE.3                      
-143b  AJMP  #145Ah                    
-143d  JB   03h.5, #+15                
-1440  MOV   A, 17h                    
-1442  JNB   ACC.7, #+15               
-1445  CLR   IE.3                      
-1447  MOV   17h, #00h                 
-144a  MOV   16h, #96h                 
-144d  SETB  IE.3                      
-144f  MOV   34h, #8Bh                 
-1452  AJMP  #145Ah                    
-1454  JB   0Ah.1, #+3                 
-1457  MOV   34h, #89h                 
-145a  AJMP  #1755h                    
-145c  MOV   A, 17h                    
-145e  JNB   ACC.7, #+14               
-1461  JB   03h.5, #+3                 
-1464  JNB   0Ah.1, #+5                
-1467  MOV   34h, #8Dh                 
-146a  AJMP  #146Fh                    
-146c  MOV   34h, #85h                 
-146f  AJMP  #1755h                    
-1471  JNB   04h.5, #+10               
-1474  CLR   IE.3                      
-1476  MOV   15h, #75h                 
-1479  MOV   14h, #30h                 
-147c  SETB  IE.3                      
-147e  JB   03h.5, #+7                 
-1481  MOV   A, #F8h                   
-1483  ADD   A, 63h                    
-1485  JB   ACC.7, #+3                 
-1488  MOV   34h, #99h                 
-148b  AJMP  #1755h                    
-148d  JNB   04h.5, #+12               
-1490  CLR   IE.3                      
-1492  MOV   17h, #02h                 
-1495  MOV   16h, #44h                 
-1498  SETB  IE.3                      
-149a  AJMP  #1755h                    
-149c  MOV   A, 17h                    
-149e  JNB   ACC.7, #+3                
-14a1  MOV   34h, #8Fh                 
-14a4  AJMP  #1755h                    
-14a6  JNB   04h.5, #+12               
-14a9  CLR   IE.3                      
-14ab  MOV   17h, #00h                 
-14ae  MOV   16h, #3Ch                 
-14b1  SETB  IE.3                      
-14b3  AJMP  #14C2h                    
-14b5  MOV   A, 17h                    
-14b7  JNB   ACC.7, #+8                
-14ba  JNB   03h.4, #+2                
-14bd  AJMP  #1552h                    
-14bf  MOV   34h, #96h                 
-14c2  AJMP  #1755h                    
-14c4  JNB   0Ah.2, #+3                
-14c7  MOV   34h, #95h                 
-14ca  AJMP  #1755h                    
-14cc  AJMP  #1345h                    
-14ce  JB   03h.4, #+26                
-14d1  JNB   0Ah.2, #+3                
-14d4  JB   0Ah.0, #+5                 
-14d7  MOV   34h, #B7h                 
-14da  AJMP  #14EDh                    
-14dc  JNB   0Dh.1, #+14               
-14df  MOV   A, 63h                    
-14e1  ADD   A, #E0h                   
-14e3  JB   ACC.7, #+7                 
-14e6  MOV   34h, #E8h                 
-14e9  AJMP  #14EDh                    
-14eb  AJMP  #1552h                    
-14ed  AJMP  #1755h                    
-14ef  JB   04h.5, #+21                
-14f2  JNB   0Ah.2, #+18               
-14f5  JNB   0Ah.0, #+15               
-14f8  MOV   A, 17h                    
-14fa  JNB   ACC.7, #+22               
-14fd  JNB   03h.4, #+2                
-1500  AJMP  #1552h                    
-1502  MOV   34h, #B6h                 
-1505  AJMP  #1513h                    
-1507  CLR   IE.3                      
-1509  MOV   17h, #00h                 
-150c  MOV   16h, #0Ah                 
-150f  SETB  IE.3                      
-1511  AJMP  #1513h                    
-1513  AJMP  #1755h                    
-1515  JNB   04h.5, #+12               
-1518  CLR   IE.3                      
-151a  MOV   17h, #00h                 
-151d  MOV   16h, #46h                 
-1520  SETB  IE.3                      
-1522  AJMP  #1537h                    
-1524  MOV   A, 17h                    
-1526  JNB   ACC.7, #+14               
-1529  JNB   02h.3, #+3                
-152c  JNB   03h.5, #+5                
-152f  MOV   34h, #94h                 
-1532  AJMP  #1755h                    
-1534  MOV   34h, #92h                 
-1537  AJMP  #1755h                    
-1539  JNB   04h.5, #+12               
-153c  CLR   IE.3                      
-153e  MOV   17h, #00h                 
-1541  MOV   16h, #46h                 
-1544  SETB  IE.3                      
-1546  AJMP  #1550h                    
-1548  MOV   A, 17h                    
-154a  JNB   ACC.7, #+3                
-154d  MOV   34h, #8Eh                 
-1550  AJMP  #1755h                    
-1552  JNB   03h.5, #+13               
-1555  JNB   04h.6, #+5                
-1558  MOV   34h, #C3h                 
-155b  AJMP  #1578h                    
-155d  MOV   34h, #C0h                 
-1560  AJMP  #1578h                    
-1562  JNB   03h.7, #+5                
-1565  MOV   34h, #C1h                 
-1568  AJMP  #1578h                    
-156a  JNB   03h.6, #+5                
-156d  MOV   34h, #E0h                 
-1570  AJMP  #1578h                    
-1572  JNB   04h.6, #+3                
-1575  MOV   34h, #C2h                 
-1578  AJMP  #1755h                    
-157a  JNB   0Ah.2, #+6                
-157d  JNB   03h.4, #+3                
-1580  JB   0Ah.0, #+5                 
-1583  MOV   34h, #B7h                 
-1586  AJMP  #1599h                    
-1588  JNB   0Dh.1, #+12               
-158b  MOV   A, 63h                    
-158d  ADD   A, #E0h                   
-158f  JB   ACC.7, #+5                 
-1592  MOV   34h, #E8h                 
-1595  AJMP  #1599h                    
-1597  AJMP  #1552h                    
-1599  AJMP  #1755h                    
-159b  JNB   0Ah.2, #+6                
-159e  JNB   0Ah.0, #+3                
-15a1  JB   03h.4, #+5                 
-15a4  MOV   34h, #B7h                 
-15a7  AJMP  #15ABh                    
-15a9  AJMP  #1552h                    
-15ab  AJMP  #1755h                    
-15ad  JNB   0Ah.0, #+3                
-15b0  JB   0Ah.2, #+5                 
-15b3  ORL   34h, #10h                 
-15b6  AJMP  #1755h                    
-15b8  MOV   A, 63h                    
-15ba  ADD   A, #E0h                   
-15bc  JB   ACC.7, #+5                 
-15bf  MOV   34h, #E2h                 
-15c2  AJMP  #1755h                    
-15c4  JB   00h.0, #+24                
-15c7  JNB   04h.5, #+12               
-15ca  CLR   IE.3                      
-15cc  MOV   17h, #03h                 
-15cf  MOV   16h, #55h                 
-15d2  SETB  IE.3                      
-15d4  AJMP  #1755h                    
-15d6  MOV   A, 17h                    
-15d8  JNB   ACC.7, #+2                
-15db  INC   34h                       
-15dd  AJMP  #1755h                    
-15df  JNB   04h.5, #+12               
-15e2  CLR   IE.3                      
-15e4  MOV   17h, #06h                 
-15e7  MOV   16h, #AAh                 
-15ea  SETB  IE.3                      
-15ec  AJMP  #1755h                    
-15ee  MOV   A, 17h                    
-15f0  JNB   ACC.7, #+2                
-15f3  INC   34h                       
-15f5  AJMP  #1755h                    
-15f7  JNB   0Ah.0, #+3                
-15fa  JB   0Ah.2, #+5                 
-15fd  ORL   34h, #10h                 
-1600  AJMP  #1755h                    
-1602  JNB   03h.6, #+7                
-1605  MOV   A, 63h                    
-1607  ADD   A, #E0h                   
-1609  JB   ACC.7, #+3                 
-160c  MOV   34h, #E2h                 
-160f  AJMP  #1755h                    
-1611  JNB   0Ah.0, #+3                
-1614  JB   0Ah.2, #+5                 
-1617  ORL   34h, #10h                 
-161a  AJMP  #1755h                    
-161c  JB   00h.0, #+24                
-161f  JNB   04h.5, #+12               
-1622  CLR   IE.3                      
-1624  MOV   17h, #03h                 
-1627  MOV   16h, #55h                 
-162a  SETB  IE.3                      
-162c  AJMP  #1755h                    
-162e  MOV   A, 17h                    
-1630  JNB   ACC.7, #+2                
-1633  INC   34h                       
-1635  AJMP  #1755h                    
-1637  JNB   04h.5, #+12               
-163a  CLR   IE.3                      
-163c  MOV   17h, #06h                 
-163f  MOV   16h, #AAh                 
-1642  SETB  IE.3                      
-1644  AJMP  #1755h                    
-1646  MOV   A, 17h                    
-1648  JNB   ACC.7, #+2                
-164b  INC   34h                       
-164d  AJMP  #1755h                    
-164f  JNB   04h.6, #+4                
-1652  INC   34h                       
-1654  AJMP  #1755h                    
-1656  JNB   0Ah.0, #+3                
-1659  JB   0Ah.2, #+5                 
-165c  ORL   34h, #10h                 
-165f  AJMP  #1755h                    
-1661  JB   03h.6, #+3                 
-1664  MOV   34h, #E5h                 
-1667  AJMP  #1755h                    
-1669  JNB   0Ah.0, #+3                
-166c  JB   0Ah.2, #+5                 
-166f  ORL   34h, #10h                 
-1672  AJMP  #1755h                    
-1674  JB   04h.6, #+5                 
-1677  MOV   34h, #E3h                 
-167a  AJMP  #1755h                    
-167c  JB   03h.6, #+3                 
-167f  MOV   34h, #E5h                 
-1682  AJMP  #1755h                    
-1684  JNB   0Ah.0, #+3                
-1687  JB   0Ah.2, #+5                 
-168a  ORL   34h, #10h                 
-168d  AJMP  #1755h                    
-168f  JB   00h.0, #+24                
-1692  JNB   04h.5, #+12               
-1695  CLR   IE.3                      
-1697  MOV   17h, #0Dh                 
-169a  MOV   16h, #54h                 
-169d  SETB  IE.3                      
-169f  AJMP  #1755h                    
-16a1  MOV   A, 17h                    
-16a3  JNB   ACC.7, #+2                
-16a6  INC   34h                       
-16a8  AJMP  #1755h                    
-16aa  JNB   04h.5, #+12               
-16ad  CLR   IE.3                      
-16af  MOV   17h, #1Ah                 
-16b2  MOV   16h, #A8h                 
-16b5  SETB  IE.3                      
-16b7  AJMP  #1755h                    
-16b9  MOV   A, 17h                    
-16bb  JNB   ACC.7, #+2                
-16be  INC   34h                       
-16c0  AJMP  #1755h                    
-16c2  JB   00h.0, #+25                
-16c5  JNB   04h.5, #+12               
-16c8  CLR   IE.3                      
-16ca  MOV   17h, #00h                 
-16cd  MOV   16h, #35h                 
-16d0  SETB  IE.3                      
-16d2  AJMP  #1755h                    
-16d4  MOV   A, 17h                    
-16d6  JNB   ACC.7, #+3                
-16d9  MOV   34h, #B6h                 
-16dc  AJMP  #1755h                    
-16de  JNB   04h.5, #+12               
-16e1  CLR   IE.3                      
-16e3  MOV   17h, #00h                 
-16e6  MOV   16h, #6Ah                 
-16e9  SETB  IE.3                      
-16eb  AJMP  #1755h                    
-16ed  MOV   A, 17h                    
-16ef  JNB   ACC.7, #+3                
-16f2  MOV   34h, #B6h                 
-16f5  AJMP  #1755h                    
-16f7  AJMP  #1611h                    
-16f9  JB   00h.0, #+25                
-16fc  JNB   04h.5, #+12               
-16ff  CLR   IE.3                      
-1701  MOV   17h, #03h                 
-1704  MOV   16h, #55h                 
-1707  SETB  IE.3                      
-1709  AJMP  #1755h                    
-170b  MOV   A, 17h                    
-170d  JNB   ACC.7, #+3                
-1710  MOV   34h, #EBh                 
-1713  AJMP  #1755h                    
-1715  JNB   04h.5, #+12               
-1718  CLR   IE.3                      
-171a  MOV   17h, #06h                 
-171d  MOV   16h, #AAh                 
-1720  SETB  IE.3                      
-1722  AJMP  #1755h                    
-1724  MOV   A, 17h                    
-1726  JNB   ACC.7, #+3                
-1729  MOV   34h, #EBh                 
-172c  AJMP  #1755h                    
-172e  JNB   0Ah.0, #+3                
-1731  JB   0Ah.2, #+5                 
-1734  ORL   34h, #10h                 
-1737  AJMP  #1755h                    
-1739  MOV   A, 63h                    
-173b  ADD   A, #E0h                   
-173d  JB   ACC.7, #+3                 
-1740  MOV   34h, #EEh                 
-1743  AJMP  #1755h                    
-1745  MOV   34h, #B6h                 
-1748  AJMP  #1755h                    
-174a  JNB   0Ah.2, #+6                
-174d  JNB   0Ah.0, #+3                
-1750  ANL   34h, #EFh                 
-1753  AJMP  #1755h                    
-1755  MOV   A, 34h                    
-1757  XRL   A, R2                     
-1758  JZ    #+3                       
-175a  SETB  04h.5                     
-175c  RET                             
-175d  CLR   04h.5                     
-175f  RET                             
-1760  MOV   A, 6Eh                    
-1762  JB   ACC.7, #+26                
-1765  MOV   A, 13h                    
-1767  CJNE  A, #FFh, #+21             
-176a  MOV   A, 12h                    
-176c  ADD   A, #0Dh                   
-176e  JC    #+15                      
-1770  ADD   A, #36h                   
-1772  JNC   #+11                      
-1774  CPL   A                         
-1775  ADD   A, #44h                   
-1777  ANL   A, #FCh                   
-1779  RR    A                         
-177a  RR    A                         
-177b  ADD   A, 6Eh                    
-177d  MOV   6Eh, A                    
-177f  CLR   IE.3                      
-1781  MOV   13h, #FFh                 
-1784  MOV   12h, #FFh                 
-1787  SETB  IE.3                      
-1789  CLR   IE.2                      
-178b  POP   ACC                       
-178d  POP   PSW                       
-178f  RETI                            
-1790  MOV   A, 13h                    
-1792  CJNE  A, #FFh, #+2              
-1795  AJMP  #179Bh                    
-1797  SETB  IE.2                      
-1799  AJMP  #17A7h                    
-179b  MOV   A, 12h                    
-179d  ADD   A, #05h                   
-179f  JC    #+45                      
-17a1  SETB  IE.2                      
-17a3  ADD   A, #9Bh                   
-17a5  JC    #+39                      
-17a7  ANL   6Eh, #3Fh                 
-17aa  ANL   30h, #FBh                 
-17ad  ANL   31h, #EFh                 
-17b0  MOV   A, 34h                    
-17b2  CJNE  A, #00h, #+4              
-17b5  CLR   02h.5                     
-17b7  AJMP  #17BFh                    
-17b9  MOV   A, 13h                    
-17bb  ADD   A, #27h                   
-17bd  JC    #+15                      
-17bf  MOV   6Eh, #00h                 
-17c2  CLR   IE.3                      
-17c4  MOV   13h, #D8h                 
-17c7  MOV   12h, #F0h                 
-17ca  SETB  IE.3                      
-17cc  AJMP  #17F0h                    
-17ce  MOV   A, 6Eh                    
-17d0  JB   ACC.7, #+29                
-17d3  CJNE  A, #28h, #+0              
-17d6  JC    #+24                      
-17d8  CJNE  A, #3Fh, #+0              
-17db  JNC   #+5                       
-17dd  MOV   6Eh, #BFh                 
-17e0  AJMP  #17EAh                    
-17e2  CJNE  A, #67h, #+0              
-17e5  JC    #+9                       
-17e7  MOV   6Eh, #FFh                 
-17ea  ORL   30h, #04h                 
-17ed  ORL   31h, #10h                 
-17f0  RET                             
-17f1  MOV   6Eh, #00h                 
-17f4  CLR   IP.2                      
-17f6  SETB  TCON.2                    
-17f8  SETB  IE.2                      
-17fa  RET                             
-17fb  MOV   R7, A                     
-17fc  MOV   R7, A                     
-17fd  MOV   R7, A                     
-17fe  MOV   R7, A                     
-17ff  MOV   R7, A                     
-1800  JNB   01h.4, #+13               
-1803  JB   01h.1, #+10                
-1806  MOV   37h, 3Ah                  
-1809  MOV   3Dh, 3Ah                  
-180c  CLR   01h.4                     
-180e  SETB  01h.1                     
-1810  RET                             
-1811  JNB   04h.5, #+6                
-1814  MOV   45h, #FFh                 
-1817  MOV   46h, #FFh                 
-181a  JB   01h.1, #+47                
-181d  MOV   A, 46h                    
-181f  SWAP  A                         
-1820  ANL   A, #0Fh                   
-1822  MOV   02h, A                    
-1824  MOV   A, 45h                    
-1826  SWAP  A                         
-1827  ORL   02h, A                    
-1829  MOV   A, #00h                   
-182b  XRL   A, 02h                    
-182d  XRL   A, 46h                    
-182f  SWAP  A                         
-1830  RL    A                         
-1831  ANL   A, #E0h                   
-1833  ORL   02h, A                    
-1835  MOV   A, #00h                   
-1837  XRL   A, 02h                    
-1839  XRL   A, 46h                    
-183b  MOV   37h, A                    
-183d  MOV   3Dh, A                    
-183f  CLR   C                         
-1840  RLC   A                         
-1841  MOV   46h, 45h                  
-1844  ORL   46h, A                    
-1846  CLR   A                         
-1847  RLC   A                         
-1848  MOV   45h, A                    
-184a  SETB  01h.1                     
-184c  RET                             
-184d  JNB   01h.4, #+85               
-1850  MOV   A, 48h                    
-1852  MOV   03h, A                    
-1854  SWAP  A                         
-1855  ANL   A, #0Fh                   
-1857  MOV   02h, A                    
-1859  MOV   A, 47h                    
-185b  SWAP  A                         
-185c  ORL   02h, A                    
-185e  MOV   A, 3Ah                    
-1860  JNZ   #+13                      
-1862  MOV   A, 47h                    
-1864  JNZ   #+9                       
-1866  MOV   A, 48h                    
-1868  JNZ   #+5                       
-186a  MOV   A, 3Ah                    
-186c  CPL   A                         
-186d  MOV   3Ah, A                    
-186f  MOV   A, 3Ah                    
-1871  SWAP  A                         
-1872  RL    A                         
-1873  ANL   A, #E0h                   
-1875  ORL   02h, A                    
-1877  MOV   48h, 47h                  
-187a  MOV   A, 3Ah                    
-187c  CLR   C                         
-187d  RLC   A                         
-187e  ORL   48h, A                    
-1880  CLR   A                         
-1881  RLC   A                         
-1882  MOV   47h, A                    
-1884  MOV   A, 3Ah                    
-1886  XRL   A, 02h                    
-1888  XRL   A, 03h                    
-188a  CLR   01h.4                     
-188c  JZ    #+23                      
-188e  INC   49h                       
-1890  MOV   R2, #08h                  
-1892  MOV   R3, #00h                  
-1894  RRC   A                         
-1895  JNC   #+1                       
-1897  INC   R3                        
-1898  DJNZ  R2, #-6                   
-189a  CJNE  R3, #03h, #+0             
-189d  JC    #+6                       
-189f  INC   49h                       
-18a1  INC   49h                       
-18a3  INC   49h                       
-18a5  RET                             
-18a6  MOV   01h, #00h                 
-18a9  AJMP  #18AEh                    
-18ab  MOV   01h, #FFh                 
-18ae  JNB   01h.1, #+1                
-18b1  RET                             
-18b2  MOV   A, 45h                    
-18b4  CJNE  A, #00h, #+6              
-18b7  MOV   A, #39h                   
-18b9  MOV   45h, A                    
-18bb  AJMP  #18C2h                    
-18bd  CJNE  A, #7Fh, #+2              
-18c0  AJMP  #18B7h                    
-18c2  MOV   03h, A                    
-18c4  RL    A                         
-18c5  SWAP  A                         
-18c6  ANL   A, #0Fh                   
-18c8  MOV   02h, A                    
-18ca  MOV   A, 01h                    
-18cc  XRL   A, 02h                    
-18ce  XRL   A, 03h                    
-18d0  MOV   C, ACC.0                  
-18d2  SWAP  A                         
-18d3  ANL   A, #F0h                   
-18d5  ORL   02h, A                    
-18d7  CLR   A                         
-18d8  RRC   A                         
-18d9  ORL   03h, A                    
-18db  MOV   A, 01h                    
-18dd  XRL   A, 02h                    
-18df  XRL   A, 03h                    
-18e1  MOV   37h, A                    
-18e3  SETB  01h.1                     
-18e5  CLR   C                         
-18e6  RRC   A                         
-18e7  MOV   45h, A                    
-18e9  RET                             
-18ea  MOV   37h, #FFh                 
-18ed  RET                             
-18ee  MOV   01h, #00h                 
-18f1  AJMP  #18F6h                    
-18f3  MOV   01h, #FFh                 
-18f6  JBC   01h.6, #+4                
-18f9  JB   04h.5, #+51                
-18fc  RET                             
-18fd  MOV   A, 4Bh                    
-18ff  MOV   03h, A                    
-1901  RL    A                         
-1902  SWAP  A                         
-1903  ANL   A, #0Fh                   
-1905  MOV   02h, A                    
-1907  MOV   A, 3Ch                    
-1909  CPL   A                         
-190a  JZ    #+4                       
-190c  CPL   A                         
-190d  JNZ   #+1                       
-190f  CPL   A                         
-1910  MOV   C, ACC.0                  
-1912  SWAP  A                         
-1913  ANL   A, #F0h                   
-1915  ORL   02h, A                    
-1917  CLR   A                         
-1918  RRC   A                         
-1919  ORL   03h, A                    
-191b  MOV   A, 3Ch                    
-191d  CLR   C                         
-191e  RRC   A                         
-191f  MOV   4Bh, A                    
-1921  RLC   A                         
-1922  XRL   A, 02h                    
-1924  XRL   A, 03h                    
-1926  JB   04h.5, #+6                 
-1929  INC   63h                       
-192b  XRL   A, 01h                    
-192d  JZ    #+3                       
-192f  MOV   63h, #00h                 
-1932  RET                             
-1933  PUSH  PSW                       
-1935  ANL   PSW, #EFh                 
-1938  ORL   PSW, #08h                 
-193b  MOV   20h, 20h                  
-193e  MOV   52h, #08h                 
-1941  SETB  05h.1                     
-1943  MOV   R0, #52h                  
-1945  CLR   01h.0                     
-1947  CLR   01h.1                     
-1949  CLR   05h.2                     
-194b  CLR   05h.3                     
-194d  CLR   05h.5                     
-194f  CLR   05h.6                     
-1951  CLR   06h.7                     
-1953  CLR   08h.0                     
-1955  CLR   08h.1                     
-1957  MOV   20h, 20h                  
-195a  POP   PSW                       
-195c  RET                             
-195d  PUSH  PSW                       
-195f  ANL   PSW, #EFh                 
-1962  ORL   PSW, #08h                 
-1965  MOV   20h, 20h                  
-1968  JNB   0Dh.7, #+22               
-196b  JB   01h.0, #+2                 
-196e  AJMP  #1B96h                    
-1970  JNB   01h.1, #+2                
-1973  AJMP  #1B96h                    
-1975  MOV   37h, 36h                  
-1978  MOV   3Dh, 36h                  
-197b  CLR   01h.0                     
-197d  SETB  01h.1                     
-197f  AJMP  #1B96h                    
-1981  JB   01h.0, #+2                 
-1984  AJMP  #1AACh                    
-1986  JNB   05h.7, #+6                
-1989  MOV   A, 36h                    
-198b  JNZ   #+2                       
-198d  SETB  07h.6                     
-198f  JB   05h.2, #+3                 
-1992  JNB   05h.3, #+2                
-1995  AJMP  #1AACh                    
-1997  CJNE  R2, #00h, #+18            
-199a  JB   05h.1, #+11                
-199d  CLR   05h.0                     
-199f  MOV   R2, #03h                  
-19a1  JB   0Dh.6, #+2                 
-19a4  MOV   R2, #07h                  
-19a6  AJMP  #19AFh                    
-19a8  SETB  05h.0                     
-19aa  AJMP  #19AFh                    
-19ac  SETB  05h.0                     
-19ae  DEC   R2                        
-19af  CJNE  R3, #08h, #+3             
-19b2  ANL   36h, #3Fh                 
-19b5  CJNE  R3, #09h, #+3             
-19b8  ANL   36h, #7Fh                 
-19bb  CJNE  R3, #0Bh, #+13            
-19be  MOV   A, 36h                    
-19c0  MOV   20h, PSW                  
-19c3  MOV   C, 00h.0                  
-19c5  JNB   07h.5, #+1                
-19c8  CPL   C                         
-19c9  MOV   05h.4, C                  
-19cb  JB   06h.7, #+24                
-19ce  JNB   07h.6, #+21               
-19d1  CJNE  R3, #0Bh, #+3             
-19d4  JB   05h.4, #+15                
-19d7  MOV   A, 36h                    
-19d9  JNZ   #+11                      
-19db  SETB  06h.7                     
-19dd  SETB  08h.0                     
-19df  MOV   A, R3                     
-19e0  CLR   C                         
-19e1  RLC   A                         
-19e2  ADD   A, #03h                   
-19e4  MOV   36h, A                    
-19e6  JB   06h.7, #+2                 
-19e9  AJMP  #1A47h                    
-19eb  JNB   08h.0, #+62               
-19ee  MOV   4Dh, #00h                 
-19f1  MOV   A, 36h                    
-19f3  CLR   C                         
-19f4  SUBB  A, #08h                   
-19f6  JNC   #+10                      
-19f8  MOV   51h, 36h                  
-19fb  SETB  05h.3                     
-19fd  MOV   36h, #00h                 
-1a00  AJMP  #1A28h                    
-1a02  MOV   51h, #08h                 
-1a05  SETB  05h.3                     
-1a07  MOV   36h, A                    
-1a09  JZ    #+29                      
-1a0b  MOV   4Ch, #00h                 
-1a0e  CLR   C                         
-1a0f  MOV   A, 36h                    
-1a11  SUBB  A, #08h                   
-1a13  JNC   #+10                      
-1a15  MOV   50h, 36h                  
-1a18  SETB  05h.2                     
-1a1a  MOV   36h, #00h                 
-1a1d  AJMP  #1A28h                    
-1a1f  MOV   50h, #08h                 
-1a22  SETB  05h.2                     
-1a24  MOV   36h, A                    
-1a26  JNZ   #+4                       
-1a28  CLR   01h.0                     
-1a2a  CLR   08h.0                     
-1a2c  JNB   06h.7, #+22               
-1a2f  JB   08h.0, #+19                
-1a32  JB   05h.7, #+5                 
-1a35  JNB   01h.0, #+4                
-1a38  AJMP  #1A42h                    
-1a3a  SETB  08h.1                     
-1a3c  JNB   08h.1, #+6                
-1a3f  JB   05h.7, #+3                 
-1a42  LCALL #1B9Ch                    
-1a45  AJMP  #1AACh                    
-1a47  MOV   A, 36h                    
-1a49  CLR   01h.0                     
-1a4b  CLR   C                         
-1a4c  RLC   A                         
-1a4d  MOV   4Dh, A                    
-1a4f  MOV   00h.0, C                  
-1a51  MOV   51h, #08h                 
-1a54  SETB  05h.3                     
-1a56  JNB   0Dh.5, #+5                
-1a59  JNB   0Dh.4, #+19               
-1a5c  AJMP  #1A63h                    
-1a5e  JNB   0Dh.4, #+30               
-1a61  AJMP  #1A94h                    
-1a63  DEC   51h                       
-1a65  JNB   05h.0, #+5                
-1a68  ORL   4Dh, #80h                 
-1a6b  INC   51h                       
-1a6d  AJMP  #1AACh                    
-1a6f  JNB   05h.0, #+11               
-1a72  MOV   4Ch, #00h                 
-1a75  ORL   4Ch, #01h                 
-1a78  MOV   50h, #01h                 
-1a7b  SETB  05h.2                     
-1a7d  AJMP  #1AACh                    
-1a7f  MOV   50h, #01h                 
-1a82  CLR   A                         
-1a83  MOV   C, 00h.0                  
-1a85  RLC   A                         
-1a86  MOV   4Ch, A                    
-1a88  JNB   05h.0, #+5                
-1a8b  ORL   4Ch, #02h                 
-1a8e  INC   50h                       
-1a90  SETB  05h.2                     
-1a92  AJMP  #1AACh                    
-1a94  MOV   50h, #02h                 
-1a97  CLR   A                         
-1a98  MOV   C, 05h.4                  
-1a9a  RLC   A                         
-1a9b  MOV   C, 00h.0                  
-1a9d  RLC   A                         
-1a9e  MOV   4Ch, A                    
-1aa0  JNB   05h.0, #+5                
-1aa3  ORL   4Ch, #04h                 
-1aa6  INC   50h                       
-1aa8  SETB  05h.2                     
-1aaa  AJMP  #1AACh                    
-1aac  JNB   05h.6, #+2                
-1aaf  AJMP  #1B58h                    
-1ab1  JNB   05h.3, #+66               
-1ab4  JB   05h.5, #+5                 
-1ab7  MOV   4Fh, 4Dh                  
-1aba  AJMP  #1AE1h                    
-1abc  MOV   4Eh, #00h                 
-1abf  MOV   5Bh, 52h                  
-1ac2  MOV   A, 4Dh                    
-1ac4  RR    A                         
-1ac5  MOV   4Dh, A                    
-1ac7  MOV   A, 4Eh                    
-1ac9  SETB  C                         
-1aca  RRC   A                         
-1acb  MOV   4Eh, A                    
-1acd  DJNZ  5Bh, #-14                 
-1ad0  MOV   A, 4Dh                    
-1ad2  ANL   A, 4Eh                    
-1ad4  ORL   4Fh, A                    
-1ad6  XRL   4Eh, #FFh                 
-1ad9  MOV   A, 4Dh                    
-1adb  ANL   A, 4Eh                    
-1add  MOV   4Dh, A                    
-1adf  AJMP  #1AE1h                    
-1ae1  CLR   C                         
-1ae2  MOV   A, 52h                    
-1ae4  SUBB  A, 51h                    
-1ae6  JC    #+39                      
-1ae8  MOV   51h, #00h                 
-1aeb  JNB   05h.3, #+2                
-1aee  SETB  05h.5                     
-1af0  CLR   05h.3                     
-1af2  JZ    #+20                      
-1af4  MOV   52h, A                    
-1af6  JNB   05h.2, #+35               
-1af9  MOV   4Dh, 4Ch                  
-1afc  MOV   51h, 50h                  
-1aff  MOV   50h, #00h                 
-1b02  CLR   05h.2                     
-1b04  SETB  05h.3                     
-1b06  AJMP  #1AACh                    
-1b08  MOV   52h, #00h                 
-1b0b  SETB  05h.6                     
-1b0d  AJMP  #1B58h                    
-1b0f  CPL   A                         
-1b10  INC   A                         
-1b11  MOV   51h, A                    
-1b13  MOV   52h, #00h                 
-1b16  SETB  05h.6                     
-1b18  SETB  05h.5                     
-1b1a  AJMP  #1B58h                    
-1b1c  CJNE  R0, #52h, #+76            
-1b1f  JB   05h.5, #+25                
-1b22  JNB   06h.7, #+9                
-1b25  JB   08h.0, #+6                 
-1b28  JB   05h.7, #+3                 
-1b2b  LCALL #1B9Ch                    
-1b2e  JB   06h.7, #+5                 
-1b31  MOV   4Fh, #FFh                 
-1b34  AJMP  #1B49h                    
-1b36  MOV   4Fh, #00h                 
-1b39  AJMP  #1B49h                    
-1b3b  JB   06h.7, #+11                
-1b3e  MOV   5Bh, 52h                  
-1b41  CLR   A                         
-1b42  SETB  C                         
-1b43  RRC   A                         
-1b44  DJNZ  5Bh, #-5                  
-1b47  ORL   4Fh, A                    
-1b49  INC   R0                        
-1b4a  MOV   @R0, 4Fh                  
-1b4c  MOV   4Fh, #00h                 
-1b4f  MOV   52h, #08h                 
-1b52  CLR   05h.6                     
-1b54  CLR   05h.5                     
-1b56  AJMP  #1B7Bh                    
-1b58  CLR   C                         
-1b59  MOV   A, R0                     
-1b5a  SUBB  A, #56h                   
-1b5c  JNC   #+29                      
-1b5e  INC   R0                        
-1b5f  MOV   @R0, 4Fh                  
-1b61  MOV   4Fh, #00h                 
-1b64  MOV   52h, #08h                 
-1b67  CLR   05h.6                     
-1b69  CLR   05h.5                     
-1b6b  CLR   C                         
-1b6c  MOV   A, R0                     
-1b6d  SUBB  A, #55h                   
-1b6f  MOV   05h.1, C                  
-1b71  JB   05h.3, #+5                 
-1b74  JB   05h.2, #+2                 
-1b77  AJMP  #1B7Bh                    
-1b79  AJMP  #1AACh                    
-1b7b  JNB   01h.1, #+2                
-1b7e  AJMP  #1B96h                    
-1b80  CJNE  R0, #52h, #+2             
-1b83  AJMP  #1B96h                    
-1b85  MOV   4Eh, R0                   
-1b87  CLR   A                         
-1b88  XCH   A, @R0                    
-1b89  DEC   R0                        
-1b8a  CJNE  R0, #52h, #-5             
-1b8d  MOV   R0, 4Eh                   
-1b8f  DEC   R0                        
-1b90  MOV   37h, A                    
-1b92  MOV   3Dh, A                    
-1b94  SETB  01h.1                     
-1b96  MOV   20h, 20h                  
-1b99  POP   PSW                       
-1b9b  RET                             
-1b9c  JB   05h.2, #+17                
-1b9f  MOV   4Ch, #01h                 
-1ba2  MOV   50h, #01h                 
-1ba5  SETB  05h.2                     
-1ba7  CLR   06h.7                     
-1ba9  JNB   08h.1, #+4                
-1bac  CLR   01h.0                     
-1bae  CLR   08h.1                     
-1bb0  RET                             
-1bb1  JNB   01h.4, #+30               
-1bb4  MOV   A, 3Ah                    
-1bb6  CPL   A                         
-1bb7  JZ    #+18                      
-1bb9  AJMP  #1BCFh                    
-1bbb  JNB   01h.4, #+20               
-1bbe  MOV   A, 3Ah                    
-1bc0  JZ    #+9                       
-1bc2  AJMP  #1BCFh                    
-1bc4  JNB   01h.4, #+11               
-1bc7  MOV   A, 3Ah                    
-1bc9  JZ    #+4                       
-1bcb  INC   63h                       
-1bcd  AJMP  #1BD2h                    
-1bcf  MOV   63h, #00h                 
-1bd2  CLR   01h.4                     
-1bd4  JB   04h.5, #+2                 
-1bd7  AJMP  #1BDCh                    
-1bd9  MOV   63h, #00h                 
-1bdc  RET                             
-1bdd  JNB   04h.5, #+3                
-1be0  MOV   64h, #00h                 
-1be3  JB   01h.1, #+32                
-1be6  JNB   03h.2, #+22               
-1be9  JNB   03h.3, #+14               
-1bec  MOV   37h, #07h                 
-1bef  MOV   A, 34h                    
-1bf1  JB   ACC.5, #+14                
-1bf4  JNB   04h.2, #+8                
-1bf7  JB   04h.3, #+5                 
-1bfa  MOV   37h, #01h                 
-1bfd  AJMP  #1C02h                    
-1bff  MOV   37h, #03h                 
-1c02  SETB  01h.1                     
-1c04  INC   64h                       
-1c06  RET                             
-1c07  JNB   04h.5, #+6                
-1c0a  MOV   66h, #00h                 
-1c0d  MOV   63h, #00h                 
-1c10  JNB   01h.4, #+94               
-1c13  MOV   A, 3Ah                    
-1c15  XCH   A, 66h                    
-1c17  XRL   A, 66h                    
-1c19  JNZ   #+4                       
-1c1b  INC   63h                       
-1c1d  AJMP  #1C22h                    
-1c1f  MOV   63h, #01h                 
-1c22  CLR   04h.3                     
-1c24  CLR   04h.2                     
-1c26  MOV   A, 3Ah                    
-1c28  JZ    #+66                      
-1c2a  CPL   A                         
-1c2b  JZ    #+63                      
-1c2d  CPL   A                         
-1c2e  RR    A                         
-1c2f  JNB   ACC.0, #-4                
-1c32  JNB   ACC.7, #+4                
-1c35  RL    A                         
-1c36  JB   ACC.7, #-4                 
-1c39  MOV   R2, A                     
-1c3a  CJNE  R2, #01h, #+4             
-1c3d  SETB  04h.2                     
-1c3f  AJMP  #1C6Fh                    
-1c41  CJNE  R2, #03h, #+4             
-1c44  SETB  04h.3                     
-1c46  AJMP  #1C6Fh                    
-1c48  MOV   A, 34h                    
-1c4a  JB   ACC.5, #+31                
-1c4d  CJNE  R2, #07h, #+6             
-1c50  SETB  04h.2                     
-1c52  SETB  04h.3                     
-1c54  AJMP  #1C6Fh                    
-1c56  CJNE  R2, #09h, #+2             
-1c59  AJMP  #1C68h                    
-1c5b  CJNE  R2, #21h, #+2             
-1c5e  AJMP  #1C68h                    
-1c60  CJNE  R2, #05h, #+2             
-1c63  AJMP  #1C68h                    
-1c65  CJNE  R2, #41h, #+4             
-1c68  SETB  04h.3                     
-1c6a  AJMP  #1C6Fh                    
-1c6c  MOV   63h, #00h                 
-1c6f  CLR   01h.4                     
-1c71  RET                             
-1c72  JBC   04h.7, #+1                
-1c75  RET                             
-1c76  CLR   00h.0                     
-1c78  MOV   R2, #09h                  
-1c7a  AJMP  #1C9Eh                    
-1c7c  MOV   A, 67h                    
-1c7e  MOV   C, ACC.7                  
-1c80  MOV   A, 6Ch                    
-1c82  RLC   A                         
-1c83  MOV   6Ch, A                    
-1c85  MOV   A, 6Bh                    
-1c87  RLC   A                         
-1c88  MOV   6Bh, A                    
-1c8a  MOV   A, 6Ah                    
-1c8c  RLC   A                         
-1c8d  MOV   6Ah, A                    
-1c8f  MOV   A, 69h                    
-1c91  RLC   A                         
-1c92  MOV   69h, A                    
-1c94  MOV   A, 68h                    
-1c96  RLC   A                         
-1c97  MOV   68h, A                    
-1c99  MOV   A, 67h                    
-1c9b  RLC   A                         
-1c9c  MOV   67h, A                    
-1c9e  JB   00h.0, #+47                
-1ca1  MOV   A, 67h                    
-1ca3  XRL   A, 6Dh                    
-1ca5  JZ    #+37                      
-1ca7  MOV   A, 68h                    
-1ca9  XRL   A, 6Dh                    
-1cab  JZ    #+31                      
-1cad  MOV   A, 69h                    
-1caf  XRL   A, 6Dh                    
-1cb1  JZ    #+25                      
-1cb3  MOV   A, 6Ah                    
-1cb5  XRL   A, 6Dh                    
-1cb7  JZ    #+19                      
-1cb9  MOV   A, 6Bh                    
-1cbb  XRL   A, 6Dh                    
-1cbd  JZ    #+13                      
-1cbf  MOV   A, 6Ch                    
-1cc1  XRL   A, 6Dh                    
-1cc3  JZ    #+7                       
-1cc5  DJNZ  R2, #-75                  
-1cc7  MOV   65h, #00h                 
-1cca  AJMP  #1CD2h                    
-1ccc  INC   65h                       
-1cce  SETB  00h.0                     
-1cd0  DJNZ  R2, #-86                  
-1cd2  MOV   A, 67h                    
-1cd4  XCH   A, 68h                    
-1cd6  XCH   A, 69h                    
-1cd8  XCH   A, 6Ah                    
-1cda  XCH   A, 6Bh                    
-1cdc  XCH   A, 6Ch                    
-1cde  MOV   67h, A                    
-1ce0  RET                             
-1ce1  JNB   0Dh.7, #+5                
-1ce4  MOV   35h, #ECh                 
-1ce7  AJMP  #1D04h                    
-1ce9  JNB   0Dh.5, #+13               
-1cec  JNB   0Dh.4, #+5                
-1cef  MOV   35h, #66h                 
-1cf2  AJMP  #1D04h                    
-1cf4  MOV   35h, #6Ah                 
-1cf7  AJMP  #1D04h                    
-1cf9  JB   0Dh.4, #+5                 
-1cfc  MOV   35h, #6Eh                 
-1cff  AJMP  #1D04h                    
-1d01  MOV   35h, #7Eh                 
-1d04  RET                             
-1d05  MOV   A, #80h                   
-1d07  MOVX  @R0, A                    
-1d08  MOV   A, #00h                   
-1d0a  NOP                             
-1d0b  NOP                             
-1d0c  MOVX  @R0, A                    
-1d0d  MOV   A, #40h                   
-1d0f  NOP                             
-1d10  NOP                             
-1d11  MOVX  @R0, A                    
-1d12  MOV   A, R3                     
-1d13  NOP                             
-1d14  NOP                             
-1d15  MOVX  @R0, A                    
-1d16  NOP                             
-1d17  NOP                             
-1d18  NOP                             
-1d19  NOP                             
-1d1a  NOP                             
-1d1b  JB   ACC.0, #+16                
-1d1e  JB   ACC.1, #+13                
-1d21  MOV   A, #FFh                   
-1d23  MOVX  @R0, A                    
-1d24  NOP                             
-1d25  NOP                             
-1d26  NOP                             
-1d27  NOP                             
-1d28  NOP                             
-1d29  NOP                             
-1d2a  NOP                             
-1d2b  NOP                             
-1d2c  NOP                             
-1d2d  NOP                             
-1d2e  MOV   A, R2                     
-1d2f  MOVX  @R0, A                    
-1d30  RET                             
-1d31  MOV   R0, #06h                  
-1d33  MOVX  A, @R0                    
-1d34  MOV   R2, A                     
-1d35  JB   0Dh.7, #+20                
-1d38  JNB   07h.7, #+17               
-1d3b  JNB   08h.4, #+11               
-1d3e  JNB   ACC.2, #+8                
-1d41  CLR   08h.4                     
-1d43  MOV   A, #0Dh                   
-1d45  SETB  08h.5                     
-1d47  AJMP  #1D50h                    
-1d49  JB   07h.7, #+12                
-1d4c  MOV   A, #05h                   
-1d4e  CLR   08h.5                     
-1d50  MOV   R0, #06h                  
-1d52  MOV   C, 0Eh.0                  
-1d54  CPL   C                         
-1d55  MOV   ACC.5, C                  
-1d57  MOVX  @R0, A                    
-1d58  MOV   A, R2                     
-1d59  JNB   ACC.0, #+10               
-1d5c  JNB   01h.5, #+7                
-1d5f  MOV   R0, #02h                  
-1d61  MOV   A, 3Bh                    
-1d63  MOVX  @R0, A                    
-1d64  CLR   01h.5                     
-1d66  RET                             
-1d67  MOV   R0, #06h                  
-1d69  MOVX  A, @R0                    
-1d6a  JNB   ACC.1, #+45               
-1d6d  MOV   C, ACC.6                  
-1d6f  MOV   05h.7, C                  
-1d71  JB   06h.7, #+3                 
-1d74  JB   01h.0, #+35                
-1d77  JNB   0Dh.7, #+3                
-1d7a  JB   01h.1, #+29                
-1d7d  MOV   C, ACC.3                  
-1d7f  MOV   07h.5, C                  
-1d81  MOV   C, ACC.5                  
-1d83  MOV   07h.6, C                  
-1d85  MOV   R0, #06h                  
-1d87  MOV   A, #35h                   
-1d89  MOV   C, 0Eh.0                  
-1d8b  CPL   C                         
-1d8c  MOV   ACC.5, C                  
-1d8e  MOV   C, 08h.5                  
-1d90  MOV   ACC.3, C                  
-1d92  MOVX  @R0, A                    
-1d93  MOV   R0, #02h                  
-1d95  MOVX  A, @R0                    
-1d96  MOV   36h, A                    
-1d98  SETB  01h.0                     
-1d9a  RET                             
-1d9b  MOV   R0, #05h                  
-1d9d  MOVX  A, @R0                    
-1d9e  JNB   ACC.0, #+22               
-1da1  JNB   01h.2, #+19               
-1da4  MOV   R0, #01h                  
-1da6  MOV   A, 38h                    
-1da8  MOVX  @R0, A                    
-1da9  XCH   A, 67h                    
-1dab  XCH   A, 68h                    
-1dad  XCH   A, 69h                    
-1daf  XCH   A, 6Ah                    
-1db1  XCH   A, 6Bh                    
-1db3  XCH   A, 6Ch                    
-1db5  CLR   01h.2                     
-1db7  RET                             
-1db8  JB   01h.4, #+20                
-1dbb  MOV   R0, #05h                  
-1dbd  MOVX  A, @R0                    
-1dbe  JNB   ACC.1, #+14               
-1dc1  JB   01h.3, #+11                
-1dc4  MOV   R0, #01h                  
-1dc6  MOVX  A, @R0                    
-1dc7  MOV   39h, A                    
-1dc9  SETB  01h.3                     
-1dcb  MOV   6Dh, A                    
-1dcd  SETB  04h.7                     
-1dcf  RET                             
-1dd0  MOV   34h, #00h                 
-1dd3  SETB  04h.5                     
-1dd5  MOV   30h, #00h                 
-1dd8  MOV   31h, #01h                 
-1ddb  MOV   32h, #A8h                 
-1dde  MOV   33h, #04h                 
-1de1  ACALL 1DE7h                     
-1de3  ACALL 1DE7h                     
-1de5  AJMP  #1DE8h                    
-1de7  RETI                            
-1de8  LCALL #17F1h                    
-1deb  MOV   TMOD, #15h                
-1dee  CLR   TCON.5                    
-1df0  CLR   TCON.7                    
-1df2  MOV   TH1, #FCh                 
-1df5  MOV   TL1, #21h                 
-1df8  SETB  TCON.6                    
-1dfa  SETB  IE.7                      
-1dfc  SETB  IE.3                      
-1dfe  LCALL #0800h                    
-1e01  LCALL #1CE1h                    
-1e04  MOV   R0, #06h                  
-1e06  MOV   R3, 35h                   
-1e08  MOV   A, #35h                   
-1e0a  MOV   C, 0Eh.0                  
-1e0c  CPL   C                         
-1e0d  MOV   ACC.5, C                  
-1e0f  MOV   R2, A                     
-1e10  LCALL #1D05h                    
-1e13  CLR   P1.7                      
-1e15  LCALL #1933h                    
-1e18  LCALL #0C5Bh                    
-1e1b  LCALL #077Ch                    
-1e1e  MOV   R0, #05h                  
-1e20  MOV   R3, #CCh                  
-1e22  MOV   R2, #15h                  
-1e24  LCALL #1D05h                    
-1e27  MOV   32h, #ACh                 
-1e2a  CLR   IE.3                      
-1e2c  MOV   17h, #00h                 
-1e2f  MOV   16h, #32h                 
-1e32  SETB  IE.3                      
-1e34  LCALL #0899h                    
-1e37  LCALL #08DDh                    
-1e3a  MOV   A, 17h                    
-1e3c  JNB   ACC.7, #-11               
-1e3f  MOV   32h, #A8h                 
-1e42  LCALL #0899h                    
-1e45  MOV   30h, #00h                 
-1e48  MOV   32h, #A8h                 
-1e4b  MOV   R2, #01h                  
-1e4d  MOV   R3, #00h                  
-1e4f  MOV   R4, #0Ah                  
-1e51  MOV   R5, #02h                  
-1e53  MOV   R6, #02h                  
-1e55  MOV   A, R2                     
-1e56  ANL   A, #FEh                   
-1e58  MOV   30h, A                    
-1e5a  MOV   A, R3                     
-1e5b  MOV   C, ACC.3                  
-1e5d  CPL   C                         
-1e5e  MOV   P1.3, C                   
-1e60  MOV   C, ACC.5                  
-1e62  CPL   C                         
-1e63  MOV   P1.4, C                   
-1e65  CLR   IE.3                      
-1e67  MOV   17h, #00h                 
-1e6a  MOV   16h, #FAh                 
-1e6d  SETB  IE.3                      
-1e6f  LCALL #0899h                    
-1e72  LCALL #08DDh                    
-1e75  MOV   A, 17h                    
-1e77  JNB   ACC.7, #-11               
-1e7a  ANL   32h, #DFh                 
-1e7d  XRL   32h, #40h                 
-1e80  MOV   A, R3                     
-1e81  JZ    #+5                       
-1e83  MOV   R2, A                     
-1e84  MOV   R3, #00h                  
-1e86  DJNZ  R4, #-51                  
-1e88  MOV   A, R2                     
-1e89  RL    A                         
-1e8a  JB   ACC.3, #+3                 
-1e8d  JNB   ACC.5, #+5                
-1e90  MOV   R3, A                     
-1e91  MOV   R2, #00h                  
-1e93  DJNZ  R4, #-64                  
-1e95  MOV   R2, A                     
-1e96  DJNZ  R4, #-67                  
-1e98  ORL   32h, #20h                 
-1e9b  MOV   R2, #01h                  
-1e9d  MOV   R4, #0Ah                  
-1e9f  DJNZ  R5, #-76                  
-1ea1  MOV   R2, #00h                  
-1ea3  MOV   R5, #01h                  
-1ea5  MOV   R4, #10h                  
-1ea7  DJNZ  R6, #-84                  
-1ea9  RET                             
-1eaa  CLR   IE.7                      
-1eac  MOV   PSW, #00h                 
-1eaf  MOV   A, P1                     
-1eb1  MOV   P2, #00h                  
-1eb4  MOV   A, P3                     
-1eb6  MOV   R0, #00h                  
-1eb8  MOV   A, @R0                    
-1eb9  CJNE  A, 00h, #+6               
-1ebc  INC   R0                        
-1ebd  CJNE  R0, #60h, #-8             
-1ec0  AJMP  #1EC6h                    
-1ec2  MOV   A, R0                     
-1ec3  MOV   @R0, A                    
-1ec4  AJMP  #1EC4h                    
-1ec6  MOV   R0, #FFh                  
-1ec8  MOV   A, #00h                   
-1eca  MOV   @R0, A                    
-1ecb  DJNZ  R0, #-3                   
-1ecd  MOV   SP, #6Fh                  
-1ed0  LCALL #1DD0h                    
-1ed3  LCALL #08DDh                    
-1ed6  LCALL #0800h                    
-1ed9  LCALL #0620h                    
-1edc  LCALL #1000h                    
-1edf  LCALL #1790h                    
-1ee2  LCALL #006Eh                    
-1ee5  LCALL #0899h                    
-1ee8  LCALL #08E9h                    
-1eeb  SJMP  #-26                      
-1eed  MOV   R7, A                     
-1eee  MOV   R7, A                     
-1eef  MOV   R7, A                     
-1ef0  MOV   R7, A                     
-1ef1  MOV   R7, A                     
-1ef2  MOV   R7, A                     
-1ef3  MOV   R7, A                     
-1ef4  MOV   R7, A                     
-1ef5  MOV   R7, A                     
-1ef6  MOV   R7, A                     
-1ef7  MOV   R7, A                     
-1ef8  MOV   R7, A                     
-1ef9  MOV   R7, A                     
-1efa  MOV   R7, A                     
-1efb  MOV   R7, A                     
-1efc  MOV   R7, A                     
-1efd  MOV   R7, A                     
-1efe  MOV   R7, A                     
-1eff  MOV   R7, A                     
-1f00  MOV   R7, A                     
-1f01  MOV   R7, A                     
-1f02  MOV   R7, A                     
-1f03  MOV   R7, A                     
-1f04  MOV   R7, A                     
-1f05  MOV   R7, A                     
-1f06  MOV   R7, A                     
-1f07  MOV   R7, A                     
-1f08  MOV   R7, A                     
-1f09  MOV   R7, A                     
-1f0a  MOV   R7, A                     
-1f0b  MOV   R7, A                     
-1f0c  MOV   R7, A                     
-1f0d  MOV   R7, A                     
-1f0e  MOV   R7, A                     
-1f0f  MOV   R7, A                     
-1f10  MOV   R7, A                     
-1f11  MOV   R7, A                     
-1f12  MOV   R7, A                     
-1f13  MOV   R7, A                     
-1f14  MOV   R7, A                     
-1f15  MOV   R7, A                     
-1f16  MOV   R7, A                     
-1f17  MOV   R7, A                     
-1f18  MOV   R7, A                     
-1f19  MOV   R7, A                     
-1f1a  MOV   R7, A                     
-1f1b  MOV   R7, A                     
-1f1c  MOV   R7, A                     
-1f1d  MOV   R7, A                     
-1f1e  MOV   R7, A                     
-1f1f  MOV   R7, A                     
-1f20  MOV   R7, A                     
-1f21  MOV   R7, A                     
-1f22  MOV   R7, A                     
-1f23  MOV   R7, A                     
-1f24  MOV   R7, A                     
-1f25  MOV   R7, A                     
-1f26  MOV   R7, A                     
-1f27  MOV   R7, A                     
-1f28  MOV   R7, A                     
-1f29  MOV   R7, A                     
-1f2a  MOV   R7, A                     
-1f2b  MOV   R7, A                     
-1f2c  MOV   R7, A                     
-1f2d  MOV   R7, A                     
-1f2e  MOV   R7, A                     
-1f2f  MOV   R7, A                     
-1f30  MOV   R7, A                     
-1f31  MOV   R7, A                     
-1f32  MOV   R7, A                     
-1f33  MOV   R7, A                     
-1f34  MOV   R7, A                     
-1f35  MOV   R7, A                     
-1f36  MOV   R7, A                     
-1f37  MOV   R7, A                     
-1f38  MOV   R7, A                     
-1f39  MOV   R7, A                     
-1f3a  MOV   R7, A                     
-1f3b  MOV   R7, A                     
-1f3c  MOV   R7, A                     
-1f3d  MOV   R7, A                     
-1f3e  MOV   R7, A                     
-1f3f  MOV   R7, A                     
-1f40  MOV   R7, A                     
-1f41  MOV   R7, A                     
-1f42  MOV   R7, A                     
-1f43  MOV   R7, A                     
-1f44  MOV   R7, A                     
-1f45  MOV   R7, A                     
-1f46  MOV   R7, A                     
-1f47  MOV   R7, A                     
-1f48  MOV   R7, A                     
-1f49  MOV   R7, A                     
-1f4a  MOV   R7, A                     
-1f4b  MOV   R7, A                     
-1f4c  MOV   R7, A                     
-1f4d  MOV   R7, A                     
-1f4e  MOV   R7, A                     
-1f4f  MOV   R7, A                     
-1f50  MOV   R7, A                     
-1f51  MOV   R7, A                     
-1f52  MOV   R7, A                     
-1f53  MOV   R7, A                     
-1f54  MOV   R7, A                     
-1f55  MOV   R7, A                     
-1f56  MOV   R7, A                     
-1f57  MOV   R7, A                     
-1f58  MOV   R7, A                     
-1f59  MOV   R7, A                     
-1f5a  MOV   R7, A                     
-1f5b  MOV   R7, A                     
-1f5c  MOV   R7, A                     
-1f5d  MOV   R7, A                     
-1f5e  MOV   R7, A                     
-1f5f  MOV   R7, A                     
-1f60  MOV   R7, A                     
-1f61  MOV   R7, A                     
-1f62  MOV   R7, A                     
-1f63  MOV   R7, A                     
-1f64  MOV   R7, A                     
-1f65  MOV   R7, A                     
-1f66  MOV   R7, A                     
-1f67  MOV   R7, A                     
-1f68  MOV   R7, A                     
-1f69  MOV   R7, A                     
-1f6a  MOV   R7, A                     
-1f6b  MOV   R7, A                     
-1f6c  MOV   R7, A                     
-1f6d  MOV   R7, A                     
-1f6e  MOV   R7, A                     
-1f6f  MOV   R7, A                     
-1f70  MOV   R7, A                     
-1f71  MOV   R7, A                     
-1f72  MOV   R7, A                     
-1f73  MOV   R7, A                     
-1f74  MOV   R7, A                     
-1f75  MOV   R7, A                     
-1f76  MOV   R7, A                     
-1f77  MOV   R7, A                     
-1f78  MOV   R7, A                     
-1f79  MOV   R7, A                     
-1f7a  MOV   R7, A                     
-1f7b  MOV   R7, A                     
-1f7c  MOV   R7, A                     
-1f7d  MOV   R7, A                     
-1f7e  MOV   R7, A                     
-1f7f  MOV   R7, A                     
-1f80  MOV   R7, A                     
-1f81  MOV   R7, A                     
-1f82  MOV   R7, A                     
-1f83  MOV   R7, A                     
-1f84  MOV   R7, A                     
-1f85  MOV   R7, A                     
-1f86  MOV   R7, A                     
-1f87  MOV   R7, A                     
-1f88  MOV   R7, A                     
-1f89  MOV   R7, A                     
-1f8a  MOV   R7, A                     
-1f8b  MOV   R7, A                     
-1f8c  MOV   R7, A                     
-1f8d  MOV   R7, A                     
-1f8e  MOV   R7, A                     
-1f8f  MOV   R7, A                     
-1f90  MOV   R7, A                     
-1f91  MOV   R7, A                     
-1f92  MOV   R7, A                     
-1f93  MOV   R7, A                     
-1f94  MOV   R7, A                     
-1f95  MOV   R7, A                     
-1f96  MOV   R7, A                     
-1f97  MOV   R7, A                     
-1f98  MOV   R7, A                     
-1f99  MOV   R7, A                     
-1f9a  MOV   R7, A                     
-1f9b  MOV   R7, A                     
-1f9c  MOV   R7, A                     
-1f9d  MOV   R7, A                     
-1f9e  MOV   R7, A                     
-1f9f  MOV   R7, A                     
-1fa0  MOV   R7, A                     
-1fa1  MOV   R7, A                     
-1fa2  MOV   R7, A                     
-1fa3  MOV   R7, A                     
-1fa4  MOV   R7, A                     
-1fa5  MOV   R7, A                     
-1fa6  MOV   R7, A                     
-1fa7  MOV   R7, A                     
-1fa8  MOV   R7, A                     
-1fa9  MOV   R7, A                     
-1faa  MOV   R7, A                     
-1fab  MOV   R7, A                     
-1fac  MOV   R7, A                     
-1fad  MOV   R7, A                     
-1fae  MOV   R7, A                     
-1faf  MOV   R7, A                     
-1fb0  MOV   R7, A                     
-1fb1  MOV   R7, A                     
-1fb2  MOV   R7, A                     
-1fb3  MOV   R7, A                     
-1fb4  MOV   R7, A                     
-1fb5  MOV   R7, A                     
-1fb6  MOV   R7, A                     
-1fb7  MOV   R7, A                     
-1fb8  MOV   R7, A                     
-1fb9  MOV   R7, A                     
-1fba  MOV   R7, A                     
-1fbb  MOV   R7, A                     
-1fbc  MOV   R7, A                     
-1fbd  MOV   R7, A                     
-1fbe  MOV   R7, A                     
-1fbf  MOV   R7, A                     
-1fc0  MOV   R7, A                     
-1fc1  MOV   R7, A                     
-1fc2  MOV   R7, A                     
-1fc3  MOV   R7, A                     
-1fc4  MOV   R7, A                     
-1fc5  MOV   R7, A                     
-1fc6  MOV   R7, A                     
-1fc7  MOV   R7, A                     
-1fc8  MOV   R7, A                     
-1fc9  MOV   R7, A                     
-1fca  MOV   R7, A                     
-1fcb  MOV   R7, A                     
-1fcc  MOV   R7, A                     
-1fcd  MOV   R7, A                     
-1fce  MOV   R7, A                     
-1fcf  MOV   R7, A                     
-1fd0  MOV   R7, A                     
-1fd1  MOV   R7, A                     
-1fd2  MOV   R7, A                     
-1fd3  MOV   R7, A                     
-1fd4  MOV   R7, A                     
-1fd5  MOV   R7, A                     
-1fd6  MOV   R7, A                     
-1fd7  MOV   R7, A                     
-1fd8  MOV   R7, A                     
-1fd9  MOV   R7, A                     
-1fda  MOV   R7, A                     
-1fdb  MOV   R7, A                     
-1fdc  MOV   R7, A                     
-1fdd  MOV   R7, A                     
-1fde  MOV   R7, A                     
-1fdf  MOV   R7, A                     
-1fe0  MOV   R7, A                     
-1fe1  MOV   R7, A                     
-1fe2  MOV   R7, A                     
-1fe3  MOV   R7, A                     
-1fe4  MOV   R7, A                     
-1fe5  MOV   R7, A                     
-1fe6  MOV   R7, A                     
-1fe7  MOV   R7, A                     
-1fe8  MOV   R7, A                     
-1fe9  MOV   R7, A                     
-1fea  MOV   R7, A                     
-1feb  MOV   R7, A                     
-1fec  MOV   R7, A                     
-1fed  MOV   R7, A                     
-1fee  MOV   R7, A                     
-1fef  MOV   R7, A                     
-1ff0  MOV   R7, A                     
-1ff1  MOV   R7, A                     
-1ff2  MOV   R7, A                     
-1ff3  MOV   R7, A                     
-1ff4  MOV   R7, A                     
-1ff5  MOV   R7, A                     
-1ff6  MOV   R7, A                     
-1ff7  MOV   R7, A                     
-1ff8  MOV   R7, A                     
-1ff9  MOV   R7, A                     
-1ffa  MOV   R7, A                     
-1ffb  MOV   R7, A                     
-1ffc  MOV   R7, A                     
-1ffd  MOV   R7, A                     
-1ffe  MOV   R7, A                     
-1fff  MOV   R7, A                     
+0000  LJMP  #1EAAh
+0003  LJMP  #078Eh
+0006  MOV   R7, A
+0007  MOV   R7, A
+0008  MOV   R7, A
+0009  MOV   R7, A
+000a  MOV   R7, A
+000b  JB   07h.0, #+66
+000e  JB   07h.1, #+78
+0011  AJMP  #0030h
+0013  PUSH  PSW
+0015  PUSH  ACC
+0017  LJMP  #1760h
+001a  MOV   R7, A
+001b  LJMP  #07D7h
+001e  MOV   R7, A
+001f  MOV   R7, A
+0020  MOV   R7, A
+0021  MOV   R7, A
+0022  MOV   R7, A
+0023  RETI
+0024  MOV   R7, A
+0025  MOV   R7, A
+0026  MOV   R7, A
+0027  MOV   R7, A
+0028  MOV   R7, A
+0029  MOV   R7, A
+002a  MOV   R7, A
+002b  MOV   R7, A
+002c  MOV   R7, A
+002d  MOV   R7, A
+002e  MOV   R7, A
+002f  MOV   R7, A
+0030  JB   07h.2, #+48
+0033  JNB   06h.6, #+45
+0036  SETB  P1.7
+0038  JB   0Dh.6, #+8
+003b  MOV   TL0, #F9h
+003e  MOV   TH0, #FFh
+0041  AJMP  #0049h
+0043  MOV   TL0, #F3h
+0046  MOV   TH0, #FFh
+0049  CLR   07h.0
+004b  CLR   07h.1
+004d  SETB  07h.2
+004f  RETI
+0050  CLR   P1.6
+0052  MOV   TL0, #F0h
+0055  MOV   TH0, #FFh
+0058  CLR   07h.0
+005a  SETB  07h.1
+005c  CLR   07h.2
+005e  RETI
+005f  SETB  P1.6
+0061  AJMP  #0033h
+0063  CLR   P1.7
+0065  CLR   IE.1
+0067  CLR   TCON.4
+0069  CLR   TCON.1
+006b  SETB  IE.0
+006d  RETI
+006e  MOV   R3, 34h
+0070  MOV   A, 34h
+0072  JB   ACC.7, #+4
+0075  MOV   R2, #00h
+0077  AJMP  #00D5h
+0079  JB   ACC.6, #+21
+007c  JNB   ACC.5, #+9
+007f  ANL   A, #1Fh
+0081  MOV   DPTR, #00095h
+0084  MOVC  A, @A+DPTR
+0085  MOV   R2, A
+0086  AJMP  #00D5h
+0088  ANL   A, #1Fh
+008a  MOV   DPTR, #000B5h
+008d  MOVC  A, @A+DPTR
+008e  MOV   R2, A
+008f  AJMP  #00D5h
+0091  MOV   R2, #5Ch
+0093  AJMP  #00D5h
+0095  MOVC  A, @A+PC
+0096  DIV   AB
+0097  AJMP  #0444h
+0099  ORL   A, #44h
+009b  XCH   A, SP
+009d  DIV   AB
+009e  AJMP  #0414h
+00a0  ACALL 0014h
+00a2  DEC   A
+00a3  DEC   A
+00a4  XRL   A, E4h
+00a6  DEC   A
+00a7  DEC   A
+00a8  DEC   A
+00a9  DEC   A
+00aa  DEC   A
+00ab  ANL   A, R4
+00ac  ANL   A, R4
+00ad  DJNZ  R4, #-36
+00af  ANL   A, R4
+00b0  ANL   A, R4
+00b1  ANL   A, R4
+00b2  ANL   A, R4
+00b3  ANL   A, R4
+00b4  ANL   A, R4
+00b5  INC   R5
+00b6  INC   R5
+00b7  INC   R5
+00b8  XCH   A, R5
+00b9  XCH   A, R1
+00ba  ORL   A, R6
+00bb  ORL   A, R6
+00bc  ORL   A, R6
+00bd  INC   R5
+00be  INC   R5
+00bf  INC   R5
+00c0  XCH   A, R5
+00c1  XCH   A, R5
+00c2  XCH   A, R5
+00c3  ADD   A, R4
+00c4  ADD   A, R5
+00c5  MOV   A, R4
+00c6  DEC   R4
+00c7  DEC   R4
+00c8  DEC   R4
+00c9  DEC   R4
+00ca  DEC   R4
+00cb  ANL   A, R4
+00cc  ANL   A, R4
+00cd  DJNZ  R4, #-36
+00cf  ANL   A, R4
+00d0  ANL   A, R4
+00d1  ANL   A, R4
+00d2  ANL   A, R4
+00d3  ANL   A, R4
+00d4  ANL   A, R4
+00d5  MOV   A, 33h
+00d7  ANL   A, #07h
+00d9  ORL   A, R2
+00da  MOV   20h, A
+00dc  MOV   A, 34h
+00de  ANL   A, #F8h
+00e0  CJNE  A, #E8h, #+2
+00e3  AJMP  #011Eh
+00e5  JB   04h.6, #+15
+00e8  JB   03h.7, #+18
+00eb  JB   0Dh.7, #+15
+00ee  MOV   A, 34h
+00f0  ANL   A, #F8h
+00f2  CJNE  A, #E8h, #+2
+00f5  AJMP  #00FDh
+00f7  CLR   00h.2
+00f9  SETB  00h.1
+00fb  AJMP  #0128h
+00fd  MOV   A, 30h
+00ff  JNB   ACC.5, #+13
+0102  MOV   A, 34h
+0104  CJNE  A, #B3h, #+2
+0107  AJMP  #010Fh
+0109  JB   03h.5, #+3
+010c  JNB   03h.6, #+6
+010f  SETB  00h.2
+0111  CLR   00h.1
+0113  AJMP  #0128h
+0115  JB   03h.7, #+6
+0118  JNB   0Dh.2, #+9
+011b  JB   03h.1, #+6
+011e  SETB  00h.2
+0120  SETB  00h.1
+0122  AJMP  #0128h
+0124  CLR   00h.2
+0126  CLR   00h.1
+0128  MOV   C, 03h.5
+012a  MOV   00h.0, C
+012c  MOV   33h, 20h
+012f  MOV   20h, 32h
+0132  CJNE  R3, #C2h, #+2
+0135  AJMP  #013Fh
+0137  CJNE  R3, #C3h, #+2
+013a  AJMP  #013Fh
+013c  CJNE  R3, #E4h, #+54
+013f  SETB  00h.7
+0141  JB   04h.5, #+3
+0144  JNB   0Ch.0, #+9
+0147  CLR   A
+0148  MOV   49h, A
+014a  MOV   4Ah, A
+014c  SETB  00h.5
+014e  AJMP  #0213h
+0150  CLR   00h.5
+0152  MOV   A, 4Ah
+0154  ADD   A, #F6h
+0156  JNB   ACC.7, #+17
+0159  MOV   A, 49h
+015b  SUBB  A, #15h
+015d  JNB   ACC.7, #+2
+0160  AJMP  #0213h
+0162  MOV   49h, A
+0164  CPL   00h.6
+0166  INC   4Ah
+0168  AJMP  #0213h
+016a  ADD   A, #FBh
+016c  INC   49h
+016e  JB   ACC.7, #-24
+0171  DEC   49h
+0173  AJMP  #0213h
+0175  MOV   A, 34h
+0177  JNB   ACC.6, #+2
+017a  AJMP  #0211h
+017c  CJNE  R3, #B6h, #+2
+017f  AJMP  #0211h
+0181  CJNE  R3, #96h, #+2
+0184  AJMP  #0211h
+0186  CJNE  R3, #B7h, #+2
+0189  AJMP  #0211h
+018b  SETB  00h.7
+018d  JB   04h.5, #+2
+0190  AJMP  #0199h
+0192  SETB  00h.5
+0194  MOV   49h, #0Ah
+0197  AJMP  #0213h
+0199  JB   00h.5, #+2
+019c  AJMP  #01FEh
+019e  MOV   A, 49h
+01a0  JZ    #+4
+01a2  DEC   49h
+01a4  AJMP  #0213h
+01a6  CLR   00h.5
+01a8  MOV   A, 34h
+01aa  JB   ACC.7, #+5
+01ad  MOV   49h, #00h
+01b0  AJMP  #0213h
+01b2  MOV   DPTR, #001BEh
+01b5  ANL   A, #3Fh
+01b7  MOVC  A, @A+DPTR
+01b8  RL    A
+01b9  RL    A
+01ba  MOV   49h, A
+01bc  AJMP  #0213h
+01be  AJMP  #0001h
+01c0  AJMP  #0002h
+01c2  RR    A
+01c3  RR    A
+01c4  RR    A
+01c5  RR    A
+01c6  INC   A
+01c7  INC   A
+01c8  INC   A
+01c9  INC   A
+01ca  INC   06h
+01cc  INC   @R1
+01cd  INC   @R1
+01ce  INC   R0
+01cf  INC   R0
+01d0  INC   R0
+01d1  INC   R1
+01d2  INC   R0
+01d3  INC   R1
+01d4  NOP
+01d5  INC   R6
+01d6  INC   R0
+01d7  INC   @R1
+01d8  NOP
+01d9  NOP
+01da  NOP
+01db  NOP
+01dc  NOP
+01dd  NOP
+01de  AJMP  #0001h
+01e0  AJMP  #0002h
+01e2  LJMP  #0203h
+01e5  INC   A
+01e6  INC   A
+01e7  INC   A
+01e8  INC   05h
+01ea  INC   @R0
+01eb  INC   @R0
+01ec  INC   @R0
+01ed  INC   @R1
+01ee  INC   R0
+01ef  INC   R0
+01f0  INC   R0
+01f1  INC   R1
+01f2  INC   R0
+01f3  INC   R1
+01f4  NOP
+01f5  INC   R6
+01f6  INC   R0
+01f7  INC   00h
+01f9  NOP
+01fa  NOP
+01fb  NOP
+01fc  NOP
+01fd  NOP
+01fe  CLR   00h.5
+0200  MOV   A, 49h
+0202  JZ    #+15
+0204  DEC   A
+0205  MOV   49h, A
+0207  JNB   ACC.0, #+9
+020a  JNB   ACC.1, #+6
+020d  CPL   00h.6
+020f  AJMP  #0213h
+0211  CLR   00h.7
+0213  JNB   04h.5, #+5
+0216  MOV   65h, #00h
+0219  AJMP  #0229h
+021b  JB   03h.5, #+11
+021e  MOV   A, #ECh
+0220  ADD   A, 65h
+0222  JB   ACC.7, #+4
+0225  SETB  00h.4
+0227  AJMP  #022Bh
+0229  CLR   00h.4
+022b  MOV   A, R2
+022c  RRC   A
+022d  MOV   00h.3, C
+022f  CJNE  R3, #00h, #+7
+0232  JNB   04h.5, #+4
+0235  SETB  00h.2
+0237  AJMP  #023Bh
+0239  CLR   00h.2
+023b  MOV   A, R2
+023c  JNB   ACC.2, #+18
+023f  JNB   03h.5, #+6
+0242  SETB  00h.1
+0244  CLR   00h.0
+0246  AJMP  #0263h
+0248  MOV   C, 02h.3
+024a  MOV   00h.1, C
+024c  CPL   C
+024d  MOV   00h.0, C
+024f  AJMP  #0263h
+0251  CJNE  R3, #00h, #+2
+0254  AJMP  #0259h
+0256  CJNE  R3, #01h, #+6
+0259  SETB  00h.1
+025b  CLR   00h.0
+025d  AJMP  #0263h
+025f  CLR   00h.1
+0261  CLR   00h.0
+0263  MOV   32h, 20h
+0266  MOV   20h, 30h
+0269  JB   02h.4, #+32
+026c  JNB   02h.3, #+23
+026f  JNB   0Fh.3, #+11
+0272  JB   0Fh.4, #+23
+0275  MOV   C, 0Bh.6
+0277  ORL   C, 03h.4
+0279  MOV   00h.7, C
+027b  AJMP  #0292h
+027d  JB   0Fh.4, #+6
+0280  MOV   C, 0Ch.6
+0282  MOV   00h.7, C
+0284  AJMP  #0292h
+0286  JB   02h.3, #+7
+0289  JB   0Fh.0, #+4
+028c  SETB  00h.7
+028e  AJMP  #0292h
+0290  CLR   00h.7
+0292  MOV   A, 34h
+0294  JNB   ACC.7, #+12
+0297  JB   ACC.6, #+13
+029a  ANL   A, #1Fh
+029c  CJNE  A, #03h, #+2
+029f  AJMP  #02A7h
+02a1  JNC   #+4
+02a3  CLR   00h.6
+02a5  AJMP  #02ABh
+02a7  SETB  00h.6
+02a9  AJMP  #02ABh
+02ab  CJNE  R3, #B6h, #+2
+02ae  AJMP  #02CCh
+02b0  CJNE  R3, #96h, #+2
+02b3  AJMP  #02CCh
+02b5  CJNE  R3, #93h, #+2
+02b8  AJMP  #02CCh
+02ba  CJNE  R3, #95h, #+2
+02bd  AJMP  #02CCh
+02bf  CJNE  R3, #B5h, #+2
+02c2  AJMP  #02CCh
+02c4  MOV   A, 34h
+02c6  ANL   A, #F8h
+02c8  XRL   A, #E0h
+02ca  JNZ   #+4
+02cc  SETB  00h.5
+02ce  AJMP  #02E6h
+02d0  MOV   A, 34h
+02d2  ANL   A, #FCh
+02d4  CJNE  A, #C0h, #+2
+02d7  AJMP  #02DEh
+02d9  ANL   A, #E8h
+02db  CJNE  A, #E8h, #+6
+02de  MOV   C, 0Ah.2
+02e0  MOV   00h.5, C
+02e2  AJMP  #02E6h
+02e4  CLR   00h.5
+02e6  CJNE  R3, #C1h, #+2
+02e9  AJMP  #02F2h
+02eb  MOV   A, 34h
+02ed  ANL   A, #E8h
+02ef  CJNE  A, #E8h, #+6
+02f2  MOV   C, 0Ah.2
+02f4  MOV   00h.4, C
+02f6  AJMP  #0306h
+02f8  JB   04h.6, #+3
+02fb  JB   0Eh.0, #+4
+02fe  SETB  00h.4
+0300  AJMP  #0306h
+0302  MOV   C, 0Bh.7
+0304  MOV   00h.4, C
+0306  JB   00h.6, #+2
+0309  CLR   00h.4
+030b  CJNE  R3, #B6h, #+2
+030e  AJMP  #033Bh
+0310  CJNE  R3, #96h, #+2
+0313  AJMP  #033Bh
+0315  CJNE  R3, #C0h, #+2
+0318  AJMP  #033Bh
+031a  CJNE  R3, #B7h, #+2
+031d  AJMP  #033Bh
+031f  CJNE  R3, #E0h, #+2
+0322  AJMP  #034Ah
+0324  CJNE  R3, #E4h, #+2
+0327  AJMP  #034Ah
+0329  CJNE  R3, #F0h, #+2
+032c  AJMP  #034Ah
+032e  CJNE  R3, #F4h, #+2
+0331  AJMP  #034Ah
+0333  MOV   A, 34h
+0335  ANL   A, #E8h
+0337  XRL   A, #E0h
+0339  JNZ   #+15
+033b  SETB  PSW.5
+033d  JB   0Eh.0, #+4
+0340  SETB  00h.3
+0342  AJMP  #0372h
+0344  MOV   C, 0Bh.7
+0346  MOV   00h.3, C
+0348  AJMP  #0372h
+034a  CLR   PSW.5
+034c  CJNE  R3, #C1h, #+2
+034f  AJMP  #0359h
+0351  MOV   A, 34h
+0353  ANL   A, #E8h
+0355  XRL   A, #E8h
+0357  JNZ   #+6
+0359  MOV   C, 0Ah.2
+035b  MOV   00h.3, C
+035d  AJMP  #0372h
+035f  CJNE  R3, #C2h, #+2
+0362  AJMP  #036Ch
+0364  CJNE  R3, #E4h, #+2
+0367  AJMP  #036Ch
+0369  CJNE  R3, #C3h, #+4
+036c  SETB  00h.3
+036e  AJMP  #0372h
+0370  CLR   00h.3
+0372  MOV   A, 34h
+0374  ANL   A, #E0h
+0376  CJNE  A, #E0h, #+23
+0379  MOV   A, 34h
+037b  JB   ACC.3, #+14
+037e  JB   ACC.2, #+11
+0381  ANL   A, #03h
+0383  CJNE  A, #03h, #+2
+0386  AJMP  #038Ch
+0388  CLR   00h.1
+038a  AJMP  #0394h
+038c  SETB  00h.1
+038e  AJMP  #0394h
+0390  MOV   C, 03h.4
+0392  MOV   00h.1, C
+0394  MOV   C, 0Dh.7
+0396  MOV   00h.0, C
+0398  MOV   30h, 20h
+039b  MOV   20h, 31h
+039e  JB   03h.7, #+18
+03a1  JB   04h.6, #+15
+03a4  MOV   A, 34h
+03a6  ANL   A, #E8h
+03a8  CJNE  A, #E8h, #+2
+03ab  AJMP  #03B3h
+03ad  MOV   C, PSW.5
+03af  MOV   00h.7, C
+03b1  AJMP  #03B5h
+03b3  CLR   00h.7
+03b5  JB   03h.7, #+20
+03b8  JB   04h.6, #+17
+03bb  MOV   A, 34h
+03bd  ANL   A, #E8h
+03bf  CJNE  A, #E8h, #+2
+03c2  AJMP  #03CCh
+03c4  MOV   A, 30h
+03c6  MOV   C, ACC.6
+03c8  MOV   00h.6, C
+03ca  AJMP  #03CEh
+03cc  CLR   00h.6
+03ce  JB   03h.7, #+20
+03d1  JB   04h.6, #+17
+03d4  MOV   A, 34h
+03d6  ANL   A, #E8h
+03d8  CJNE  A, #E8h, #+2
+03db  AJMP  #03E5h
+03dd  MOV   A, 30h
+03df  MOV   C, ACC.5
+03e1  MOV   00h.5, C
+03e3  AJMP  #03E7h
+03e5  CLR   00h.5
+03e7  MOV   A, 30h
+03e9  MOV   C, ACC.1
+03eb  MOV   00h.3, C
+03ed  MOV   A, 34h
+03ef  JNB   ACC.7, #+15
+03f2  JB   ACC.6, #+12
+03f5  ANL   A, #1Fh
+03f7  CLR   C
+03f8  SUBB  A, #09h
+03fa  JNB   ACC.7, #+4
+03fd  CLR   00h.2
+03ff  AJMP  #0416h
+0401  JB   03h.5, #+6
+0404  JNB   0Eh.3, #+3
+0407  JB   0Eh.6, #+6
+040a  MOV   C, 03h.3
+040c  MOV   00h.2, C
+040e  AJMP  #0416h
+0410  MOV   C, 03h.3
+0412  ANL   C, 04h.3
+0414  MOV   00h.2, C
+0416  MOV   A, 34h
+0418  CJNE  A, #00h, #+2
+041b  AJMP  #0429h
+041d  JNB   02h.3, #+9
+0420  JB   03h.5, #+6
+0423  MOV   C, 02h.4
+0425  MOV   00h.1, C
+0427  AJMP  #042Bh
+0429  CLR   00h.1
+042b  MOV   C, 00h.2
+042d  CPL   C
+042e  MOV   00h.0, C
+0430  MOV   31h, 20h
+0433  MOV   20h, 30h
+0436  JNB   00h.3, #+10
+0439  MOV   A, 3Dh
+043b  RL    A
+043c  MOV   3Dh, A
+043e  RLC   A
+043f  MOV   P1.3, C
+0441  AJMP  #0448h
+0443  SETB  P1.3
+0445  MOV   3Dh, #FFh
+0448  MOV   20h, 30h
+044b  JNB   00h.5, #+10
+044e  MOV   A, 3Eh
+0450  RL    A
+0451  MOV   3Eh, A
+0453  RLC   A
+0454  MOV   P1.4, C
+0456  AJMP  #045Dh
+0458  SETB  P1.4
+045a  MOV   3Eh, #FFh
+045d  MOV   A, R2
+045e  MOV   C, ACC.1
+0460  MOV   P1.5, C
+0462  JNB   0Ch.0, #+7
+0465  ORL   30h, #FEh
+0468  CLR   P1.3
+046a  CLR   P1.4
+046c  MOV   R4, 35h
+046e  LCALL #1CE1h
+0471  MOV   A, R4
+0472  XRL   A, 35h
+0474  JNZ   #+17
+0476  JNB   04h.5, #+38
+0479  MOV   A, 34h
+047b  CJNE  A, #00h, #+33
+047e  MOV   R0, #05h
+0480  MOV   R3, #CCh
+0482  MOV   R2, #15h
+0484  LCALL #1D05h
+0487  MOV   R0, #06h
+0489  MOV   R3, 35h
+048b  MOV   A, #35h
+048d  MOV   C, 0Eh.0
+048f  CPL   C
+0490  MOV   ACC.5, C
+0492  MOV   R2, A
+0493  LCALL #1D05h
+0496  LCALL #1933h
+0499  LCALL #0C5Bh
+049c  LCALL #077Ch
+049f  MOV   20h, 30h
+04a2  JNB   0Fh.2, #+31
+04a5  JNB   00h.5, #+19
+04a8  MOV   A, 15h
+04aa  CJNE  A, #4Eh, #+0
+04ad  JNC   #+21
+04af  CLR   IE.3
+04b1  MOV   15h, #75h
+04b4  MOV   14h, #30h
+04b7  SETB  IE.3
+04b9  AJMP  #04C4h
+04bb  MOV   A, 15h
+04bd  JNB   ACC.7, #+4
+04c0  CLR   02h.5
+04c2  AJMP  #04EFh
+04c4  JNB   0Fh.1, #+40
+04c7  JNB   00h.3, #+4
+04ca  MOV   A, 37h
+04cc  JZ    #+5
+04ce  MOV   11h, #0Dh
+04d1  AJMP  #04DCh
+04d3  MOV   A, 11h
+04d5  JNB   ACC.7, #+4
+04d8  CLR   02h.5
+04da  AJMP  #04EFh
+04dc  JNB   00h.5, #+4
+04df  MOV   A, 3Ah
+04e1  JZ    #+5
+04e3  MOV   10h, #04h
+04e6  AJMP  #04EFh
+04e8  MOV   A, 10h
+04ea  JNB   ACC.7, #+2
+04ed  CLR   02h.5
+04ef  MOV   C, 03h.1
+04f1  MOV   04h.0, C
+04f3  JB   03h.5, #+1
+04f6  CPL   C
+04f7  MOV   04h.1, C
+04f9  RET
+04fa  MOV   R7, A
+04fb  MOV   R7, A
+04fc  MOV   R7, A
+04fd  MOV   R7, A
+04fe  MOV   R7, A
+04ff  MOV   R7, A
+0500  JB   04h.0, #+12
+0503  AJMP  #0505h
+0505  MOV   3Fh, #60h
+0508  MOV   40h, #FFh
+050b  MOV   41h, #F9h
+050e  RET
+050f  MOV   3Fh, #07h
+0512  MOV   40h, #07h
+0515  MOV   41h, #06h
+0518  RET
+0519  MOV   3Ah, #FFh
+051c  RET
+051d  JB   01h.1, #+5
+0520  MOV   37h, #00h
+0523  SETB  01h.1
+0525  RET
+0526  JNB   04h.5, #+3
+0529  MOV   64h, #00h
+052c  JB   01h.1, #+7
+052f  MOV   37h, #FFh
+0532  SETB  01h.1
+0534  INC   64h
+0536  RET
+0537  MOV   R0, #05h
+0539  MOVX  A, @R0
+053a  JB   ACC.0, #+1
+053d  RET
+053e  JB   04h.0, #+2
+0541  AJMP  #0576h
+0543  JB   01h.2, #+47
+0546  JNB   01h.1, #+44
+0549  CLR   01h.1
+054b  MOV   A, 3Fh
+054d  ANL   A, #7Fh
+054f  XCH   A, 40h
+0551  XCH   A, 41h
+0553  MOV   R3, A
+0554  MOV   A, 40h
+0556  RR    A
+0557  RR    A
+0558  ANL   A, #1Fh
+055a  MOV   R2, A
+055b  MOV   A, 37h
+055d  XRL   A, R2
+055e  XRL   A, R3
+055f  SWAP  A
+0560  RL    A
+0561  ANL   A, #E0h
+0563  ORL   A, R2
+0564  MOV   R2, A
+0565  MOV   A, 37h
+0567  XRL   A, R2
+0568  XRL   A, R3
+0569  MOV   38h, A
+056b  CLR   C
+056c  RRC   A
+056d  MOV   3Fh, A
+056f  CLR   A
+0570  RRC   A
+0571  ORL   40h, A
+0573  SETB  01h.2
+0575  RET
+0576  JB   01h.2, #+41
+0579  JNB   01h.1, #+38
+057c  CLR   01h.1
+057e  MOV   A, 3Fh
+0580  ANL   A, #7Fh
+0582  XCH   A, 40h
+0584  XCH   A, 41h
+0586  MOV   R3, A
+0587  ANL   A, #E0h
+0589  MOV   R2, A
+058a  MOV   A, 41h
+058c  ANL   A, #1Fh
+058e  ORL   A, R2
+058f  SWAP  A
+0590  RR    A
+0591  MOV   R2, A
+0592  MOV   A, 37h
+0594  XRL   A, R2
+0595  XRL   A, R3
+0596  MOV   38h, A
+0598  CLR   C
+0599  RRC   A
+059a  MOV   3Fh, A
+059c  CLR   A
+059d  RRC   A
+059e  ORL   40h, A
+05a0  SETB  01h.2
+05a2  RET
+05a3  JB   04h.1, #+2
+05a6  AJMP  #05E6h
+05a8  JB   01h.4, #+58
+05ab  JNB   01h.3, #+55
+05ae  CLR   01h.3
+05b0  MOV   A, 42h
+05b2  ANL   A, #7Fh
+05b4  XCH   A, 43h
+05b6  XCH   A, 44h
+05b8  MOV   R3, A
+05b9  MOV   A, 43h
+05bb  RR    A
+05bc  RR    A
+05bd  ANL   A, #1Fh
+05bf  MOV   R2, A
+05c0  MOV   A, 39h
+05c2  SWAP  A
+05c3  RL    A
+05c4  ANL   A, #E0h
+05c6  ORL   A, R2
+05c7  MOV   R2, A
+05c8  MOV   A, 39h
+05ca  XRL   A, R2
+05cb  XRL   A, R3
+05cc  MOV   20h, A
+05ce  MOV   A, 39h
+05d0  CLR   C
+05d1  RRC   A
+05d2  MOV   42h, A
+05d4  CLR   A
+05d5  RRC   A
+05d6  ORL   43h, A
+05d8  MOV   3Ah, 20h
+05db  MOV   3Eh, 20h
+05de  MOV   3Ch, 20h
+05e1  SETB  01h.6
+05e3  SETB  01h.4
+05e5  RET
+05e6  JB   01h.4, #+54
+05e9  JNB   01h.3, #+51
+05ec  CLR   01h.3
+05ee  MOV   A, 42h
+05f0  ANL   A, #7Fh
+05f2  XCH   A, 43h
+05f4  XCH   A, 44h
+05f6  MOV   R3, A
+05f7  ANL   A, #E0h
+05f9  MOV   R2, A
+05fa  MOV   A, 44h
+05fc  ANL   A, #1Fh
+05fe  ORL   A, R2
+05ff  SWAP  A
+0600  RR    A
+0601  MOV   R2, A
+0602  MOV   A, 39h
+0604  XRL   A, R2
+0605  XRL   A, R3
+0606  MOV   20h, A
+0608  MOV   A, 39h
+060a  CLR   C
+060b  RRC   A
+060c  MOV   42h, A
+060e  CLR   A
+060f  RRC   A
+0610  ORL   43h, A
+0612  MOV   3Ah, 20h
+0615  MOV   3Eh, 20h
+0618  MOV   3Ch, 20h
+061b  SETB  01h.6
+061d  SETB  01h.4
+061f  RET
+0620  CLR   02h.1
+0622  MOV   C, 0Ch.7
+0624  ANL   C, 0Ch.6
+0626  ANL   C, 0Dh.0
+0628  ANL   C, 0Bh.1
+062a  ANL   C, 0Bh.0
+062c  ANL   C, 0Bh.3
+062e  ANL   C, 0Bh.2
+0630  JNC   #+14
+0632  CLR   0Fh.6
+0634  SETB  0Fh.5
+0636  SETB  0Dh.7
+0638  CLR   0Dh.0
+063a  CLR   0Bh.1
+063c  CLR   0Eh.7
+063e  CLR   0Eh.6
+0640  SETB  02h.2
+0642  MOV   C, 02h.3
+0644  MOV   00h.0, C
+0646  JB   0Fh.6, #+9
+0649  JB   0Fh.5, #+13
+064c  MOV   C, 0Ch.7
+064e  MOV   02h.3, C
+0650  AJMP  #0661h
+0652  JB   0Fh.5, #+8
+0655  SETB  02h.3
+0657  AJMP  #0661h
+0659  CLR   02h.3
+065b  AJMP  #0661h
+065d  MOV   C, 0Bh.4
+065f  MOV   02h.3, C
+0661  MOV   C, 02h.3
+0663  JNB   00h.0, #+1
+0666  CPL   C
+0667  ORL   C, 02h.1
+0669  MOV   02h.1, C
+066b  CLR   03h.4
+066d  CLR   04h.6
+066f  CLR   03h.5
+0671  CLR   03h.6
+0673  CLR   03h.7
+0675  JNB   0Ch.3, #+10
+0678  SETB  03h.4
+067a  SETB  03h.5
+067c  MOV   C, 0Ch.4
+067e  MOV   04h.6, C
+0680  AJMP  #06B7h
+0682  JNB   0Ch.1, #+6
+0685  SETB  03h.4
+0687  SETB  03h.7
+0689  AJMP  #06B7h
+068b  JNB   0Ch.2, #+10
+068e  SETB  03h.4
+0690  SETB  03h.6
+0692  MOV   C, 0Ch.4
+0694  MOV   04h.6, C
+0696  AJMP  #06B7h
+0698  JNB   0Ch.4, #+6
+069b  SETB  03h.4
+069d  SETB  04h.6
+069f  AJMP  #06B7h
+06a1  JNB   0Bh.2, #+9
+06a4  JNB   0Bh.1, #+6
+06a7  SETB  03h.4
+06a9  SETB  03h.5
+06ab  AJMP  #06B7h
+06ad  JNB   0Bh.3, #+7
+06b0  JNB   0Dh.0, #+4
+06b3  SETB  03h.4
+06b5  SETB  03h.6
+06b7  JB   0Ch.3, #+107
+06ba  JNB   02h.3, #+77
+06bd  JB   0Fh.4, #+16
+06c0  JB   0Fh.3, #+18
+06c3  SETB  0Fh.2
+06c5  JB   0Ah.7, #+83
+06c8  JB   0Ah.5, #+80
+06cb  JB   0Ch.6, #+50
+06ce  AJMP  #072Bh
+06d0  JB   0Fh.3, #+34
+06d3  AJMP  #070Dh
+06d5  JB   0Ah.7, #+6
+06d8  JB   03h.5, #+3
+06db  JNB   0Ah.5, #+12
+06de  JB   0Bh.6, #+58
+06e1  JB   04h.6, #+55
+06e4  JB   0Ch.2, #+52
+06e7  JB   03h.7, #+49
+06ea  JB   0Bh.6, #+19
+06ed  JB   04h.6, #+16
+06f0  JB   03h.7, #+13
+06f3  AJMP  #072Bh
+06f5  SETB  0Fh.2
+06f7  JB   0Ah.7, #+33
+06fa  JB   0Ah.5, #+30
+06fd  JB   03h.5, #+27
+0700  JB   02h.5, #+28
+0703  MOV   A, 6Eh
+0705  CPL   A
+0706  JZ    #+23
+0708  AJMP  #072Bh
+070a  JNB   0Fh.0, #+24
+070d  JB   0Bh.6, #+21
+0710  JB   04h.6, #+18
+0713  JB   0Ch.2, #+15
+0716  JB   03h.7, #+12
+0719  AJMP  #072Bh
+071b  SETB  02h.4
+071d  AJMP  #072Fh
+071f  SETB  02h.4
+0721  SETB  02h.5
+0723  AJMP  #072Fh
+0725  SETB  02h.4
+0727  CLR   02h.5
+0729  AJMP  #072Fh
+072b  CLR   02h.4
+072d  CLR   02h.5
+072f  JB   02h.5, #+15
+0732  JB   0Eh.5, #+9
+0735  JB   0Eh.4, #+13
+0738  MOV   C, 0Ah.5
+073a  MOV   03h.1, C
+073c  AJMP  #074Dh
+073e  JB   0Eh.4, #+8
+0741  SETB  03h.1
+0743  AJMP  #074Dh
+0745  CLR   03h.1
+0747  AJMP  #074Dh
+0749  MOV   C, 0Bh.4
+074b  MOV   03h.1, C
+074d  JNB   0Eh.3, #+6
+0750  SETB  03h.2
+0752  SETB  03h.3
+0754  AJMP  #077Bh
+0756  JB   0Eh.2, #+12
+0759  JB   0Eh.1, #+18
+075c  MOV   C, 0Ch.5
+075e  MOV   03h.2, C
+0760  CPL   C
+0761  MOV   03h.3, C
+0763  AJMP  #077Bh
+0765  JB   0Eh.1, #+12
+0768  CLR   03h.2
+076a  SETB  03h.3
+076c  AJMP  #077Bh
+076e  SETB  03h.2
+0770  CLR   03h.3
+0772  AJMP  #077Bh
+0774  MOV   C, 0Bh.5
+0776  MOV   03h.3, C
+0778  CPL   C
+0779  MOV   03h.2, C
+077b  RET
+077c  CLR   IE.0
+077e  CLR   IE.1
+0780  JB   0Dh.7, #+10
+0783  SETB  IP.1
+0785  SETB  IP.0
+0787  SETB  TCON.0
+0789  CLR   TCON.1
+078b  SETB  IE.0
+078d  RET
+078e  JB   0Dh.5, #+5
+0791  JB   0Dh.4, #+26
+0794  AJMP  #07A7h
+0796  JNB   0Dh.4, #+7
+0799  MOV   TL0, #8Fh
+079c  CLR   07h.0
+079e  AJMP  #07C1h
+07a0  MOV   TL0, #7Fh
+07a3  CLR   07h.0
+07a5  AJMP  #07C1h
+07a7  MOV   TL0, #6Fh
+07aa  CLR   07h.0
+07ac  AJMP  #07C1h
+07ae  JNB   07h.3, #+9
+07b1  MOV   TL0, #70h
+07b4  SETB  07h.0
+07b6  CLR   07h.4
+07b8  AJMP  #07C1h
+07ba  MOV   TL0, #5Fh
+07bd  CLR   07h.0
+07bf  CLR   07h.4
+07c1  MOV   TH0, #FFh
+07c4  SETB  TCON.4
+07c6  CLR   07h.1
+07c8  CLR   07h.2
+07ca  CLR   TCON.5
+07cc  SETB  IE.1
+07ce  CLR   IE.0
+07d0  CLR   TCON.1
+07d2  CLR   P1.6
+07d4  SETB  P1.6
+07d6  RETI
+07d7  PUSH  PSW
+07d9  ANL   PSW, #F7h
+07dc  ORL   PSW, #10h
+07df  MOV   TH1, #FCh
+07e2  MOV   TL1, #21h
+07e5  CJNE  R6, #00h, #+1
+07e8  DEC   R7
+07e9  DEC   R6
+07ea  CJNE  R4, #00h, #+3
+07ed  DEC   R5
+07ee  DEC   R1
+07ef  DEC   R0
+07f0  DEC   R4
+07f1  CJNE  R2, #00h, #+1
+07f4  DEC   R3
+07f5  DEC   R2
+07f6  POP   PSW
+07f8  RETI
+07f9  MOV   R7, A
+07fa  MOV   R7, A
+07fb  MOV   R7, A
+07fc  MOV   R7, A
+07fd  MOV   R7, A
+07fe  MOV   R7, A
+07ff  MOV   R7, A
+0800  CLR   02h.0
+0802  SETB  P1.1
+0804  MOV   SCON, #10h
+0807  JNB   SCON.0, #-3
+080a  CLR   P1.1
+080c  SETB  P1.0
+080e  CLR   SCON.0
+0810  JNB   SCON.0, #-3
+0813  MOV   20h, SBUF
+0816  CLR   SCON.0
+0818  XRL   20h, #07h
+081b  MOV   A, 20h
+081d  XRL   A, 2Ah
+081f  JZ    #+2
+0821  SETB  02h.0
+0823  MOV   2Ah, 20h
+0826  JNB   SCON.0, #-3
+0829  MOV   20h, SBUF
+082c  CLR   SCON.0
+082e  XRL   20h, #00h
+0831  MOV   A, 20h
+0833  XRL   A, 2Bh
+0835  JZ    #+2
+0837  SETB  02h.0
+0839  MOV   2Bh, 20h
+083c  JNB   SCON.0, #-3
+083f  MOV   20h, SBUF
+0842  CLR   SCON.0
+0844  XRL   20h, #00h
+0847  MOV   A, 20h
+0849  XRL   A, 2Ch
+084b  JZ    #+2
+084d  SETB  02h.0
+084f  MOV   2Ch, 20h
+0852  JNB   SCON.0, #-3
+0855  MOV   20h, SBUF
+0858  CLR   SCON.0
+085a  XRL   20h, #00h
+085d  MOV   A, 20h
+085f  XRL   A, 2Dh
+0861  JZ    #+2
+0863  SETB  02h.0
+0865  MOV   2Dh, 20h
+0868  JNB   SCON.0, #-3
+086b  MOV   20h, SBUF
+086e  CLR   SCON.0
+0870  XRL   20h, #00h
+0873  MOV   A, 20h
+0875  XRL   A, 2Eh
+0877  JZ    #+2
+0879  SETB  02h.0
+087b  MOV   2Eh, 20h
+087e  JNB   SCON.0, #-3
+0881  MOV   20h, SBUF
+0884  XRL   20h, #00h
+0887  MOV   A, 20h
+0889  XRL   A, 2Fh
+088b  JZ    #+2
+088d  SETB  02h.0
+088f  MOV   2Fh, 20h
+0892  CLR   SCON.4
+0894  CLR   SCON.0
+0896  CLR   P1.0
+0898  RET
+0899  ANL   P1, #FAh
+089c  MOV   SCON, #03h
+089f  MOV   20h, 30h
+08a2  XRL   20h, #00h
+08a5  CLR   SCON.1
+08a7  MOV   SBUF, 20h
+08aa  MOV   20h, 31h
+08ad  XRL   20h, #03h
+08b0  JNB   SCON.1, #-3
+08b3  CLR   SCON.1
+08b5  MOV   SBUF, 20h
+08b8  MOV   20h, 32h
+08bb  XRL   20h, #00h
+08be  JNB   SCON.1, #-3
+08c1  CLR   SCON.1
+08c3  MOV   SBUF, 20h
+08c6  MOV   20h, 33h
+08c9  XRL   20h, #F8h
+08cc  JNB   SCON.1, #-3
+08cf  CLR   SCON.1
+08d1  MOV   SBUF, 20h
+08d4  JNB   SCON.1, #-3
+08d7  SETB  P1.2
+08d9  NOP
+08da  CLR   P1.2
+08dc  RET
+08dd  CLR   P2.5
+08df  SETB  P2.7
+08e1  CLR   P2.6
+08e3  MOV   R0, #04h
+08e5  MOVX  A, @R0
+08e6  CLR   P2.7
+08e8  RET
+08e9  MOV   A, 34h
+08eb  JB   ACC.7, #+7
+08ee  JNB   ACC.0, #+2
+08f1  AJMP  #0A1Ch
+08f3  AJMP  #0A1Ch
+08f5  MOV   DPTR, #008FDh
+08f8  ANL   A, #70h
+08fa  SWAP  A
+08fb  RL    A
+08fc  JMP   @A+DPTR
+08fd  AJMP  #090Dh
+08ff  AJMP  #0936h
+0901  AJMP  #095Fh
+0903  AJMP  #0988h
+0905  AJMP  #09B1h
+0907  AJMP  #0A1Ch
+0909  AJMP  #09CAh
+090b  AJMP  #09F3h
+090d  MOV   DPTR, #00916h
+0910  MOV   A, 34h
+0912  ANL   A, #0Fh
+0914  RL    A
+0915  JMP   @A+DPTR
+0916  AJMP  #0ADAh
+0918  AJMP  #0ADAh
+091a  AJMP  #0ADAh
+091c  AJMP  #0A38h
+091e  AJMP  #0ADBh
+0920  AJMP  #0A1Dh
+0922  AJMP  #0A1Eh
+0924  AJMP  #0A2Eh
+0926  AJMP  #0ADCh
+0928  AJMP  #0ADDh
+092a  AJMP  #0ADDh
+092c  AJMP  #0ADDh
+092e  AJMP  #0ADDh
+0930  AJMP  #0ADDh
+0932  AJMP  #0A43h
+0934  AJMP  #0ADFh
+0936  MOV   DPTR, #0093Fh
+0939  MOV   A, 34h
+093b  ANL   A, #0Fh
+093d  RL    A
+093e  JMP   @A+DPTR
+093f  AJMP  #0A1Dh
+0941  AJMP  #0A1Eh
+0943  AJMP  #0AE0h
+0945  AJMP  #0AF8h
+0947  AJMP  #0B16h
+0949  AJMP  #0B18h
+094b  AJMP  #0B1Ah
+094d  AJMP  #0B39h
+094f  AJMP  #0AC0h
+0951  AJMP  #0AD0h
+0953  AJMP  #0A1Ch
+0955  AJMP  #0A1Ch
+0957  AJMP  #0A1Ch
+0959  AJMP  #0A1Ch
+095b  AJMP  #0A1Ch
+095d  AJMP  #0A1Ch
+095f  MOV   DPTR, #00968h
+0962  MOV   A, 34h
+0964  ANL   A, #0Fh
+0966  RL    A
+0967  JMP   @A+DPTR
+0968  AJMP  #0A1Ch
+096a  AJMP  #0A1Ch
+096c  AJMP  #0A1Ch
+096e  AJMP  #0A1Dh
+0970  AJMP  #0A1Eh
+0972  AJMP  #0A2Eh
+0974  AJMP  #0A38h
+0976  AJMP  #0A42h
+0978  AJMP  #0A42h
+097a  AJMP  #0A42h
+097c  AJMP  #0A43h
+097e  AJMP  #0A4Dh
+0980  AJMP  #0A1Dh
+0982  AJMP  #0A1Eh
+0984  AJMP  #0AE0h
+0986  AJMP  #0A4Eh
+0988  MOV   DPTR, #00991h
+098b  MOV   A, 34h
+098d  ANL   A, #0Fh
+098f  RL    A
+0990  JMP   @A+DPTR
+0991  AJMP  #0A1Dh
+0993  AJMP  #0A1Eh
+0995  AJMP  #0A58h
+0997  AJMP  #0A6Eh
+0999  AJMP  #0A8Bh
+099b  AJMP  #0AA2h
+099d  AJMP  #0B1Ah
+099f  AJMP  #0B39h
+09a1  AJMP  #0AC0h
+09a3  AJMP  #0AD0h
+09a5  AJMP  #0A1Ch
+09a7  AJMP  #0A1Ch
+09a9  AJMP  #0A1Ch
+09ab  AJMP  #0A1Ch
+09ad  AJMP  #0A1Ch
+09af  AJMP  #0A1Ch
+09b1  MOV   DPTR, #009BAh
+09b4  MOV   A, 34h
+09b6  ANL   A, #07h
+09b8  RL    A
+09b9  JMP   @A+DPTR
+09ba  AJMP  #0B60h
+09bc  AJMP  #0B62h
+09be  AJMP  #0B75h
+09c0  AJMP  #0B8Eh
+09c2  AJMP  #0B39h
+09c4  AJMP  #0A1Ch
+09c6  AJMP  #0A1Ch
+09c8  AJMP  #0A1Ch
+09ca  MOV   DPTR, #009D3h
+09cd  MOV   A, 34h
+09cf  ANL   A, #0Fh
+09d1  RL    A
+09d2  JMP   @A+DPTR
+09d3  AJMP  #0B90h
+09d5  AJMP  #0BACh
+09d7  AJMP  #0BCBh
+09d9  AJMP  #0BCBh
+09db  AJMP  #0BE7h
+09dd  AJMP  #0BE9h
+09df  AJMP  #0C02h
+09e1  AJMP  #0A1Ch
+09e3  AJMP  #0C04h
+09e5  AJMP  #0C06h
+09e7  AJMP  #0A1Ch
+09e9  AJMP  #0C19h
+09eb  AJMP  #0A1Ch
+09ed  AJMP  #0A1Ch
+09ef  AJMP  #0C2Fh
+09f1  AJMP  #0A1Ch
+09f3  MOV   DPTR, #009FCh
+09f6  MOV   A, 34h
+09f8  ANL   A, #0Fh
+09fa  RL    A
+09fb  JMP   @A+DPTR
+09fc  AJMP  #0C31h
+09fe  AJMP  #0C3Ch
+0a00  AJMP  #0C3Ch
+0a02  AJMP  #0C3Ch
+0a04  AJMP  #0C3Ch
+0a06  AJMP  #0C3Eh
+0a08  AJMP  #0C49h
+0a0a  AJMP  #0A1Ch
+0a0c  AJMP  #0C4Bh
+0a0e  AJMP  #0C4Dh
+0a10  AJMP  #0A1Ch
+0a12  AJMP  #0C58h
+0a14  AJMP  #0A1Ch
+0a16  AJMP  #0A1Ch
+0a18  AJMP  #0C58h
+0a1a  AJMP  #0A1Ch
+0a1c  RET
+0a1d  RET
+0a1e  LCALL #0526h
+0a21  JNB   04h.5, #+3
+0a24  LCALL #0500h
+0a27  LCALL #0537h
+0a2a  LCALL #1D9Bh
+0a2d  RET
+0a2e  LCALL #1BDDh
+0a31  LCALL #0537h
+0a34  LCALL #1D9Bh
+0a37  RET
+0a38  LCALL #1DB8h
+0a3b  LCALL #05A3h
+0a3e  LCALL #1C07h
+0a41  RET
+0a42  RET
+0a43  LCALL #0526h
+0a46  LCALL #0537h
+0a49  LCALL #1D9Bh
+0a4c  RET
+0a4d  RET
+0a4e  LCALL #1DB8h
+0a51  LCALL #05A3h
+0a54  LCALL #1BBBh
+0a57  RET
+0a58  LCALL #051Dh
+0a5b  LCALL #0537h
+0a5e  LCALL #1D9Bh
+0a61  LCALL #1DB8h
+0a64  LCALL #05A3h
+0a67  LCALL #1BBBh
+0a6a  LCALL #1C72h
+0a6d  RET
+0a6e  LCALL #0526h
+0a71  LCALL #0537h
+0a74  LCALL #1D9Bh
+0a77  LCALL #1DB8h
+0a7a  LCALL #05A3h
+0a7d  LCALL #1BC4h
+0a80  LCALL #1D67h
+0a83  CLR   01h.0
+0a85  CLR   01h.5
+0a87  LCALL #1C72h
+0a8a  RET
+0a8b  LCALL #0526h
+0a8e  LCALL #0537h
+0a91  LCALL #1D9Bh
+0a94  LCALL #1DB8h
+0a97  LCALL #05A3h
+0a9a  CLR   01h.4
+0a9c  CLR   01h.5
+0a9e  LCALL #1C72h
+0aa1  RET
+0aa2  LCALL #0526h
+0aa5  LCALL #0537h
+0aa8  LCALL #1D9Bh
+0aab  LCALL #1DB8h
+0aae  LCALL #05A3h
+0ab1  LCALL #0CBBh
+0ab4  LCALL #1D31h
+0ab7  LCALL #1D67h
+0aba  CLR   01h.0
+0abc  LCALL #1C72h
+0abf  RET
+0ac0  LCALL #051Dh
+0ac3  JNB   04h.5, #+3
+0ac6  LCALL #0500h
+0ac9  LCALL #0537h
+0acc  LCALL #1D9Bh
+0acf  RET
+0ad0  LCALL #0526h
+0ad3  LCALL #0537h
+0ad6  LCALL #1D9Bh
+0ad9  RET
+0ada  RET
+0adb  RET
+0adc  RET
+0add  AJMP  #0A4Eh
+0adf  RET
+0ae0  LCALL #051Dh
+0ae3  LCALL #0537h
+0ae6  LCALL #1D9Bh
+0ae9  LCALL #1DB8h
+0aec  LCALL #05A3h
+0aef  LCALL #1BB1h
+0af2  CLR   01h.5
+0af4  LCALL #1C72h
+0af7  RET
+0af8  LCALL #0526h
+0afb  LCALL #0537h
+0afe  LCALL #1D9Bh
+0b01  LCALL #1DB8h
+0b04  LCALL #05A3h
+0b07  LCALL #0CBBh
+0b0a  LCALL #1D31h
+0b0d  LCALL #1D67h
+0b10  CLR   01h.0
+0b12  LCALL #1C72h
+0b15  RET
+0b16  AJMP  #0A8Bh
+0b18  AJMP  #0AA2h
+0b1a  LCALL #1D67h
+0b1d  LCALL #195Dh
+0b20  LCALL #0537h
+0b23  LCALL #1D9Bh
+0b26  LCALL #1DB8h
+0b29  LCALL #05A3h
+0b2c  LCALL #18EEh
+0b2f  LCALL #0CBBh
+0b32  LCALL #1D31h
+0b35  LCALL #1C72h
+0b38  RET
+0b39  JNB   04h.6, #+5
+0b3c  LCALL #1811h
+0b3f  AJMP  #0B47h
+0b41  LCALL #1D67h
+0b44  LCALL #195Dh
+0b47  LCALL #0537h
+0b4a  LCALL #1D9Bh
+0b4d  LCALL #1DB8h
+0b50  LCALL #05A3h
+0b53  LCALL #0519h
+0b56  LCALL #0CBBh
+0b59  LCALL #1D31h
+0b5c  LCALL #1C72h
+0b5f  RET
+0b60  AJMP  #0B1Ah
+0b62  LCALL #1DB8h
+0b65  LCALL #05A3h
+0b68  LCALL #1800h
+0b6b  LCALL #0537h
+0b6e  LCALL #1D9Bh
+0b71  LCALL #1C72h
+0b74  RET
+0b75  LCALL #1811h
+0b78  LCALL #0537h
+0b7b  LCALL #1D9Bh
+0b7e  LCALL #1DB8h
+0b81  LCALL #05A3h
+0b84  LCALL #18EEh
+0b87  LCALL #184Dh
+0b8a  LCALL #1C72h
+0b8d  RET
+0b8e  AJMP  #0B75h
+0b90  LCALL #18A6h
+0b93  LCALL #0537h
+0b96  LCALL #1D9Bh
+0b99  LCALL #1DB8h
+0b9c  LCALL #05A3h
+0b9f  LCALL #18F3h
+0ba2  LCALL #0CBBh
+0ba5  LCALL #1D31h
+0ba8  LCALL #1C72h
+0bab  RET
+0bac  LCALL #1D67h
+0baf  LCALL #195Dh
+0bb2  LCALL #0537h
+0bb5  LCALL #1D9Bh
+0bb8  LCALL #1DB8h
+0bbb  LCALL #05A3h
+0bbe  LCALL #18F3h
+0bc1  LCALL #0CBBh
+0bc4  LCALL #1D31h
+0bc7  LCALL #1C72h
+0bca  RET
+0bcb  LCALL #1D67h
+0bce  LCALL #195Dh
+0bd1  LCALL #0537h
+0bd4  LCALL #1D9Bh
+0bd7  LCALL #1DB8h
+0bda  LCALL #05A3h
+0bdd  LCALL #0CBBh
+0be0  LCALL #1D31h
+0be3  LCALL #1C72h
+0be6  RET
+0be7  AJMP  #0B75h
+0be9  LCALL #18ABh
+0bec  LCALL #0537h
+0bef  LCALL #1D9Bh
+0bf2  LCALL #1DB8h
+0bf5  LCALL #05A3h
+0bf8  LCALL #0CBBh
+0bfb  LCALL #1D31h
+0bfe  LCALL #1C72h
+0c01  RET
+0c02  AJMP  #0AA2h
+0c04  AJMP  #0AA2h
+0c06  LCALL #18ABh
+0c09  LCALL #0537h
+0c0c  LCALL #1D9Bh
+0c0f  LCALL #1DB8h
+0c12  LCALL #05A3h
+0c15  LCALL #1C72h
+0c18  RET
+0c19  LCALL #1DB8h
+0c1c  LCALL #05A3h
+0c1f  LCALL #18F3h
+0c22  LCALL #1800h
+0c25  LCALL #0537h
+0c28  LCALL #1D9Bh
+0c2b  LCALL #1C72h
+0c2e  RET
+0c2f  AJMP  #0B62h
+0c31  LCALL #18A6h
+0c34  LCALL #0537h
+0c37  LCALL #1D9Bh
+0c3a  AJMP  #0B4Dh
+0c3c  AJMP  #0B39h
+0c3e  LCALL #18ABh
+0c41  LCALL #0537h
+0c44  LCALL #1D9Bh
+0c47  AJMP  #0B4Dh
+0c49  AJMP  #0AA2h
+0c4b  AJMP  #0B39h
+0c4d  LCALL #18ABh
+0c50  LCALL #0537h
+0c53  LCALL #1D9Bh
+0c56  AJMP  #0B4Dh
+0c58  AJMP  #0B39h
+0c5a  RET
+0c5b  PUSH  PSW
+0c5d  ANL   PSW, #EFh
+0c60  ORL   PSW, #08h
+0c63  MOV   R1, #5Bh
+0c65  CLR   01h.4
+0c67  CLR   01h.5
+0c69  CLR   08h.3
+0c6b  CLR   06h.0
+0c6d  CLR   06h.1
+0c6f  CLR   06h.2
+0c71  CLR   06h.3
+0c73  CLR   06h.4
+0c75  CLR   06h.5
+0c77  CLR   07h.3
+0c79  CLR   06h.6
+0c7b  CLR   07h.7
+0c7d  CLR   08h.4
+0c7f  CLR   07h.4
+0c81  CLR   08h.2
+0c83  MOV   60h, #00h
+0c86  MOV   61h, #00h
+0c89  MOV   57h, #00h
+0c8c  MOV   58h, #00h
+0c8f  MOV   59h, #00h
+0c92  MOV   5Ah, #00h
+0c95  MOV   3Ah, #00h
+0c98  MOV   3Bh, #00h
+0c9b  JNB   0Dh.5, #+5
+0c9e  JNB   0Dh.4, #+11
+0ca1  AJMP  #0CA8h
+0ca3  JNB   0Dh.4, #+10
+0ca6  AJMP  #0CB4h
+0ca8  MOV   R3, #08h
+0caa  AJMP  #0CB8h
+0cac  MOV   R3, #09h
+0cae  AJMP  #0CB8h
+0cb0  MOV   R3, #0Ah
+0cb2  AJMP  #0CB8h
+0cb4  MOV   R3, #0Bh
+0cb6  AJMP  #0CB8h
+0cb8  POP   PSW
+0cba  RET
+0cbb  PUSH  PSW
+0cbd  ANL   PSW, #EFh
+0cc0  ORL   PSW, #08h
+0cc3  JNB   0Dh.7, #+27
+0cc6  JB   01h.4, #+2
+0cc9  AJMP  #0F1Dh
+0ccb  MOV   R0, #06h
+0ccd  MOVX  A, @R0
+0cce  JB   ACC.0, #+2
+0cd1  AJMP  #0F1Dh
+0cd3  JNB   01h.5, #+2
+0cd6  AJMP  #0F1Dh
+0cd8  MOV   3Bh, 3Ah
+0cdb  CLR   01h.4
+0cdd  SETB  01h.5
+0cdf  AJMP  #0F1Dh
+0ce1  JB   01h.4, #+2
+0ce4  AJMP  #0CF1h
+0ce6  CLR   C
+0ce7  MOV   A, R1
+0ce8  SUBB  A, #5Fh
+0cea  JNC   #+5
+0cec  INC   R1
+0ced  MOV   @R1, 3Ah
+0cef  CLR   01h.4
+0cf1  CLR   C
+0cf2  MOV   A, R1
+0cf3  SUBB  A, #5Eh
+0cf5  CPL   C
+0cf6  MOV   06h.6, C
+0cf8  JNB   06h.2, #+44
+0cfb  JB   07h.7, #+69
+0cfe  MOV   A, 61h
+0d00  CLR   C
+0d01  SUBB  A, R3
+0d02  JNC   #+2
+0d04  AJMP  #0D20h
+0d06  JNB   06h.4, #+14
+0d09  JNB   08h.3, #+11
+0d0c  MOV   A, 58h
+0d0e  ORL   A, 59h
+0d10  ORL   A, 3Bh
+0d12  JNZ   #+3
+0d14  CJNE  R1, #5Bh, #+2
+0d17  AJMP  #0D20h
+0d19  MOV   A, 5Ch
+0d1b  LCALL #0F20h
+0d1e  AJMP  #0D73h
+0d20  JNB   06h.0, #+2
+0d23  AJMP  #0E49h
+0d25  AJMP  #0DA2h
+0d27  CJNE  R1, #5Bh, #+7
+0d2a  JNB   07h.7, #+2
+0d2d  AJMP  #0F1Dh
+0d2f  AJMP  #0E8Ch
+0d31  MOV   4Eh, R1
+0d33  CLR   A
+0d34  XCH   A, @R1
+0d35  DEC   R1
+0d36  CJNE  R1, #5Bh, #-5
+0d39  MOV   R1, 4Eh
+0d3b  DEC   R1
+0d3c  MOV   58h, A
+0d3e  SETB  06h.2
+0d40  MOV   57h, #08h
+0d43  JNB   07h.7, #+40
+0d46  JB   08h.4, #+37
+0d49  MOV   A, 58h
+0d4b  CJNE  A, #00h, #+7
+0d4e  CLR   06h.2
+0d50  MOV   57h, #00h
+0d53  AJMP  #0CF8h
+0d55  JB   ACC.0, #+9
+0d58  CLR   C
+0d59  RRC   A
+0d5a  DJNZ  57h, #-8
+0d5d  CLR   06h.2
+0d5f  AJMP  #0CF8h
+0d61  MOV   58h, A
+0d63  CLR   08h.2
+0d65  CLR   08h.4
+0d67  CLR   07h.7
+0d69  MOV   61h, #00h
+0d6c  AJMP  #0DA2h
+0d6e  MOV   A, 58h
+0d70  LCALL #0F20h
+0d73  JNB   08h.4, #+7
+0d76  JNB   07h.7, #+2
+0d79  AJMP  #0F1Dh
+0d7b  AJMP  #0E8Ch
+0d7d  JNB   07h.7, #+2
+0d80  AJMP  #0CF8h
+0d82  JNB   06h.4, #+2
+0d85  AJMP  #0E8Ch
+0d87  JNB   06h.5, #+2
+0d8a  AJMP  #0E6Eh
+0d8c  JNB   06h.3, #+2
+0d8f  AJMP  #0DF8h
+0d91  JNB   06h.0, #+2
+0d94  AJMP  #0E49h
+0d96  MOV   A, 58h
+0d98  CJNE  A, #FFh, #+4
+0d9b  CLR   06h.2
+0d9d  AJMP  #0CF8h
+0d9f  MOV   57h, #08h
+0da2  MOV   A, 58h
+0da4  JNB   ACC.0, #+9
+0da7  CLR   C
+0da8  RRC   A
+0da9  DJNZ  57h, #-8
+0dac  CLR   06h.2
+0dae  AJMP  #0CF8h
+0db0  MOV   58h, A
+0db2  JNB   06h.3, #+2
+0db5  AJMP  #0E8Ch
+0db7  DEC   57h
+0db9  MOV   A, 57h
+0dbb  JNZ   #+6
+0dbd  CLR   06h.2
+0dbf  SETB  06h.0
+0dc1  AJMP  #0DCDh
+0dc3  MOV   A, 58h
+0dc5  CLR   C
+0dc6  RRC   A
+0dc7  MOV   59h, A
+0dc9  SETB  06h.3
+0dcb  CLR   06h.2
+0dcd  CLR   C
+0dce  MOV   A, R3
+0dcf  DEC   A
+0dd0  DEC   A
+0dd1  SUBB  A, 57h
+0dd3  MOV   5Ah, A
+0dd5  JZ    #+4
+0dd7  JC    #+2
+0dd9  AJMP  #0CF8h
+0ddb  SETB  06h.4
+0ddd  SETB  06h.3
+0ddf  MOV   5Ah, #00h
+0de2  CJNE  R3, #08h, #+17
+0de5  CLR   C
+0de6  MOV   A, 57h
+0de8  SUBB  A, #07h
+0dea  JNZ   #+10
+0dec  MOV   A, 58h
+0dee  RL    A
+0def  MOV   58h, A
+0df1  MOV   57h, #01h
+0df4  SETB  06h.2
+0df6  AJMP  #0E8Ch
+0df8  MOV   5Bh, 5Ah
+0dfb  CJNE  R3, #0Bh, #+2
+0dfe  DEC   5Bh
+0e00  MOV   4Eh, #00h
+0e03  MOV   A, 58h
+0e05  RR    A
+0e06  MOV   58h, A
+0e08  MOV   A, 4Eh
+0e0a  SETB  C
+0e0b  RRC   A
+0e0c  MOV   4Eh, A
+0e0e  DJNZ  5Bh, #-14
+0e11  MOV   A, 58h
+0e13  ANL   A, 4Eh
+0e15  CJNE  R3, #08h, #+6
+0e18  CLR   C
+0e19  RRC   A
+0e1a  CLR   C
+0e1b  RRC   A
+0e1c  AJMP  #0E23h
+0e1e  CJNE  R3, #09h, #+2
+0e21  CLR   C
+0e22  RRC   A
+0e23  ORL   59h, A
+0e25  XRL   4Eh, #FFh
+0e28  MOV   A, 58h
+0e2a  ANL   A, 4Eh
+0e2c  MOV   58h, A
+0e2e  MOV   A, #08h
+0e30  CJNE  R3, #0Bh, #+2
+0e33  MOV   A, #09h
+0e35  CLR   C
+0e36  SUBB  A, 5Ah
+0e38  MOV   57h, A
+0e3a  CJNE  R3, #0Bh, #+6
+0e3d  SETB  06h.5
+0e3f  SETB  06h.3
+0e41  AJMP  #0E6Eh
+0e43  SETB  06h.4
+0e45  SETB  06h.3
+0e47  AJMP  #0E8Ch
+0e49  JNB   06h.4, #+2
+0e4c  AJMP  #0E8Ch
+0e4e  MOV   59h, 58h
+0e51  MOV   A, 58h
+0e53  CJNE  R3, #08h, #+8
+0e56  RL    A
+0e57  RL    A
+0e58  ANL   A, #03h
+0e5a  MOV   58h, A
+0e5c  AJMP  #0E6Ah
+0e5e  CJNE  R3, #09h, #+7
+0e61  RL    A
+0e62  ANL   A, #01h
+0e64  MOV   58h, A
+0e66  AJMP  #0E6Ah
+0e68  CLR   06h.2
+0e6a  CLR   06h.0
+0e6c  AJMP  #0E2Eh
+0e6e  JB   06h.2, #+2
+0e71  AJMP  #0CF8h
+0e73  MOV   A, 58h
+0e75  CLR   C
+0e76  RRC   A
+0e77  MOV   06h.1, C
+0e79  MOV   58h, A
+0e7b  DEC   57h
+0e7d  MOV   A, 57h
+0e7f  CJNE  A, #00h, #+2
+0e82  CLR   06h.2
+0e84  SETB  06h.4
+0e86  SETB  06h.5
+0e88  SETB  06h.3
+0e8a  AJMP  #0E8Ch
+0e8c  CJNE  R3, #0Bh, #+5
+0e8f  MOV   A, 60h
+0e91  JB   ACC.0, #+96
+0e94  JB   08h.3, #+93
+0e97  JB   01h.5, #+90
+0e9a  JNB   06h.4, #+87
+0e9d  MOV   3Bh, 59h
+0ea0  CJNE  R3, #0Bh, #+61
+0ea3  MOV   A, 59h
+0ea5  MOV   20h, PSW
+0ea8  MOV   C, 06h.1
+0eaa  RLC   A
+0eab  XRL   A, 20h
+0ead  RRC   A
+0eae  MOV   00h.7, C
+0eb0  MOV   A, 60h
+0eb2  ANL   A, #0Fh
+0eb4  JZ    #+2
+0eb6  AJMP  #0EC3h
+0eb8  CLR   A
+0eb9  MOV   C, 00h.7
+0ebb  MOV   ACC.7, C
+0ebd  SETB  ACC.3
+0ebf  MOV   60h, A
+0ec1  AJMP  #0EE0h
+0ec3  JNB   00h.7, #+5
+0ec6  MOV   20h, #F0h
+0ec9  AJMP  #0ECEh
+0ecb  MOV   20h, #00h
+0ece  MOV   A, 60h
+0ed0  ANL   A, #0Fh
+0ed2  RR    A
+0ed3  MOV   4Eh, A
+0ed5  SWAP  A
+0ed6  ANL   A, 20h
+0ed8  ORL   A, 60h
+0eda  ANL   A, #F0h
+0edc  ORL   A, 4Eh
+0ede  MOV   60h, A
+0ee0  SETB  08h.3
+0ee2  CLR   06h.4
+0ee4  CLR   06h.3
+0ee6  CLR   06h.5
+0ee8  CJNE  R3, #08h, #+3
+0eeb  ANL   3Bh, #3Fh
+0eee  CJNE  R3, #09h, #+3
+0ef1  ANL   3Bh, #7Fh
+0ef4  CJNE  R3, #0Bh, #+21
+0ef7  JB   07h.4, #+18
+0efa  MOV   A, 60h
+0efc  ANL   A, #0Fh
+0efe  JZ    #+12
+0f00  MOV   A, 60h
+0f02  CLR   C
+0f03  RLC   A
+0f04  ANL   A, #EEh
+0f06  MOV   60h, A
+0f08  MOV   07h.3, C
+0f0a  SETB  07h.4
+0f0c  MOV   A, 3Bh
+0f0e  JNZ   #+6
+0f10  MOV   A, 61h
+0f12  CLR   C
+0f13  SUBB  A, R3
+0f14  JNC   #+7
+0f16  JNB   08h.3, #+4
+0f19  SETB  01h.5
+0f1b  CLR   08h.3
+0f1d  POP   PSW
+0f1f  RET
+0f20  MOV   4Eh, A
+0f22  JNB   07h.7, #+2
+0f25  AJMP  #0FC2h
+0f27  JNB   08h.4, #+2
+0f2a  AJMP  #0FB3h
+0f2c  JNZ   #+10
+0f2e  MOV   A, 61h
+0f30  ADD   A, #08h
+0f32  MOV   61h, A
+0f34  SETB  08h.2
+0f36  AJMP  #0F93h
+0f38  JB   08h.2, #+46
+0f3b  MOV   A, 4Eh
+0f3d  JB   ACC.7, #+39
+0f40  SETB  08h.2
+0f42  INC   61h
+0f44  JB   ACC.6, #+123
+0f47  INC   61h
+0f49  JB   ACC.5, #+118
+0f4c  INC   61h
+0f4e  JB   ACC.4, #+113
+0f51  INC   61h
+0f53  JB   ACC.3, #+108
+0f56  INC   61h
+0f58  JB   ACC.2, #+103
+0f5b  INC   61h
+0f5d  JB   ACC.1, #+98
+0f60  INC   61h
+0f62  JB   ACC.0, #+93
+0f65  INC   61h
+0f67  AJMP  #0FC2h
+0f69  JB   ACC.0, #+43
+0f6c  INC   61h
+0f6e  JB   ACC.1, #+38
+0f71  INC   61h
+0f73  JB   ACC.2, #+33
+0f76  INC   61h
+0f78  JB   ACC.3, #+28
+0f7b  INC   61h
+0f7d  JB   ACC.4, #+23
+0f80  INC   61h
+0f82  JB   ACC.5, #+18
+0f85  INC   61h
+0f87  JB   ACC.6, #+13
+0f8a  INC   61h
+0f8c  JB   ACC.7, #+8
+0f8f  INC   61h
+0f91  AJMP  #0F93h
+0f93  CLR   00h.0
+0f95  AJMP  #0F99h
+0f97  SETB  00h.0
+0f99  MOV   A, R3
+0f9a  ADD   A, R3
+0f9b  ADD   A, #02h
+0f9d  CLR   C
+0f9e  SUBB  A, 61h
+0fa0  JC    #+17
+0fa2  JNB   00h.0, #+29
+0fa5  CLR   08h.2
+0fa7  MOV   61h, #00h
+0faa  JNB   08h.3, #+4
+0fad  SETB  01h.5
+0faf  CLR   08h.3
+0fb1  AJMP  #0F3Bh
+0fb3  SETB  08h.4
+0fb5  JB   01h.5, #+10
+0fb8  CLR   08h.3
+0fba  CLR   06h.4
+0fbc  CLR   06h.3
+0fbe  CLR   06h.5
+0fc0  SETB  07h.7
+0fc2  RET
+0fc3  MOV   R7, A
+0fc4  MOV   R7, A
+0fc5  MOV   R7, A
+0fc6  MOV   R7, A
+0fc7  MOV   R7, A
+0fc8  MOV   R7, A
+0fc9  MOV   R7, A
+0fca  MOV   R7, A
+0fcb  MOV   R7, A
+0fcc  MOV   R7, A
+0fcd  MOV   R7, A
+0fce  MOV   R7, A
+0fcf  MOV   R7, A
+0fd0  MOV   R7, A
+0fd1  MOV   R7, A
+0fd2  MOV   R7, A
+0fd3  MOV   R7, A
+0fd4  MOV   R7, A
+0fd5  MOV   R7, A
+0fd6  MOV   R7, A
+0fd7  MOV   R7, A
+0fd8  MOV   R7, A
+0fd9  MOV   R7, A
+0fda  MOV   R7, A
+0fdb  MOV   R7, A
+0fdc  MOV   R7, A
+0fdd  MOV   R7, A
+0fde  MOV   R7, A
+0fdf  MOV   R7, A
+0fe0  MOV   R7, A
+0fe1  MOV   R7, A
+0fe2  MOV   R7, A
+0fe3  MOV   R7, A
+0fe4  MOV   R7, A
+0fe5  MOV   R7, A
+0fe6  MOV   R7, A
+0fe7  MOV   R7, A
+0fe8  MOV   R7, A
+0fe9  MOV   R7, A
+0fea  MOV   R7, A
+0feb  MOV   R7, A
+0fec  MOV   R7, A
+0fed  MOV   R7, A
+0fee  MOV   R7, A
+0fef  MOV   R7, A
+0ff0  MOV   R7, A
+0ff1  MOV   R7, A
+0ff2  MOV   R7, A
+0ff3  MOV   R7, A
+0ff4  MOV   R7, A
+0ff5  MOV   R7, A
+0ff6  MOV   R7, A
+0ff7  MOV   R7, A
+0ff8  MOV   R7, A
+0ff9  MOV   R7, A
+0ffa  MOV   R7, A
+0ffb  MOV   R7, A
+0ffc  MOV   R7, A
+0ffd  MOV   R7, A
+0ffe  MOV   R7, A
+0fff  MOV   R7, A
+1000  MOV   20h, 31h
+1003  MOV   R2, 34h
+1005  MOV   A, 34h
+1007  JNB   ACC.7, #+11
+100a  JB   02h.1, #+3
+100d  JB   02h.4, #+5
+1010  MOV   34h, #00h
+1013  AJMP  #1755h
+1015  MOV   A, 34h
+1017  JNB   ACC.7, #+20
+101a  JB   ACC.6, #+17
+101d  ANL   A, #1Fh
+101f  CJNE  A, #16h, #+0
+1022  JNC   #+10
+1024  MOV   A, 15h
+1026  JNB   ACC.7, #+5
+1029  MOV   34h, #00h
+102c  AJMP  #1755h
+102e  MOV   A, 34h
+1030  JB   ACC.7, #+7
+1033  JNB   ACC.0, #+2
+1036  AJMP  #117Ah
+1038  AJMP  #1161h
+103a  MOV   DPTR, #01042h
+103d  ANL   A, #70h
+103f  SWAP  A
+1040  RL    A
+1041  JMP   @A+DPTR
+1042  AJMP  #1052h
+1044  AJMP  #107Bh
+1046  AJMP  #10A4h
+1048  AJMP  #10CDh
+104a  AJMP  #10F6h
+104c  AJMP  #1161h
+104e  AJMP  #110Fh
+1050  AJMP  #1138h
+1052  MOV   DPTR, #0105Bh
+1055  MOV   A, 34h
+1057  ANL   A, #0Fh
+1059  RL    A
+105a  JMP   @A+DPTR
+105b  AJMP  #13AAh
+105d  AJMP  #13C9h
+105f  AJMP  #13E5h
+1061  AJMP  #13F8h
+1063  AJMP  #1270h
+1065  AJMP  #1208h
+1067  AJMP  #1220h
+1069  AJMP  #122Bh
+106b  AJMP  #1406h
+106d  AJMP  #1424h
+106f  AJMP  #142Eh
+1071  AJMP  #145Ch
+1073  AJMP  #1471h
+1075  AJMP  #1471h
+1077  AJMP  #148Dh
+1079  AJMP  #12D2h
+107b  MOV   DPTR, #01084h
+107e  MOV   A, 34h
+1080  ANL   A, #0Fh
+1082  RL    A
+1083  JMP   @A+DPTR
+1084  AJMP  #1208h
+1086  AJMP  #1220h
+1088  AJMP  #130Eh
+108a  AJMP  #14A6h
+108c  AJMP  #14C4h
+108e  AJMP  #14CCh
+1090  AJMP  #14CEh
+1092  AJMP  #14EFh
+1094  AJMP  #1515h
+1096  AJMP  #1539h
+1098  AJMP  #1161h
+109a  AJMP  #1161h
+109c  AJMP  #1161h
+109e  AJMP  #1161h
+10a0  AJMP  #1161h
+10a2  AJMP  #1161h
+10a4  MOV   DPTR, #010ADh
+10a7  MOV   A, 34h
+10a9  ANL   A, #0Fh
+10ab  RL    A
+10ac  JMP   @A+DPTR
+10ad  AJMP  #11B6h
+10af  AJMP  #11CFh
+10b1  AJMP  #11E8h
+10b3  AJMP  #1208h
+10b5  AJMP  #1220h
+10b7  AJMP  #122Bh
+10b9  AJMP  #1236h
+10bb  AJMP  #1270h
+10bd  AJMP  #1288h
+10bf  AJMP  #12A0h
+10c1  AJMP  #12B9h
+10c3  AJMP  #12D2h
+10c5  AJMP  #1208h
+10c7  AJMP  #1220h
+10c9  AJMP  #12EAh
+10cb  AJMP  #1319h
+10cd  MOV   DPTR, #010D6h
+10d0  MOV   A, 34h
+10d2  ANL   A, #0Fh
+10d4  RL    A
+10d5  JMP   @A+DPTR
+10d6  AJMP  #1208h
+10d8  AJMP  #1220h
+10da  AJMP  #130Eh
+10dc  AJMP  #132Ch
+10de  AJMP  #133Dh
+10e0  AJMP  #1345h
+10e2  AJMP  #14CEh
+10e4  AJMP  #14EFh
+10e6  AJMP  #1363h
+10e8  AJMP  #1387h
+10ea  AJMP  #1161h
+10ec  AJMP  #1161h
+10ee  AJMP  #1161h
+10f0  AJMP  #1161h
+10f2  AJMP  #1161h
+10f4  AJMP  #1161h
+10f6  MOV   DPTR, #010FFh
+10f9  MOV   A, 34h
+10fb  ANL   A, #07h
+10fd  RL    A
+10fe  JMP   @A+DPTR
+10ff  AJMP  #159Bh
+1101  AJMP  #159Bh
+1103  AJMP  #157Ah
+1105  AJMP  #159Bh
+1107  AJMP  #14EFh
+1109  AJMP  #1161h
+110b  AJMP  #1161h
+110d  AJMP  #1161h
+110f  MOV   DPTR, #01118h
+1112  MOV   A, 34h
+1114  ANL   A, #0Fh
+1116  RL    A
+1117  JMP   @A+DPTR
+1118  AJMP  #15ADh
+111a  AJMP  #15F7h
+111c  AJMP  #1611h
+111e  AJMP  #164Fh
+1120  AJMP  #1669h
+1122  AJMP  #1684h
+1124  AJMP  #16C2h
+1126  AJMP  #1161h
+1128  AJMP  #16F7h
+112a  AJMP  #16F9h
+112c  AJMP  #1161h
+112e  AJMP  #172Eh
+1130  AJMP  #1161h
+1132  AJMP  #1161h
+1134  AJMP  #1745h
+1136  AJMP  #1161h
+1138  MOV   DPTR, #01141h
+113b  MOV   A, 34h
+113d  ANL   A, #0Fh
+113f  RL    A
+1140  JMP   @A+DPTR
+1141  AJMP  #174Ah
+1143  AJMP  #174Ah
+1145  AJMP  #174Ah
+1147  AJMP  #174Ah
+1149  AJMP  #174Ah
+114b  AJMP  #174Ah
+114d  AJMP  #174Ah
+114f  AJMP  #1161h
+1151  AJMP  #174Ah
+1153  AJMP  #174Ah
+1155  AJMP  #1161h
+1157  AJMP  #174Ah
+1159  AJMP  #1161h
+115b  AJMP  #1161h
+115d  AJMP  #174Ah
+115f  AJMP  #1161h
+1161  JNB   04h.5, #+12
+1164  CLR   IE.3
+1166  MOV   17h, #03h
+1169  MOV   16h, #E8h
+116c  SETB  IE.3
+116e  AJMP  #1178h
+1170  MOV   A, 17h
+1172  JNB   ACC.7, #+3
+1175  MOV   34h, #01h
+1178  AJMP  #1755h
+117a  CLR   IE.3
+117c  MOV   15h, #75h
+117f  MOV   14h, #30h
+1182  SETB  IE.3
+1184  JNB   02h.4, #+45
+1187  JNB   03h.1, #+21
+118a  JNB   0Eh.7, #+5
+118d  MOV   34h, #A0h
+1190  AJMP  #1755h
+1192  JB   0Eh.6, #+5
+1195  MOV   34h, #B8h
+1198  AJMP  #1755h
+119a  MOV   34h, #A3h
+119d  AJMP  #1755h
+119f  JNB   0Eh.7, #+5
+11a2  MOV   34h, #80h
+11a5  AJMP  #1755h
+11a7  JB   0Eh.6, #+5
+11aa  MOV   34h, #98h
+11ad  AJMP  #1755h
+11af  MOV   34h, #83h
+11b2  AJMP  #1755h
+11b4  AJMP  #1755h
+11b6  JNB   04h.5, #+12
+11b9  CLR   IE.3
+11bb  MOV   17h, #07h
+11be  MOV   16h, #0Dh
+11c1  SETB  IE.3
+11c3  AJMP  #1755h
+11c5  MOV   A, 17h
+11c7  JNB   ACC.7, #+3
+11ca  MOV   34h, #A1h
+11cd  AJMP  #1755h
+11cf  JNB   04h.5, #+12
+11d2  CLR   IE.3
+11d4  MOV   17h, #0Ah
+11d7  MOV   16h, #2Dh
+11da  SETB  IE.3
+11dc  AJMP  #1755h
+11de  MOV   A, 17h
+11e0  JNB   ACC.7, #+3
+11e3  MOV   34h, #A2h
+11e6  AJMP  #1755h
+11e8  JNB   04h.5, #+12
+11eb  CLR   IE.3
+11ed  MOV   17h, #00h
+11f0  MOV   16h, #3Ch
+11f3  SETB  IE.3
+11f5  AJMP  #1206h
+11f7  MOV   A, 17h
+11f9  JNB   ACC.7, #+10
+11fc  JB   0Eh.6, #+5
+11ff  MOV   34h, #B8h
+1202  AJMP  #1206h
+1204  INC   34h
+1206  AJMP  #1755h
+1208  JNB   04h.5, #+12
+120b  CLR   IE.3
+120d  MOV   17h, #00h
+1210  MOV   16h, #17h
+1213  SETB  IE.3
+1215  AJMP  #121Eh
+1217  MOV   A, 17h
+1219  JNB   ACC.7, #+2
+121c  INC   34h
+121e  AJMP  #1755h
+1220  MOV   A, #F8h
+1222  ADD   A, 64h
+1224  JB   ACC.7, #+2
+1227  INC   34h
+1229  AJMP  #1755h
+122b  MOV   A, #E0h
+122d  ADD   A, 64h
+122f  JB   ACC.7, #+2
+1232  INC   34h
+1234  AJMP  #1755h
+1236  JNB   04h.5, #+12
+1239  CLR   IE.3
+123b  MOV   17h, #07h
+123e  MOV   16h, #D0h
+1241  SETB  IE.3
+1243  AJMP  #126Bh
+1245  MOV   A, 17h
+1247  JNB   ACC.7, #+5
+124a  MOV   34h, #A3h
+124d  AJMP  #126Bh
+124f  MOV   A, #FCh
+1251  ADD   A, 63h
+1253  JB   ACC.7, #+21
+1256  MOV   C, 03h.2
+1258  ANL   C, 04h.2
+125a  JC    #+6
+125c  MOV   C, 03h.3
+125e  ANL   C, 04h.3
+1260  JNC   #+4
+1262  INC   34h
+1264  AJMP  #1755h
+1266  MOV   34h, #00h
+1269  AJMP  #1755h
+126b  JB   03h.5, #-12
+126e  AJMP  #1755h
+1270  JNB   04h.5, #+12
+1273  CLR   IE.3
+1275  MOV   17h, #00h
+1278  MOV   16h, #FAh
+127b  SETB  IE.3
+127d  AJMP  #1755h
+127f  MOV   A, 17h
+1281  JNB   ACC.7, #+2
+1284  INC   34h
+1286  AJMP  #1755h
+1288  JNB   04h.5, #+12
+128b  CLR   IE.3
+128d  MOV   17h, #01h
+1290  MOV   16h, #C7h
+1293  SETB  IE.3
+1295  AJMP  #1755h
+1297  MOV   A, 17h
+1299  JNB   ACC.7, #+2
+129c  INC   34h
+129e  AJMP  #1755h
+12a0  JNB   04h.5, #+12
+12a3  CLR   IE.3
+12a5  MOV   17h, #00h
+12a8  MOV   16h, #3Ch
+12ab  SETB  IE.3
+12ad  AJMP  #1755h
+12af  MOV   A, 17h
+12b1  JNB   ACC.7, #+3
+12b4  MOV   34h, #B9h
+12b7  AJMP  #1755h
+12b9  JNB   04h.5, #+12
+12bc  CLR   IE.3
+12be  MOV   17h, #02h
+12c1  MOV   16h, #44h
+12c4  SETB  IE.3
+12c6  AJMP  #12D0h
+12c8  MOV   A, 17h
+12ca  JNB   ACC.7, #+3
+12cd  MOV   34h, #ABh
+12d0  AJMP  #1755h
+12d2  JNB   04h.5, #+12
+12d5  CLR   IE.3
+12d7  MOV   17h, #00h
+12da  MOV   16h, #19h
+12dd  SETB  IE.3
+12df  AJMP  #1755h
+12e1  MOV   A, 17h
+12e3  JNB   ACC.7, #+2
+12e6  INC   34h
+12e8  AJMP  #1755h
+12ea  JB   04h.5, #+6
+12ed  JNB   0Ah.2, #+3
+12f0  JB   0Ah.0, #+12
+12f3  CLR   IE.3
+12f5  MOV   17h, #00h
+12f8  MOV   16h, #32h
+12fb  SETB  IE.3
+12fd  AJMP  #1755h
+12ff  MOV   A, 17h
+1301  JNB   ACC.7, #+8
+1304  JB   03h.5, #+3
+1307  JNB   0Ah.2, #+2
+130a  INC   34h
+130c  AJMP  #1755h
+130e  JNB   0Ah.2, #+22
+1311  JNB   03h.5, #+5
+1314  MOV   34h, #93h
+1317  AJMP  #132Ah
+1319  JB   03h.5, #+7
+131c  MOV   A, #F8h
+131e  ADD   A, 63h
+1320  JB   ACC.7, #+7
+1323  INC   34h
+1325  AJMP  #132Ah
+1327  MOV   63h, #00h
+132a  AJMP  #1755h
+132c  MOV   A, #F8h
+132e  ADD   A, 63h
+1330  JB   ACC.7, #+8
+1333  JNB   03h.4, #+2
+1336  AJMP  #1552h
+1338  MOV   34h, #B6h
+133b  AJMP  #1755h
+133d  JNB   0Ah.2, #+3
+1340  MOV   34h, #B5h
+1343  AJMP  #1755h
+1345  JNB   04h.5, #+12
+1348  CLR   IE.3
+134a  MOV   17h, #07h
+134d  MOV   16h, #D0h
+1350  SETB  IE.3
+1352  AJMP  #1361h
+1354  MOV   A, 17h
+1356  JNB   ACC.7, #+8
+1359  JNB   03h.4, #+2
+135c  AJMP  #1552h
+135e  MOV   34h, #B6h
+1361  AJMP  #1755h
+1363  JNB   04h.5, #+12
+1366  CLR   IE.3
+1368  MOV   17h, #00h
+136b  MOV   16h, #46h
+136e  SETB  IE.3
+1370  AJMP  #1385h
+1372  MOV   A, 17h
+1374  JNB   ACC.7, #+14
+1377  JNB   02h.3, #+3
+137a  JNB   03h.5, #+5
+137d  MOV   34h, #B4h
+1380  AJMP  #1385h
+1382  MOV   34h, #B2h
+1385  AJMP  #1755h
+1387  JNB   04h.5, #+22
+138a  CLR   IE.3
+138c  MOV   17h, #00h
+138f  MOV   16h, #46h
+1392  SETB  IE.3
+1394  CLR   IE.3
+1396  MOV   15h, #75h
+1399  MOV   14h, #30h
+139c  SETB  IE.3
+139e  AJMP  #13A8h
+13a0  MOV   A, 17h
+13a2  JNB   ACC.7, #+3
+13a5  MOV   34h, #AAh
+13a8  AJMP  #1755h
+13aa  JNB   04h.5, #+12
+13ad  CLR   IE.3
+13af  MOV   17h, #00h
+13b2  MOV   16h, #C8h
+13b5  SETB  IE.3
+13b7  AJMP  #1755h
+13b9  MOV   A, 17h
+13bb  JNB   ACC.7, #+9
+13be  JB   0Ah.1, #+3
+13c1  JNB   03h.5, #+3
+13c4  MOV   34h, #81h
+13c7  AJMP  #1755h
+13c9  JNB   04h.5, #+12
+13cc  CLR   IE.3
+13ce  MOV   17h, #0Ah
+13d1  MOV   16h, #2Dh
+13d4  SETB  IE.3
+13d6  AJMP  #1755h
+13d8  JNB   0Ah.1, #+5
+13db  MOV   A, 17h
+13dd  JNB   ACC.7, #+3
+13e0  MOV   34h, #82h
+13e3  AJMP  #1755h
+13e5  JB   0Ah.1, #+3
+13e8  JNB   03h.5, #+11
+13eb  JB   0Eh.6, #+5
+13ee  MOV   34h, #98h
+13f1  AJMP  #1755h
+13f3  MOV   34h, #83h
+13f6  AJMP  #1755h
+13f8  JB   03h.5, #+7
+13fb  MOV   A, #FCh
+13fd  ADD   A, 63h
+13ff  JB   ACC.7, #+2
+1402  INC   34h
+1404  AJMP  #1755h
+1406  JNB   04h.5, #+10
+1409  CLR   IE.3
+140b  MOV   17h, #07h
+140e  MOV   16h, #D0h
+1411  SETB  IE.3
+1413  JB   0Ah.1, #+4
+1416  INC   34h
+1418  AJMP  #1755h
+141a  MOV   A, 17h
+141c  JNB   ACC.7, #+3
+141f  MOV   34h, #85h
+1422  AJMP  #1755h
+1424  JB   03h.5, #+3
+1427  JNB   0Ah.1, #+2
+142a  INC   34h
+142c  AJMP  #1755h
+142e  JNB   04h.5, #+12
+1431  CLR   IE.3
+1433  MOV   17h, #00h
+1436  MOV   16h, #FAh
+1439  SETB  IE.3
+143b  AJMP  #145Ah
+143d  JB   03h.5, #+15
+1440  MOV   A, 17h
+1442  JNB   ACC.7, #+15
+1445  CLR   IE.3
+1447  MOV   17h, #00h
+144a  MOV   16h, #96h
+144d  SETB  IE.3
+144f  MOV   34h, #8Bh
+1452  AJMP  #145Ah
+1454  JB   0Ah.1, #+3
+1457  MOV   34h, #89h
+145a  AJMP  #1755h
+145c  MOV   A, 17h
+145e  JNB   ACC.7, #+14
+1461  JB   03h.5, #+3
+1464  JNB   0Ah.1, #+5
+1467  MOV   34h, #8Dh
+146a  AJMP  #146Fh
+146c  MOV   34h, #85h
+146f  AJMP  #1755h
+1471  JNB   04h.5, #+10
+1474  CLR   IE.3
+1476  MOV   15h, #75h
+1479  MOV   14h, #30h
+147c  SETB  IE.3
+147e  JB   03h.5, #+7
+1481  MOV   A, #F8h
+1483  ADD   A, 63h
+1485  JB   ACC.7, #+3
+1488  MOV   34h, #99h
+148b  AJMP  #1755h
+148d  JNB   04h.5, #+12
+1490  CLR   IE.3
+1492  MOV   17h, #02h
+1495  MOV   16h, #44h
+1498  SETB  IE.3
+149a  AJMP  #1755h
+149c  MOV   A, 17h
+149e  JNB   ACC.7, #+3
+14a1  MOV   34h, #8Fh
+14a4  AJMP  #1755h
+14a6  JNB   04h.5, #+12
+14a9  CLR   IE.3
+14ab  MOV   17h, #00h
+14ae  MOV   16h, #3Ch
+14b1  SETB  IE.3
+14b3  AJMP  #14C2h
+14b5  MOV   A, 17h
+14b7  JNB   ACC.7, #+8
+14ba  JNB   03h.4, #+2
+14bd  AJMP  #1552h
+14bf  MOV   34h, #96h
+14c2  AJMP  #1755h
+14c4  JNB   0Ah.2, #+3
+14c7  MOV   34h, #95h
+14ca  AJMP  #1755h
+14cc  AJMP  #1345h
+14ce  JB   03h.4, #+26
+14d1  JNB   0Ah.2, #+3
+14d4  JB   0Ah.0, #+5
+14d7  MOV   34h, #B7h
+14da  AJMP  #14EDh
+14dc  JNB   0Dh.1, #+14
+14df  MOV   A, 63h
+14e1  ADD   A, #E0h
+14e3  JB   ACC.7, #+7
+14e6  MOV   34h, #E8h
+14e9  AJMP  #14EDh
+14eb  AJMP  #1552h
+14ed  AJMP  #1755h
+14ef  JB   04h.5, #+21
+14f2  JNB   0Ah.2, #+18
+14f5  JNB   0Ah.0, #+15
+14f8  MOV   A, 17h
+14fa  JNB   ACC.7, #+22
+14fd  JNB   03h.4, #+2
+1500  AJMP  #1552h
+1502  MOV   34h, #B6h
+1505  AJMP  #1513h
+1507  CLR   IE.3
+1509  MOV   17h, #00h
+150c  MOV   16h, #0Ah
+150f  SETB  IE.3
+1511  AJMP  #1513h
+1513  AJMP  #1755h
+1515  JNB   04h.5, #+12
+1518  CLR   IE.3
+151a  MOV   17h, #00h
+151d  MOV   16h, #46h
+1520  SETB  IE.3
+1522  AJMP  #1537h
+1524  MOV   A, 17h
+1526  JNB   ACC.7, #+14
+1529  JNB   02h.3, #+3
+152c  JNB   03h.5, #+5
+152f  MOV   34h, #94h
+1532  AJMP  #1755h
+1534  MOV   34h, #92h
+1537  AJMP  #1755h
+1539  JNB   04h.5, #+12
+153c  CLR   IE.3
+153e  MOV   17h, #00h
+1541  MOV   16h, #46h
+1544  SETB  IE.3
+1546  AJMP  #1550h
+1548  MOV   A, 17h
+154a  JNB   ACC.7, #+3
+154d  MOV   34h, #8Eh
+1550  AJMP  #1755h
+1552  JNB   03h.5, #+13
+1555  JNB   04h.6, #+5
+1558  MOV   34h, #C3h
+155b  AJMP  #1578h
+155d  MOV   34h, #C0h
+1560  AJMP  #1578h
+1562  JNB   03h.7, #+5
+1565  MOV   34h, #C1h
+1568  AJMP  #1578h
+156a  JNB   03h.6, #+5
+156d  MOV   34h, #E0h
+1570  AJMP  #1578h
+1572  JNB   04h.6, #+3
+1575  MOV   34h, #C2h
+1578  AJMP  #1755h
+157a  JNB   0Ah.2, #+6
+157d  JNB   03h.4, #+3
+1580  JB   0Ah.0, #+5
+1583  MOV   34h, #B7h
+1586  AJMP  #1599h
+1588  JNB   0Dh.1, #+12
+158b  MOV   A, 63h
+158d  ADD   A, #E0h
+158f  JB   ACC.7, #+5
+1592  MOV   34h, #E8h
+1595  AJMP  #1599h
+1597  AJMP  #1552h
+1599  AJMP  #1755h
+159b  JNB   0Ah.2, #+6
+159e  JNB   0Ah.0, #+3
+15a1  JB   03h.4, #+5
+15a4  MOV   34h, #B7h
+15a7  AJMP  #15ABh
+15a9  AJMP  #1552h
+15ab  AJMP  #1755h
+15ad  JNB   0Ah.0, #+3
+15b0  JB   0Ah.2, #+5
+15b3  ORL   34h, #10h
+15b6  AJMP  #1755h
+15b8  MOV   A, 63h
+15ba  ADD   A, #E0h
+15bc  JB   ACC.7, #+5
+15bf  MOV   34h, #E2h
+15c2  AJMP  #1755h
+15c4  JB   00h.0, #+24
+15c7  JNB   04h.5, #+12
+15ca  CLR   IE.3
+15cc  MOV   17h, #03h
+15cf  MOV   16h, #55h
+15d2  SETB  IE.3
+15d4  AJMP  #1755h
+15d6  MOV   A, 17h
+15d8  JNB   ACC.7, #+2
+15db  INC   34h
+15dd  AJMP  #1755h
+15df  JNB   04h.5, #+12
+15e2  CLR   IE.3
+15e4  MOV   17h, #06h
+15e7  MOV   16h, #AAh
+15ea  SETB  IE.3
+15ec  AJMP  #1755h
+15ee  MOV   A, 17h
+15f0  JNB   ACC.7, #+2
+15f3  INC   34h
+15f5  AJMP  #1755h
+15f7  JNB   0Ah.0, #+3
+15fa  JB   0Ah.2, #+5
+15fd  ORL   34h, #10h
+1600  AJMP  #1755h
+1602  JNB   03h.6, #+7
+1605  MOV   A, 63h
+1607  ADD   A, #E0h
+1609  JB   ACC.7, #+3
+160c  MOV   34h, #E2h
+160f  AJMP  #1755h
+1611  JNB   0Ah.0, #+3
+1614  JB   0Ah.2, #+5
+1617  ORL   34h, #10h
+161a  AJMP  #1755h
+161c  JB   00h.0, #+24
+161f  JNB   04h.5, #+12
+1622  CLR   IE.3
+1624  MOV   17h, #03h
+1627  MOV   16h, #55h
+162a  SETB  IE.3
+162c  AJMP  #1755h
+162e  MOV   A, 17h
+1630  JNB   ACC.7, #+2
+1633  INC   34h
+1635  AJMP  #1755h
+1637  JNB   04h.5, #+12
+163a  CLR   IE.3
+163c  MOV   17h, #06h
+163f  MOV   16h, #AAh
+1642  SETB  IE.3
+1644  AJMP  #1755h
+1646  MOV   A, 17h
+1648  JNB   ACC.7, #+2
+164b  INC   34h
+164d  AJMP  #1755h
+164f  JNB   04h.6, #+4
+1652  INC   34h
+1654  AJMP  #1755h
+1656  JNB   0Ah.0, #+3
+1659  JB   0Ah.2, #+5
+165c  ORL   34h, #10h
+165f  AJMP  #1755h
+1661  JB   03h.6, #+3
+1664  MOV   34h, #E5h
+1667  AJMP  #1755h
+1669  JNB   0Ah.0, #+3
+166c  JB   0Ah.2, #+5
+166f  ORL   34h, #10h
+1672  AJMP  #1755h
+1674  JB   04h.6, #+5
+1677  MOV   34h, #E3h
+167a  AJMP  #1755h
+167c  JB   03h.6, #+3
+167f  MOV   34h, #E5h
+1682  AJMP  #1755h
+1684  JNB   0Ah.0, #+3
+1687  JB   0Ah.2, #+5
+168a  ORL   34h, #10h
+168d  AJMP  #1755h
+168f  JB   00h.0, #+24
+1692  JNB   04h.5, #+12
+1695  CLR   IE.3
+1697  MOV   17h, #0Dh
+169a  MOV   16h, #54h
+169d  SETB  IE.3
+169f  AJMP  #1755h
+16a1  MOV   A, 17h
+16a3  JNB   ACC.7, #+2
+16a6  INC   34h
+16a8  AJMP  #1755h
+16aa  JNB   04h.5, #+12
+16ad  CLR   IE.3
+16af  MOV   17h, #1Ah
+16b2  MOV   16h, #A8h
+16b5  SETB  IE.3
+16b7  AJMP  #1755h
+16b9  MOV   A, 17h
+16bb  JNB   ACC.7, #+2
+16be  INC   34h
+16c0  AJMP  #1755h
+16c2  JB   00h.0, #+25
+16c5  JNB   04h.5, #+12
+16c8  CLR   IE.3
+16ca  MOV   17h, #00h
+16cd  MOV   16h, #35h
+16d0  SETB  IE.3
+16d2  AJMP  #1755h
+16d4  MOV   A, 17h
+16d6  JNB   ACC.7, #+3
+16d9  MOV   34h, #B6h
+16dc  AJMP  #1755h
+16de  JNB   04h.5, #+12
+16e1  CLR   IE.3
+16e3  MOV   17h, #00h
+16e6  MOV   16h, #6Ah
+16e9  SETB  IE.3
+16eb  AJMP  #1755h
+16ed  MOV   A, 17h
+16ef  JNB   ACC.7, #+3
+16f2  MOV   34h, #B6h
+16f5  AJMP  #1755h
+16f7  AJMP  #1611h
+16f9  JB   00h.0, #+25
+16fc  JNB   04h.5, #+12
+16ff  CLR   IE.3
+1701  MOV   17h, #03h
+1704  MOV   16h, #55h
+1707  SETB  IE.3
+1709  AJMP  #1755h
+170b  MOV   A, 17h
+170d  JNB   ACC.7, #+3
+1710  MOV   34h, #EBh
+1713  AJMP  #1755h
+1715  JNB   04h.5, #+12
+1718  CLR   IE.3
+171a  MOV   17h, #06h
+171d  MOV   16h, #AAh
+1720  SETB  IE.3
+1722  AJMP  #1755h
+1724  MOV   A, 17h
+1726  JNB   ACC.7, #+3
+1729  MOV   34h, #EBh
+172c  AJMP  #1755h
+172e  JNB   0Ah.0, #+3
+1731  JB   0Ah.2, #+5
+1734  ORL   34h, #10h
+1737  AJMP  #1755h
+1739  MOV   A, 63h
+173b  ADD   A, #E0h
+173d  JB   ACC.7, #+3
+1740  MOV   34h, #EEh
+1743  AJMP  #1755h
+1745  MOV   34h, #B6h
+1748  AJMP  #1755h
+174a  JNB   0Ah.2, #+6
+174d  JNB   0Ah.0, #+3
+1750  ANL   34h, #EFh
+1753  AJMP  #1755h
+1755  MOV   A, 34h
+1757  XRL   A, R2
+1758  JZ    #+3
+175a  SETB  04h.5
+175c  RET
+175d  CLR   04h.5
+175f  RET
+1760  MOV   A, 6Eh
+1762  JB   ACC.7, #+26
+1765  MOV   A, 13h
+1767  CJNE  A, #FFh, #+21
+176a  MOV   A, 12h
+176c  ADD   A, #0Dh
+176e  JC    #+15
+1770  ADD   A, #36h
+1772  JNC   #+11
+1774  CPL   A
+1775  ADD   A, #44h
+1777  ANL   A, #FCh
+1779  RR    A
+177a  RR    A
+177b  ADD   A, 6Eh
+177d  MOV   6Eh, A
+177f  CLR   IE.3
+1781  MOV   13h, #FFh
+1784  MOV   12h, #FFh
+1787  SETB  IE.3
+1789  CLR   IE.2
+178b  POP   ACC
+178d  POP   PSW
+178f  RETI
+1790  MOV   A, 13h
+1792  CJNE  A, #FFh, #+2
+1795  AJMP  #179Bh
+1797  SETB  IE.2
+1799  AJMP  #17A7h
+179b  MOV   A, 12h
+179d  ADD   A, #05h
+179f  JC    #+45
+17a1  SETB  IE.2
+17a3  ADD   A, #9Bh
+17a5  JC    #+39
+17a7  ANL   6Eh, #3Fh
+17aa  ANL   30h, #FBh
+17ad  ANL   31h, #EFh
+17b0  MOV   A, 34h
+17b2  CJNE  A, #00h, #+4
+17b5  CLR   02h.5
+17b7  AJMP  #17BFh
+17b9  MOV   A, 13h
+17bb  ADD   A, #27h
+17bd  JC    #+15
+17bf  MOV   6Eh, #00h
+17c2  CLR   IE.3
+17c4  MOV   13h, #D8h
+17c7  MOV   12h, #F0h
+17ca  SETB  IE.3
+17cc  AJMP  #17F0h
+17ce  MOV   A, 6Eh
+17d0  JB   ACC.7, #+29
+17d3  CJNE  A, #28h, #+0
+17d6  JC    #+24
+17d8  CJNE  A, #3Fh, #+0
+17db  JNC   #+5
+17dd  MOV   6Eh, #BFh
+17e0  AJMP  #17EAh
+17e2  CJNE  A, #67h, #+0
+17e5  JC    #+9
+17e7  MOV   6Eh, #FFh
+17ea  ORL   30h, #04h
+17ed  ORL   31h, #10h
+17f0  RET
+17f1  MOV   6Eh, #00h
+17f4  CLR   IP.2
+17f6  SETB  TCON.2
+17f8  SETB  IE.2
+17fa  RET
+17fb  MOV   R7, A
+17fc  MOV   R7, A
+17fd  MOV   R7, A
+17fe  MOV   R7, A
+17ff  MOV   R7, A
+1800  JNB   01h.4, #+13
+1803  JB   01h.1, #+10
+1806  MOV   37h, 3Ah
+1809  MOV   3Dh, 3Ah
+180c  CLR   01h.4
+180e  SETB  01h.1
+1810  RET
+1811  JNB   04h.5, #+6
+1814  MOV   45h, #FFh
+1817  MOV   46h, #FFh
+181a  JB   01h.1, #+47
+181d  MOV   A, 46h
+181f  SWAP  A
+1820  ANL   A, #0Fh
+1822  MOV   02h, A
+1824  MOV   A, 45h
+1826  SWAP  A
+1827  ORL   02h, A
+1829  MOV   A, #00h
+182b  XRL   A, 02h
+182d  XRL   A, 46h
+182f  SWAP  A
+1830  RL    A
+1831  ANL   A, #E0h
+1833  ORL   02h, A
+1835  MOV   A, #00h
+1837  XRL   A, 02h
+1839  XRL   A, 46h
+183b  MOV   37h, A
+183d  MOV   3Dh, A
+183f  CLR   C
+1840  RLC   A
+1841  MOV   46h, 45h
+1844  ORL   46h, A
+1846  CLR   A
+1847  RLC   A
+1848  MOV   45h, A
+184a  SETB  01h.1
+184c  RET
+184d  JNB   01h.4, #+85
+1850  MOV   A, 48h
+1852  MOV   03h, A
+1854  SWAP  A
+1855  ANL   A, #0Fh
+1857  MOV   02h, A
+1859  MOV   A, 47h
+185b  SWAP  A
+185c  ORL   02h, A
+185e  MOV   A, 3Ah
+1860  JNZ   #+13
+1862  MOV   A, 47h
+1864  JNZ   #+9
+1866  MOV   A, 48h
+1868  JNZ   #+5
+186a  MOV   A, 3Ah
+186c  CPL   A
+186d  MOV   3Ah, A
+186f  MOV   A, 3Ah
+1871  SWAP  A
+1872  RL    A
+1873  ANL   A, #E0h
+1875  ORL   02h, A
+1877  MOV   48h, 47h
+187a  MOV   A, 3Ah
+187c  CLR   C
+187d  RLC   A
+187e  ORL   48h, A
+1880  CLR   A
+1881  RLC   A
+1882  MOV   47h, A
+1884  MOV   A, 3Ah
+1886  XRL   A, 02h
+1888  XRL   A, 03h
+188a  CLR   01h.4
+188c  JZ    #+23
+188e  INC   49h
+1890  MOV   R2, #08h
+1892  MOV   R3, #00h
+1894  RRC   A
+1895  JNC   #+1
+1897  INC   R3
+1898  DJNZ  R2, #-6
+189a  CJNE  R3, #03h, #+0
+189d  JC    #+6
+189f  INC   49h
+18a1  INC   49h
+18a3  INC   49h
+18a5  RET
+18a6  MOV   01h, #00h
+18a9  AJMP  #18AEh
+18ab  MOV   01h, #FFh
+18ae  JNB   01h.1, #+1
+18b1  RET
+18b2  MOV   A, 45h
+18b4  CJNE  A, #00h, #+6
+18b7  MOV   A, #39h
+18b9  MOV   45h, A
+18bb  AJMP  #18C2h
+18bd  CJNE  A, #7Fh, #+2
+18c0  AJMP  #18B7h
+18c2  MOV   03h, A
+18c4  RL    A
+18c5  SWAP  A
+18c6  ANL   A, #0Fh
+18c8  MOV   02h, A
+18ca  MOV   A, 01h
+18cc  XRL   A, 02h
+18ce  XRL   A, 03h
+18d0  MOV   C, ACC.0
+18d2  SWAP  A
+18d3  ANL   A, #F0h
+18d5  ORL   02h, A
+18d7  CLR   A
+18d8  RRC   A
+18d9  ORL   03h, A
+18db  MOV   A, 01h
+18dd  XRL   A, 02h
+18df  XRL   A, 03h
+18e1  MOV   37h, A
+18e3  SETB  01h.1
+18e5  CLR   C
+18e6  RRC   A
+18e7  MOV   45h, A
+18e9  RET
+18ea  MOV   37h, #FFh
+18ed  RET
+18ee  MOV   01h, #00h
+18f1  AJMP  #18F6h
+18f3  MOV   01h, #FFh
+18f6  JBC   01h.6, #+4
+18f9  JB   04h.5, #+51
+18fc  RET
+18fd  MOV   A, 4Bh
+18ff  MOV   03h, A
+1901  RL    A
+1902  SWAP  A
+1903  ANL   A, #0Fh
+1905  MOV   02h, A
+1907  MOV   A, 3Ch
+1909  CPL   A
+190a  JZ    #+4
+190c  CPL   A
+190d  JNZ   #+1
+190f  CPL   A
+1910  MOV   C, ACC.0
+1912  SWAP  A
+1913  ANL   A, #F0h
+1915  ORL   02h, A
+1917  CLR   A
+1918  RRC   A
+1919  ORL   03h, A
+191b  MOV   A, 3Ch
+191d  CLR   C
+191e  RRC   A
+191f  MOV   4Bh, A
+1921  RLC   A
+1922  XRL   A, 02h
+1924  XRL   A, 03h
+1926  JB   04h.5, #+6
+1929  INC   63h
+192b  XRL   A, 01h
+192d  JZ    #+3
+192f  MOV   63h, #00h
+1932  RET
+1933  PUSH  PSW
+1935  ANL   PSW, #EFh
+1938  ORL   PSW, #08h
+193b  MOV   20h, 20h
+193e  MOV   52h, #08h
+1941  SETB  05h.1
+1943  MOV   R0, #52h
+1945  CLR   01h.0
+1947  CLR   01h.1
+1949  CLR   05h.2
+194b  CLR   05h.3
+194d  CLR   05h.5
+194f  CLR   05h.6
+1951  CLR   06h.7
+1953  CLR   08h.0
+1955  CLR   08h.1
+1957  MOV   20h, 20h
+195a  POP   PSW
+195c  RET
+195d  PUSH  PSW
+195f  ANL   PSW, #EFh
+1962  ORL   PSW, #08h
+1965  MOV   20h, 20h
+1968  JNB   0Dh.7, #+22
+196b  JB   01h.0, #+2
+196e  AJMP  #1B96h
+1970  JNB   01h.1, #+2
+1973  AJMP  #1B96h
+1975  MOV   37h, 36h
+1978  MOV   3Dh, 36h
+197b  CLR   01h.0
+197d  SETB  01h.1
+197f  AJMP  #1B96h
+1981  JB   01h.0, #+2
+1984  AJMP  #1AACh
+1986  JNB   05h.7, #+6
+1989  MOV   A, 36h
+198b  JNZ   #+2
+198d  SETB  07h.6
+198f  JB   05h.2, #+3
+1992  JNB   05h.3, #+2
+1995  AJMP  #1AACh
+1997  CJNE  R2, #00h, #+18
+199a  JB   05h.1, #+11
+199d  CLR   05h.0
+199f  MOV   R2, #03h
+19a1  JB   0Dh.6, #+2
+19a4  MOV   R2, #07h
+19a6  AJMP  #19AFh
+19a8  SETB  05h.0
+19aa  AJMP  #19AFh
+19ac  SETB  05h.0
+19ae  DEC   R2
+19af  CJNE  R3, #08h, #+3
+19b2  ANL   36h, #3Fh
+19b5  CJNE  R3, #09h, #+3
+19b8  ANL   36h, #7Fh
+19bb  CJNE  R3, #0Bh, #+13
+19be  MOV   A, 36h
+19c0  MOV   20h, PSW
+19c3  MOV   C, 00h.0
+19c5  JNB   07h.5, #+1
+19c8  CPL   C
+19c9  MOV   05h.4, C
+19cb  JB   06h.7, #+24
+19ce  JNB   07h.6, #+21
+19d1  CJNE  R3, #0Bh, #+3
+19d4  JB   05h.4, #+15
+19d7  MOV   A, 36h
+19d9  JNZ   #+11
+19db  SETB  06h.7
+19dd  SETB  08h.0
+19df  MOV   A, R3
+19e0  CLR   C
+19e1  RLC   A
+19e2  ADD   A, #03h
+19e4  MOV   36h, A
+19e6  JB   06h.7, #+2
+19e9  AJMP  #1A47h
+19eb  JNB   08h.0, #+62
+19ee  MOV   4Dh, #00h
+19f1  MOV   A, 36h
+19f3  CLR   C
+19f4  SUBB  A, #08h
+19f6  JNC   #+10
+19f8  MOV   51h, 36h
+19fb  SETB  05h.3
+19fd  MOV   36h, #00h
+1a00  AJMP  #1A28h
+1a02  MOV   51h, #08h
+1a05  SETB  05h.3
+1a07  MOV   36h, A
+1a09  JZ    #+29
+1a0b  MOV   4Ch, #00h
+1a0e  CLR   C
+1a0f  MOV   A, 36h
+1a11  SUBB  A, #08h
+1a13  JNC   #+10
+1a15  MOV   50h, 36h
+1a18  SETB  05h.2
+1a1a  MOV   36h, #00h
+1a1d  AJMP  #1A28h
+1a1f  MOV   50h, #08h
+1a22  SETB  05h.2
+1a24  MOV   36h, A
+1a26  JNZ   #+4
+1a28  CLR   01h.0
+1a2a  CLR   08h.0
+1a2c  JNB   06h.7, #+22
+1a2f  JB   08h.0, #+19
+1a32  JB   05h.7, #+5
+1a35  JNB   01h.0, #+4
+1a38  AJMP  #1A42h
+1a3a  SETB  08h.1
+1a3c  JNB   08h.1, #+6
+1a3f  JB   05h.7, #+3
+1a42  LCALL #1B9Ch
+1a45  AJMP  #1AACh
+1a47  MOV   A, 36h
+1a49  CLR   01h.0
+1a4b  CLR   C
+1a4c  RLC   A
+1a4d  MOV   4Dh, A
+1a4f  MOV   00h.0, C
+1a51  MOV   51h, #08h
+1a54  SETB  05h.3
+1a56  JNB   0Dh.5, #+5
+1a59  JNB   0Dh.4, #+19
+1a5c  AJMP  #1A63h
+1a5e  JNB   0Dh.4, #+30
+1a61  AJMP  #1A94h
+1a63  DEC   51h
+1a65  JNB   05h.0, #+5
+1a68  ORL   4Dh, #80h
+1a6b  INC   51h
+1a6d  AJMP  #1AACh
+1a6f  JNB   05h.0, #+11
+1a72  MOV   4Ch, #00h
+1a75  ORL   4Ch, #01h
+1a78  MOV   50h, #01h
+1a7b  SETB  05h.2
+1a7d  AJMP  #1AACh
+1a7f  MOV   50h, #01h
+1a82  CLR   A
+1a83  MOV   C, 00h.0
+1a85  RLC   A
+1a86  MOV   4Ch, A
+1a88  JNB   05h.0, #+5
+1a8b  ORL   4Ch, #02h
+1a8e  INC   50h
+1a90  SETB  05h.2
+1a92  AJMP  #1AACh
+1a94  MOV   50h, #02h
+1a97  CLR   A
+1a98  MOV   C, 05h.4
+1a9a  RLC   A
+1a9b  MOV   C, 00h.0
+1a9d  RLC   A
+1a9e  MOV   4Ch, A
+1aa0  JNB   05h.0, #+5
+1aa3  ORL   4Ch, #04h
+1aa6  INC   50h
+1aa8  SETB  05h.2
+1aaa  AJMP  #1AACh
+1aac  JNB   05h.6, #+2
+1aaf  AJMP  #1B58h
+1ab1  JNB   05h.3, #+66
+1ab4  JB   05h.5, #+5
+1ab7  MOV   4Fh, 4Dh
+1aba  AJMP  #1AE1h
+1abc  MOV   4Eh, #00h
+1abf  MOV   5Bh, 52h
+1ac2  MOV   A, 4Dh
+1ac4  RR    A
+1ac5  MOV   4Dh, A
+1ac7  MOV   A, 4Eh
+1ac9  SETB  C
+1aca  RRC   A
+1acb  MOV   4Eh, A
+1acd  DJNZ  5Bh, #-14
+1ad0  MOV   A, 4Dh
+1ad2  ANL   A, 4Eh
+1ad4  ORL   4Fh, A
+1ad6  XRL   4Eh, #FFh
+1ad9  MOV   A, 4Dh
+1adb  ANL   A, 4Eh
+1add  MOV   4Dh, A
+1adf  AJMP  #1AE1h
+1ae1  CLR   C
+1ae2  MOV   A, 52h
+1ae4  SUBB  A, 51h
+1ae6  JC    #+39
+1ae8  MOV   51h, #00h
+1aeb  JNB   05h.3, #+2
+1aee  SETB  05h.5
+1af0  CLR   05h.3
+1af2  JZ    #+20
+1af4  MOV   52h, A
+1af6  JNB   05h.2, #+35
+1af9  MOV   4Dh, 4Ch
+1afc  MOV   51h, 50h
+1aff  MOV   50h, #00h
+1b02  CLR   05h.2
+1b04  SETB  05h.3
+1b06  AJMP  #1AACh
+1b08  MOV   52h, #00h
+1b0b  SETB  05h.6
+1b0d  AJMP  #1B58h
+1b0f  CPL   A
+1b10  INC   A
+1b11  MOV   51h, A
+1b13  MOV   52h, #00h
+1b16  SETB  05h.6
+1b18  SETB  05h.5
+1b1a  AJMP  #1B58h
+1b1c  CJNE  R0, #52h, #+76
+1b1f  JB   05h.5, #+25
+1b22  JNB   06h.7, #+9
+1b25  JB   08h.0, #+6
+1b28  JB   05h.7, #+3
+1b2b  LCALL #1B9Ch
+1b2e  JB   06h.7, #+5
+1b31  MOV   4Fh, #FFh
+1b34  AJMP  #1B49h
+1b36  MOV   4Fh, #00h
+1b39  AJMP  #1B49h
+1b3b  JB   06h.7, #+11
+1b3e  MOV   5Bh, 52h
+1b41  CLR   A
+1b42  SETB  C
+1b43  RRC   A
+1b44  DJNZ  5Bh, #-5
+1b47  ORL   4Fh, A
+1b49  INC   R0
+1b4a  MOV   @R0, 4Fh
+1b4c  MOV   4Fh, #00h
+1b4f  MOV   52h, #08h
+1b52  CLR   05h.6
+1b54  CLR   05h.5
+1b56  AJMP  #1B7Bh
+1b58  CLR   C
+1b59  MOV   A, R0
+1b5a  SUBB  A, #56h
+1b5c  JNC   #+29
+1b5e  INC   R0
+1b5f  MOV   @R0, 4Fh
+1b61  MOV   4Fh, #00h
+1b64  MOV   52h, #08h
+1b67  CLR   05h.6
+1b69  CLR   05h.5
+1b6b  CLR   C
+1b6c  MOV   A, R0
+1b6d  SUBB  A, #55h
+1b6f  MOV   05h.1, C
+1b71  JB   05h.3, #+5
+1b74  JB   05h.2, #+2
+1b77  AJMP  #1B7Bh
+1b79  AJMP  #1AACh
+1b7b  JNB   01h.1, #+2
+1b7e  AJMP  #1B96h
+1b80  CJNE  R0, #52h, #+2
+1b83  AJMP  #1B96h
+1b85  MOV   4Eh, R0
+1b87  CLR   A
+1b88  XCH   A, @R0
+1b89  DEC   R0
+1b8a  CJNE  R0, #52h, #-5
+1b8d  MOV   R0, 4Eh
+1b8f  DEC   R0
+1b90  MOV   37h, A
+1b92  MOV   3Dh, A
+1b94  SETB  01h.1
+1b96  MOV   20h, 20h
+1b99  POP   PSW
+1b9b  RET
+1b9c  JB   05h.2, #+17
+1b9f  MOV   4Ch, #01h
+1ba2  MOV   50h, #01h
+1ba5  SETB  05h.2
+1ba7  CLR   06h.7
+1ba9  JNB   08h.1, #+4
+1bac  CLR   01h.0
+1bae  CLR   08h.1
+1bb0  RET
+1bb1  JNB   01h.4, #+30
+1bb4  MOV   A, 3Ah
+1bb6  CPL   A
+1bb7  JZ    #+18
+1bb9  AJMP  #1BCFh
+1bbb  JNB   01h.4, #+20
+1bbe  MOV   A, 3Ah
+1bc0  JZ    #+9
+1bc2  AJMP  #1BCFh
+1bc4  JNB   01h.4, #+11
+1bc7  MOV   A, 3Ah
+1bc9  JZ    #+4
+1bcb  INC   63h
+1bcd  AJMP  #1BD2h
+1bcf  MOV   63h, #00h
+1bd2  CLR   01h.4
+1bd4  JB   04h.5, #+2
+1bd7  AJMP  #1BDCh
+1bd9  MOV   63h, #00h
+1bdc  RET
+1bdd  JNB   04h.5, #+3
+1be0  MOV   64h, #00h
+1be3  JB   01h.1, #+32
+1be6  JNB   03h.2, #+22
+1be9  JNB   03h.3, #+14
+1bec  MOV   37h, #07h
+1bef  MOV   A, 34h
+1bf1  JB   ACC.5, #+14
+1bf4  JNB   04h.2, #+8
+1bf7  JB   04h.3, #+5
+1bfa  MOV   37h, #01h
+1bfd  AJMP  #1C02h
+1bff  MOV   37h, #03h
+1c02  SETB  01h.1
+1c04  INC   64h
+1c06  RET
+1c07  JNB   04h.5, #+6
+1c0a  MOV   66h, #00h
+1c0d  MOV   63h, #00h
+1c10  JNB   01h.4, #+94
+1c13  MOV   A, 3Ah
+1c15  XCH   A, 66h
+1c17  XRL   A, 66h
+1c19  JNZ   #+4
+1c1b  INC   63h
+1c1d  AJMP  #1C22h
+1c1f  MOV   63h, #01h
+1c22  CLR   04h.3
+1c24  CLR   04h.2
+1c26  MOV   A, 3Ah
+1c28  JZ    #+66
+1c2a  CPL   A
+1c2b  JZ    #+63
+1c2d  CPL   A
+1c2e  RR    A
+1c2f  JNB   ACC.0, #-4
+1c32  JNB   ACC.7, #+4
+1c35  RL    A
+1c36  JB   ACC.7, #-4
+1c39  MOV   R2, A
+1c3a  CJNE  R2, #01h, #+4
+1c3d  SETB  04h.2
+1c3f  AJMP  #1C6Fh
+1c41  CJNE  R2, #03h, #+4
+1c44  SETB  04h.3
+1c46  AJMP  #1C6Fh
+1c48  MOV   A, 34h
+1c4a  JB   ACC.5, #+31
+1c4d  CJNE  R2, #07h, #+6
+1c50  SETB  04h.2
+1c52  SETB  04h.3
+1c54  AJMP  #1C6Fh
+1c56  CJNE  R2, #09h, #+2
+1c59  AJMP  #1C68h
+1c5b  CJNE  R2, #21h, #+2
+1c5e  AJMP  #1C68h
+1c60  CJNE  R2, #05h, #+2
+1c63  AJMP  #1C68h
+1c65  CJNE  R2, #41h, #+4
+1c68  SETB  04h.3
+1c6a  AJMP  #1C6Fh
+1c6c  MOV   63h, #00h
+1c6f  CLR   01h.4
+1c71  RET
+1c72  JBC   04h.7, #+1
+1c75  RET
+1c76  CLR   00h.0
+1c78  MOV   R2, #09h
+1c7a  AJMP  #1C9Eh
+1c7c  MOV   A, 67h
+1c7e  MOV   C, ACC.7
+1c80  MOV   A, 6Ch
+1c82  RLC   A
+1c83  MOV   6Ch, A
+1c85  MOV   A, 6Bh
+1c87  RLC   A
+1c88  MOV   6Bh, A
+1c8a  MOV   A, 6Ah
+1c8c  RLC   A
+1c8d  MOV   6Ah, A
+1c8f  MOV   A, 69h
+1c91  RLC   A
+1c92  MOV   69h, A
+1c94  MOV   A, 68h
+1c96  RLC   A
+1c97  MOV   68h, A
+1c99  MOV   A, 67h
+1c9b  RLC   A
+1c9c  MOV   67h, A
+1c9e  JB   00h.0, #+47
+1ca1  MOV   A, 67h
+1ca3  XRL   A, 6Dh
+1ca5  JZ    #+37
+1ca7  MOV   A, 68h
+1ca9  XRL   A, 6Dh
+1cab  JZ    #+31
+1cad  MOV   A, 69h
+1caf  XRL   A, 6Dh
+1cb1  JZ    #+25
+1cb3  MOV   A, 6Ah
+1cb5  XRL   A, 6Dh
+1cb7  JZ    #+19
+1cb9  MOV   A, 6Bh
+1cbb  XRL   A, 6Dh
+1cbd  JZ    #+13
+1cbf  MOV   A, 6Ch
+1cc1  XRL   A, 6Dh
+1cc3  JZ    #+7
+1cc5  DJNZ  R2, #-75
+1cc7  MOV   65h, #00h
+1cca  AJMP  #1CD2h
+1ccc  INC   65h
+1cce  SETB  00h.0
+1cd0  DJNZ  R2, #-86
+1cd2  MOV   A, 67h
+1cd4  XCH   A, 68h
+1cd6  XCH   A, 69h
+1cd8  XCH   A, 6Ah
+1cda  XCH   A, 6Bh
+1cdc  XCH   A, 6Ch
+1cde  MOV   67h, A
+1ce0  RET
+1ce1  JNB   0Dh.7, #+5
+1ce4  MOV   35h, #ECh
+1ce7  AJMP  #1D04h
+1ce9  JNB   0Dh.5, #+13
+1cec  JNB   0Dh.4, #+5
+1cef  MOV   35h, #66h
+1cf2  AJMP  #1D04h
+1cf4  MOV   35h, #6Ah
+1cf7  AJMP  #1D04h
+1cf9  JB   0Dh.4, #+5
+1cfc  MOV   35h, #6Eh
+1cff  AJMP  #1D04h
+1d01  MOV   35h, #7Eh
+1d04  RET
+1d05  MOV   A, #80h
+1d07  MOVX  @R0, A
+1d08  MOV   A, #00h
+1d0a  NOP
+1d0b  NOP
+1d0c  MOVX  @R0, A
+1d0d  MOV   A, #40h
+1d0f  NOP
+1d10  NOP
+1d11  MOVX  @R0, A
+1d12  MOV   A, R3
+1d13  NOP
+1d14  NOP
+1d15  MOVX  @R0, A
+1d16  NOP
+1d17  NOP
+1d18  NOP
+1d19  NOP
+1d1a  NOP
+1d1b  JB   ACC.0, #+16
+1d1e  JB   ACC.1, #+13
+1d21  MOV   A, #FFh
+1d23  MOVX  @R0, A
+1d24  NOP
+1d25  NOP
+1d26  NOP
+1d27  NOP
+1d28  NOP
+1d29  NOP
+1d2a  NOP
+1d2b  NOP
+1d2c  NOP
+1d2d  NOP
+1d2e  MOV   A, R2
+1d2f  MOVX  @R0, A
+1d30  RET
+1d31  MOV   R0, #06h
+1d33  MOVX  A, @R0
+1d34  MOV   R2, A
+1d35  JB   0Dh.7, #+20
+1d38  JNB   07h.7, #+17
+1d3b  JNB   08h.4, #+11
+1d3e  JNB   ACC.2, #+8
+1d41  CLR   08h.4
+1d43  MOV   A, #0Dh
+1d45  SETB  08h.5
+1d47  AJMP  #1D50h
+1d49  JB   07h.7, #+12
+1d4c  MOV   A, #05h
+1d4e  CLR   08h.5
+1d50  MOV   R0, #06h
+1d52  MOV   C, 0Eh.0
+1d54  CPL   C
+1d55  MOV   ACC.5, C
+1d57  MOVX  @R0, A
+1d58  MOV   A, R2
+1d59  JNB   ACC.0, #+10
+1d5c  JNB   01h.5, #+7
+1d5f  MOV   R0, #02h
+1d61  MOV   A, 3Bh
+1d63  MOVX  @R0, A
+1d64  CLR   01h.5
+1d66  RET
+1d67  MOV   R0, #06h
+1d69  MOVX  A, @R0
+1d6a  JNB   ACC.1, #+45
+1d6d  MOV   C, ACC.6
+1d6f  MOV   05h.7, C
+1d71  JB   06h.7, #+3
+1d74  JB   01h.0, #+35
+1d77  JNB   0Dh.7, #+3
+1d7a  JB   01h.1, #+29
+1d7d  MOV   C, ACC.3
+1d7f  MOV   07h.5, C
+1d81  MOV   C, ACC.5
+1d83  MOV   07h.6, C
+1d85  MOV   R0, #06h
+1d87  MOV   A, #35h
+1d89  MOV   C, 0Eh.0
+1d8b  CPL   C
+1d8c  MOV   ACC.5, C
+1d8e  MOV   C, 08h.5
+1d90  MOV   ACC.3, C
+1d92  MOVX  @R0, A
+1d93  MOV   R0, #02h
+1d95  MOVX  A, @R0
+1d96  MOV   36h, A
+1d98  SETB  01h.0
+1d9a  RET
+1d9b  MOV   R0, #05h
+1d9d  MOVX  A, @R0
+1d9e  JNB   ACC.0, #+22
+1da1  JNB   01h.2, #+19
+1da4  MOV   R0, #01h
+1da6  MOV   A, 38h
+1da8  MOVX  @R0, A
+1da9  XCH   A, 67h
+1dab  XCH   A, 68h
+1dad  XCH   A, 69h
+1daf  XCH   A, 6Ah
+1db1  XCH   A, 6Bh
+1db3  XCH   A, 6Ch
+1db5  CLR   01h.2
+1db7  RET
+1db8  JB   01h.4, #+20
+1dbb  MOV   R0, #05h
+1dbd  MOVX  A, @R0
+1dbe  JNB   ACC.1, #+14
+1dc1  JB   01h.3, #+11
+1dc4  MOV   R0, #01h
+1dc6  MOVX  A, @R0
+1dc7  MOV   39h, A
+1dc9  SETB  01h.3
+1dcb  MOV   6Dh, A
+1dcd  SETB  04h.7
+1dcf  RET
+1dd0  MOV   34h, #00h
+1dd3  SETB  04h.5
+1dd5  MOV   30h, #00h
+1dd8  MOV   31h, #01h
+1ddb  MOV   32h, #A8h
+1dde  MOV   33h, #04h
+1de1  ACALL 1DE7h
+1de3  ACALL 1DE7h
+1de5  AJMP  #1DE8h
+1de7  RETI
+1de8  LCALL #17F1h
+1deb  MOV   TMOD, #15h
+1dee  CLR   TCON.5
+1df0  CLR   TCON.7
+1df2  MOV   TH1, #FCh
+1df5  MOV   TL1, #21h
+1df8  SETB  TCON.6
+1dfa  SETB  IE.7
+1dfc  SETB  IE.3
+1dfe  LCALL #0800h
+1e01  LCALL #1CE1h
+1e04  MOV   R0, #06h
+1e06  MOV   R3, 35h
+1e08  MOV   A, #35h
+1e0a  MOV   C, 0Eh.0
+1e0c  CPL   C
+1e0d  MOV   ACC.5, C
+1e0f  MOV   R2, A
+1e10  LCALL #1D05h
+1e13  CLR   P1.7
+1e15  LCALL #1933h
+1e18  LCALL #0C5Bh
+1e1b  LCALL #077Ch
+1e1e  MOV   R0, #05h
+1e20  MOV   R3, #CCh
+1e22  MOV   R2, #15h
+1e24  LCALL #1D05h
+1e27  MOV   32h, #ACh
+1e2a  CLR   IE.3
+1e2c  MOV   17h, #00h
+1e2f  MOV   16h, #32h
+1e32  SETB  IE.3
+1e34  LCALL #0899h
+1e37  LCALL #08DDh
+1e3a  MOV   A, 17h
+1e3c  JNB   ACC.7, #-11
+1e3f  MOV   32h, #A8h
+1e42  LCALL #0899h
+1e45  MOV   30h, #00h
+1e48  MOV   32h, #A8h
+1e4b  MOV   R2, #01h
+1e4d  MOV   R3, #00h
+1e4f  MOV   R4, #0Ah
+1e51  MOV   R5, #02h
+1e53  MOV   R6, #02h
+1e55  MOV   A, R2
+1e56  ANL   A, #FEh
+1e58  MOV   30h, A
+1e5a  MOV   A, R3
+1e5b  MOV   C, ACC.3
+1e5d  CPL   C
+1e5e  MOV   P1.3, C
+1e60  MOV   C, ACC.5
+1e62  CPL   C
+1e63  MOV   P1.4, C
+1e65  CLR   IE.3
+1e67  MOV   17h, #00h
+1e6a  MOV   16h, #FAh
+1e6d  SETB  IE.3
+1e6f  LCALL #0899h
+1e72  LCALL #08DDh
+1e75  MOV   A, 17h
+1e77  JNB   ACC.7, #-11
+1e7a  ANL   32h, #DFh
+1e7d  XRL   32h, #40h
+1e80  MOV   A, R3
+1e81  JZ    #+5
+1e83  MOV   R2, A
+1e84  MOV   R3, #00h
+1e86  DJNZ  R4, #-51
+1e88  MOV   A, R2
+1e89  RL    A
+1e8a  JB   ACC.3, #+3
+1e8d  JNB   ACC.5, #+5
+1e90  MOV   R3, A
+1e91  MOV   R2, #00h
+1e93  DJNZ  R4, #-64
+1e95  MOV   R2, A
+1e96  DJNZ  R4, #-67
+1e98  ORL   32h, #20h
+1e9b  MOV   R2, #01h
+1e9d  MOV   R4, #0Ah
+1e9f  DJNZ  R5, #-76
+1ea1  MOV   R2, #00h
+1ea3  MOV   R5, #01h
+1ea5  MOV   R4, #10h
+1ea7  DJNZ  R6, #-84
+1ea9  RET
+1eaa  CLR   IE.7
+1eac  MOV   PSW, #00h
+1eaf  MOV   A, P1
+1eb1  MOV   P2, #00h
+1eb4  MOV   A, P3
+1eb6  MOV   R0, #00h
+1eb8  MOV   A, @R0
+1eb9  CJNE  A, 00h, #+6
+1ebc  INC   R0
+1ebd  CJNE  R0, #60h, #-8
+1ec0  AJMP  #1EC6h
+1ec2  MOV   A, R0
+1ec3  MOV   @R0, A
+1ec4  AJMP  #1EC4h
+1ec6  MOV   R0, #FFh
+1ec8  MOV   A, #00h
+1eca  MOV   @R0, A
+1ecb  DJNZ  R0, #-3
+1ecd  MOV   SP, #6Fh
+1ed0  LCALL #1DD0h
+1ed3  LCALL #08DDh
+1ed6  LCALL #0800h
+1ed9  LCALL #0620h
+1edc  LCALL #1000h
+1edf  LCALL #1790h
+1ee2  LCALL #006Eh
+1ee5  LCALL #0899h
+1ee8  LCALL #08E9h
+1eeb  SJMP  #-26
+1eed  MOV   R7, A
+1eee  MOV   R7, A
+1eef  MOV   R7, A
+1ef0  MOV   R7, A
+1ef1  MOV   R7, A
+1ef2  MOV   R7, A
+1ef3  MOV   R7, A
+1ef4  MOV   R7, A
+1ef5  MOV   R7, A
+1ef6  MOV   R7, A
+1ef7  MOV   R7, A
+1ef8  MOV   R7, A
+1ef9  MOV   R7, A
+1efa  MOV   R7, A
+1efb  MOV   R7, A
+1efc  MOV   R7, A
+1efd  MOV   R7, A
+1efe  MOV   R7, A
+1eff  MOV   R7, A
+1f00  MOV   R7, A
+1f01  MOV   R7, A
+1f02  MOV   R7, A
+1f03  MOV   R7, A
+1f04  MOV   R7, A
+1f05  MOV   R7, A
+1f06  MOV   R7, A
+1f07  MOV   R7, A
+1f08  MOV   R7, A
+1f09  MOV   R7, A
+1f0a  MOV   R7, A
+1f0b  MOV   R7, A
+1f0c  MOV   R7, A
+1f0d  MOV   R7, A
+1f0e  MOV   R7, A
+1f0f  MOV   R7, A
+1f10  MOV   R7, A
+1f11  MOV   R7, A
+1f12  MOV   R7, A
+1f13  MOV   R7, A
+1f14  MOV   R7, A
+1f15  MOV   R7, A
+1f16  MOV   R7, A
+1f17  MOV   R7, A
+1f18  MOV   R7, A
+1f19  MOV   R7, A
+1f1a  MOV   R7, A
+1f1b  MOV   R7, A
+1f1c  MOV   R7, A
+1f1d  MOV   R7, A
+1f1e  MOV   R7, A
+1f1f  MOV   R7, A
+1f20  MOV   R7, A
+1f21  MOV   R7, A
+1f22  MOV   R7, A
+1f23  MOV   R7, A
+1f24  MOV   R7, A
+1f25  MOV   R7, A
+1f26  MOV   R7, A
+1f27  MOV   R7, A
+1f28  MOV   R7, A
+1f29  MOV   R7, A
+1f2a  MOV   R7, A
+1f2b  MOV   R7, A
+1f2c  MOV   R7, A
+1f2d  MOV   R7, A
+1f2e  MOV   R7, A
+1f2f  MOV   R7, A
+1f30  MOV   R7, A
+1f31  MOV   R7, A
+1f32  MOV   R7, A
+1f33  MOV   R7, A
+1f34  MOV   R7, A
+1f35  MOV   R7, A
+1f36  MOV   R7, A
+1f37  MOV   R7, A
+1f38  MOV   R7, A
+1f39  MOV   R7, A
+1f3a  MOV   R7, A
+1f3b  MOV   R7, A
+1f3c  MOV   R7, A
+1f3d  MOV   R7, A
+1f3e  MOV   R7, A
+1f3f  MOV   R7, A
+1f40  MOV   R7, A
+1f41  MOV   R7, A
+1f42  MOV   R7, A
+1f43  MOV   R7, A
+1f44  MOV   R7, A
+1f45  MOV   R7, A
+1f46  MOV   R7, A
+1f47  MOV   R7, A
+1f48  MOV   R7, A
+1f49  MOV   R7, A
+1f4a  MOV   R7, A
+1f4b  MOV   R7, A
+1f4c  MOV   R7, A
+1f4d  MOV   R7, A
+1f4e  MOV   R7, A
+1f4f  MOV   R7, A
+1f50  MOV   R7, A
+1f51  MOV   R7, A
+1f52  MOV   R7, A
+1f53  MOV   R7, A
+1f54  MOV   R7, A
+1f55  MOV   R7, A
+1f56  MOV   R7, A
+1f57  MOV   R7, A
+1f58  MOV   R7, A
+1f59  MOV   R7, A
+1f5a  MOV   R7, A
+1f5b  MOV   R7, A
+1f5c  MOV   R7, A
+1f5d  MOV   R7, A
+1f5e  MOV   R7, A
+1f5f  MOV   R7, A
+1f60  MOV   R7, A
+1f61  MOV   R7, A
+1f62  MOV   R7, A
+1f63  MOV   R7, A
+1f64  MOV   R7, A
+1f65  MOV   R7, A
+1f66  MOV   R7, A
+1f67  MOV   R7, A
+1f68  MOV   R7, A
+1f69  MOV   R7, A
+1f6a  MOV   R7, A
+1f6b  MOV   R7, A
+1f6c  MOV   R7, A
+1f6d  MOV   R7, A
+1f6e  MOV   R7, A
+1f6f  MOV   R7, A
+1f70  MOV   R7, A
+1f71  MOV   R7, A
+1f72  MOV   R7, A
+1f73  MOV   R7, A
+1f74  MOV   R7, A
+1f75  MOV   R7, A
+1f76  MOV   R7, A
+1f77  MOV   R7, A
+1f78  MOV   R7, A
+1f79  MOV   R7, A
+1f7a  MOV   R7, A
+1f7b  MOV   R7, A
+1f7c  MOV   R7, A
+1f7d  MOV   R7, A
+1f7e  MOV   R7, A
+1f7f  MOV   R7, A
+1f80  MOV   R7, A
+1f81  MOV   R7, A
+1f82  MOV   R7, A
+1f83  MOV   R7, A
+1f84  MOV   R7, A
+1f85  MOV   R7, A
+1f86  MOV   R7, A
+1f87  MOV   R7, A
+1f88  MOV   R7, A
+1f89  MOV   R7, A
+1f8a  MOV   R7, A
+1f8b  MOV   R7, A
+1f8c  MOV   R7, A
+1f8d  MOV   R7, A
+1f8e  MOV   R7, A
+1f8f  MOV   R7, A
+1f90  MOV   R7, A
+1f91  MOV   R7, A
+1f92  MOV   R7, A
+1f93  MOV   R7, A
+1f94  MOV   R7, A
+1f95  MOV   R7, A
+1f96  MOV   R7, A
+1f97  MOV   R7, A
+1f98  MOV   R7, A
+1f99  MOV   R7, A
+1f9a  MOV   R7, A
+1f9b  MOV   R7, A
+1f9c  MOV   R7, A
+1f9d  MOV   R7, A
+1f9e  MOV   R7, A
+1f9f  MOV   R7, A
+1fa0  MOV   R7, A
+1fa1  MOV   R7, A
+1fa2  MOV   R7, A
+1fa3  MOV   R7, A
+1fa4  MOV   R7, A
+1fa5  MOV   R7, A
+1fa6  MOV   R7, A
+1fa7  MOV   R7, A
+1fa8  MOV   R7, A
+1fa9  MOV   R7, A
+1faa  MOV   R7, A
+1fab  MOV   R7, A
+1fac  MOV   R7, A
+1fad  MOV   R7, A
+1fae  MOV   R7, A
+1faf  MOV   R7, A
+1fb0  MOV   R7, A
+1fb1  MOV   R7, A
+1fb2  MOV   R7, A
+1fb3  MOV   R7, A
+1fb4  MOV   R7, A
+1fb5  MOV   R7, A
+1fb6  MOV   R7, A
+1fb7  MOV   R7, A
+1fb8  MOV   R7, A
+1fb9  MOV   R7, A
+1fba  MOV   R7, A
+1fbb  MOV   R7, A
+1fbc  MOV   R7, A
+1fbd  MOV   R7, A
+1fbe  MOV   R7, A
+1fbf  MOV   R7, A
+1fc0  MOV   R7, A
+1fc1  MOV   R7, A
+1fc2  MOV   R7, A
+1fc3  MOV   R7, A
+1fc4  MOV   R7, A
+1fc5  MOV   R7, A
+1fc6  MOV   R7, A
+1fc7  MOV   R7, A
+1fc8  MOV   R7, A
+1fc9  MOV   R7, A
+1fca  MOV   R7, A
+1fcb  MOV   R7, A
+1fcc  MOV   R7, A
+1fcd  MOV   R7, A
+1fce  MOV   R7, A
+1fcf  MOV   R7, A
+1fd0  MOV   R7, A
+1fd1  MOV   R7, A
+1fd2  MOV   R7, A
+1fd3  MOV   R7, A
+1fd4  MOV   R7, A
+1fd5  MOV   R7, A
+1fd6  MOV   R7, A
+1fd7  MOV   R7, A
+1fd8  MOV   R7, A
+1fd9  MOV   R7, A
+1fda  MOV   R7, A
+1fdb  MOV   R7, A
+1fdc  MOV   R7, A
+1fdd  MOV   R7, A
+1fde  MOV   R7, A
+1fdf  MOV   R7, A
+1fe0  MOV   R7, A
+1fe1  MOV   R7, A
+1fe2  MOV   R7, A
+1fe3  MOV   R7, A
+1fe4  MOV   R7, A
+1fe5  MOV   R7, A
+1fe6  MOV   R7, A
+1fe7  MOV   R7, A
+1fe8  MOV   R7, A
+1fe9  MOV   R7, A
+1fea  MOV   R7, A
+1feb  MOV   R7, A
+1fec  MOV   R7, A
+1fed  MOV   R7, A
+1fee  MOV   R7, A
+1fef  MOV   R7, A
+1ff0  MOV   R7, A
+1ff1  MOV   R7, A
+1ff2  MOV   R7, A
+1ff3  MOV   R7, A
+1ff4  MOV   R7, A
+1ff5  MOV   R7, A
+1ff6  MOV   R7, A
+1ff7  MOV   R7, A
+1ff8  MOV   R7, A
+1ff9  MOV   R7, A
+1ffa  MOV   R7, A
+1ffb  MOV   R7, A
+1ffc  MOV   R7, A
+1ffd  MOV   R7, A
+1ffe  MOV   R7, A
+1fff  MOV   R7, A
