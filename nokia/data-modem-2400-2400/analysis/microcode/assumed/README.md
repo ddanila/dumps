@@ -406,3 +406,7 @@ no default mapping or physical channel is selected.
 [q2 reset callers](Q2-CALLER.md) establish zero-target masked polls after
 carry-qualified early waits. Three external-input profiles across all byte
 values give 768 clean runs; physical replies and nonzero targets remain unknown.
+
+[q2 target provenance](Q2-TARGETS.md) sweeps all eight dispatch choices and
+all input bytes. R10 can capture a nonzero value from R6, but none of the
+2,048 tested paths carries that written value into a masked poll.

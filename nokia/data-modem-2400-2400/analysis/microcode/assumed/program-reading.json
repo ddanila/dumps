@@ -455,6 +455,22 @@
         "q2"
       ],
       "limitations": "Shared previous-flag policy and diagnostic external replies; physical source and protocol unresolved."
+    },
+    {
+      "name": "captured-register copy and paired-arithmetic loop",
+      "ranges": [
+        [
+          "389",
+          "391"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat according to its last zero flag. Reset index 5 copies captured R6 into R10.",
+      "evidence": "Q2-TARGETS.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Shared previous-flag policy and global dispatch index 5; nonzero R10 is not delivered to a masked poll in the tested reset paths. Physical output and dispatch source unresolved."
     }
   ]
 }

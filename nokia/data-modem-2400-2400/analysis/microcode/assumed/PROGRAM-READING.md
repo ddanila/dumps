@@ -56,6 +56,7 @@ into one address listing.
 | 126–130 | Idempotent Q-mask tests | No D operand inside helpers; previous/current timing selects different predicates |
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
 | 109 | Input-code dispatch candidate | Optional current-Y index; physical source and later-entry preconditions unknown |
+| 389–391 (q2) | Captured-register copy and paired-arithmetic loop | Nonzero R10 does not reach a masked poll in the tested reset paths |
 | 248–24E | Three-loop shift wrapper | Does not establish R7; each loop has separate input-dependent termination |
 | 296–29E | Input-dependent biased Q shift | Most constant-input cases with R7=FF repeat under the selected previous-flag policy |
 | 2D0–2D8 | Paired Q drains | Previous-zero policy; transient output meaning unknown |
@@ -63,7 +64,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 199 used words, including overlaps and disconnected
+These annotations cover 208 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.

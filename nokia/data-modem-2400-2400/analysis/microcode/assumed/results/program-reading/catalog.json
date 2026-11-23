@@ -440,6 +440,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-TARGETS.md",
+        "limitations": "Shared previous-flag policy and global dispatch index 5; nonzero R10 is not delivered to a masked poll in the tested reset paths. Physical output and dispatch source unresolved.",
+        "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat according to its last zero flag. Reset index 5 copies captured R6 into R10.",
+        "name": "captured-register copy and paired-arithmetic loop",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "389",
+            "391"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -460,7 +476,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 199,
+    "annotated_used_words": 208,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1159,7 +1175,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "Q2-TARGETS.md",
+          "limitations": "Shared previous-flag policy and global dispatch index 5; nonzero R10 is not delivered to a masked poll in the tested reset paths. Physical output and dispatch source unresolved.",
+          "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat according to its last zero flag. Reset index 5 copies captured R6 into R10.",
+          "name": "captured-register copy and paired-arithmetic loop",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "389",
+              "391"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "346"
       ],
@@ -1576,6 +1609,7 @@
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
     "Q-INDEPENDENT.md": "e9db7896f01411aca4558ec872ebded36cb53e2ec3161ff3204eb66d077c7329",
     "Q2-CALLER.md": "37e8a096aebb72e83bf10649f783254c111ffaf8ee6a46c1a8bb365493cc0119",
+    "Q2-TARGETS.md": "14c5697abb35e08c6f2c07d4ef2f9d0eb69d243d378bdfba66be25b92e00a701",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",
     "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
