@@ -443,3 +443,8 @@ path, so these remain explicitly local caller fixtures.
 It preserves RAM/Q, exposes selected differences, and waits while R15>=R0
 under the shared previous-carry policy. The rule is checked across all byte
 pairs and 512 reset runs; fitted_original D=FF repeats the final loop.
+
+[Unconditional-BRT gate search](UNCONDITIONAL-GATES.md) finds clean structural
+alternatives reaching up to 1,011 used words, with 43 sequencer-replayed paths.
+The gates use branch-address bits and have no recovered datapath condition
+meaning; the default graph and its 22 unresolved words remain unchanged.

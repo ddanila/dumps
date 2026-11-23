@@ -17,6 +17,34 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_unconditional_brt_gate_preserves_default_and_calls(self):
+        from unconditional_gate_study import relaxed_pcs, policy_for
+        from common import unconditional_transfer
+        from context_branch_study import witness
+        rows=decode(self.mapping)
+        scenario=read(HERE/'results/third-case-study/scenario-all_cases.json')
+        original=copy.deepcopy(rows)
+        baseline=graph(rows,scenario)
+        pcs=relaxed_pcs(rows,scenario,['!10.6','!11.0'],'or')
+        policy=policy_for(pcs)
+        for row in rows:
+            if row['command']!=6:
+                self.assertEqual(policy(row,scenario),unconditional_transfer(row,scenario))
+        candidate=graph(rows,scenario,unconditional_policy=policy)
+        self.assertFalse(candidate['exceptions'])
+        self.assertEqual(set(candidate['reached'])-set(baseline['reached']),
+                         {0x287,0x288,0x289,0x28a,0x2d9,0x2da,0x2db,0x3bd,0x3be,0x3bf})
+        path=witness(rows,scenario,0x2d9,policy)
+        self.assertEqual(path[-1]['next_pc'],0x2d9)
+        self.assertTrue(any(s['pc']==0x2d8 and not s['test'] for s in path))
+        other=relaxed_pcs(rows,scenario,['10.2','!18.7'],'or')
+        combined=graph(rows,scenario,unconditional_policy=policy_for(pcs+other))
+        self.assertFalse(combined['exceptions'])
+        self.assertEqual(len(combined['reached']),1011)
+        self.assertEqual(set(combined['reached'])-set(candidate['reached']),{0x0fa,0x2cf})
+        self.assertEqual(rows,original)
+        self.assertEqual(graph(rows,scenario),baseline)
+
     def test_real_statistics_and_loop_entry(self):
         from collections import Counter
         rows=decode(self.mapping)

@@ -63,8 +63,13 @@ def walk(rows, start):
     return dict(end=1023,reason='end of store',balanced=False)
 
 
-def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None, include_states=False):
-    """Conservative stack exploration; local entry probes are separate from reset coverage."""
+def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None, include_states=False,
+          unconditional_policy=None):
+    """Conservative stack exploration; local entry probes are separate from reset coverage.
+
+    Optional unconditional_policy is an analysis-only predicate. It changes which
+    tests the graph explores, without changing decoded rows or runtime policy.
+    """
     if not 0<=start<len(rows) or len(initial_stack)>4:
         raise ValueError('invalid graph entry/stack')
     if return_sentinel is not None and (type(return_sentinel) is not int or 0<=return_sentinel<len(rows)):
@@ -87,7 +92,8 @@ def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None, inclu
         r = rows[pc]; c = r['command']; nxt = (pc+1)&1023
         if r['unused']:
             exceptions.add(f'{pc:03x}: unused word reached'); continue
-        tests = [1] if unconditional_transfer(r,scenario) else [0,1]
+        policy = unconditional_policy or unconditional_transfer
+        tests = [1] if policy(r,scenario) else [0,1]
         for test in tests:
             dest, ns, kind = nxt, stack, 'fallthrough'
             if c==0: dest=(nxt+test)&1023; kind='skip' if test else kind
