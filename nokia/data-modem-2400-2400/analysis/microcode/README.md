@@ -1,5 +1,8 @@
 # DSC2847 bit-slice execution experiment
 
+**Current way forward:** [PLAN.md](PLAN.md) records sequencer fields recovered
+from the PROM data alone and the steps toward an error-free emulator run.
+
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,
 annotated evidence, static listings and a tested synthetic integration path.
