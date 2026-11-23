@@ -601,6 +601,39 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "GATE-RUNTIME.md",
+        "limitations": "Requires the optional address-bit gate and combined dispatch tables; not enabled by default. Physical gate wiring and transient output consumers remain unknown.",
+        "meaning": "With the optional composed BRT gate, a set previous-zero flag at 2D8 selects fallthrough into 2D9\u20132DB. Reset index 2 reaches this tail under both tested mappings.",
+        "name": "conditional entry into adjustment tail",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "2D8",
+            "2DB"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "GATE-RUNTIME.md",
+        "limitations": "Witness uses dispatch index 3 and D=FF; R0/R2 are both zero at the copy. Default entry remains unresolved, and no physical gate or nonzero copy use is established.",
+        "meaning": "Under fitted_original and the optional composed gate, previous zero at 0F9 can enter 0FA, which copies R0 to R2 before the 0FC branch to 078. One reset fixture reaches this path.",
+        "name": "conditional register-copy tail entry",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "0F9",
+            "0FC"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -621,7 +654,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 278,
+    "annotated_used_words": 282,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1907,6 +1940,7 @@
     "DRAIN-PREFIX.md": "78015a54cfbeb1ef74a8bff7fe9d1a40bb3396c44f5849901d938f185e606796",
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
+    "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
     "MASKED-DRAIN.md": "853158590c53ad6fa4485c3f82b5ba6322c08870a695a22b1ac83ce122aa3bbc",

@@ -76,9 +76,32 @@ def decode(mapping, lanes=None):
 
 def unconditional_transfer(row, scenario):
     condition = scenario['condition']
-    return (row['command'] in (4, 6)
+    eligible = (row['command'] in (4, 6)
             and row['select'] == condition['unconditional_select']
             and (row['direct'] or not condition.get('unconditional_requires_direct', True)))
+    gate = condition.get('brt_unconditional_gate')
+    if not eligible or row['command'] != 6 or gate is None:
+        return eligible
+    def value(token):
+        chip, bit = token.lstrip('!').split('.')
+        raw = row['raw'][('10','11','17','18').index(chip)]
+        return bool(((raw >> int(bit)) & 1) ^ token.startswith('!'))
+    return all(any(value(token) for token in clause) for clause in gate['clauses'])
+
+
+def validate_brt_gate(gate):
+    """Validate a provenance-owned conjunction of raw-bit OR clauses."""
+    tokens = {f'{inv}{chip}.{bit}' for inv in ('','!')
+              for chip in ('10','11','17','18') for bit in range(8)}
+    if (not isinstance(gate,dict) or gate.get('status') not in STATUS
+            or not gate.get('evidence')):
+        raise ValueError('BRT unconditional gate requires provenance')
+    clauses = gate.get('clauses')
+    if (not isinstance(clauses,list) or not clauses
+            or any(not isinstance(c,list) or not c
+                   or any(not isinstance(t,str) or t not in tokens for t in c)
+                   for c in clauses)):
+        raise ValueError('BRT unconditional gate requires nonempty raw-bit clauses')
 
 
 def table_targets(table):

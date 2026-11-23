@@ -448,3 +448,8 @@ pairs and 512 reset runs; fitted_original D=FF repeats the final loop.
 alternatives reaching up to 1,011 used words, with 43 sequencer-replayed paths.
 The gates use branch-address bits and have no recovered datapath condition
 meaning; the default graph and its 22 unresolved words remain unchanged.
+
+[Integrated BRT-gate study](GATE-RUNTIME.md) implements the optional raw-bit
+gate with provenance validation and tests it in 8,192 matched reset runs.
+Actual flags reach 2D9–2DB in both mappings and 0FA in one fitted-original
+case. The default condition policy and unresolved-entry labels remain intact.

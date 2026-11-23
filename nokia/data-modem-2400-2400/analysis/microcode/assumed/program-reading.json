@@ -616,6 +616,39 @@
         "fitted_original"
       ],
       "limitations": "Shared select-5/select-6 stubs and previous-flag policy. Reset index 3 exercises the scan, including fitted_original D=FF repetition; physical output consumers and condition wiring remain unknown."
+    },
+    {
+      "name": "conditional entry into adjustment tail",
+      "ranges": [
+        [
+          "2D8",
+          "2DB"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "With the optional composed BRT gate, a set previous-zero flag at 2D8 selects fallthrough into 2D9\u20132DB. Reset index 2 reaches this tail under both tested mappings.",
+      "evidence": "GATE-RUNTIME.md",
+      "profiles": [
+        "q2",
+        "fitted_original"
+      ],
+      "limitations": "Requires the optional address-bit gate and combined dispatch tables; not enabled by default. Physical gate wiring and transient output consumers remain unknown."
+    },
+    {
+      "name": "conditional register-copy tail entry",
+      "ranges": [
+        [
+          "0F9",
+          "0FC"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under fitted_original and the optional composed gate, previous zero at 0F9 can enter 0FA, which copies R0 to R2 before the 0FC branch to 078. One reset fixture reaches this path.",
+      "evidence": "GATE-RUNTIME.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Witness uses dispatch index 3 and D=FF; R0/R2 are both zero at the copy. Default entry remains unresolved, and no physical gate or nonzero copy use is established."
     }
   ]
 }

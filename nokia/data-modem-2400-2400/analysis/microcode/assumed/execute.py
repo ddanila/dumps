@@ -6,7 +6,7 @@ import random
 from contextlib import ExitStack
 from collections import Counter
 from pathlib import Path
-from common import HERE, decode, digest, load, read, save, unconditional_transfer, table_targets
+from common import HERE, decode, digest, load, read, save, unconditional_transfer, table_targets, validate_brt_gate
 from model import Am2901, X8X02, UnknownStack
 
 
@@ -43,6 +43,8 @@ def validate_scenario(s):
                 or logic_flags.get('status') not in ('hypothesis','recovered-from-data','stub') or not logic_flags.get('evidence')):
             raise ValueError('logic flags require a supported mode and provenance')
     c=s['condition'];d=s['dispatch']
+    if 'brt_unconditional_gate' in c:
+        validate_brt_gate(c['brt_unconditional_gate'])
     if c['mode'] not in ('constant','per-select','random','flags'):
         raise ValueError('unknown condition mode')
     if c['flag_timing'] not in ('current','previous'):

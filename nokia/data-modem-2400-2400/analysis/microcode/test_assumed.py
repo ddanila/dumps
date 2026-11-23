@@ -42,8 +42,39 @@ class AssumedTests(unittest.TestCase):
         self.assertFalse(combined['exceptions'])
         self.assertEqual(len(combined['reached']),1011)
         self.assertEqual(set(combined['reached'])-set(candidate['reached']),{0x0fa,0x2cf})
+        runtime_scenario=copy.deepcopy(scenario)
+        runtime_scenario['condition']['brt_unconditional_gate']=dict(
+            clauses=[['10.2','!18.7'],['!10.6','!11.0']],
+            status='hypothesis',evidence='Test the declared composed gate.')
+        self.assertEqual(graph(rows,runtime_scenario),combined)
         self.assertEqual(rows,original)
         self.assertEqual(graph(rows,scenario),baseline)
+
+    def test_runtime_brt_gate_fallthrough_preserves_calls(self):
+        mapping=read(HERE/'results/independent-study/variant-2.json')
+        scenario=read(HERE/'results/polling-study/immediate-one/scenario.json')
+        scenario['initial']=dict(pc=0x0f9,ram=[0]*16,q=0)
+        scenario['condition'].update(mode='constant',value=1)
+        self.assertEqual(execute(mapping,scenario,1,mode='integrated')['final_state']['pc'],0x28b)
+        scenario['condition']['brt_unconditional_gate']=dict(
+            clauses=[['10.2','!18.7'],['!10.6','!11.0']],
+            status='hypothesis',evidence='Explicit gate fixture.')
+        result=execute(mapping,scenario,1,mode='integrated')
+        self.assertTrue(result['clean'])
+        self.assertEqual(result['final_state']['pc'],0x0fa)
+        scenario['initial']['pc']=0x01c
+        result=execute(mapping,scenario,1,mode='integrated')
+        self.assertTrue(result['clean'])
+        self.assertEqual(result['final_state']['pc'],0x01e)
+
+    def test_runtime_brt_gate_rejects_unowned_or_invalid_rules(self):
+        for gate in ({},dict(clauses=[['10.2']]),
+                     dict(status='hypothesis',evidence='fixture',clauses=[]),
+                     dict(status='hypothesis',evidence='fixture',clauses=[[]]),
+                     dict(status='hypothesis',evidence='fixture',clauses=[['19.0']])):
+            scenario=copy.deepcopy(self.scenario)
+            scenario['condition']['brt_unconditional_gate']=gate
+            with self.assertRaises(ValueError):validate_scenario(scenario)
 
     def test_real_statistics_and_loop_entry(self):
         from collections import Counter

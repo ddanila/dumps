@@ -1,0 +1,39 @@
+{
+  "status": "hypothesis",
+  "evidence": "Matched baseline versus composed BRT-gate reset runs, retaining actual previous flags, defined logical carry, global constant dispatch index and early zero-reply diagnostic stubs. No branch outcomes are prescribed per PC. Both variants use all dispatch tables from the static gate-search scenario; their complete graphs are checked identical to that search before execution.",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "static_scenario": "results/third-case-study/scenario-all_cases.json",
+  "mappings": {
+    "q2": "results/independent-study/variant-2.json",
+    "fitted_original": "results/polling-study/immediate-one/mapping.json"
+  },
+  "gate": {
+    "clauses": [
+      [
+        "10.2",
+        "!18.7"
+      ],
+      [
+        "!10.6",
+        "!11.0"
+      ]
+    ],
+    "status": "hypothesis",
+    "evidence": "Best smallest composition in UNCONDITIONAL-GATES.md. Address-bit correlation is not physical wiring evidence."
+  },
+  "cycles": 256,
+  "witness_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "witness_values": [
+    0,
+    255
+  ]
+}

@@ -87,8 +87,8 @@ graph after the experiment.
 
 The graph accepts an optional analysis-only unconditional predicate, and the
 witness helper uses the same predicate during replay. Omitting it preserves
-the existing behavior. No runtime condition policy or default scenario has
-changed. The witnesses demonstrate feasible sequencer paths under free
+the existing behavior. The structural search itself changes no runtime condition policy or default
+scenario. The witnesses demonstrate feasible sequencer paths under free
 conditions; they do not prove that the datapath can supply those conditions
 in sequence. Consequently these are named analysis candidates, not resolved
 exceptions in the principal program listing. The plan's reachability gate
@@ -103,3 +103,7 @@ python3 nokia/data-modem-2400-2400/analysis/microcode/assumed/unconditional_gate
 candidate, equivalence class, exception, gained word, composed candidate,
 replayed path and source hash. Earlier branch-target studies remain unchanged
 under the default policy.
+
+A [follow-up integrated study](GATE-RUNTIME.md) now exposes the gate as an
+optional scenario setting. With the same dispatch tables and actual previous
+flags, it reaches 0FA and 2D9–2DB from reset. Default scenarios remain unchanged.
