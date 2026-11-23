@@ -393,3 +393,7 @@ instructions across the sweep without establishing physical index wiring.
 [Carry-controlled addition chain](CARRY-CHAIN.md) explains the 36C–36E loop:
 139,264 local comparisons distinguish previous/current carry timing, and 32
 reset-path replays explain its repetition under constant external input.
+
+[Idempotent mask tests](MASK-LOOP.md) characterize 126–130 with 262,144 local
+comparisons and 32 reset replays. These helpers select no external D operand,
+so changing the read stub cannot release a failed containment test.

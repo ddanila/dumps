@@ -403,6 +403,22 @@
         "fitted_original"
       ],
       "limitations": "External operands and output consumers unknown. Current flag timing selects last carry instead; defaults unchanged. Constant reset inputs in the tested dispatch path repeat."
+    },
+    {
+      "name": "idempotent Q-mask tests",
+      "ranges": [
+        [
+          "126",
+          "130"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Mask Q with R0 and test containment under previous flags; 126 adds R10 before and after its loop. Failed tests repeat without selecting external D.",
+      "evidence": "MASK-LOOP.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs."
     }
   ]
 }

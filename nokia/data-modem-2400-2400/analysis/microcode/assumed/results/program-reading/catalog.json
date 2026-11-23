@@ -388,6 +388,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "MASK-LOOP.md",
+        "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs.",
+        "meaning": "Mask Q with R0 and test containment under previous flags; 126 adds R10 before and after its loop. Failed tests repeat without selecting external D.",
+        "name": "idempotent Q-mask tests",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "126",
+            "130"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -408,7 +424,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 184,
+    "annotated_used_words": 195,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -556,7 +572,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "MASK-LOOP.md",
+          "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs.",
+          "meaning": "Mask Q with R0 and test containment under previous flags; 126 adds R10 before and after its loop. Failed tests repeat without selecting external D.",
+          "name": "idempotent Q-mask tests",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "126",
+              "130"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "11B"
       ],
@@ -569,7 +602,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "MASK-LOOP.md",
+          "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs.",
+          "meaning": "Mask Q with R0 and test containment under previous flags; 126 adds R10 before and after its loop. Failed tests repeat without selecting external D.",
+          "name": "idempotent Q-mask tests",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "126",
+              "130"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "11D"
       ],
@@ -1446,6 +1496,7 @@
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
+    "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
