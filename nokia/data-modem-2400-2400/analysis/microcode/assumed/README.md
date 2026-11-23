@@ -366,3 +366,8 @@ all mode bytes and all P2 address-page values in the stated fixture families.
 main-loop calls to 006E and 0899 continuously. All 32,768 cases match output,
 mode programming, counters/patterns, and serial bytes; timer/interrupt state
 and complete internal initialization semantics remain outside the comparison.
+
+[Controller scrambling](CONTROLLER-SCRAMBLER.md) identifies and verifies the
+23-bit scramble/descramble pair, with selectable delays (5,23) or (18,23).
+An independent bit-serial reference matches 43,008 ROM cases and all 134
+instructions in the local byte-processing routines.

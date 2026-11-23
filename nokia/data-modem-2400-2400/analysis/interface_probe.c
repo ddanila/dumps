@@ -66,6 +66,8 @@ int main(int argc, char **argv) {
     while (fgets(line,sizeof line,stdin)) {
         if (sscanf(line,"%7s %39s %31s %u %u",mode,frame_text,prior_text,&delay,&completions)!=5 || !delay || delay>1000) return 2;
         programming=!strcmp(mode,"program"); sending=!strcmp(mode,"send");
+        int inverse=!strcmp(mode,"descram");
+        int transform=inverse || !strcmp(mode,"scram");
         int reading=!strcmp(mode,"read");
         int decoding=!strcmp(mode,"decode");
         int edge=!strcmp(mode,"edge"), qualify=!strcmp(mode,"qualify");
@@ -73,13 +75,14 @@ int main(int argc, char **argv) {
         int output01=!strcmp(mode,"out01"), output32=!strcmp(mode,"out32");
         int build=!strcmp(mode,"build");
         int output_probe=sending || build || output01 || output32 || !strcmp(mode,"out33");
-        decoding_probe=programming || decoding || event_probe || output_probe; memset(decode_seen,0,sizeof decode_seen);
+        decoding_probe=transform || programming || decoding || event_probe || output_probe; memset(decode_seen,0,sizeof decode_seen);
         unsigned stop=sentinel, entry=edge?0x13:qualify?0x1790:decoding?0x620:reading?0x800:0x899;
         if (programming) entry=0x1d05;
+        if (transform) entry=inverse?0x5a3:0x53e;
         if (output_probe) { entry=output01?0x266:output32?0x12f:0x6e; stop=build?0x46c:output01?0x433:output32?0x266:0x12f; }
         if (sending) { entry=0x1ee2; stop=0x1ee8; }
         port_probe=!strcmp(mode,"port") || !strcmp(mode,"poll1") || !strcmp(mode,"poll2") || !strcmp(mode,"main");
-        if (!reading && strcmp(mode,"write") && !port_probe && !decoding && !event_probe && !output_probe && !programming) return 2;
+        if (!reading && strcmp(mode,"write") && !port_probe && !decoding && !event_probe && !output_probe && !programming && !transform) return 2;
         if (port_probe) {
             entry=0x8dd;
             if (!strcmp(mode,"poll1")) { entry=0x1e37; stop=0x1e3c; }
@@ -87,7 +90,7 @@ int main(int argc, char **argv) {
             if (!strcmp(mode,"main")) { entry=0x1ed3; stop=0x81d; reading=1; }
         }
         unsigned char frame[17]={0}, prior[6]={0};
-        if (!bytes(frame_text,frame,sending?17:build?16:port_probe?9:output32?7:output01?9:event_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
+        if (!bytes(frame_text,frame,transform?6:sending?17:build?16:port_probe?9:output32?7:output01?9:event_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
         struct em8051 c={0};
         c.mCodeMem=code; c.mCodeMemMaxIdx=65535;
         c.except=exception; c.xread=xread; c.xwrite=xwrite;
@@ -97,13 +100,20 @@ int main(int argc, char **argv) {
         c.mLowerData[initial_sp-1]=sentinel&255; c.mLowerData[initial_sp]=sentinel>>8; c.mSFR[REG_SP]=initial_sp;
         c.mPC=entry;
         c.mSFR[REG_P1]=initial_p1;
-        if (!event_probe && !output_probe && !programming) memcpy(c.mLowerData+0x2a,prior,6);
-        if (!reading && !port_probe && !decoding && !event_probe && !output_probe && !programming) memcpy(c.mLowerData+0x30,frame,4);
+        if (!event_probe && !output_probe && !programming && !transform) memcpy(c.mLowerData+0x2a,prior,6);
+        if (!reading && !port_probe && !decoding && !event_probe && !output_probe && !programming && !transform) memcpy(c.mLowerData+0x30,frame,4);
         if (port_probe) {
             port_value=frame[0]; c.mSFR[REG_P2]=frame[1]; c.mLowerData[0x17]=prior[0];
             memmove(frame,frame+2,7);
         }
-        if (programming) {
+        if (transform) {
+            memcpy(c.mLowerData+(inverse?0x42:0x3f),frame,3);
+            c.mLowerData[inverse?0x39:0x37]=frame[3];
+            c.mLowerData[inverse?0x3a:0x38]=frame[4];
+            if (inverse) c.mLowerData[0x3c]=c.mLowerData[0x3e]=frame[4];
+            c.mLowerData[0x21]=frame[5];
+            memcpy(c.mLowerData+0x22,prior,6);
+        } else if (programming) {
             c.mLowerData[0]=frame[0]; c.mLowerData[3]=frame[1]; c.mLowerData[2]=frame[2];
             c.mSFR[REG_P2]=frame[3];
         } else if (output_probe) {
@@ -165,14 +175,14 @@ int main(int argc, char **argv) {
         printf("],\"events\":[");
         for (unsigned i=0;i<event_count;i++) printf("%s{\"cycle\":%u,\"pc\":%u,\"kind\":\"%s\",\"value\":%u}",i?",":"",events[i].cycle,events[i].pc,events[i].kind,events[i].value);
         printf("]");
-        if (programming || port_probe || decoding || event_probe || output_probe) {
+        if (transform || programming || port_probe || decoding || event_probe || output_probe) {
             printf(",\"reached_stop\":%s,\"acc\":%u,\"p2\":%u,\"iram\":[",c.mPC==stop?"true":"false",c.mSFR[REG_ACC],c.mSFR[REG_P2]);
             for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mLowerData[i]);
             printf("],\"sfr\":[");
             for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mSFR[i]);
             printf("]");
         }
-        if (programming || decoding || event_probe || output_probe) {
+        if (transform || programming || decoding || event_probe || output_probe) {
             unsigned count=0; printf(",\"visited\":[");
             for (unsigned i=0;i<8192;i++) if (decode_seen[i]) printf("%s%u",count++?",":"",i);
             printf("]");
