@@ -9,6 +9,13 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Conditional flag timing
+
+[CONDITION-TIMING.md](CONDITION-TIMING.md) compares current and previous zero
+flags at select 0, with random inputs at other selects. In `flags` mode,
+`sources` now accepts `random` per select; unconditional transfers still bypass
+condition evaluation. Both timings run cleanly, leaving timing unresolved.
+
 ## Separated source-bit search
 
 [Q-INDEPENDENT.md](Q-INDEPENDENT.md) broadens source wiring beyond contiguous

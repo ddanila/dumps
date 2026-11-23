@@ -289,6 +289,39 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(seq.pc,0x124)
                 self.assertEqual(seq.pushes,seq.pops)
 
+    def test_random_flag_sources_preserve_seeded_random_behavior(self):
+        mapping=read(HERE/'results/independent-study/variant-2.json')
+        scenario=read(HERE/'results/independent-study/scenario-2.json')
+        hybrid=copy.deepcopy(scenario)
+        hybrid['condition'].update(mode='flags',sources=['random']*8)
+        for seed in (0,11,31):
+            old=execute(mapping,scenario,1000,seed,'integrated',trace_limit=0)
+            new=execute(mapping,hybrid,1000,seed,'integrated',trace_limit=0)
+            self.assertEqual(old['trace_digest'],new['trace_digest'])
+            self.assertEqual(old['final_state'],new['final_state'])
+            self.assertEqual(old['address_counts'],new['address_counts'])
+        hybrid['condition']['sources'][0]='unrecognized'
+        with self.assertRaisesRegex(ValueError,'condition sources'):
+            validate_scenario(hybrid)
+
+    def test_select_zero_flag_does_not_override_unconditional_calls(self):
+        from condition_study import scenario_for
+        mapping=read(HERE/'results/independent-study/variant-2.json')
+        base=read(HERE/'results/independent-study/scenario-2.json')
+        scenario=scenario_for(base,read(HERE/'condition-search.json'),'current',0)
+        rows=decode(mapping)
+        # Zero ALU output, but a select-zero direct BSR must still push and call.
+        rows[0].update(command=4,select=0,direct=1,branch=10,i=7|(1<<6),a=0,b=0)
+        with patch('execute.decode',return_value=rows):
+            result=execute(mapping,scenario,1,mode='integrated')
+        self.assertEqual(result['final_state']['pc'],10)
+        self.assertEqual(result['stack']['final_depth'],1)
+        rows[0]['command']=0
+        with patch('execute.decode',return_value=rows):
+            result=execute(mapping,scenario,1,mode='integrated')
+        self.assertEqual(result['final_state']['pc'],1)
+        self.assertEqual(result['stack']['final_depth'],0)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

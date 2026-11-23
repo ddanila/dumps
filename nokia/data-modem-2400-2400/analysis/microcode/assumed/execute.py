@@ -45,7 +45,7 @@ def validate_scenario(s):
     for key in ('per_select','polarity'):
         if len(c[key])!=8 or any(v not in (0,1) for v in c[key]):
             raise ValueError(f'invalid {key}')
-    if len(c['sources'])!=8 or any(v not in ('constant','zero','sign','carry','overflow','external') for v in c['sources']):
+    if len(c['sources'])!=8 or any(v not in ('constant','zero','sign','carry','overflow','external','random') for v in c['sources']):
         raise ValueError('invalid condition sources')
     if c['value'] not in (0,1) or c['unknown'] not in (0,1):
         raise ValueError('invalid condition defaults')
@@ -159,7 +159,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         elif cond['mode']=='random': test=rng.getrandbits(1)
         else:
             source=cond['sources'][select]
-            if source=='constant': test=cond['value']
+            if source=='random': test=rng.getrandbits(1)
+            elif source=='constant': test=cond['value']
             elif source=='external': test=inputs['external'];assumptions['external condition']+=1
             else: test=(flags if cond['flag_timing']=='current' else previous)[source]
             if test is None:
