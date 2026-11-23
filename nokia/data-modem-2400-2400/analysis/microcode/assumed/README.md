@@ -348,3 +348,8 @@ state code and three flags, verified over all 65,536 state/flag assignments.
 The [first two output-byte builders](CONTROLLER-OUTPUT-PAIR.md) preserve the
 event-qualified bits and derive the remaining fields from state and selectors;
 35,328 local ROM comparisons cover every instruction in that section.
+
+The [third output-byte builder](CONTROLLER-OUTPUT32.md) combines state-code
+bits with counter-controlled fields, verified in 103,424 local ROM executions.
+All four byte builders now have local references; their full composition remains
+to be checked.

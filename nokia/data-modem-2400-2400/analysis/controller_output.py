@@ -50,3 +50,50 @@ def output01(state,previous0,previous1,flags,payload):
     values[0]=not values[2]
     out1=sum(int(v)<<i for i,v in enumerate(values))
     return dict(out0=out0,out1=out1,psw_f0=int(first_group),wire=[out0,out1^3])
+
+
+def output32(rom,state,previous,flags,input_c,count49,count4a,count65):
+    code=output33(rom,state,0,0,0,0)['code']
+    flag22,flag23,flag24=flags[:3]
+    changed=bool(flag24&0x20);value=previous
+    def put(bit,on):
+        nonlocal value
+        value=(value&~(1<<bit))|(int(bool(on))<<bit)
+    if state in (0xc2,0xc3,0xe4):
+        action='special';put(7,1)
+        if changed or input_c&1:
+            count49=count4a=0;put(5,1);action='special-reset'
+        else:
+            put(5,0)
+            total=count4a+0xf6;temp=total&255;carry=int(total>255);subtract=True
+            if temp<128:
+                total=temp+0xfb;temp=total&255;carry=int(total>255)
+                count49=(count49+1)&255
+                if temp<128:count49=(count49-1)&255;subtract=False
+            if subtract:
+                temp=(count49-0x15-carry)&255
+                if temp<128:
+                    count49=temp;value^=0x40;count4a=(count4a+1)&255;action='special-toggle'
+    elif state&0x40 or state in (0xb6,0x96,0xb7):put(7,0);action='disabled'
+    else:
+        put(7,1)
+        if changed:put(5,1);count49=10;action='reload-ten'
+        elif value&0x20:
+            if count49:count49-=1;action='hold-countdown'
+            else:
+                put(5,0);action='table-reload'
+                raw=rom[0x1be+(state&63)] if state&0x80 else 0
+                count49=((raw<<2)|(raw>>6))&255
+        else:
+            put(5,0);action='countdown'
+            if count49:
+                count49-=1
+                if count49&3==3:value^=0x40;action='countdown-toggle'
+    if changed:count65=0;put(4,0)
+    elif flag23&0x20:put(4,0)
+    else:put(4,((count65+0xec)&255)<128)
+    put(3,code&1);put(2,state==0 and changed)
+    if code&4:pair=2 if flag23&0x20 or flag22&8 else 1
+    else:pair=2 if state in (0,1) else 0
+    value=(value&~3)|pair
+    return dict(code=code,value=value,count49=count49,count4a=count4a,count65=count65,action=action)
