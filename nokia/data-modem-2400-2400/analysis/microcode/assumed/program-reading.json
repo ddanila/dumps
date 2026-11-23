@@ -419,6 +419,22 @@
         "fitted_original"
       ],
       "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs."
+    },
+    {
+      "name": "masked external-byte equality poll",
+      "ranges": [
+        [
+          "12C",
+          "130"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2 and previous-zero loop control, mask Q with R0 then wait until external D equals the masked value.",
+      "evidence": "MASK-VARIANTS.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Shared previous-flag and defined logical-carry policy is a local hypothesis. Physical D source and surrounding q2 caller behavior remain unverified; default unchanged."
     }
   ]
 }

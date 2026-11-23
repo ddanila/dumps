@@ -397,3 +397,8 @@ reset-path replays explain its repetition under constant external input.
 [Idempotent mask tests](MASK-LOOP.md) characterize 126–130 with 262,144 local
 comparisons and 32 reset replays. These helpers select no external D operand,
 so changing the read stub cannot release a failed containment test.
+
+[Mask-loop mapping comparison](MASK-VARIANTS.md) finds that retained q2
+interprets 12C as an external equality poll under the shared previous-flag
+policy. All 65,536 mask/Q targets release on the diagnostic input change;
+no default mapping or physical channel is selected.

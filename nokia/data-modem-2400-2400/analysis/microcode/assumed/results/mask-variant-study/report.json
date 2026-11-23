@@ -1,0 +1,2436 @@
+{
+  "configuration": {
+    "base": "results/polling-study/immediate-one",
+    "evidence": "Compare all six retained mappings under a shared previous-flag and defined logical-carry policy. Actual local call 11D; compare input D to masked Q. Diagnostic release changes only the external operand at 12E, not flags or control state.",
+    "fixtures": 16,
+    "initial_ram": [
+      17,
+      34,
+      51,
+      68,
+      85,
+      102,
+      119,
+      136,
+      153,
+      170,
+      187,
+      204,
+      221,
+      238,
+      255,
+      16
+    ],
+    "release_default_d": 90,
+    "seed": 300,
+    "status": "hypothesis"
+  },
+  "counts": {
+    "fitted_original:constant:repeat": 3328,
+    "fitted_original:constant:return": 768,
+    "fitted_swapped:constant:repeat": 3840,
+    "fitted_swapped:constant:return": 256,
+    "q1:constant:repeat": 3840,
+    "q1:constant:return": 256,
+    "q2:constant:repeat": 69616,
+    "q2:constant:return": 65552,
+    "q2:release:return": 65536,
+    "q3:constant:repeat": 3840,
+    "q3:constant:return": 256,
+    "q4:constant:repeat": 3840,
+    "q4:constant:return": 256
+  },
+  "decodes": {
+    "fitted_original": [
+      {
+        "a": 1,
+        "b": 2,
+        "pc": 300,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 301,
+        "source": 0
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 302,
+        "source": 0
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 303,
+        "source": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 304,
+        "source": 2
+      }
+    ],
+    "fitted_swapped": [
+      {
+        "a": 2,
+        "b": 1,
+        "pc": 300,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 301,
+        "source": 0
+      },
+      {
+        "a": 7,
+        "b": 0,
+        "pc": 302,
+        "source": 0
+      },
+      {
+        "a": 7,
+        "b": 0,
+        "pc": 303,
+        "source": 2
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 304,
+        "source": 2
+      }
+    ],
+    "q1": [
+      {
+        "a": 1,
+        "b": 2,
+        "pc": 300,
+        "source": 6
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 301,
+        "source": 2
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 302,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 303,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 304,
+        "source": 2
+      }
+    ],
+    "q2": [
+      {
+        "a": 1,
+        "b": 2,
+        "pc": 300,
+        "source": 6
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 301,
+        "source": 0
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 302,
+        "source": 6
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 303,
+        "source": 6
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 304,
+        "source": 2
+      }
+    ],
+    "q3": [
+      {
+        "a": 1,
+        "b": 2,
+        "pc": 300,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 301,
+        "source": 2
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 302,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 303,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 304,
+        "source": 2
+      }
+    ],
+    "q4": [
+      {
+        "a": 1,
+        "b": 2,
+        "pc": 300,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 301,
+        "source": 0
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 302,
+        "source": 4
+      },
+      {
+        "a": 0,
+        "b": 7,
+        "pc": 303,
+        "source": 6
+      },
+      {
+        "a": 0,
+        "b": 0,
+        "pc": 304,
+        "source": 2
+      }
+    ]
+  },
+  "execution_sha256": "69c55becd911830b808bed7c7fe5962901ca32f37681927a59a94d6ce85de224",
+  "interpretation": "Retained q2 mapping plus explicitly shared previous-flag/defined-carry policy makes 12C an external equality poll for masked Q. Other retained mappings have different constant predicates. No mapping promoted or physical input identified.",
+  "source_sha256": {
+    "assumed/common.py": "08a9eb7b4c40330896b63c62e3a9d15425cb845c0b77295efdef4881c7187d5d",
+    "assumed/execute.py": "f60319f43688e46c3e360dc5a85172f6ee91a3bba43dbb2a37b1070108fc9c96",
+    "assumed/mask-variant-study.json": "f0d83442b9fdd3d2304d0246be745f7ca352e08ba0eab3ba305bf6d060550c62",
+    "assumed/mask_variant_study.py": "b204e7eb619ea32e498b8aba3aa7d417d1907fa57cc5742b16adba1791711a9f",
+    "assumed/results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
+    "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/independent-study/variant-4.json": "0ec561af24f767f8d43c327c1308244d684aaf37eca5057538395c189ae118e9",
+    "assumed/results/polling-study/immediate-one/scenario.json": "94f0ae04e678e90f8fa1d58e5cc0b26ef437c28911d1deebc1e1b40693a13fb8",
+    "assumed/results/selector-completion/original-marked/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
+    "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": [
+    {
+      "d": 0,
+      "profile": "q1",
+      "q": 33,
+      "ram": [
+        0,
+        176,
+        0,
+        251,
+        177,
+        216,
+        84,
+        82,
+        62,
+        218,
+        169,
+        188,
+        70,
+        126,
+        48,
+        24
+      ],
+      "release": false,
+      "result": {
+        "cycles": 6,
+        "pc": 286,
+        "q": 0,
+        "ram": [
+          0,
+          176,
+          33,
+          251,
+          177,
+          216,
+          84,
+          82,
+          62,
+          218,
+          169,
+          188,
+          70,
+          126,
+          48,
+          24
+        ],
+        "returned": true,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 222,
+              "overflow": 0,
+              "sign": 1,
+              "y": 222,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 33,
+              "overflow": 0,
+              "sign": 0,
+              "y": 33,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 304,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "0344a69cc89aae4f17439d62cc4a51544d06c75c11be743d7e363bd99175b7ec"
+    },
+    {
+      "d": 0,
+      "profile": "q1",
+      "q": 255,
+      "ram": [
+        255,
+        148,
+        36,
+        140,
+        179,
+        9,
+        33,
+        255,
+        104,
+        192,
+        154,
+        17,
+        88,
+        24,
+        246,
+        227
+      ],
+      "release": false,
+      "result": {
+        "cycles": 13,
+        "pc": 300,
+        "period": 4,
+        "q": 0,
+        "ram": [
+          255,
+          148,
+          0,
+          140,
+          179,
+          9,
+          33,
+          255,
+          104,
+          192,
+          154,
+          17,
+          88,
+          24,
+          246,
+          227
+        ],
+        "returned": false,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 255,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "2350182a6b88036b694e70bc881a9a1a998fffb61410c0244e6863e895d3e200"
+    },
+    {
+      "d": 0,
+      "profile": "q2",
+      "q": 33,
+      "ram": [
+        0,
+        176,
+        0,
+        251,
+        177,
+        216,
+        84,
+        82,
+        62,
+        218,
+        169,
+        188,
+        70,
+        126,
+        48,
+        24
+      ],
+      "release": false,
+      "result": {
+        "cycles": 6,
+        "pc": 286,
+        "q": 0,
+        "ram": [
+          0,
+          176,
+          33,
+          251,
+          177,
+          216,
+          84,
+          82,
+          62,
+          218,
+          169,
+          188,
+          70,
+          126,
+          48,
+          24
+        ],
+        "returned": true,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 222,
+              "overflow": 0,
+              "sign": 1,
+              "y": 222,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 33,
+              "overflow": 0,
+              "sign": 0,
+              "y": 33,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 304,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "0344a69cc89aae4f17439d62cc4a51544d06c75c11be743d7e363bd99175b7ec"
+    },
+    {
+      "d": 1,
+      "profile": "q2",
+      "q": 33,
+      "ram": [
+        0,
+        176,
+        0,
+        251,
+        177,
+        216,
+        84,
+        82,
+        62,
+        218,
+        169,
+        188,
+        70,
+        126,
+        48,
+        24
+      ],
+      "release": false,
+      "result": {
+        "cycles": 13,
+        "pc": 300,
+        "period": 4,
+        "q": 0,
+        "ram": [
+          0,
+          176,
+          1,
+          251,
+          177,
+          216,
+          84,
+          82,
+          62,
+          218,
+          169,
+          188,
+          70,
+          126,
+          48,
+          24
+        ],
+        "returned": false,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 222,
+              "overflow": 0,
+              "sign": 1,
+              "y": 222,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 285,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 34,
+              "overflow": 0,
+              "sign": 0,
+              "y": 34,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 300,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 1,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 300,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 1,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 300,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 1,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "6003c24a4bf4dceb2db7f15589061ae23be6b065c29357401a4c4c03821a5b77"
+    },
+    {
+      "d": 0,
+      "profile": "q3",
+      "q": 33,
+      "ram": [
+        0,
+        176,
+        0,
+        251,
+        177,
+        216,
+        84,
+        82,
+        62,
+        218,
+        169,
+        188,
+        70,
+        126,
+        48,
+        24
+      ],
+      "release": false,
+      "result": {
+        "cycles": 6,
+        "pc": 286,
+        "q": 0,
+        "ram": [
+          0,
+          176,
+          176,
+          251,
+          177,
+          216,
+          84,
+          82,
+          62,
+          218,
+          169,
+          188,
+          70,
+          126,
+          48,
+          24
+        ],
+        "returned": true,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 222,
+              "overflow": 0,
+              "sign": 1,
+              "y": 222,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 176,
+              "overflow": 0,
+              "sign": 1,
+              "y": 176,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 304,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "6e06cc5fdd0b1914707b0cb5540f87798a7e45f8fb1ca2778fe85658daf6dc09"
+    },
+    {
+      "d": 0,
+      "profile": "q3",
+      "q": 255,
+      "ram": [
+        255,
+        148,
+        36,
+        140,
+        179,
+        9,
+        33,
+        255,
+        104,
+        192,
+        154,
+        17,
+        88,
+        24,
+        246,
+        227
+      ],
+      "release": false,
+      "result": {
+        "cycles": 9,
+        "pc": 300,
+        "period": 4,
+        "q": 0,
+        "ram": [
+          255,
+          148,
+          148,
+          140,
+          179,
+          9,
+          33,
+          255,
+          104,
+          192,
+          154,
+          17,
+          88,
+          24,
+          246,
+          227
+        ],
+        "returned": false,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 148,
+              "overflow": 0,
+              "sign": 1,
+              "y": 148,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 148,
+              "overflow": 0,
+              "sign": 1,
+              "y": 148,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "4ec2cb5ea78839677ca0d9d7cae8f56b201339b85fa9fa0648458b5f0b4afbcd"
+    },
+    {
+      "d": 0,
+      "profile": "q4",
+      "q": 33,
+      "ram": [
+        0,
+        176,
+        0,
+        251,
+        177,
+        216,
+        84,
+        82,
+        62,
+        218,
+        169,
+        188,
+        70,
+        126,
+        48,
+        24
+      ],
+      "release": false,
+      "result": {
+        "cycles": 6,
+        "pc": 286,
+        "q": 0,
+        "ram": [
+          0,
+          176,
+          176,
+          251,
+          177,
+          216,
+          84,
+          82,
+          62,
+          218,
+          169,
+          188,
+          70,
+          126,
+          48,
+          24
+        ],
+        "returned": true,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 222,
+              "overflow": 0,
+              "sign": 1,
+              "y": 222,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 176,
+              "overflow": 0,
+              "sign": 1,
+              "y": 176,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 304,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "6e06cc5fdd0b1914707b0cb5540f87798a7e45f8fb1ca2778fe85658daf6dc09"
+    },
+    {
+      "d": 0,
+      "profile": "q4",
+      "q": 255,
+      "ram": [
+        255,
+        148,
+        36,
+        140,
+        179,
+        9,
+        33,
+        255,
+        104,
+        192,
+        154,
+        17,
+        88,
+        24,
+        246,
+        227
+      ],
+      "release": false,
+      "result": {
+        "cycles": 9,
+        "pc": 300,
+        "period": 4,
+        "q": 255,
+        "ram": [
+          255,
+          148,
+          148,
+          140,
+          179,
+          9,
+          33,
+          255,
+          104,
+          192,
+          154,
+          17,
+          88,
+          24,
+          246,
+          227
+        ],
+        "returned": false,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 148,
+              "overflow": 0,
+              "sign": 1,
+              "y": 148,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 1,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 148,
+              "overflow": 0,
+              "sign": 1,
+              "y": 148,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 255,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 1,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 255,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "16c114400a2d31b89a28cbb01ca4df8b8b76faf8eb084b025b5a7b85f6a9dcd3"
+    },
+    {
+      "d": 0,
+      "profile": "fitted_original",
+      "q": 33,
+      "ram": [
+        0,
+        176,
+        0,
+        251,
+        177,
+        216,
+        84,
+        82,
+        62,
+        218,
+        169,
+        188,
+        70,
+        126,
+        48,
+        24
+      ],
+      "release": false,
+      "result": {
+        "cycles": 6,
+        "pc": 286,
+        "q": 0,
+        "ram": [
+          0,
+          176,
+          176,
+          251,
+          177,
+          216,
+          84,
+          82,
+          62,
+          218,
+          169,
+          188,
+          70,
+          126,
+          48,
+          24
+        ],
+        "returned": true,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 222,
+              "overflow": 0,
+              "sign": 1,
+              "y": 222,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 176,
+              "overflow": 0,
+              "sign": 1,
+              "y": 176,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 304,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "6e06cc5fdd0b1914707b0cb5540f87798a7e45f8fb1ca2778fe85658daf6dc09"
+    },
+    {
+      "d": 0,
+      "profile": "fitted_original",
+      "q": 13,
+      "ram": [
+        138,
+        100,
+        202,
+        121,
+        209,
+        96,
+        143,
+        72,
+        167,
+        232,
+        219,
+        122,
+        189,
+        205,
+        77,
+        45
+      ],
+      "release": false,
+      "result": {
+        "cycles": 9,
+        "pc": 300,
+        "period": 4,
+        "q": 8,
+        "ram": [
+          138,
+          100,
+          100,
+          121,
+          209,
+          96,
+          143,
+          72,
+          167,
+          232,
+          219,
+          122,
+          189,
+          205,
+          77,
+          45
+        ],
+        "returned": false,
+        "trace": [
+          {
+            "alu": {
+              "carry": 1,
+              "f": 124,
+              "overflow": 1,
+              "sign": 0,
+              "y": 124,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 13,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 100,
+              "overflow": 0,
+              "sign": 0,
+              "y": 100,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 13,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 8,
+              "overflow": 1,
+              "sign": 0,
+              "y": 8,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 8,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 126,
+              "overflow": 0,
+              "sign": 0,
+              "y": 126,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 8,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 8,
+              "overflow": 0,
+              "sign": 0,
+              "y": 8,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 8,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 100,
+              "overflow": 0,
+              "sign": 0,
+              "y": 100,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 8,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 8,
+              "overflow": 1,
+              "sign": 0,
+              "y": 8,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 8,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 126,
+              "overflow": 0,
+              "sign": 0,
+              "y": 126,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 8,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 8,
+              "overflow": 0,
+              "sign": 0,
+              "y": 8,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 8,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "17e376fa9ccdb75f9e6870ba2c4d40caaf9e93efdce0c62bab30f4fd473e2efa"
+    },
+    {
+      "d": 0,
+      "profile": "fitted_swapped",
+      "q": 33,
+      "ram": [
+        0,
+        176,
+        0,
+        251,
+        177,
+        216,
+        84,
+        82,
+        62,
+        218,
+        169,
+        188,
+        70,
+        126,
+        48,
+        24
+      ],
+      "release": false,
+      "result": {
+        "cycles": 9,
+        "pc": 300,
+        "period": 4,
+        "q": 0,
+        "ram": [
+          0,
+          0,
+          0,
+          251,
+          177,
+          216,
+          84,
+          82,
+          62,
+          218,
+          169,
+          188,
+          70,
+          126,
+          48,
+          24
+        ],
+        "returned": false,
+        "trace": [
+          {
+            "alu": {
+              "carry": 1,
+              "f": 50,
+              "overflow": 0,
+              "sign": 0,
+              "y": 50,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 33,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 174,
+              "overflow": 0,
+              "sign": 1,
+              "y": 174,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 174,
+              "overflow": 0,
+              "sign": 1,
+              "y": 174,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "2374d97882793f23c0a854a46975e242834636e244d2a8d254b2380c0f208e02"
+    },
+    {
+      "d": 0,
+      "profile": "fitted_swapped",
+      "q": 255,
+      "ram": [
+        255,
+        148,
+        36,
+        140,
+        179,
+        9,
+        33,
+        255,
+        104,
+        192,
+        154,
+        17,
+        88,
+        24,
+        246,
+        227
+      ],
+      "release": false,
+      "result": {
+        "cycles": 6,
+        "pc": 286,
+        "q": 255,
+        "ram": [
+          255,
+          36,
+          36,
+          140,
+          179,
+          9,
+          33,
+          255,
+          104,
+          192,
+          154,
+          17,
+          88,
+          24,
+          246,
+          227
+        ],
+        "returned": true,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 33,
+              "overflow": 0,
+              "sign": 0,
+              "y": 33,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 285,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 36,
+              "overflow": 0,
+              "sign": 0,
+              "y": 36,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 300,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 255,
+              "overflow": 1,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 0,
+            "pc": 301,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 255,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 303,
+            "q": 255,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 304,
+            "q": 255,
+            "test": 0
+          }
+        ]
+      },
+      "trace_digest": "e2053ff982961c1fe16b9b92415043b42282ae3ed3cd8763dcac4e0b6cd1a597"
+    },
+    {
+      "d": 90,
+      "profile": "q2",
+      "q": 0,
+      "ram": [
+        0,
+        34,
+        51,
+        68,
+        85,
+        102,
+        119,
+        136,
+        153,
+        170,
+        187,
+        204,
+        221,
+        238,
+        255,
+        16
+      ],
+      "release": true,
+      "result": {
+        "cycles": 10,
+        "pc": 286,
+        "q": 0,
+        "ram": [
+          0,
+          34,
+          90,
+          68,
+          85,
+          102,
+          119,
+          136,
+          153,
+          170,
+          187,
+          204,
+          221,
+          238,
+          255,
+          16
+        ],
+        "returned": true,
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 90,
+            "pc": 285,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 90,
+              "overflow": 0,
+              "sign": 0,
+              "y": 90,
+              "zero": 0
+            },
+            "d": 90,
+            "pc": 300,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 90,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "d": 1,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 90,
+              "overflow": 0,
+              "sign": 0,
+              "y": 90,
+              "zero": 0
+            },
+            "d": 90,
+            "pc": 303,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 90,
+              "overflow": 0,
+              "sign": 0,
+              "y": 90,
+              "zero": 0
+            },
+            "d": 90,
+            "pc": 300,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 1,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 90,
+            "pc": 301,
+            "q": 0,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 0,
+            "pc": 302,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 91,
+              "overflow": 0,
+              "sign": 0,
+              "y": 91,
+              "zero": 0
+            },
+            "d": 90,
+            "pc": 303,
+            "q": 0,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "d": 90,
+            "pc": 304,
+            "q": 0,
+            "test": 1
+          }
+        ]
+      },
+      "trace_digest": "bfa08e743887fd4363113acc5c7f47a72506f9fd636d2fd1e2a82d008d645806"
+    }
+  ]
+}
