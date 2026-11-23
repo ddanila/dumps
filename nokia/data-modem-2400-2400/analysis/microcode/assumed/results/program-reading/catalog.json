@@ -456,6 +456,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-DISPATCH.md",
+        "limitations": "Site-scoped preceding-Y hypothesis with fixed top-level dispatch 5 and early input replies; physical index wiring and output consumer remain unresolved.",
+        "meaning": "q2 computes D\u2212R14 immediately before a paired-arithmetic call. Optional preceding-Y indexing selects its add/subtract combinations; current Y and Q are zero in tested reset paths.",
+        "name": "preceding-Y paired-arithmetic dispatch candidate",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "38E",
+            "38F"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1609,6 +1625,7 @@
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
     "Q-INDEPENDENT.md": "e9db7896f01411aca4558ec872ebded36cb53e2ec3161ff3204eb66d077c7329",
     "Q2-CALLER.md": "37e8a096aebb72e83bf10649f783254c111ffaf8ee6a46c1a8bb365493cc0119",
+    "Q2-DISPATCH.md": "ec2c3d05187ef9a86c48cfe0a85399d0de4482041a8799daa7cb540506ecf47f",
     "Q2-TARGETS.md": "14c5697abb35e08c6f2c07d4ef2f9d0eb69d243d378bdfba66be25b92e00a701",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",

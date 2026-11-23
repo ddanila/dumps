@@ -56,6 +56,7 @@ into one address listing.
 | 126–130 | Idempotent Q-mask tests | No D operand inside helpers; previous/current timing selects different predicates |
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
 | 109 | Input-code dispatch candidate | Optional current-Y index; physical source and later-entry preconditions unknown |
+| 38E–38F (q2) | Preceding-Y paired-arithmetic dispatch candidate | Site-scoped hypothesis; physical index and output consumer unknown |
 | 389–391 (q2) | Captured-register copy and paired-arithmetic loop | Nonzero R10 does not reach a masked poll in the tested reset paths |
 | 248–24E | Three-loop shift wrapper | Does not establish R7; each loop has separate input-dependent termination |
 | 296–29E | Input-dependent biased Q shift | Most constant-input cases with R7=FF repeat under the selected previous-flag policy |

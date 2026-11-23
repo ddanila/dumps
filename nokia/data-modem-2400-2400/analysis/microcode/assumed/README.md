@@ -410,3 +410,8 @@ values give 768 clean runs; physical replies and nonzero targets remain unknown.
 [q2 target provenance](Q2-TARGETS.md) sweeps all eight dispatch choices and
 all input bytes. R10 can capture a nonzero value from R6, but none of the
 2,048 tested paths carries that written value into a masked poll.
+
+[q2 paired dispatch](Q2-DISPATCH.md) tests preceding Y at 38F: the prior
+instruction supplies D−R14, while current Y and Q are zero in the reset
+fixtures. This candidate releases 129 input cases from the arithmetic wrapper;
+65 reach 084 and 64 reach a carry loop. Physical wiring remains unresolved.

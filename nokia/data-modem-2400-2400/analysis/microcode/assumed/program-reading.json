@@ -471,6 +471,22 @@
         "q2"
       ],
       "limitations": "Shared previous-flag policy and global dispatch index 5; nonzero R10 is not delivered to a masked poll in the tested reset paths. Physical output and dispatch source unresolved."
+    },
+    {
+      "name": "preceding-Y paired-arithmetic dispatch candidate",
+      "ranges": [
+        [
+          "38E",
+          "38F"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "q2 computes D\u2212R14 immediately before a paired-arithmetic call. Optional preceding-Y indexing selects its add/subtract combinations; current Y and Q are zero in tested reset paths.",
+      "evidence": "Q2-DISPATCH.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Site-scoped preceding-Y hypothesis with fixed top-level dispatch 5 and early input replies; physical index wiring and output consumer remain unresolved."
     }
   ]
 }
