@@ -1,0 +1,19 @@
+{
+  "status": "hypothesis",
+  "evidence": "Test whether the preceding ALU-Y value supplies low lookup-index bits at ROM-backed branches 008 and 26F; preceding address-building instructions motivate a retained-output alternative.",
+  "sites": [8, 623],
+  "sources": ["scenario", "y", "q", "previous_y"],
+  "initial_y": 0,
+  "variants": [1, 2, 3, 4],
+  "external_values": [0, 85],
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "cycles": 1000,
+  "integration": {"variant": 2, "source": "previous_y", "external_read": 85, "seed": 2},
+  "limitations": [
+    "Index masking uses the existing table size: three bits for 008 and four bits for 26F; physical index wiring is unknown.",
+    "Call-table row/index selection stays scenario-driven; the five call rows must not be confused with a recovered 80-way hardware selector.",
+    "The initial retained-Y byte is an explicit stub; no output-latch pin has been recovered.",
+    "External D stays a constant input, so this does not model full feedback from external memory.",
+    "Changing dispatch source changes random-number consumption; same seeds do not mean identical later conditions."
+  ]
+}

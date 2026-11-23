@@ -9,6 +9,14 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Datapath-derived lookup indices
+
+[INDEX-SOURCES.md](INDEX-SOURCES.md) compares current Y, updated Q and retained
+previous Y at the two ROM-backed branch sites. Tables may use `index_source`
+to override the global dispatch source. `previous_y` requires an explicit
+`dispatch.initial_y`; all datapath sources require integrated mode. No source
+is promoted merely because it produces clean runs or higher coverage.
+
 ## Independent lookup-ROM dispatch evidence
 
 [ROM-DISPATCH.md](ROM-DISPATCH.md) replaces several permissive target pools

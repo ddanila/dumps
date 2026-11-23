@@ -52,7 +52,7 @@ def validate_scenario(s):
     indirect=s['indirect_branch']
     if indirect['source'] not in ('microword','constant','y','q') or indirect['status'] not in ('stub','hypothesis','recovered-from-data') or not indirect.get('evidence') or not 0<=indirect['value']<1024:
         raise ValueError('invalid indirect branch policy')
-    if d['mode'] not in ('constant','sequence','random') or d['source'] not in ('scenario','y','q'):
+    if d['mode'] not in ('constant','sequence','random') or d['source'] not in ('scenario','y','q','previous_y'):
         raise ValueError('invalid dispatch mode/source')
     if not d['sequence'] or any(not isinstance(v,int) or v<0 for v in d['sequence']):
         raise ValueError('invalid dispatch sequence')
@@ -61,8 +61,14 @@ def validate_scenario(s):
     for pc,t in [*d['tables'].items(), *s.get('branch_tables',{}).items()]:
         if not 0<=int(pc)<1024:raise ValueError('invalid dispatch site')
         table_targets(t)
+        if t.get('index_source',d['source']) not in ('scenario','y','q','previous_y'):
+            raise ValueError('invalid table index source')
         if t['status'] not in ('hypothesis','stub','recovered-from-data') or not t.get('evidence'):
             raise ValueError('dispatch requires provenance')
+    tables=[*d['tables'].values(),*s.get('branch_tables',{}).values()]
+    if d['source']=='previous_y' or any(t.get('index_source')=='previous_y' for t in tables):
+        if type(d.get('initial_y')) is not int or not 0<=d['initial_y']<=255:
+            raise ValueError('previous Y requires an explicit initial_y byte')
     if s['io']['read']['mode'] not in ('immediate','constant','table','am27s31'):
         raise ValueError('unknown IO read mode')
     if c['unconditional_select'] is not None and c['unconditional_select'] not in range(8):
@@ -107,6 +113,10 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     cond=scenario['condition'];dispatch=scenario['dispatch'];inputs=scenario['inputs']
     if mode=='sequencer' and (cond['mode']=='flags' or dispatch['source']!='scenario' or scenario['indirect_branch']['source'] in ('y','q')):
         raise ValueError('datapath source requires integrated mode')
+    all_tables=[*dispatch['tables'].values(),*scenario.get('branch_tables',{}).values()]
+    if mode=='sequencer' and any(t.get('index_source','scenario')!='scenario' for t in all_tables):
+        raise ValueError('table datapath source requires integrated mode')
+    track_previous_y=dispatch['source']=='previous_y' or any(t.get('index_source')=='previous_y' for t in all_tables)
     for row in rows:
         if row['command']==4 and not row['direct'] and str(row['pc']) not in dispatch['tables']:
             raise ValueError(f"missing dispatch site {row['pc']:03x}")
@@ -171,7 +181,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         # Unconditional transfers are invariant under per-select test polarity.
         if not always:
             test ^= cond['polarity'][select]
-        branch=r['branch'];entry=None
+        branch=r['branch'];entry=None;index_source=None;trace_index=False
         branch_table=scenario.get('branch_tables',{}).get(str(pc)) if c==6 else None
         if c==6 and not r['direct'] and branch_table is None:
             policy=scenario['indirect_branch'];assumptions['indirect BRT '+policy['status']]+=1
@@ -181,8 +191,11 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         if test and ((c==4 and (not r['direct'] or str(pc) in dispatch_targets)) or branch_table is not None):
             t=branch_table if branch_table is not None else dispatch['tables'][str(pc)]
             targets=(branch_targets if branch_table is not None else dispatch_targets)[str(pc)];count=len(targets)
-            if dispatch['source']=='y': index=result['y']
-            elif dispatch['source']=='q': index=cpu.q
+            index_source=t.get('index_source',dispatch['source'])
+            trace_index='index_source' in t or index_source=='previous_y'
+            if index_source=='y': index=result['y']
+            elif index_source=='q': index=cpu.q
+            elif index_source=='previous_y': index=previous.get('y',dispatch['initial_y'])
             elif dispatch['mode']=='constant': index=dispatch['value']
             elif dispatch['mode']=='sequence': index=dispatch['sequence'][dispatch_counts[pc]%len(dispatch['sequence'])]
             else: index=rng.randrange(count)
@@ -209,6 +222,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if len(events)<32: events.append(dict(cycle=cycle,pc=pc,event='stack depth violation',depth=depth))
         h.update(bytes((pc&255,pc>>8,seq.pc&255,seq.pc>>8,test,cpu.q)))
         if result: h.update(bytes(cpu.ram))
+        if track_previous_y:h.update(bytes((result['y'],)))
         if isinstance(inputs['carry'],dict):h.update(bytes((2 if carry_input.previous is None else carry_input.previous,)))
         if pc in writes:
             w=writes[pc];value=result[w.get('source','y')] if result else w.get('value',0)
@@ -221,6 +235,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 stack_before=before,stack_after=dict(sp=seq.sp,depth=depth,values=seq.stack[:]),next_pc=seq.pc,
                 registers={str(i):v for i,v in enumerate(cpu.ram) if mode=='integrated' and old_ram[i]!=v},q=cpu.q,alu=result)
             if isinstance(inputs['carry'],dict):record['carry_in']=carry
+            if trace_index:record.update(dispatch_input=index,dispatch_source=index_source)
             if pc in routine_entries and pc not in routine_samples: routine_samples[pc]=record
             if trace_count<trace_limit:
                 trace_count+=1
@@ -235,6 +250,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         register_changes=register_changes,routine_samples=routine_samples,io_writes=io_count,trace_digest=h.hexdigest(),final_state=dict(pc=seq.pc,sp=seq.sp,stack=seq.stack,ram=cpu.ram,q=cpu.q),
         clean=completed==cycles and not(underflows or overflows),
         interpretation='Runs under declared assumptions; neither recovered wiring nor verified Nokia execution.')
+    if track_previous_y:summary['final_state']['previous_y']=flags.get('y',dispatch['initial_y'])
     if isinstance(inputs['carry'],dict):
         summary['carry_model']=dict(previous=carry_input.previous,counts=dict(carry_input.counts))
     if out:

@@ -6,7 +6,9 @@ implements analysis and execution tooling from [PLAN.md](PLAN.md). Independent
 **91.97%** reset coverage in the working ROM-backed candidate. The ROM contains
 both candidate address tables and exact sine-wave tables. Target associations,
 high address bits, condition sources and physical DAC/controller connections
-remain hypotheses or unresolved. The full plan is not finished.
+remain hypotheses or unresolved. A [datapath index comparison](assumed/INDEX-SOURCES.md)
+now tests current versus retained ALU outputs at the ROM-backed branches.
+The full plan is not finished.
 
 Historical [baseline](assumed/RESULTS.md), [branch-table](assumed/BRANCH-TABLES.md),
 [low-address handler](assumed/LOW-HANDLERS.md), and

@@ -473,6 +473,35 @@ class AssumedTests(unittest.TestCase):
         bad_config=dict(config,rom_sha256='wrong')
         with self.assertRaisesRegex(ValueError,'hash mismatch'):load_rom(bad_config)
 
+    def test_previous_y_index_uses_preceding_output_and_explicit_initial_value(self):
+        mapping=read(HERE/'results/independent-study/variant-2.json')
+        scenario=read(HERE/'results/independent-study/scenario-2.json')
+        scenario['inputs']['carry']=0
+        scenario['io']['read']['mode']='immediate'
+        scenario['branch_tables']['1']=dict(targets=[10,20,30,40],index_source='previous_y',
+            status='hypothesis',evidence='retained-output fixture')
+        scenario['dispatch']['initial_y']=2
+        rows=decode(mapping)
+        rows[0].update(command=1,i=7|(1<<6),d=3)
+        rows[1].update(command=6,select=0,direct=1,i=7|(1<<6),d=1)
+        with patch('execute.decode',return_value=rows):
+            result=execute(mapping,scenario,2,mode='integrated')
+        self.assertEqual(result['final_state']['pc'],40)
+        self.assertEqual(result['final_state']['previous_y'],1)
+        scenario['initial']['pc']=1
+        with patch('execute.decode',return_value=rows):
+            first=execute(mapping,scenario,1,mode='integrated')
+        self.assertEqual(first['final_state']['pc'],30)
+        scenario['branch_tables']['1']['index_source']='y'
+        with patch('execute.decode',return_value=rows):
+            current=execute(mapping,scenario,1,mode='integrated')
+        self.assertEqual(current['final_state']['pc'],20)
+        scenario['branch_tables']['1']['index_source']='previous_y'
+        del scenario['dispatch']['initial_y']
+        with self.assertRaisesRegex(ValueError,'explicit initial_y'):validate_scenario(scenario)
+        scenario['dispatch']['initial_y']=0
+        with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():
