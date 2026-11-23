@@ -415,3 +415,8 @@ all input bytes. R10 can capture a nonzero value from R6, but none of the
 instruction supplies D−R14, while current Y and Q are zero in the reset
 fixtures. This candidate releases 129 input cases from the arithmetic wrapper;
 65 reach 084 and 64 reach a carry loop. Physical wiring remains unresolved.
+
+[q2 accumulator gate](Q2-ACCUMULATOR.md) identifies a Q+=D update whose carry
+gates transform calls, followed by an old-Q/R7 comparison. The 132,608 local
+checks cover the arithmetic and threshold boundaries; all 256 tested reset
+inputs start with Q=0 and bypass the calls.

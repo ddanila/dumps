@@ -487,6 +487,26 @@
         "q2"
       ],
       "limitations": "Site-scoped preceding-Y hypothesis with fixed top-level dispatch 5 and early input replies; physical index wiring and output consumer remain unresolved."
+    },
+    {
+      "name": "accumulator carry and threshold gate",
+      "ranges": [
+        [
+          "133",
+          "13A"
+        ],
+        [
+          "341",
+          "344"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2, snapshot old Q in R0/R5, preserve R3 in R2, complement R1 into R3, and add D to Q. Addition carry gates transform calls; old Q versus R7 selects the call sequence.",
+      "evidence": "Q2-ACCUMULATOR.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Shared previous-flag policy. Nonzero-Q carry paths are local fixtures; tested reset executions skip every transform call. Repeated Q-to-R0 writes at 341\u2013344 remain a candidate-specific decode."
     }
   ]
 }

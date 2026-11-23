@@ -1,0 +1,10 @@
+{
+  "status": "hypothesis",
+  "evidence": "Retained q2 with separately hypothesized previous-flag/defined-carry scenario. Local entry 133 fixtures check full RAM and Q through the transform-call gate; nonzero Q is explicitly supplied, not claimed reset-reachable. Reset global index 7 uses diagnostic early zero replies.",
+  "mapping": "results/independent-study/variant-2.json",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "initial_ram": [17, 52, 86, 167, 35, 69, 103, 137, 171, 205, 239, 18, 52, 86, 120, 154],
+  "carry_boundary_cases": [[0,0], [0,255], [1,255], [128,128], [255,1], [255,0]],
+  "reset_cycles": 128,
+  "reset_witnesses": [0,1,128,255]
+}

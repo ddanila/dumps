@@ -472,6 +472,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-ACCUMULATOR.md",
+        "limitations": "Shared previous-flag policy. Nonzero-Q carry paths are local fixtures; tested reset executions skip every transform call. Repeated Q-to-R0 writes at 341\u2013344 remain a candidate-specific decode.",
+        "meaning": "Under q2, snapshot old Q in R0/R5, preserve R3 in R2, complement R1 into R3, and add D to Q. Addition carry gates transform calls; old Q versus R7 selects the call sequence.",
+        "name": "accumulator carry and threshold gate",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "133",
+            "13A"
+          ],
+          [
+            "341",
+            "344"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -492,7 +512,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 208,
+    "annotated_used_words": 216,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1133,6 +1153,26 @@
             ]
           ],
           "status": "hypothesis"
+        },
+        {
+          "evidence": "Q2-ACCUMULATOR.md",
+          "limitations": "Shared previous-flag policy. Nonzero-Q carry paths are local fixtures; tested reset executions skip every transform call. Repeated Q-to-R0 writes at 341\u2013344 remain a candidate-specific decode.",
+          "meaning": "Under q2, snapshot old Q in R0/R5, preserve R3 in R2, complement R1 into R3, and add D to Q. Addition carry gates transform calls; old Q versus R7 selects the call sequence.",
+          "name": "accumulator carry and threshold gate",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "133",
+              "13A"
+            ],
+            [
+              "341",
+              "344"
+            ]
+          ],
+          "status": "hypothesis"
         }
       ],
       "callers": [
@@ -1624,6 +1664,7 @@
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
     "Q-INDEPENDENT.md": "e9db7896f01411aca4558ec872ebded36cb53e2ec3161ff3204eb66d077c7329",
+    "Q2-ACCUMULATOR.md": "b9d74d2a5e83b0abf816937d06fcae2c2823bc43f59dec395da4d779857a001e",
     "Q2-CALLER.md": "37e8a096aebb72e83bf10649f783254c111ffaf8ee6a46c1a8bb365493cc0119",
     "Q2-DISPATCH.md": "ec2c3d05187ef9a86c48cfe0a85399d0de4482041a8799daa7cb540506ecf47f",
     "Q2-TARGETS.md": "14c5697abb35e08c6f2c07d4ef2f9d0eb69d243d378bdfba66be25b92e00a701",
