@@ -523,6 +523,26 @@
         "q2"
       ],
       "limitations": "Constant dispatch index and shared previous-flag policy. Failed conditions repeat rather than converge; nonzero source/caller cases are local fixtures, with physical loop condition and output meaning unresolved."
+    },
+    {
+      "name": "source-overwriting transform loops",
+      "ranges": [
+        [
+          "3D5",
+          "3D9"
+        ],
+        [
+          "3EA",
+          "3EE"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2, 3D5 overwrites X with the second transform result; 3EA overwrites Y with its first result. Real previous-zero loop control yields one/two-pass returns or exact 8/16-instruction cycles.",
+      "evidence": "Q2-OVERWRITE.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved."
     }
   ]
 }

@@ -425,3 +425,7 @@ inputs start with Q=0 and bypass the calls.
 It repeatedly transforms unchanged source words and returns when the second
 result high byte is zero; other fixed-index cases repeat every eight instructions.
 The study includes 263,344 local checks and 40 executions through the 133 gate.
+
+[q2 source-overwriting loops](Q2-OVERWRITE.md) explains 3D5/3EA recurrence,
+including second-pass returns and 16-instruction cycles. The complete 133
+three-call path is checked with arithmetic flags over 400 local boundary cases.

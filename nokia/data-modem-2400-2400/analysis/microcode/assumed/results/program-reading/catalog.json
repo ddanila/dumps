@@ -508,6 +508,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-OVERWRITE.md",
+        "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved.",
+        "meaning": "Under q2, 3D5 overwrites X with the second transform result; 3EA overwrites Y with its first result. Real previous-zero loop control yields one/two-pass returns or exact 8/16-instruction cycles.",
+        "name": "source-overwriting transform loops",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "3D5",
+            "3D9"
+          ],
+          [
+            "3EA",
+            "3EE"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -528,7 +548,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 221,
+    "annotated_used_words": 231,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1321,7 +1341,28 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "Q2-OVERWRITE.md",
+          "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved.",
+          "meaning": "Under q2, 3D5 overwrites X with the second transform result; 3EA overwrites Y with its first result. Real previous-zero loop control yields one/two-pass returns or exact 8/16-instruction cycles.",
+          "name": "source-overwriting transform loops",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "3D5",
+              "3D9"
+            ],
+            [
+              "3EA",
+              "3EE"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "13C"
       ],
@@ -1334,7 +1375,28 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "Q2-OVERWRITE.md",
+          "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved.",
+          "meaning": "Under q2, 3D5 overwrites X with the second transform result; 3EA overwrites Y with its first result. Real previous-zero loop control yields one/two-pass returns or exact 8/16-instruction cycles.",
+          "name": "source-overwriting transform loops",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "3D5",
+              "3D9"
+            ],
+            [
+              "3EA",
+              "3EE"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "13B",
         "18C"
@@ -1700,6 +1762,7 @@
     "Q2-ACCUMULATOR.md": "b9d74d2a5e83b0abf816937d06fcae2c2823bc43f59dec395da4d779857a001e",
     "Q2-CALLER.md": "37e8a096aebb72e83bf10649f783254c111ffaf8ee6a46c1a8bb365493cc0119",
     "Q2-DISPATCH.md": "ec2c3d05187ef9a86c48cfe0a85399d0de4482041a8799daa7cb540506ecf47f",
+    "Q2-OVERWRITE.md": "9c943cafa9a4a9da2f5c19d4da5cd005e26e5c4488af7ab0f5b9983be42dd3ad",
     "Q2-TARGETS.md": "14c5697abb35e08c6f2c07d4ef2f9d0eb69d243d378bdfba66be25b92e00a701",
     "Q2-TRANSFORM-LOOP.md": "975f3af99162e38c5a4bc0040536ebc2072068ec1a3b0a6cbe53a977643e2b63",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
