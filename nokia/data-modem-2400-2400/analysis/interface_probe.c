@@ -7,7 +7,8 @@
 
 static unsigned char code[65536];
 static unsigned cycle, pc, delay, tx_due, errors, event_count;
-static unsigned port_probe, port_value;
+static unsigned port_probe, port_value, decoding_probe;
+static unsigned char decode_seen[8192];
 struct event { unsigned cycle, pc, value; const char *kind; };
 static struct event events[128];
 static void event(const char *kind, unsigned at, unsigned value) {
@@ -16,6 +17,7 @@ static void event(const char *kind, unsigned at, unsigned value) {
 }
 void sat_trace(struct em8051 *c) {
     pc = c->mPC;
+    if (decoding_probe && pc<8192) decode_seen[pc]=1;
     if (pc >= 8192) { fprintf(stderr,"out-of-ROM execution\n"); exit(3); }
 }
 static void exception(struct em8051 *c, int kind) { (void)c; errors++; event("exception",pc,kind); }
@@ -60,9 +62,11 @@ int main(int argc, char **argv) {
     while (fgets(line,sizeof line,stdin)) {
         if (sscanf(line,"%7s %31s %31s %u %u",mode,frame_text,prior_text,&delay,&completions)!=5 || !delay || delay>1000) return 2;
         int reading=!strcmp(mode,"read");
-        unsigned stop=sentinel, entry=reading?0x800:0x899;
+        int decoding=!strcmp(mode,"decode");
+        decoding_probe=decoding; memset(decode_seen,0,sizeof decode_seen);
+        unsigned stop=sentinel, entry=decoding?0x620:reading?0x800:0x899;
         port_probe=!strcmp(mode,"port") || !strcmp(mode,"poll1") || !strcmp(mode,"poll2") || !strcmp(mode,"main");
-        if (!reading && strcmp(mode,"write") && !port_probe) return 2;
+        if (!reading && strcmp(mode,"write") && !port_probe && !decoding) return 2;
         if (port_probe) {
             entry=0x8dd;
             if (!strcmp(mode,"poll1")) { entry=0x1e37; stop=0x1e3c; }
@@ -70,7 +74,7 @@ int main(int argc, char **argv) {
             if (!strcmp(mode,"main")) { entry=0x1ed3; stop=0x81d; reading=1; }
         }
         unsigned char frame[9]={0}, prior[6]={0};
-        if (!bytes(frame_text,frame,port_probe?9:reading?7:4) || !bytes(prior_text,prior,6)) return 2;
+        if (!bytes(frame_text,frame,port_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
         struct em8051 c={0};
         c.mCodeMem=code; c.mCodeMemMaxIdx=65535;
         c.except=exception; c.xread=xread; c.xwrite=xwrite;
@@ -81,12 +85,17 @@ int main(int argc, char **argv) {
         c.mPC=entry;
         c.mSFR[REG_P1]=initial_p1;
         memcpy(c.mLowerData+0x2a,prior,6);
-        if (!reading && !port_probe) memcpy(c.mLowerData+0x30,frame,4);
+        if (!reading && !port_probe && !decoding) memcpy(c.mLowerData+0x30,frame,4);
         if (port_probe) {
             port_value=frame[0]; c.mSFR[REG_P2]=frame[1]; c.mLowerData[0x17]=prior[0];
             memmove(frame,frame+2,7);
         }
-        c.mLowerData[0x22]=initial_changed;
+        if (decoding) {
+            /* Six normalized inputs plus byte 6E; prior holds RAM 22-27. */
+            memcpy(c.mLowerData+0x2a,frame,6);
+            memcpy(c.mLowerData+0x22,prior,6);
+            c.mLowerData[0x6e]=frame[6];
+        } else c.mLowerData[0x22]=initial_changed;
         tx_due=errors=event_count=0;
         unsigned rx_due=0, received=0, completed=0;
         for (cycle=0;cycle<limit && c.mPC!=stop;cycle++) {
@@ -109,11 +118,16 @@ int main(int argc, char **argv) {
         printf("],\"events\":[");
         for (unsigned i=0;i<event_count;i++) printf("%s{\"cycle\":%u,\"pc\":%u,\"kind\":\"%s\",\"value\":%u}",i?",":"",events[i].cycle,events[i].pc,events[i].kind,events[i].value);
         printf("]");
-        if (port_probe) {
+        if (port_probe || decoding) {
             printf(",\"reached_stop\":%s,\"acc\":%u,\"p2\":%u,\"iram\":[",c.mPC==stop?"true":"false",c.mSFR[REG_ACC],c.mSFR[REG_P2]);
             for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mLowerData[i]);
             printf("],\"sfr\":[");
             for (unsigned i=0;i<128;i++) printf("%s%u",i?",":"",c.mSFR[i]);
+            printf("]");
+        }
+        if (decoding) {
+            unsigned count=0; printf(",\"visited\":[");
+            for (unsigned i=0;i<8192;i++) if (decode_seen[i]) printf("%s%u",count++?",":"",i);
             printf("]");
         }
         puts("}");

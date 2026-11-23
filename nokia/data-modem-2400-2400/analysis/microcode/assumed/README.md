@@ -333,3 +333,7 @@ with substantial coverage loss elsewhere.
 
 The [raw-bit branch mux search](BRANCH-MUX.md) tests 8,192 gate/source choices.
 None improves baseline coverage; its new path to 0FA loses 85 other words.
+
+The [controller input decoder](CONTROLLER-DECODE.md) translates routine 0620
+into explicit bit-field rules, checked against 10,144 unchanged-ROM executions.
+Physical signal names remain unresolved.
