@@ -111,3 +111,8 @@ This limited search does not establish uniqueness. Modem model, firmware role
 and operational validity remain unconfirmed.
 
 [Chip 18 acquisition metadata and logs](evidence/chip18/)
+
+## Related board
+
+The owner subsequently supplied a [2764 EPROM from another board in the same modem](../unknown-modem-other-board-2764/). It is preserved separately; no logical
+combination with these four PROMs is assumed.

@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [Nokia external modem, second board 2764](nokia/unknown-modem-other-board-2764/) —
+  two matching 8 KiB reads; preliminary 8051-family code identification.
+
 - [Nokia external modem 810237C PROM set](nokia/unknown-modem-810237c/) — all four
   MMI 6381 PROMs acquired, two matching 1 KiB reads each; modem model unknown.
 
