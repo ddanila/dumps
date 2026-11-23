@@ -21,6 +21,9 @@ zeros from zeros written by earlier transform entries.
 [OPERAND-PATHS.md](OPERAND-PATHS.md) proves that the current control-flow
 hypothesis excludes all non-table source writers from paths to these calls,
 and identifies routine 341–344 as a concrete decode question.
+[PREPARATION-DECODE.md](PREPARATION-DECODE.md) expands the source search and
+compares A/B swaps: sixteen layouts retain the old fixtures, but none turns
+341 into an operand loader while preserving those same interpretations.
 
 ## Datapath-derived lookup indices
 

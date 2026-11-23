@@ -561,6 +561,25 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(expanded,plain)
         self.assertEqual({s[0] for edge in edges for s in edge},set(plain['reached']))
 
+    def test_preparation_source_alternative_and_register_role_tradeoff(self):
+        from preparation_study import preparation
+        from independent_study import arithmetic
+        from rotation_study import make_mapping, scenario_for
+        config=read(HERE/'preparation-search.json')
+        independent=read(HERE/'independent-search.json');base=read(HERE/'rotation-search.json')
+        candidate=dict(i=['17.5','!17.3','11.6']+independent['function_bits']+base['destination_bits'])
+        mapping=make_mapping(candidate,1,base)
+        probe=preparation(decode(mapping),scenario_for(mapping,base)['inputs']['carry'],config['fixture'])
+        self.assertEqual([r['source'] for r in probe['trace']],[6]*4)
+        self.assertEqual(probe['written_registers'],[0])
+        self.assertEqual(probe['final_ram'][10:14],config['fixture']['ram'][10:14])
+        self.assertFalse(arithmetic(mapping,independent,base)['failures'])
+        swapped=copy.deepcopy(mapping)
+        swapped['fields']['a'],swapped['fields']['b']=swapped['fields']['b'],swapped['fields']['a']
+        probe=preparation(decode(swapped),scenario_for(swapped,base)['inputs']['carry'],config['fixture'])
+        self.assertEqual(probe['written_registers'],[10,11,12,13])
+        self.assertTrue(arithmetic(swapped,independent,base)['failures'])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

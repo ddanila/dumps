@@ -1,0 +1,9282 @@
+{
+  "candidates": [
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-01",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-01-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-02",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-02-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-03",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-03-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-04",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 231
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 231
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 219
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 219
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-04-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!11.7",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-05",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-05-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-06",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-06-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-07",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-07-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-08",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-08-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "!17.3",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38400,
+          38400
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": true,
+      "name": "preparation-source-09",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          221,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 221
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 221
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38565,
+          38565
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-09-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          33,
+          0,
+          221,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 221
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 221
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38400,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": true,
+      "name": "preparation-source-10",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          84,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 84
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 84
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38565,
+          165
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-10-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          33,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 420,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38400,
+          38400
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": true,
+      "name": "preparation-source-11",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          221,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 221
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 221
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 540,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38565,
+          38565
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-11-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          33,
+          0,
+          221,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 221
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 221
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 420,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38400,
+          38400
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": true,
+      "name": "preparation-source-12",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          84,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 231
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 231
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 84
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 84
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 84
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 84
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 540,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          38565,
+          38565
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-12-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.4",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-13",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-13-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-14",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-14-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-15",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-15-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-16",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 231
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 231
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 219
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 219
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-16-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "11.5",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-17",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-17-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-18",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-18-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-19",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-19-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-20",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 231
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 231
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 219
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 219
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-20-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "17.0",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-21",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-21-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-22",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-22-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-23",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-23-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-24",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-24-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.2",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-25",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-25-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-26",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-26-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-27",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-27-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-28",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-28-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.3",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-29",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-29-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-30",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-30-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-31",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          220,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 67
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 33
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 255
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 0,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-31-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          67,
+          33,
+          255,
+          220,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 67
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 10,
+            "y": 67
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 33
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 11,
+            "y": 33
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 255
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 6,
+            "write_register": 12,
+            "y": 255
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 0,
+            "changes": {
+              "13": 220
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 6,
+            "write_register": 13,
+            "y": 220
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-32",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          85,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {},
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 0,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-32-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 2,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 2,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.4",
+        "18.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 360,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          0,
+          38550
+        ],
+        "q": 0,
+        "table": 889,
+        "want": [
+          0,
+          0
+        ]
+      },
+      "loop_passed": true,
+      "name": "preparation-source-33",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "10.5"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-33-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "10.5"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 568,
+      "first_failure": {
+        "entry": 1,
+        "got": [
+          1,
+          0
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          65535,
+          0
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "loop_passed": true,
+      "name": "preparation-source-34",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "11.3"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 600,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-34-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "11.3"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-35",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          143,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 110
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 110
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 121
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 121
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 132
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 132
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 143
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 0,
+            "y": 143
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "11.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-35-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          0,
+          0,
+          0,
+          0,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 0
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 10,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 0
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 11,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 0
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 4,
+            "write_register": 12,
+            "y": 0
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 0
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 4,
+            "write_register": 13,
+            "y": 0
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "11.6"
+      ],
+      "swap_registers": true
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 0,
+      "first_failure": null,
+      "loop_passed": true,
+      "name": "preparation-source-36",
+      "passes_existing_constraints": true,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          197,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          110,
+          121,
+          132,
+          143,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 10,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 231
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 231
+          },
+          {
+            "a": 11,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 219
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 219
+          },
+          {
+            "a": 12,
+            "b": 0,
+            "carry": 1,
+            "changes": {
+              "0": 209
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 209
+          },
+          {
+            "a": 13,
+            "b": 0,
+            "carry": 0,
+            "changes": {
+              "0": 197
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 0,
+            "y": 197
+          }
+        ],
+        "written_registers": [
+          0
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "18.6"
+      ],
+      "swap_registers": false
+    },
+    {
+      "arithmetic_checks": 600,
+      "failures": 480,
+      "first_failure": {
+        "entry": 0,
+        "got": [
+          42405,
+          42405
+        ],
+        "q": 0,
+        "table": 965,
+        "want": [
+          0,
+          0
+        ],
+        "x": 0,
+        "y": 0
+      },
+      "loop_passed": false,
+      "name": "preparation-source-36-swap",
+      "passes_existing_constraints": false,
+      "preparation": {
+        "final_q": 85,
+        "final_ram": [
+          0,
+          11,
+          22,
+          33,
+          44,
+          55,
+          66,
+          77,
+          88,
+          99,
+          85,
+          85,
+          85,
+          85,
+          154,
+          165
+        ],
+        "trace": [
+          {
+            "a": 0,
+            "b": 10,
+            "carry": 1,
+            "changes": {
+              "10": 85
+            },
+            "d": 18,
+            "pc": 833,
+            "raw": [
+              181,
+              202,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 10,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 11,
+            "carry": 1,
+            "changes": {
+              "11": 85
+            },
+            "d": 52,
+            "pc": 834,
+            "raw": [
+              181,
+              219,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 11,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 12,
+            "carry": 1,
+            "changes": {
+              "12": 85
+            },
+            "d": 86,
+            "pc": 835,
+            "raw": [
+              117,
+              198,
+              4,
+              60
+            ],
+            "source": 0,
+            "write_register": 12,
+            "y": 85
+          },
+          {
+            "a": 0,
+            "b": 13,
+            "carry": 1,
+            "changes": {
+              "13": 85
+            },
+            "d": 120,
+            "pc": 836,
+            "raw": [
+              117,
+              215,
+              6,
+              60
+            ],
+            "source": 0,
+            "write_register": 13,
+            "y": 85
+          }
+        ],
+        "written_registers": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      "source": [
+        "17.5",
+        "18.7",
+        "18.6"
+      ],
+      "swap_registers": true
+    }
+  ],
+  "configuration": {
+    "evidence": "Routine 341 counts the putative A field through 10..13 before transform calls but writes R0. Broaden source wiring and compare global A/B role swaps against existing arithmetic constraints.",
+    "fixture": {
+      "entry": 833,
+      "evidence": "Local marked-value probe; not a reset run and excluded from coverage.",
+      "external_d": [
+        18,
+        52,
+        86,
+        120
+      ],
+      "q": 85,
+      "ram": [
+        0,
+        11,
+        22,
+        33,
+        44,
+        55,
+        66,
+        77,
+        88,
+        99,
+        110,
+        121,
+        132,
+        143,
+        154,
+        165
+      ],
+      "status": "stub"
+    },
+    "limitations": [
+      "The four source codes and forward quarter-turn identities remain search constraints, not independent evidence.",
+      "All PROM bits are allowed, including overlaps with sequencer and other datapath fields.",
+      "Function, destination, carry and the two register-number expressions remain fixed; only their A/B roles are swapped.",
+      "No fixture score is used to promote a physical decode."
+    ],
+    "source_bits": [
+      "10.0",
+      "10.1",
+      "10.2",
+      "10.3",
+      "10.4",
+      "10.5",
+      "10.6",
+      "10.7",
+      "11.0",
+      "11.1",
+      "11.2",
+      "11.3",
+      "11.4",
+      "11.5",
+      "11.6",
+      "11.7",
+      "17.0",
+      "17.1",
+      "17.2",
+      "17.3",
+      "17.4",
+      "17.5",
+      "17.6",
+      "17.7",
+      "18.0",
+      "18.1",
+      "18.2",
+      "18.3",
+      "18.4",
+      "18.5",
+      "18.6",
+      "18.7"
+    ],
+    "status": "hypothesis",
+    "swap_register_roles": [
+      false,
+      true
+    ]
+  },
+  "interpretation": "Expanded alternatives consistent with selected fixtures, not recovered hardware. Register swap is judged against the existing forward-transform identities, not every possible algorithm.",
+  "retained": 16,
+  "source_assignments": 238080,
+  "source_constraint_survivors": 36
+}

@@ -1,0 +1,78 @@
+{
+  "status": "hypothesis",
+  "evidence": "Routine 341 counts the putative A field through 10..13 before transform calls but writes R0. Broaden source wiring and compare global A/B role swaps against existing arithmetic constraints.",
+  "source_bits": [
+    "10.0",
+    "10.1",
+    "10.2",
+    "10.3",
+    "10.4",
+    "10.5",
+    "10.6",
+    "10.7",
+    "11.0",
+    "11.1",
+    "11.2",
+    "11.3",
+    "11.4",
+    "11.5",
+    "11.6",
+    "11.7",
+    "17.0",
+    "17.1",
+    "17.2",
+    "17.3",
+    "17.4",
+    "17.5",
+    "17.6",
+    "17.7",
+    "18.0",
+    "18.1",
+    "18.2",
+    "18.3",
+    "18.4",
+    "18.5",
+    "18.6",
+    "18.7"
+  ],
+  "swap_register_roles": [
+    false,
+    true
+  ],
+  "fixture": {
+    "status": "stub",
+    "entry": 833,
+    "ram": [
+      0,
+      11,
+      22,
+      33,
+      44,
+      55,
+      66,
+      77,
+      88,
+      99,
+      110,
+      121,
+      132,
+      143,
+      154,
+      165
+    ],
+    "q": 85,
+    "external_d": [
+      18,
+      52,
+      86,
+      120
+    ],
+    "evidence": "Local marked-value probe; not a reset run and excluded from coverage."
+  },
+  "limitations": [
+    "The four source codes and forward quarter-turn identities remain search constraints, not independent evidence.",
+    "All PROM bits are allowed, including overlaps with sequencer and other datapath fields.",
+    "Function, destination, carry and the two register-number expressions remain fixed; only their A/B roles are swapped.",
+    "No fixture score is used to promote a physical decode."
+  ]
+}

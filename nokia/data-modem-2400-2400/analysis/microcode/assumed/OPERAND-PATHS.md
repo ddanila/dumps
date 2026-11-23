@@ -11,6 +11,9 @@ decode. It does not establish what the physical modem does, and does not prove
 that these calls are intended to process nonzero samples. Initialization is
 another possible role that must be tested rather than assumed away.
 
+The [expanded source/register-role search](PREPARATION-DECODE.md) tests the
+preparation-routine question below against the existing arithmetic fixtures.
+
 ## Method and scope
 
 `graph(..., include_states=True)` optionally exposes edges between complete
