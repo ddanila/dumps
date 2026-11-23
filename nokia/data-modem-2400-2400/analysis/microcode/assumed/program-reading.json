@@ -323,6 +323,22 @@
         "fitted_original"
       ],
       "limitations": "Previous-zero condition, zero shift fill and original register roles; transient ALU outputs may matter externally. Not an established multiply/divide or physical delay."
+    },
+    {
+      "name": "input-dependent biased Q shift",
+      "ranges": [
+        [
+          "296",
+          "29E"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Shift Q and emit biased R0 values; termination depends on external D and R7 under the previous-flag policy.",
+      "evidence": "BIASED-DRAIN.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown."
     }
   ]
 }

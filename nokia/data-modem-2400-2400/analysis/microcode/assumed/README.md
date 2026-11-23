@@ -371,3 +371,7 @@ and complete internal initialization semantics remain outside the comparison.
 23-bit scramble/descramble pair, with selectable delays (5,23) or (18,23).
 An independent bit-serial reference matches 43,008 ROM cases and all 134
 instructions in the local byte-processing routines.
+
+[Biased Q shifting](BIASED-DRAIN.md) characterizes 296–29E under the selected
+original-role/previous-flag policy. All 131,072 local D/Q cases match an
+analytic return/repetition criterion; caller preconditions remain unresolved.

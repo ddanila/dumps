@@ -308,6 +308,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "BIASED-DRAIN.md",
+        "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown.",
+        "meaning": "Shift Q and emit biased R0 values; termination depends on external D and R7 under the previous-flag policy.",
+        "name": "input-dependent biased Q shift",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "296",
+            "29E"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -328,7 +344,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 160,
+    "annotated_used_words": 169,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -715,7 +731,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "BIASED-DRAIN.md",
+          "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown.",
+          "meaning": "Shift Q and emit biased R0 values; termination depends on external D and R7 under the previous-flag policy.",
+          "name": "input-dependent biased Q shift",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "296",
+              "29E"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "249"
       ],
@@ -728,7 +761,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "BIASED-DRAIN.md",
+          "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown.",
+          "meaning": "Shift Q and emit biased R0 values; termination depends on external D and R7 under the previous-flag policy.",
+          "name": "input-dependent biased Q shift",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "296",
+              "29E"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "24B"
       ],
@@ -1292,6 +1342,7 @@
   ],
   "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
   "source_sha256": {
+    "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
