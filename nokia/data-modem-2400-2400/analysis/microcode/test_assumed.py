@@ -677,6 +677,46 @@ class AssumedTests(unittest.TestCase):
         del scenario['io']['read']['evidence']
         with self.assertRaisesRegex(ValueError,'provenance'):validate_scenario(scenario)
 
+    def test_pc_sequence_independent_visits_and_hold(self):
+        import json
+        mapping=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,i=7|(1<<6),a=0,b=0,d=0).items():
+            mapping['fields'][name]=dict(bits=bits,status='stub',evidence='sequence fixture')
+        rows=decode(mapping)
+        rows[2].update(command=6,branch=0,select=0,direct=1)
+        scenario=copy.deepcopy(self.scenario)
+        scenario['io']['read'].update(mode='pc_sequence',value=56,
+            pc_sequences={'0':[12,34],'2':[78,90,123]},sequence_end='hold-last',
+            status='stub',evidence='Independent per-PC visit sequences')
+        with tempfile.TemporaryDirectory() as out, patch('execute.decode',return_value=rows):
+            result=execute(mapping,scenario,9,mode='integrated',out=out,trace_limit=9)
+            records=[json.loads(line) for line in (Path(out)/'trace.jsonl').read_text().splitlines()]
+        self.assertTrue(result['clean'])
+        self.assertEqual([r['alu']['y'] for r in records],[12,56,78,34,56,90,34,56,123])
+        self.assertEqual(result['read_sequence_visits'],{0:3,2:3})
+        self.assertTrue(records[6]['external_read']['held_last'])
+        self.assertFalse(records[8]['external_read']['held_last'])
+        self.assertIsNone(records[1]['external_read']['visit'])
+        self.assertEqual(records[6]['external_read']['sequence_index'],1)
+        for bad in ({'0':[]},{'00':[1]},{'1024':[1]},{'0':[256]},{'0':[True]}):
+            broken=copy.deepcopy(scenario);broken['io']['read']['pc_sequences']=bad
+            with self.assertRaisesRegex(ValueError,'PC-keyed'):validate_scenario(broken)
+        del scenario['io']['read']['evidence']
+        with self.assertRaisesRegex(ValueError,'provenance'):validate_scenario(scenario)
+
+    def test_poll_external_byte_comparison_all_pairs(self):
+        from model import Am2901
+        mapping=read(HERE/'results/defined-condition-fit/reset-original_previous-zero/mapping.json')
+        row=decode(mapping)[0x1ec]
+        for register in range(256):
+            for data in range(256):
+                cpu=Am2901(logic_flags=True);cpu.ram[4]=register
+                flags=cpu.step(row['i'],row['a'],row['b'],data,0)
+                self.assertEqual(flags['zero'],int(data==(-register)%256))
+                self.assertEqual(cpu.ram[4],register)
+                self.assertEqual(cpu.ram[3],(data+register)%256)
+                self.assertEqual(flags['y'],register)
+
     def test_unknown_decision_audit_excludes_unused_test_values(self):
         from condition_extension import unknown_decisions
         scenario=copy.deepcopy(self.scenario)

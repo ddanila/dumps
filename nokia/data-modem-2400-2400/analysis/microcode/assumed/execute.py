@@ -74,7 +74,7 @@ def validate_scenario(s):
     if d['source']=='previous_y' or any(t.get('index_source')=='previous_y' for t in tables):
         if type(d.get('initial_y')) is not int or not 0<=d['initial_y']<=255:
             raise ValueError('previous Y requires an explicit initial_y byte')
-    if s['io']['read']['mode'] not in ('immediate','constant','table','am27s31','pc_table'):
+    if s['io']['read']['mode'] not in ('immediate','constant','table','am27s31','pc_table','pc_sequence'):
         raise ValueError('unknown IO read mode')
     source_read=s['io']['read']
     if source_read['mode']=='pc_table':
@@ -83,6 +83,15 @@ def validate_scenario(s):
             raise ValueError('invalid PC-keyed read bytes')
         if source_read.get('status') not in ('hypothesis','stub','recovered-from-data') or not source_read.get('evidence'):
             raise ValueError('PC-keyed reads require provenance')
+    if source_read['mode']=='pc_sequence':
+        sequences=source_read.get('pc_sequences')
+        if (not isinstance(sequences,dict) or source_read.get('sequence_end')!='hold-last'
+                or any(not isinstance(pc,str) or not pc.isdecimal() or str(int(pc))!=pc or not 0<=int(pc)<1024
+                       or not isinstance(values,list) or not values or any(type(v) is not int or not 0<=v<=255 for v in values)
+                       for pc,values in sequences.items())):
+            raise ValueError('invalid PC-keyed read sequences')
+        if source_read.get('status') not in ('hypothesis','stub','recovered-from-data') or not source_read.get('evidence'):
+            raise ValueError('PC-keyed sequences require provenance')
     read_policy=s['io']['read'].get('address')
     if read_policy is not None:
         if s['io']['read']['mode']!='am27s31' or read_policy.get('source')!='previous_y':
@@ -169,7 +178,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         if not table: raise ValueError('empty Am27S31 dump')
         if read_policy is not None and (len(table)!=512 or rom_hash!=source_read['expected_sha256']):
             raise ValueError('Am27S31 feedback dump size/hash mismatch')
-    read_counts=Counter();selected_reads=0
+    read_counts=Counter();selected_reads=0;sequence_visits=Counter()
     writes={int(w['pc']):w for w in scenario['io']['writes']}
     trace_count=0;io_count=0;dispatch_counts=Counter();register_changes=0
     routine_entries={r['branch'] for r in rows if r['command']==4 and r['direct']}
@@ -191,6 +200,17 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 d=source_read['pc_values'].get(str(pc),source_read['value'])
                 assumptions['PC-keyed external read']+=1
                 read_event=dict(value=d,source='scenario_pc',selected_by_alu=(r['i']&7) in (5,6,7),status=source_read['status'])
+            elif source_read['mode']=='pc_sequence':
+                sequence=source_read['pc_sequences'].get(str(pc))
+                visit=index=None;held=False
+                if sequence is None:
+                    d=source_read['value']
+                else:
+                    visit=sequence_visits[pc];index=min(visit,len(sequence)-1);held=visit>=len(sequence)
+                    d=sequence[index];sequence_visits[pc]+=1
+                assumptions['PC-keyed external sequence read']+=1
+                read_event=dict(value=d,source='scenario_pc_sequence',visit=visit,sequence_index=index,
+                    held_last=held,selected_by_alu=(r['i']&7) in (5,6,7),status=source_read['status'])
             elif source_read['mode'] in ('table','am27s31'):
                 address=(read_policy['bank']+previous.get('y',read_policy['initial_y'])) if read_policy is not None else d%len(table)
                 d=table[address]; assumptions['table external read']+=1
@@ -296,6 +316,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     if isinstance(inputs['carry'],dict):
         summary['carry_model']=dict(previous=carry_input.previous,counts=dict(carry_input.counts))
     if 'logic_flags' in inputs:summary['logic_flag_model']=inputs['logic_flags']
+    if source_read['mode']=='pc_sequence':summary['read_sequence_visits']=dict(sequence_visits)
     if out:
         out=Path(out);out.mkdir(parents=True,exist_ok=True);save(out/'summary.json',summary)
         save(out/'mapping.json',mapping);save(out/'scenario.json',scenario)
