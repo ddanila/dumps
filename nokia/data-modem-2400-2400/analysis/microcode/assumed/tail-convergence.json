@@ -1,0 +1,20 @@
+{
+  "status": "hypothesis",
+  "evidence": "Test whether the locally observed one-unit adjustment persists to 07B or affects subsequent execution, without introducing any output latch.",
+  "variant": 2,
+  "entries": [729, 732],
+  "wrapper": 598,
+  "wrapper_select": 2,
+  "join": 123,
+  "cycles": 64,
+  "initial_ram": [85, 20, 37, 54, 71, 88, 105, 122, 139, 156, 173, 190, 0, 224, 241, 90],
+  "q": 165,
+  "d": 255,
+  "initial_carry": 1,
+  "limitations": [
+    "Local starts are diagnostics and contribute no reset coverage.",
+    "Condition select 2 is driven both ways; its hardware meaning is not recovered.",
+    "Conditions and dispatch are deterministic scenario inputs, with constant external D and no output writes.",
+    "Convergence does not exclude unmodeled external latches, timing effects, or another datapath decode."
+  ]
+}

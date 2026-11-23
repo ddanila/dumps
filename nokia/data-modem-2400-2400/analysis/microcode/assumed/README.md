@@ -57,6 +57,9 @@ accesses. Context-dependent decoding and other dispatch families remain open.
 [FRAGMENTS.md](FRAGMENTS.md) classifies the seven remaining entry families,
 rules out unchanged ROM bytes for two roots, and tests a conditional one-unit
 ALU adjustment at 2D9/2DC. Local probes do not add reset coverage.
+[TAIL-CONVERGENCE.md](TAIL-CONVERGENCE.md) shows that this adjustment disappears
+from modeled state at 07B. An output consumer, timing effect, or revised decode
+is needed before assigning it a sample-processing role.
 
 ## Datapath-derived lookup indices
 

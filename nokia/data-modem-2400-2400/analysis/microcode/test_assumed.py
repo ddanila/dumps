@@ -762,6 +762,10 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(high['y'][0],(b-minuend)&255)
                 self.assertEqual(low['y'][1:],high['y'][1:])
                 self.assertTrue(low['state_preserved'] and high['state_preserved'])
+                self.assertNotEqual(low['states'][0]['datapath']['flags'],high['states'][0]['datapath']['flags'])
+                self.assertEqual(low['states'][1]['datapath'],high['states'][1]['datapath'])
+                self.assertEqual(low['states'][2],high['states'][2])
+                self.assertEqual(low['states'][2]['pc'],0x07b)
 
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)

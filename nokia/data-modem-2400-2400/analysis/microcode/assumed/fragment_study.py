@@ -6,7 +6,7 @@ from pathlib import Path
 from common import HERE, decode, read, save
 from analyze import graph
 from execute import CarryInput
-from model import Am2901
+from model import Am2901, X8X02
 from rom_study import load_rom
 
 
@@ -15,13 +15,21 @@ def tail(rows, policy, start, ram, q, d, initial):
     policy['initial'] = initial
     carry = CarryInput(policy)
     alu = Am2901(ram=ram[:], q=q)
+    seq = X8X02(pc=start)
     ys = []
+    states = []
     for pc in range(start, start+3):
         row = rows[pc]
+        expected = 1 if pc < start+2 else 6
+        if row['command'] != expected or (expected == 6 and (row['select'] != 0 or not row['direct'])):
+            raise ValueError('expected two INC words followed by an unconditional direct BRT')
         result = alu.step(row['i'], row['a'], row['b'], d, carry.resolve(row))
         carry.observe(result)
+        seq.step(row['command'], row['branch'], True)
         ys.append(result['y'])
-    return dict(y=ys, state_preserved=alu.ram == ram and alu.q == q)
+        states.append(dict(pc=seq.pc, sp=seq.sp, stack=seq.stack[:],
+                           datapath=dict(ram=alu.ram[:], q=alu.q, flags=result, carry=carry.previous)))
+    return dict(y=ys, state_preserved=alu.ram == ram and alu.q == q, states=states)
 
 
 def arithmetic(config):
@@ -29,7 +37,7 @@ def arithmetic(config):
     for variant in config['variants']:
         rows = decode(read(HERE/f'results/independent-study/variant-{variant}.json'))
         policy = read(HERE/f'results/independent-study/scenario-{variant}.json')['inputs']['carry']
-        cases = failures = 0
+        cases = failures = convergence_failures = 0
         examples = []
         for a, b, q, d, initial in itertools.product(config['a_values'], range(256), config['q_values'],
                                                    config['d_values'], config['initial_carries']):
@@ -41,9 +49,12 @@ def arithmetic(config):
                      and pair[0]['y'][1:] == pair[1]['y'][1:])
             cases += 1
             failures += not valid
+            convergence_failures += (pair[0]['states'][1]['datapath'] != pair[1]['states'][1]['datapath']
+                                     or pair[0]['states'][2] != pair[1]['states'][2])
             if (a == 85 and b in (0, 255) and q == 165 and d == 255 and initial == 1) or (not valid and len(examples)<10):
                 examples.append(dict(a=a, b=b, q=q, d=d, initial_carry=initial, pair=pair, valid=valid))
-        reports.append(dict(variant=variant, paired_cases=cases, failures=failures, examples=examples,
+        reports.append(dict(variant=variant, paired_cases=cases, failures=failures,
+                            convergence_failures=convergence_failures, examples=examples,
                             decoded_tails=[[rows[p] for p in range(start,start+3)] for start in config['tails']]))
     return reports
 

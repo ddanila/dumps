@@ -1,0 +1,462 @@
+{
+  "configuration": {
+    "cycles": 64,
+    "d": 255,
+    "entries": [
+      729,
+      732
+    ],
+    "evidence": "Test whether the locally observed one-unit adjustment persists to 07B or affects subsequent execution, without introducing any output latch.",
+    "initial_carry": 1,
+    "initial_ram": [
+      85,
+      20,
+      37,
+      54,
+      71,
+      88,
+      105,
+      122,
+      139,
+      156,
+      173,
+      190,
+      0,
+      224,
+      241,
+      90
+    ],
+    "join": 123,
+    "limitations": [
+      "Local starts are diagnostics and contribute no reset coverage.",
+      "Condition select 2 is driven both ways; its hardware meaning is not recovered.",
+      "Conditions and dispatch are deterministic scenario inputs, with constant external D and no output writes.",
+      "Convergence does not exclude unmodeled external latches, timing effects, or another datapath decode."
+    ],
+    "q": 165,
+    "status": "hypothesis",
+    "variant": 2,
+    "wrapper": 598,
+    "wrapper_select": 2
+  },
+  "interpretation": "Equal modeled state after the join under fixed inputs; first Y is transient. External side effects and clock-relative behavior remain unknown.",
+  "joined_at_expected_pc": true,
+  "tail_final_states_equal": true,
+  "tail_suffix_records_equal": true,
+  "tails": [
+    {
+      "carry": null,
+      "clean": true,
+      "entry": 729,
+      "final_state": {
+        "pc": 132,
+        "q": 165,
+        "ram": [
+          82,
+          20,
+          20,
+          54,
+          71,
+          44,
+          105,
+          122,
+          139,
+          156,
+          173,
+          190,
+          0,
+          224,
+          241,
+          90
+        ],
+        "sp": 0,
+        "stack": [
+          null,
+          130,
+          null,
+          null
+        ]
+      },
+      "first_three": [
+        {
+          "alu": {
+            "carry": 0,
+            "f": 255,
+            "overflow": 0,
+            "sign": 1,
+            "y": 255,
+            "zero": 0
+          },
+          "branch": 320,
+          "carry_in": 0,
+          "command": 1,
+          "cycle": 0,
+          "dispatch_entry": null,
+          "next_pc": 730,
+          "pc": 729,
+          "q": 165,
+          "raw": [
+            5,
+            128,
+            252,
+            36
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 0,
+            "sp": 0,
+            "values": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 0
+        },
+        {
+          "alu": {
+            "carry": 0,
+            "f": 90,
+            "overflow": 0,
+            "sign": 0,
+            "y": 90,
+            "zero": 0
+          },
+          "branch": 768,
+          "carry_in": 0,
+          "command": 1,
+          "cycle": 1,
+          "dispatch_entry": null,
+          "next_pc": 731,
+          "pc": 730,
+          "q": 165,
+          "raw": [
+            1,
+            128,
+            252,
+            151
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 0,
+            "sp": 0,
+            "values": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 0
+        },
+        {
+          "alu": {
+            "carry": null,
+            "f": 15,
+            "overflow": null,
+            "sign": 0,
+            "y": 15,
+            "zero": 0
+          },
+          "branch": 123,
+          "carry_in": 0,
+          "command": 6,
+          "cycle": 2,
+          "dispatch_entry": null,
+          "next_pc": 123,
+          "pc": 731,
+          "q": 165,
+          "raw": [
+            188,
+            129,
+            131,
+            3
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 0,
+            "sp": 0,
+            "values": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        }
+      ]
+    },
+    {
+      "carry": null,
+      "clean": true,
+      "entry": 732,
+      "final_state": {
+        "pc": 132,
+        "q": 165,
+        "ram": [
+          82,
+          20,
+          20,
+          54,
+          71,
+          44,
+          105,
+          122,
+          139,
+          156,
+          173,
+          190,
+          0,
+          224,
+          241,
+          90
+        ],
+        "sp": 0,
+        "stack": [
+          null,
+          130,
+          null,
+          null
+        ]
+      },
+      "first_three": [
+        {
+          "alu": {
+            "carry": 1,
+            "f": 0,
+            "overflow": 0,
+            "sign": 0,
+            "y": 0,
+            "zero": 1
+          },
+          "branch": 336,
+          "carry_in": 1,
+          "command": 1,
+          "cycle": 0,
+          "dispatch_entry": null,
+          "next_pc": 733,
+          "pc": 732,
+          "q": 165,
+          "raw": [
+            21,
+            128,
+            252,
+            36
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 0,
+            "sp": 0,
+            "values": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 0
+        },
+        {
+          "alu": {
+            "carry": 0,
+            "f": 90,
+            "overflow": 0,
+            "sign": 0,
+            "y": 90,
+            "zero": 0
+          },
+          "branch": 768,
+          "carry_in": 0,
+          "command": 1,
+          "cycle": 1,
+          "dispatch_entry": null,
+          "next_pc": 734,
+          "pc": 733,
+          "q": 165,
+          "raw": [
+            1,
+            128,
+            252,
+            151
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 0,
+            "sp": 0,
+            "values": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 0
+        },
+        {
+          "alu": {
+            "carry": null,
+            "f": 15,
+            "overflow": null,
+            "sign": 0,
+            "y": 15,
+            "zero": 0
+          },
+          "branch": 123,
+          "carry_in": 0,
+          "command": 6,
+          "cycle": 2,
+          "dispatch_entry": null,
+          "next_pc": 123,
+          "pc": 734,
+          "q": 165,
+          "raw": [
+            188,
+            129,
+            131,
+            3
+          ],
+          "registers": {},
+          "stack_after": {
+            "depth": 0,
+            "sp": 0,
+            "values": [
+              null,
+              null,
+              null,
+              null
+            ]
+          },
+          "stack_before": {
+            "depth": 0,
+            "sp": 0
+          },
+          "test": 1
+        }
+      ]
+    }
+  ],
+  "wrapper_join_states_equal": true,
+  "wrappers": [
+    {
+      "carry": null,
+      "clean": true,
+      "cycles": 4,
+      "final_state": {
+        "pc": 123,
+        "q": 165,
+        "ram": [
+          85,
+          20,
+          37,
+          54,
+          71,
+          88,
+          105,
+          122,
+          139,
+          156,
+          173,
+          190,
+          0,
+          224,
+          241,
+          90
+        ],
+        "sp": 0,
+        "stack": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "last_alu": {
+        "carry": null,
+        "f": 15,
+        "overflow": null,
+        "sign": 0,
+        "y": 15,
+        "zero": 0
+      },
+      "path": [
+        598,
+        729,
+        730,
+        731
+      ],
+      "select_value": 1
+    },
+    {
+      "carry": null,
+      "clean": true,
+      "cycles": 5,
+      "final_state": {
+        "pc": 123,
+        "q": 165,
+        "ram": [
+          85,
+          20,
+          37,
+          54,
+          71,
+          88,
+          105,
+          122,
+          139,
+          156,
+          173,
+          190,
+          0,
+          224,
+          241,
+          90
+        ],
+        "sp": 0,
+        "stack": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "last_alu": {
+        "carry": null,
+        "f": 15,
+        "overflow": null,
+        "sign": 0,
+        "y": 15,
+        "zero": 0
+      },
+      "path": [
+        598,
+        599,
+        732,
+        733,
+        734
+      ],
+      "select_value": 0
+    }
+  ]
+}

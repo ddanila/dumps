@@ -11,6 +11,9 @@ The same investigation identifies a tentative arithmetic role for the paired
 tails at 2D9 and 2DC: they differ by one in their first ALU result and then
 produce identical remaining results, without changing RAM or Q. This holds
 across all four retained Q-independent datapath layouts in the local tests.
+The [state-convergence follow-up](TAIL-CONVERGENCE.md) shows that the difference
+is transient: the two paths have equal modeled state at their 07B join. An
+external consumer or different decoding would be needed for a lasting effect.
 
 ## Entry families
 
