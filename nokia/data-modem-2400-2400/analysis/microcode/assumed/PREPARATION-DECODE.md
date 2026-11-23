@@ -11,6 +11,10 @@ of the correct decode. In particular, the forward quarter-turn identities
 were imposed during search. Their failure cannot by itself reject a different
 algorithm with reversed register roles.
 
+A [caller-chain sensitivity experiment](CALLER-CHAIN.md) now tests whether
+preparation-byte effects survive the subsequent calls without imposing an
+expected arithmetic formula.
+
 ## Search scope
 
 [preparation-search.json](preparation-search.json) permits every one of the 32

@@ -1,0 +1,75 @@
+{
+  "status": "hypothesis",
+  "evidence": "Compare preparation and three transform calls as one real-instruction chain without imposing a rotation identity.",
+  "start": 307,
+  "stop": 318,
+  "preparation": 833,
+  "checkpoints": [
+    308,
+    316,
+    317,
+    318
+  ],
+  "condition_overrides": {
+    "313": 0,
+    "314": 0,
+    "963": 0,
+    "984": 0,
+    "1005": 0
+  },
+  "dispatch_sites": [
+    1004,
+    983,
+    962
+  ],
+  "initial_ram": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "initial_q": [
+    0,
+    85
+  ],
+  "external_default": 0,
+  "perturbations": [
+    1,
+    128
+  ],
+  "example_entries": [
+    0,
+    0,
+    0
+  ],
+  "example_data": [
+    18,
+    52,
+    86,
+    120
+  ],
+  "cycle_limit": 100,
+  "swap_register_roles": [
+    false,
+    true
+  ],
+  "limitations": [
+    "Local entry 133, no reset coverage.",
+    "Branches 139/13A fall through and each table wrapper runs once; other conditional tests default false.",
+    "Dispatch entries are independent fixture choices, not datapath-derived.",
+    "Only register/Q and checkpoint Y sensitivity is measured; possible external transfers between checkpoints are unmodeled.",
+    "One-byte perturbations at two values do not prove independence for every input."
+  ]
+}

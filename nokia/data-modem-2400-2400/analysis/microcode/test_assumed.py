@@ -580,6 +580,32 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(probe['written_registers'],[10,11,12,13])
         self.assertTrue(arithmetic(swapped,independent,base)['failures'])
 
+    def test_caller_chain_matches_runner_and_exposes_lost_input(self):
+        from chain_study import run_chain
+        from rotation_study import scenario_for
+        config=read(HERE/'chain-search.json')
+        mapping=read(HERE/'results/preparation-study/preparation-source-07.json')
+        scenario=scenario_for(mapping,read(HERE/'rotation-search.json'))
+        entries={str(site):0 for site in config['dispatch_sites']}
+        local=run_chain(decode(mapping),scenario,config,entries,[0]*4,0)
+        self.assertEqual(local['cycles'],42)
+        self.assertEqual(local['maximum_stack'],3)
+        scenario['initial'].update(pc=config['start'],ram=[0]*16,q=0)
+        scenario['condition'].update(mode='constant',value=0,polarity=[0]*8)
+        scenario['dispatch'].update(mode='constant',value=0)
+        scenario['io']['read'].update(mode='constant',value=0)
+        result=execute(mapping,scenario,42,mode='integrated')
+        self.assertTrue(result['clean'])
+        self.assertEqual(result['final_state']['pc'],config['stop'])
+        self.assertEqual(result['final_state']['ram'],local['stages']['13E']['ram'])
+        self.assertEqual(result['final_state']['q'],local['stages']['13E']['q'])
+        swapped=copy.deepcopy(mapping)
+        swapped['fields']['a'],swapped['fields']['b']=swapped['fields']['b'],swapped['fields']['a']
+        zero=run_chain(decode(swapped),scenario,config,entries,[0]*4,0)
+        marked=run_chain(decode(swapped),scenario,config,entries,config['example_data'],0)
+        self.assertNotEqual(zero['stages']['134']['ram'],marked['stages']['134']['ram'])
+        self.assertEqual(zero['stages']['13E'],marked['stages']['13E'])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

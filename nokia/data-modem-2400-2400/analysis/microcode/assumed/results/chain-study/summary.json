@@ -1,0 +1,3948 @@
+{
+  "configuration": {
+    "checkpoints": [
+      308,
+      316,
+      317,
+      318
+    ],
+    "condition_overrides": {
+      "1005": 0,
+      "313": 0,
+      "314": 0,
+      "963": 0,
+      "984": 0
+    },
+    "cycle_limit": 100,
+    "dispatch_sites": [
+      1004,
+      983,
+      962
+    ],
+    "evidence": "Compare preparation and three transform calls as one real-instruction chain without imposing a rotation identity.",
+    "example_data": [
+      18,
+      52,
+      86,
+      120
+    ],
+    "example_entries": [
+      0,
+      0,
+      0
+    ],
+    "external_default": 0,
+    "initial_q": [
+      0,
+      85
+    ],
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "limitations": [
+      "Local entry 133, no reset coverage.",
+      "Branches 139/13A fall through and each table wrapper runs once; other conditional tests default false.",
+      "Dispatch entries are independent fixture choices, not datapath-derived.",
+      "Only register/Q and checkpoint Y sensitivity is measured; possible external transfers between checkpoints are unmodeled.",
+      "One-byte perturbations at two values do not prove independence for every input."
+    ],
+    "perturbations": [
+      1,
+      128
+    ],
+    "preparation": 833,
+    "start": 307,
+    "status": "hypothesis",
+    "stop": 318,
+    "swap_register_roles": [
+      false,
+      true
+    ]
+  },
+  "interpretation": "Local real-instruction caller fixtures with explicit conditions, table choices and input bytes. Sensitivity is empirical for these perturbations, not recovered I/O or reset coverage.",
+  "profiles": [
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-03",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-03",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-04",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-04",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "2": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "2": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "1": 192,
+              "2": 192,
+              "3": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "1": 256,
+              "2": 256,
+              "3": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-07",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 256,
+              "11": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "12": 256,
+              "13": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "13": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 128,
+              "11": 64,
+              "12": 128,
+              "13": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 128,
+              "13": 128
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 64,
+              "11": 32
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-07",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-08",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-08",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-15",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-15",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-16",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-16",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-19",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-19",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-20",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-20",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "2": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "2": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "1": 192,
+              "2": 192,
+              "3": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "1": 256,
+              "2": 256,
+              "3": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-23",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 256,
+              "11": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "12": 256,
+              "13": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "13": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 128,
+              "11": 64,
+              "12": 128,
+              "13": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 128,
+              "13": 128
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 64,
+              "11": 32
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-23",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-24",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-24",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "2": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "2": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "1": 192,
+              "2": 192,
+              "3": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "1": 256,
+              "2": 256,
+              "3": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-27",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 256,
+              "11": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "12": 256,
+              "13": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "13": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 128,
+              "11": 64,
+              "12": 128,
+              "13": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 128,
+              "13": 128
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 64,
+              "11": 32
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-27",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-28",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-28",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "2": 192,
+              "3": 192,
+              "5": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "2": 256,
+              "3": 256,
+              "5": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 192,
+              "1": 192,
+              "2": 192,
+              "3": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "0": 256,
+              "1": 256,
+              "2": 256,
+              "3": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-31",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 256,
+              "11": 192
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 256
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "12": 256,
+              "13": 192
+            },
+            "changed_y": 192,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "13": 256
+            },
+            "changed_y": 256,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 128,
+              "11": 64,
+              "12": 128,
+              "13": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 128,
+              "13": 128
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "10": 64,
+              "11": 32
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {
+              "11": 64
+            },
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-31",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-32",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-32",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-35",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-35",
+      "maximum_stack": 3,
+      "swap_registers": true
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-36",
+      "maximum_stack": 3,
+      "swap_registers": false
+    },
+    {
+      "checkpoints": {
+        "134": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13C": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13D": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ],
+        "13E": [
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          },
+          {
+            "changed_q": 0,
+            "changed_registers": {},
+            "changed_y": 0,
+            "comparisons": 256
+          }
+        ]
+      },
+      "cycles": [
+        42
+      ],
+      "mapping": "preparation-source-36",
+      "maximum_stack": 3,
+      "swap_registers": true
+    }
+  ]
+}

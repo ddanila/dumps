@@ -24,6 +24,9 @@ and identifies routine 341–344 as a concrete decode question.
 [PREPARATION-DECODE.md](PREPARATION-DECODE.md) expands the source search and
 compares A/B swaps: sixteen layouts retain the old fixtures, but none turns
 341 into an operand loader while preserving those same interpretations.
+[CALLER-CHAIN.md](CALLER-CHAIN.md) follows preparation through the actual
+three-call sequence: the A/B swap loads bytes but loses their tested effects
+from final internal state. It does not assume a rotation formula.
 
 ## Datapath-derived lookup indices
 
