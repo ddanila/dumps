@@ -14,6 +14,10 @@ static struct {
     int replacement, tone_edges, ready, serial_clocks, trigger, irq_count;
     int peer, sent, bits;
     byte ctc_control[4], ctc_load[4], ctc_constant[4];
+    uint64_t cycles, timer_origin, rise;
+    FILE *audio_trace;
+    unsigned pulse_width;
+    int checking_music;
     int elapsed, scheduled, commands, init_count;
     Write trace[512];
     int tracing, count;
@@ -32,6 +36,12 @@ static void mem_write(CPU *cpu, word addr, byte value, void *ctx) {
 static byte port_read(CPU *cpu, word port, void *ctx) {
     (void)cpu; (void)ctx;
     switch ((byte)port) {
+    case 0x10:
+        if (m.ctc_control[0] == 0x87 && m.ctc_constant[0]) {
+            unsigned elapsed = (m.cycles - m.timer_origin) / 16;
+            return m.ctc_constant[0] - elapsed % m.ctc_constant[0];
+        }
+        return m.ports[0x10];
     case 0x52: return ~m.keys;
     case 0x30: return (m.ports[0x30] & 15) | m.pin;
     case 0x11: return 0x12;
@@ -59,6 +69,7 @@ static void port_write(CPU *cpu, word port, byte value, void *ctx) {
         unsigned ch = p - 0x10;
         if (m.ctc_load[ch]) {
             m.ctc_constant[ch] = value;
+            if (!ch) m.timer_origin = m.cycles;
             m.ctc_load[ch] = 0;
         } else if (value & 1) {
             m.ctc_control[ch] = value;
@@ -75,6 +86,16 @@ static void port_write(CPU *cpu, word port, byte value, void *ctx) {
     if (!(old & 64) && (value & 64)) {
         m.sent = ((m.sent << 1) | (value >> 7)) & 255;
         ++m.bits;
+    }
+    if (m.checking_music) {
+        assert(!((old ^ value) & ~(8 | 16))); /* shared LCD + link bits */
+        if ((old ^ value) & 8) {
+            uint64_t now = m.cycles + z80ex_op_tstate(cpu);
+            if (value & 8) m.rise = now;
+            else m.pulse_width = now - m.rise;
+            if (m.audio_trace)
+                fprintf(m.audio_trace,"%llu %d\n",(unsigned long long)now,!!(value & 8));
+        }
     }
     if ((old ^ value) & 8) ++m.tone_edges;
     if (!(old & 4) || (value & 4)) return;
@@ -104,13 +125,20 @@ static CPU *load(const char *path, int replacement) {
                         port_write,NULL,vector_read,NULL);
 }
 static void step(CPU *cpu) {
-    m.elapsed += z80ex_step(cpu);
+    int t = z80ex_step(cpu);
+    m.cycles += t;
+    m.elapsed += t;
     int period = 0;
     if (m.ctc_control[0] == 0x87) period = 16 * m.ctc_constant[0];
     if (m.ctc_control[0] == 0xc7 && m.trigger && m.ctc_constant[0] == 128 &&
         (m.ports[0x30] == 9 || m.ports[0x30] == 10)) period = 4000;
     if (m.scheduled && period && m.elapsed >= period && !m.ctc_load[0]) {
-        if (z80ex_int(cpu)) { ++m.irq_count; m.elapsed = 0; }
+        int ack = z80ex_int(cpu);
+        if (ack) {
+            ++m.irq_count;
+            m.cycles += ack;
+            m.elapsed = m.elapsed % period + ack;
+        }
     }
 }
 static void run(CPU *cpu, int steps) {
@@ -166,6 +194,50 @@ static word symbol(const char *name) {
     fclose(f);
     assert(0);
     return 0;
+}
+/* Compare each physical PB3 pulse with the 4-bit mix in the original
+ * Juku COM. At 4 MHz the high time is JP (HL) + N NOPs + AND + OUT. */
+static void music_test(CPU *cpu, byte keys, const char *title, const char *path,
+                       unsigned samples, uint32_t expected_hash) {
+    word first = symbol("music_sample"), done = symbol("sample_done");
+    word end = symbol("music_end");
+    m.keys = 0;
+    run(cpu,60000);
+    m.keys = keys;
+    until_pc(cpu,first);
+    row(0,title);
+    row(64,"RESET STOPS MUSIC");
+    uint64_t start = m.cycles;
+    m.checking_music = 1;
+    m.audio_trace = fopen(path,"w");
+    assert(m.audio_trace);
+    fprintf(m.audio_trace,"%llu 0\n",(unsigned long long)start);
+    uint32_t hash = 2166136261u;
+    m.keys = 0;
+    for (unsigned i=0; i<samples; ++i) {
+        m.pulse_width = 0;
+        until_pc(cpu,done);
+        unsigned level = 0;
+        if (m.pulse_width) {
+            assert(m.pulse_width>=26 && m.pulse_width<=82 && (m.pulse_width-22)%4==0);
+            level = (m.pulse_width-22)/4;
+        }
+        hash = (hash ^ level) * 16777619u;
+        step(cpu);
+    }
+    until_pc(cpu,end);
+    double duration = (m.cycles-start)/4000000.0;
+    printf("%s: %u samples, %.3f seconds, mix %08x\n",title,samples,duration,hash);
+    assert(hash==expected_hash);
+    double target = samples/7200.0;
+    assert(duration>target*0.99 && duration<target*1.01);
+    fprintf(m.audio_trace,"%llu 0\n",(unsigned long long)m.cycles);
+    fclose(m.audio_trace);
+    m.audio_trace = NULL;
+    m.checking_music = 0;
+    assert(!(m.ports[0x51]&8));
+    run(cpu,60000);
+    row(64,"00 SEL SOUND");
 }
 int main(int argc,char **argv) {
     assert(argc==3);
@@ -260,6 +332,13 @@ int main(int argc,char **argv) {
     m.trigger=0; m.keys=4; run(cpu,400000);
     row(64,"04 CTC 2 TIMEOUT");
     assert(m.vector==16 && m.ports[0x30]==5);
+    music_test(cpu,0x12,"JUKUPOLY CANYON","build/canyon.edges",53136,0x4423b818);
+    music_test(cpu,0x90,"JUKUPOLY SUSPENSE","build/suspense.edges",432000,0xfda63514);
+    m.keys=0x12;
+    until_pc(cpu,symbol("music_sample"));
+    m.keys=1;
+    until_pc(cpu,symbol("music_end"));
+    assert(!(m.ports[0x51]&8));
     z80ex_destroy(cpu);
     puts("PASS: factory boot I/O, LCD and NV traces, factory key mapping, replacement cold boot, IM2, all keys, chirp, edges, counters, handshake, timeouts and scratch RAM");
     return 0;

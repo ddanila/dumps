@@ -81,6 +81,10 @@ settled:
 	or a
 	jr z,redraw
 	ld a,b
+	cp 12h
+	jr z,canyon_key
+	cp 90h
+	jr z,suspense_key
 	cp 21h
 	jr nz,single
 	ld a,5
@@ -89,6 +93,15 @@ settled:
 	ld hl,chord_name
 	call show_key
 	jr redraw
+canyon_key:
+	call play_canyon
+	jr music_return
+suspense_key:
+	call play_suspense
+music_return:
+	ld a,4
+	ld (page),a
+	jp redraw
 single:
 	ld a,c
 	ld b,0
@@ -309,11 +322,14 @@ key_label: db 'KEY PREV ',0
 pulse_label: db 'EDGES ',0
 counter_label: db 'CTC ',0
 tick_label: db 'TICKS ',0
-sound_label: db 'SEL SOUND',0
+sound_label: db 'SEL SOUND +/-MUS',0
 pins_label: db 'PINS ',0
 nv_label: db 'NV',0
 timeout_label: db 'TIMEOUT',0
 ram_bad: db 'RAM FAIL',0
 ram_ok: db 'RAM OK',0
 include 'board.asm'
+include 'music/player.asm'
+include 'music/canyon.inc'
+include 'music/suspense.inc'
 	defs 8000h-$,0ffh

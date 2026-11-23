@@ -5,7 +5,7 @@ FACTORY = ../aquarius-2000-27256.bin
 
 .PHONY: all test
 all: $(ROM)
-$(ROM): exerciser.asm board.asm Makefile | build
+$(ROM): exerciser.asm board.asm music/player.asm music/canyon.inc music/suspense.inc Makefile | build
 	$(ASM) -L -o $@ exerciser.asm 2>build/symbols.txt || { cat build/symbols.txt; rm -f $@; exit 1; }
 	test "$$(wc -c < $@)" -eq 32768
 	cd build && sha256sum aquarius-exerciser.bin > SHA256SUMS
@@ -16,3 +16,8 @@ build/verify: verify.c | build
 test: $(ROM) build/verify
 	echo '958d3c99aa6b8bf7274a59d6742e516b068e7b2c5fb13c26d64f709a55965a57  $(FACTORY)' | sha256sum -c -
 	build/verify $(FACTORY) $(ROM)
+
+.PHONY: preview
+preview: test
+	python3 music/render.py build/canyon.edges build/canyon.wav
+	python3 music/render.py build/suspense.edges build/suspense.wav

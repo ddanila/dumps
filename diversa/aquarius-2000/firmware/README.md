@@ -28,9 +28,11 @@ cmp build/aquarius-exerciser.bin aquarius-exerciser.bin
 | SETUP | 20 | Shows PD, PA and PB readback as three hex bytes, then the last service-link result. |
 | ← | 40 | Displays one 16-bit EEPROM word. Each press advances through word addresses 00–3F with wraparound. A missing ready signal displays TIMEOUT. |
 | − | 80 | Tests SRAM byte 8070h with 55h and AAh, restores its original value, and displays pass/fail. |
+| SELECT and plus | 12 | Plays the JukuPoly Canyon arrangement. RESET stops playback. |
+| SELECT and minus | 90 | Plays the JukuPoly Suspense arrangement. RESET stops playback. |
 | SETUP + RESET | 21 | Sends one 55h test byte over the factory-style handshake. The PINS status is 00 before testing, 01 on acknowledgment, or FF on timeout. Scope PB6/PB7 and PA0 to locate the physical endpoint. |
 
-For simultaneous presses the full mask is displayed. The lowest newly pressed bit selects the diagnostic, except for the explicit 21h chord. The input scan is polled and debounced independently of CTC interrupts. The firmware does not implement heat billing, calendar setup, history or factory reset.
+For simultaneous presses the full mask is displayed. The lowest newly pressed bit selects the diagnostic, except for the three diagnostic chords. The input scan is polled and debounced independently of CTC interrupts. The firmware does not implement heat billing, calendar setup, history or factory reset.
 
 ## Reusing the drivers
 
@@ -50,3 +52,19 @@ For simultaneous presses the full mask is displayed. The lowest newly pressed bi
 The harness executes original and replacement machine code with libz80ex. It compares the first eight GPIO writes from both reset paths, command/data LCD strobes, and the EEPROM read waveform at every word address. It verifies that reads preserve the other enabled port-A outputs. The factory timer ISR is entered with a scan due and each active-low key is followed through the real factory event FIFO.
 
 The replacement boots from PC=0 with patterned SRAM. The harness decodes LCD writes, injects keys and contact bounce, checks IM2 delivery, falling-edge counts, elapsed seconds, sound termination, handshake bits, SRAM restoration and bounded waits for missing devices. GPIO readback, LCD storage, known EEPROM bits, acknowledgment, external counter triggers and sample bytes are supplied by the harness. Tests do not measure oscillator accuracy, sound volume, display settling, sensor transfer functions or electrical connector levels.
+
+
+## JukuPoly music
+
+Hold SELECT and press the plus key for George Stone’s *Trip Through the Grand Canyon*, or the minus key for Bobby Prince’s *Suspense* (DOOM E1M5). Release the keys once the title appears. RESET stops the player at the next 20 ms frame boundary. Each arrangement plays once and returns to the sound diagnostic. Build both listening previews with `make preview`. The WAVs in `build/` reproduce the emulated Aquarius PB3 waveform with DC removal and normalized playback level.
+
+The ROM interprets the original flat JukuPoly v1 rows, maintains three independent phase accumulators, applies envelopes, legato and slide, and mixes the percussion samples. The GPIO backend emits a single variable-width PB3 pulse per nonzero sample. At 4 MHz a level of 1–15 produces 6.5–20.5 μs high. The Juku D57 hardware produced longer impulses, so the acoustic level and tone color can differ. A free-running read of CTC0 paces the mix at nominally 7,200 samples/s. The normal millisecond interrupt stays enabled between pulses. Playback scratch begins at 801Bh, below the diagnostic SRAM test at 8070h.
+
+The regression runs each track through the panel entry point. It decodes every PB3 pulse back into a four-bit level, including silent sample slots, checks the sequence against the original Juku player, and verifies shared port bits, completion time, key abort and quiet return. Reference digests are FNV-1a over one unsigned byte per sample. In the original Canyon and Suspense COMs the mixed nibble is in A at PC 0162h, immediately before the zero test. The reference run used the source project’s i8080 core and recorded A there through return to CP/M.
+
+| Arrangement | Samples | Original Juku mix digest | Credit |
+|---|---:|---|---|
+| Canyon, 40-row opening | 53,136 | 4423b818 | George Stone, Canyon Music. Source credits © 1991 Passport Designs, Inc., produced by The Music Data Company. |
+| Suspense, first-minute arrangement | 432,000 | fda63514 | Robert (Bobby) Prince, DOOM, id Software. |
+
+The two score includes are drawn from `firmware/jukupoly-song-generated.inc` and `firmware/jukupoly-suspense-generated.inc` in the pinned JukuPoly tree. Each is copied from `jukupoly_song_rows:` to end of file, with the `jukupoly_` label prefix renamed to `canyon_` or `suspense_` for linking both into one ROM. The score bytes and drum samples retain their original meanings. [JukuPoly source, score provenance and credits](https://github.com/ddanila/8080-cosim/tree/a0a47d8da3329fe1ea78f6a0c6e8f46b0adfcd94/spinoffs/jukupoly)
