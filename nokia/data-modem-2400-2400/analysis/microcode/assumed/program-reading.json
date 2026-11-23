@@ -649,6 +649,23 @@
         "fitted_original"
       ],
       "limitations": "Witness uses dispatch index 3 and D=FF; R0/R2 are both zero at the copy. Default entry remains unresolved, and no physical gate or nonzero copy use is established."
+    },
+    {
+      "name": "conditional difference tail",
+      "ranges": [
+        [
+          "3BC",
+          "3BF"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Preserve RAM/Q while exposing Q-R0, optionally Q-R0-1 when Q complements R0. Under the optional gate, branch to 287 for nonzero preceding difference, otherwise fall through to 3C0.",
+      "evidence": "DISPATCH-RANGE.md",
+      "profiles": [
+        "q2",
+        "fitted_original"
+      ],
+      "limitations": "Exhaustive local R0/Q pairs assume previous zero at entry to 3BC. Reset entry demonstrated only under q2 with D=01 and indices 12 modulo 16. Optional gate and output consumer remain unverified."
     }
   ]
 }

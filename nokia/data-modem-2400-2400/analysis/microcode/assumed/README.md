@@ -458,3 +458,7 @@ case. The default condition policy and unresolved-entry labels remain intact.
 the integrated scenario's constant inputs. The optional gated graph narrows
 to 796 words, but all 12 previously added words retain sequencer-replayed
 reset paths. Actual flag and dispatch dependencies remain unresolved.
+
+[Expanded dispatch indices](DISPATCH-RANGE.md) reach 3BD–3BF in 16 q2 reset
+cases using actual flags. An exhaustive local check explains this tail's
+conditional difference and its choice between 287 and 3C0; RAM/Q are preserved.

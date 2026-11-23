@@ -1,0 +1,186 @@
+{
+  "cases": 65536,
+  "counts": {
+    "287": 65278,
+    "3C0": 258
+  },
+  "digest": "a966b018cfe7cfd61522fba1419a94db9186b3ede0e87dcf15a36d32f043152f",
+  "examples": [
+    {
+      "events": [
+        {
+          "f": 255,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 957,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 0,
+      "r0": 0
+    },
+    {
+      "events": [
+        {
+          "f": 0,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 255,
+          "next_pc": 958,
+          "pc": 957,
+          "test": 0
+        },
+        {
+          "f": 254,
+          "next_pc": 959,
+          "pc": 958,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 647,
+          "pc": 959,
+          "test": 1
+        }
+      ],
+      "q": 255,
+      "r0": 0
+    },
+    {
+      "events": [
+        {
+          "f": 252,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 1,
+          "next_pc": 959,
+          "pc": 957,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 647,
+          "pc": 959,
+          "test": 1
+        }
+      ],
+      "q": 2,
+      "r0": 1
+    },
+    {
+      "events": [
+        {
+          "f": 0,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 1,
+          "next_pc": 958,
+          "pc": 957,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 958,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 128,
+      "r0": 127
+    },
+    {
+      "events": [
+        {
+          "f": 0,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 1,
+          "next_pc": 958,
+          "pc": 957,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 958,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 0,
+      "r0": 255
+    },
+    {
+      "events": [
+        {
+          "f": 255,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 957,
+          "test": 1
+        },
+        {
+          "f": 255,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 255,
+      "r0": 255
+    }
+  ],
+  "interpretation": "Local entry at 3BC with previous zero set. Exhaustive R0/Q pairs; identical decoded tail in q2 and fitted_original. RAM/Q preserved. Physical consumer of transient ALU results unknown.",
+  "profiles": [
+    "q2",
+    "fitted_original"
+  ],
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/conditional_tail_study.py": "51153718ca4b74acc7e0ae8aa292daef25902e9bf8b24db2bc653e3cac083d5f",
+    "assumed/execute.py": "5a92df72447522918fbb3db64610f5bb9e65db5609e76a95627e4a264786a0de",
+    "assumed/results/constant-condition-study/gated-scenario.json": "5c1ed431e18c45403e2e3db28aaf6dd22dc759207090f9c3256ff460607ae020",
+    "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/polling-study/immediate-one/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  }
+}

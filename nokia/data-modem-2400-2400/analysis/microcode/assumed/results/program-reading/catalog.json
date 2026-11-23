@@ -634,6 +634,23 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "DISPATCH-RANGE.md",
+        "limitations": "Exhaustive local R0/Q pairs assume previous zero at entry to 3BC. Reset entry demonstrated only under q2 with D=01 and indices 12 modulo 16. Optional gate and output consumer remain unverified.",
+        "meaning": "Preserve RAM/Q while exposing Q-R0, optionally Q-R0-1 when Q complements R0. Under the optional gate, branch to 287 for nonzero preceding difference, otherwise fall through to 3C0.",
+        "name": "conditional difference tail",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "3BC",
+            "3BF"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -654,7 +671,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 282,
+    "annotated_used_words": 286,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1935,6 +1952,7 @@
   "source_sha256": {
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
     "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",
+    "DISPATCH-RANGE.md": "090b900eb0dfbedd879791ebf549a2f7c2504bc08e9797c5ccea12efe627914d",
     "DISPATCH109.md": "c1bacc10b862be013766e19dcbdd234fad53848ea066e53152afd561b9f92403",
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
     "DRAIN-PREFIX.md": "78015a54cfbeb1ef74a8bff7fe9d1a40bb3396c44f5849901d938f185e606796",

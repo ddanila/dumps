@@ -69,11 +69,12 @@ into one address listing.
 | 2D0–2D8 | Paired Q drains | Previous-zero policy; transient output meaning unknown |
 | 2D8–2DB | Conditional entry into adjustment tail | Requires optional composed BRT gate; default entry remains unresolved |
 | 0F9–0FC (fitted_original) | Conditional register-copy tail entry | One gated reset witness; copied value is zero |
+| 3BC–3BF | Conditional difference tail | Optional gate; local entry premise; q2 reset entry at index 12, D=01 |
 | 256–257 | Conditional adjustment selector | Entry from reset and condition meaning unknown |
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 282 used words, including overlaps and disconnected
+These annotations cover 286 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
