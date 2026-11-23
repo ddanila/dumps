@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [Diversa Aquarius 2000 Q-meter](diversa/aquarius-2000/) — two matching
+  32 KiB 27256 reads; embedded Diversa Ltd. and AQ 2000 banners.
+
 - [Nokia external modem Am27S31DC PROM](nokia/unknown-modem-am27s31dc/) —
   two matching 512-byte reads from the last board; role unconfirmed.
 
