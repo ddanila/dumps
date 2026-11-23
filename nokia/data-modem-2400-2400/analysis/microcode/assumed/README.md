@@ -429,3 +429,7 @@ The study includes 263,344 local checks and 40 executions through the 133 gate.
 [q2 source-overwriting loops](Q2-OVERWRITE.md) explains 3D5/3EA recurrence,
 including second-pass returns and 16-instruction cycles. The complete 133
 three-call path is checked with arithmetic flags over 400 local boundary cases.
+
+[30B mapping comparison](MASKED-DRAIN.md) distinguishes a cleared-Q one-pass
+helper under q1–q4 from a masked-Q drain under fitted_original. Across all
+R0/Q pairs, final R5 differs in 56,788 cases; both interpretations clear R0/Q.

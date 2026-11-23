@@ -528,6 +528,41 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-DRAIN.md",
+        "limitations": "Original register roles, previous-zero control and zero shift fill. Input effects disappear from final internal state; physical transient consumers and reset caller operands remain unresolved.",
+        "meaning": "q1\u2013q4 clear Q after loading D+Q, store shifted (R0+1) in R5, and return with R0/Q zero after one loop iteration.",
+        "name": "cleared-Q single-iteration shift helper",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "30B",
+            "310"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-DRAIN.md",
+        "limitations": "Previous-zero policy and zero shift fill; one to five iterations in local fixtures. Physical operation and reset caller operands remain unresolved; swapped register roles are not covered.",
+        "meaning": "fitted_original masks Q with R0, stores shifted (R0+masked Q+1) in R5, and drains Q two bits per iteration. Previous-zero timing requires a final zero-entry iteration.",
+        "name": "masked-Q two-bit drain helper",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "30B",
+            "310"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -548,7 +583,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 231,
+    "annotated_used_words": 237,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1113,7 +1148,43 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "MASKED-DRAIN.md",
+          "limitations": "Original register roles, previous-zero control and zero shift fill. Input effects disappear from final internal state; physical transient consumers and reset caller operands remain unresolved.",
+          "meaning": "q1\u2013q4 clear Q after loading D+Q, store shifted (R0+1) in R5, and return with R0/Q zero after one loop iteration.",
+          "name": "cleared-Q single-iteration shift helper",
+          "profiles": [
+            "q1",
+            "q2",
+            "q3",
+            "q4"
+          ],
+          "ranges": [
+            [
+              "30B",
+              "310"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "MASKED-DRAIN.md",
+          "limitations": "Previous-zero policy and zero shift fill; one to five iterations in local fixtures. Physical operation and reset caller operands remain unresolved; swapped register roles are not covered.",
+          "meaning": "fitted_original masks Q with R0, stores shifted (R0+masked Q+1) in R5, and drains Q two bits per iteration. Previous-zero timing requires a final zero-entry iteration.",
+          "name": "masked-Q two-bit drain helper",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "30B",
+              "310"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "304",
         "306"
@@ -1755,6 +1826,7 @@
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
+    "MASKED-DRAIN.md": "853158590c53ad6fa4485c3f82b5ba6322c08870a695a22b1ac83ce122aa3bbc",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",

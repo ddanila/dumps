@@ -543,6 +543,41 @@
         "q2"
       ],
       "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved."
+    },
+    {
+      "name": "cleared-Q single-iteration shift helper",
+      "ranges": [
+        [
+          "30B",
+          "310"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "q1\u2013q4 clear Q after loading D+Q, store shifted (R0+1) in R5, and return with R0/Q zero after one loop iteration.",
+      "evidence": "MASKED-DRAIN.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "limitations": "Original register roles, previous-zero control and zero shift fill. Input effects disappear from final internal state; physical transient consumers and reset caller operands remain unresolved."
+    },
+    {
+      "name": "masked-Q two-bit drain helper",
+      "ranges": [
+        [
+          "30B",
+          "310"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "fitted_original masks Q with R0, stores shifted (R0+masked Q+1) in R5, and drains Q two bits per iteration. Previous-zero timing requires a final zero-entry iteration.",
+      "evidence": "MASKED-DRAIN.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Previous-zero policy and zero shift fill; one to five iterations in local fixtures. Physical operation and reset caller operands remain unresolved; swapped register roles are not covered."
     }
   ]
 }
