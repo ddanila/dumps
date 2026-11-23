@@ -1,0 +1,8 @@
+{
+  "status": "hypothesis",
+  "evidence": "Test a two-input mux at B0 or B9: preserve the baseline bit unless a signed raw PROM bit selects a signed alternate source. Apply one rule across every direct BSR/BRT, without per-address exceptions.",
+  "scenario": "results/third-case-study/scenario-all_cases.json",
+  "positions": [0,9],
+  "chips": ["10","11","17","18"],
+  "limitations": ["Only one address bit and one raw gate bit change at a time.", "Sources and gates may overlap other decoded fields; no physical wiring claim.", "Computed dispatch tables and all conditions remain fixed."]
+}

@@ -330,3 +330,6 @@ the bit source or change the default runtime mapping.
 The [joint branch study](JOINT-BRANCH.md) tests 7,489 pairs of clean contextual
 alternatives. Its best coverage remains 1,000 words; new paths into 0FD come
 with substantial coverage loss elsewhere.
+
+The [raw-bit branch mux search](BRANCH-MUX.md) tests 8,192 gate/source choices.
+None improves baseline coverage; its new path to 0FA loses 85 other words.

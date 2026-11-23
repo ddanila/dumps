@@ -772,6 +772,18 @@ class AssumedTests(unittest.TestCase):
         same_class=copy.deepcopy(choices[1]);same_class['sources'][0]['select']=2
         self.assertIsNone(combine(rows,choices[0],same_class))
 
+    def test_branch_mux_gate_polarity_and_direct_scope(self):
+        from branch_mux_study import mux
+        rows=[dict(pc=i,command=c,direct=d,branch=0x100)
+              for i,(c,d) in enumerate([(4,1),(6,1),(6,0),(1,1)])]
+        lanes={'17':bytes([0,16,16,16]),'11':bytes([0,4,4,4])}
+        original=copy.deepcopy(rows)
+        positive=mux(rows,lanes,0,'17.4','11.2')
+        negative=mux(rows,lanes,9,'!17.4','!11.2')
+        self.assertEqual([r['branch'] for r in positive],[0x100,0x101,0x100,0x100])
+        self.assertEqual([r['branch'] for r in negative],[0x300,0x100,0x100,0x100])
+        self.assertEqual(rows,original)
+
     def test_unknown_decision_audit_excludes_unused_test_values(self):
         from condition_extension import unknown_decisions
         scenario=copy.deepcopy(self.scenario)
