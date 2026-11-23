@@ -466,3 +466,8 @@ conditional difference and its choice between 287 and 3C0; RAM/Q are preserved.
 [Q input and dispatch](Q-DISPATCH.md) reaches 2CF from reset by changing the
 last Q-loading read to zero. Across 1,024 runs, Q-based dispatch removes that
 entry combination, while a later Q clear explains the fixed 3BF exit.
+
+[Tail exclusion under q2](TAIL-EXCLUSION.md) explains why 287–28A cannot execute
+from zero reset under the optional gate, even with arbitrary byte reads and
+declared dispatch entries. Complete predecessor checks and local register
+invariants exclude both entries; default unresolved labels remain unchanged.

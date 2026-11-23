@@ -111,3 +111,9 @@ computed graph. Both output files reproduce byte for byte. All 61
 functional/assumption tests pass, including checks that interpretation labels
 do not leak across profiles or hide unresolved entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
+
+The later [q2 tail-exclusion argument](TAIL-EXCLUSION.md) explains the absence
+of 287–28A under the optional gate and zero-reset scenario. It checks every
+entry and the reaching register writes, allowing arbitrary external bytes and
+declared dispatch entries. This scoped explanation does not change the default
+listing's unresolved hardware-entry labels.

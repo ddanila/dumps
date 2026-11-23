@@ -1,0 +1,230 @@
+{
+  "additionally_excluded": [
+    "281",
+    "282",
+    "283",
+    "284",
+    "285",
+    "286"
+  ],
+  "argument": [
+    "Only 286 fallthrough and 3BF branch enter 287.",
+    "Every route to 286 passes 26F->200->281. 26F sets zero, forcing gated 200 to fall through instead.",
+    "All reaching Q writers at 3BB clear Q. All reaching R0 writers produce 0 or FF from reset.",
+    "3BB preserves R0/Q; if gated 3BC enters the tail, both possible R0/Q pairs force 3BF to fall through to 3C0.",
+    "288..28A have only the preceding tail word as predecessor."
+  ],
+  "checks": {
+    "and_d_carry_cases_per_writer": 512,
+    "drain_q_values": 256,
+    "drain_step_counts": {
+      "2": 1,
+      "4": 1,
+      "6": 2,
+      "8": 4,
+      "10": 8,
+      "12": 16,
+      "14": 32,
+      "16": 64,
+      "18": 128
+    },
+    "q_clear_pairs_per_writer": 65536,
+    "setup_q_values": 256,
+    "zero_flag_q_values": 256
+  },
+  "excluded_words": [
+    "287",
+    "288",
+    "289",
+    "28A"
+  ],
+  "graph_states": 1229,
+  "graph_words": 796,
+  "interpretation": "Compositional exclusion under the stated gated q2 mapping, zero reset, fixed condition inputs, previous flags and zero-fill shifts. Arbitrary byte reads and any declared dispatch entries are allowed. This is not a hardware unreachability claim or a proof for other mappings.",
+  "mapping": "results/independent-study/variant-2.json",
+  "predecessors": {
+    "000": [],
+    "001": [
+      "000"
+    ],
+    "002": [
+      "001"
+    ],
+    "003": [
+      "002"
+    ],
+    "06F": [
+      "101"
+    ],
+    "070": [
+      "06F"
+    ],
+    "071": [
+      "070"
+    ],
+    "072": [
+      "071"
+    ],
+    "073": [
+      "072"
+    ],
+    "074": [
+      "073"
+    ],
+    "100": [
+      "003"
+    ],
+    "101": [
+      "100"
+    ],
+    "1CD": [
+      "1EB",
+      "2D8"
+    ],
+    "1CE": [
+      "1CD"
+    ],
+    "1EA": [
+      "1E9"
+    ],
+    "1EB": [
+      "1EA"
+    ],
+    "200": [
+      "26F"
+    ],
+    "281": [
+      "200"
+    ],
+    "282": [
+      "281"
+    ],
+    "283": [
+      "282"
+    ],
+    "284": [
+      "283"
+    ],
+    "285": [
+      "284"
+    ],
+    "286": [
+      "285"
+    ],
+    "287": [
+      "286",
+      "3BF"
+    ],
+    "288": [
+      "287"
+    ],
+    "289": [
+      "288"
+    ],
+    "28A": [
+      "289"
+    ],
+    "2D8": [
+      "1EB"
+    ],
+    "3BB": [
+      "2E4",
+      "2F5",
+      "2F6"
+    ],
+    "3BC": [
+      "3BB"
+    ],
+    "3BD": [
+      "3BC"
+    ],
+    "3BE": [
+      "3BD"
+    ],
+    "3BF": [
+      "3BD",
+      "3BE"
+    ]
+  },
+  "q_zero_tail_all_r0_values": 256,
+  "reaching_writers": {
+    "q": [
+      "2E1",
+      "2F3"
+    ],
+    "r0": [
+      "073",
+      "074",
+      "1CE"
+    ]
+  },
+  "scenario": "results/constant-condition-study/gated-scenario.json",
+  "source_sha256": {
+    "assumed/analyze.py": "23e9f59f4c35a3301efd989afe578af1496dd2b75bea7629d8efb1674b8039f2",
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/conditional_tail_study.py": "51153718ca4b74acc7e0ae8aa292daef25902e9bf8b24db2bc653e3cac083d5f",
+    "assumed/constant_condition_study.py": "1e243f2eb6ab97bd6e76b503d84405c49ed0c5d897de1dd52b1b018ec50bb11e",
+    "assumed/execute.py": "5a92df72447522918fbb3db64610f5bb9e65db5609e76a95627e4a264786a0de",
+    "assumed/results/constant-condition-study/gated-scenario.json": "5c1ed431e18c45403e2e3db28aaf6dd22dc759207090f9c3256ff460607ae020",
+    "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/tail_exclusion_study.py": "65e071c02b49216c963cac252cfebc41fc58b73f08d485d870b64ad7d4850627",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "status": "hypothesis",
+  "tail_cases": [
+    {
+      "events": [
+        {
+          "f": 255,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 957,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 0,
+      "r0": 0
+    },
+    {
+      "events": [
+        {
+          "f": 0,
+          "next_pc": 957,
+          "pc": 956,
+          "test": 0
+        },
+        {
+          "f": 1,
+          "next_pc": 958,
+          "pc": 957,
+          "test": 0
+        },
+        {
+          "f": 0,
+          "next_pc": 959,
+          "pc": 958,
+          "test": 1
+        },
+        {
+          "f": 0,
+          "next_pc": 960,
+          "pc": 959,
+          "test": 0
+        }
+      ],
+      "q": 0,
+      "r0": 255
+    }
+  ]
+}
