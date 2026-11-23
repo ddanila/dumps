@@ -1,0 +1,333 @@
+I 0 0000 LJMP  #1EAAh                   A=00 DP=0000 SP=07
+I 2 1eaa CLR   IE.7                     A=00 DP=0000 SP=07
+S 2 1eaa a8 00
+I 3 1eac MOV   PSW, #00h                A=00 DP=0000 SP=07
+S 3 1eac d0 00
+I 5 1eaf MOV   A, P1                    A=00 DP=0000 SP=07
+I 6 1eb1 MOV   P2, #00h                 A=ff DP=0000 SP=07
+S 6 1eb1 a0 00
+I 8 1eb4 MOV   A, P3                    A=ff DP=0000 SP=07
+I 9 1eb6 MOV   R0, #00h                 A=ff DP=0000 SP=07
+I 10 1eb8 MOV   A, @R0                   A=ff DP=0000 SP=07
+I 11 1eb9 CJNE  A, 00h, #+6              A=00 DP=0000 SP=07
+I 13 1ebc INC   R0                       A=00 DP=0000 SP=07
+I 14 1ebd CJNE  R0, #60h, #-8            A=00 DP=0000 SP=07
+I 19 1ec2 MOV   A, R0                    A=00 DP=0000 SP=07
+I 20 1ec3 MOV   @R0, A                   A=01 DP=0000 SP=07
+I 21 1ec4 AJMP  #1EC4h                   A=01 DP=0000 SP=07
+RESET 1999 retain-iram
+S 2002 1eaa a8 00
+S 2003 1eac d0 00
+S 2006 1eb1 a0 00
+RESET 3999 retain-iram
+S 4002 1eaa a8 00
+S 4003 1eac d0 00
+S 4006 1eb1 a0 00
+RESET 5999 retain-iram
+S 6002 1eaa a8 00
+S 6003 1eac d0 00
+S 6006 1eb1 a0 00
+RESET 7999 retain-iram
+S 8002 1eaa a8 00
+S 8003 1eac d0 00
+S 8006 1eb1 a0 00
+RESET 9999 retain-iram
+S 10002 1eaa a8 00
+S 10003 1eac d0 00
+S 10006 1eb1 a0 00
+RESET 11999 retain-iram
+S 12002 1eaa a8 00
+S 12003 1eac d0 00
+S 12006 1eb1 a0 00
+RESET 13999 retain-iram
+S 14002 1eaa a8 00
+S 14003 1eac d0 00
+S 14006 1eb1 a0 00
+RESET 15999 retain-iram
+S 16002 1eaa a8 00
+S 16003 1eac d0 00
+S 16006 1eb1 a0 00
+RESET 17999 retain-iram
+S 18002 1eaa a8 00
+S 18003 1eac d0 00
+S 18006 1eb1 a0 00
+RESET 19999 retain-iram
+S 20002 1eaa a8 00
+S 20003 1eac d0 00
+S 20006 1eb1 a0 00
+RESET 21999 retain-iram
+S 22002 1eaa a8 00
+S 22003 1eac d0 00
+S 22006 1eb1 a0 00
+RESET 23999 retain-iram
+S 24002 1eaa a8 00
+S 24003 1eac d0 00
+S 24006 1eb1 a0 00
+RESET 25999 retain-iram
+S 26002 1eaa a8 00
+S 26003 1eac d0 00
+S 26006 1eb1 a0 00
+RESET 27999 retain-iram
+S 28002 1eaa a8 00
+S 28003 1eac d0 00
+S 28006 1eb1 a0 00
+RESET 29999 retain-iram
+S 30002 1eaa a8 00
+S 30003 1eac d0 00
+S 30006 1eb1 a0 00
+RESET 31999 retain-iram
+S 32002 1eaa a8 00
+S 32003 1eac d0 00
+S 32006 1eb1 a0 00
+RESET 33999 retain-iram
+S 34002 1eaa a8 00
+S 34003 1eac d0 00
+S 34006 1eb1 a0 00
+RESET 35999 retain-iram
+S 36002 1eaa a8 00
+S 36003 1eac d0 00
+S 36006 1eb1 a0 00
+RESET 37999 retain-iram
+S 38002 1eaa a8 00
+S 38003 1eac d0 00
+S 38006 1eb1 a0 00
+RESET 39999 retain-iram
+S 40002 1eaa a8 00
+S 40003 1eac d0 00
+S 40006 1eb1 a0 00
+RESET 41999 retain-iram
+S 42002 1eaa a8 00
+S 42003 1eac d0 00
+S 42006 1eb1 a0 00
+RESET 43999 retain-iram
+S 44002 1eaa a8 00
+S 44003 1eac d0 00
+S 44006 1eb1 a0 00
+RESET 45999 retain-iram
+S 46002 1eaa a8 00
+S 46003 1eac d0 00
+S 46006 1eb1 a0 00
+RESET 47999 retain-iram
+S 48002 1eaa a8 00
+S 48003 1eac d0 00
+S 48006 1eb1 a0 00
+RESET 49999 retain-iram
+S 50002 1eaa a8 00
+S 50003 1eac d0 00
+S 50006 1eb1 a0 00
+RESET 51999 retain-iram
+S 52002 1eaa a8 00
+S 52003 1eac d0 00
+S 52006 1eb1 a0 00
+RESET 53999 retain-iram
+S 54002 1eaa a8 00
+S 54003 1eac d0 00
+S 54006 1eb1 a0 00
+RESET 55999 retain-iram
+S 56002 1eaa a8 00
+S 56003 1eac d0 00
+S 56006 1eb1 a0 00
+RESET 57999 retain-iram
+S 58002 1eaa a8 00
+S 58003 1eac d0 00
+S 58006 1eb1 a0 00
+RESET 59999 retain-iram
+S 60002 1eaa a8 00
+S 60003 1eac d0 00
+S 60006 1eb1 a0 00
+RESET 61999 retain-iram
+S 62002 1eaa a8 00
+S 62003 1eac d0 00
+S 62006 1eb1 a0 00
+RESET 63999 retain-iram
+RESET 65999 retain-iram
+RESET 67999 retain-iram
+RESET 69999 retain-iram
+RESET 71999 retain-iram
+RESET 73999 retain-iram
+RESET 75999 retain-iram
+RESET 77999 retain-iram
+RESET 79999 retain-iram
+RESET 81999 retain-iram
+RESET 83999 retain-iram
+RESET 85999 retain-iram
+RESET 87999 retain-iram
+RESET 89999 retain-iram
+RESET 91999 retain-iram
+RESET 93999 retain-iram
+RESET 95999 retain-iram
+RESET 97999 retain-iram
+RESET 99999 retain-iram
+RESET 101999 retain-iram
+RESET 103999 retain-iram
+RESET 105999 retain-iram
+RESET 107999 retain-iram
+RESET 109999 retain-iram
+RESET 111999 retain-iram
+RESET 113999 retain-iram
+RESET 115999 retain-iram
+RESET 117999 retain-iram
+RESET 119999 retain-iram
+RESET 121999 retain-iram
+RESET 123999 retain-iram
+RESET 125999 retain-iram
+RESET 127999 retain-iram
+RESET 129999 retain-iram
+RESET 131999 retain-iram
+RESET 133999 retain-iram
+RESET 135999 retain-iram
+RESET 137999 retain-iram
+RESET 139999 retain-iram
+RESET 141999 retain-iram
+RESET 143999 retain-iram
+RESET 145999 retain-iram
+RESET 147999 retain-iram
+RESET 149999 retain-iram
+RESET 151999 retain-iram
+RESET 153999 retain-iram
+RESET 155999 retain-iram
+RESET 157999 retain-iram
+RESET 159999 retain-iram
+RESET 161999 retain-iram
+RESET 163999 retain-iram
+RESET 165999 retain-iram
+RESET 167999 retain-iram
+RESET 169999 retain-iram
+RESET 171999 retain-iram
+RESET 173999 retain-iram
+RESET 175999 retain-iram
+RESET 177999 retain-iram
+RESET 179999 retain-iram
+RESET 181999 retain-iram
+RESET 183999 retain-iram
+RESET 185999 retain-iram
+RESET 187999 retain-iram
+RESET 189999 retain-iram
+I 190586 1ec0 AJMP  #1EC6h                   A=5f DP=0000 SP=07
+I 190588 1ec6 MOV   R0, #FFh                 A=5f DP=0000 SP=07
+I 190589 1ec8 MOV   A, #00h                  A=5f DP=0000 SP=07
+I 190590 1eca MOV   @R0, A                   A=00 DP=0000 SP=07
+I 190591 1ecb DJNZ  R0, #-3                  A=00 DP=0000 SP=07
+I 191355 1ecd MOV   SP, #6Fh                 A=00 DP=0000 SP=07
+S 191355 1ecd 81 6f
+I 191357 1ed0 LCALL #1DD0h                   A=00 DP=0000 SP=6f
+I 191359 1dd0 MOV   34h, #00h                A=00 DP=0000 SP=71
+I 191361 1dd3 SETB  04h.5                    A=00 DP=0000 SP=71
+I 191362 1dd5 MOV   30h, #00h                A=00 DP=0000 SP=71
+I 191364 1dd8 MOV   31h, #01h                A=00 DP=0000 SP=71
+I 191366 1ddb MOV   32h, #A8h                A=00 DP=0000 SP=71
+I 191368 1dde MOV   33h, #04h                A=00 DP=0000 SP=71
+I 191370 1de1 ACALL 1DE7h                    A=00 DP=0000 SP=71
+I 191372 1de7 RETI                           A=00 DP=0000 SP=73
+I 191374 1de3 ACALL 1DE7h                    A=00 DP=0000 SP=71
+I 191378 1de5 AJMP  #1DE8h                   A=00 DP=0000 SP=71
+I 191380 1de8 LCALL #17F1h                   A=00 DP=0000 SP=71
+I 191382 17f1 MOV   6Eh, #00h                A=00 DP=0000 SP=73
+I 191384 17f4 CLR   IP.2                     A=00 DP=0000 SP=73
+S 191384 17f4 b8 00
+I 191385 17f6 SETB  TCON.2                   A=00 DP=0000 SP=73
+S 191385 17f6 88 04
+I 191386 17f8 SETB  IE.2                     A=00 DP=0000 SP=73
+I 191387 17fa RET                            A=00 DP=0000 SP=73
+I 191389 1deb MOV   TMOD, #15h               A=00 DP=0000 SP=71
+S 191389 1deb 89 15
+I 191391 1dee CLR   TCON.5                   A=00 DP=0000 SP=71
+S 191391 1dee 88 04
+I 191392 1df0 CLR   TCON.7                   A=00 DP=0000 SP=71
+S 191392 1df0 88 04
+I 191393 1df2 MOV   TH1, #FCh                A=00 DP=0000 SP=71
+S 191393 1df2 8d fc
+I 191395 1df5 MOV   TL1, #21h                A=00 DP=0000 SP=71
+S 191395 1df5 8b 21
+I 191397 1df8 SETB  TCON.6                   A=00 DP=0000 SP=71
+S 191397 1df8 88 44
+I 191398 1dfa SETB  IE.7                     A=00 DP=0000 SP=71
+I 191399 1dfc SETB  IE.3                     A=00 DP=0000 SP=71
+I 191400 1dfe LCALL #0800h                   A=00 DP=0000 SP=71
+I 191402 0800 CLR   02h.0                    A=00 DP=0000 SP=73
+I 191403 0802 SETB  P1.1                     A=00 DP=0000 SP=73
+S 191403 0802 90 ff
+I 191404 0804 MOV   SCON, #10h               A=00 DP=0000 SP=73
+S 191404 0804 98 10
+I 191406 0807 JNB   SCON.0, #-3              A=00 DP=0000 SP=73
+I 192390 001b LJMP  #07D7h                   A=00 DP=0000 SP=75
+I 192392 07d7 PUSH  PSW                      A=00 DP=0000 SP=75
+I 192394 07d9 ANL   PSW, #F7h                A=00 DP=0000 SP=76
+I 192396 07dc ORL   PSW, #10h                A=00 DP=0000 SP=76
+I 192398 07df MOV   TH1, #FCh                A=00 DP=0000 SP=76
+S 192398 07df 8d fc
+I 192400 07e2 MOV   TL1, #21h                A=00 DP=0000 SP=76
+S 192400 07e2 8b 21
+I 192402 07e5 CJNE  R6, #00h, #+1            A=00 DP=0000 SP=76
+I 192404 07e8 DEC   R7                       A=00 DP=0000 SP=76
+I 192405 07e9 DEC   R6                       A=00 DP=0000 SP=76
+I 192406 07ea CJNE  R4, #00h, #+3            A=00 DP=0000 SP=76
+I 192408 07ed DEC   R5                       A=00 DP=0000 SP=76
+I 192409 07ee DEC   R1                       A=00 DP=0000 SP=76
+I 192410 07ef DEC   R0                       A=00 DP=0000 SP=76
+I 192411 07f0 DEC   R4                       A=00 DP=0000 SP=76
+I 192412 07f1 CJNE  R2, #00h, #+1            A=00 DP=0000 SP=76
+I 192414 07f4 DEC   R3                       A=00 DP=0000 SP=76
+I 192415 07f5 DEC   R2                       A=00 DP=0000 SP=76
+I 192416 07f6 POP   PSW                      A=00 DP=0000 SP=76
+I 192418 07f8 RETI                           A=00 DP=0000 SP=75
+S 193402 07df 8d fc
+S 193404 07e2 8b 21
+S 194405 07df 8d fc
+S 194407 07e2 8b 21
+S 195408 07df 8d fc
+S 195410 07e2 8b 21
+S 196411 07df 8d fc
+S 196413 07e2 8b 21
+S 197414 07df 8d fc
+S 197416 07e2 8b 21
+S 198417 07df 8d fc
+S 198419 07e2 8b 21
+S 199420 07df 8d fc
+S 199422 07e2 8b 21
+S 200423 07df 8d fc
+S 200425 07e2 8b 21
+S 201426 07df 8d fc
+S 201428 07e2 8b 21
+S 202429 07df 8d fc
+S 202431 07e2 8b 21
+S 203432 07df 8d fc
+S 203434 07e2 8b 21
+S 204435 07df 8d fc
+S 204437 07e2 8b 21
+S 205438 07df 8d fc
+S 205440 07e2 8b 21
+S 206441 07df 8d fc
+S 206443 07e2 8b 21
+S 207444 07df 8d fc
+S 207446 07e2 8b 21
+S 208447 07df 8d fc
+S 208449 07e2 8b 21
+S 209450 07df 8d fc
+S 209452 07e2 8b 21
+S 210453 07df 8d fc
+S 210455 07e2 8b 21
+S 211456 07df 8d fc
+S 211458 07e2 8b 21
+S 212459 07df 8d fc
+S 212461 07e2 8b 21
+S 213462 07df 8d fc
+S 213464 07e2 8b 21
+S 214465 07df 8d fc
+S 214467 07e2 8b 21
+S 215468 07df 8d fc
+S 215470 07e2 8b 21
+S 216471 07df 8d fc
+S 216473 07e2 8b 21
+S 217474 07df 8d fc
+S 217476 07e2 8b 21
+S 218477 07df 8d fc
+S 218479 07e2 8b 21
+S 219480 07df 8d fc
+S 219482 07e2 8b 21
+S 220483 07df 8d fc
+S 220485 07e2 8b 21
+S 221486 07df 8d fc
+S 221488 07e2 8b 21
+S 222489 07df 8d fc
+S 222491 07e2 8b 21

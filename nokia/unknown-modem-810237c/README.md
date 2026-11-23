@@ -1,13 +1,13 @@
 # Nokia external modem — 810237C PROM set
 
-The owner identifies the source as an old Nokia external modem, exact model
-unknown. Four socketed PROMs are visible in the supplied
+The owner identifies the source as an old Nokia external modem; later photos identify **Nokia Data Modem 2400/2400**,
+board **DSC 2847 / 1177201**. Four socketed PROMs are visible in the supplied
 [board photo](photos/PXL_20261123_112138062.jpg). No inventory tag has been supplied.
 
 | Board position | Sticker | Acquisition |
 | --- | --- | --- |
 | 10 | 810237C | Two matching 1,024-byte reads |
-| 11 (owner; photo position number obscured) | 810238C (inferred association) | Two matching 1,024-byte reads |
+| 11 (confirmed in full board photo) | 810238C | Two matching 1,024-byte reads |
 | 17 | 810239C | Two matching 1,024-byte reads |
 | 18 | 810240C | Two matching 1,024-byte reads |
 
@@ -118,3 +118,6 @@ The owner subsequently supplied a [2764 EPROM from another board in the same mod
 combination with these four PROMs is assumed.
 
 The same modem also supplied an [Am27S31DC PROM from its last board](../unknown-modem-am27s31dc/), preserved as a separate 512-byte image.
+
+[Subsequent hardware and firmware investigation](../data-modem-2400-2400/) includes the full DSC2847 photo confirming chip 11’s sticker and the Am2901
+bit-slice hardware. Earlier uncertainty notes above describe the original cropped photo.

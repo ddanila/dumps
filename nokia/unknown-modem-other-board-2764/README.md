@@ -2,7 +2,9 @@
 
 Owner identifies this as a **2764 from another board of the same old Nokia
 external modem** as the [810237C–810240C PROM set](../unknown-modem-810237c/).
-The modem model, board identity, socket position and chip sticker remain unknown.
+Subsequent photos identify **Nokia Data Modem 2400/2400**, controller board
+**DSU 3556 / 1177954** with an Intel P8031. The owner confirmed the EPROM
+sticker **810244E**. Socket position remains unrecorded.
 The photograph in the PROM set depicts that other board, not this EPROM's board.
 
 ## Acquisition — 2026-11-23
@@ -19,10 +21,8 @@ or byte repairs were performed.
 - Distinct byte values: 249.
 
 The opening bytes `02 1E AA` and vector-area patterns are consistent with
-8051-family code (reset LJMP 1EAAh). This is a preliminary architecture inference,
-not a confirmed physical CPU identification. No clear product/version banner
-was found among printable strings of at least eight characters. Firmware
-function and operational validity have not been established by execution.
+8051-family code (reset LJMP 1EAAh). The later photo confirms an Intel P8031 on the source board. No clear product/version banner
+was found among printable strings of at least eight characters. The later investigation executes this ROM with synthetic hardware; see below.
 
 No contiguous match was found in 1,397 eligible 8–256 KiB files in the local
 86Box ROM collection. Web searches for the CRC32 and SHA-256 found no relevant
@@ -31,3 +31,5 @@ public dump. This limited comparison does not establish uniqueness.
 [Manifest](manifest.json) · [Acquisition evidence](evidence/)
 
 The same modem also supplied an [Am27S31DC PROM from its last board](../unknown-modem-am27s31dc/), preserved as a separate 512-byte image.
+
+[Hardware identification, controller execution harness and results](../data-modem-2400-2400/) document the subsequent investigation and its limitations.

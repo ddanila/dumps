@@ -1,0 +1,17 @@
+I 0 0000 LJMP  #1EAAh                   A=00 DP=0000 SP=07
+I 2 1eaa CLR   IE.7                     A=00 DP=0000 SP=07
+S 2 1eaa a8 00
+I 3 1eac MOV   PSW, #00h                A=00 DP=0000 SP=07
+S 3 1eac d0 00
+I 5 1eaf MOV   A, P1                    A=00 DP=0000 SP=07
+I 6 1eb1 MOV   P2, #00h                 A=ff DP=0000 SP=07
+S 6 1eb1 a0 00
+I 8 1eb4 MOV   A, P3                    A=ff DP=0000 SP=07
+I 9 1eb6 MOV   R0, #00h                 A=ff DP=0000 SP=07
+I 10 1eb8 MOV   A, @R0                   A=ff DP=0000 SP=07
+I 11 1eb9 CJNE  A, 00h, #+6              A=00 DP=0000 SP=07
+I 13 1ebc INC   R0                       A=00 DP=0000 SP=07
+I 14 1ebd CJNE  R0, #60h, #-8            A=00 DP=0000 SP=07
+I 19 1ec2 MOV   A, R0                    A=00 DP=0000 SP=07
+I 20 1ec3 MOV   @R0, A                   A=01 DP=0000 SP=07
+I 21 1ec4 AJMP  #1EC4h                   A=01 DP=0000 SP=07

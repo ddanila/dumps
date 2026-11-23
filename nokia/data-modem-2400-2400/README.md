@@ -1,0 +1,158 @@
+# Nokia Data Modem 2400/2400 — hardware and firmware investigation
+
+The controller ROM **810244E executes unchanged** in a bounded 8031 harness.
+With explicitly synthetic serial-shift input, serial status and a retained-RAM
+startup model, it initializes both external serial interfaces, runs timer
+interrupts and repeatedly enters the main loop. This is **not yet a complete
+modem emulator**: neither a telephone-line connection nor the bit-slice signal
+processor has been demonstrated.
+
+## Identification from the owner's photographs
+
+The [case marking](photos/PXL_20261123_114938687.jpg) reads **NOKIA DATA MODEM
+2400 / 2400**. This establishes the front-panel product designation, not a
+more specific unphotographed type/serial number. The
+[front panel](photos/PXL_20261123_114949334.jpg) has physical switches and status
+indicators; a Hayes-style command interface is not established.
+
+| Board marking | Visible hardware / interpretation | Evidence |
+| --- | --- | --- |
+| DSU 3555, Nokia 9970067, 1175512 | Transformers and analog circuitry; analog line/interface board | [Front](photos/PXL_20261123_114637263.jpg) / [back](photos/PXL_20261123_114645232.jpg) |
+| DSU 3556, Nokia 1177954 | Intel P8031, two AMD P8251A USARTs, EPROM 810244E; controller/interface board | [Front](photos/PXL_20261123_114723348.jpg) / [back](photos/PXL_20261123_114730247.jpg) |
+| DSC 3557, Nokia 9970356a, 1177033 | Four MCM93422 SRAMs; socketed 810241 and additional labelled devices 810111/810112 | [Front](photos/PXL_20261123_114811760.jpg) / [back](photos/PXL_20261123_114818924.jpg) |
+| DED 3558, Nokia 9970362 B, 1176272 | Digital logic and DAC0830; conversion/timing role inferred | [Front](photos/PXL_20261123_114854803.jpg) / [back](photos/PXL_20261123_114901193.jpg) |
+| DSC 2847, Nokia 9996446 C, 1177201 | Two Am2901BDC slices, four MMI PROMs and output latches; microprogrammed datapath | [Front](photos/PXL_20261123_114926601.jpg) / [back](photos/PXL_20261123_114932814.jpg) |
+
+The owner explicitly confirmed **810244E** as the dumped 2764 on DSU 3556.
+The full DSC2847 photograph also confirms **position 11 = 810238C**, previously
+inferred from a cropped photo. The 512-byte Am27S31DC probably corresponds to
+**810241 on DSC3557**, based on the socketed AMD DIP24 photo and acquisition
+sequence, but its sticker association has not been confirmed by the owner.
+810111/810112 are additional labelled devices; their types and dumpability are
+not established. Do not treat the six acquisitions as every programmable device
+in the chassis.
+
+All 22 supplied photographs are preserved unchanged. Their source ZIP and
+SHA-256 values are in [photos/manifest.json](photos/manifest.json).
+
+## Preserved ROMs and their likely roles
+
+| Image | Size | Interpretation |
+| --- | --- | --- |
+| [810244E / 2764](../unknown-modem-other-board-2764/) | 8 KiB | 8031 controller program, physical association owner-confirmed |
+| [810237C–810240C](../unknown-modem-810237c/) | 4 × 1 KiB | Candidate parallel microcode lanes for the Am2901 datapath, not an 8051 program |
+| [Am27S31DC](../unknown-modem-am27s31dc/) | 512 B | Lookup/control data; contains an exact signed sine table at its beginning |
+
+The four MMI PROMs and four nearby octal latches suggest **1024 × 32 bits of
+control store**. The two 4-bit Am2901 slices suggest an 8-bit datapath. These are
+architecture inferences, not a traced netlist. PROM output order, address wiring,
+branch/sequencing logic and ALU control fields must be established before a
+credible bit-slice emulator can execute them. [PROM lane CSV](analysis/results/prom-lanes.csv)
+keeps physical chip columns without claiming a 32-bit instruction order.
+The [AMD Am2900 databook](https://www.bitsavers.org/components/amd/bitslice/1978_The_Am2900_Family_Data_Book.pdf)
+provides the slice semantics, but cannot supply Nokia's board-specific wiring.
+
+The first 16 Am27S31 bytes are **exactly**
+`round(127 × sin(2πn/16))`, interpreted as signed bytes. This strengthens the
+lookup-table interpretation; sample clock and actual modem carrier frequency
+are still unknown. [Plot](analysis/results/sine-table.svg) ·
+[all 512 values](analysis/results/am27s31.csv).
+
+## Controller execution and recovered interfaces
+
+Reset jumps from `0000` to `1EAA`. At `1EB8`, the firmware compares internal
+RAM locations 00–5F with their addresses. On the first mismatch it stores the
+address there and loops at `1EC4`. Zero-filled emulated RAM therefore **does not
+boot past this check**. Retaining RAM across 95 synthetic resets lets the ROM
+itself initialize the required pattern; the 96th start proceeds. Alternatively,
+starting with that explicit address pattern also proceeds. No ROM byte or PC
+is patched. This shows a possible reset-assisted startup mechanism, **not proof
+that the physical modem implements this reset sequence**. Actual reset/watchdog
+wiring or an oscilloscope trace is needed to settle it.
+
+Afterwards the program clears RAM, sets SP=6F, initializes hardware and enters:
+
+| Address | Observed purpose |
+| --- | --- |
+| 1DD0 | Initialization; USART setup and a lengthy output-sequencing loop |
+| 07D7 / vector 001B | Timer 1 handler; reloads FC21 and decrements software counters |
+| 0800 | Mode-0 serial input: one discarded byte, then six bytes into RAM 2A–2F; P1.0/P1.1 handshake |
+| 0899 | Mode-0 serial output from RAM 30–33, with XOR masks 00/03/00/F8, then P1.2 latch pulse |
+| 1D05 | External USART reset/mode/command sequence |
+| 1ED6 | Main polling/control loop, calls 0800, 0620, 1000, 1790, 006E, 0899, 08E9 |
+| MOVX 0001 / 0005 | First USART data / control-status, inferred from reset sequence and status-bit use |
+| MOVX 0002 / 0006 | Second USART data / control-status, same evidence |
+| MOVX 8004 | Repeated hardware read selected with P2.7; purpose unconfirmed |
+
+For example, synthetic zero shift inputs cause control writes
+`80 00 40 6E 35` to 0006 and `80 00 40 CC FF 15` to 0005.
+These match an 8251-style initialization pattern. The early mode-0 output frame
+is `00 02 AC FC`. Bit-to-switch/LED mappings remain untraced: those bytes are
+captured outputs, not a claim about physical indicators.
+[Intel's 8251A handbook](https://mark-ogden.uk/files/intel/publications/9800676B%20Peripheral%20Design%20Handbook-Feb79.pdf)
+documents the status and mode/command semantics used to interpret these accesses.
+
+## Reproduce the execution
+
+From the repository root, using Python 3 and a C compiler:
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/run.py --out /tmp/nokia2400-results
+python3 nokia/data-modem-2400-2400/analysis/analyze_proms.py
+```
+
+The second command uses optional `matplotlib` to regenerate the SVG; CSV/JSON
+analysis needs only the standard library. The first command checks the exact
+ROM SHA-256 and builds a harness against the repository's MIT-licensed
+[emu8051 core](../../unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/).
+Its existing provenance and fixes are recorded in
+[UPSTREAM.json](../../unknown/satellite-mac304-m27c2001/analysis/emulation/UPSTREAM.json)
+and [core-fixes.patch](../../unknown/satellite-mac304-m27c2001/analysis/emulation/core-fixes.patch).
+No core files were changed for this investigation. The harness adds the P2 high
+address byte to MOVX @Ri callbacks, which this core otherwise reports as low-byte
+addresses, and supplies mode-0 completion events absent from its UART model.
+
+### Explicit simulation assumptions
+
+- 128-byte 8031 internal RAM; ROM loaded at 0000–1FFF, FF elsewhere. Execution
+  outside the dumped ROM terminates with an error.
+- Cold RAM starts zero. `WATCHDOG=1` retains RAM and resets CPU only when waiting
+  at 1EC4, on 2,000-cycle boundaries. This is a diagnostic experiment, not a
+  measured watchdog model. `PRESEED=1` separately seeds addresses 00–5F.
+- `SHIFT=0`, `255` or `7` supplies every mode-0 received byte with that chosen
+  value. Receive-ready occurs every eight machine cycles when enabled; writes
+  to SBUF complete after eight cycles. No switch wiring or physical serial
+  waveforms are modeled.
+- External reads return 05 (for an 8251: TxRDY and TxEMPTY set, RxRDY clear).
+  This applies to unknown ports too and is intentionally a coarse stub, not
+  a complete 8251 model. External writes are observed and retained for reporting.
+- P1/P3 external inputs are high, masked by their output latches. Timer 1 runs
+  in the CPU core. No analog path, remote modem, receive traffic or bit-slice
+  interaction is simulated. Cycle totals are not claims of wall-clock accuracy.
+
+## Results and limitations
+
+[Machine-readable results](analysis/results/SUMMARY.json) and
+[bounded traces](analysis/results/) are checked in. Traces include every first
+executed instruction address, limited early I/O events, and aggregate counts in
+the summary. A linear disassembly is included for navigation; data tables in it
+must not be mistaken for instructions.
+
+| Scenario | Unique instruction starts | Main-loop entries | Timer-1 entries |
+| --- | ---: | ---: | ---: |
+| Cold, no synthetic reset | 14 | 0 | 0 |
+| Retained resets, no shift input | 69 | 0 | 1,803 |
+| Shift input 00, 20M cycles | 1,035 | 11,492 | 19,740 |
+| Shift input FF, 20M cycles | 848 | 13,243 | 19,740 |
+| Shift input 07, 20M cycles | 869 | 12,735 | 19,734 |
+| Preseeded RAM, shift 00, 20M cycles | 1,032 | 11,688 | 19,929 |
+
+All six scenarios passed their checks with no CPU-core exceptions. Main-loop
+and interrupt execution demonstrate that meaningful firmware paths run, not
+that all code is correct or that the modem can establish a connection.
+
+The next fidelity improvements require tracing the 8031 reset network and
+mode-0 shift-register chains, decoding the DSC2847 control-store wiring, and
+identifying the additional labelled devices on DSC3557. Front/back photos are
+useful evidence but do not uniquely reveal every net or programmable-device
+function. A full telephone-line demonstration remains outstanding.

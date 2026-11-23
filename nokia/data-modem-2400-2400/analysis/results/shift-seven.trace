@@ -1,0 +1,1467 @@
+I 0 0000 LJMP  #1EAAh                   A=00 DP=0000 SP=07
+I 2 1eaa CLR   IE.7                     A=00 DP=0000 SP=07
+S 2 1eaa a8 00
+I 3 1eac MOV   PSW, #00h                A=00 DP=0000 SP=07
+S 3 1eac d0 00
+I 5 1eaf MOV   A, P1                    A=00 DP=0000 SP=07
+I 6 1eb1 MOV   P2, #00h                 A=ff DP=0000 SP=07
+S 6 1eb1 a0 00
+I 8 1eb4 MOV   A, P3                    A=ff DP=0000 SP=07
+I 9 1eb6 MOV   R0, #00h                 A=ff DP=0000 SP=07
+I 10 1eb8 MOV   A, @R0                   A=ff DP=0000 SP=07
+I 11 1eb9 CJNE  A, 00h, #+6              A=00 DP=0000 SP=07
+I 13 1ebc INC   R0                       A=00 DP=0000 SP=07
+I 14 1ebd CJNE  R0, #60h, #-8            A=00 DP=0000 SP=07
+I 19 1ec2 MOV   A, R0                    A=00 DP=0000 SP=07
+I 20 1ec3 MOV   @R0, A                   A=01 DP=0000 SP=07
+I 21 1ec4 AJMP  #1EC4h                   A=01 DP=0000 SP=07
+RESET 1999 retain-iram
+S 2002 1eaa a8 00
+S 2003 1eac d0 00
+S 2006 1eb1 a0 00
+RESET 3999 retain-iram
+S 4002 1eaa a8 00
+S 4003 1eac d0 00
+S 4006 1eb1 a0 00
+RESET 5999 retain-iram
+S 6002 1eaa a8 00
+S 6003 1eac d0 00
+S 6006 1eb1 a0 00
+RESET 7999 retain-iram
+S 8002 1eaa a8 00
+S 8003 1eac d0 00
+S 8006 1eb1 a0 00
+RESET 9999 retain-iram
+S 10002 1eaa a8 00
+S 10003 1eac d0 00
+S 10006 1eb1 a0 00
+RESET 11999 retain-iram
+S 12002 1eaa a8 00
+S 12003 1eac d0 00
+S 12006 1eb1 a0 00
+RESET 13999 retain-iram
+S 14002 1eaa a8 00
+S 14003 1eac d0 00
+S 14006 1eb1 a0 00
+RESET 15999 retain-iram
+S 16002 1eaa a8 00
+S 16003 1eac d0 00
+S 16006 1eb1 a0 00
+RESET 17999 retain-iram
+S 18002 1eaa a8 00
+S 18003 1eac d0 00
+S 18006 1eb1 a0 00
+RESET 19999 retain-iram
+S 20002 1eaa a8 00
+S 20003 1eac d0 00
+S 20006 1eb1 a0 00
+RESET 21999 retain-iram
+S 22002 1eaa a8 00
+S 22003 1eac d0 00
+S 22006 1eb1 a0 00
+RESET 23999 retain-iram
+S 24002 1eaa a8 00
+S 24003 1eac d0 00
+S 24006 1eb1 a0 00
+RESET 25999 retain-iram
+S 26002 1eaa a8 00
+S 26003 1eac d0 00
+S 26006 1eb1 a0 00
+RESET 27999 retain-iram
+S 28002 1eaa a8 00
+S 28003 1eac d0 00
+S 28006 1eb1 a0 00
+RESET 29999 retain-iram
+S 30002 1eaa a8 00
+S 30003 1eac d0 00
+S 30006 1eb1 a0 00
+RESET 31999 retain-iram
+S 32002 1eaa a8 00
+S 32003 1eac d0 00
+S 32006 1eb1 a0 00
+RESET 33999 retain-iram
+S 34002 1eaa a8 00
+S 34003 1eac d0 00
+S 34006 1eb1 a0 00
+RESET 35999 retain-iram
+S 36002 1eaa a8 00
+S 36003 1eac d0 00
+S 36006 1eb1 a0 00
+RESET 37999 retain-iram
+S 38002 1eaa a8 00
+S 38003 1eac d0 00
+S 38006 1eb1 a0 00
+RESET 39999 retain-iram
+S 40002 1eaa a8 00
+S 40003 1eac d0 00
+S 40006 1eb1 a0 00
+RESET 41999 retain-iram
+S 42002 1eaa a8 00
+S 42003 1eac d0 00
+S 42006 1eb1 a0 00
+RESET 43999 retain-iram
+S 44002 1eaa a8 00
+S 44003 1eac d0 00
+S 44006 1eb1 a0 00
+RESET 45999 retain-iram
+S 46002 1eaa a8 00
+S 46003 1eac d0 00
+S 46006 1eb1 a0 00
+RESET 47999 retain-iram
+S 48002 1eaa a8 00
+S 48003 1eac d0 00
+S 48006 1eb1 a0 00
+RESET 49999 retain-iram
+S 50002 1eaa a8 00
+S 50003 1eac d0 00
+S 50006 1eb1 a0 00
+RESET 51999 retain-iram
+S 52002 1eaa a8 00
+S 52003 1eac d0 00
+S 52006 1eb1 a0 00
+RESET 53999 retain-iram
+S 54002 1eaa a8 00
+S 54003 1eac d0 00
+S 54006 1eb1 a0 00
+RESET 55999 retain-iram
+S 56002 1eaa a8 00
+S 56003 1eac d0 00
+S 56006 1eb1 a0 00
+RESET 57999 retain-iram
+S 58002 1eaa a8 00
+S 58003 1eac d0 00
+S 58006 1eb1 a0 00
+RESET 59999 retain-iram
+S 60002 1eaa a8 00
+S 60003 1eac d0 00
+S 60006 1eb1 a0 00
+RESET 61999 retain-iram
+S 62002 1eaa a8 00
+S 62003 1eac d0 00
+S 62006 1eb1 a0 00
+RESET 63999 retain-iram
+RESET 65999 retain-iram
+RESET 67999 retain-iram
+RESET 69999 retain-iram
+RESET 71999 retain-iram
+RESET 73999 retain-iram
+RESET 75999 retain-iram
+RESET 77999 retain-iram
+RESET 79999 retain-iram
+RESET 81999 retain-iram
+RESET 83999 retain-iram
+RESET 85999 retain-iram
+RESET 87999 retain-iram
+RESET 89999 retain-iram
+RESET 91999 retain-iram
+RESET 93999 retain-iram
+RESET 95999 retain-iram
+RESET 97999 retain-iram
+RESET 99999 retain-iram
+RESET 101999 retain-iram
+RESET 103999 retain-iram
+RESET 105999 retain-iram
+RESET 107999 retain-iram
+RESET 109999 retain-iram
+RESET 111999 retain-iram
+RESET 113999 retain-iram
+RESET 115999 retain-iram
+RESET 117999 retain-iram
+RESET 119999 retain-iram
+RESET 121999 retain-iram
+RESET 123999 retain-iram
+RESET 125999 retain-iram
+RESET 127999 retain-iram
+RESET 129999 retain-iram
+RESET 131999 retain-iram
+RESET 133999 retain-iram
+RESET 135999 retain-iram
+RESET 137999 retain-iram
+RESET 139999 retain-iram
+RESET 141999 retain-iram
+RESET 143999 retain-iram
+RESET 145999 retain-iram
+RESET 147999 retain-iram
+RESET 149999 retain-iram
+RESET 151999 retain-iram
+RESET 153999 retain-iram
+RESET 155999 retain-iram
+RESET 157999 retain-iram
+RESET 159999 retain-iram
+RESET 161999 retain-iram
+RESET 163999 retain-iram
+RESET 165999 retain-iram
+RESET 167999 retain-iram
+RESET 169999 retain-iram
+RESET 171999 retain-iram
+RESET 173999 retain-iram
+RESET 175999 retain-iram
+RESET 177999 retain-iram
+RESET 179999 retain-iram
+RESET 181999 retain-iram
+RESET 183999 retain-iram
+RESET 185999 retain-iram
+RESET 187999 retain-iram
+RESET 189999 retain-iram
+I 190586 1ec0 AJMP  #1EC6h                   A=5f DP=0000 SP=07
+I 190588 1ec6 MOV   R0, #FFh                 A=5f DP=0000 SP=07
+I 190589 1ec8 MOV   A, #00h                  A=5f DP=0000 SP=07
+I 190590 1eca MOV   @R0, A                   A=00 DP=0000 SP=07
+I 190591 1ecb DJNZ  R0, #-3                  A=00 DP=0000 SP=07
+I 191355 1ecd MOV   SP, #6Fh                 A=00 DP=0000 SP=07
+S 191355 1ecd 81 6f
+I 191357 1ed0 LCALL #1DD0h                   A=00 DP=0000 SP=6f
+I 191359 1dd0 MOV   34h, #00h                A=00 DP=0000 SP=71
+I 191361 1dd3 SETB  04h.5                    A=00 DP=0000 SP=71
+I 191362 1dd5 MOV   30h, #00h                A=00 DP=0000 SP=71
+I 191364 1dd8 MOV   31h, #01h                A=00 DP=0000 SP=71
+I 191366 1ddb MOV   32h, #A8h                A=00 DP=0000 SP=71
+I 191368 1dde MOV   33h, #04h                A=00 DP=0000 SP=71
+I 191370 1de1 ACALL 1DE7h                    A=00 DP=0000 SP=71
+I 191372 1de7 RETI                           A=00 DP=0000 SP=73
+I 191374 1de3 ACALL 1DE7h                    A=00 DP=0000 SP=71
+I 191378 1de5 AJMP  #1DE8h                   A=00 DP=0000 SP=71
+I 191380 1de8 LCALL #17F1h                   A=00 DP=0000 SP=71
+I 191382 17f1 MOV   6Eh, #00h                A=00 DP=0000 SP=73
+I 191384 17f4 CLR   IP.2                     A=00 DP=0000 SP=73
+S 191384 17f4 b8 00
+I 191385 17f6 SETB  TCON.2                   A=00 DP=0000 SP=73
+S 191385 17f6 88 04
+I 191386 17f8 SETB  IE.2                     A=00 DP=0000 SP=73
+I 191387 17fa RET                            A=00 DP=0000 SP=73
+I 191389 1deb MOV   TMOD, #15h               A=00 DP=0000 SP=71
+S 191389 1deb 89 15
+I 191391 1dee CLR   TCON.5                   A=00 DP=0000 SP=71
+S 191391 1dee 88 04
+I 191392 1df0 CLR   TCON.7                   A=00 DP=0000 SP=71
+S 191392 1df0 88 04
+I 191393 1df2 MOV   TH1, #FCh                A=00 DP=0000 SP=71
+S 191393 1df2 8d fc
+I 191395 1df5 MOV   TL1, #21h                A=00 DP=0000 SP=71
+S 191395 1df5 8b 21
+I 191397 1df8 SETB  TCON.6                   A=00 DP=0000 SP=71
+S 191397 1df8 88 44
+I 191398 1dfa SETB  IE.7                     A=00 DP=0000 SP=71
+I 191399 1dfc SETB  IE.3                     A=00 DP=0000 SP=71
+I 191400 1dfe LCALL #0800h                   A=00 DP=0000 SP=71
+I 191402 0800 CLR   02h.0                    A=00 DP=0000 SP=73
+I 191403 0802 SETB  P1.1                     A=00 DP=0000 SP=73
+S 191403 0802 90 ff
+I 191404 0804 MOV   SCON, #10h               A=00 DP=0000 SP=73
+S 191404 0804 98 10
+I 191406 0807 JNB   SCON.0, #-3              A=00 DP=0000 SP=73
+RX 191408 0807 07
+I 191412 080a CLR   P1.1                     A=00 DP=0000 SP=73
+S 191412 080a 90 fd
+I 191413 080c SETB  P1.0                     A=00 DP=0000 SP=73
+S 191413 080c 90 fd
+I 191414 080e CLR   SCON.0                   A=00 DP=0000 SP=73
+S 191414 080e 98 10
+I 191415 0810 JNB   SCON.0, #-3              A=00 DP=0000 SP=73
+RX 191416 0810 07
+I 191419 0813 MOV   20h, SBUF                A=00 DP=0000 SP=73
+I 191421 0816 CLR   SCON.0                   A=00 DP=0000 SP=73
+S 191421 0816 98 10
+I 191422 0818 XRL   20h, #07h                A=00 DP=0000 SP=73
+I 191424 081b MOV   A, 20h                   A=00 DP=0000 SP=73
+RX 191424 081d 07
+I 191425 081d XRL   A, 2Ah                   A=00 DP=0000 SP=73
+I 191426 081f JZ    #+2                      A=00 DP=0000 SP=73
+I 191428 0823 MOV   2Ah, 20h                 A=00 DP=0000 SP=73
+I 191430 0826 JNB   SCON.0, #-3              A=00 DP=0000 SP=73
+I 191432 0829 MOV   20h, SBUF                A=00 DP=0000 SP=73
+I 191434 082c CLR   SCON.0                   A=00 DP=0000 SP=73
+S 191434 082c 98 10
+I 191435 082e XRL   20h, #00h                A=00 DP=0000 SP=73
+I 191437 0831 MOV   A, 20h                   A=00 DP=0000 SP=73
+I 191438 0833 XRL   A, 2Bh                   A=07 DP=0000 SP=73
+I 191439 0835 JZ    #+2                      A=07 DP=0000 SP=73
+RX 191440 0837 07
+I 191441 0837 SETB  02h.0                    A=07 DP=0000 SP=73
+I 191442 0839 MOV   2Bh, 20h                 A=07 DP=0000 SP=73
+I 191444 083c JNB   SCON.0, #-3              A=07 DP=0000 SP=73
+I 191446 083f MOV   20h, SBUF                A=07 DP=0000 SP=73
+I 191448 0842 CLR   SCON.0                   A=07 DP=0000 SP=73
+S 191448 0842 98 10
+RX 191448 0844 07
+I 191449 0844 XRL   20h, #00h                A=07 DP=0000 SP=73
+I 191451 0847 MOV   A, 20h                   A=07 DP=0000 SP=73
+I 191452 0849 XRL   A, 2Ch                   A=07 DP=0000 SP=73
+I 191453 084b JZ    #+2                      A=07 DP=0000 SP=73
+I 191455 084d SETB  02h.0                    A=07 DP=0000 SP=73
+I 191456 084f MOV   2Ch, 20h                 A=07 DP=0000 SP=73
+I 191458 0852 JNB   SCON.0, #-3              A=07 DP=0000 SP=73
+I 191460 0855 MOV   20h, SBUF                A=07 DP=0000 SP=73
+I 191462 0858 CLR   SCON.0                   A=07 DP=0000 SP=73
+S 191462 0858 98 10
+I 191463 085a XRL   20h, #00h                A=07 DP=0000 SP=73
+RX 191464 085d 07
+I 191465 085d MOV   A, 20h                   A=07 DP=0000 SP=73
+I 191466 085f XRL   A, 2Dh                   A=07 DP=0000 SP=73
+I 191467 0861 JZ    #+2                      A=07 DP=0000 SP=73
+I 191469 0863 SETB  02h.0                    A=07 DP=0000 SP=73
+I 191470 0865 MOV   2Dh, 20h                 A=07 DP=0000 SP=73
+I 191472 0868 JNB   SCON.0, #-3              A=07 DP=0000 SP=73
+I 191474 086b MOV   20h, SBUF                A=07 DP=0000 SP=73
+I 191476 086e CLR   SCON.0                   A=07 DP=0000 SP=73
+S 191476 086e 98 10
+I 191477 0870 XRL   20h, #00h                A=07 DP=0000 SP=73
+I 191479 0873 MOV   A, 20h                   A=07 DP=0000 SP=73
+I 191480 0875 XRL   A, 2Eh                   A=07 DP=0000 SP=73
+RX 191480 0877 07
+I 191481 0877 JZ    #+2                      A=07 DP=0000 SP=73
+I 191483 0879 SETB  02h.0                    A=07 DP=0000 SP=73
+I 191484 087b MOV   2Eh, 20h                 A=07 DP=0000 SP=73
+I 191486 087e JNB   SCON.0, #-3              A=07 DP=0000 SP=73
+I 191488 0881 MOV   20h, SBUF                A=07 DP=0000 SP=73
+I 191490 0884 XRL   20h, #00h                A=07 DP=0000 SP=73
+I 191492 0887 MOV   A, 20h                   A=07 DP=0000 SP=73
+I 191493 0889 XRL   A, 2Fh                   A=07 DP=0000 SP=73
+I 191494 088b JZ    #+2                      A=07 DP=0000 SP=73
+I 191496 088d SETB  02h.0                    A=07 DP=0000 SP=73
+I 191497 088f MOV   2Fh, 20h                 A=07 DP=0000 SP=73
+I 191499 0892 CLR   SCON.4                   A=07 DP=0000 SP=73
+S 191499 0892 98 01
+I 191500 0894 CLR   SCON.0                   A=07 DP=0000 SP=73
+S 191500 0894 98 00
+I 191501 0896 CLR   P1.0                     A=07 DP=0000 SP=73
+S 191501 0896 90 fc
+I 191502 0898 RET                            A=07 DP=0000 SP=73
+I 191504 1e01 LCALL #1CE1h                   A=07 DP=0000 SP=71
+I 191506 1ce1 JNB   0Dh.7, #+5               A=07 DP=0000 SP=73
+I 191508 1ce9 JNB   0Dh.5, #+13              A=07 DP=0000 SP=73
+I 191510 1cf9 JB   0Dh.4, #+5                A=07 DP=0000 SP=73
+I 191512 1cfc MOV   35h, #6Eh                A=07 DP=0000 SP=73
+I 191514 1cff AJMP  #1D04h                   A=07 DP=0000 SP=73
+I 191516 1d04 RET                            A=07 DP=0000 SP=73
+I 191518 1e04 MOV   R0, #06h                 A=07 DP=0000 SP=71
+I 191519 1e06 MOV   R3, 35h                  A=07 DP=0000 SP=71
+I 191521 1e08 MOV   A, #35h                  A=07 DP=0000 SP=71
+I 191522 1e0a MOV   C, 0Eh.0                 A=35 DP=0000 SP=71
+I 191523 1e0c CPL   C                        A=35 DP=0000 SP=71
+I 191524 1e0d MOV   ACC.5, C                 A=35 DP=0000 SP=71
+S 191524 1e0d e0 15
+I 191526 1e0f MOV   R2, A                    A=15 DP=0000 SP=71
+I 191527 1e10 LCALL #1D05h                   A=15 DP=0000 SP=71
+I 191529 1d05 MOV   A, #80h                  A=15 DP=0000 SP=73
+I 191530 1d07 MOVX  @R0, A                   A=80 DP=0000 SP=73
+W 191530 1d07 0006 80
+I 191532 1d08 MOV   A, #00h                  A=80 DP=0000 SP=73
+I 191533 1d0a NOP                            A=00 DP=0000 SP=73
+I 191534 1d0b NOP                            A=00 DP=0000 SP=73
+I 191535 1d0c MOVX  @R0, A                   A=00 DP=0000 SP=73
+W 191535 1d0c 0006 00
+I 191537 1d0d MOV   A, #40h                  A=00 DP=0000 SP=73
+I 191538 1d0f NOP                            A=40 DP=0000 SP=73
+I 191539 1d10 NOP                            A=40 DP=0000 SP=73
+I 191540 1d11 MOVX  @R0, A                   A=40 DP=0000 SP=73
+W 191540 1d11 0006 40
+I 191542 1d12 MOV   A, R3                    A=40 DP=0000 SP=73
+I 191543 1d13 NOP                            A=6e DP=0000 SP=73
+I 191544 1d14 NOP                            A=6e DP=0000 SP=73
+I 191545 1d15 MOVX  @R0, A                   A=6e DP=0000 SP=73
+W 191545 1d15 0006 6e
+I 191547 1d16 NOP                            A=6e DP=0000 SP=73
+I 191548 1d17 NOP                            A=6e DP=0000 SP=73
+I 191549 1d18 NOP                            A=6e DP=0000 SP=73
+I 191550 1d19 NOP                            A=6e DP=0000 SP=73
+I 191551 1d1a NOP                            A=6e DP=0000 SP=73
+I 191552 1d1b JB   ACC.0, #+16               A=6e DP=0000 SP=73
+I 191554 1d1e JB   ACC.1, #+13               A=6e DP=0000 SP=73
+I 191556 1d2e MOV   A, R2                    A=6e DP=0000 SP=73
+I 191557 1d2f MOVX  @R0, A                   A=15 DP=0000 SP=73
+W 191557 1d2f 0006 15
+I 191559 1d30 RET                            A=15 DP=0000 SP=73
+I 191561 1e13 CLR   P1.7                     A=15 DP=0000 SP=71
+S 191561 1e13 90 7c
+I 191562 1e15 LCALL #1933h                   A=15 DP=0000 SP=71
+I 191564 1933 PUSH  PSW                      A=15 DP=0000 SP=73
+I 191566 1935 ANL   PSW, #EFh                A=15 DP=0000 SP=74
+I 191568 1938 ORL   PSW, #08h                A=15 DP=0000 SP=74
+I 191570 193b MOV   20h, 20h                 A=15 DP=0000 SP=74
+I 191572 193e MOV   52h, #08h                A=15 DP=0000 SP=74
+I 191574 1941 SETB  05h.1                    A=15 DP=0000 SP=74
+I 191575 1943 MOV   R0, #52h                 A=15 DP=0000 SP=74
+I 191576 1945 CLR   01h.0                    A=15 DP=0000 SP=74
+I 191577 1947 CLR   01h.1                    A=15 DP=0000 SP=74
+I 191578 1949 CLR   05h.2                    A=15 DP=0000 SP=74
+I 191579 194b CLR   05h.3                    A=15 DP=0000 SP=74
+I 191580 194d CLR   05h.5                    A=15 DP=0000 SP=74
+I 191581 194f CLR   05h.6                    A=15 DP=0000 SP=74
+I 191582 1951 CLR   06h.7                    A=15 DP=0000 SP=74
+I 191583 1953 CLR   08h.0                    A=15 DP=0000 SP=74
+I 191584 1955 CLR   08h.1                    A=15 DP=0000 SP=74
+I 191585 1957 MOV   20h, 20h                 A=15 DP=0000 SP=74
+I 191587 195a POP   PSW                      A=15 DP=0000 SP=74
+I 191589 195c RET                            A=15 DP=0000 SP=73
+I 191591 1e18 LCALL #0C5Bh                   A=15 DP=0000 SP=71
+I 191593 0c5b PUSH  PSW                      A=15 DP=0000 SP=73
+I 191595 0c5d ANL   PSW, #EFh                A=15 DP=0000 SP=74
+I 191597 0c60 ORL   PSW, #08h                A=15 DP=0000 SP=74
+I 191599 0c63 MOV   R1, #5Bh                 A=15 DP=0000 SP=74
+I 191600 0c65 CLR   01h.4                    A=15 DP=0000 SP=74
+I 191601 0c67 CLR   01h.5                    A=15 DP=0000 SP=74
+I 191602 0c69 CLR   08h.3                    A=15 DP=0000 SP=74
+I 191603 0c6b CLR   06h.0                    A=15 DP=0000 SP=74
+I 191604 0c6d CLR   06h.1                    A=15 DP=0000 SP=74
+I 191605 0c6f CLR   06h.2                    A=15 DP=0000 SP=74
+I 191606 0c71 CLR   06h.3                    A=15 DP=0000 SP=74
+I 191607 0c73 CLR   06h.4                    A=15 DP=0000 SP=74
+I 191608 0c75 CLR   06h.5                    A=15 DP=0000 SP=74
+I 191609 0c77 CLR   07h.3                    A=15 DP=0000 SP=74
+I 191610 0c79 CLR   06h.6                    A=15 DP=0000 SP=74
+I 191611 0c7b CLR   07h.7                    A=15 DP=0000 SP=74
+I 191612 0c7d CLR   08h.4                    A=15 DP=0000 SP=74
+I 191613 0c7f CLR   07h.4                    A=15 DP=0000 SP=74
+I 191614 0c81 CLR   08h.2                    A=15 DP=0000 SP=74
+I 191615 0c83 MOV   60h, #00h                A=15 DP=0000 SP=74
+I 191617 0c86 MOV   61h, #00h                A=15 DP=0000 SP=74
+I 191619 0c89 MOV   57h, #00h                A=15 DP=0000 SP=74
+I 191621 0c8c MOV   58h, #00h                A=15 DP=0000 SP=74
+I 191623 0c8f MOV   59h, #00h                A=15 DP=0000 SP=74
+I 191625 0c92 MOV   5Ah, #00h                A=15 DP=0000 SP=74
+I 191627 0c95 MOV   3Ah, #00h                A=15 DP=0000 SP=74
+I 191629 0c98 MOV   3Bh, #00h                A=15 DP=0000 SP=74
+I 191631 0c9b JNB   0Dh.5, #+5               A=15 DP=0000 SP=74
+I 191633 0ca3 JNB   0Dh.4, #+10              A=15 DP=0000 SP=74
+I 191635 0cb0 MOV   R3, #0Ah                 A=15 DP=0000 SP=74
+I 191636 0cb2 AJMP  #0CB8h                   A=15 DP=0000 SP=74
+I 191638 0cb8 POP   PSW                      A=15 DP=0000 SP=74
+I 191640 0cba RET                            A=15 DP=0000 SP=73
+I 191642 1e1b LCALL #077Ch                   A=15 DP=0000 SP=71
+I 191644 077c CLR   IE.0                     A=15 DP=0000 SP=73
+I 191645 077e CLR   IE.1                     A=15 DP=0000 SP=73
+I 191646 0780 JB   0Dh.7, #+10               A=15 DP=0000 SP=73
+I 191648 0783 SETB  IP.1                     A=15 DP=0000 SP=73
+S 191648 0783 b8 02
+I 191649 0785 SETB  IP.0                     A=15 DP=0000 SP=73
+S 191649 0785 b8 03
+I 191650 0787 SETB  TCON.0                   A=15 DP=0000 SP=73
+S 191650 0787 88 45
+I 191651 0789 CLR   TCON.1                   A=15 DP=0000 SP=73
+S 191651 0789 88 45
+I 191652 078b SETB  IE.0                     A=15 DP=0000 SP=73
+I 191653 078d RET                            A=15 DP=0000 SP=73
+I 191655 1e1e MOV   R0, #05h                 A=15 DP=0000 SP=71
+I 191656 1e20 MOV   R3, #CCh                 A=15 DP=0000 SP=71
+I 191657 1e22 MOV   R2, #15h                 A=15 DP=0000 SP=71
+I 191658 1e24 LCALL #1D05h                   A=15 DP=0000 SP=71
+W 191661 1d07 0005 80
+W 191666 1d0c 0005 00
+W 191671 1d11 0005 40
+W 191676 1d15 0005 cc
+I 191687 1d21 MOV   A, #FFh                  A=cc DP=0000 SP=73
+I 191688 1d23 MOVX  @R0, A                   A=ff DP=0000 SP=73
+W 191688 1d23 0005 ff
+I 191690 1d24 NOP                            A=ff DP=0000 SP=73
+I 191691 1d25 NOP                            A=ff DP=0000 SP=73
+I 191692 1d26 NOP                            A=ff DP=0000 SP=73
+I 191693 1d27 NOP                            A=ff DP=0000 SP=73
+I 191694 1d28 NOP                            A=ff DP=0000 SP=73
+I 191695 1d29 NOP                            A=ff DP=0000 SP=73
+I 191696 1d2a NOP                            A=ff DP=0000 SP=73
+I 191697 1d2b NOP                            A=ff DP=0000 SP=73
+I 191698 1d2c NOP                            A=ff DP=0000 SP=73
+I 191699 1d2d NOP                            A=ff DP=0000 SP=73
+W 191701 1d2f 0005 15
+I 191705 1e27 MOV   32h, #ACh                A=15 DP=0000 SP=71
+I 191707 1e2a CLR   IE.3                     A=15 DP=0000 SP=71
+I 191708 1e2c MOV   17h, #00h                A=15 DP=0000 SP=71
+I 191710 1e2f MOV   16h, #32h                A=15 DP=0000 SP=71
+I 191712 1e32 SETB  IE.3                     A=15 DP=0000 SP=71
+I 191713 1e34 LCALL #0899h                   A=15 DP=0000 SP=71
+I 191715 0899 ANL   P1, #FAh                 A=15 DP=0000 SP=73
+S 191715 0899 90 78
+I 191717 089c MOV   SCON, #03h               A=15 DP=0000 SP=73
+S 191717 089c 98 03
+I 191719 089f MOV   20h, 30h                 A=15 DP=0000 SP=73
+I 191721 08a2 XRL   20h, #00h                A=15 DP=0000 SP=73
+I 191723 08a5 CLR   SCON.1                   A=15 DP=0000 SP=73
+S 191723 08a5 98 01
+I 191724 08a7 MOV   SBUF, 20h                A=15 DP=0000 SP=73
+TX 191724 08a7 00
+S 191724 08a7 99 00
+I 191726 08aa MOV   20h, 31h                 A=15 DP=0000 SP=73
+I 191728 08ad XRL   20h, #03h                A=15 DP=0000 SP=73
+I 191730 08b0 JNB   SCON.1, #-3              A=15 DP=0000 SP=73
+I 191736 08b3 CLR   SCON.1                   A=15 DP=0000 SP=73
+S 191736 08b3 98 01
+I 191737 08b5 MOV   SBUF, 20h                A=15 DP=0000 SP=73
+TX 191737 08b5 02
+S 191737 08b5 99 02
+I 191739 08b8 MOV   20h, 32h                 A=15 DP=0000 SP=73
+I 191741 08bb XRL   20h, #00h                A=15 DP=0000 SP=73
+I 191743 08be JNB   SCON.1, #-3              A=15 DP=0000 SP=73
+I 191749 08c1 CLR   SCON.1                   A=15 DP=0000 SP=73
+S 191749 08c1 98 01
+I 191750 08c3 MOV   SBUF, 20h                A=15 DP=0000 SP=73
+TX 191750 08c3 ac
+S 191750 08c3 99 ac
+I 191752 08c6 MOV   20h, 33h                 A=15 DP=0000 SP=73
+I 191754 08c9 XRL   20h, #F8h                A=15 DP=0000 SP=73
+I 191756 08cc JNB   SCON.1, #-3              A=15 DP=0000 SP=73
+I 191762 08cf CLR   SCON.1                   A=15 DP=0000 SP=73
+S 191762 08cf 98 01
+I 191763 08d1 MOV   SBUF, 20h                A=15 DP=0000 SP=73
+TX 191763 08d1 fc
+S 191763 08d1 99 fc
+I 191765 08d4 JNB   SCON.1, #-3              A=15 DP=0000 SP=73
+I 191775 08d7 SETB  P1.2                     A=15 DP=0000 SP=73
+S 191775 08d7 90 7c
+I 191776 08d9 NOP                            A=15 DP=0000 SP=73
+I 191777 08da CLR   P1.2                     A=15 DP=0000 SP=73
+S 191777 08da 90 78
+I 191778 08dc RET                            A=15 DP=0000 SP=73
+I 191780 1e37 LCALL #08DDh                   A=15 DP=0000 SP=71
+I 191782 08dd CLR   P2.5                     A=15 DP=0000 SP=73
+I 191783 08df SETB  P2.7                     A=15 DP=0000 SP=73
+I 191784 08e1 CLR   P2.6                     A=15 DP=0000 SP=73
+I 191785 08e3 MOV   R0, #04h                 A=15 DP=0000 SP=73
+I 191786 08e5 MOVX  A, @R0                   A=15 DP=0000 SP=73
+R 191786 08e5 8004 05
+I 191788 08e6 CLR   P2.7                     A=05 DP=0000 SP=73
+I 191789 08e8 RET                            A=05 DP=0000 SP=73
+I 191791 1e3a MOV   A, 17h                   A=05 DP=0000 SP=71
+I 191792 1e3c JNB   ACC.7, #-11              A=00 DP=0000 SP=71
+S 191796 0899 90 78
+S 191798 089c 98 03
+S 191804 08a5 98 01
+TX 191805 08a7 00
+S 191805 08a7 99 00
+S 191817 08b3 98 01
+TX 191818 08b5 02
+S 191818 08b5 99 02
+S 191830 08c1 98 01
+TX 191831 08c3 ac
+S 191831 08c3 99 ac
+S 191843 08cf 98 01
+TX 191844 08d1 fc
+S 191844 08d1 99 fc
+S 191856 08d7 90 7c
+S 191858 08da 90 78
+R 191867 08e5 8004 05
+S 191877 0899 90 78
+S 191879 089c 98 03
+S 191885 08a5 98 01
+TX 191886 08a7 00
+S 191886 08a7 99 00
+S 191898 08b3 98 01
+TX 191899 08b5 02
+S 191899 08b5 99 02
+S 191911 08c1 98 01
+TX 191912 08c3 ac
+S 191912 08c3 99 ac
+S 191924 08cf 98 01
+TX 191925 08d1 fc
+S 191925 08d1 99 fc
+S 191937 08d7 90 7c
+S 191939 08da 90 78
+R 191948 08e5 8004 05
+S 191958 0899 90 78
+S 191960 089c 98 03
+S 191966 08a5 98 01
+TX 191967 08a7 00
+S 191967 08a7 99 00
+S 191979 08b3 98 01
+TX 191980 08b5 02
+S 191980 08b5 99 02
+S 191992 08c1 98 01
+TX 191993 08c3 ac
+S 191993 08c3 99 ac
+S 192005 08cf 98 01
+TX 192006 08d1 fc
+S 192006 08d1 99 fc
+S 192018 08d7 90 7c
+S 192020 08da 90 78
+R 192029 08e5 8004 05
+S 192039 0899 90 78
+S 192041 089c 98 03
+S 192047 08a5 98 01
+TX 192048 08a7 00
+S 192048 08a7 99 00
+S 192060 08b3 98 01
+TX 192061 08b5 02
+S 192061 08b5 99 02
+TX 192074 08c3 ac
+S 192074 08c3 99 ac
+TX 192087 08d1 fc
+S 192087 08d1 99 fc
+S 192099 08d7 90 7c
+S 192101 08da 90 78
+R 192110 08e5 8004 05
+S 192120 0899 90 78
+TX 192129 08a7 00
+S 192129 08a7 99 00
+TX 192142 08b5 02
+S 192142 08b5 99 02
+TX 192155 08c3 ac
+S 192155 08c3 99 ac
+TX 192168 08d1 fc
+S 192168 08d1 99 fc
+S 192180 08d7 90 7c
+S 192182 08da 90 78
+R 192191 08e5 8004 05
+S 192201 0899 90 78
+TX 192210 08a7 00
+S 192210 08a7 99 00
+TX 192223 08b5 02
+S 192223 08b5 99 02
+TX 192236 08c3 ac
+S 192236 08c3 99 ac
+TX 192249 08d1 fc
+S 192249 08d1 99 fc
+S 192261 08d7 90 7c
+S 192263 08da 90 78
+R 192272 08e5 8004 05
+S 192282 0899 90 78
+TX 192291 08a7 00
+S 192291 08a7 99 00
+TX 192304 08b5 02
+S 192304 08b5 99 02
+TX 192317 08c3 ac
+S 192317 08c3 99 ac
+TX 192330 08d1 fc
+S 192330 08d1 99 fc
+S 192342 08d7 90 7c
+S 192344 08da 90 78
+R 192353 08e5 8004 05
+S 192363 0899 90 78
+TX 192372 08a7 00
+TX 192385 08b5 02
+I 192391 001b LJMP  #07D7h                   A=00 DP=0000 SP=75
+I 192393 07d7 PUSH  PSW                      A=00 DP=0000 SP=75
+I 192395 07d9 ANL   PSW, #F7h                A=00 DP=0000 SP=76
+I 192397 07dc ORL   PSW, #10h                A=00 DP=0000 SP=76
+I 192399 07df MOV   TH1, #FCh                A=00 DP=0000 SP=76
+S 192399 07df 8d fc
+I 192401 07e2 MOV   TL1, #21h                A=00 DP=0000 SP=76
+S 192401 07e2 8b 21
+I 192403 07e5 CJNE  R6, #00h, #+1            A=00 DP=0000 SP=76
+I 192405 07e9 DEC   R6                       A=00 DP=0000 SP=76
+I 192406 07ea CJNE  R4, #00h, #+3            A=00 DP=0000 SP=76
+I 192408 07ed DEC   R5                       A=00 DP=0000 SP=76
+I 192409 07ee DEC   R1                       A=00 DP=0000 SP=76
+I 192410 07ef DEC   R0                       A=00 DP=0000 SP=76
+I 192411 07f0 DEC   R4                       A=00 DP=0000 SP=76
+I 192412 07f1 CJNE  R2, #00h, #+1            A=00 DP=0000 SP=76
+I 192414 07f4 DEC   R3                       A=00 DP=0000 SP=76
+I 192415 07f5 DEC   R2                       A=00 DP=0000 SP=76
+I 192416 07f6 POP   PSW                      A=00 DP=0000 SP=76
+I 192418 07f8 RETI                           A=00 DP=0000 SP=75
+TX 192425 08c3 ac
+TX 192438 08d1 fc
+S 192450 08d7 90 7c
+S 192452 08da 90 78
+TX 192480 08a7 00
+TX 192493 08b5 02
+TX 192506 08c3 ac
+TX 192519 08d1 fc
+TX 192561 08a7 00
+TX 192574 08b5 02
+TX 192587 08c3 ac
+TX 192600 08d1 fc
+TX 192642 08a7 00
+TX 192655 08b5 02
+TX 192668 08c3 ac
+TX 192681 08d1 fc
+TX 192723 08a7 00
+TX 192736 08b5 02
+TX 192749 08c3 ac
+TX 192762 08d1 fc
+TX 192804 08a7 00
+TX 192817 08b5 02
+TX 192830 08c3 ac
+TX 192843 08d1 fc
+TX 192885 08a7 00
+TX 192898 08b5 02
+TX 192911 08c3 ac
+TX 192924 08d1 fc
+TX 192966 08a7 00
+TX 192979 08b5 02
+TX 192992 08c3 ac
+TX 193005 08d1 fc
+TX 193047 08a7 00
+TX 193060 08b5 02
+TX 193073 08c3 ac
+TX 193086 08d1 fc
+TX 193128 08a7 00
+TX 193141 08b5 02
+TX 193154 08c3 ac
+TX 193167 08d1 fc
+TX 193209 08a7 00
+TX 193222 08b5 02
+TX 193235 08c3 ac
+TX 193248 08d1 fc
+TX 193290 08a7 00
+TX 193303 08b5 02
+TX 193316 08c3 ac
+TX 193329 08d1 fc
+TX 193371 08a7 00
+TX 193384 08b5 02
+S 193402 07df 8d fc
+S 193404 07e2 8b 21
+TX 193422 08c3 ac
+TX 193435 08d1 fc
+TX 193477 08a7 00
+TX 193490 08b5 02
+TX 193503 08c3 ac
+TX 193516 08d1 fc
+TX 193558 08a7 00
+TX 193571 08b5 02
+TX 193584 08c3 ac
+TX 193597 08d1 fc
+TX 193639 08a7 00
+TX 193652 08b5 02
+TX 193665 08c3 ac
+TX 193678 08d1 fc
+TX 193720 08a7 00
+TX 193733 08b5 02
+TX 193746 08c3 ac
+TX 193759 08d1 fc
+TX 193801 08a7 00
+TX 193814 08b5 02
+TX 193827 08c3 ac
+TX 193840 08d1 fc
+TX 193882 08a7 00
+TX 193895 08b5 02
+TX 193908 08c3 ac
+TX 193921 08d1 fc
+TX 193963 08a7 00
+TX 193976 08b5 02
+TX 193989 08c3 ac
+TX 194002 08d1 fc
+TX 194044 08a7 00
+TX 194057 08b5 02
+TX 194070 08c3 ac
+TX 194083 08d1 fc
+TX 194125 08a7 00
+TX 194138 08b5 02
+TX 194151 08c3 ac
+TX 194164 08d1 fc
+TX 194206 08a7 00
+TX 194219 08b5 02
+TX 194232 08c3 ac
+TX 194245 08d1 fc
+TX 194287 08a7 00
+TX 194300 08b5 02
+TX 194313 08c3 ac
+TX 194326 08d1 fc
+S 194406 07df 8d fc
+S 194408 07e2 8b 21
+S 195409 07df 8d fc
+S 195411 07e2 8b 21
+S 196413 07df 8d fc
+S 196415 07e2 8b 21
+S 197416 07df 8d fc
+S 197418 07e2 8b 21
+S 198420 07df 8d fc
+S 198422 07e2 8b 21
+S 199423 07df 8d fc
+S 199425 07e2 8b 21
+S 200427 07df 8d fc
+S 200429 07e2 8b 21
+S 201431 07df 8d fc
+S 201433 07e2 8b 21
+S 202434 07df 8d fc
+S 202436 07e2 8b 21
+S 203437 07df 8d fc
+S 203439 07e2 8b 21
+S 204441 07df 8d fc
+S 204443 07e2 8b 21
+S 205444 07df 8d fc
+S 205446 07e2 8b 21
+S 206448 07df 8d fc
+S 206450 07e2 8b 21
+S 207451 07df 8d fc
+S 207453 07e2 8b 21
+S 208455 07df 8d fc
+S 208457 07e2 8b 21
+S 209458 07df 8d fc
+S 209460 07e2 8b 21
+S 210462 07df 8d fc
+S 210464 07e2 8b 21
+S 211465 07df 8d fc
+S 211467 07e2 8b 21
+S 212469 07df 8d fc
+S 212471 07e2 8b 21
+S 213472 07df 8d fc
+S 213474 07e2 8b 21
+S 214476 07df 8d fc
+S 214478 07e2 8b 21
+S 215480 07df 8d fc
+S 215482 07e2 8b 21
+S 216483 07df 8d fc
+S 216485 07e2 8b 21
+S 217486 07df 8d fc
+S 217488 07e2 8b 21
+S 218490 07df 8d fc
+S 218492 07e2 8b 21
+S 219493 07df 8d fc
+S 219495 07e2 8b 21
+S 220497 07df 8d fc
+S 220499 07e2 8b 21
+S 221500 07df 8d fc
+S 221502 07e2 8b 21
+S 222504 07df 8d fc
+S 222506 07e2 8b 21
+I 242580 07e8 DEC   R7                       A=05 DP=0000 SP=74
+I 242595 1e3f MOV   32h, #A8h                A=ff DP=0000 SP=71
+I 242597 1e42 LCALL #0899h                   A=ff DP=0000 SP=71
+I 242664 1e45 MOV   30h, #00h                A=ff DP=0000 SP=71
+I 242666 1e48 MOV   32h, #A8h                A=ff DP=0000 SP=71
+I 242668 1e4b MOV   R2, #01h                 A=ff DP=0000 SP=71
+I 242669 1e4d MOV   R3, #00h                 A=ff DP=0000 SP=71
+I 242670 1e4f MOV   R4, #0Ah                 A=ff DP=0000 SP=71
+I 242671 1e51 MOV   R5, #02h                 A=ff DP=0000 SP=71
+I 242672 1e53 MOV   R6, #02h                 A=ff DP=0000 SP=71
+I 242673 1e55 MOV   A, R2                    A=ff DP=0000 SP=71
+I 242674 1e56 ANL   A, #FEh                  A=01 DP=0000 SP=71
+I 242675 1e58 MOV   30h, A                   A=00 DP=0000 SP=71
+I 242676 1e5a MOV   A, R3                    A=00 DP=0000 SP=71
+I 242677 1e5b MOV   C, ACC.3                 A=00 DP=0000 SP=71
+I 242678 1e5d CPL   C                        A=00 DP=0000 SP=71
+I 242679 1e5e MOV   P1.3, C                  A=00 DP=0000 SP=71
+I 242681 1e60 MOV   C, ACC.5                 A=00 DP=0000 SP=71
+I 242682 1e62 CPL   C                        A=00 DP=0000 SP=71
+I 242683 1e63 MOV   P1.4, C                  A=00 DP=0000 SP=71
+I 242685 1e65 CLR   IE.3                     A=00 DP=0000 SP=71
+I 242686 1e67 MOV   17h, #00h                A=00 DP=0000 SP=71
+I 242688 1e6a MOV   16h, #FAh                A=00 DP=0000 SP=71
+I 242690 1e6d SETB  IE.3                     A=00 DP=0000 SP=71
+I 242691 1e6f LCALL #0899h                   A=00 DP=0000 SP=71
+I 242758 1e72 LCALL #08DDh                   A=00 DP=0000 SP=71
+I 242769 1e75 MOV   A, 17h                   A=05 DP=0000 SP=71
+I 242770 1e77 JNB   ACC.7, #-11              A=00 DP=0000 SP=71
+I 494500 1e7a ANL   32h, #DFh                A=ff DP=0000 SP=71
+I 494502 1e7d XRL   32h, #40h                A=ff DP=0000 SP=71
+I 494504 1e80 MOV   A, R3                    A=ff DP=0000 SP=71
+I 494505 1e81 JZ    #+5                      A=00 DP=0000 SP=71
+I 494507 1e88 MOV   A, R2                    A=00 DP=0000 SP=71
+I 494508 1e89 RL    A                        A=01 DP=0000 SP=71
+I 494509 1e8a JB   ACC.3, #+3                A=02 DP=0000 SP=71
+I 494511 1e8d JNB   ACC.5, #+5               A=02 DP=0000 SP=71
+I 494513 1e95 MOV   R2, A                    A=02 DP=0000 SP=71
+I 494514 1e96 DJNZ  R4, #-67                 A=02 DP=0000 SP=71
+I 998280 1e90 MOV   R3, A                    A=08 DP=0000 SP=71
+I 998281 1e91 MOV   R2, #00h                 A=08 DP=0000 SP=71
+I 998282 1e93 DJNZ  R4, #-64                 A=08 DP=0000 SP=71
+I 1250116 1e83 MOV   R2, A                    A=08 DP=0000 SP=71
+I 1250117 1e84 MOV   R3, #00h                 A=08 DP=0000 SP=71
+I 1250118 1e86 DJNZ  R4, #-51                 A=08 DP=0000 SP=71
+I 2761409 1e98 ORL   32h, #20h                A=01 DP=0000 SP=71
+I 2761411 1e9b MOV   R2, #01h                 A=01 DP=0000 SP=71
+I 2761412 1e9d MOV   R4, #0Ah                 A=01 DP=0000 SP=71
+I 2761413 1e9f DJNZ  R5, #-76                 A=01 DP=0000 SP=71
+I 5280226 1ea1 MOV   R2, #00h                 A=01 DP=0000 SP=71
+I 5280227 1ea3 MOV   R5, #01h                 A=01 DP=0000 SP=71
+I 5280228 1ea5 MOV   R4, #10h                 A=01 DP=0000 SP=71
+I 5280229 1ea7 DJNZ  R6, #-84                 A=01 DP=0000 SP=71
+I 9310271 1ea9 RET                            A=00 DP=0000 SP=71
+I 9310273 1ed3 LCALL #08DDh                   A=00 DP=0000 SP=6f
+I 9310284 1ed6 LCALL #0800h                   A=05 DP=0000 SP=6f
+RX 9310288 0807 07
+RX 9310296 0810 07
+RX 9310304 081d 07
+RX 9310320 0839 07
+RX 9310328 0847 07
+RX 9310344 0861 07
+RX 9310360 087e 07
+I 9310379 1ed9 LCALL #0620h                   A=00 DP=0000 SP=6f
+I 9310381 0620 CLR   02h.1                    A=00 DP=0000 SP=71
+I 9310382 0622 MOV   C, 0Ch.7                 A=00 DP=0000 SP=71
+I 9310383 0624 ANL   C, 0Ch.6                 A=00 DP=0000 SP=71
+I 9310384 0626 ANL   C, 0Dh.0                 A=00 DP=0000 SP=71
+I 9310385 0628 ANL   C, 0Bh.1                 A=00 DP=0000 SP=71
+I 9310386 062a ANL   C, 0Bh.0                 A=00 DP=0000 SP=71
+I 9310387 062c ANL   C, 0Bh.3                 A=00 DP=0000 SP=71
+I 9310388 062e ANL   C, 0Bh.2                 A=00 DP=0000 SP=71
+I 9310389 0630 JNC   #+14                     A=00 DP=0000 SP=71
+I 9310391 0640 SETB  02h.2                    A=00 DP=0000 SP=71
+I 9310392 0642 MOV   C, 02h.3                 A=00 DP=0000 SP=71
+I 9310393 0644 MOV   00h.0, C                 A=00 DP=0000 SP=71
+I 9310395 0646 JB   0Fh.6, #+9                A=00 DP=0000 SP=71
+I 9310397 0649 JB   0Fh.5, #+13               A=00 DP=0000 SP=71
+I 9310399 064c MOV   C, 0Ch.7                 A=00 DP=0000 SP=71
+I 9310400 064e MOV   02h.3, C                 A=00 DP=0000 SP=71
+I 9310402 0650 AJMP  #0661h                   A=00 DP=0000 SP=71
+I 9310404 0661 MOV   C, 02h.3                 A=00 DP=0000 SP=71
+I 9310405 0663 JNB   00h.0, #+1               A=00 DP=0000 SP=71
+I 9310407 0667 ORL   C, 02h.1                 A=00 DP=0000 SP=71
+I 9310409 0669 MOV   02h.1, C                 A=00 DP=0000 SP=71
+I 9310411 066b CLR   03h.4                    A=00 DP=0000 SP=71
+I 9310412 066d CLR   04h.6                    A=00 DP=0000 SP=71
+I 9310413 066f CLR   03h.5                    A=00 DP=0000 SP=71
+I 9310414 0671 CLR   03h.6                    A=00 DP=0000 SP=71
+I 9310415 0673 CLR   03h.7                    A=00 DP=0000 SP=71
+I 9310416 0675 JNB   0Ch.3, #+10              A=00 DP=0000 SP=71
+I 9310418 0682 JNB   0Ch.1, #+6               A=00 DP=0000 SP=71
+I 9310420 0685 SETB  03h.4                    A=00 DP=0000 SP=71
+I 9310421 0687 SETB  03h.7                    A=00 DP=0000 SP=71
+I 9310422 0689 AJMP  #06B7h                   A=00 DP=0000 SP=71
+I 9310424 06b7 JB   0Ch.3, #+107              A=00 DP=0000 SP=71
+I 9310426 06ba JNB   02h.3, #+77              A=00 DP=0000 SP=71
+I 9310428 070a JNB   0Fh.0, #+24              A=00 DP=0000 SP=71
+I 9310430 070d JB   0Bh.6, #+21               A=00 DP=0000 SP=71
+I 9310432 0710 JB   04h.6, #+18               A=00 DP=0000 SP=71
+I 9310434 0713 JB   0Ch.2, #+15               A=00 DP=0000 SP=71
+I 9310436 0725 SETB  02h.4                    A=00 DP=0000 SP=71
+I 9310437 0727 CLR   02h.5                    A=00 DP=0000 SP=71
+I 9310438 0729 AJMP  #072Fh                   A=00 DP=0000 SP=71
+I 9310440 072f JB   02h.5, #+15               A=00 DP=0000 SP=71
+I 9310442 0732 JB   0Eh.5, #+9                A=00 DP=0000 SP=71
+I 9310444 0735 JB   0Eh.4, #+13               A=00 DP=0000 SP=71
+I 9310446 0738 MOV   C, 0Ah.5                 A=00 DP=0000 SP=71
+I 9310447 073a MOV   03h.1, C                 A=00 DP=0000 SP=71
+I 9310449 073c AJMP  #074Dh                   A=00 DP=0000 SP=71
+I 9310451 074d JNB   0Eh.3, #+6               A=00 DP=0000 SP=71
+I 9310453 0756 JB   0Eh.2, #+12               A=00 DP=0000 SP=71
+I 9310455 0765 JB   0Eh.1, #+12               A=00 DP=0000 SP=71
+I 9310457 0774 MOV   C, 0Bh.5                 A=00 DP=0000 SP=71
+I 9310458 0776 MOV   03h.3, C                 A=00 DP=0000 SP=71
+I 9310460 0778 CPL   C                        A=00 DP=0000 SP=71
+I 9310461 0779 MOV   03h.2, C                 A=00 DP=0000 SP=71
+I 9310463 077b RET                            A=00 DP=0000 SP=71
+I 9310465 1edc LCALL #1000h                   A=00 DP=0000 SP=6f
+I 9310467 1000 MOV   20h, 31h                 A=00 DP=0000 SP=71
+I 9310469 1003 MOV   R2, 34h                  A=00 DP=0000 SP=71
+I 9310471 1005 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310472 1007 JNB   ACC.7, #+11              A=00 DP=0000 SP=71
+I 9310474 1015 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310475 1017 JNB   ACC.7, #+20              A=00 DP=0000 SP=71
+I 9310477 102e MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310478 1030 JB   ACC.7, #+7                A=00 DP=0000 SP=71
+I 9310480 1033 JNB   ACC.0, #+2               A=00 DP=0000 SP=71
+I 9310482 1038 AJMP  #1161h                   A=00 DP=0000 SP=71
+I 9310484 1161 JNB   04h.5, #+12              A=00 DP=0000 SP=71
+I 9310486 1164 CLR   IE.3                     A=00 DP=0000 SP=71
+I 9310487 1166 MOV   17h, #03h                A=00 DP=0000 SP=71
+I 9310489 1169 MOV   16h, #E8h                A=00 DP=0000 SP=71
+I 9310491 116c SETB  IE.3                     A=00 DP=0000 SP=71
+I 9310492 116e AJMP  #1178h                   A=00 DP=0000 SP=71
+I 9310494 1178 AJMP  #1755h                   A=00 DP=0000 SP=71
+I 9310496 1755 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310497 1757 XRL   A, R2                    A=00 DP=0000 SP=71
+I 9310498 1758 JZ    #+3                      A=00 DP=0000 SP=71
+I 9310500 175d CLR   04h.5                    A=00 DP=0000 SP=71
+I 9310501 175f RET                            A=00 DP=0000 SP=71
+I 9310503 1edf LCALL #1790h                   A=00 DP=0000 SP=6f
+I 9310505 1790 MOV   A, 13h                   A=00 DP=0000 SP=71
+I 9310506 1792 CJNE  A, #FFh, #+2             A=dc DP=0000 SP=71
+I 9310508 1797 SETB  IE.2                     A=dc DP=0000 SP=71
+I 9310509 1799 AJMP  #17A7h                   A=dc DP=0000 SP=71
+I 9310511 17a7 ANL   6Eh, #3Fh                A=dc DP=0000 SP=71
+I 9310513 17aa ANL   30h, #FBh                A=dc DP=0000 SP=71
+I 9310515 17ad ANL   31h, #EFh                A=dc DP=0000 SP=71
+I 9310517 17b0 MOV   A, 34h                   A=dc DP=0000 SP=71
+I 9310518 17b2 CJNE  A, #00h, #+4             A=00 DP=0000 SP=71
+I 9310520 17b5 CLR   02h.5                    A=00 DP=0000 SP=71
+I 9310521 17b7 AJMP  #17BFh                   A=00 DP=0000 SP=71
+I 9310523 17bf MOV   6Eh, #00h                A=00 DP=0000 SP=71
+I 9310525 17c2 CLR   IE.3                     A=00 DP=0000 SP=71
+I 9310526 17c4 MOV   13h, #D8h                A=00 DP=0000 SP=71
+I 9310528 17c7 MOV   12h, #F0h                A=00 DP=0000 SP=71
+I 9310530 17ca SETB  IE.3                     A=00 DP=0000 SP=71
+I 9310531 17cc AJMP  #17F0h                   A=00 DP=0000 SP=71
+I 9310533 17f0 RET                            A=00 DP=0000 SP=71
+I 9310535 1ee2 LCALL #006Eh                   A=00 DP=0000 SP=6f
+I 9310537 006e MOV   R3, 34h                  A=00 DP=0000 SP=71
+I 9310539 0070 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310540 0072 JB   ACC.7, #+4                A=00 DP=0000 SP=71
+I 9310542 0075 MOV   R2, #00h                 A=00 DP=0000 SP=71
+I 9310543 0077 AJMP  #00D5h                   A=00 DP=0000 SP=71
+I 9310545 00d5 MOV   A, 33h                   A=00 DP=0000 SP=71
+I 9310546 00d7 ANL   A, #07h                  A=04 DP=0000 SP=71
+I 9310547 00d9 ORL   A, R2                    A=04 DP=0000 SP=71
+I 9310548 00da MOV   20h, A                   A=04 DP=0000 SP=71
+I 9310549 00dc MOV   A, 34h                   A=04 DP=0000 SP=71
+I 9310550 00de ANL   A, #F8h                  A=00 DP=0000 SP=71
+I 9310551 00e0 CJNE  A, #E8h, #+2             A=00 DP=0000 SP=71
+I 9310553 00e5 JB   04h.6, #+15               A=00 DP=0000 SP=71
+I 9310555 00e8 JB   03h.7, #+18               A=00 DP=0000 SP=71
+I 9310557 00fd MOV   A, 30h                   A=00 DP=0000 SP=71
+I 9310558 00ff JNB   ACC.5, #+13              A=00 DP=0000 SP=71
+I 9310560 010f SETB  00h.2                    A=00 DP=0000 SP=71
+I 9310561 0111 CLR   00h.1                    A=00 DP=0000 SP=71
+I 9310562 0113 AJMP  #0128h                   A=00 DP=0000 SP=71
+I 9310564 0128 MOV   C, 03h.5                 A=00 DP=0000 SP=71
+I 9310565 012a MOV   00h.0, C                 A=00 DP=0000 SP=71
+I 9310567 012c MOV   33h, 20h                 A=00 DP=0000 SP=71
+I 9310569 012f MOV   20h, 32h                 A=00 DP=0000 SP=71
+I 9310571 0132 CJNE  R3, #C2h, #+2            A=00 DP=0000 SP=71
+I 9310573 0137 CJNE  R3, #C3h, #+2            A=00 DP=0000 SP=71
+I 9310575 013c CJNE  R3, #E4h, #+54           A=00 DP=0000 SP=71
+I 9310577 0175 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310578 0177 JNB   ACC.6, #+2               A=00 DP=0000 SP=71
+I 9310580 017c CJNE  R3, #B6h, #+2            A=00 DP=0000 SP=71
+I 9310582 0181 CJNE  R3, #96h, #+2            A=00 DP=0000 SP=71
+I 9310584 0186 CJNE  R3, #B7h, #+2            A=00 DP=0000 SP=71
+I 9310586 018b SETB  00h.7                    A=00 DP=0000 SP=71
+I 9310587 018d JB   04h.5, #+2                A=00 DP=0000 SP=71
+I 9310589 0190 AJMP  #0199h                   A=00 DP=0000 SP=71
+I 9310591 0199 JB   00h.5, #+2                A=00 DP=0000 SP=71
+I 9310593 019e MOV   A, 49h                   A=00 DP=0000 SP=71
+I 9310594 01a0 JZ    #+4                      A=00 DP=0000 SP=71
+I 9310596 01a6 CLR   00h.5                    A=00 DP=0000 SP=71
+I 9310597 01a8 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310598 01aa JB   ACC.7, #+5                A=00 DP=0000 SP=71
+I 9310600 01ad MOV   49h, #00h                A=00 DP=0000 SP=71
+I 9310602 01b0 AJMP  #0213h                   A=00 DP=0000 SP=71
+I 9310604 0213 JNB   04h.5, #+5               A=00 DP=0000 SP=71
+I 9310606 021b JB   03h.5, #+11               A=00 DP=0000 SP=71
+I 9310608 021e MOV   A, #ECh                  A=00 DP=0000 SP=71
+I 9310609 0220 ADD   A, 65h                   A=ec DP=0000 SP=71
+I 9310610 0222 JB   ACC.7, #+4                A=ec DP=0000 SP=71
+I 9310612 0229 CLR   00h.4                    A=ec DP=0000 SP=71
+I 9310613 022b MOV   A, R2                    A=ec DP=0000 SP=71
+I 9310614 022c RRC   A                        A=00 DP=0000 SP=71
+I 9310615 022d MOV   00h.3, C                 A=00 DP=0000 SP=71
+I 9310617 022f CJNE  R3, #00h, #+7            A=00 DP=0000 SP=71
+I 9310619 0232 JNB   04h.5, #+4               A=00 DP=0000 SP=71
+I 9310621 0239 CLR   00h.2                    A=00 DP=0000 SP=71
+I 9310622 023b MOV   A, R2                    A=00 DP=0000 SP=71
+I 9310623 023c JNB   ACC.2, #+18              A=00 DP=0000 SP=71
+I 9310625 0251 CJNE  R3, #00h, #+2            A=00 DP=0000 SP=71
+I 9310627 0254 AJMP  #0259h                   A=00 DP=0000 SP=71
+I 9310629 0259 SETB  00h.1                    A=00 DP=0000 SP=71
+I 9310630 025b CLR   00h.0                    A=00 DP=0000 SP=71
+I 9310631 025d AJMP  #0263h                   A=00 DP=0000 SP=71
+I 9310633 0263 MOV   32h, 20h                 A=00 DP=0000 SP=71
+I 9310635 0266 MOV   20h, 30h                 A=00 DP=0000 SP=71
+I 9310637 0269 JB   02h.4, #+32               A=00 DP=0000 SP=71
+I 9310639 028c SETB  00h.7                    A=00 DP=0000 SP=71
+I 9310640 028e AJMP  #0292h                   A=00 DP=0000 SP=71
+I 9310642 0292 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310643 0294 JNB   ACC.7, #+12              A=00 DP=0000 SP=71
+I 9310645 02a3 CLR   00h.6                    A=00 DP=0000 SP=71
+I 9310646 02a5 AJMP  #02ABh                   A=00 DP=0000 SP=71
+I 9310648 02ab CJNE  R3, #B6h, #+2            A=00 DP=0000 SP=71
+I 9310650 02b0 CJNE  R3, #96h, #+2            A=00 DP=0000 SP=71
+I 9310652 02b5 CJNE  R3, #93h, #+2            A=00 DP=0000 SP=71
+I 9310654 02ba CJNE  R3, #95h, #+2            A=00 DP=0000 SP=71
+I 9310656 02bf CJNE  R3, #B5h, #+2            A=00 DP=0000 SP=71
+I 9310658 02c4 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310659 02c6 ANL   A, #F8h                  A=00 DP=0000 SP=71
+I 9310660 02c8 XRL   A, #E0h                  A=00 DP=0000 SP=71
+I 9310661 02ca JNZ   #+4                      A=e0 DP=0000 SP=71
+I 9310663 02d0 MOV   A, 34h                   A=e0 DP=0000 SP=71
+I 9310664 02d2 ANL   A, #FCh                  A=00 DP=0000 SP=71
+I 9310665 02d4 CJNE  A, #C0h, #+2             A=00 DP=0000 SP=71
+I 9310667 02d9 ANL   A, #E8h                  A=00 DP=0000 SP=71
+I 9310668 02db CJNE  A, #E8h, #+6             A=00 DP=0000 SP=71
+I 9310670 02e4 CLR   00h.5                    A=00 DP=0000 SP=71
+I 9310671 02e6 CJNE  R3, #C1h, #+2            A=00 DP=0000 SP=71
+I 9310673 02eb MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310674 02ed ANL   A, #E8h                  A=00 DP=0000 SP=71
+I 9310675 02ef CJNE  A, #E8h, #+6             A=00 DP=0000 SP=71
+I 9310677 02f8 JB   04h.6, #+3                A=00 DP=0000 SP=71
+I 9310679 02fb JB   0Eh.0, #+4                A=00 DP=0000 SP=71
+I 9310681 0302 MOV   C, 0Bh.7                 A=00 DP=0000 SP=71
+I 9310682 0304 MOV   00h.4, C                 A=00 DP=0000 SP=71
+I 9310684 0306 JB   00h.6, #+2                A=00 DP=0000 SP=71
+I 9310686 0309 CLR   00h.4                    A=00 DP=0000 SP=71
+I 9310687 030b CJNE  R3, #B6h, #+2            A=00 DP=0000 SP=71
+I 9310689 0310 CJNE  R3, #96h, #+2            A=00 DP=0000 SP=71
+I 9310691 0315 CJNE  R3, #C0h, #+2            A=00 DP=0000 SP=71
+I 9310693 031a CJNE  R3, #B7h, #+2            A=00 DP=0000 SP=71
+I 9310695 031f CJNE  R3, #E0h, #+2            A=00 DP=0000 SP=71
+I 9310697 0324 CJNE  R3, #E4h, #+2            A=00 DP=0000 SP=71
+I 9310699 0329 CJNE  R3, #F0h, #+2            A=00 DP=0000 SP=71
+I 9310701 032e CJNE  R3, #F4h, #+2            A=00 DP=0000 SP=71
+I 9310703 0333 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310704 0335 ANL   A, #E8h                  A=00 DP=0000 SP=71
+I 9310705 0337 XRL   A, #E0h                  A=00 DP=0000 SP=71
+I 9310706 0339 JNZ   #+15                     A=e0 DP=0000 SP=71
+I 9310708 034a CLR   PSW.5                    A=e0 DP=0000 SP=71
+I 9310709 034c CJNE  R3, #C1h, #+2            A=e0 DP=0000 SP=71
+I 9310711 0351 MOV   A, 34h                   A=e0 DP=0000 SP=71
+I 9310712 0353 ANL   A, #E8h                  A=00 DP=0000 SP=71
+I 9310713 0355 XRL   A, #E8h                  A=00 DP=0000 SP=71
+I 9310714 0357 JNZ   #+6                      A=e8 DP=0000 SP=71
+I 9310716 035f CJNE  R3, #C2h, #+2            A=e8 DP=0000 SP=71
+I 9310718 0364 CJNE  R3, #E4h, #+2            A=e8 DP=0000 SP=71
+I 9310720 0369 CJNE  R3, #C3h, #+4            A=e8 DP=0000 SP=71
+I 9310722 0370 CLR   00h.3                    A=e8 DP=0000 SP=71
+I 9310723 0372 MOV   A, 34h                   A=e8 DP=0000 SP=71
+I 9310724 0374 ANL   A, #E0h                  A=00 DP=0000 SP=71
+I 9310725 0376 CJNE  A, #E0h, #+23            A=00 DP=0000 SP=71
+I 9310727 0390 MOV   C, 03h.4                 A=00 DP=0000 SP=71
+I 9310728 0392 MOV   00h.1, C                 A=00 DP=0000 SP=71
+I 9310730 0394 MOV   C, 0Dh.7                 A=00 DP=0000 SP=71
+I 9310731 0396 MOV   00h.0, C                 A=00 DP=0000 SP=71
+I 9310733 0398 MOV   30h, 20h                 A=00 DP=0000 SP=71
+I 9310735 039b MOV   20h, 31h                 A=00 DP=0000 SP=71
+I 9310737 039e JB   03h.7, #+18               A=00 DP=0000 SP=71
+I 9310739 03b3 CLR   00h.7                    A=00 DP=0000 SP=71
+I 9310740 03b5 JB   03h.7, #+20               A=00 DP=0000 SP=71
+I 9310742 03cc CLR   00h.6                    A=00 DP=0000 SP=71
+I 9310743 03ce JB   03h.7, #+20               A=00 DP=0000 SP=71
+I 9310745 03e5 CLR   00h.5                    A=00 DP=0000 SP=71
+I 9310746 03e7 MOV   A, 30h                   A=00 DP=0000 SP=71
+I 9310747 03e9 MOV   C, ACC.1                 A=82 DP=0000 SP=71
+I 9310748 03eb MOV   00h.3, C                 A=82 DP=0000 SP=71
+I 9310750 03ed MOV   A, 34h                   A=82 DP=0000 SP=71
+I 9310751 03ef JNB   ACC.7, #+15              A=00 DP=0000 SP=71
+I 9310753 0401 JB   03h.5, #+6                A=00 DP=0000 SP=71
+I 9310755 0404 JNB   0Eh.3, #+3               A=00 DP=0000 SP=71
+I 9310757 040a MOV   C, 03h.3                 A=00 DP=0000 SP=71
+I 9310758 040c MOV   00h.2, C                 A=00 DP=0000 SP=71
+I 9310760 040e AJMP  #0416h                   A=00 DP=0000 SP=71
+I 9310762 0416 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 9310763 0418 CJNE  A, #00h, #+2             A=00 DP=0000 SP=71
+I 9310765 041b AJMP  #0429h                   A=00 DP=0000 SP=71
+I 9310767 0429 CLR   00h.1                    A=00 DP=0000 SP=71
+I 9310768 042b MOV   C, 00h.2                 A=00 DP=0000 SP=71
+I 9310769 042d CPL   C                        A=00 DP=0000 SP=71
+I 9310770 042e MOV   00h.0, C                 A=00 DP=0000 SP=71
+I 9310772 0430 MOV   31h, 20h                 A=00 DP=0000 SP=71
+I 9310774 0433 MOV   20h, 30h                 A=00 DP=0000 SP=71
+I 9310776 0436 JNB   00h.3, #+10              A=00 DP=0000 SP=71
+I 9310778 0443 SETB  P1.3                     A=00 DP=0000 SP=71
+I 9310779 0445 MOV   3Dh, #FFh                A=00 DP=0000 SP=71
+I 9310781 0448 MOV   20h, 30h                 A=00 DP=0000 SP=71
+I 9310783 044b JNB   00h.5, #+10              A=00 DP=0000 SP=71
+I 9310785 0458 SETB  P1.4                     A=00 DP=0000 SP=71
+I 9310786 045a MOV   3Eh, #FFh                A=00 DP=0000 SP=71
+I 9310788 045d MOV   A, R2                    A=00 DP=0000 SP=71
+I 9310789 045e MOV   C, ACC.1                 A=00 DP=0000 SP=71
+I 9310790 0460 MOV   P1.5, C                  A=00 DP=0000 SP=71
+I 9310792 0462 JNB   0Ch.0, #+7               A=00 DP=0000 SP=71
+I 9310794 0465 ORL   30h, #FEh                A=00 DP=0000 SP=71
+I 9310796 0468 CLR   P1.3                     A=00 DP=0000 SP=71
+I 9310797 046a CLR   P1.4                     A=00 DP=0000 SP=71
+I 9310798 046c MOV   R4, 35h                  A=00 DP=0000 SP=71
+I 9310800 046e LCALL #1CE1h                   A=00 DP=0000 SP=71
+I 9310814 0471 MOV   A, R4                    A=00 DP=0000 SP=71
+I 9310815 0472 XRL   A, 35h                   A=6e DP=0000 SP=71
+I 9310816 0474 JNZ   #+17                     A=00 DP=0000 SP=71
+I 9310818 0476 JNB   04h.5, #+38              A=00 DP=0000 SP=71
+I 9310820 049f MOV   20h, 30h                 A=00 DP=0000 SP=71
+I 9310822 04a2 JNB   0Fh.2, #+31              A=00 DP=0000 SP=71
+I 9310824 04a5 JNB   00h.5, #+19              A=00 DP=0000 SP=71
+I 9310826 04a8 MOV   A, 15h                   A=00 DP=0000 SP=71
+I 9310827 04aa CJNE  A, #4Eh, #+0             A=dc DP=0000 SP=71
+I 9310829 04ad JNC   #+21                     A=dc DP=0000 SP=71
+I 9310831 04c4 JNB   0Fh.1, #+40              A=dc DP=0000 SP=71
+I 9310833 04c7 JNB   00h.3, #+4               A=dc DP=0000 SP=71
+I 9310835 04ca MOV   A, 37h                   A=dc DP=0000 SP=71
+I 9310836 04cc JZ    #+5                      A=00 DP=0000 SP=71
+I 9310838 04d3 MOV   A, 11h                   A=00 DP=0000 SP=71
+I 9310839 04d5 JNB   ACC.7, #+4               A=dc DP=0000 SP=71
+I 9310841 04d8 CLR   02h.5                    A=dc DP=0000 SP=71
+I 9310842 04da AJMP  #04EFh                   A=dc DP=0000 SP=71
+I 9310844 04ef MOV   C, 03h.1                 A=dc DP=0000 SP=71
+I 9310845 04f1 MOV   04h.0, C                 A=dc DP=0000 SP=71
+I 9310847 04f3 JB   03h.5, #+1                A=dc DP=0000 SP=71
+I 9310849 04f6 CPL   C                        A=dc DP=0000 SP=71
+I 9310850 04f7 MOV   04h.1, C                 A=dc DP=0000 SP=71
+I 9310852 04f9 RET                            A=dc DP=0000 SP=71
+I 9310854 1ee5 LCALL #0899h                   A=dc DP=0000 SP=6f
+I 9310921 1ee8 LCALL #08E9h                   A=dc DP=0000 SP=6f
+I 9310923 08e9 MOV   A, 34h                   A=dc DP=0000 SP=71
+I 9310924 08eb JB   ACC.7, #+7                A=00 DP=0000 SP=71
+I 9310926 08ee JNB   ACC.0, #+2               A=00 DP=0000 SP=71
+I 9310928 08f3 AJMP  #0A1Ch                   A=00 DP=0000 SP=71
+I 9310930 0a1c RET                            A=00 DP=0000 SP=71
+I 9310932 1eeb SJMP  #-26                     A=00 DP=0000 SP=6f
+RX 9310952 0807 07
+RX 9310960 0810 07
+RX 9310968 081b 07
+RX 9310984 0839 07
+RX 9310992 0844 07
+RX 9311008 085f 07
+RX 9311024 087b 07
+I 9311151 1170 MOV   A, 17h                   A=00 DP=0000 SP=71
+I 9311152 1172 JNB   ACC.7, #+3               A=03 DP=0000 SP=71
+I 9311247 0102 MOV   A, 34h                   A=fa DP=0000 SP=71
+I 9311248 0104 CJNE  A, #B3h, #+2             A=00 DP=0000 SP=71
+I 9311250 0109 JB   03h.5, #+3                A=00 DP=0000 SP=71
+I 9311252 010c JNB   03h.6, #+6               A=00 DP=0000 SP=71
+I 9311254 0115 JB   03h.7, #+6                A=00 DP=0000 SP=71
+I 9311256 011e SETB  00h.2                    A=00 DP=0000 SP=71
+I 9311257 0120 SETB  00h.1                    A=00 DP=0000 SP=71
+I 9311258 0122 AJMP  #0128h                   A=00 DP=0000 SP=71
+I 9311289 019c AJMP  #01FEh                   A=00 DP=0000 SP=71
+I 9311291 01fe CLR   00h.5                    A=00 DP=0000 SP=71
+I 9311292 0200 MOV   A, 49h                   A=00 DP=0000 SP=71
+I 9311293 0202 JZ    #+15                     A=00 DP=0000 SP=71
+RX 9311640 0807 07
+RX 9311648 0810 07
+RX 9311656 081d 07
+RX 9311672 0839 07
+RX 9311680 0847 07
+RX 9311696 0861 07
+RX 9311712 087e 07
+RX 9312328 0807 07
+RX 9312336 0810 07
+RX 9312344 081b 07
+RX 9312360 0839 07
+RX 9312368 0844 07
+RX 9312384 085f 07
+RX 9312400 087b 07
+RX 9312992 0807 07
+RX 9313000 0810 07
+RX 9313008 081b 07
+RX 9313024 0839 07
+RX 9313032 0844 07
+RX 9313048 085f 07
+RX 9313064 087b 07
+RX 9313680 0807 07
+RX 9313688 0810 07
+RX 9313696 081d 07
+RX 9313712 0839 07
+RX 9313720 0847 07
+RX 9313736 0861 07
+RX 9313752 087e 07
+RX 9314368 0807 07
+RX 9314376 0810 07
+RX 9314384 081b 07
+RX 9314400 0839 07
+RX 9314408 0844 07
+RX 9314424 085f 07
+RX 9314440 087b 07
+RX 9315032 0807 07
+RX 9315040 0810 07
+RX 9315048 081b 07
+RX 9315064 0839 07
+RX 9315072 0844 07
+RX 9315088 085f 07
+RX 9315104 087b 07
+RX 9315720 0807 07
+I 10314717 1175 MOV   34h, #01h                A=ff DP=0000 SP=71
+I 10314725 175a SETB  04h.5                    A=01 DP=0000 SP=71
+I 10314726 175c RET                            A=01 DP=0000 SP=71
+I 10314745 17b9 MOV   A, 13h                   A=01 DP=0000 SP=71
+I 10314746 17bb ADD   A, #27h                  A=d8 DP=0000 SP=71
+I 10314747 17bd JC    #+15                     A=ff DP=0000 SP=71
+I 10314824 0192 SETB  00h.5                    A=01 DP=0000 SP=71
+I 10314825 0194 MOV   49h, #0Ah                A=01 DP=0000 SP=71
+I 10314827 0197 AJMP  #0213h                   A=01 DP=0000 SP=71
+I 10314831 0216 MOV   65h, #00h                A=01 DP=0000 SP=71
+I 10314833 0219 AJMP  #0229h                   A=01 DP=0000 SP=71
+I 10314848 0256 CJNE  R3, #01h, #+6            A=00 DP=0000 SP=71
+I 10314986 041d JNB   02h.3, #+9               A=01 DP=0000 SP=71
+I 10315041 0479 MOV   A, 34h                   A=00 DP=0000 SP=71
+I 10315042 047b CJNE  A, #00h, #+33            A=01 DP=0000 SP=71
+I 10315152 08f1 AJMP  #0A1Ch                   A=01 DP=0000 SP=71
+I 10315371 1036 AJMP  #117Ah                   A=01 DP=0000 SP=71
+I 10315373 117a CLR   IE.3                     A=01 DP=0000 SP=71
+I 10315374 117c MOV   15h, #75h                A=01 DP=0000 SP=71
+I 10315376 117f MOV   14h, #30h                A=01 DP=0000 SP=71
+I 10315378 1182 SETB  IE.3                     A=01 DP=0000 SP=71
+I 10315379 1184 JNB   02h.4, #+45              A=01 DP=0000 SP=71
+I 10315381 1187 JNB   03h.1, #+21              A=01 DP=0000 SP=71
+I 10315383 119f JNB   0Eh.7, #+5               A=01 DP=0000 SP=71
+I 10315385 11a7 JB   0Eh.6, #+5                A=01 DP=0000 SP=71
+I 10315387 11aa MOV   34h, #98h                A=01 DP=0000 SP=71
+I 10315389 11ad AJMP  #1755h                   A=01 DP=0000 SP=71
+I 10315438 0079 JB   ACC.6, #+21               A=98 DP=0000 SP=71
+I 10315440 007c JNB   ACC.5, #+9               A=98 DP=0000 SP=71
+I 10315442 0088 ANL   A, #1Fh                  A=98 DP=0000 SP=71
+I 10315443 008a MOV   DPTR, #000B5h            A=18 DP=0000 SP=71
+I 10315445 008d MOVC  A, @A+DPTR               A=18 DP=00b5 SP=71
+I 10315447 008e MOV   R2, A                    A=dc DP=00b5 SP=71
+I 10315448 008f AJMP  #00D5h                   A=dc DP=00b5 SP=71
+I 10315525 023f JNB   03h.5, #+6               A=dc DP=00b5 SP=71
+I 10315527 0248 MOV   C, 02h.3                 A=dc DP=00b5 SP=71
+I 10315528 024a MOV   00h.1, C                 A=dc DP=00b5 SP=71
+I 10315530 024c CPL   C                        A=dc DP=00b5 SP=71
+I 10315531 024d MOV   00h.0, C                 A=dc DP=00b5 SP=71
+I 10315533 024f AJMP  #0263h                   A=dc DP=00b5 SP=71
+I 10315547 0297 JB   ACC.6, #+13               A=98 DP=00b5 SP=71
+I 10315549 029a ANL   A, #1Fh                  A=98 DP=00b5 SP=71
+I 10315550 029c CJNE  A, #03h, #+2             A=18 DP=00b5 SP=71
+I 10315552 02a1 JNC   #+4                      A=18 DP=00b5 SP=71
+I 10315554 02a7 SETB  00h.6                    A=18 DP=00b5 SP=71
+I 10315555 02a9 AJMP  #02ABh                   A=18 DP=00b5 SP=71
+I 10315688 03f2 JB   ACC.6, #+12               A=98 DP=00b5 SP=71
+I 10315690 03f5 ANL   A, #1Fh                  A=98 DP=00b5 SP=71
+I 10315691 03f7 CLR   C                        A=18 DP=00b5 SP=71
+I 10315692 03f8 SUBB  A, #09h                  A=18 DP=00b5 SP=71
+I 10315693 03fa JNB   ACC.7, #+4               A=0f DP=00b5 SP=71
+I 10315871 08f5 MOV   DPTR, #008FDh            A=98 DP=00b5 SP=71
+I 10315873 08f8 ANL   A, #70h                  A=98 DP=08fd SP=71
+I 10315874 08fa SWAP  A                        A=10 DP=08fd SP=71
+I 10315875 08fb RL    A                        A=01 DP=08fd SP=71
+I 10315876 08fc JMP   @A+DPTR                  A=02 DP=08fd SP=71
+I 10315878 08ff AJMP  #0936h                   A=02 DP=08fd SP=71
+I 10315880 0936 MOV   DPTR, #0093Fh            A=02 DP=08fd SP=71
+I 10315882 0939 MOV   A, 34h                   A=02 DP=093f SP=71
+I 10315883 093b ANL   A, #0Fh                  A=98 DP=093f SP=71
+I 10315884 093d RL    A                        A=08 DP=093f SP=71
+I 10315885 093e JMP   @A+DPTR                  A=10 DP=093f SP=71
+I 10315887 094f AJMP  #0AC0h                   A=10 DP=093f SP=71
+I 10315889 0ac0 LCALL #051Dh                   A=10 DP=093f SP=71
+I 10315891 051d JB   01h.1, #+5                A=10 DP=093f SP=73
+I 10315893 0520 MOV   37h, #00h                A=10 DP=093f SP=73
+I 10315895 0523 SETB  01h.1                    A=10 DP=093f SP=73
+I 10315896 0525 RET                            A=10 DP=093f SP=73
+I 10315898 0ac3 JNB   04h.5, #+3               A=10 DP=093f SP=71
+I 10315900 0ac6 LCALL #0500h                   A=10 DP=093f SP=71
+I 10315902 0500 JB   04h.0, #+12               A=10 DP=093f SP=73
+I 10315904 0503 AJMP  #0505h                   A=10 DP=093f SP=73
+I 10315906 0505 MOV   3Fh, #60h                A=10 DP=093f SP=73
+I 10315908 0508 MOV   40h, #FFh                A=10 DP=093f SP=73
+I 10315910 050b MOV   41h, #F9h                A=10 DP=093f SP=73
+I 10315912 050e RET                            A=10 DP=093f SP=73
+I 10315914 0ac9 LCALL #0537h                   A=10 DP=093f SP=71
+I 10315916 0537 MOV   R0, #05h                 A=10 DP=093f SP=73
+I 10315917 0539 MOVX  A, @R0                   A=10 DP=093f SP=73
+R 10315917 0539 0005 05
+I 10315919 053a JB   ACC.0, #+1                A=05 DP=093f SP=73
+I 10315921 053e JB   04h.0, #+2                A=05 DP=093f SP=73
+I 10315923 0541 AJMP  #0576h                   A=05 DP=093f SP=73
+I 10315925 0576 JB   01h.2, #+41               A=05 DP=093f SP=73
+I 10315927 0579 JNB   01h.1, #+38              A=05 DP=093f SP=73
+I 10315929 057c CLR   01h.1                    A=05 DP=093f SP=73
+I 10315930 057e MOV   A, 3Fh                   A=05 DP=093f SP=73
+I 10315931 0580 ANL   A, #7Fh                  A=60 DP=093f SP=73
+I 10315932 0582 XCH   A, 40h                   A=60 DP=093f SP=73
+I 10315933 0584 XCH   A, 41h                   A=ff DP=093f SP=73
+I 10315934 0586 MOV   R3, A                    A=f9 DP=093f SP=73
+I 10315935 0587 ANL   A, #E0h                  A=f9 DP=093f SP=73
+I 10315936 0589 MOV   R2, A                    A=e0 DP=093f SP=73
+I 10315937 058a MOV   A, 41h                   A=e0 DP=093f SP=73
+I 10315938 058c ANL   A, #1Fh                  A=ff DP=093f SP=73
+I 10315939 058e ORL   A, R2                    A=1f DP=093f SP=73
+I 10315940 058f SWAP  A                        A=ff DP=093f SP=73
+I 10315941 0590 RR    A                        A=ff DP=093f SP=73
+I 10315942 0591 MOV   R2, A                    A=ff DP=093f SP=73
+I 10315943 0592 MOV   A, 37h                   A=ff DP=093f SP=73
+I 10315944 0594 XRL   A, R2                    A=00 DP=093f SP=73
+I 10315945 0595 XRL   A, R3                    A=ff DP=093f SP=73
+I 10315946 0596 MOV   38h, A                   A=06 DP=093f SP=73
+I 10315947 0598 CLR   C                        A=06 DP=093f SP=73
+I 10315948 0599 RRC   A                        A=06 DP=093f SP=73
+I 10315949 059a MOV   3Fh, A                   A=03 DP=093f SP=73
+I 10315950 059c CLR   A                        A=03 DP=093f SP=73
+I 10315951 059d RRC   A                        A=00 DP=093f SP=73
+I 10315952 059e ORL   40h, A                   A=00 DP=093f SP=73
+I 10315953 05a0 SETB  01h.2                    A=00 DP=093f SP=73
+I 10315954 05a2 RET                            A=00 DP=093f SP=73
+I 10315956 0acc LCALL #1D9Bh                   A=00 DP=093f SP=71
+I 10315958 1d9b MOV   R0, #05h                 A=00 DP=093f SP=73
+I 10315959 1d9d MOVX  A, @R0                   A=00 DP=093f SP=73
+R 10315959 1d9d 0005 05
+I 10315961 1d9e JNB   ACC.0, #+22              A=05 DP=093f SP=73
+I 10315963 1da1 JNB   01h.2, #+19              A=05 DP=093f SP=73
+I 10315965 1da4 MOV   R0, #01h                 A=05 DP=093f SP=73
+I 10315966 1da6 MOV   A, 38h                   A=05 DP=093f SP=73
+I 10315967 1da8 MOVX  @R0, A                   A=06 DP=093f SP=73
+W 10315967 1da8 0001 06
+I 10315969 1da9 XCH   A, 67h                   A=06 DP=093f SP=73
+I 10315970 1dab XCH   A, 68h                   A=00 DP=093f SP=73
+I 10315971 1dad XCH   A, 69h                   A=00 DP=093f SP=73
+I 10315972 1daf XCH   A, 6Ah                   A=00 DP=093f SP=73
+I 10315973 1db1 XCH   A, 6Bh                   A=00 DP=093f SP=73
+I 10315974 1db3 XCH   A, 6Ch                   A=00 DP=093f SP=73
+I 10315975 1db5 CLR   01h.2                    A=00 DP=093f SP=73
+I 10315976 1db7 RET                            A=00 DP=093f SP=73
+I 10315978 0acf RET                            A=00 DP=093f SP=71
+I 10316187 100a JB   02h.1, #+3                A=98 DP=093f SP=71
+I 10316189 100d JB   02h.4, #+5                A=98 DP=093f SP=71
+I 10316194 101a JB   ACC.6, #+17               A=98 DP=093f SP=71
+I 10316196 101d ANL   A, #1Fh                  A=98 DP=093f SP=71
+I 10316197 101f CJNE  A, #16h, #+0             A=18 DP=093f SP=71
+I 10316199 1022 JNC   #+10                     A=18 DP=093f SP=71
+I 10316204 103a MOV   DPTR, #01042h            A=98 DP=093f SP=71
+I 10316206 103d ANL   A, #70h                  A=98 DP=1042 SP=71
+I 10316207 103f SWAP  A                        A=10 DP=1042 SP=71
+I 10316208 1040 RL    A                        A=01 DP=1042 SP=71
+I 10316209 1041 JMP   @A+DPTR                  A=02 DP=1042 SP=71
+I 10316211 1044 AJMP  #107Bh                   A=02 DP=1042 SP=71
+I 10316213 107b MOV   DPTR, #01084h            A=02 DP=1042 SP=71
+I 10316215 107e MOV   A, 34h                   A=02 DP=1084 SP=71
+I 10316216 1080 ANL   A, #0Fh                  A=98 DP=1084 SP=71
+I 10316217 1082 RL    A                        A=08 DP=1084 SP=71
+I 10316218 1083 JMP   @A+DPTR                  A=10 DP=1084 SP=71
+I 10316220 1094 AJMP  #1515h                   A=10 DP=1084 SP=71
+I 10316222 1515 JNB   04h.5, #+12              A=10 DP=1084 SP=71
+I 10316224 1518 CLR   IE.3                     A=10 DP=1084 SP=71
+I 10316225 151a MOV   17h, #00h                A=10 DP=1084 SP=71
+I 10316227 151d MOV   16h, #46h                A=10 DP=1084 SP=71
+I 10316229 1520 SETB  IE.3                     A=10 DP=1084 SP=71
+I 10316230 1522 AJMP  #1537h                   A=10 DP=1084 SP=71
+I 10316232 1537 AJMP  #1755h                   A=10 DP=1084 SP=71
+I 10316353 01a2 DEC   49h                      A=0a DP=00b5 SP=71
+I 10316354 01a4 AJMP  #0213h                   A=0a DP=00b5 SP=71
+R 10316750 0539 0005 05
+R 10316792 1d9d 0005 05
+W 10316800 1da8 0001 f8
+I 10317055 1524 MOV   A, 17h                   A=10 DP=1084 SP=71
+I 10317056 1526 JNB   ACC.7, #+14              A=00 DP=1084 SP=71
+R 10317549 0539 0005 05
+R 10317591 1d9d 0005 05
+W 10317599 1da8 0001 7b
+R 10318377 0539 0005 05
+R 10318419 1d9d 0005 05
+W 10318427 1da8 0001 e3
+W 10319259 1da8 0001 13
+W 10320091 1da8 0001 30
+W 10320923 1da8 0001 be
+W 10321755 1da8 0001 c9
+W 10322560 1da8 0001 e0
+W 10323386 1da8 0001 f9
+W 10324210 1da8 0001 e7
+I 10324591 01b2 MOV   DPTR, #001BEh            A=98 DP=00b5 SP=71
+I 10324593 01b5 ANL   A, #3Fh                  A=98 DP=01be SP=71
+I 10324594 01b7 MOVC  A, @A+DPTR               A=18 DP=01be SP=71
+I 10324596 01b8 RL    A                        A=08 DP=01be SP=71
+I 10324597 01b9 RL    A                        A=10 DP=01be SP=71
+I 10324598 01ba MOV   49h, A                   A=20 DP=01be SP=71
+I 10324599 01bc AJMP  #0213h                   A=20 DP=01be SP=71
+W 10325045 1da8 0001 17
+I 10325431 0204 DEC   A                        A=20 DP=00b5 SP=71
+I 10325432 0205 MOV   49h, A                   A=1f DP=00b5 SP=71
+I 10325433 0207 JNB   ACC.0, #+9               A=1f DP=00b5 SP=71
+I 10325435 020a JNB   ACC.1, #+6               A=1f DP=00b5 SP=71
+I 10325437 020d CPL   00h.6                    A=1f DP=00b5 SP=71
+I 10325438 020f AJMP  #0213h                   A=1f DP=00b5 SP=71
+W 10325884 1da8 0001 63
+W 10326718 1da8 0001 ac
+W 10327525 1da8 0001 07
+W 10328359 1da8 0001 80
+I 10387266 1529 JNB   02h.3, #+3               A=ff DP=1084 SP=71
+I 10387268 152f MOV   34h, #94h                A=ff DP=1084 SP=71
+I 10387270 1532 AJMP  #1755h                   A=ff DP=1084 SP=71
+I 10387741 0947 AJMP  #0B16h                   A=08 DP=093f SP=71
+I 10387743 0b16 AJMP  #0A8Bh                   A=08 DP=093f SP=71
+I 10387745 0a8b LCALL #0526h                   A=08 DP=093f SP=71
+I 10387747 0526 JNB   04h.5, #+3               A=08 DP=093f SP=73
+I 10387749 0529 MOV   64h, #00h                A=08 DP=093f SP=73
+I 10387751 052c JB   01h.1, #+7                A=08 DP=093f SP=73
+I 10387753 052f MOV   37h, #FFh                A=08 DP=093f SP=73
+I 10387755 0532 SETB  01h.1                    A=08 DP=093f SP=73
+I 10387756 0534 INC   64h                      A=08 DP=093f SP=73
+I 10387757 0536 RET                            A=08 DP=093f SP=73
+I 10387759 0a8e LCALL #0537h                   A=08 DP=093f SP=71
+I 10387801 0a91 LCALL #1D9Bh                   A=80 DP=093f SP=71
+I 10387823 0a94 LCALL #1DB8h                   A=58 DP=093f SP=71
+I 10387825 1db8 JB   01h.4, #+20               A=58 DP=093f SP=73
+I 10387827 1dbb MOV   R0, #05h                 A=58 DP=093f SP=73
+I 10387828 1dbd MOVX  A, @R0                   A=58 DP=093f SP=73
+I 10387830 1dbe JNB   ACC.1, #+14              A=05 DP=093f SP=73
+I 10387832 1dcf RET                            A=05 DP=093f SP=73
+I 10387834 0a97 LCALL #05A3h                   A=05 DP=093f SP=71
+I 10387836 05a3 JB   04h.1, #+2                A=05 DP=093f SP=73
+I 10387838 05a8 JB   01h.4, #+58               A=05 DP=093f SP=73
+I 10387840 05ab JNB   01h.3, #+55              A=05 DP=093f SP=73
+I 10387842 05e5 RET                            A=05 DP=093f SP=73
+I 10387844 0a9a CLR   01h.4                    A=05 DP=093f SP=71
+I 10387845 0a9c CLR   01h.5                    A=05 DP=093f SP=71
+I 10387846 0a9e LCALL #1C72h                   A=05 DP=093f SP=71
+I 10387848 1c72 JBC   04h.7, #+1               A=05 DP=093f SP=73
+I 10387850 1c75 RET                            A=05 DP=093f SP=73
+I 10387852 0aa1 RET                            A=05 DP=093f SP=71
+I 10388100 1024 MOV   A, 15h                   A=14 DP=093f SP=71
+I 10388101 1026 JNB   ACC.7, #+5               A=74 DP=093f SP=71
+I 10388122 108c AJMP  #14C4h                   A=08 DP=1084 SP=71
+I 10388124 14c4 JNB   0Ah.2, #+3               A=08 DP=1084 SP=71
+I 10388126 14ca AJMP  #1755h                   A=08 DP=1084 SP=71
+I 10388497 04ce MOV   11h, #0Dh                A=ff DP=00b5 SP=71
+I 10388499 04d1 AJMP  #04DCh                   A=ff DP=00b5 SP=71
+I 10388501 04dc JNB   00h.5, #+4               A=ff DP=00b5 SP=71
+I 10388503 04df MOV   A, 3Ah                   A=ff DP=00b5 SP=71
+I 10388504 04e1 JZ    #+5                      A=00 DP=00b5 SP=71
+I 10388506 04e8 MOV   A, 10h                   A=00 DP=00b5 SP=71
+I 10388507 04ea JNB   ACC.7, #+2               A=d7 DP=00b5 SP=71
+I 10388509 04ed CLR   02h.5                    A=d7 DP=00b5 SP=71

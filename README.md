@@ -139,6 +139,10 @@ checksums are supplied for identification, preservation, and research.
 
 ## Acquisition investigations
 
+- [Nokia Data Modem 2400/2400](nokia/data-modem-2400-2400/) — five-board photo
+  survey, confirmed 8031 controller ROM running with synthetic I/O, Am2901
+  control-store investigation and a recovered sine lookup table.
+
 - [MBI XT / Phoenix 2.27 BIOS](unknown/mbi-xt-phoenix-227/) — three matching
   8 KiB 2764 reads; suspect zero byte in BIOS banner and nonzero checksum.
   Raw image preserved; separate one-byte correction passes 86Box POST, DOS boot

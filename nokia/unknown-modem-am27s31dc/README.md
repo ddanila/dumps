@@ -34,3 +34,7 @@ observation, not an established role for the PROM or proof of modem operation.
 A web search for the CRC32 found no public match; uniqueness is not established.
 
 [Manifest](manifest.json) · [Read logs and acquisition metadata](evidence/)
+
+[Subsequent investigation](../data-modem-2400-2400/) identifies the case as Nokia Data Modem 2400/2400 and confirms that the first 16 bytes exactly match a
+rounded signed sine table. Association with sticker 810241 on DSC3557 remains
+provisional.

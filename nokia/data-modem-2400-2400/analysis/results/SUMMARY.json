@@ -1,0 +1,262 @@
+{
+  "rom_sha256": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+  "cpu_core_hashes": {
+    "LICENSE": "3c05d81f8d97faa7f8acc73af3e1a41491d9cea7f7ed01e5b03ec5c4e9566751",
+    "disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "scenarios": {
+    "cold-no-reset": {
+      "cycles": 2000000,
+      "instructions": 1000005,
+      "unique_instruction_starts": 14,
+      "pc": "1ec4",
+      "resets": 0,
+      "tx_count": 0,
+      "rx_count": 0,
+      "main_loop_entries": 0,
+      "timer1_entries": 0,
+      "reads": [],
+      "writes": [],
+      "assumptions": {},
+      "checks": {
+        "within_rom": true,
+        "no_cpu_exceptions": true,
+        "stops_at_ram_check": true
+      }
+    },
+    "retained-reset-no-shift": {
+      "cycles": 2000000,
+      "instructions": 1006094,
+      "unique_instruction_starts": 69,
+      "pc": "0807",
+      "resets": 95,
+      "tx_count": 0,
+      "rx_count": 0,
+      "main_loop_entries": 0,
+      "timer1_entries": 1803,
+      "reads": [],
+      "writes": [],
+      "assumptions": {
+        "WATCHDOG": "1"
+      },
+      "checks": {
+        "within_rom": true,
+        "no_cpu_exceptions": true,
+        "95_retained_resets": true,
+        "waits_for_mode0_receive": true,
+        "timer1_interrupt_runs": true
+      }
+    },
+    "shift-zero": {
+      "cycles": 20000000,
+      "instructions": 11967071,
+      "unique_instruction_starts": 1035,
+      "pc": "08eb",
+      "resets": 95,
+      "tx_count": 484660,
+      "rx_count": 80451,
+      "main_loop_entries": 11492,
+      "timer1_entries": 19740,
+      "reads": [
+        [
+          5,
+          29994
+        ],
+        [
+          6,
+          19878
+        ],
+        [
+          32772,
+          121164
+        ]
+      ],
+      "writes": [
+        [
+          1,
+          10027,
+          252
+        ],
+        [
+          5,
+          6,
+          21
+        ],
+        [
+          6,
+          9944,
+          37
+        ]
+      ],
+      "assumptions": {
+        "WATCHDOG": "1",
+        "SHIFT": "0"
+      },
+      "checks": {
+        "within_rom": true,
+        "no_cpu_exceptions": true,
+        "reaches_main_loop": true,
+        "mode0_input_and_output": true,
+        "both_8251_controls_written": true,
+        "timer1_interrupt_runs": true
+      }
+    },
+    "shift-ones": {
+      "cycles": 20000000,
+      "instructions": 12161318,
+      "unique_instruction_starts": 848,
+      "pc": "0810",
+      "resets": 95,
+      "tx_count": 491660,
+      "rx_count": 92702,
+      "main_loop_entries": 13243,
+      "timer1_entries": 19740,
+      "reads": [
+        [
+          5,
+          35016
+        ],
+        [
+          32772,
+          122915
+        ]
+      ],
+      "writes": [
+        [
+          1,
+          11702,
+          18
+        ],
+        [
+          5,
+          6,
+          21
+        ],
+        [
+          6,
+          6,
+          21
+        ]
+      ],
+      "assumptions": {
+        "WATCHDOG": "1",
+        "SHIFT": "255"
+      },
+      "checks": {
+        "within_rom": true,
+        "no_cpu_exceptions": true,
+        "reaches_main_loop": true,
+        "mode0_input_and_output": true,
+        "both_8251_controls_written": true,
+        "timer1_interrupt_runs": true
+      }
+    },
+    "shift-seven": {
+      "cycles": 20000000,
+      "instructions": 12033773,
+      "unique_instruction_starts": 869,
+      "pc": "064e",
+      "resets": 95,
+      "tx_count": 489628,
+      "rx_count": 89152,
+      "main_loop_entries": 12735,
+      "timer1_entries": 19734,
+      "reads": [
+        [
+          5,
+          33684
+        ],
+        [
+          32772,
+          122407
+        ]
+      ],
+      "writes": [
+        [
+          1,
+          11257,
+          144
+        ],
+        [
+          5,
+          6,
+          21
+        ],
+        [
+          6,
+          5,
+          21
+        ]
+      ],
+      "assumptions": {
+        "WATCHDOG": "1",
+        "SHIFT": "7"
+      },
+      "checks": {
+        "within_rom": true,
+        "no_cpu_exceptions": true,
+        "reaches_main_loop": true,
+        "mode0_input_and_output": true,
+        "both_8251_controls_written": true,
+        "timer1_interrupt_runs": true
+      }
+    },
+    "preseed-zero": {
+      "cycles": 20000000,
+      "instructions": 11984249,
+      "unique_instruction_starts": 1032,
+      "pc": "024f",
+      "resets": 0,
+      "tx_count": 485440,
+      "rx_count": 81823,
+      "main_loop_entries": 11688,
+      "timer1_entries": 19929,
+      "reads": [
+        [
+          5,
+          30582
+        ],
+        [
+          6,
+          20270
+        ],
+        [
+          32772,
+          121360
+        ]
+      ],
+      "writes": [
+        [
+          1,
+          10223,
+          165
+        ],
+        [
+          5,
+          6,
+          21
+        ],
+        [
+          6,
+          10140,
+          37
+        ]
+      ],
+      "assumptions": {
+        "PRESEED": "1",
+        "SHIFT": "0"
+      },
+      "checks": {
+        "within_rom": true,
+        "no_cpu_exceptions": true,
+        "reaches_main_loop": true,
+        "mode0_input_and_output": true,
+        "both_8251_controls_written": true,
+        "timer1_interrupt_runs": true
+      }
+    }
+  }
+}
