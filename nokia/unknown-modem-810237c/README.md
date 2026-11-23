@@ -7,7 +7,7 @@ unknown. Four socketed PROMs are visible in the supplied
 | Board position | Sticker | Acquisition |
 | --- | --- | --- |
 | 10 | 810237C | Two matching 1,024-byte reads |
-| Not visible in photo | 810238C | Pending |
+| 11 (owner; photo position number obscured) | 810238C (inferred association) | Two matching 1,024-byte reads |
 | 17 | 810239C | Two matching 1,024-byte reads |
 | 18 | 810240C | Pending |
 
@@ -64,3 +64,26 @@ This does not establish uniqueness. PROM role, byte arrangement across chips
 and modem operation remain unverified.
 
 [Chip 17 acquisition metadata and logs](evidence/chip17/)
+
+## Chip 11 acquisition — 2026-11-23
+
+[Raw dump: chip11-810238c.bin](chip11-810238c.bin)
+
+The owner inserted chip 11. Its association with sticker **810238C** is inferred
+from the photo layout and acquisition sequence; the position number beside
+810238C is obscured in the supplied crop. Read as the same MMI 6381 family;
+exact chip markings were not independently reverified for this insertion.
+
+Two independent read-only T48 captures with `82S181` and ID probing skipped
+produced identical, nonblank 1,024-byte images (97 distinct byte values).
+The image differs from both chip 10 and chip 17. No programming was performed.
+
+- SHA-256: `260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939`
+- CRC32: `659d0ae6`
+- Byte sum modulo 256: `4C`; no internal checksum scheme is established.
+
+Searches for `810238C` / Nokia PROM and the CRC32 returned no results; this
+limited search does not establish uniqueness. Firmware role and arrangement
+across the PROMs remain unverified.
+
+[Chip 11 acquisition metadata and logs](evidence/chip11/)
