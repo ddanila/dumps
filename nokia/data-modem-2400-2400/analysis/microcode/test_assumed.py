@@ -545,6 +545,22 @@ class AssumedTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'contiguous'):
             provenance(records[1:],rows,self.scenario,[1,2])
 
+    def test_operand_paths_keep_return_context(self):
+        from operand_paths import ancestors
+        # The same routine at PC 10 is invoked with distinct return addresses.
+        edges=[((0,()),(10,(1,))),((10,(1,)),(1,())),
+               ((2,()),(10,(3,))),((10,(3,)),(3,()))]
+        reached=ancestors(edges,{3})
+        self.assertIn((2,()),reached)
+        self.assertIn((10,(3,)),reached)
+        self.assertNotIn((10,(1,)),reached)
+        self.assertNotIn((0,()),reached)
+        plain=graph(decode(self.mapping),self.scenario)
+        expanded=graph(decode(self.mapping),self.scenario,include_states=True)
+        edges=expanded.pop('state_edges')
+        self.assertEqual(expanded,plain)
+        self.assertEqual({s[0] for edge in edges for s in edge},set(plain['reached']))
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

@@ -10,6 +10,9 @@ This is a statement about the saved reset-started scenarios. It does not prove
 that hardware input is absent, that the routines never receive nonzero values,
 or that the register decode is correct.
 
+A [stack-aware follow-up](OPERAND-PATHS.md) now shows that the missing writer
+connections hold across the entire declared graph, beyond the sampled runs.
+
 ## Experiment
 
 [operand-search.json](operand-search.json) declares four Q-independent layouts,

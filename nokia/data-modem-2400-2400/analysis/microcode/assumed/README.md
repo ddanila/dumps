@@ -18,6 +18,9 @@ calls still have zero source pairs; this does not establish signal processing.
 [OPERAND-PROVENANCE.md](OPERAND-PROVENANCE.md) expands to 128 seeds and traces
 last writers, including writes of unchanged bytes. It distinguishes initial
 zeros from zeros written by earlier transform entries.
+[OPERAND-PATHS.md](OPERAND-PATHS.md) proves that the current control-flow
+hypothesis excludes all non-table source writers from paths to these calls,
+and identifies routine 341–344 as a concrete decode question.
 
 ## Datapath-derived lookup indices
 

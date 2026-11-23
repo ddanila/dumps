@@ -63,7 +63,7 @@ def walk(rows, start):
     return dict(end=1023,reason='end of store',balanced=False)
 
 
-def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None):
+def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None, include_states=False):
     """Conservative stack exploration; local entry probes are separate from reset coverage."""
     if not 0<=start<len(rows) or len(initial_stack)>4:
         raise ValueError('invalid graph entry/stack')
@@ -72,7 +72,10 @@ def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None):
     if any(type(p) is not int or not (0<=p<len(rows) or p==return_sentinel) for p in initial_stack):
         raise ValueError('invalid initial return address')
     queue = deque([(start, tuple(initial_stack))]); states = set(); edges = set(); exceptions = set()
-    returned=False
+    returned=False;state_edges=set()
+    def enqueue(pc, stack, target, next_stack):
+        queue.append((target,next_stack))
+        if include_states:state_edges.add(((pc,stack),(target,next_stack)))
     while queue:
         pc, stack = queue.popleft()
         if return_sentinel is not None and pc==return_sentinel:
@@ -103,14 +106,14 @@ def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None):
                     else:
                         t=scenario['dispatch']['tables'][str(pc)]
                         for target in table_targets(t):
-                            edges.add((pc,target,'dispatch:'+t['status'])); queue.append((target,ns))
+                            edges.add((pc,target,'dispatch:'+t['status'])); enqueue(pc,stack,target,ns)
                         continue
             elif c==6 and test:
                 dest=r['branch']; kind='branch'
                 table=scenario.get('branch_tables',{}).get(str(pc))
                 if table is not None:
                     for target in table_targets(table):
-                        edges.add((pc,target,'branch-dispatch:'+table['status']));queue.append((target,ns))
+                        edges.add((pc,target,'branch-dispatch:'+table['status']));enqueue(pc,stack,target,ns)
                     continue
                 if not r['direct']:
                     policy=scenario['indirect_branch'];kind='indirect-branch:'+policy['status']
@@ -118,10 +121,11 @@ def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None):
                     elif policy['source']!='microword':
                         exceptions.add(f'{pc:03x}: unresolved datapath branch');continue
             elif c==7: dest=0; kind='reset'
-            edges.add((pc,dest,kind)); queue.append((dest,ns))
+            edges.add((pc,dest,kind)); enqueue(pc,stack,dest,ns)
     reached={p for p,s in states}
     result=dict(states=len(states),reached=sorted(reached),edges=sorted(edges),
                 exceptions=sorted(exceptions),unreachable=[dict(pc=r['pc'],reason='No path under declared direct and dispatch edges; unresolved wiring/dispatch hypothesis') for r in rows if not r['unused'] and r['pc'] not in reached])
+    if include_states:result['state_edges']=sorted(state_edges)
     if return_sentinel is not None:result['terminal_return_reached']=returned
     return result
 
