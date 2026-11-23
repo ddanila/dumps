@@ -1,5 +1,8 @@
 # Measured results
 
+**Latest coverage experiment:** [low-address handlers](LOW-HANDLERS.md)
+reach 75.42% under additional dispatch hypotheses; the baseline below is historical.
+
 **Later experiment:** [local branch tables](BRANCH-TABLES.md) improve runtime
 coverage to 55.34% with clean runs. The measurements below describe the original
 baseline, preserved for comparison. Overall research acceptance remains unmet.

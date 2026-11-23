@@ -9,6 +9,13 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Low-address handler dispatch
+
+[LOW-HANDLERS.md](LOW-HANDLERS.md) raises measured coverage to 75.42% under
+explicit boundary-derived target hypotheses. Tables may specify a sparse
+`targets` list instead of `base/count/stride`, with the same provenance
+requirements. Static analysis and execution share target validation and order.
+
 ## Conditional flag timing
 
 [CONDITION-TIMING.md](CONDITION-TIMING.md) compares current and previous zero

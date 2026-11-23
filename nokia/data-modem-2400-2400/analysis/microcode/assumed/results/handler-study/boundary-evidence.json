@@ -1,0 +1,77 @@
+{
+  "candidates": [
+    9,
+    13,
+    19,
+    34,
+    50,
+    55,
+    56,
+    57,
+    58,
+    61,
+    62,
+    63,
+    84
+  ],
+  "configuration": {
+    "cycles": 1000,
+    "deferred_boundaries": {
+      "63": "03F is adjacent to the 03C table and may be a third local entry, but is TSK rather than BRT; retained as an ablation, not assigned to 008."
+    },
+    "dispatch_site": 8,
+    "evidence": "Unreferenced instruction boundaries after unconditional transfers in 009-058 suggest separate handlers behind computed BRT 008; nearby branch-only groups suggest local dispatches.",
+    "integration": {
+      "external_read": 85,
+      "seed": 1,
+      "variant": 2
+    },
+    "limitations": [
+      "Boundary structure does not prove that 008 dispatches to these handlers or establish their index encoding.",
+      "Sparse target order is scenario-owned, not recovered hardware address encoding.",
+      "The encoded 300 target is retained as an alternative, not proven valid for an indirect branch.",
+      "All runs begin at reset; no externally injected PCs or repaired stacks contribute to coverage.",
+      "03F remains ambiguous; computed targets at 21F and 2C4 remain placeholders."
+    ],
+    "local_tables": {
+      "54": {
+        "base": 55,
+        "count": 3,
+        "evidence": "036 immediately precedes three select-zero direct BRT entries at 037-039; overrides the probable direct-source bit.",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "60": {
+        "base": 61,
+        "count": 2,
+        "evidence": "03C immediately precedes two select-zero direct BRT entries at 03D-03E.",
+        "status": "hypothesis",
+        "stride": 1
+      }
+    },
+    "region_end": 89,
+    "region_start": 9,
+    "retained_encoded_target": 768,
+    "seeds": 128,
+    "status": "hypothesis"
+  },
+  "deferred": [
+    63
+  ],
+  "handlers": [
+    9,
+    13,
+    19,
+    34,
+    50,
+    58,
+    84
+  ],
+  "local_entries": [
+    55,
+    56,
+    57,
+    61,
+    62
+  ]
+}

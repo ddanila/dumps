@@ -6,7 +6,7 @@ import random
 from contextlib import ExitStack
 from collections import Counter
 from pathlib import Path
-from common import HERE, decode, digest, load, read, save, unconditional_transfer
+from common import HERE, decode, digest, load, read, save, unconditional_transfer, table_targets
 from model import Am2901, X8X02, UnknownStack
 
 
@@ -59,8 +59,8 @@ def validate_scenario(s):
     if not isinstance(c.get('unconditional_requires_direct', True), bool):
         raise ValueError('unconditional_requires_direct must be boolean')
     for pc,t in [*d['tables'].items(), *s.get('branch_tables',{}).items()]:
-        if not 0<=int(pc)<1024 or t['count']<1 or t['stride']<1 or t['base']<0 or t['base']+(t['count']-1)*t['stride']>=1024:
-            raise ValueError('invalid dispatch table bounds')
+        if not 0<=int(pc)<1024:raise ValueError('invalid dispatch site')
+        table_targets(t)
         if t['status'] not in ('hypothesis','stub','recovered-from-data') or not t.get('evidence'):
             raise ValueError('dispatch requires provenance')
     if s['io']['read']['mode'] not in ('immediate','constant','table','am27s31'):
@@ -117,6 +117,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         for key in ('select_field','constant_field'):
             field=inputs['carry'][key]
             if any(row.get(field) not in (0,1) for row in rows):raise ValueError('missing one-bit carry field')
+    dispatch_targets={pc:table_targets(t) for pc,t in dispatch['tables'].items()}
+    branch_targets={pc:table_targets(t) for pc,t in scenario.get('branch_tables',{}).items()}
     carry_input=CarryInput(inputs['carry'])
     rng=random.Random(seed); initial=scenario['initial']
     seq=X8X02(pc=initial['pc']);cpu=Am2901(ram=initial['ram'][:],q=initial['q'])
@@ -177,13 +179,14 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             elif policy['source']=='y': branch=result['y']
             elif policy['source']=='q': branch=cpu.q
         if test and ((c==4 and not r['direct']) or branch_table is not None):
-            t=branch_table if branch_table is not None else dispatch['tables'][str(pc)];count=t['count']
+            t=branch_table if branch_table is not None else dispatch['tables'][str(pc)]
+            targets=(branch_targets if branch_table is not None else dispatch_targets)[str(pc)];count=len(targets)
             if dispatch['source']=='y': index=result['y']
             elif dispatch['source']=='q': index=cpu.q
             elif dispatch['mode']=='constant': index=dispatch['value']
             elif dispatch['mode']=='sequence': index=dispatch['sequence'][dispatch_counts[pc]%len(dispatch['sequence'])]
             else: index=rng.randrange(count)
-            entry=index%count;branch=t['base']+entry*t['stride'];dispatch_counts[pc]+=1
+            entry=index%count;branch=targets[entry];dispatch_counts[pc]+=1
             assumptions['dispatch '+t['status']]+=1
         push=c==5 or (c==4 and test);pop=c in (2,3)
         before=dict(sp=seq.sp,depth=depth)

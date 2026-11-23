@@ -3,7 +3,7 @@ import argparse
 import json
 import tempfile
 from pathlib import Path
-from common import HERE, decode, read, save
+from common import HERE, decode, read, save, table_targets
 from execute import execute
 
 
@@ -20,12 +20,12 @@ def inspect_trace(records, scenario):
         site=str(record['pc'])
         table=scenario['dispatch']['tables'].get(site)
         if table and record['dispatch_entry'] is not None:
-            y=record['alu']['y']
+            y=record['alu']['y'];count=len(table_targets(table))
             samples.append(dict(cycle=cycle,site=record['pc'],entry=record['dispatch_entry'],
                 target=record['next_pc'],ram_before=before,ram_at_entry=ram[:],q_before=q,q_at_entry=record['q'],
                 current_y=y,previous_y=previous_y,
-                candidate_indices=dict(current_y=y%table['count'],q=record['q']%table['count'],
-                    previous_y=None if previous_y is None else previous_y%table['count'])))
+                candidate_indices=dict(current_y=y%count,q=record['q']%count,
+                    previous_y=None if previous_y is None else previous_y%count)))
         q=record['q'];previous_y=record['alu']['y']
     return samples
 
@@ -33,7 +33,7 @@ def inspect_trace(records, scenario):
 def check_rotation(sample,rows,scenario,rotation_bases):
     from rotation_study import run_entry, word
     table=scenario['dispatch']['tables'][str(sample['site'])]
-    if table['base'] not in rotation_bases:return
+    if table.get('base') not in rotation_bases:return
     bank=rows[table['base']]['b']
     ram=sample['ram_at_entry']
     x,y=word(ram,10),word(ram,12)

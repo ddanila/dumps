@@ -236,7 +236,7 @@ class AssumedTests(unittest.TestCase):
     def test_caller_state_reconstruction_preserves_timing(self):
         from caller_study import inspect_trace
         scenario=copy.deepcopy(self.scenario)
-        scenario['dispatch']['tables']={'10':dict(count=4)}
+        scenario['dispatch']['tables']={'10':dict(targets=[100,120,130,150])}
         records=[dict(cycle=0,pc=9,registers={'10':7},q=5,alu=dict(y=6),dispatch_entry=None),
                  dict(cycle=1,pc=10,registers={'10':8},q=9,alu=dict(y=3),dispatch_entry=2,next_pc=100)]
         sample=inspect_trace(records,scenario)[0]
@@ -321,6 +321,44 @@ class AssumedTests(unittest.TestCase):
             result=execute(mapping,scenario,1,mode='integrated')
         self.assertEqual(result['final_state']['pc'],1)
         self.assertEqual(result['stack']['final_depth'],0)
+
+    def test_sparse_dispatch_targets_and_validation(self):
+        from common import table_targets
+        self.assertEqual(table_targets(dict(base=10,count=3,stride=4)),[10,14,18])
+        self.assertEqual(table_targets(dict(targets=[10,37,100])),[10,37,100])
+        for table in ({'targets':[]},{'targets':[1,1]},{'targets':[1024]},
+                      {'targets':[True]},{'targets':[1],'base':0},{'base':0,'count':0,'stride':1}):
+            with self.assertRaises(ValueError):table_targets(table)
+        scenario=read(HERE/'branch-tables.json')
+        table=dict(targets=[0x11a,0x133,0x345],status='hypothesis',evidence='sparse fixture')
+        scenario['branch_tables'][str(0x109)]=table
+        scenario['initial']['pc']=0x109
+        scenario['dispatch'].update(mode='sequence',sequence=[1])
+        result=execute(self.mapping,scenario,1)
+        self.assertEqual(result['final_state']['pc'],0x133)
+        self.assertEqual(result['stack']['writes'],0)
+        scenario['initial']['pc']=0x81
+        scenario['dispatch']['tables'][str(0x81)]=table
+        result=execute(self.mapping,scenario,1)
+        self.assertEqual(result['final_state']['pc'],0x133)
+        self.assertEqual(result['stack']['writes'],1)
+        g=graph(decode(self.mapping),scenario)
+        self.assertIn((0x81,0x345,'dispatch:hypothesis'),g['edges'])
+
+    def test_low_address_handler_boundaries_and_stack_graph(self):
+        from handler_study import boundaries,scenarios
+        config=read(HERE/'handler-search.json');base=read(HERE/'branch-tables.json')
+        rows=decode(self.mapping);evidence=boundaries(rows,base,config)
+        self.assertEqual(evidence['handlers'],[0x009,0x00d,0x013,0x022,0x032,0x03a,0x054])
+        self.assertIn(0x03f,evidence['deferred'])
+        alternatives,scenario=scenarios(base,config,evidence)
+        g=graph(rows,scenario)
+        self.assertEqual(len(g['reached']),775)
+        self.assertEqual(g['exceptions'],[])
+        self.assertIn((0x008,0x013,'branch-dispatch:hypothesis'),g['edges'])
+        self.assertIn((0x036,0x039,'branch-dispatch:hypothesis'),g['edges'])
+        self.assertNotIn(0x03f,g['reached'])
+        self.assertIn(0x03f,graph(rows,alternatives['third-entry-ablation'])['reached'])
 
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)

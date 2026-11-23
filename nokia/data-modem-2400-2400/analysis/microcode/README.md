@@ -1,24 +1,20 @@
 # DSC2847 bit-slice execution experiment
 
 **Current experiment:** [the assumption-driven workflow](assumed/README.md)
-implements the analysis and execution tooling from [PLAN.md](PLAN.md). A new
-[local branch-table hypothesis](assumed/BRANCH-TABLES.md) raises measured
-sequencer coverage from 28.8% to **55.3%**, with clean million-cycle runs and
-three speculative datapath variants. The 90% coverage target and identification
-of the actual datapath/I/O remain unmet. Historical results are preserved in
-[the baseline report](assumed/RESULTS.md). A subsequent
-[register-field study](assumed/REGISTER-FIELDS.md) identifies a second counting
-field and shows that the current datapath candidates still fail to explain
-chip-10 differences between dispatch entries. The newer
-[paired-arithmetic experiment](assumed/PAIRED-ARITHMETIC.md) tests chip-10
-function/carry controls, yielding conditional rotation and add/subtract
-interpretations, with an explicit overlapping-register counterexample.
-A [caller-state study](assumed/CALLER-STATES.md) additionally finds nonzero-Q
-counterexamples on reset paths when the external input stub is nonzero.
-The [separated source-bit search](assumed/Q-INDEPENDENT.md) removes that Q
-dependency and supports a conditional shift-until-zero interpretation of 1E9.
-A [condition-timing comparison](assumed/CONDITION-TIMING.md) tests that flag
-source across select-zero instructions without resolving current versus previous timing.
+implements the analysis and execution tooling from [PLAN.md](PLAN.md). The
+[low-address handler hypothesis](assumed/LOW-HANDLERS.md) reaches **75.42%** of
+used words in reset-based runs, with clean stack behavior. Its matched control
+reaches 66.31%. The 90% target and physical datapath/I/O identification remain
+unmet. Historical [baseline](assumed/RESULTS.md) and
+[branch-table](assumed/BRANCH-TABLES.md) results remain reproducible.
+
+Datapath work includes [register recovery](assumed/REGISTER-FIELDS.md),
+[paired arithmetic](assumed/PAIRED-ARITHMETIC.md), and
+[caller-state counterexamples](assumed/CALLER-STATES.md). The
+[separated source-bit search](assumed/Q-INDEPENDENT.md) removes the table
+arithmetic's Q dependency and supports a conditional shift-until-zero
+interpretation of 1E9. A [timing comparison](assumed/CONDITION-TIMING.md)
+leaves current versus previous condition flags unresolved.
 
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,

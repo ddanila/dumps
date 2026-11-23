@@ -3,7 +3,7 @@ import argparse
 import csv
 import itertools
 from collections import Counter, deque
-from common import HERE, NAMES, decode, digest, field_value, load, read, save, unconditional_transfer
+from common import HERE, NAMES, decode, digest, field_value, load, read, save, unconditional_transfer, table_targets
 
 
 def must_targets(rows):
@@ -93,16 +93,14 @@ def graph(rows, scenario):
                     if r['direct']: dest=r['branch']
                     else:
                         t=scenario['dispatch']['tables'][str(pc)]
-                        for i in range(t['count']):
-                            target=t['base']+i*t['stride']
+                        for target in table_targets(t):
                             edges.add((pc,target,'dispatch:'+t['status'])); queue.append((target,ns))
                         continue
             elif c==6 and test:
                 dest=r['branch']; kind='branch'
                 table=scenario.get('branch_tables',{}).get(str(pc))
                 if table is not None:
-                    for i in range(table['count']):
-                        target=table['base']+i*table['stride']
+                    for target in table_targets(table):
                         edges.add((pc,target,'branch-dispatch:'+table['status']));queue.append((target,ns))
                     continue
                 if not r['direct']:

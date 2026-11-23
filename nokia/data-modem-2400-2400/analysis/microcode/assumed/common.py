@@ -79,3 +79,21 @@ def unconditional_transfer(row, scenario):
     return (row['command'] in (4, 6)
             and row['select'] == condition['unconditional_select']
             and (row['direct'] or not condition.get('unconditional_requires_direct', True)))
+
+
+def table_targets(table):
+    """Resolve a regular table or an explicit, provenance-owned sparse target list."""
+    if 'targets' in table:
+        if any(k in table for k in ('base','count','stride')):
+            raise ValueError('ambiguous dispatch table format')
+        targets=table['targets']
+        if not isinstance(targets,list) or not targets:
+            raise ValueError('empty or invalid dispatch targets')
+    else:
+        base,count,stride=(table.get(k) for k in ('base','count','stride'))
+        if any(type(v) is not int for v in (base,count,stride)) or not 1<=count<=1024 or stride<1:
+            raise ValueError('invalid dispatch table bounds')
+        targets=[base+i*stride for i in range(count)]
+    if any(type(p) is not int or not 0<=p<1024 for p in targets) or len(set(targets))!=len(targets):
+        raise ValueError('invalid or duplicate dispatch targets')
+    return targets

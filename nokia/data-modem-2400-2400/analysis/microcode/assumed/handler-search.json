@@ -1,0 +1,23 @@
+{
+  "status": "hypothesis",
+  "evidence": "Unreferenced instruction boundaries after unconditional transfers in 009-058 suggest separate handlers behind computed BRT 008; nearby branch-only groups suggest local dispatches.",
+  "region_start": 9,
+  "region_end": 89,
+  "dispatch_site": 8,
+  "retained_encoded_target": 768,
+  "local_tables": {
+    "54": {"base": 55, "count": 3, "stride": 1, "status": "hypothesis", "evidence": "036 immediately precedes three select-zero direct BRT entries at 037-039; overrides the probable direct-source bit."},
+    "60": {"base": 61, "count": 2, "stride": 1, "status": "hypothesis", "evidence": "03C immediately precedes two select-zero direct BRT entries at 03D-03E."}
+  },
+  "deferred_boundaries": {"63": "03F is adjacent to the 03C table and may be a third local entry, but is TSK rather than BRT; retained as an ablation, not assigned to 008."},
+  "seeds": 128,
+  "cycles": 1000,
+  "integration": {"variant": 2, "seed": 1, "external_read": 85},
+  "limitations": [
+    "Boundary structure does not prove that 008 dispatches to these handlers or establish their index encoding.",
+    "Sparse target order is scenario-owned, not recovered hardware address encoding.",
+    "The encoded 300 target is retained as an alternative, not proven valid for an indirect branch.",
+    "All runs begin at reset; no externally injected PCs or repaired stacks contribute to coverage.",
+    "03F remains ambiguous; computed targets at 21F and 2C4 remain placeholders."
+  ]
+}
