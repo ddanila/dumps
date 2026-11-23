@@ -64,6 +64,9 @@ ALU adjustment at 2D9/2DC. Local probes do not add reset coverage.
 [TAIL-CONVERGENCE.md](TAIL-CONVERGENCE.md) shows that this adjustment disappears
 from modeled state at 07B. An output consumer, timing effect, or revised decode
 is needed before assigning it a sample-processing role.
+[OUTPUT-CONTROL.md](OUTPUT-CONTROL.md) tests raw-bit output-enable predicates.
+Forty-three different predicates fit the assumed example groups; their broad,
+different predictions prevent identifying a strobe from these patterns alone.
 
 ## Datapath-derived lookup indices
 

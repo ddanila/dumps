@@ -1,0 +1,75 @@
+{
+  "status": "hypothesis",
+  "evidence": "Use model-derived virtual output and RAM-transform groups to measure ambiguity of simple output-control predicates; none is an observed hardware label.",
+  "positive_training": [
+    [
+      "379",
+      "388"
+    ],
+    [
+      "392",
+      "3A1"
+    ]
+  ],
+  "negative_training": [
+    [
+      "3C5",
+      "3D4"
+    ],
+    [
+      "3DA",
+      "3E9"
+    ],
+    [
+      "084",
+      "084"
+    ]
+  ],
+  "positive_holdout": [
+    [
+      "3AB",
+      "3BA"
+    ]
+  ],
+  "negative_holdout": [
+    [
+      "3EF",
+      "3FE"
+    ]
+  ],
+  "transient_probes": [
+    "2D9",
+    "2DC"
+  ],
+  "maximum_literals": 2,
+  "comparison_gate": [
+    [
+      "17.3",
+      1
+    ],
+    [
+      "11.7",
+      1
+    ],
+    [
+      "11.6",
+      0
+    ],
+    [
+      "11.5",
+      0
+    ]
+  ],
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q2": "results/independent-study/variant-2.json",
+    "q3": "results/independent-study/variant-3.json",
+    "q4": "results/independent-study/variant-4.json"
+  },
+  "limitations": [
+    "Training labels are proposed roles, not physical I/O observations. RAM writes do not inherently exclude simultaneous external writes.",
+    "Held-out table groups share instruction templates with training groups; their agreement is not independent hardware evidence.",
+    "Predicates are conjunctions of up to two raw bits, with arbitrary polarity. No predicate is installed as an output strobe.",
+    "All used-word activations are reported, including branches, calls and RAM-writing instructions; unknown cases are not treated as false positives."
+  ]
+}
