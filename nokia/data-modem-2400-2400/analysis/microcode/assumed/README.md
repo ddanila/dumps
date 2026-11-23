@@ -15,6 +15,9 @@ the original hash-checked PROM loader. No raw dumps or photographs are modified.
 lookup ROM. The trace distinguishes sampled bytes from operands selected by
 the ALU. All 128 short runs finish cleanly, but the sampled paired-arithmetic
 calls still have zero source pairs; this does not establish signal processing.
+[OPERAND-PROVENANCE.md](OPERAND-PROVENANCE.md) expands to 128 seeds and traces
+last writers, including writes of unchanged bytes. It distinguishes initial
+zeros from zeros written by earlier transform entries.
 
 ## Datapath-derived lookup indices
 

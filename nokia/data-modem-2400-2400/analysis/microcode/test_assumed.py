@@ -528,6 +528,23 @@ class AssumedTests(unittest.TestCase):
         scenario['io']['read']['address']['bank']=1
         with self.assertRaisesRegex(ValueError,'bank/initial'):validate_scenario(scenario)
 
+    def test_operand_provenance_includes_unchanged_writes(self):
+        from operand_study import provenance
+        rows=[dict(i=3<<6,a=0,b=10),dict(i=1<<6,a=0,b=11),
+              dict(i=3<<6,a=10,b=12)]
+        records=[dict(cycle=0,pc=0,registers={},q=0,dispatch_entry=None,next_pc=1),
+                 dict(cycle=1,pc=1,registers={},q=0,dispatch_entry=0,next_pc=2),
+                 dict(cycle=2,pc=2,registers={'12':7},q=0,dispatch_entry=0,next_pc=3)]
+        samples=provenance(records,rows,self.scenario,[1,2])
+        self.assertEqual(samples[0]['writers'][0]['pc'],0)
+        self.assertEqual(samples[0]['writers'][0]['value'],0)
+        self.assertEqual(samples[0]['writers'][1]['kind'],'initial')
+        self.assertEqual(samples[0]['writers'][2]['kind'],'initial')
+        self.assertEqual(samples[1]['writers'][2]['pc'],2)
+        self.assertEqual(samples[1]['source_bytes'],[0,0,7,0])
+        with self.assertRaisesRegex(ValueError,'contiguous'):
+            provenance(records[1:],rows,self.scenario,[1,2])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

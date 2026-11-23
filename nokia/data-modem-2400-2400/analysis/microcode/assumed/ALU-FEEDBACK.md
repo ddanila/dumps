@@ -10,6 +10,9 @@ variants still enter the sampled paired-arithmetic tables with zero source
 pairs. ROM feedback alone, under these policies, does not establish useful
 signal processing or distinguish the layouts.
 
+A [128-seed writer-provenance follow-up](OPERAND-PROVENANCE.md) finds the same
+zero-input limitation and identifies the last instructions writing those bytes.
+
 ## Assumptions and trace contract
 
 `io.read.mode` is `am27s31`; its optional `address` object specifies
