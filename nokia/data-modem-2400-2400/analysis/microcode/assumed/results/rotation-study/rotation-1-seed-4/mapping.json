@@ -1,0 +1,156 @@
+{
+  "address_wiring": {
+    "evidence": "PROM structural analysis",
+    "status": "hypothesis",
+    "value": "straight-through"
+  },
+  "fields": {
+    "a": {
+      "bits": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "evidence": "Paired-arithmetic experiment; see rotation-search.json constraints and limitations",
+      "status": "hypothesis"
+    },
+    "b": {
+      "bits": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "evidence": "Paired-arithmetic experiment; see rotation-search.json constraints and limitations",
+      "status": "hypothesis"
+    },
+    "branch": {
+      "bits": [
+        "11.0",
+        "10.7",
+        "10.6",
+        "10.5",
+        "10.4",
+        "10.3",
+        "10.2",
+        "10.1",
+        "10.0",
+        "18.7"
+      ],
+      "evidence": "PLAN.md target-window search; B0/B9 less certain",
+      "status": "recovered-from-data"
+    },
+    "carry": {
+      "bits": [
+        "10.4"
+      ],
+      "evidence": "Paired-arithmetic experiment; see rotation-search.json constraints and limitations",
+      "status": "hypothesis"
+    },
+    "carry_select": {
+      "bits": [
+        "11.0"
+      ],
+      "evidence": "Paired-arithmetic experiment; see rotation-search.json constraints and limitations",
+      "status": "hypothesis"
+    },
+    "command": {
+      "bits": [
+        "17.2",
+        "17.1",
+        "17.0"
+      ],
+      "evidence": "PLAN.md command histogram",
+      "status": "recovered-from-data"
+    },
+    "d": {
+      "bits": 0,
+      "evidence": "External D input supplied by scenario, not chip-10 immediate",
+      "status": "stub"
+    },
+    "direct": {
+      "bits": [
+        "17.7"
+      ],
+      "evidence": "PLAN.md computed-call patterns",
+      "status": "hypothesis"
+    },
+    "i": {
+      "bits": [
+        "17.5",
+        "18.2",
+        "18.3",
+        "10.3",
+        "10.2",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "evidence": "Paired-arithmetic experiment; see rotation-search.json constraints and limitations",
+      "status": "hypothesis"
+    },
+    "output_slot": {
+      "bits": [
+        "10.1",
+        "10.5",
+        "10.6",
+        "10.7"
+      ],
+      "evidence": "Paired-arithmetic experiment; see rotation-search.json constraints and limitations",
+      "status": "hypothesis"
+    },
+    "register": {
+      "bits": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "evidence": "PLAN.md 0\u201315 table count; role unknown",
+      "status": "hypothesis"
+    },
+    "select": {
+      "bits": [
+        "17.4",
+        "17.5",
+        "17.6"
+      ],
+      "evidence": "PLAN.md conditional-transfer statistics",
+      "status": "hypothesis"
+    }
+  },
+  "name": "rotation-1",
+  "ranking": {
+    "components": {
+      "arithmetic_fraction": 0.7198824681684622,
+      "first_family_uses_b": 1,
+      "inversions": 1
+    },
+    "function_codes": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1
+    ],
+    "i": [
+      "17.5",
+      "18.2",
+      "18.3",
+      "10.3",
+      "10.2",
+      "!10.0",
+      "11.7",
+      "11.6",
+      "11.5"
+    ],
+    "score": 8.098824681684624,
+    "source_first": 1,
+    "source_second": 0
+  }
+}

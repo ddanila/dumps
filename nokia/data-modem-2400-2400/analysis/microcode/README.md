@@ -9,7 +9,10 @@ of the actual datapath/I/O remain unmet. Historical results are preserved in
 [the baseline report](assumed/RESULTS.md). A subsequent
 [register-field study](assumed/REGISTER-FIELDS.md) identifies a second counting
 field and shows that the current datapath candidates still fail to explain
-chip-10 differences between dispatch entries.
+chip-10 differences between dispatch entries. The newer
+[paired-arithmetic experiment](assumed/PAIRED-ARITHMETIC.md) tests chip-10
+function/carry controls, yielding conditional rotation and add/subtract
+interpretations, with an explicit overlapping-register counterexample.
 
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,

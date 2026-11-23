@@ -8,7 +8,7 @@ from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parent/'assumed'))
 from common import HERE, decode, field_value, read, validate
 from analyze import graph, must_targets, search_address, walk, rank_layouts
-from execute import execute, validate_scenario
+from execute import CarryInput, execute, validate_scenario
 from register_study import recover_register, table_semantics
 
 
@@ -190,6 +190,48 @@ class AssumedTests(unittest.TestCase):
                     outputs.append(cpu.step(row['i'],row['a'],row['b'],row['d']))
                 outcomes.append((cpu.ram,cpu.q,outputs))
             self.assertTrue(all(x==outcomes[0] for x in outcomes))
+
+    def test_mapped_carry_propagation_and_unknown_fallback(self):
+        from model import Am2901
+        policy=dict(initial=0,unknown=1,select_field='feedback',constant_field='constant')
+        carry=CarryInput(policy)
+        cpu=Am2901(ram=[0,1]+[0]*14,q=0)
+        # Negate 0x0100: low zero produces carry, making the high byte 0xff.
+        instruction=0|(1<<3)|(3<<6)
+        low=cpu.step(instruction,0,2,0,carry.resolve(dict(feedback=0,constant=1)))
+        carry.observe(low)
+        high=cpu.step(instruction,1,3,0,carry.resolve(dict(feedback=1,constant=0)))
+        self.assertEqual((low['f'],high['f']),(0,255))
+        carry.observe(dict(carry=None))
+        self.assertEqual(carry.resolve(dict(feedback=1,constant=0)),1)
+        self.assertEqual(carry.counts['unknown_feedback'],1)
+        self.assertIsNone(carry.previous)
+        constant=CarryInput(0);constant.observe(dict(carry=1))
+        self.assertEqual(constant.resolve({}),0)
+
+    def test_rotation_tables_and_overlapping_register_counterexample(self):
+        from rotation_study import fixtures
+        config=read(HERE/'rotation-search.json')
+        for index in range(1,4):
+            mapping=read(HERE/f'results/rotation-study/variant-{index}.json')
+            fields={k:{b.lstrip('!') for b in mapping['fields'][k]['bits']} for k in ('i','a','b')}
+            self.assertFalse(fields['i']&(fields['a']|fields['b']))
+            report=fixtures(mapping,config)
+            self.assertEqual(report['failures'],[])
+            self.assertEqual(report['rotation_checks'],312)
+            self.assertEqual(report['virtual_output_checks'],468)
+            # In-place bank 12 overwrites Y with X before the second copy.
+            self.assertEqual(report['alias_table'][0]['output'],(0x1234,0x1234))
+            self.assertNotEqual(report['alias_table'][0]['output'],(0x1234,0x5678))
+
+    def test_feedback_scenario_requires_datapath_and_one_bit_fields(self):
+        mapping=read(HERE/'results/rotation-study/variant-1.json')
+        scenario=read(HERE/'results/rotation-study/scenario-1.json')
+        with self.assertRaisesRegex(ValueError,'integrated mode'):
+            execute(mapping,scenario,1)
+        mapping['fields']['carry']['bits']=2
+        with self.assertRaises(ValueError):
+            execute(mapping,scenario,1,mode='integrated')
 
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)

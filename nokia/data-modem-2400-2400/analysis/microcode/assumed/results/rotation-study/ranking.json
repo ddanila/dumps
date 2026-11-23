@@ -1,0 +1,719 @@
+{
+  "configuration": {
+    "a_bits": [
+      "11.4",
+      "11.3",
+      "11.2",
+      "11.1"
+    ],
+    "alias_table_base": 1007,
+    "b_bits": [
+      "18.1",
+      "18.0",
+      "17.7",
+      "17.6"
+    ],
+    "carry_constant_bits": [
+      "10.4"
+    ],
+    "carry_select_bits": [
+      "11.0"
+    ],
+    "destination_bits": [
+      "11.7",
+      "11.6",
+      "11.5"
+    ],
+    "evidence": "Paired register permutations and chip-10 sign changes in 3C5/3DA suggest quarter-turn rotations. Q=0, byte order, carry feedback and virtual output slots are explicit assumptions.",
+    "fixture_q": 0,
+    "integration_seeds": [
+      0,
+      4
+    ],
+    "limitations": [
+      "The four quarter-turn identities are search constraints, not independent proof of the physical instruction wiring.",
+      "3EF is held out because output registers 12/13 overlap the source pair; sequential writes change its behavior.",
+      "Virtual output slots label modeled ALU-Y captures, not identified DAC or RAM addresses.",
+      "Carry selector 10.1 also fits these tables; choosing 11.0 is not established by this experiment."
+    ],
+    "negative_opcodes": [
+      185,
+      187,
+      121,
+      123
+    ],
+    "output_slot_bits": [
+      "10.1",
+      "10.5",
+      "10.6",
+      "10.7"
+    ],
+    "output_table_bases": [
+      889,
+      914,
+      939
+    ],
+    "positive_opcodes": [
+      161,
+      179,
+      97,
+      115
+    ],
+    "retained": 3,
+    "rotation_table_bases": [
+      965,
+      986
+    ],
+    "source_bits": [
+      "18.6",
+      "18.5",
+      "18.4",
+      "18.3",
+      "18.2",
+      "17.5",
+      "17.4",
+      "17.3"
+    ],
+    "source_chip_orders": [
+      [
+        "18",
+        "17"
+      ],
+      [
+        "17",
+        "18"
+      ]
+    ],
+    "status": "hypothesis",
+    "weights": {
+      "arithmetic_fraction": 10,
+      "first_family_uses_b": 1,
+      "inversions": -0.1
+    }
+  },
+  "function_candidates": 2688,
+  "source_windows": 16,
+  "survivors": 480,
+  "top": [
+    {
+      "components": {
+        "arithmetic_fraction": 0.7198824681684622,
+        "first_family_uses_b": 1,
+        "inversions": 1
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "18.2",
+        "18.3",
+        "10.3",
+        "10.2",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 8.098824681684624,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.7198824681684622,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "18.5",
+        "18.4",
+        "10.3",
+        "10.2",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.998824681684623,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.7198824681684622,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "17.4",
+        "!17.3",
+        "10.3",
+        "10.2",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.998824681684623,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.7198824681684622,
+        "first_family_uses_b": 1,
+        "inversions": 3
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "!17.3",
+        "17.4",
+        "10.3",
+        "10.2",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.898824681684624,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.693437806072478,
+        "first_family_uses_b": 1,
+        "inversions": 1
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "18.2",
+        "18.3",
+        "10.3",
+        "!10.0",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.83437806072478,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.693437806072478,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "18.5",
+        "18.4",
+        "10.3",
+        "!10.0",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.734378060724779,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.693437806072478,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "17.4",
+        "!17.3",
+        "10.3",
+        "!10.0",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.734378060724779,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.693437806072478,
+        "first_family_uses_b": 1,
+        "inversions": 3
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "!17.3",
+        "17.4",
+        "10.3",
+        "!10.0",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.63437806072478,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6767874632713027,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "18.2",
+        "18.3",
+        "10.3",
+        "!10.5",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.567874632713027,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6767874632713027,
+        "first_family_uses_b": 1,
+        "inversions": 3
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "18.5",
+        "18.4",
+        "10.3",
+        "!10.5",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.467874632713027,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6767874632713027,
+        "first_family_uses_b": 1,
+        "inversions": 3
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "17.4",
+        "!17.3",
+        "10.3",
+        "!10.5",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.467874632713027,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6767874632713027,
+        "first_family_uses_b": 1,
+        "inversions": 4
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "!17.3",
+        "17.4",
+        "10.3",
+        "!10.5",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.3678746327130265,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6444662095984329,
+        "first_family_uses_b": 1,
+        "inversions": 1
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "18.2",
+        "18.3",
+        "10.3",
+        "!10.5",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.344662095984329,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6493633692458374,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "18.2",
+        "18.3",
+        "10.5",
+        "!10.3",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.293633692458374,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6444662095984329,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "18.5",
+        "18.4",
+        "10.3",
+        "!10.5",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.244662095984329,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6444662095984329,
+        "first_family_uses_b": 1,
+        "inversions": 2
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "17.4",
+        "!17.3",
+        "10.3",
+        "!10.5",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.244662095984329,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6493633692458374,
+        "first_family_uses_b": 1,
+        "inversions": 3
+      },
+      "function_codes": [
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "18.5",
+        "18.4",
+        "10.5",
+        "!10.3",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.193633692458374,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6493633692458374,
+        "first_family_uses_b": 1,
+        "inversions": 3
+      },
+      "function_codes": [
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "17.4",
+        "!17.3",
+        "10.5",
+        "!10.3",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.193633692458374,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6444662095984329,
+        "first_family_uses_b": 1,
+        "inversions": 3
+      },
+      "function_codes": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "!18.6",
+        "!17.3",
+        "17.4",
+        "10.3",
+        "!10.5",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.144662095984329,
+      "source_first": 1,
+      "source_second": 0
+    },
+    {
+      "components": {
+        "arithmetic_fraction": 0.6219392752203722,
+        "first_family_uses_b": 1,
+        "inversions": 1
+      },
+      "function_codes": [
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "i": [
+        "17.5",
+        "18.2",
+        "18.3",
+        "10.5",
+        "!10.3",
+        "10.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 7.119392752203722,
+      "source_first": 1,
+      "source_second": 0
+    }
+  ]
+}

@@ -9,6 +9,16 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Paired arithmetic experiment
+
+[PAIRED-ARITHMETIC.md](PAIRED-ARITHMETIC.md) tests chip-10 ALU-function bits,
+carry feedback and conditional meanings for the six four-entry tables. It
+records the 3EF register-overlap counterexample and labels output captures as
+virtual, with physical I/O still unknown. `inputs.carry` may remain 0/1 or use
+an explicit `mapped-or-previous` policy; its field selectors, initial value,
+unknown fallback and provenance are recorded in the scenario. Feedback needs
+integrated mode and decoded one-bit fields. Summaries count fallback reads.
+
 ## Later branch-table experiment
 
 [BRANCH-TABLES.md](BRANCH-TABLES.md) records a separately configured hypothesis

@@ -10,6 +10,28 @@ from common import HERE, decode, digest, load, read, save, unconditional_transfe
 from model import Am2901, X8X02, UnknownStack
 
 
+class CarryInput:
+    """Explicit constant or mapped/previous-carry input, shared with experiments."""
+    def __init__(self,policy):
+        self.policy=policy
+        self.previous=policy['initial'] if isinstance(policy,dict) else policy
+        self.counts=Counter()
+
+    def resolve(self,row):
+        if not isinstance(self.policy,dict):return self.policy
+        if row[self.policy['select_field']]:
+            value=self.previous;self.counts['feedback']+=1
+            if value is None:
+                value=self.policy['unknown'];self.counts['unknown_feedback']+=1
+        else:
+            value=row[self.policy['constant_field']];self.counts['mapped_constant']+=1
+        self.counts[f'value_{value}']+=1
+        return value
+
+    def observe(self,result):
+        self.previous=result['carry']
+
+
 def validate_scenario(s):
     if s['status'] not in ('hypothesis','stub','recovered-from-data') or not s.get('evidence'):
         raise ValueError('scenario requires provenance')
@@ -57,7 +79,12 @@ def validate_scenario(s):
     initial=s['initial']
     if not 0<=initial['pc']<1024 or len(initial['ram'])!=16 or any(not 0<=v<=255 for v in initial['ram']) or not 0<=initial['q']<=255:
         raise ValueError('invalid initial state')
-    for key in ('carry','ram_in','q_in','external'):
+    carry=s['inputs']['carry']
+    if isinstance(carry,dict):
+        if carry['mode']!='mapped-or-previous' or carry['initial'] not in (0,1) or carry['unknown'] not in (0,1) or carry['status'] not in ('hypothesis','stub','recovered-from-data') or not carry.get('evidence'):
+            raise ValueError('invalid carry policy')
+    elif carry not in (0,1):raise ValueError('invalid carry input')
+    for key in ('ram_in','q_in','external'):
         if s['inputs'][key] not in (0,1): raise ValueError('invalid input bit')
 
 
@@ -85,6 +112,12 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             raise ValueError(f"missing dispatch site {row['pc']:03x}")
     for site in scenario.get('branch_tables',{}):
         if rows[int(site)]['command'] != 6: raise ValueError('branch table site must be BRT')
+    if isinstance(inputs['carry'],dict):
+        if mode!='integrated':raise ValueError('carry feedback requires integrated mode')
+        for key in ('select_field','constant_field'):
+            field=inputs['carry'][key]
+            if any(row.get(field) not in (0,1) for row in rows):raise ValueError('missing one-bit carry field')
+    carry_input=CarryInput(inputs['carry'])
     rng=random.Random(seed); initial=scenario['initial']
     seq=X8X02(pc=initial['pc']);cpu=Am2901(ram=initial['ram'][:],q=initial['q'])
     visited=Counter();edges=Counter();assumptions=Counter();events=[];depth=maximum=0
@@ -113,7 +146,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if source_read['mode']=='constant': d=source_read['value'];assumptions['constant external read']+=1
             elif source_read['mode'] in ('table','am27s31'):
                 d=table[d%len(table)]; assumptions['table external read']+=1
-            result=cpu.step(r['i'],r['a'],r['b'],d,inputs['carry'],inputs['ram_in'],inputs['q_in'])
+            carry=carry_input.resolve(r)
+            result=cpu.step(r['i'],r['a'],r['b'],d,carry,inputs['ram_in'],inputs['q_in'])
+            carry_input.observe(result)
             flags=result
             register_changes+=sum(a!=b for a,b in zip(old_ram,cpu.ram))+(old_q!=cpu.q)
         always=unconditional_transfer(r,scenario)
@@ -170,6 +205,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if len(events)<32: events.append(dict(cycle=cycle,pc=pc,event='stack depth violation',depth=depth))
         h.update(bytes((pc&255,pc>>8,seq.pc&255,seq.pc>>8,test,cpu.q)))
         if result: h.update(bytes(cpu.ram))
+        if isinstance(inputs['carry'],dict):h.update(bytes((2 if carry_input.previous is None else carry_input.previous,)))
         if pc in writes:
             w=writes[pc];value=result[w.get('source','y')] if result else w.get('value',0)
             io_count+=1
@@ -180,6 +216,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             record=dict(cycle=cycle,pc=pc,raw=r['raw'],command=c,test=test,branch=branch,dispatch_entry=entry,
                 stack_before=before,stack_after=dict(sp=seq.sp,depth=depth,values=seq.stack[:]),next_pc=seq.pc,
                 registers={str(i):v for i,v in enumerate(cpu.ram) if mode=='integrated' and old_ram[i]!=v},q=cpu.q,alu=result)
+            if isinstance(inputs['carry'],dict):record['carry_in']=carry
             if pc in routine_entries and pc not in routine_samples: routine_samples[pc]=record
             if trace_count<trace_limit:
                 trace_count+=1
@@ -194,6 +231,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         register_changes=register_changes,routine_samples=routine_samples,io_writes=io_count,trace_digest=h.hexdigest(),final_state=dict(pc=seq.pc,sp=seq.sp,stack=seq.stack,ram=cpu.ram,q=cpu.q),
         clean=completed==cycles and not(underflows or overflows),
         interpretation='Runs under declared assumptions; neither recovered wiring nor verified Nokia execution.')
+    if isinstance(inputs['carry'],dict):
+        summary['carry_model']=dict(previous=carry_input.previous,counts=dict(carry_input.counts))
     if out:
         out=Path(out);out.mkdir(parents=True,exist_ok=True);save(out/'summary.json',summary)
         save(out/'mapping.json',mapping);save(out/'scenario.json',scenario)
