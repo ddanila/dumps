@@ -372,6 +372,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "CARRY-CHAIN.md",
+        "limitations": "External operands and output consumers unknown. Current flag timing selects last carry instead; defaults unchanged. Constant reset inputs in the tested dispatch path repeat.",
+        "meaning": "Chain three byte additions into R1/R2/R3 while outputting old A values; previous-flag BLT repeats on middle carry.",
+        "name": "carry-controlled three-add loop",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "36C",
+            "36E"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -392,7 +408,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 181,
+    "annotated_used_words": 184,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1425,6 +1441,7 @@
   "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
   "source_sha256": {
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
+    "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",
     "DISPATCH109.md": "c1bacc10b862be013766e19dcbdd234fad53848ea066e53152afd561b9f92403",
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",

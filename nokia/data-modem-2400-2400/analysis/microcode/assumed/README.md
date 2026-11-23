@@ -389,3 +389,7 @@ release the loops without altering the mapping or sequencer state.
 and preceding Y across all input bytes. Under the fitted reset path, Y=D+1
 selects all eight branch entries; the optional variant reaches 476 distinct
 instructions across the sweep without establishing physical index wiring.
+
+[Carry-controlled addition chain](CARRY-CHAIN.md) explains the 36C–36E loop:
+139,264 local comparisons distinguish previous/current carry timing, and 32
+reset-path replays explain its repetition under constant external input.

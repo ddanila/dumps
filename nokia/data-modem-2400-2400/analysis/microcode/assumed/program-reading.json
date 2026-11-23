@@ -387,6 +387,22 @@
         "fitted_original"
       ],
       "limitations": "Current-Y indexing is an alternative scenario; default index remains scenario-supplied. Physical D and address source unknown; no claim for every later visit."
+    },
+    {
+      "name": "carry-controlled three-add loop",
+      "ranges": [
+        [
+          "36C",
+          "36E"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Chain three byte additions into R1/R2/R3 while outputting old A values; previous-flag BLT repeats on middle carry.",
+      "evidence": "CARRY-CHAIN.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "External operands and output consumers unknown. Current flag timing selects last carry instead; defaults unchanged. Constant reset inputs in the tested dispatch path repeat."
     }
   ]
 }
