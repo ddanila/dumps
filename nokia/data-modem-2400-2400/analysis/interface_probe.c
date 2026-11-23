@@ -65,10 +65,11 @@ int main(int argc, char **argv) {
         int decoding=!strcmp(mode,"decode");
         int edge=!strcmp(mode,"edge"), qualify=!strcmp(mode,"qualify");
         int event_probe=edge || qualify;
-        int output_probe=!strcmp(mode,"out33");
+        int output01=!strcmp(mode,"out01");
+        int output_probe=output01 || !strcmp(mode,"out33");
         decoding_probe=decoding || event_probe || output_probe; memset(decode_seen,0,sizeof decode_seen);
         unsigned stop=sentinel, entry=edge?0x13:qualify?0x1790:decoding?0x620:reading?0x800:0x899;
-        if (output_probe) { entry=0x6e; stop=0x12f; }
+        if (output_probe) { entry=output01?0x266:0x6e; stop=output01?0x433:0x12f; }
         port_probe=!strcmp(mode,"port") || !strcmp(mode,"poll1") || !strcmp(mode,"poll2") || !strcmp(mode,"main");
         if (!reading && strcmp(mode,"write") && !port_probe && !decoding && !event_probe && !output_probe) return 2;
         if (port_probe) {
@@ -78,7 +79,7 @@ int main(int argc, char **argv) {
             if (!strcmp(mode,"main")) { entry=0x1ed3; stop=0x81d; reading=1; }
         }
         unsigned char frame[9]={0}, prior[6]={0};
-        if (!bytes(frame_text,frame,port_probe?9:event_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
+        if (!bytes(frame_text,frame,port_probe?9:output01?9:event_probe?9:(reading || decoding)?7:4) || !bytes(prior_text,prior,6)) return 2;
         struct em8051 c={0};
         c.mCodeMem=code; c.mCodeMemMaxIdx=65535;
         c.except=exception; c.xread=xread; c.xwrite=xwrite;
@@ -95,8 +96,15 @@ int main(int argc, char **argv) {
             memmove(frame,frame+2,7);
         }
         if (output_probe) {
-            c.mLowerData[0x34]=frame[0]; c.mLowerData[0x33]=frame[1];
-            c.mLowerData[0x30]=frame[2]; c.mLowerData[0x2d]=frame[3];
+            c.mLowerData[0x34]=frame[0];
+            if (output01) {
+                c.mLowerData[3]=frame[0];
+                c.mLowerData[0x30]=frame[1]; c.mLowerData[0x31]=frame[2];
+                memcpy(c.mLowerData+0x2a,frame+3,6);
+            } else {
+                c.mLowerData[0x33]=frame[1];
+                c.mLowerData[0x30]=frame[2]; c.mLowerData[0x2d]=frame[3];
+            }
             memcpy(c.mLowerData+0x22,prior,6);
         } else if (event_probe) {
             c.mLowerData[0x12]=frame[0]; c.mLowerData[0x13]=frame[1];

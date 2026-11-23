@@ -344,3 +344,7 @@ external interrupt into byte 6E and two outgoing buffer bits, checked against
 
 The [fourth output-byte study](CONTROLLER-OUTPUT.md) identifies its five-bit
 state code and three flags, verified over all 65,536 state/flag assignments.
+
+The [first two output-byte builders](CONTROLLER-OUTPUT-PAIR.md) preserve the
+event-qualified bits and derive the remaining fields from state and selectors;
+35,328 local ROM comparisons cover every instruction in that section.
