@@ -1,0 +1,1271 @@
+{
+  "configuration": {
+    "annotations": [
+      {
+        "evidence": "RESULTS.md",
+        "limitations": "Control-flow interpretation; not a counted-loop algorithm identification.",
+        "meaning": "01C pushes 01D; BLT at 01E consumes that entry.",
+        "name": "call-fed loop entry",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "01C",
+            "01F"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TERMINAL-TAIL.md",
+        "limitations": "No physical completion or restart protocol identified.",
+        "meaning": "Helper calls and computed dispatch lead to the unconditional self-branch at 084.",
+        "name": "terminal tail",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "078",
+            "084"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TERMINAL-TAIL.md",
+        "limitations": "Register identities depend on A/B roles; not proven serial output.",
+        "meaning": "Four RAM right-shift destinations followed by return; Q is not shifted.",
+        "name": "register right-shift helper",
+        "profiles": [
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "085",
+            "089"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-INDEPENDENT.md",
+        "limitations": "Local current-flag fixtures take at most eight shifts. The fitted previous-flag policy can take nine; not a proven multiplier.",
+        "meaning": "Right-shift Q and store shifted value; loop exit can test zero.",
+        "name": "conditional Q drain",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "1E9",
+            "1EB"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PREPARATION-DECODE.md",
+        "limitations": "External D selection and destination registers remain hypotheses; caller effects depend on the mapping.",
+        "meaning": "Candidate D,Q operations write R0 repeatedly or R10-R13 with swapped roles.",
+        "name": "preparation with disputed register roles",
+        "profiles": [
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "341",
+            "344"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-INDEPENDENT.md",
+        "limitations": "Output grouping is virtual; no physical write enable or DAC destination identified. Identities were search constraints.",
+        "meaning": "Four-entry tables combine paired 16-bit operands using sums/differences and permutation.",
+        "name": "paired add/subtract and permute",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "379",
+            "388"
+          ],
+          [
+            "392",
+            "3A1"
+          ],
+          [
+            "3AB",
+            "3BA"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-INDEPENDENT.md",
+        "limitations": "Tested with local nonzero operands; reset-call source pairs in earlier studies were zero. Identities were search constraints.",
+        "meaning": "Four entries produce (X,Y),(-Y,X),(-X,-Y),(Y,-X) modulo 65536.",
+        "name": "paired quarter-turn transform",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "3C5",
+            "3D4"
+          ],
+          [
+            "3DA",
+            "3E9"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIRED-ARITHMETIC.md",
+        "limitations": "Do not extend the independent transform formula to this table; source aliasing changes later reads.",
+        "meaning": "Writes overlap source Y; independent quarter-turn interpretation fails.",
+        "name": "source-overlapping transform",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "3EF",
+            "3FE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "ROM-TAIL.md",
+        "limitations": "Reachability requires site-scoped ROM-table hypotheses; unrestricted nesting overflows.",
+        "meaning": "Wrapper reaches computed call 2C4 and returns at 2C5.",
+        "name": "nested computed-call wrapper",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "2BC",
+            "2C5"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "FRAGMENTS.md",
+        "limitations": "Disconnected from reset in the current graph; condition select 2 meaning unknown.",
+        "meaning": "Selects the 2D9 or 2DC adjustment tail.",
+        "name": "conditional adjustment selector",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "256",
+            "257"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-CONVERGENCE.md",
+        "limitations": "Local probes only. No first-Y consumer identified; wrapper paths differ by one cycle.",
+        "meaning": "The two tails differ by one in first Y and converge to equal modeled state at 07B.",
+        "name": "transient one-unit adjustment",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "2D9",
+            "2DE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "ROM-DISPATCH.md",
+        "limitations": "Site, bank, range and index source remain hypotheses; see current table provenance in the listing.",
+        "meaning": "Scenario supplies targets from lookup-ROM bytes plus explicit banks.",
+        "name": "ROM-backed dispatch candidate",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "008",
+            "008"
+          ],
+          [
+            "26F",
+            "26F"
+          ],
+          [
+            "21F",
+            "21F"
+          ],
+          [
+            "2C4",
+            "2C4"
+          ]
+        ],
+        "status": "hypothesis"
+      }
+    ],
+    "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
+    "profiles": {
+      "fitted_original": "results/selector-completion/original-marked/mapping.json",
+      "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json",
+      "q1": "results/independent-study/variant-1.json",
+      "q2": "results/independent-study/variant-2.json",
+      "q3": "results/independent-study/variant-3.json",
+      "q4": "results/independent-study/variant-4.json"
+    },
+    "reset_examples": {
+      "original": "results/selector-completion/original-marked/summary.json",
+      "swapped": "results/selector-completion/swapped-marked/summary.json"
+    },
+    "scenario": "results/third-case-study/scenario-all_cases.json",
+    "sequencer_sweep": "results/third-case-study/all_cases.json",
+    "status": "hypothesis"
+  },
+  "counts": {
+    "annotated_used_words": 146,
+    "reset_examples": {
+      "original": 187,
+      "swapped": 186
+    },
+    "sequencer_sweep_visited": 941,
+    "static_reachable": 999,
+    "used": 1021,
+    "words": 1024
+  },
+  "direct_call_entries": [
+    {
+      "annotations": [
+        {
+          "evidence": "RESULTS.md",
+          "limitations": "Control-flow interpretation; not a counted-loop algorithm identification.",
+          "meaning": "01C pushes 01D; BLT at 01E consumes that entry.",
+          "name": "call-fed loop entry",
+          "profiles": [
+            "q1",
+            "q2",
+            "q3",
+            "q4",
+            "fitted_original",
+            "fitted_swapped"
+          ],
+          "ranges": [
+            [
+              "01C",
+              "01F"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "01C"
+      ],
+      "entry": "01E",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": false,
+        "end": 30,
+        "reason": "BLT consumes entry stack"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "044",
+        "0DD"
+      ],
+      "entry": "04C",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 83,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "004",
+        "101"
+      ],
+      "entry": "06F",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 119,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "TERMINAL-TAIL.md",
+          "limitations": "Register identities depend on A/B roles; not proven serial output.",
+          "meaning": "Four RAM right-shift destinations followed by return; Q is not shifted.",
+          "name": "register right-shift helper",
+          "profiles": [
+            "fitted_original",
+            "fitted_swapped"
+          ],
+          "ranges": [
+            [
+              "085",
+              "089"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "07D",
+        "080"
+      ],
+      "entry": "085",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 137,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "11C",
+        "11E"
+      ],
+      "entry": "09A",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 157,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "102",
+        "104"
+      ],
+      "entry": "112",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 278,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "103"
+      ],
+      "entry": "117",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 281,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "11B"
+      ],
+      "entry": "126",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 299,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "11D"
+      ],
+      "entry": "12C",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 304,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "122",
+        "124"
+      ],
+      "entry": "131",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 306,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "24D"
+      ],
+      "entry": "187",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 394,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "Q-INDEPENDENT.md",
+          "limitations": "Local current-flag fixtures take at most eight shifts. The fitted previous-flag policy can take nine; not a proven multiplier.",
+          "meaning": "Right-shift Q and store shifted value; loop exit can test zero.",
+          "name": "conditional Q drain",
+          "profiles": [
+            "q1",
+            "q2",
+            "q3",
+            "q4"
+          ],
+          "ranges": [
+            [
+              "1E9",
+              "1EB"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "0B1",
+        "0B6",
+        "16B",
+        "170",
+        "1A3",
+        "1A6",
+        "1C7",
+        "1CC",
+        "1F9",
+        "1FD",
+        "2D2",
+        "2D7"
+      ],
+      "entry": "1E9",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 491,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "1D2"
+      ],
+      "entry": "1EC",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 494,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "217",
+        "2FE"
+      ],
+      "entry": "21A",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 544,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "223"
+      ],
+      "entry": "228",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 554,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "121",
+        "18F",
+        "1F7"
+      ],
+      "entry": "238",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 575,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "123",
+        "192",
+        "1FB"
+      ],
+      "entry": "240",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 583,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "150",
+        "157"
+      ],
+      "entry": "248",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 590,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "14F",
+        "156"
+      ],
+      "entry": "24F",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 592,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "120",
+        "18E"
+      ],
+      "entry": "270",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 639,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "213"
+      ],
+      "entry": "28E",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 661,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "249"
+      ],
+      "entry": "296",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 670,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "24B"
+      ],
+      "entry": "298",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 670,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "212"
+      ],
+      "entry": "2EC",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 767,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "304",
+        "306"
+      ],
+      "entry": "30B",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 784,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "1FA",
+        "1FE",
+        "305",
+        "307"
+      ],
+      "entry": "311",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 787,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "259",
+        "308",
+        "345"
+      ],
+      "entry": "314",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 792,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "350",
+        "364"
+      ],
+      "entry": "335",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 831,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "PREPARATION-DECODE.md",
+          "limitations": "External D selection and destination registers remain hypotheses; caller effects depend on the mapping.",
+          "meaning": "Candidate D,Q operations write R0 repeatedly or R10-R13 with swapped roles.",
+          "name": "preparation with disputed register roles",
+          "profiles": [
+            "fitted_original",
+            "fitted_swapped"
+          ],
+          "ranges": [
+            [
+              "341",
+              "344"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "133",
+        "18B",
+        "1DA"
+      ],
+      "entry": "341",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 836,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "355",
+        "362"
+      ],
+      "entry": "357",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 862,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "351",
+        "353",
+        "361"
+      ],
+      "entry": "366",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 879,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "309"
+      ],
+      "entry": "370",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 888,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "346"
+      ],
+      "entry": "389",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 913,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "1CF",
+        "25A"
+      ],
+      "entry": "3A2",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 938,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "13D"
+      ],
+      "entry": "3C0",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 964,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "13C"
+      ],
+      "entry": "3D5",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 985,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "13B",
+        "18C"
+      ],
+      "entry": "3EA",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 1006,
+        "reason": "POP"
+      }
+    }
+  ],
+  "dispatches": [
+    {
+      "pc": "008",
+      "targets": [
+        "009",
+        "00F",
+        "00B",
+        "013",
+        "022",
+        "00D",
+        "032",
+        "054"
+      ]
+    },
+    {
+      "pc": "036",
+      "targets": [
+        "037",
+        "038",
+        "039",
+        "03A"
+      ]
+    },
+    {
+      "pc": "03C",
+      "targets": [
+        "03D",
+        "03E",
+        "03F"
+      ]
+    },
+    {
+      "pc": "07E",
+      "targets": [
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "090",
+        "091",
+        "092",
+        "093",
+        "094",
+        "095",
+        "096",
+        "097",
+        "098",
+        "099"
+      ]
+    },
+    {
+      "pc": "081",
+      "targets": [
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "090",
+        "091",
+        "092",
+        "093",
+        "094",
+        "095",
+        "096",
+        "097",
+        "098",
+        "099"
+      ]
+    },
+    {
+      "pc": "109",
+      "targets": [
+        "10A",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "110",
+        "111"
+      ]
+    },
+    {
+      "pc": "1A2",
+      "targets": [
+        "1E5",
+        "1E6",
+        "1E7",
+        "1E8"
+      ]
+    },
+    {
+      "pc": "21F",
+      "targets": [
+        "221",
+        "224",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22D",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22B",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "229",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22C",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "2BC"
+      ]
+    },
+    {
+      "pc": "26F",
+      "targets": [
+        "2C6",
+        "2C6",
+        "2C6",
+        "230",
+        "280",
+        "280",
+        "230",
+        "200",
+        "200",
+        "200",
+        "200",
+        "217",
+        "2CB",
+        "200",
+        "200",
+        "200"
+      ]
+    },
+    {
+      "pc": "2C4",
+      "targets": [
+        "2B3",
+        "22D",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22B",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "229",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22C",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225"
+      ]
+    },
+    {
+      "pc": "34C",
+      "targets": [
+        "34D",
+        "34E",
+        "34F"
+      ]
+    },
+    {
+      "pc": "376",
+      "targets": [
+        "379",
+        "37D",
+        "381",
+        "385"
+      ]
+    },
+    {
+      "pc": "38F",
+      "targets": [
+        "392",
+        "396",
+        "39A",
+        "39E"
+      ]
+    },
+    {
+      "pc": "3A8",
+      "targets": [
+        "3AB",
+        "3AF",
+        "3B3",
+        "3B7"
+      ]
+    },
+    {
+      "pc": "3C2",
+      "targets": [
+        "3C5",
+        "3C9",
+        "3CD",
+        "3D1"
+      ]
+    },
+    {
+      "pc": "3D7",
+      "targets": [
+        "3DA",
+        "3DE",
+        "3E2",
+        "3E6"
+      ]
+    },
+    {
+      "pc": "3EC",
+      "targets": [
+        "3EF",
+        "3F3",
+        "3F7",
+        "3FB"
+      ]
+    }
+  ],
+  "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
+  "source_sha256": {
+    "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
+    "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
+    "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
+    "Q-INDEPENDENT.md": "e9db7896f01411aca4558ec872ebded36cb53e2ec3161ff3204eb66d077c7329",
+    "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
+    "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",
+    "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
+    "TAIL-CONVERGENCE.md": "b1e6b58589106a25d44bfb1ae08829cd83dc52121a75e52b838f448a2a5d087a",
+    "TERMINAL-TAIL.md": "cecf5637f41d6e5645425389710c113900a9319140c49d28e4a2b4cf752222da",
+    "results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
+    "results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "results/independent-study/variant-4.json": "0ec561af24f767f8d43c327c1308244d684aaf37eca5057538395c189ae118e9",
+    "results/selector-completion/original-marked/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
+    "results/selector-completion/original-marked/summary.json": "e6211e7090896b145a8f5b7c3de2674f6caed178cae51eb5446bc8344b7571d4",
+    "results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+    "results/selector-completion/swapped-marked/summary.json": "7119404516749f5395c615fc97cd7d106c0d35f358e0c69009000a74d56ba1c4",
+    "results/third-case-study/all_cases.json": "8ca7ee6496f18e00cfa3a64f0a16a34e91159c3665b65a11097951b11c36be31",
+    "results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "sequencer.json": "b2e12bd569e614540a9e0db78ba2cf0888c41961077e221940fd8b69d1dfa99b"
+  },
+  "unresolved": [
+    "0FA",
+    "0FD",
+    "0FE",
+    "0FF",
+    "256",
+    "257",
+    "258",
+    "287",
+    "288",
+    "289",
+    "28A",
+    "2CF",
+    "2D9",
+    "2DA",
+    "2DB",
+    "2DC",
+    "2DD",
+    "2DE",
+    "2DF",
+    "3BD",
+    "3BE",
+    "3BF"
+  ]
+}

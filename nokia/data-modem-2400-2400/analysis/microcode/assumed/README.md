@@ -9,6 +9,10 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+[PROGRAM-READING.md](PROGRAM-READING.md) is the consolidated entry point for
+reading the microprogram: a 1,024-word annotated listing, six separate datapath
+profiles, evidence-linked routine names, and explicitly unresolved entries.
+
 ## ROM bytes as ALU input
 
 [ALU-FEEDBACK.md](ALU-FEEDBACK.md) tests retained-Y addressing of the actual

@@ -1,0 +1,276 @@
+{
+  "status": "hypothesis",
+  "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q2": "results/independent-study/variant-2.json",
+    "q3": "results/independent-study/variant-3.json",
+    "q4": "results/independent-study/variant-4.json",
+    "fitted_original": "results/selector-completion/original-marked/mapping.json",
+    "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json"
+  },
+  "scenario": "results/third-case-study/scenario-all_cases.json",
+  "sequencer_sweep": "results/third-case-study/all_cases.json",
+  "reset_examples": {
+    "original": "results/selector-completion/original-marked/summary.json",
+    "swapped": "results/selector-completion/swapped-marked/summary.json"
+  },
+  "annotations": [
+    {
+      "name": "call-fed loop entry",
+      "ranges": [
+        [
+          "01C",
+          "01F"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "01C pushes 01D; BLT at 01E consumes that entry.",
+      "evidence": "RESULTS.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "fitted_original",
+        "fitted_swapped"
+      ],
+      "limitations": "Control-flow interpretation; not a counted-loop algorithm identification."
+    },
+    {
+      "name": "terminal tail",
+      "ranges": [
+        [
+          "078",
+          "084"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Helper calls and computed dispatch lead to the unconditional self-branch at 084.",
+      "evidence": "TERMINAL-TAIL.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "fitted_original",
+        "fitted_swapped"
+      ],
+      "limitations": "No physical completion or restart protocol identified."
+    },
+    {
+      "name": "register right-shift helper",
+      "ranges": [
+        [
+          "085",
+          "089"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Four RAM right-shift destinations followed by return; Q is not shifted.",
+      "evidence": "TERMINAL-TAIL.md",
+      "profiles": [
+        "fitted_original",
+        "fitted_swapped"
+      ],
+      "limitations": "Register identities depend on A/B roles; not proven serial output."
+    },
+    {
+      "name": "conditional Q drain",
+      "ranges": [
+        [
+          "1E9",
+          "1EB"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Right-shift Q and store shifted value; loop exit can test zero.",
+      "evidence": "Q-INDEPENDENT.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "limitations": "Local current-flag fixtures take at most eight shifts. The fitted previous-flag policy can take nine; not a proven multiplier."
+    },
+    {
+      "name": "preparation with disputed register roles",
+      "ranges": [
+        [
+          "341",
+          "344"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Candidate D,Q operations write R0 repeatedly or R10-R13 with swapped roles.",
+      "evidence": "PREPARATION-DECODE.md",
+      "profiles": [
+        "fitted_original",
+        "fitted_swapped"
+      ],
+      "limitations": "External D selection and destination registers remain hypotheses; caller effects depend on the mapping."
+    },
+    {
+      "name": "paired add/subtract and permute",
+      "ranges": [
+        [
+          "379",
+          "388"
+        ],
+        [
+          "392",
+          "3A1"
+        ],
+        [
+          "3AB",
+          "3BA"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Four-entry tables combine paired 16-bit operands using sums/differences and permutation.",
+      "evidence": "Q-INDEPENDENT.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "limitations": "Output grouping is virtual; no physical write enable or DAC destination identified. Identities were search constraints."
+    },
+    {
+      "name": "paired quarter-turn transform",
+      "ranges": [
+        [
+          "3C5",
+          "3D4"
+        ],
+        [
+          "3DA",
+          "3E9"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Four entries produce (X,Y),(-Y,X),(-X,-Y),(Y,-X) modulo 65536.",
+      "evidence": "Q-INDEPENDENT.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "limitations": "Tested with local nonzero operands; reset-call source pairs in earlier studies were zero. Identities were search constraints."
+    },
+    {
+      "name": "source-overlapping transform",
+      "ranges": [
+        [
+          "3EF",
+          "3FE"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Writes overlap source Y; independent quarter-turn interpretation fails.",
+      "evidence": "PAIRED-ARITHMETIC.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "limitations": "Do not extend the independent transform formula to this table; source aliasing changes later reads."
+    },
+    {
+      "name": "nested computed-call wrapper",
+      "ranges": [
+        [
+          "2BC",
+          "2C5"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Wrapper reaches computed call 2C4 and returns at 2C5.",
+      "evidence": "ROM-TAIL.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "fitted_original",
+        "fitted_swapped"
+      ],
+      "limitations": "Reachability requires site-scoped ROM-table hypotheses; unrestricted nesting overflows."
+    },
+    {
+      "name": "conditional adjustment selector",
+      "ranges": [
+        [
+          "256",
+          "257"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Selects the 2D9 or 2DC adjustment tail.",
+      "evidence": "FRAGMENTS.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "limitations": "Disconnected from reset in the current graph; condition select 2 meaning unknown."
+    },
+    {
+      "name": "transient one-unit adjustment",
+      "ranges": [
+        [
+          "2D9",
+          "2DE"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "The two tails differ by one in first Y and converge to equal modeled state at 07B.",
+      "evidence": "TAIL-CONVERGENCE.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "limitations": "Local probes only. No first-Y consumer identified; wrapper paths differ by one cycle."
+    },
+    {
+      "name": "ROM-backed dispatch candidate",
+      "ranges": [
+        [
+          "008",
+          "008"
+        ],
+        [
+          "26F",
+          "26F"
+        ],
+        [
+          "21F",
+          "21F"
+        ],
+        [
+          "2C4",
+          "2C4"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Scenario supplies targets from lookup-ROM bytes plus explicit banks.",
+      "evidence": "ROM-DISPATCH.md",
+      "profiles": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "fitted_original",
+        "fitted_swapped"
+      ],
+      "limitations": "Site, bank, range and index source remain hypotheses; see current table provenance in the listing."
+    }
+  ]
+}

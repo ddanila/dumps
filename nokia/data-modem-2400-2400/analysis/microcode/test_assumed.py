@@ -767,6 +767,27 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(low['states'][2],high['states'][2])
                 self.assertEqual(low['states'][2]['pc'],0x07b)
 
+    def test_program_listing_preserves_profile_scope_and_unresolved_entries(self):
+        from program_reading import build, annotations_by_pc
+        config=read(HERE/'program-reading.json')
+        listing,catalog=build(config)
+        self.assertEqual(len(listing),1024)
+        self.assertEqual(sum(r['used'] for r in listing),1021)
+        self.assertEqual(catalog['counts']['static_reachable'],999)
+        self.assertEqual(catalog['counts']['sequencer_sweep_visited'],941)
+        self.assertEqual(catalog['counts']['reset_examples'],dict(original=187,swapped=186))
+        self.assertIn('quarter-turn',listing[0x3c5]['q2_labels'])
+        self.assertNotIn('quarter-turn',listing[0x3c5]['fitted_swapped_labels'])
+        self.assertIn('source-overlapping',listing[0x3ef]['q2_labels'])
+        self.assertEqual(listing[0x2d9]['explanation_status'],'unresolved entry')
+        self.assertIn('transient',listing[0x2d9]['q2_labels'])
+        self.assertFalse(listing[0x2d9]['static_reachable'])
+        self.assertEqual(listing[0x1df]['explanation_status'],'unused all-FF word')
+        invalid=copy.deepcopy(config);invalid['annotations'][0]['profiles']=['missing-layout']
+        with self.assertRaisesRegex(ValueError,'profile scope'):annotations_by_pc(invalid)
+        invalid=copy.deepcopy(config);invalid['annotations'][0]['ranges']=[['3FE','400']]
+        with self.assertRaisesRegex(ValueError,'outside control store'):annotations_by_pc(invalid)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():
