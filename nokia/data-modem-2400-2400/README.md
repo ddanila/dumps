@@ -93,6 +93,7 @@ Afterwards the program clears RAM, sets SP=6F, initializes hardware and enters:
 | --- | --- |
 | 1DD0 | Initialization; USART setup and a lengthy output-sequencing loop |
 | 07D7 / vector 001B | Timer 1 handler; reloads FC21 and decrements software counters |
+| 006E–012C | Fourth output-byte builder: five-bit state code plus three flags |
 | 0620 | Stateful decoding of normalized RAM 2A–2F input bits into mode and selector flags |
 | 1760, 1790 | Countdown-weighted event accumulation and qualification into outgoing RAM 30.2/31.4 |
 | 0800 | Mode-0 serial input: one discarded byte, then six bytes into RAM 2A–2F; P1.0/P1.1 handshake |

@@ -341,3 +341,6 @@ Physical signal names remain unresolved.
 The [controller event study](CONTROLLER-EVENT.md) follows a countdown-weighted
 external interrupt into byte 6E and two outgoing buffer bits, checked against
 30,436 ROM executions.
+
+The [fourth output-byte study](CONTROLLER-OUTPUT.md) identifies its five-bit
+state code and three flags, verified over all 65,536 state/flag assignments.

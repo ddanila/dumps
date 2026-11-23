@@ -1,0 +1,11 @@
+{
+  "status": "hypothesis",
+  "evidence": "Execute unchanged ROM from 006E through the RAM33 write, stopping at 012F. Exhaust state byte 34 and the eight relevant flag bits; separately vary every prior RAM33 value. Register bank zero, interrupts disabled, other RAM zero except fixtures.",
+  "initial_p1": 248,
+  "initial_sp": 113,
+  "return_sentinel": 8192,
+  "cycle_limit": 1000,
+  "base_state": [165,0,0,90,165,90],
+  "prior_output": 165,
+  "prior_sweep_states": [0,128,160,179,192,232,239,255]
+}
