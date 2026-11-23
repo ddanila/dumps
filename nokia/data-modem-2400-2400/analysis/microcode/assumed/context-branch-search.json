@@ -1,0 +1,14 @@
+{
+  "status": "hypothesis",
+  "evidence": "Follow up the global B0/B9 search with one-bit replacements restricted to a whole decoded command/condition-select class of direct transfers. No per-address exceptions are fitted.",
+  "scenario": "results/third-case-study/scenario-all_cases.json",
+  "commands": [4,6],
+  "positions": [0,9],
+  "chips": ["10","11","17","18"],
+  "limitations": [
+    "Only one command/select class and one address bit change at a time.",
+    "The direct flag, dispatch overrides, remaining address bits, and condition assumptions stay fixed.",
+    "Graph exceptions include possible paths, not measured hardware execution.",
+    "The decoded-row substitutions are analysis hypotheses, not enabled runtime mappings."
+  ]
+}

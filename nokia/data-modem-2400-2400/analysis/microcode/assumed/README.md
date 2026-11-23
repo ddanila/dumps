@@ -322,3 +322,7 @@ responses do not, under the fixed original-register reset scenario.
 
 The [paired Q-drain study](DOUBLE-DRAIN.md) explains the variable time before
 that poll with two shift loops, matching all 256 saved reset timing cases.
+
+A [contextual branch-bit search](CONTEXT-BRANCH.md) tests 1,024 alternatives.
+One class of hypotheses adds 28A without losing coverage, but does not recover
+the bit source or change the default runtime mapping.

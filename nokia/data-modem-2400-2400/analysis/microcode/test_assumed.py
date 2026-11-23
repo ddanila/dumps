@@ -739,6 +739,21 @@ class AssumedTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'unfinished'):drains(trace[:-1])
         with self.assertRaisesRegex(ValueError,'without observed'):drains([trace[-1]])
 
+    def test_context_branch_replacement_is_scoped(self):
+        from context_branch_study import alternative
+        from common import load
+        rows=decode(self.mapping)
+        changed=alternative(rows,load(),6,6,0,'!11.0')
+        sites=[]
+        for before,after in zip(rows,changed):
+            selected=before['command']==6 and before['select']==6 and before['direct']
+            self.assertEqual(after['branch'],before['branch']^(1 if selected else 0))
+            if selected:sites.append(before['pc'])
+            self.assertEqual({k:v for k,v in before.items() if k!='branch'},
+                             {k:v for k,v in after.items() if k!='branch'})
+        self.assertEqual(len(sites),5)
+        self.assertEqual(rows,decode(self.mapping))
+
     def test_unknown_decision_audit_excludes_unused_test_values(self):
         from condition_extension import unknown_decisions
         scenario=copy.deepcopy(self.scenario)
