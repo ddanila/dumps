@@ -438,3 +438,8 @@ R0/Q pairs, final R5 differs in 56,788 cases; both interpretations clear R0/Q.
 the first R5 result before any selected consumer. Full-prefix state and timing
 are checked across 139,264 cases; the existing 302 condition bypasses this
 path, so these remain explicitly local caller fixtures.
+
+[Register-difference scan](REGISTER-SCAN.md) explains the path taken at 302.
+It preserves RAM/Q, exposes selected differences, and waits while R15>=R0
+under the shared previous-carry policy. The rule is checked across all byte
+pairs and 512 reset runs; fitted_original D=FF repeats the final loop.

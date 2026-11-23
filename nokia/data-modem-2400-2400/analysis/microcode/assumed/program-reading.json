@@ -599,6 +599,23 @@
         "fitted_original"
       ],
       "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified."
+    },
+    {
+      "name": "register-difference scan and carry wait",
+      "ranges": [
+        [
+          "319",
+          "334"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Expose selected register differences against R0 without changing RAM/Q. With shared constant-zero select 6, the first two loops run once; previous-carry control repeats the last loop iff R15>=R0.",
+      "evidence": "REGISTER-SCAN.md",
+      "profiles": [
+        "q2",
+        "fitted_original"
+      ],
+      "limitations": "Shared select-5/select-6 stubs and previous-flag policy. Reset index 3 exercises the scan, including fitted_original D=FF repetition; physical output consumers and condition wiring remain unknown."
     }
   ]
 }

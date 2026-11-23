@@ -584,6 +584,23 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "REGISTER-SCAN.md",
+        "limitations": "Shared select-5/select-6 stubs and previous-flag policy. Reset index 3 exercises the scan, including fitted_original D=FF repetition; physical output consumers and condition wiring remain unknown.",
+        "meaning": "Expose selected register differences against R0 without changing RAM/Q. With shared constant-zero select 6, the first two loops run once; previous-carry control repeats the last loop iff R15>=R0.",
+        "name": "register-difference scan and carry wait",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "319",
+            "334"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -604,7 +621,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 250,
+    "annotated_used_words": 278,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1903,6 +1920,7 @@
     "Q2-OVERWRITE.md": "9c943cafa9a4a9da2f5c19d4da5cd005e26e5c4488af7ab0f5b9983be42dd3ad",
     "Q2-TARGETS.md": "14c5697abb35e08c6f2c07d4ef2f9d0eb69d243d378bdfba66be25b92e00a701",
     "Q2-TRANSFORM-LOOP.md": "975f3af99162e38c5a4bc0040536ebc2072068ec1a3b0a6cbe53a977643e2b63",
+    "REGISTER-SCAN.md": "715ef8a8a1ada20eb4852f3be42828f18424dbad4fbffbcbe4ab031c00ec1683",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",
     "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",

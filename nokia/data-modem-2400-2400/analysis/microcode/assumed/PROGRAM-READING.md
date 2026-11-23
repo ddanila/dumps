@@ -56,6 +56,7 @@ into one address listing.
 | 106–107 / 117–118 (q2) | Carry-qualified external waits | Reset R0=FF; zero replies are diagnostic stubs |
 | 12C–130 (q2) | Masked external-byte equality poll | Local previous-flag hypothesis; physical input and caller target unknown |
 | 126–130 | Idempotent Q-mask tests | No D operand inside helpers; previous/current timing selects different predicates |
+| 319–334 | Register-difference scan and carry wait | Shared condition stubs; transient ALU output consumers unknown |
 | 304–308, 311–318 | Double drain and input preparation prefix | Local entry; shared select-5 stub bypasses this path from 300 |
 | 30B–310 | Cleared-Q helper (q1–q4) or masked-Q drain (fitted_original) | Different retained R5 values; shared previous-zero and zero-fill hypotheses |
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
@@ -70,7 +71,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 250 used words, including overlaps and disconnected
+These annotations cover 278 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
