@@ -1,0 +1,223 @@
+{
+  "call_count": 87,
+  "configuration": {
+    "arithmetic_fixture": {
+      "carry_latches": [
+        0,
+        1
+      ],
+      "external_d": 165,
+      "pairs": [
+        [
+          3,
+          7
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          128,
+          1
+        ],
+        [
+          255,
+          255
+        ]
+      ],
+      "q": 150,
+      "ram_fill": 85
+    },
+    "call_site": 418,
+    "control_target": 138,
+    "cycles": 1000,
+    "evidence": "1A2 shares the unusual non-no-load call class with computed 07E, while its nominal direct target 300 never returns under current control flow. Isolated POP group 1E5-1E8 is a nearby candidate dispatch table.",
+    "integration": {
+      "external_read": 85,
+      "seed": 11,
+      "variant": 2
+    },
+    "limitations": [
+      "Non-returning calls can be intentional; the lost continuation alone does not prove a bad decode.",
+      "The 17.7 direct hint is overridden at this configured call only; no global address-source wiring is claimed.",
+      "Locality and POP structure do not prove the target association or index encoding.",
+      "The returning-call control at 08A is an explicit surrogate, not a proposed physical target.",
+      "The candidate table's last two entries have identical modeled ALU effects for some layouts despite differing raw bits."
+    ],
+    "region_end": 489,
+    "region_start": 384,
+    "seeds": 128,
+    "status": "hypothesis",
+    "table": {
+      "base": 485,
+      "count": 4,
+      "evidence": "Four adjacent POP words, no direct callers, same A/B register fields, differing arithmetic controls; association with 1A2 remains tentative.",
+      "status": "hypothesis",
+      "stride": 1
+    }
+  },
+  "isolated_pop_groups": [
+    [
+      485,
+      486,
+      487,
+      488
+    ]
+  ],
+  "non_no_load_calls": [
+    126,
+    418
+  ],
+  "site": {
+    "a": 0,
+    "b": 5,
+    "branch": 768,
+    "carry": 0,
+    "carry_select": 0,
+    "command": 4,
+    "command_name": "BSR",
+    "d": 0,
+    "direct": 1,
+    "i": 6,
+    "operation": "R,S=D,Q; F=R+S+C; Q=F",
+    "output_slot": 0,
+    "pc": 418,
+    "raw": [
+      1,
+      0,
+      129,
+      254
+    ],
+    "register": 5,
+    "remaining_raw": {
+      "10": 0,
+      "11": 0,
+      "17": 0,
+      "18": 56
+    },
+    "select": 0,
+    "unused": false
+  },
+  "table_rows": [
+    {
+      "a": 13,
+      "b": 3,
+      "branch": 315,
+      "carry": 1,
+      "carry_select": 1,
+      "command": 3,
+      "command_name": "POP",
+      "d": 0,
+      "direct": 0,
+      "i": 209,
+      "operation": "R,S=A,B; F=R+~S+C; RAM[B]=F",
+      "output_slot": 10,
+      "pc": 485,
+      "raw": [
+        185,
+        215,
+        62,
+        11
+      ],
+      "register": 3,
+      "remaining_raw": {
+        "10": 0,
+        "11": 0,
+        "17": 8,
+        "18": 8
+      },
+      "select": 3,
+      "unused": false
+    },
+    {
+      "a": 13,
+      "b": 3,
+      "branch": 267,
+      "carry": 0,
+      "carry_select": 1,
+      "command": 3,
+      "command_name": "POP",
+      "d": 0,
+      "direct": 0,
+      "i": 193,
+      "operation": "R,S=A,B; F=R+S+C; RAM[B]=F",
+      "output_slot": 10,
+      "pc": 486,
+      "raw": [
+        161,
+        215,
+        62,
+        11
+      ],
+      "register": 3,
+      "remaining_raw": {
+        "10": 0,
+        "11": 0,
+        "17": 8,
+        "18": 8
+      },
+      "select": 3,
+      "unused": false
+    },
+    {
+      "a": 13,
+      "b": 3,
+      "branch": 347,
+      "carry": 1,
+      "carry_select": 1,
+      "command": 3,
+      "command_name": "POP",
+      "d": 0,
+      "direct": 0,
+      "i": 201,
+      "operation": "R,S=A,B; F=~R+S+C; RAM[B]=F",
+      "output_slot": 10,
+      "pc": 487,
+      "raw": [
+        181,
+        215,
+        62,
+        11
+      ],
+      "register": 3,
+      "remaining_raw": {
+        "10": 0,
+        "11": 0,
+        "17": 8,
+        "18": 8
+      },
+      "select": 3,
+      "unused": false
+    },
+    {
+      "a": 13,
+      "b": 3,
+      "branch": 345,
+      "carry": 1,
+      "carry_select": 1,
+      "command": 3,
+      "command_name": "POP",
+      "d": 0,
+      "direct": 0,
+      "i": 201,
+      "operation": "R,S=A,B; F=~R+S+C; RAM[B]=F",
+      "output_slot": 2,
+      "pc": 488,
+      "raw": [
+        53,
+        215,
+        62,
+        11
+      ],
+      "register": 3,
+      "remaining_raw": {
+        "10": 0,
+        "11": 0,
+        "17": 8,
+        "18": 8
+      },
+      "select": 3,
+      "unused": false
+    }
+  ]
+}

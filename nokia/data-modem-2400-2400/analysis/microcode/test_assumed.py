@@ -360,6 +360,54 @@ class AssumedTests(unittest.TestCase):
         self.assertNotIn(0x03f,g['reached'])
         self.assertIn(0x03f,graph(rows,alternatives['third-entry-ablation'])['reached'])
 
+    def test_explicit_call_table_overrides_direct_hint_and_returns(self):
+        from exception_study import scenarios
+        config=read(HERE/'exception-call.json')
+        scenario=scenarios(read(HERE/'results/handler-study/scenario.json'),config)['local_table']
+        scenario['initial']['pc']=config['call_site']
+        scenario['dispatch'].update(mode='sequence',sequence=[2])
+        self.assertEqual(decode(self.mapping)[config['call_site']]['direct'],1)
+        one=execute(self.mapping,scenario,1)
+        self.assertEqual(one['final_state']['pc'],0x1e7)
+        self.assertEqual(one['stack']['final_depth'],1)
+        two=execute(self.mapping,scenario,2)
+        self.assertEqual(two['final_state']['pc'],0x1a3)
+        self.assertEqual(two['stack']['final_depth'],0)
+        # A configured target does not make a conditional call unconditional.
+        rows=decode(self.mapping);rows[config['call_site']]['select']=1
+        scenario['condition'].update(mode='constant',value=0)
+        with patch('execute.decode',return_value=rows):
+            skipped=execute(self.mapping,scenario,1)
+        self.assertEqual(skipped['final_state']['pc'],0x1a3)
+        self.assertEqual(skipped['stack']['writes'],0)
+
+    def test_exceptional_call_and_local_pop_group_evidence(self):
+        from exception_study import evidence,scenarios
+        config=read(HERE/'exception-call.json')
+        mapping=read(HERE/'results/independent-study/variant-2.json')
+        report=evidence(decode(mapping),config)
+        self.assertEqual(report['non_no_load_calls'],[0x07e,0x1a2])
+        self.assertIn([0x1e5,0x1e6,0x1e7,0x1e8],report['isolated_pop_groups'])
+        alternatives=scenarios(read(HERE/'results/handler-study/scenario.json'),config)
+        baseline=graph(decode(self.mapping),alternatives['baseline'])
+        candidate=graph(decode(self.mapping),alternatives['local_table'])
+        self.assertNotIn(0x1a3,baseline['reached'])
+        self.assertIn(0x1a3,candidate['reached'])
+        self.assertEqual(len(candidate['reached']),841)
+        self.assertEqual(candidate['exceptions'],[])
+        self.assertIn((0x1a2,0x1e8,'dispatch:hypothesis'),candidate['edges'])
+
+    def test_exception_table_uses_preceding_carry(self):
+        from exception_study import table_examples
+        config=read(HERE/'exception-call.json')
+        mapping=read(HERE/'results/independent-study/variant-2.json')
+        scenario=read(HERE/'results/independent-study/scenario-2.json')
+        examples=table_examples(decode(mapping),scenario['inputs']['carry'],config)
+        self.assertEqual([r['ram_b'] for r in examples[0]['outputs']],[251,10,3,3])
+        self.assertEqual([r['ram_b'] for r in examples[1]['outputs']],[252,11,4,4])
+        self.assertEqual([r['carry_in'] for r in examples[0]['outputs']],[0]*4)
+        self.assertEqual([r['carry_in'] for r in examples[1]['outputs']],[1]*4)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

@@ -9,6 +9,14 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Exceptional computed-call candidate
+
+[EXCEPTIONAL-CALL.md](EXCEPTIONAL-CALL.md) tests 1A2 calling a local POP table,
+reaching 80.51% coverage. A returning surrogate reaches 80.12%, so most of the
+gain identifies a continuation problem rather than proving the target. Explicit
+`dispatch.tables` entries override a call's direct hint; conditions and real
+stack pushes remain unchanged.
+
 ## Low-address handler dispatch
 
 [LOW-HANDLERS.md](LOW-HANDLERS.md) raises measured coverage to 75.42% under

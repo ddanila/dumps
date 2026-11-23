@@ -90,7 +90,7 @@ def graph(rows, scenario):
                 ns=stack+(pc if c==5 else nxt,)
                 if c==4:
                     kind='call'
-                    if r['direct']: dest=r['branch']
+                    if r['direct'] and str(pc) not in scenario['dispatch']['tables']: dest=r['branch']
                     else:
                         t=scenario['dispatch']['tables'][str(pc)]
                         for target in table_targets(t):

@@ -1,0 +1,56 @@
+{
+  "status": "hypothesis",
+  "evidence": "1A2 shares the unusual non-no-load call class with computed 07E, while its nominal direct target 300 never returns under current control flow. Isolated POP group 1E5-1E8 is a nearby candidate dispatch table.",
+  "call_site": 418,
+  "table": {
+    "base": 485,
+    "count": 4,
+    "stride": 1,
+    "status": "hypothesis",
+    "evidence": "Four adjacent POP words, no direct callers, same A/B register fields, differing arithmetic controls; association with 1A2 remains tentative."
+  },
+  "control_target": 138,
+  "region_start": 384,
+  "region_end": 489,
+  "seeds": 128,
+  "cycles": 1000,
+  "integration": {
+    "variant": 2,
+    "seed": 11,
+    "external_read": 85
+  },
+  "limitations": [
+    "Non-returning calls can be intentional; the lost continuation alone does not prove a bad decode.",
+    "The 17.7 direct hint is overridden at this configured call only; no global address-source wiring is claimed.",
+    "Locality and POP structure do not prove the target association or index encoding.",
+    "The returning-call control at 08A is an explicit surrogate, not a proposed physical target.",
+    "The candidate table's last two entries have identical modeled ALU effects for some layouts despite differing raw bits."
+  ],
+  "arithmetic_fixture": {
+    "pairs": [
+      [
+        3,
+        7
+      ],
+      [
+        0,
+        255
+      ],
+      [
+        128,
+        1
+      ],
+      [
+        255,
+        255
+      ]
+    ],
+    "carry_latches": [
+      0,
+      1
+    ],
+    "q": 150,
+    "external_d": 165,
+    "ram_fill": 85
+  }
+}

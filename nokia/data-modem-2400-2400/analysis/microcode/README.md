@@ -1,5 +1,9 @@
 # DSC2847 bit-slice execution experiment
 
+**Latest target hypothesis:** [exceptional call 1A2](assumed/EXCEPTIONAL-CALL.md)
+reaches **80.51%** coverage; a returning-call control reaches 80.12%, so the
+particular target remains tentative. The plan is still incomplete.
+
 **Current experiment:** [the assumption-driven workflow](assumed/README.md)
 implements the analysis and execution tooling from [PLAN.md](PLAN.md). The
 [low-address handler hypothesis](assumed/LOW-HANDLERS.md) reaches **75.42%** of

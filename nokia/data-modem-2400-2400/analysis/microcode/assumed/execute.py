@@ -178,7 +178,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if policy['source']=='constant': branch=policy['value']
             elif policy['source']=='y': branch=result['y']
             elif policy['source']=='q': branch=cpu.q
-        if test and ((c==4 and not r['direct']) or branch_table is not None):
+        if test and ((c==4 and (not r['direct'] or str(pc) in dispatch_targets)) or branch_table is not None):
             t=branch_table if branch_table is not None else dispatch['tables'][str(pc)]
             targets=(branch_targets if branch_table is not None else dispatch_targets)[str(pc)];count=len(targets)
             if dispatch['source']=='y': index=result['y']
