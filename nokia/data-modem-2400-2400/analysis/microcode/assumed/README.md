@@ -315,3 +315,7 @@ See [RESULTS.md](RESULTS.md) for measured acceptance and remaining work.
 The [external-byte polling study](POLLING.md) releases the original previous-flag
 reset loop at 1EC with a logged input sequence, preserving its branch policies.
 The input source remains an explicit instruction-address-keyed stub.
+
+The [poll caller study](POLL-CALLER.md) traces that comparison to an earlier
+external byte: all 256 successor responses release the loop, while unchanged
+responses do not, under the fixed original-register reset scenario.

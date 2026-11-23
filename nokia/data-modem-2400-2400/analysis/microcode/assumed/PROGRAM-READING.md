@@ -42,6 +42,8 @@ into one address listing.
 | 01C–01F | Call-fed loop entry | Control-flow explanation, not a counted-loop algorithm |
 | 078–084 | Terminal tail | Physical completion and restart unknown |
 | 085–089 | Register right-shift helper | Not established as serial output |
+| 18D, 19C | Successor-byte wait preparation | Tested original-role reset path only |
+| 1EC–1EE | External-byte equality poll | Previous-zero condition and external channel remain hypotheses |
 | 1E9–1EB | Conditional Q drain | Current versus previous zero flag changes iteration count |
 | 341–344 | Preparation with disputed register roles | External operand and destination roles remain hypotheses |
 | 379–388, 392–3A1, 3AB–3BA | Paired add/subtract and permute | Output slots are virtual |
@@ -52,7 +54,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 146 used words, including overlaps and disconnected
+These annotations cover 151 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.

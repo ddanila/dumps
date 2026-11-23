@@ -271,6 +271,42 @@
         "fitted_swapped"
       ],
       "limitations": "Site, bank, range and index source remain hypotheses; see current table provenance in the listing."
+    },
+    {
+      "name": "successor-byte wait preparation",
+      "ranges": [
+        [
+          "18D",
+          "18D"
+        ],
+        [
+          "19C",
+          "19C"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "In the tested reset path, 18D loads external X into R3 and 19C stores its complement in R4 for the later poll.",
+      "evidence": "POLL-CALLER.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Requires the tested previous-flag reset path, zero Q at 18D and zero carry at both writes; physical input source unknown."
+    },
+    {
+      "name": "external-byte equality poll",
+      "ranges": [
+        [
+          "1EC",
+          "1EE"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under previous-zero loop control, wait until D+R4 is zero modulo 256, then return. The tested caller makes this a successor-byte wait.",
+      "evidence": "POLL-CALLER.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Flag timing is hypothetical; physical input channel and protocol unknown. Current-flag control tests a different value."
     }
   ]
 }

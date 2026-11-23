@@ -256,6 +256,42 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "POLL-CALLER.md",
+        "limitations": "Requires the tested previous-flag reset path, zero Q at 18D and zero carry at both writes; physical input source unknown.",
+        "meaning": "In the tested reset path, 18D loads external X into R3 and 19C stores its complement in R4 for the later poll.",
+        "name": "successor-byte wait preparation",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "18D",
+            "18D"
+          ],
+          [
+            "19C",
+            "19C"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "POLL-CALLER.md",
+        "limitations": "Flag timing is hypothetical; physical input channel and protocol unknown. Current-flag control tests a different value.",
+        "meaning": "Under previous-zero loop control, wait until D+R4 is zero modulo 256, then return. The tested caller makes this a successor-byte wait.",
+        "name": "external-byte equality poll",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "1EC",
+            "1EE"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -276,7 +312,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 146,
+    "annotated_used_words": 151,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -521,7 +557,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "POLL-CALLER.md",
+          "limitations": "Flag timing is hypothetical; physical input channel and protocol unknown. Current-flag control tests a different value.",
+          "meaning": "Under previous-zero loop control, wait until D+R4 is zero modulo 256, then return. The tested caller makes this a successor-byte wait.",
+          "name": "external-byte equality poll",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "1EC",
+              "1EE"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "1D2"
       ],
@@ -1225,6 +1278,7 @@
   "source_sha256": {
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
+    "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
     "Q-INDEPENDENT.md": "e9db7896f01411aca4558ec872ebded36cb53e2ec3161ff3204eb66d077c7329",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",

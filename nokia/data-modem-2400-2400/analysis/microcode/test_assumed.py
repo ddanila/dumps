@@ -717,6 +717,19 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(cpu.ram[3],(data+register)%256)
                 self.assertEqual(flags['y'],register)
 
+    def test_poll_caller_provenance_counts_unchanged_writes(self):
+        from poll_caller_study import inspect
+        rows=[dict(i=64,b=0) for _ in range(1024)]
+        rows[0x18d]=dict(i=192,b=3)
+        rows[0x19c]=dict(i=192,b=4)
+        trace=[dict(pc=pc,cycle=cycle,registers=changes,q=0,carry_in=0,
+                    external_read=dict(value=0),alu=dict(f=0))
+               for cycle,(pc,changes) in enumerate([(0x18d,{}),(0x19c,{'4':255}),(0x1ec,{})])]
+        events=inspect(trace,rows,[0]*16)
+        self.assertEqual(events[1]['r3_writer'],dict(pc=0x18d,cycle=0))
+        self.assertEqual(events[2]['r4_writer'],dict(pc=0x19c,cycle=1))
+        self.assertEqual(events[2]['r4_before'],255)
+
     def test_unknown_decision_audit_excludes_unused_test_values(self):
         from condition_extension import unknown_decisions
         scenario=copy.deepcopy(self.scenario)
@@ -816,6 +829,8 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(catalog['counts']['static_reachable'],999)
         self.assertEqual(catalog['counts']['sequencer_sweep_visited'],941)
         self.assertEqual(catalog['counts']['reset_examples'],dict(original=187,swapped=186))
+        self.assertIn('equality poll',listing[0x1ec]['fitted_original_labels'])
+        self.assertNotIn('equality poll',listing[0x1ec]['fitted_swapped_labels'])
         self.assertIn('quarter-turn',listing[0x3c5]['q2_labels'])
         self.assertNotIn('quarter-turn',listing[0x3c5]['fitted_swapped_labels'])
         self.assertIn('source-overlapping',listing[0x3ef]['q2_labels'])
