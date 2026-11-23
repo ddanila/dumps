@@ -9,6 +9,13 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+## Structurally constrained target pools
+
+[TARGET-POOLS.md](TARGET-POOLS.md) classifies disconnected entries by stack
+requirements and tests permissive target pools at 26F, 21F and 2C4. Reset
+coverage reaches 91.48%; actual dispatch encoding and physical I/O remain
+unknown. Local entry probes classify roles but do not count toward coverage.
+
 ## Exceptional computed-call candidate
 
 [EXCEPTIONAL-CALL.md](EXCEPTIONAL-CALL.md) tests 1A2 calling a local POP table,

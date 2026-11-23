@@ -1,16 +1,16 @@
 # DSC2847 bit-slice execution experiment
 
-**Latest target hypothesis:** [exceptional call 1A2](assumed/EXCEPTIONAL-CALL.md)
-reaches **80.51%** coverage; a returning-call control reaches 80.12%, so the
-particular target remains tentative. The plan is still incomplete.
-
 **Current experiment:** [the assumption-driven workflow](assumed/README.md)
-implements the analysis and execution tooling from [PLAN.md](PLAN.md). The
-[low-address handler hypothesis](assumed/LOW-HANDLERS.md) reaches **75.42%** of
-used words in reset-based runs, with clean stack behavior. Its matched control
-reaches 66.31%. The 90% target and physical datapath/I/O identification remain
-unmet. Historical [baseline](assumed/RESULTS.md) and
-[branch-table](assumed/BRANCH-TABLES.md) results remain reproducible.
+implements analysis and execution tooling from [PLAN.md](PLAN.md). The latest
+[structurally constrained target pools](assumed/TARGET-POOLS.md) reach **91.48%**
+of used words from reset. This clears the numerical coverage target under
+permissive dispatch assumptions, not recovered hardware address wiring.
+Seventeen words remain statically unexplained, and physical I/O interpretation
+is still incomplete. The full plan is not finished.
+
+Historical [baseline](assumed/RESULTS.md), [branch-table](assumed/BRANCH-TABLES.md),
+[low-address handler](assumed/LOW-HANDLERS.md), and
+[exceptional-call](assumed/EXCEPTIONAL-CALL.md) results remain reproducible.
 
 Datapath work includes [register recovery](assumed/REGISTER-FIELDS.md),
 [paired arithmetic](assumed/PAIRED-ARITHMETIC.md), and

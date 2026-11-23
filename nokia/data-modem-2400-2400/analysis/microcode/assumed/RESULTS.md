@@ -1,7 +1,7 @@
 # Measured results
 
-**Latest coverage experiment:** [exceptional call](EXCEPTIONAL-CALL.md)
-reaches 80.51% under a local-table hypothesis; the baseline below is historical.
+**Latest coverage experiment:** [bounded target pools](TARGET-POOLS.md)
+reach 91.48% under permissive structural hypotheses; the baseline below is historical.
 
 **Later experiment:** [local branch tables](BRANCH-TABLES.md) improve runtime
 coverage to 55.34% with clean runs. The measurements below describe the original

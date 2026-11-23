@@ -1,0 +1,222 @@
+{
+  "branch_tables": {
+    "265": {
+      "base": 266,
+      "count": 8,
+      "evidence": "8 consecutive direct BRT instructions immediately follow 109; index remains scenario supplied",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "54": {
+      "base": 55,
+      "count": 3,
+      "evidence": "036 immediately precedes three select-zero direct BRT entries at 037-039; overrides the probable direct-source bit.",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "60": {
+      "base": 61,
+      "count": 2,
+      "evidence": "03C immediately precedes two select-zero direct BRT entries at 03D-03E.",
+      "status": "hypothesis",
+      "stride": 1
+    },
+    "8": {
+      "evidence": "Unreferenced instruction boundaries after unconditional transfers in 009-058 suggest separate handlers behind computed BRT 008; nearby branch-only groups suggest local dispatches. Sparse order is a scenario convention.",
+      "status": "hypothesis",
+      "targets": [
+        9,
+        13,
+        19,
+        34,
+        50,
+        58,
+        84,
+        768
+      ]
+    },
+    "844": {
+      "base": 845,
+      "count": 2,
+      "evidence": "2 consecutive direct BRT instructions immediately follow 34C; index remains scenario supplied",
+      "status": "hypothesis",
+      "stride": 1
+    }
+  },
+  "condition": {
+    "flag_timing": "current",
+    "mode": "random",
+    "per_select": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "polarity": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sources": [
+      "constant",
+      "zero",
+      "sign",
+      "carry",
+      "overflow",
+      "external",
+      "external",
+      "external"
+    ],
+    "unconditional_requires_direct": false,
+    "unconditional_select": 0,
+    "unknown": 0,
+    "value": 0
+  },
+  "dispatch": {
+    "mode": "random",
+    "sequence": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "scenario",
+    "tables": {
+      "1004": {
+        "base": 1007,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "126": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "129": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "418": {
+        "base": 485,
+        "count": 4,
+        "evidence": "Four adjacent POP words, no direct callers, same A/B register fields, differing arithmetic controls; association with 1A2 remains tentative.",
+        "status": "hypothesis",
+        "stride": 1
+      },
+      "543": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Unknown table; use 08A POP table to expose continuation, not evidence of target",
+        "status": "stub",
+        "stride": 1
+      },
+      "708": {
+        "base": 138,
+        "count": 16,
+        "evidence": "Unknown table; use 08A POP table to expose continuation, not evidence of target",
+        "status": "stub",
+        "stride": 1
+      },
+      "886": {
+        "base": 889,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "911": {
+        "base": 914,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "936": {
+        "base": 939,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "962": {
+        "base": 965,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      },
+      "983": {
+        "base": 986,
+        "count": 4,
+        "evidence": "Nearby POP-delimited table",
+        "status": "hypothesis",
+        "stride": 4
+      }
+    },
+    "value": 0
+  },
+  "evidence": "1A2 shares the unusual non-no-load call class with computed 07E, while its nominal direct target 300 never returns under current control flow. Isolated POP group 1E5-1E8 is a nearby candidate dispatch table.",
+  "indirect_branch": {
+    "evidence": "Five BRT words have 17.7 clear; address source unresolved. Preserve encoded target as an explicit fallback.",
+    "source": "microword",
+    "status": "stub",
+    "value": 0
+  },
+  "initial": {
+    "pc": 0,
+    "q": 0,
+    "ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "inputs": {
+    "carry": 0,
+    "external": 0,
+    "q_in": 0,
+    "ram_in": 0
+  },
+  "io": {
+    "read": {
+      "mode": "immediate",
+      "table": [
+        0
+      ],
+      "value": 0
+    },
+    "writes": []
+  },
+  "name": "exceptional-call-local-pop-table",
+  "stack_fallback": null,
+  "status": "hypothesis"
+}

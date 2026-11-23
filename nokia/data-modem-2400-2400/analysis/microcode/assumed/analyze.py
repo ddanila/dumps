@@ -63,11 +63,20 @@ def walk(rows, start):
     return dict(end=1023,reason='end of store',balanced=False)
 
 
-def graph(rows, scenario):
-    """Conservative finite-state stack exploration; no fabricated return edges."""
-    queue = deque([(0, ())]); states = set(); edges = set(); exceptions = set()
+def graph(rows, scenario, start=0, initial_stack=(), return_sentinel=None):
+    """Conservative stack exploration; local entry probes are separate from reset coverage."""
+    if not 0<=start<len(rows) or len(initial_stack)>4:
+        raise ValueError('invalid graph entry/stack')
+    if return_sentinel is not None and (type(return_sentinel) is not int or 0<=return_sentinel<len(rows)):
+        raise ValueError('return sentinel must be outside control store')
+    if any(type(p) is not int or not (0<=p<len(rows) or p==return_sentinel) for p in initial_stack):
+        raise ValueError('invalid initial return address')
+    queue = deque([(start, tuple(initial_stack))]); states = set(); edges = set(); exceptions = set()
+    returned=False
     while queue:
         pc, stack = queue.popleft()
+        if return_sentinel is not None and pc==return_sentinel:
+            returned=True;continue
         if (pc,stack) in states: continue
         states.add((pc,stack))
         if len(states) > 500000:
@@ -111,8 +120,10 @@ def graph(rows, scenario):
             elif c==7: dest=0; kind='reset'
             edges.add((pc,dest,kind)); queue.append((dest,ns))
     reached={p for p,s in states}
-    return dict(states=len(states),reached=sorted(reached),edges=sorted(edges),
+    result=dict(states=len(states),reached=sorted(reached),edges=sorted(edges),
                 exceptions=sorted(exceptions),unreachable=[dict(pc=r['pc'],reason='No path under declared direct and dispatch edges; unresolved wiring/dispatch hypothesis') for r in rows if not r['unused'] and r['pc'] not in reached])
+    if return_sentinel is not None:result['terminal_return_reached']=returned
+    return result
 
 
 def rank_layouts(lanes, rows, out):

@@ -408,6 +408,43 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual([r['carry_in'] for r in examples[0]['outputs']],[0]*4)
         self.assertEqual([r['carry_in'] for r in examples[1]['outputs']],[1]*4)
 
+    def test_local_graph_probe_distinguishes_return_from_terminal_loop(self):
+        rows=decode(self.mapping)
+        rows[5].update(command=3,unused=False)
+        rows[6].update(command=6,select=0,direct=1,branch=6,unused=False)
+        without=graph(rows,self.scenario,start=5)
+        self.assertEqual(without['exceptions'],['005: possible stack underflow'])
+        returning=graph(rows,self.scenario,start=5,initial_stack=(-1,),return_sentinel=-1)
+        self.assertTrue(returning['terminal_return_reached'])
+        self.assertEqual(returning['reached'],[5])
+        self.assertEqual(returning['exceptions'],[])
+        looping=graph(rows,self.scenario,start=6,initial_stack=(-1,),return_sentinel=-1)
+        self.assertFalse(looping['terminal_return_reached'])
+        self.assertEqual(looping['reached'],[6])
+        with self.assertRaises(ValueError):graph(rows,self.scenario,return_sentinel=5)
+        with self.assertRaises(ValueError):graph(rows,self.scenario,initial_stack=(-1,))
+
+    def test_structural_target_pools_reject_overflowing_combinations(self):
+        from target_study import classify,scenarios
+        config=read(HERE/'target-pools.json')
+        base=read(HERE/'results/exception-study/scenario-local_table.json')
+        rows=decode(self.mapping);classification=classify(rows,base,config)
+        self.assertTrue(classification['setup_equal'])
+        entries={r['entry']:r for r in classification['entries']}
+        self.assertTrue(entries[0x200]['root_safe'])
+        self.assertFalse(entries[0x200]['returns'])
+        self.assertFalse(entries[0x22b]['root_safe'])
+        self.assertTrue(entries[0x22b]['returns'])
+        self.assertTrue(entries[0x22b]['leaf'])
+        alternatives,excluded=scenarios(base,config,classification)
+        self.assertIn(0x2df,excluded[str(0x21f)])
+        self.assertIn(0x2bc,excluded[str(0x2c4)])
+        self.assertTrue(graph(rows,alternatives['unrestricted'])['exceptions'])
+        bounded=graph(rows,alternatives['bounded'])
+        self.assertEqual(bounded['exceptions'],[])
+        self.assertEqual(len(bounded['reached']),1004)
+        self.assertEqual(alternatives['bounded']['dispatch']['tables'][str(0x2c4)]['targets'],[0x22b,0x22c,0x22d,0x2b3])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

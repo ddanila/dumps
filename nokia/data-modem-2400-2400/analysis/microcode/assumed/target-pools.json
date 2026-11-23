@@ -1,0 +1,21 @@
+{
+  "status": "hypothesis",
+  "evidence": "Classify unreferenced boundaries in bank 200-2FF by stack requirements. 26F shares the two-word setup of indirect branch 008; 21F/2C4 are unresolved computed calls in this bank.",
+  "region_start": 512,
+  "region_end": 768,
+  "branch_site": 623,
+  "call_sites": [543, 708],
+  "leaf_only_sites": [708],
+  "leaf_evidence": "Unrestricted target combinations permit recursion and exceed four stack slots. Restricting the nested dispatch at 2C4 to routines with no further calls removes those static exceptions; not a recovered address rule.",
+  "setup_pairs": [[6, 7], [621, 622]],
+  "seeds": 128,
+  "cycles": 1000,
+  "integration": {"variant": 2, "seed": 11, "external_read": 85},
+  "limitations": [
+    "The bank boundary and source-to-target associations are explicit hypotheses, not recovered wiring.",
+    "Targets are permissive pools of structurally compatible entries, not identified command codes.",
+    "Local entry probes classify routines only and are excluded from reported reset coverage.",
+    "Excluding recursive choices and limiting 2C4 to leaf routines is an experimental constraint, not stack repair.",
+    "Computed indices remain seeded scenario inputs; physical I/O remains unknown."
+  ]
+}
