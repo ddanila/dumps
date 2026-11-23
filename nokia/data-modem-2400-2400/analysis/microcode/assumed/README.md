@@ -384,3 +384,8 @@ criterion, with separate bounded reset-path observations.
 through seeded dispatch entry 1 at 109. Of 256 constant bytes per seed, only
 zero lets the complete wrapper return; explicit changing-input diagnostics
 release the loops without altering the mapping or sequencer state.
+
+[Datapath dispatch at 109](DISPATCH109.md) compares scenario, current Y, Q,
+and preceding Y across all input bytes. Under the fitted reset path, Y=D+1
+selects all eight branch entries; the optional variant reaches 476 distinct
+instructions across the sweep without establishing physical index wiring.

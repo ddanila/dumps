@@ -356,6 +356,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "DISPATCH109.md",
+        "limitations": "Current-Y indexing is an alternative scenario; default index remains scenario-supplied. Physical D and address source unknown; no claim for every later visit.",
+        "meaning": "At first tested reset entry current Y=(D+1) mod 256; optional current-Y indexing selects one of eight following branch words.",
+        "name": "input-code dispatch candidate",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "109",
+            "109"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -376,7 +392,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 180,
+    "annotated_used_words": 181,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -1409,6 +1425,7 @@
   "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
   "source_sha256": {
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
+    "DISPATCH109.md": "c1bacc10b862be013766e19dcbdd234fad53848ea066e53152afd561b9f92403",
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",

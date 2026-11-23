@@ -371,6 +371,22 @@
         "fitted_original"
       ],
       "limitations": "Original-role previous-flag and zero-fill assumptions. Seeded reset dispatch reaches the wrapper with R7=FF and Q=D; physical dispatch and external-input behavior remain unresolved."
+    },
+    {
+      "name": "input-code dispatch candidate",
+      "ranges": [
+        [
+          "109",
+          "109"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "At first tested reset entry current Y=(D+1) mod 256; optional current-Y indexing selects one of eight following branch words.",
+      "evidence": "DISPATCH109.md",
+      "profiles": [
+        "fitted_original"
+      ],
+      "limitations": "Current-Y indexing is an alternative scenario; default index remains scenario-supplied. Physical D and address source unknown; no claim for every later visit."
     }
   ]
 }
