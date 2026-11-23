@@ -2,8 +2,7 @@
 
 Owner identifies the source as an Aquarius 2000 Q-meter and the EPROM as a
 27256. The image contains `Diversa Ltd.` at 0x126B and
-`AQ 2000   S/N:Unknow` at 0x35BB. Board position, chip markings and firmware
-revision have not been recorded.
+`AQ 2000   S/N:Unknow` at 0x35BB. Board photos identify the socket as `27C256` and the chip as an M27C256B-15XF1. The firmware revision is unknown.
 
 ## Acquisition — 2026-11-23
 
@@ -20,8 +19,7 @@ incomplete and firmware is older than expected; both acquisition logs are retain
 - CRC32: `054481d8`
 
 Strings include supply/return calibration, clock setup, RAM test, sensor
-errors, and hourly/daily/monthly history menus. No internal checksum has
-been established.
+errors, and hourly/daily/monthly history menus. Factory startup sums the first 16 KiB and compares the result with two words in SRAM. The sum for this image is `0AE8h`.
 
 No full-image contiguous match was found in the existing repository ROMs
 checked (see manifest). Web searches for the model with firmware, Diversa
@@ -32,3 +30,7 @@ This limited search does not establish uniqueness.
 
 Both raw reads remain in the local programmer session
 `aquarius-2000-27256-20261123-175119`; the identical image is stored once here.
+
+## Replacement firmware
+
+Build the [board exerciser](firmware/) for the socketed 27C256. The [hardware reference](firmware/HARDWARE.md) ties the board photographs and installation manual to factory ROM addresses. The diagnostic has been tested in software. Powered board validation is pending.
