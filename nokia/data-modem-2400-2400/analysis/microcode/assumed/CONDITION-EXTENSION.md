@@ -7,6 +7,10 @@ examples spend 999,958 cycles at 084 and never sample the preparation inputs.
 These runs validate bounded execution under the scenarios, not useful signal
 processing or the fitted condition wiring.
 
+A [free-selector completion follow-up](SELECTOR-COMPLETION.md) now supplies
+a reset-to-preparation path by asserting previously unconstrained selector 5,
+without changing the fitted flag sources.
+
 ## Profiles and measurements
 
 [condition-extension.json](condition-extension.json) keeps the fitted flag

@@ -1,0 +1,38 @@
+{
+  "status": "hypothesis",
+  "evidence": "Test whether constant-zero defaults on unobserved selectors prevent reset from reaching the fitted caller. Enumerate both constant polarities only at selectors absent from the local fit.",
+  "mappings": [
+    "original",
+    "swapped"
+  ],
+  "controls": [
+    "witness",
+    "rom_calls"
+  ],
+  "q_values": [
+    0,
+    85
+  ],
+  "entries": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "marked_data": [
+    18,
+    52,
+    86,
+    120
+  ],
+  "cycles": 1000,
+  "limitations": [
+    "Fitted selectors, flag timing, and unknown-flag fallback are held fixed.",
+    "Free selectors are constant-input hypotheses, not named physical signals.",
+    "One fixed index is used at every dispatch site within each run.",
+    "A chosen trace is the first clean caller-reaching example in documented order, not a hardware-confidence ranking.",
+    "Failure to reach the caller in this finite sweep is not proof that every possible completion fails."
+  ],
+  "loop_entry": 489,
+  "loop_exit": 491
+}

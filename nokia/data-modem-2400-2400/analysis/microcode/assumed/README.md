@@ -39,6 +39,9 @@ input stubs, replacing the local per-instruction branch choices.
 [CONDITION-EXTENSION.md](CONDITION-EXTENSION.md) extends those policies to 512
 runs and two million-cycle reset runs. They remain stack-safe, but none
 of the reset cases reaches preparation, and some use unknown decision flags.
+[SELECTOR-COMPLETION.md](SELECTOR-COMPLETION.md) then varies only previously
+unconstrained selectors. Asserting selector 5 reaches preparation from reset
+and yields an input-dependent loop under the preserved fitted policies.
 
 ## Datapath-derived lookup indices
 

@@ -688,6 +688,21 @@ class AssumedTests(unittest.TestCase):
         scenario['condition']['flag_timing']='current'
         with self.assertRaisesRegex(ValueError,'previous-flag'):unknown_decisions(records,rows,scenario)
 
+    def test_selector_completion_preserves_fitted_sources(self):
+        from selector_completion import complete
+        fit=read(HERE/'condition-fit.json')['replay_policies']['original']
+        scenario=read(HERE/'results/condition-fit/original-marked/scenario.json')
+        before=copy.deepcopy(scenario)
+        completed,free=complete(scenario,fit,4)
+        self.assertEqual(free,[1,4,5,6])
+        self.assertEqual(scenario,before)
+        self.assertEqual(completed['condition']['sources'][5],'constant')
+        self.assertEqual(completed['condition']['polarity'][5],1)
+        for select in map(int,fit):
+            self.assertEqual(completed['condition']['sources'][select],scenario['condition']['sources'][select])
+            self.assertEqual(completed['condition']['polarity'][select],scenario['condition']['polarity'][select])
+        with self.assertRaisesRegex(ValueError,'mask'):complete(scenario,fit,16)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

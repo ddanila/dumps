@@ -1,0 +1,140 @@
+{
+  "configuration": {
+    "controls": [
+      "witness",
+      "rom_calls"
+    ],
+    "cycles": 1000,
+    "entries": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "evidence": "Test whether constant-zero defaults on unobserved selectors prevent reset from reaching the fitted caller. Enumerate both constant polarities only at selectors absent from the local fit.",
+    "limitations": [
+      "Fitted selectors, flag timing, and unknown-flag fallback are held fixed.",
+      "Free selectors are constant-input hypotheses, not named physical signals.",
+      "One fixed index is used at every dispatch site within each run.",
+      "A chosen trace is the first clean caller-reaching example in documented order, not a hardware-confidence ranking.",
+      "Failure to reach the caller in this finite sweep is not proof that every possible completion fails."
+    ],
+    "loop_entry": 489,
+    "loop_exit": 491,
+    "mappings": [
+      "original",
+      "swapped"
+    ],
+    "marked_data": [
+      18,
+      52,
+      86,
+      120
+    ],
+    "q_values": [
+      0,
+      85
+    ],
+    "status": "hypothesis"
+  },
+  "interpretation": "Existence search over constant completions of unconstrained selectors; fitted sources are unchanged. Any example remains a scenario hypothesis, not recovered wiring.",
+  "profiles": [
+    {
+      "caller_runs": 32,
+      "chosen": {
+        "clean": true,
+        "completed_cycles": 1000,
+        "control": "rom_calls",
+        "coverage": 0.1831537708129285,
+        "entry": 2,
+        "final_pc": 132,
+        "mask": 4,
+        "q": 0,
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 30,
+          "underflows": 0,
+          "writes": 39
+        },
+        "stop": "cycle limit",
+        "trace_digest": "4524ddd712149da6f9b2291b51b4c6181ec1468ca24e2238001e0c2c3b0c8e9a",
+        "visits_18b": 1,
+        "visits_341": 1
+      },
+      "clean_caller_runs": 32,
+      "clean_runs": 256,
+      "comparison": {
+        "first_control_divergence": {
+          "cycle": 104,
+          "marked_next": 489,
+          "pc": 490,
+          "zero_next": 491
+        },
+        "first_loop_iterations": {
+          "marked": 9,
+          "zero": 1
+        },
+        "unknown_decisions": {
+          "marked": {},
+          "zero": {}
+        }
+      },
+      "free_selectors": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "mapping": "original",
+      "preparation_runs": 32
+    },
+    {
+      "caller_runs": 16,
+      "chosen": {
+        "clean": true,
+        "completed_cycles": 1000,
+        "control": "rom_calls",
+        "coverage": 0.1821743388834476,
+        "entry": 2,
+        "final_pc": 132,
+        "mask": 8,
+        "q": 0,
+        "stack": {
+          "final_depth": 0,
+          "max_depth": 3,
+          "overflows": 0,
+          "reads": 22,
+          "underflows": 0,
+          "writes": 31
+        },
+        "stop": "cycle limit",
+        "trace_digest": "66c78199691684dd658efd020e853bb6a1080ab54ff04e4d9fc81b0e8218adb3",
+        "visits_18b": 1,
+        "visits_341": 1
+      },
+      "clean_caller_runs": 16,
+      "clean_runs": 256,
+      "comparison": {
+        "first_control_divergence": null,
+        "first_loop_iterations": {
+          "marked": 1,
+          "zero": 1
+        },
+        "unknown_decisions": {
+          "marked": {},
+          "zero": {}
+        }
+      },
+      "free_selectors": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "mapping": "swapped",
+      "preparation_runs": 16
+    }
+  ]
+}
