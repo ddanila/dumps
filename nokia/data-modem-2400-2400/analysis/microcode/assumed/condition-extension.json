@@ -1,0 +1,20 @@
+{
+  "status": "hypothesis",
+  "evidence": "Extend the two saved previous-flag policies without retuning, separating reset/local starts and historical/ROM-backed target hypotheses.",
+  "mappings": ["original", "swapped"],
+  "controls": ["witness", "rom_calls"],
+  "starts": [0, 395],
+  "q_values": [0, 1, 128, 255],
+  "inputs": {"zero": [0,0,0,0], "marked": [18,52,86,120], "ones": [255,255,255,255], "alternating": [85,170,85,170]},
+  "entries": [0,1,2,3],
+  "cycles": 1000,
+  "integration": {"control": "rom_calls", "q": 0, "input": "marked", "entry": 1},
+  "limitations": [
+    "Unused selectors retain the fitted scenario's constant-zero stubs.",
+    "The same constant index drives every table in a run; hardware index generation is not recovered.",
+    "The ROM-backed profile changes targets, not the fitted flag policy.",
+    "Preparation bytes are PC-keyed stubs and all other D reads are zero.",
+    "Initial register RAM is zero; initial Q is varied explicitly.",
+    "Unknown-flag decisions count only instructions consulting TEST; incidental unknown tests on INC/POP/PLP are excluded."
+  ]
+}

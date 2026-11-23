@@ -677,6 +677,17 @@ class AssumedTests(unittest.TestCase):
         del scenario['io']['read']['evidence']
         with self.assertRaisesRegex(ValueError,'provenance'):validate_scenario(scenario)
 
+    def test_unknown_decision_audit_excludes_unused_test_values(self):
+        from condition_extension import unknown_decisions
+        scenario=copy.deepcopy(self.scenario)
+        scenario['condition'].update(mode='flags',flag_timing='previous',sources=['carry']*8)
+        rows=[dict(command=1,select=3,direct=0),dict(command=0,select=3,direct=0),
+              dict(command=6,select=0,direct=1),dict(command=3,select=3,direct=0)]
+        records=[dict(pc=pc,alu=dict(zero=1,sign=0,carry=None,overflow=None)) for pc in range(4)]
+        self.assertEqual(unknown_decisions(records,rows,scenario),{1:1})
+        scenario['condition']['flag_timing']='current'
+        with self.assertRaisesRegex(ValueError,'previous-flag'):unknown_decisions(records,rows,scenario)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

@@ -36,6 +36,9 @@ under one candidate from each register-role hypothesis.
 [CONDITION-FIT.md](CONDITION-FIT.md) replays both numerical-use witnesses in
 the main runner with consistent previous-flag selectors and explicit PC-keyed
 input stubs, replacing the local per-instruction branch choices.
+[CONDITION-EXTENSION.md](CONDITION-EXTENSION.md) extends those policies to 512
+runs and two million-cycle reset runs. They remain stack-safe, but none
+of the reset cases reaches preparation, and some use unknown decision flags.
 
 ## Datapath-derived lookup indices
 

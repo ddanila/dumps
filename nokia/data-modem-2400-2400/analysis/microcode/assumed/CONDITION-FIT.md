@@ -11,6 +11,10 @@ Many fits are possible, and several selected flags remain constant over the
 observations. A successful fit does not show that the board uses that source
 or that other program paths remain valid under the same policy.
 
+A [broader execution follow-up](CONDITION-EXTENSION.md) now tests these
+policies beyond the fitted paths. Clean runs do not yet reach preparation
+from reset; some broader branches also consume unknown flags.
+
 ## Fit method
 
 The study re-executes each saved trace with the component datapath and carry
