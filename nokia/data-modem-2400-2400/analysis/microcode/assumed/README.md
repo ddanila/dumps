@@ -19,6 +19,14 @@ source. Unlike a call, a branch-table transfer does not push the stack.
 with existing scenarios; `false` lets select-zero BSR/BRT remain unconditional
 when bit 17.7 is clear. Static analysis and execution share this rule.
 
+## Register-field study
+
+[REGISTER-FIELDS.md](REGISTER-FIELDS.md) recovers the second register-counting
+pattern and searches instruction fields that do not overlap either register
+field. It also reports a semantic limitation: the resulting datapath models
+cannot distinguish several different dispatch entries. Their additional clean
+runs do not establish a correct instruction mapping or external I/O behavior.
+
 ## Reproduce
 
 From the repository root, with Python 3 and its standard library:

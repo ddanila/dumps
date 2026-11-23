@@ -1,0 +1,779 @@
+{
+  "candidates": 196608,
+  "configuration": {
+    "evidence": "Repeated four-register table families suggest a second register field. Instruction search priors remain conjectural.",
+    "expected_register_cycle": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "heldout_bases": [
+      965,
+      986,
+      1007
+    ],
+    "instruction_chip_orders": [
+      [
+        "11",
+        "18",
+        "17"
+      ],
+      [
+        "11",
+        "17",
+        "18"
+      ],
+      [
+        "18",
+        "11",
+        "17"
+      ],
+      [
+        "18",
+        "17",
+        "11"
+      ],
+      [
+        "17",
+        "11",
+        "18"
+      ],
+      [
+        "17",
+        "18",
+        "11"
+      ]
+    ],
+    "instruction_excluded": [
+      "11.0",
+      "18.7",
+      "17.0",
+      "17.1",
+      "17.2"
+    ],
+    "nop_sites": [
+      543,
+      708,
+      886,
+      911,
+      936,
+      962,
+      983,
+      1004
+    ],
+    "notes": [
+      "A/B role is not established; retain both orientations of tied layouts.",
+      "NOP and loop-shift anchors are hypotheses, not measured chip pin values.",
+      "Condition bits 17.4 and 17.5 may be reused as datapath controls on non-transfer words.",
+      "This search retains the reversed chip-10 immediate hypothesis; the alternative that chip 10 carries instruction/control bits remains unresolved."
+    ],
+    "retained": 3,
+    "shift_sites": [
+      489
+    ],
+    "status": "hypothesis",
+    "training_bases": [
+      889,
+      914,
+      939
+    ],
+    "training_length": 16,
+    "weights": {
+      "arithmetic_fraction": 2,
+      "common_destinations": 10,
+      "inversions": -0.1,
+      "loop_shift": 5,
+      "nop_no_load": 10,
+      "shift_fraction": -10
+    }
+  },
+  "instruction_windows": 192,
+  "limitations": [
+    "These priors rank hypotheses, not wiring confidence.",
+    "Source-code polarity is unconstrained by the score except the inversion penalty.",
+    "Chip-10 instruction interpretations are not included."
+  ],
+  "top": [
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6268364348677767,
+        "common_destinations": 0.881488736532811,
+        "inversions": 1,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "18.5",
+        "18.4",
+        "18.3",
+        "!18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.518021547502446
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6268364348677767,
+        "common_destinations": 0.881488736532811,
+        "inversions": 1,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "18.5",
+        "18.4",
+        "18.3",
+        "!18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.518021547502446
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6229187071498531,
+        "common_destinations": 0.881488736532811,
+        "inversions": 1,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "18.5",
+        "18.4",
+        "!18.3",
+        "18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.5101860920666
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6229187071498531,
+        "common_destinations": 0.881488736532811,
+        "inversions": 1,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "18.5",
+        "18.4",
+        "!18.3",
+        "18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.5101860920666
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5680705190989226,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "17.3",
+        "18.6",
+        "18.5",
+        "18.4",
+        "18.3",
+        "18.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.50048971596474
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5680705190989226,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "17.3",
+        "18.6",
+        "18.5",
+        "18.4",
+        "18.3",
+        "18.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.50048971596474
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5680705190989226,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "17.5",
+        "17.4",
+        "17.3",
+        "18.4",
+        "18.3",
+        "18.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.50048971596474
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5680705190989226,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "17.5",
+        "17.4",
+        "17.3",
+        "18.4",
+        "18.3",
+        "18.2",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.50048971596474
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5523996082272282,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "17.5",
+        "17.4",
+        "17.3",
+        "18.6",
+        "18.5",
+        "18.4",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.46914789422135
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5523996082272282,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "17.5",
+        "17.4",
+        "17.3",
+        "18.6",
+        "18.5",
+        "18.4",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.46914789422135
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5523996082272282,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.3",
+        "18.2",
+        "17.5",
+        "18.6",
+        "18.5",
+        "18.4",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.46914789422135
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5523996082272282,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.3",
+        "18.2",
+        "17.5",
+        "18.6",
+        "18.5",
+        "18.4",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.46914789422135
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5357492654260528,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.4",
+        "18.3",
+        "18.2",
+        "17.5",
+        "17.4",
+        "17.3",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.435847208619002
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5357492654260528,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.4",
+        "18.3",
+        "18.2",
+        "17.5",
+        "17.4",
+        "17.3",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.435847208619002
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5357492654260528,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "18.5",
+        "18.4",
+        "17.5",
+        "17.4",
+        "17.3",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.435847208619002
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.5357492654260528,
+        "common_destinations": 0.881488736532811,
+        "inversions": 0,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "18.5",
+        "18.4",
+        "17.5",
+        "17.4",
+        "17.3",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.435847208619002
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6268364348677767,
+        "common_destinations": 0.881488736532811,
+        "inversions": 2,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "!18.6",
+        "18.5",
+        "18.4",
+        "18.3",
+        "!18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.41802154750245
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6268364348677767,
+        "common_destinations": 0.881488736532811,
+        "inversions": 2,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "!18.6",
+        "18.5",
+        "18.4",
+        "18.3",
+        "!18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.41802154750245
+    },
+    {
+      "a": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "b": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6268364348677767,
+        "common_destinations": 0.881488736532811,
+        "inversions": 2,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "!18.5",
+        "18.4",
+        "18.3",
+        "!18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.41802154750245
+    },
+    {
+      "a": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "b": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "components": {
+        "arithmetic_fraction": 0.6268364348677767,
+        "common_destinations": 0.881488736532811,
+        "inversions": 2,
+        "loop_shift": 1.0,
+        "nop_no_load": 1.0,
+        "shift_fraction": 0.04505386875612145
+      },
+      "i": [
+        "18.6",
+        "!18.5",
+        "18.4",
+        "18.3",
+        "!18.2",
+        "17.5",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "score": 24.41802154750245
+    }
+  ]
+}

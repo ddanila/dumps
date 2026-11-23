@@ -1,0 +1,20 @@
+{
+  "status": "hypothesis",
+  "evidence": "Repeated four-register table families suggest a second register field. Instruction search priors remain conjectural.",
+  "training_bases": [889, 914, 939],
+  "training_length": 16,
+  "expected_register_cycle": [4, 5, 6, 7],
+  "heldout_bases": [965, 986, 1007],
+  "instruction_chip_orders": [["11", "18", "17"], ["11", "17", "18"], ["18", "11", "17"], ["18", "17", "11"], ["17", "11", "18"], ["17", "18", "11"]],
+  "instruction_excluded": ["11.0", "18.7", "17.0", "17.1", "17.2"],
+  "nop_sites": [543, 708, 886, 911, 936, 962, 983, 1004],
+  "shift_sites": [489],
+  "weights": {"common_destinations": 10, "shift_fraction": -10, "nop_no_load": 10, "loop_shift": 5, "arithmetic_fraction": 2, "inversions": -0.1},
+  "retained": 3,
+  "notes": [
+    "A/B role is not established; retain both orientations of tied layouts.",
+    "NOP and loop-shift anchors are hypotheses, not measured chip pin values.",
+    "Condition bits 17.4 and 17.5 may be reused as datapath controls on non-transfer words.",
+    "This search retains the reversed chip-10 immediate hypothesis; the alternative that chip 10 carries instruction/control bits remains unresolved."
+  ]
+}

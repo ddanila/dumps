@@ -1,0 +1,454 @@
+{
+  "best": {
+    "bits": [
+      "11.4",
+      "11.3",
+      "11.2",
+      "11.1"
+    ],
+    "score": 48
+  },
+  "candidates": 1184,
+  "config": {
+    "evidence": "Repeated four-register table families suggest a second register field. Instruction search priors remain conjectural.",
+    "expected_register_cycle": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "heldout_bases": [
+      965,
+      986,
+      1007
+    ],
+    "instruction_chip_orders": [
+      [
+        "11",
+        "18",
+        "17"
+      ],
+      [
+        "11",
+        "17",
+        "18"
+      ],
+      [
+        "18",
+        "11",
+        "17"
+      ],
+      [
+        "18",
+        "17",
+        "11"
+      ],
+      [
+        "17",
+        "11",
+        "18"
+      ],
+      [
+        "17",
+        "18",
+        "11"
+      ]
+    ],
+    "instruction_excluded": [
+      "11.0",
+      "18.7",
+      "17.0",
+      "17.1",
+      "17.2"
+    ],
+    "nop_sites": [
+      543,
+      708,
+      886,
+      911,
+      936,
+      962,
+      983,
+      1004
+    ],
+    "notes": [
+      "A/B role is not established; retain both orientations of tied layouts.",
+      "NOP and loop-shift anchors are hypotheses, not measured chip pin values.",
+      "Condition bits 17.4 and 17.5 may be reused as datapath controls on non-transfer words.",
+      "This search retains the reversed chip-10 immediate hypothesis; the alternative that chip 10 carries instruction/control bits remains unresolved."
+    ],
+    "retained": 3,
+    "shift_sites": [
+      489
+    ],
+    "status": "hypothesis",
+    "training_bases": [
+      889,
+      914,
+      939
+    ],
+    "training_length": 16,
+    "weights": {
+      "arithmetic_fraction": 2,
+      "common_destinations": 10,
+      "inversions": -0.1,
+      "loop_shift": 5,
+      "nop_no_load": 10,
+      "shift_fraction": -10
+    }
+  },
+  "heldout": [
+    {
+      "base": 965,
+      "other_values": [
+        4,
+        5,
+        6,
+        7,
+        4,
+        5,
+        6,
+        7,
+        4,
+        5,
+        6,
+        7,
+        4,
+        5,
+        6,
+        7
+      ],
+      "source_values": [
+        10,
+        11,
+        12,
+        13,
+        12,
+        13,
+        10,
+        11,
+        10,
+        11,
+        12,
+        13,
+        12,
+        13,
+        10,
+        11
+      ]
+    },
+    {
+      "base": 986,
+      "other_values": [
+        8,
+        9,
+        10,
+        11,
+        8,
+        9,
+        10,
+        11,
+        8,
+        9,
+        10,
+        11,
+        8,
+        9,
+        10,
+        11
+      ],
+      "source_values": [
+        10,
+        11,
+        12,
+        13,
+        12,
+        13,
+        10,
+        11,
+        10,
+        11,
+        12,
+        13,
+        12,
+        13,
+        10,
+        11
+      ]
+    },
+    {
+      "base": 1007,
+      "other_values": [
+        12,
+        13,
+        14,
+        15,
+        12,
+        13,
+        14,
+        15,
+        12,
+        13,
+        14,
+        15,
+        12,
+        13,
+        14,
+        15
+      ],
+      "source_values": [
+        10,
+        11,
+        12,
+        13,
+        12,
+        13,
+        10,
+        11,
+        10,
+        11,
+        12,
+        13,
+        12,
+        13,
+        10,
+        11
+      ]
+    }
+  ],
+  "interpretation": "Unique match within this contiguous-field search; register role and hardware wiring remain hypotheses.",
+  "selector_table": {
+    "base": 138,
+    "other_values": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "source_values": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "tied_best": [
+    {
+      "bits": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "score": 48
+    }
+  ],
+  "top": [
+    {
+      "bits": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "score": 48
+    },
+    {
+      "bits": [
+        "!11.2",
+        "11.3",
+        "!11.4",
+        "11.5"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "!11.3",
+        "!11.4",
+        "!11.5",
+        "11.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "!17.0",
+        "17.1",
+        "17.2",
+        "!17.3"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "10.1",
+        "!10.0",
+        "!18.7",
+        "18.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "10.1",
+        "!10.0",
+        "11.7",
+        "11.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "10.1",
+        "10.0",
+        "!18.7",
+        "18.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "10.1",
+        "10.0",
+        "11.7",
+        "11.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.0",
+        "!11.1",
+        "11.2",
+        "!11.3"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.0",
+        "!18.7",
+        "!18.6",
+        "18.5"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.0",
+        "11.1",
+        "11.2",
+        "11.3"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.0",
+        "18.7",
+        "!18.6",
+        "18.5"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.2",
+        "11.3",
+        "11.4",
+        "11.5"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.3",
+        "11.4",
+        "!11.5",
+        "11.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.4",
+        "!11.5",
+        "!11.6",
+        "!11.7"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "11.4",
+        "11.5",
+        "!11.6",
+        "!11.7"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "17.1",
+        "!17.0",
+        "!18.7",
+        "18.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "17.1",
+        "!17.0",
+        "10.7",
+        "10.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "17.1",
+        "!17.0",
+        "11.7",
+        "11.6"
+      ],
+      "score": 24
+    },
+    {
+      "bits": [
+        "17.1",
+        "17.2",
+        "17.3",
+        "17.4"
+      ],
+      "score": 24
+    }
+  ],
+  "training_words": 48,
+  "windows": 74
+}

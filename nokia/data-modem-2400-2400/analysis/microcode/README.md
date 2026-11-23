@@ -6,7 +6,10 @@ implements the analysis and execution tooling from [PLAN.md](PLAN.md). A new
 sequencer coverage from 28.8% to **55.3%**, with clean million-cycle runs and
 three speculative datapath variants. The 90% coverage target and identification
 of the actual datapath/I/O remain unmet. Historical results are preserved in
-[the baseline report](assumed/RESULTS.md).
+[the baseline report](assumed/RESULTS.md). A subsequent
+[register-field study](assumed/REGISTER-FIELDS.md) identifies a second counting
+field and shows that the current datapath candidates still fail to explain
+chip-10 differences between dispatch entries.
 
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,

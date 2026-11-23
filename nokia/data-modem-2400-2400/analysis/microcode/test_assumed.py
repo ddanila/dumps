@@ -9,6 +9,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent/'assumed'))
 from common import HERE, decode, field_value, read, validate
 from analyze import graph, must_targets, search_address, walk, rank_layouts
 from execute import execute, validate_scenario
+from register_study import recover_register, table_semantics
 
 
 class AssumedTests(unittest.TestCase):
@@ -153,6 +154,42 @@ class AssumedTests(unittest.TestCase):
         scenario['branch_tables']['0']=scenario['branch_tables']['265']
         with self.assertRaisesRegex(ValueError,'site must be BRT'):
             execute(self.mapping,scenario,1)
+
+    def test_second_register_field_has_unique_training_match(self):
+        from common import load
+        result=recover_register(load(),self.mapping,read(HERE/'register-search.json'))
+        self.assertEqual(result['candidates'],1184)
+        self.assertEqual(result['best'],dict(bits=['11.4','11.3','11.2','11.1'],score=48))
+        self.assertEqual(len(result['tied_best']),1)
+        self.assertEqual(result['selector_table']['source_values'],[0]*16)
+        self.assertEqual(result['selector_table']['other_values'],list(range(16)))
+        for table in result['heldout']:
+            self.assertEqual(set(table['source_values']),{10,11,12,13})
+
+    def test_constrained_variants_keep_instruction_and_register_bits_disjoint(self):
+        for i in range(1,4):
+            mapping=read(HERE/f'results/register-study/variant-{i}.json')
+            fields={k:{b.lstrip('!') for b in mapping['fields'][k]['bits']} for k in ('i','a','b')}
+            self.assertFalse(fields['i']&(fields['a']|fields['b']))
+            self.assertFalse(fields['a']&fields['b'])
+            self.assertEqual(len(fields['i']),9)
+
+    def test_table_equivalence_is_a_real_datapath_limitation(self):
+        from common import load
+        from model import Am2901
+        mapping=read(HERE/'results/register-study/variant-1.json')
+        report=table_semantics(mapping,load(),read(HERE/'register-search.json'))
+        self.assertEqual(report['families'][0]['equivalent_entry_groups'],[[0,1,2,3]])
+        rows=decode(mapping)
+        for seed in (0,1,37,255):
+            outcomes=[]
+            for entry in range(4):
+                cpu=Am2901(ram=[(i*19+seed)&255 for i in range(16)],q=seed)
+                outputs=[]
+                for row in rows[0x379+4*entry:0x37d+4*entry]:
+                    outputs.append(cpu.step(row['i'],row['a'],row['b'],row['d']))
+                outcomes.append((cpu.ram,cpu.q,outputs))
+            self.assertTrue(all(x==outcomes[0] for x in outcomes))
 
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
