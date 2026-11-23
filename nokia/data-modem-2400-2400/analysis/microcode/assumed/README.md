@@ -51,6 +51,9 @@ Its graph reaches 993 words; 28 remain unresolved.
 [LOCAL-CASES.md](LOCAL-CASES.md) compares additional case bodies at three
 local dispatch boundaries. The combined alternative reaches 999 words
 statically and leaves 22 unresolved; its table sizes remain hypotheses.
+[BRANCH-BITS.md](BRANCH-BITS.md) tests 128 global B0/B9 alternatives against
+that graph. None improves reachability; inversion witnesses expose empty-stack
+accesses. Context-dependent decoding and other dispatch families remain open.
 
 ## Datapath-derived lookup indices
 

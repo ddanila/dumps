@@ -721,6 +721,33 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(set(scenarios['scoped_tail']['dispatch']['tables']['708']['targets']),
                          set(scenarios['scoped_byte']['dispatch']['tables']['708']['targets']))
 
+    def test_branch_bit_failure_witness_replays_on_sequencer(self):
+        from branch_bit_study import replacement, failure_path
+        from common import unconditional_transfer
+        from model import X8X02
+        scenario=read(HERE/'results/third-case-study/scenario-all_cases.json')
+        for position,token,terminal,command in ((0,'!11.0',0x107,2),(9,'!18.7',0x119,3)):
+            rows=decode(replacement(self.mapping,position,token))
+            path=failure_path(rows,scenario)
+            seq=X8X02()
+            for source,target in zip(path,path[1:]):
+                self.assertEqual(seq.pc,source['pc'])
+                self.assertEqual(seq.pushes-seq.pops,len(source['stack']))
+                row=rows[seq.pc]
+                # These witnesses use direct transfers only, so the chip model
+                # can replay them without a dispatch or stack-value stub.
+                if row['command'] in (4,6):self.assertTrue(row['direct'])
+                choices=[]
+                for test in ([True] if unconditional_transfer(row,scenario) else [False,True]):
+                    trial=copy.deepcopy(seq)
+                    trial.step(row['command'],row['branch'],test)
+                    if trial.pc==target['pc'] and trial.pushes-trial.pops==len(target['stack']):choices.append(trial)
+                self.assertTrue(choices)
+                seq=choices[0]
+            self.assertEqual(seq.pc,terminal)
+            self.assertEqual(seq.pushes-seq.pops,0)
+            self.assertEqual(rows[terminal]['command'],command)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

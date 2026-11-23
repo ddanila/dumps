@@ -1,0 +1,15 @@
+{
+  "status": "hypothesis",
+  "evidence": "Several disconnected fragments lie one address below existing targets. Test whether replacing a single global branch-address bit can explain them without stack failures.",
+  "scenario": "results/third-case-study/scenario-all_cases.json",
+  "positions": [0, 9],
+  "chips": ["10", "11", "17", "18"],
+  "witnesses": [[0, "!11.0"], [9, "!18.7"]],
+  "limitations": [
+    "Only one global address bit changes at a time; contextual decoding and joint changes remain untested.",
+    "Dispatch targets and condition semantics are held fixed at explicit hypotheses.",
+    "Repeated physical source bits are permitted and reported, not silently excluded.",
+    "The graph explores both conditional outcomes; a possible failure is not proof that hardware executes it.",
+    "Coverage and target score do not measure hardware truth. No runtime or datapath claim is made."
+  ]
+}
