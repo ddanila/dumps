@@ -47,3 +47,8 @@ This is not the complete 006E routine or a complete polling iteration. At
 writes via 1D05, then calls 1933, 0C5B and 077C before returning at 04F9.
 Those accesses and subsequent effects need their own reference and logged
 external assumptions before combining this prefix with serial transmission.
+
+The subsequent [output-through-transmission study](CONTROLLER-OUTPUT-SEND.md)
+now executes that remainder and the actual call to 0899, checking selected
+application state and complete emitted byte sequences under explicit local
+assumptions. Full internal timer/initialization semantics remain unverified.

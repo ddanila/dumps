@@ -59,3 +59,7 @@ python3 nokia/data-modem-2400-2400/analysis/controller_program_study.py
 
 The remainder of output construction, interrupt effects, peripheral device
 responses, and end-to-end polling/transmission integration remain unverified.
+
+The [output-through-transmission study](CONTROLLER-OUTPUT-SEND.md) now checks
+the main-loop caller decisions and resulting programming sequences in continuous
+execution. It retains explicit limitations on interrupts and device responses.

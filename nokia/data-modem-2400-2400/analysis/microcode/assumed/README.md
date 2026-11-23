@@ -361,3 +361,8 @@ builders together and the immediate rotating-pattern/P1 and RAM30 override:
 [Peripheral programming](CONTROLLER-PROGRAM.md) verifies the complete write
 sequence of helper 1D05 at both USART control addresses: 7,168 cases, including
 all mode bytes and all P2 address-page values in the stated fixture families.
+
+[Output through transmission](CONTROLLER-OUTPUT-SEND.md) executes the actual
+main-loop calls to 006E and 0899 continuously. All 32,768 cases match output,
+mode programming, counters/patterns, and serial bytes; timer/interrupt state
+and complete internal initialization semantics remain outside the comparison.
