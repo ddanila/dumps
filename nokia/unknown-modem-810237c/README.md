@@ -116,3 +116,5 @@ and operational validity remain unconfirmed.
 
 The owner subsequently supplied a [2764 EPROM from another board in the same modem](../unknown-modem-other-board-2764/). It is preserved separately; no logical
 combination with these four PROMs is assumed.
+
+The same modem also supplied an [Am27S31DC PROM from its last board](../unknown-modem-am27s31dc/), preserved as a separate 512-byte image.

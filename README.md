@@ -14,6 +14,9 @@ than the firmware collection. Keep all-FF captures local as well.
 
 ## Sets
 
+- [Nokia external modem Am27S31DC PROM](nokia/unknown-modem-am27s31dc/) —
+  two matching 512-byte reads from the last board; role unconfirmed.
+
 - [Nokia external modem, second board 2764](nokia/unknown-modem-other-board-2764/) —
   two matching 8 KiB reads; preliminary 8051-family code identification.
 

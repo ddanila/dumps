@@ -29,3 +29,5 @@ No contiguous match was found in 1,397 eligible 8–256 KiB files in the local
 public dump. This limited comparison does not establish uniqueness.
 
 [Manifest](manifest.json) · [Acquisition evidence](evidence/)
+
+The same modem also supplied an [Am27S31DC PROM from its last board](../unknown-modem-am27s31dc/), preserved as a separate 512-byte image.
