@@ -11,6 +11,10 @@ checking for an expected rotation formula. It is still restricted to the
 sixteen source layouts retained by the previous arithmetic search and their
 A/B swaps; it is not an unconstrained search for a different algorithm.
 
+A [follow-up on the alternate 18B caller](SINGLE-CALLER.md) finds surviving
+input effects under both register-role hypotheses. The loss reported here
+does not generalize to all caller paths.
+
 ## Explicit local fixture
 
 [chain-search.json](chain-search.json) starts at 133 with an empty stack,

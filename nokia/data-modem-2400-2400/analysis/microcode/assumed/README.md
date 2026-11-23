@@ -27,6 +27,9 @@ compares A/B swaps: sixteen layouts retain the old fixtures, but none turns
 [CALLER-CHAIN.md](CALLER-CHAIN.md) follows preparation through the actual
 three-call sequence: the A/B swap loads bytes but loses their tested effects
 from final internal state. It does not assume a rotation formula.
+[SINGLE-CALLER.md](SINGLE-CALLER.md) follows the separate 18B caller and finds
+surviving preparation effects in different internal registers under both
+register-role hypotheses. This supplies concrete downstream predictions.
 
 ## Datapath-derived lookup indices
 

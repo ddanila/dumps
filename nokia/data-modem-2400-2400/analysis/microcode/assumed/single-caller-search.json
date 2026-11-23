@@ -1,0 +1,82 @@
+{
+  "status": "hypothesis",
+  "evidence": "Follow the alternate single-transform caller through 270,238,240; perturb only preparation bytes and enumerate the three conditional decisions inside 270.",
+  "mappings": [
+    "preparation-source-07",
+    "preparation-source-23",
+    "preparation-source-27",
+    "preparation-source-31"
+  ],
+  "condition_sites": [
+    626,
+    632,
+    637
+  ],
+  "initial_q": [
+    0,
+    85
+  ],
+  "perturbations": [
+    1,
+    128
+  ],
+  "dispatch_site": 1004,
+  "example_masks": [
+    0,
+    7
+  ],
+  "example_data": [
+    18,
+    52,
+    86,
+    120
+  ],
+  "fixture": {
+    "status": "hypothesis",
+    "start": 395,
+    "stop": 405,
+    "preparation": 833,
+    "checkpoints": [
+      396,
+      397,
+      399,
+      400,
+      403,
+      405
+    ],
+    "condition_overrides": {
+      "1005": 0
+    },
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "external_default": 0,
+    "cycle_limit": 100
+  },
+  "limitations": [
+    "Only four retained D,Q preparation candidates are tested; the other twelve retained layouts ignore these D inputs.",
+    "Local entry 18B; zero register RAM and Q=00/55. No reset coverage.",
+    "One iteration of the transform wrapper; all eight 270 condition combinations are fixture choices.",
+    "Stop before branch 195; external memory and analog/controller outputs remain unmodeled.",
+    "Sensitivity at two single-byte perturbation values is not a general independence proof."
+  ],
+  "example_mappings": [
+    "preparation-source-07",
+    "preparation-source-31"
+  ]
+}

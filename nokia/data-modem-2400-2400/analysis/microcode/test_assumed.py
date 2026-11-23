@@ -606,6 +606,36 @@ class AssumedTests(unittest.TestCase):
         self.assertNotEqual(zero['stages']['134']['ram'],marked['stages']['134']['ram'])
         self.assertEqual(zero['stages']['13E'],marked['stages']['13E'])
 
+    def test_single_caller_preserves_input_in_distinct_candidate_states(self):
+        from chain_study import run_chain
+        from rotation_study import scenario_for
+        config=read(HERE/'single-caller-search.json');fixture=copy.deepcopy(config['fixture'])
+        fixture['condition_overrides'].update({str(pc):0 for pc in config['condition_sites']})
+        entries={str(config['dispatch_site']):0}
+        mapping=read(HERE/'results/preparation-study/preparation-source-07.json')
+        mapping['fields']['a'],mapping['fields']['b']=mapping['fields']['b'],mapping['fields']['a']
+        scenario=scenario_for(mapping,read(HERE/'rotation-search.json'))
+        zero=run_chain(decode(mapping),scenario,fixture,entries,[0]*4,0)
+        marked=run_chain(decode(mapping),scenario,fixture,entries,config['example_data'],0)
+        self.assertEqual(zero['cycles'],55)
+        self.assertNotEqual(zero['stages']['195']['ram'][10],marked['stages']['195']['ram'][10])
+        scenario['initial'].update(pc=fixture['start'],ram=[0]*16,q=0)
+        scenario['condition'].update(mode='constant',value=0,polarity=[0]*8)
+        scenario['dispatch'].update(mode='constant',value=0)
+        scenario['io']['read'].update(mode='constant',value=0)
+        result=execute(mapping,scenario,55,mode='integrated')
+        self.assertTrue(result['clean'])
+        self.assertEqual(result['final_state']['pc'],fixture['stop'])
+        self.assertEqual(result['final_state']['ram'],zero['stages']['195']['ram'])
+        self.assertEqual(result['final_state']['q'],zero['stages']['195']['q'])
+        mapping=read(HERE/'results/preparation-study/preparation-source-31.json')
+        scenario=scenario_for(mapping,read(HERE/'rotation-search.json'))
+        fixture['condition_overrides'].update({str(pc):1 for pc in config['condition_sites']})
+        zero=run_chain(decode(mapping),scenario,fixture,entries,[0]*4,0)
+        marked=run_chain(decode(mapping),scenario,fixture,entries,config['example_data'],0)
+        self.assertNotEqual(zero['stages']['195']['q'],marked['stages']['195']['q'])
+        self.assertNotEqual(zero['stages']['195']['ram'][2],marked['stages']['195']['ram'][2])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():
