@@ -1,0 +1,12 @@
+{
+  "status": "hypothesis",
+  "evidence": "Check whether table fixture preconditions occur along reset paths; perturb the unknown external D input without injecting PCs or register contents.",
+  "external_read_values": [0, 1, 85, 255],
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+  "cycles": 1000,
+  "limitations": [
+    "All external reads in a profile use the same byte; this is a sensitivity experiment, not a realistic signal source.",
+    "Control conditions and dispatch indices remain seeded scenario inputs.",
+    "Candidate indices are low bits of current Y, current Q, or previous Y; these do not establish a physical address source."
+  ]
+}

@@ -1,5 +1,9 @@
 # Paired arithmetic hypothesis
 
+**Caller follow-up:** [CALLER-STATES.md](CALLER-STATES.md) finds reachable
+nonzero-Q states that violate the simple rotation formula in variants 1 and 2.
+Variant 3 only exercises zero source pairs in the tested profiles.
+
 The chip-10 differences that the previous [register study](REGISTER-FIELDS.md)
 could not explain can encode ALU functions and carry inputs. Three retained
 layouts implement paired arithmetic in the dispatch tables under explicit

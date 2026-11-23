@@ -13,6 +13,8 @@ chip-10 differences between dispatch entries. The newer
 [paired-arithmetic experiment](assumed/PAIRED-ARITHMETIC.md) tests chip-10
 function/carry controls, yielding conditional rotation and add/subtract
 interpretations, with an explicit overlapping-register counterexample.
+A [caller-state study](assumed/CALLER-STATES.md) additionally finds nonzero-Q
+counterexamples on reset paths when the external input stub is nonzero.
 
 A subsequent [photo-only board reconstruction](board/README.md) adds a
 four-state event model, separate slices, explicit storage/clock behavior,

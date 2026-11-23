@@ -233,6 +233,33 @@ class AssumedTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             execute(mapping,scenario,1,mode='integrated')
 
+    def test_caller_state_reconstruction_preserves_timing(self):
+        from caller_study import inspect_trace
+        scenario=copy.deepcopy(self.scenario)
+        scenario['dispatch']['tables']={'10':dict(count=4)}
+        records=[dict(cycle=0,pc=9,registers={'10':7},q=5,alu=dict(y=6),dispatch_entry=None),
+                 dict(cycle=1,pc=10,registers={'10':8},q=9,alu=dict(y=3),dispatch_entry=2,next_pc=100)]
+        sample=inspect_trace(records,scenario)[0]
+        self.assertEqual(sample['ram_before'][10],7)
+        self.assertEqual(sample['ram_at_entry'][10],8)
+        self.assertEqual((sample['q_before'],sample['q_at_entry']),(5,9))
+        self.assertEqual(sample['candidate_indices'],dict(current_y=3,q=1,previous_y=2))
+        self.assertEqual(scenario['initial']['ram'][10],0)
+        with self.assertRaisesRegex(ValueError,'contiguous'):
+            inspect_trace(records[1:],scenario)
+
+    def test_nonzero_q_caller_breaks_simple_rotation(self):
+        from caller_study import check_rotation
+        mapping=read(HERE/'results/rotation-study/variant-1.json')
+        scenario=read(HERE/'results/rotation-study/scenario-1.json')
+        sample=dict(site=0x3d7,entry=1,q_at_entry=1,ram_at_entry=[0]*12+[1,1,0,0])
+        bases=read(HERE/'rotation-search.json')['rotation_table_bases']
+        check_rotation(sample,decode(mapping),scenario,bases)
+        self.assertEqual(sample['rotation_check'],dict(expected=(0xfeff,0),actual=(0,0x101),matches=False))
+        sample['q_at_entry']=0
+        check_rotation(sample,decode(mapping),scenario,bases)
+        self.assertTrue(sample['rotation_check']['matches'])
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():
