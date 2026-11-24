@@ -1,5 +1,7 @@
 # Condition fits with defined logical flags
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Recomputing the local preparation-use witnesses with [defined logical flags](LOGIC-FLAGS.md)
 admits a current-flag policy for the swapped-register interpretation. It does
 not resolve the physical condition wiring or flag timing. The original-role

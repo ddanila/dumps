@@ -1,5 +1,7 @@
 # Expanded dispatch indices and the conditional difference tail
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Actual integrated reset execution now reaches 3BD–3BF under q2 and the
 optional composed BRT gate. The earlier [gate sweep](GATE-RUNTIME.md) tested
 global constant dispatch indices 0–7. Table 26F has 16 entries; the

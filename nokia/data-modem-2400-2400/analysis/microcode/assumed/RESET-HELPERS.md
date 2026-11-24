@@ -1,5 +1,7 @@
 # q3 reset preparation helpers 06F and 112
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 These two direct-call helpers prepare registers before the early external waits
 and handler dispatch. Their complete retained state is predictable under q3,
 including nonzero initial registers. The local experiments use real BSR/POP

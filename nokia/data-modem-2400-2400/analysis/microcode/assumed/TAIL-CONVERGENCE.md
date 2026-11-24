@@ -1,5 +1,7 @@
 # The adjustment is transient in the current model
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [conditional one-unit adjustment](FRAGMENTS.md) changes Y for one
 microinstruction, but does not survive in modeled state after the paths join.
 This limits the routine label: it describes an observed ALU operation, not a

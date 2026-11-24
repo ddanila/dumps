@@ -1,5 +1,7 @@
 # Q input, computed dispatch and the zero tail
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A reset execution now reaches 2CF under q2 and the optional BRT gate. Starting
 from the [index-12, D=01 witness](DISPATCH-RANGE.md), change only the external
 read at 2A8 to zero. That instruction loads Q; Q remains zero through the

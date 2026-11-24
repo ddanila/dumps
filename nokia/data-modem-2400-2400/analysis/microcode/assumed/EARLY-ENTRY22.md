@@ -1,5 +1,7 @@
 # Early entry 022: shift selection and a skipped loop pop
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3 and previous flags, early dispatch entry four reaches 022 with Q=FF.
 It halves Q, then uses two external additions to decide whether to execute a
 BLT immediately after a PLP. Skipping that BLT retains the frame. Executing it

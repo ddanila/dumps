@@ -1,5 +1,7 @@
 # The caller combines three input-dependent shift loops
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The only direct caller of 296 is BSR 249 inside wrapper 248–24E. The wrapper
 itself is called at 150 and 157. Under the fitted-original mapping it does
 not initialize R7, so the mask dependence found in [BIASED-DRAIN.md](BIASED-DRAIN.md)

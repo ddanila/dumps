@@ -1,5 +1,7 @@
 # Handler 1: input parity and timed terminal continuations
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The alternative 178–17F continuation preserves the same final state as the
 normal 180 path, but exposes different arithmetic and can add three or four
 instructions. An earlier input supplies the one-bit Q value that controls a

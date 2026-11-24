@@ -1,5 +1,7 @@
 # Conditional BRT alternatives expose clean paths to disconnected fragments
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The assumption that select-zero BRT instructions are unconditional contributes
 to the remaining entry gaps. A bounded raw-bit gate search finds four two-bit
 alternatives that add paths without graph exceptions. The best single gate

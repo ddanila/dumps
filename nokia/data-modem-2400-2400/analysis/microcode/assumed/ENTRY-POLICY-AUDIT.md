@@ -1,5 +1,7 @@
 # Causal explanations for the default graph's 22 gaps
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 All 22 used words outside the default 999-word graph now have a replay-backed
 explanation of which forced jumps prevent their witnessed entry. This is more
 specific than a list of alternative traces: the main listing records the

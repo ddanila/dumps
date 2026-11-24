@@ -1,5 +1,7 @@
 # Exceptional call at 1A2: local return-table hypothesis
 
+*Runs under the [shared assumptions](../ASSUMPTIONS.md).*
+
 Treating 1A2 as a computed call into 1E5–1E8 reaches **822 of 1,021 words
 (80.51%)** across the same 128 reset-based seeds used by the handler study.
 A diagnostic call that merely returns reaches 818 words (80.12%). Thus most
@@ -86,12 +88,12 @@ python3 nokia/data-modem-2400-2400/analysis/microcode/assumed/exception_study.py
 ```
 
 Without the optional integration length, only the short suites and analyses
-run. [Configuration](exception-call.json) records hypotheses and fixture inputs.
-[Evidence](results/exception-study/evidence.json),
-[scenario comparison](results/exception-study/summary.json),
-[table arithmetic](results/exception-study/table-arithmetic.json),
-[selected graph](results/exception-study/graph-local_table.json), and
-[integration](results/exception-study/integrated/summary.json) preserve results.
+run. [Configuration](../exception-call.json) records hypotheses and fixture inputs.
+[Evidence](../results/exception-study/evidence.json),
+[scenario comparison](../results/exception-study/summary.json),
+[table arithmetic](../results/exception-study/table-arithmetic.json),
+[selected graph](../results/exception-study/graph-local_table.json), and
+[integration](../results/exception-study/integrated/summary.json) preserve results.
 
 The next unresolved address-source questions remain 26F, 21F and 2C4. The
 returning-call control demonstrates why increased coverage alone cannot settle

@@ -1,5 +1,7 @@
 # Handler 7: input carry selects transform calls
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3 with previous flags, handler 7 selects no transform, only the final
 transform, or all three transforms according to an input-sum carry and a
 comparison with captured R7. Full reset executions connect these choices to

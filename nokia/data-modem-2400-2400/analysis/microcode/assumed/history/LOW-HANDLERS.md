@@ -1,5 +1,7 @@
 # Low-address handler dispatch: 75.42% measured coverage
 
+*Runs under the [shared assumptions](../ASSUMPTIONS.md).*
+
 A boundary-derived sparse dispatch hypothesis at 008, plus local tables at
 036 and 03C, reaches **770 of 1,021 used words (75.42%)** in reset-based runs.
 A matched control using the previous branch scenario and the same 128 seeds
@@ -75,14 +77,14 @@ python3 nokia/data-modem-2400-2400/analysis/microcode/assumed/handler_study.py \
 ```
 
 Without `--integrated-cycles`, only static analysis and the matched short suites
-run. [Configuration](handler-search.json) contains the region, exclusions and
+run. [Configuration](../handler-search.json) contains the region, exclusions and
 local table evidence. Outputs include:
 
-- [Boundary evidence](results/handler-study/boundary-evidence.json) and [scenario](results/handler-study/scenario.json).
-- [Measured coverage and all comparison scenarios](results/handler-study/summary.json).
-- [Selected graph and unresolved words](results/handler-study/graph-local-03C.json).
-- [Annotated 1024-word listing](results/handler-study/annotated-listing.csv).
-- [Integrated run](results/handler-study/integrated/summary.json).
+- [Boundary evidence](../results/handler-study/boundary-evidence.json) and [scenario](../results/handler-study/scenario.json).
+- [Measured coverage and all comparison scenarios](../results/handler-study/summary.json).
+- [Selected graph and unresolved words](../results/handler-study/graph-local-03C.json).
+- [Annotated 1024-word listing](../results/handler-study/annotated-listing.csv).
+- [Integrated run](../results/handler-study/integrated/summary.json).
 
 Computed calls 21F and 2C4 and the branch at 26F still have unresolved address
 sources. Several larger disconnected regions remain beyond this handler block;

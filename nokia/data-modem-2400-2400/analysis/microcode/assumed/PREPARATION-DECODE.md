@@ -1,5 +1,7 @@
 # Testing the preparation routine against the arithmetic decode
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A broader source-field search does not resolve the operand-loading question.
 It finds more layouts compatible with the old arithmetic fixtures, including
 four that select external D at 341–344. With the existing register fields,

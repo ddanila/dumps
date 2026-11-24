@@ -1,5 +1,7 @@
 # Local branch-table experiment
 
+*Runs under the [shared assumptions](../ASSUMPTIONS.md).*
+
 A separate scenario increases measured sequencer coverage from 294 to **565 of
 1021 used words (55.34%)**. It visits 304 words absent from the original suite;
 33 words reached by the old suite are not visited by these fixed seeds under
@@ -92,11 +94,11 @@ The command reads the checked-in three candidate mappings; it does not rerank
 or replace them. `--cycles`, `--integrated-cycles`, and `--workers` support
 smaller diagnostic runs; requested and completed lengths are recorded.
 
-- [Scenario](branch-tables.json)
-- [Summary and comparison scenarios](results/branch-study/summary.json)
-- [Control flow and remaining unreachable words](results/branch-study/control-flow.json)
-- [Annotated listing](results/branch-study/annotated-listing.csv)
-- [Dispatch destinations and observed execution counts](results/branch-study/dispatch-analysis.json)
+- [Scenario](../branch-tables.json)
+- [Summary and comparison scenarios](../results/branch-study/summary.json)
+- [Control flow and remaining unreachable words](../results/branch-study/control-flow.json)
+- [Annotated listing](../results/branch-study/annotated-listing.csv)
+- [Dispatch destinations and observed execution counts](../results/branch-study/dispatch-analysis.json)
 
 The next address-source questions are 008 and 26F, which still use the
 microword fallback, and the computed-call targets at 21F and 2C4. Arbitrary

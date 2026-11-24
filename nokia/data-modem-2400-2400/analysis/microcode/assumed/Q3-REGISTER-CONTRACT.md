@@ -1,5 +1,7 @@
 # Direct destination bytes under q3
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The q3 mapping supports a diagnostic path from a nested input load to two
 independently addressed internal register stores. Unlike the q2
 [register contract](REGISTER-CONTRACT.md), it does not require adjusting the

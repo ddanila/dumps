@@ -1,5 +1,7 @@
 # Carry-controlled three-add loop at 36C
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under the fitted-original decode, 36C–36E performs three chained byte additions,
 with one carry forwarded between the first two. It preserves R0 and Q.
 Repeating the loop does not count down either register. Whether it exits is

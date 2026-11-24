@@ -1,5 +1,7 @@
 # Handler 2: timed continuation choices and carry-biased drains
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A scheduled external condition reaches the alternative body 1C3–1CC from
 actual zero reset. Four earlier condition points also reach this body through
 1DA's call to 341. These paths preserve the same final register contract as

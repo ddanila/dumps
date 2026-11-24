@@ -1,5 +1,7 @@
 # Early entry 032: nested choices and comparison-input selection
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Entry 032 has four declared continuations at 036. Two of them reach another
 three-entry branch at 03C. The paths select which input difference survives in
 R3, and therefore whether the shared Q/R3 wait returns. Two additional branch

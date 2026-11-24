@@ -1,5 +1,7 @@
 # Downstream use of surviving preparation data
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Survival at 195 does not by itself establish a useful data path. Following
 each surviving location to its first possible read or replacement separates
 unused values from values that actually affect later arithmetic. Both register

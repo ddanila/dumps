@@ -1,5 +1,7 @@
 # Select-zero nonzero condition experiment
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [Q-independent decode](Q-INDEPENDENT.md) makes the local 1E9 loop
 consistent with a current nonzero test. This experiment applies that source
 to every conditional select-zero instruction, comparing current and previous

@@ -1,5 +1,7 @@
 # Separated source fields and a shift-until-zero routine
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The earlier rotation candidates depended on Q=0, which the
 [caller study](CALLER-STATES.md) disproved for some nonzero-input paths. A
 broader source-bit search finds four layouts whose table arithmetic is

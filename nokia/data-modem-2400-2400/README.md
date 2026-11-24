@@ -10,90 +10,63 @@
 | [photos/](photos/) | All 22 owner photographs, unchanged, with hashes |
 | [analysis/](analysis/) | 8031 harness and controller studies; [microcode/](analysis/microcode/) holds the bit-slice work |
 
-**Current status (2026-11-24):**
+## What the modem is
 
-- **Controller.** The 8031 firmware runs and is understood in detail. Its
-  scrambler polynomials, synchronous line-side USART and V.25 timing constants
-  point to a V.26 ter-class 2400 bit/s duplex echo-cancelling modem.
-- **Bit-slice board.** It is very probably the modem's signal processor:
-  modulator, demodulator and echo canceller. Its microcode runs under assumed
-  field mappings, but the algorithm is not yet identified.
-- **Next steps:** [analysis/microcode/PLAN-2.md](analysis/microcode/PLAN-2.md).
+A **V.26 ter-class 2400 bit/s full-duplex modem**, most likely (about 75%).
+V.26 ter uses an 1800 Hz carrier, 1200 baud 4-phase DPSK and echo
+cancellation. The evidence, all from the controller side, is set out in
+[PLAN-2](analysis/microcode/PLAN-2.md):
 
-The controller ROM **810244E executes unchanged** in a bounded 8031 harness.
-With explicitly synthetic serial-shift input, serial status and a retained-RAM
-startup model, it initializes both external serial interfaces, runs timer
-interrupts and repeatedly enters the main loop. This is **not yet a complete
-modem emulator**: neither a telephone-line connection nor the bit-slice signal
-processor has been demonstrated.
+- **Scrambler.** The 8031 firmware's scrambler pair exactly matches V.26 ter's
+  call and answer polynomials (1+x⁻¹⁸+x⁻²³ and 1+x⁻⁵+x⁻²³).
+- **USARTs.** One 8251A is programmed for synchronous mode and carries the
+  scrambled line bitstream. The other is the switch-selectable DTE port
+  (start-stop or synchronous).
+- **Handshake timing.** The controller's 1 ms timers load the V.25/V.26 ter
+  handshake windows (1.8 s, 2.6 s, 250 ms, 2 s).
+- **Dates.** The boards are date-coded 1984, the year V.26 ter was approved.
 
-## Identification from the owner's photographs
+The **8031 controller** handles the DTE port, scrambling, the handshake and
+the front panel. Its firmware runs unchanged in an emulator and is understood
+routine by routine ([controller studies](analysis/controller/)).
+
+The **DSC 2847 bit-slice board** (two Am2901s and an 8X02 sequencer) is very
+probably the signal processor: modulator, demodulator and echo canceller. Its
+microcode runs under assumed field mappings, but the algorithm is not yet
+identified; see [analysis/microcode/](analysis/microcode/). A telephone-line
+connection has not been demonstrated.
+
+## Boards
 
 The [case marking](photos/PXL_20261123_114938687.jpg) reads **NOKIA DATA MODEM
-2400 / 2400**. This establishes the front-panel product designation, not a
-more specific unphotographed type/serial number. The
-[front panel](photos/PXL_20261123_114949334.jpg) has physical switches and status
-indicators; a Hayes-style command interface is not established.
+2400 / 2400**. The [front panel](photos/PXL_20261123_114949334.jpg) has
+switches and status LEDs; there is no evidence of a Hayes-style command set.
 
-| Board marking | Visible hardware / interpretation | Evidence |
+| Board | Hardware and role | Photos |
 | --- | --- | --- |
-| DSU 3555, Nokia 9970067, 1175512 | Transformers and analog circuitry; analog line/interface board | [Front](photos/PXL_20261123_114637263.jpg) / [back](photos/PXL_20261123_114645232.jpg) |
-| DSU 3556, Nokia 1177954 | Intel P8031, two AMD P8251A USARTs, EPROM 810244E; controller/interface board | [Front](photos/PXL_20261123_114723348.jpg) / [back](photos/PXL_20261123_114730247.jpg) |
-| DSC 3557, Nokia 9970356a, 1177033 | Four MCM93422 SRAMs; socketed 810241 and additional labelled devices 810111/810112 | [Front](photos/PXL_20261123_114811760.jpg) / [back](photos/PXL_20261123_114818924.jpg) |
-| DED 3558, Nokia 9970362 B, 1176272 | Digital logic and DAC0830; conversion/timing role inferred | [Front](photos/PXL_20261123_114854803.jpg) / [back](photos/PXL_20261123_114901193.jpg) |
-| DSC 2847, Nokia 9996446 C, 1177201 | Two Am2901BDC slices, Signetics N8X02AN sequencer, four MMI PROMs and output latches; microprogrammed datapath | [Front](photos/PXL_20261123_114926601.jpg) / [back](photos/PXL_20261123_114932814.jpg) |
+| DSU 3555, Nokia 9970067, 1175512 | Transformers and analog circuitry: line interface | [Front](photos/PXL_20261123_114637263.jpg) / [back](photos/PXL_20261123_114645232.jpg) |
+| DSU 3556, Nokia 1177954 | Intel P8031, two AMD P8251A USARTs, EPROM 810244E, 11.9808 MHz oscillator: controller | [Front](photos/PXL_20261123_114723348.jpg) / [back](photos/PXL_20261123_114730247.jpg) |
+| DSC 3557, Nokia 9970356a, 1177033 | Four MCM93422 SRAMs (256 × 4); socketed 810241 and labelled devices 810111/810112: probably data memory for the signal processor | [Front](photos/PXL_20261123_114811760.jpg) / [back](photos/PXL_20261123_114818924.jpg) |
+| DED 3558, Nokia 9970362 B, 1176272 | Digital logic and a DAC0830: conversion and timing | [Front](photos/PXL_20261123_114854803.jpg) / [back](photos/PXL_20261123_114901193.jpg) |
+| DSC 2847, Nokia 9996446 C, 1177201 | Two Am2901BDC slices, N8X02AN sequencer, four MMI 6381 PROMs, output latches, 14.400 MHz oscillator: bit-slice signal processor | [Front](photos/PXL_20261123_114926601.jpg) / [back](photos/PXL_20261123_114932814.jpg) |
 
-The owner explicitly confirmed **810244E** as the dumped 2764 on DSU 3556.
-The full DSC2847 photograph also confirms **position 11 = 810238C**, previously
-inferred from a cropped photo. The 512-byte Am27S31DC probably corresponds to
-**810241 on DSC3557**, based on the socketed AMD DIP24 photo and acquisition
-sequence, but its sticker association has not been confirmed by the owner.
-810111/810112 are additional labelled devices; their types and dumpability are
-not established. Do not treat the six acquisitions as every programmable device
-in the chassis.
+- **Confirmed chips.** The owner confirmed **810244E** as the dumped 2764 on
+  DSU 3556. The full DSC 2847 photo confirms position 11 = **810238C**.
+- **Am27S31DC.** The 512-byte Am27S31DC is probably **810241 on DSC 3557**,
+  but that association is unconfirmed.
+- **Not yet dumped.** 810111 and 810112 have not been dumped, and their types
+  are unknown. They may matter for the signal-processing picture.
 
-All 22 supplied photographs are preserved unchanged. Their source ZIP and
-SHA-256 values are in [photos/manifest.json](photos/manifest.json).
+All 22 photographs are preserved unchanged; their hashes are in
+[photos/manifest.json](photos/manifest.json).
 
-## Preserved ROMs and their likely roles
+## The lookup PROM
 
-| Image | Size | Interpretation |
-| --- | --- | --- |
-| [810244E / 2764](controller-810244e/) | 8 KiB | 8031 controller program, physical association owner-confirmed |
-| [810237C–810240C](microcode-810237c-810240c/) | 4 × 1 KiB | Candidate parallel microcode lanes for the Am2901 datapath, not an 8051 program |
-| [Am27S31DC](am27s31dc-prom/) | 512 B | Lookup/control data; contains an exact signed sine table at its beginning |
-
-The four MMI PROMs and four nearby octal latches suggest **1024 × 32 bits of
-control store**. The two 4-bit Am2901 slices suggest an 8-bit datapath. These are
-architecture inferences, not a traced netlist. PROM output order, address wiring,
-sequencer command/branch wiring and ALU control fields must be established before a
-credible bit-slice emulator can execute them. [PROM lane CSV](analysis/results/prom-lanes.csv)
-keeps physical chip columns without claiming a 32-bit instruction order.
-The [AMD Am2901B/C datasheet](https://pccomponents.com/datasheets/ADVAN-AM2901BDMB.pdf)
-provides the slice semantics, but cannot supply Nokia's board-specific wiring.
-
-A subsequent [bit-slice execution experiment](analysis/microcode/README.md)
-identified position 9 as a **Signetics N8X02AN**, built functional Am2901/8X02
-models, and passed 11 component tests. An explicitly unverified wiring map
-executes two PROM words before encountering an unknown stack return. This is
-not faithful Nokia microcode execution; a pin-tracing worksheet records what
-is needed to establish the actual control fields.
-
-The [photo-only board reconstruction](analysis/microcode/board/README.md) now
-provides annotated views, a 30-position inventory, four-state event simulation,
-and separate Am2901 slices. Its 18 additional tests pass, including a synthetic
-control-store integration run. No complete executable Nokia pin-to-pin nets
-have been recovered: the strict real-board startup stops before its first
-cycle rather than using the earlier guessed instruction mapping.
-
-The first 16 Am27S31 bytes are **exactly**
-`round(127 × sin(2πn/16))`, interpreted as signed bytes. This strengthens the
-lookup-table interpretation; sample clock and actual modem carrier frequency
-are still unknown. A later [dispatch study](analysis/microcode/assumed/ROM-DISPATCH.md)
-also identifies an exact 65-sample quarter sine at 100–140 and ROM byte ranges
-matching candidate microcode branch/call targets. The inter-board address path
-remains a hypothesis. [Plot](analysis/results/sine-table.svg) ·
-[all 512 values](analysis/results/am27s31.csv).
+The first 16 Am27S31 bytes are **exactly** `round(127 × sin(2πn/16))` as
+signed bytes, followed by four wrap-around entries, so a cosine can be read
+4 entries ahead. Bytes 100–140 hold an exact 65-sample quarter sine. Other
+regions hold smooth curves that look like filter or gain tables.
+[Plot](analysis/results/sine-table.svg) · [all 512 values](analysis/results/am27s31.csv).
 
 ## Controller execution and recovered interfaces
 
@@ -123,8 +96,8 @@ Afterwards the program clears RAM, sets SP=6F, initializes hardware and enters:
 | 053E / 05A3 | Verified 23-bit scrambler / descrambler; selectable delays (5,23) or (18,23), LSB-first |
 | 1D05 | External USART reset/mode/command sequence |
 | 1ED6 | Main polling/control loop, calls 0800, 0620, 1000, 1790, 006E, 0899, 08E9 |
-| MOVX 0001 / 0005 | First USART data / control-status, inferred from reset sequence and status-bit use |
-| MOVX 0002 / 0006 | Second USART data / control-status, same evidence |
+| MOVX 0001 / 0005 | Line-side 8251 data / control (synchronous mode, external sync; carries scrambled data) |
+| MOVX 0002 / 0006 | DTE-side 8251 data / control (start-stop or synchronous, chosen by switches) |
 | MOVX 8004 | Repeated hardware read selected with P2.7; purpose unconfirmed |
 
 A [local interface study](analysis/controller/INTERFACE.md)
@@ -140,7 +113,9 @@ iteration; an external side effect remains possible and unidentified.
 
 For example, synthetic zero shift inputs cause control writes
 `80 00 40 6E 35` to 0006 and `80 00 40 CC FF 15` to 0005.
-These match an 8251-style initialization pattern. The early mode-0 output frame
+These match an 8251-style initialization pattern. Decoded, mode `CC` with
+sync character `FF` is synchronous, 8-bit, external sync detect, and `6E` is
+asynchronous ×16, 8 data bits, no parity. The early mode-0 output frame
 is `00 02 AC FC`. Bit-to-switch/LED mappings remain untraced: those bytes are
 captured outputs, not a claim about physical indicators.
 [Intel's 8251A handbook](https://mark-ogden.uk/files/intel/publications/9800676B%20Peripheral%20Design%20Handbook-Feb79.pdf)

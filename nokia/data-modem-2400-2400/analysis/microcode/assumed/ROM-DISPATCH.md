@@ -1,5 +1,7 @@
 # Am27S31 data constrains dispatch targets
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The independent 512-byte Am27S31 dump contains bytes that match the microcode
 entry points investigated in earlier experiments. This gives a stronger basis
 for target lists than the broad structural pools alone. It supports a candidate

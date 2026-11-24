@@ -1,5 +1,7 @@
 # Startup: preparation, two byte waits and handler selection
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The startup path through 100–109 composes two preparation helpers, two
 external-byte waits and an eight-way dispatch. Its complete register state at
 handler entry is predictable under q3. The wait-control bytes and the retained

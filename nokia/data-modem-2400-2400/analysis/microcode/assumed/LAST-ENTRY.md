@@ -1,5 +1,7 @@
 # 2DF: a successful reset entry and an input-dependent failure boundary
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 **q3 and q4 now execute 2DF from reset and reach terminal 084 cleanly.**
 The same diagnostic gate fails on many other inputs: 1,279 of the 1,536 runs
 with the extension stop at an unknown-stack POP at 2FF. Successful entry is

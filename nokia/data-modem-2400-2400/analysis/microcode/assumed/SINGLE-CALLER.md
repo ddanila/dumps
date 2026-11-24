@@ -1,5 +1,7 @@
 # Preparation data survives the alternate 18B caller
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Unlike the three-call path at 133, the alternate caller at 18B can preserve
 preparation-input effects through the subsequent routines. Swapped register
 roles retain an effect in R10 or R12. Some original-role source candidates

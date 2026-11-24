@@ -1,5 +1,7 @@
 # Independent captured bytes reach the paired-arithmetic loop
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q2, two separately supplied bytes can be followed from zero reset into
 a 16-bit operand at 389–3A1. The addition path returns when the **high byte**
 of its result is zero, even when the low byte is nonzero. This gives a concrete

@@ -1,5 +1,7 @@
 # A three-bit gate extension and reset entry into the adjustment selector
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 An additional raw-bit clause exposes five more used words without structural
 stack errors: 256, 257 and 2DC–2DE. Actual q2 reset runs reach all five using
 logged input stubs and real datapath flags. The optional graph now reaches

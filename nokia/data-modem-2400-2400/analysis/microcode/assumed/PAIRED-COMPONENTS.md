@@ -1,5 +1,7 @@
 # Two nonzero components reach paired arithmetic from reset
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3, handler 5 accepts an independently supplied byte U and a captured
 16-bit word V. They reach the paired-arithmetic table as two nonzero components,
 produce checked arithmetic outputs, and survive in R8–R11 through the terminal

@@ -1,5 +1,7 @@
 # The common terminal tail and the 084 self-loop
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under both current register-role candidates, 084 is the only decoded direct
 BRT to its own address. Its modeled ALU operation is an AND with no register
 or Q load, and the branch is unconditional under the saved rule. It selects

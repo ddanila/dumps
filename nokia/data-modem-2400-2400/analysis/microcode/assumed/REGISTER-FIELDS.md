@@ -1,5 +1,7 @@
 # Second register field and a datapath limitation
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The PROM tables support a second four-bit register-number field:
 **LSB-first `11.4, 11.3, 11.2, 11.1`**. This is a unique match within the
 specified contiguous-field search. The observed counting pattern is recovered

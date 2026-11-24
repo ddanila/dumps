@@ -1,5 +1,7 @@
 # A completion-qualified controller-to-DAC diagnostic transaction
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 An explicit connection hypothesis now composes three existing models: the
 actual 8031 output builder and transmitter, a zero-reset microcode execution,
 and the DAC0830 digital buffers. The transaction starts only after the

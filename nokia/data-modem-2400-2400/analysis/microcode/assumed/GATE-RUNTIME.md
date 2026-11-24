@@ -1,5 +1,7 @@
 # Testing the BRT gate with integrated datapath flags
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [static gate search](UNCONDITIONAL-GATES.md) used freely chosen conditional
 outcomes to expose new paths. This [runtime study](gate_runtime_study.py) uses
 the same composed gate and dispatch tables, but lets the integrated datapath

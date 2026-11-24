@@ -1,5 +1,7 @@
 # The 30B helper distinguishes retained source mappings
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The retained mappings give two different interpretations of 30B–310 under
 original register roles. q1–q4 clear Q before the loop; fitted_original masks
 Q with R0 and then drains it. Both return with R0=Q=0, but the value retained

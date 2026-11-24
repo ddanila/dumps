@@ -1,5 +1,7 @@
 # Where the paired-arithmetic operands come from
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Expanding the ROM-feedback experiment from 16 to 128 seeds does not produce
 nonzero inputs at the three paired-transform call sites. Tracking the last
 writer of each source register explains the observed zeros more precisely:

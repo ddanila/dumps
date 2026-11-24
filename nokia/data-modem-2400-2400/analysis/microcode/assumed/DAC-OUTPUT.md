@@ -1,5 +1,7 @@
 # Explicit DAC0830 output hypotheses
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A new opt-in digital DAC sink makes candidate output connections testable
 without identifying any of them as recovered wiring. It consumes completed
 microcode traces, so the CPU, reads, dispatches and earlier virtual output

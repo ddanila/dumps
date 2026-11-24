@@ -1,5 +1,7 @@
 # Two Q drains explain the variable time before polling
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under the original-register, previous-zero decode, block 2D0–2D8 loads and
 right-shifts two values derived from R4, calling 1E9 for each. This explains
 the input-dependent time observed in the [successor-byte wait](POLL-CALLER.md).

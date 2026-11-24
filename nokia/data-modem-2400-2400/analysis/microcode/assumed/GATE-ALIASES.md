@@ -1,5 +1,7 @@
 # Identical-word limits and a clean entry into 258
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A four-literal raw-bit gate clause isolates 257, adds entry into 258, and
 raises the optional conservative graph to **1,017 of 1,021 used words**.
 Matched q2 reset runs execute that new path without stack errors. The four

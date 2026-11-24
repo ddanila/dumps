@@ -1,5 +1,7 @@
 # Actual flags admit the 0FD–0FF continuation
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 **0FD–0FF now have clean integrated reset witnesses under fitted_swapped.**
 A raw-bit clause that makes the 0FC identical-word class conditional permits
 255 runs through the continuation. This does not contradict the

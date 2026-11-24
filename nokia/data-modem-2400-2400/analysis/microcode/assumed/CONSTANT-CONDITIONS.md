@@ -1,5 +1,7 @@
 # Reachability with fixed condition inputs
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The integrated scenario's constant condition inputs exclude 215 words from the
 optional gated graph, but **none of its 12 newly reachable words**. Thus a
 conflict in an earlier shortest witness does not establish that its target

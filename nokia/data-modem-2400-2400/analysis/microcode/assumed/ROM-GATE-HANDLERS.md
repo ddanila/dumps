@@ -1,5 +1,7 @@
 # ROM-gate predictions across eight handlers
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [ROM-gate search](ROM-GATE.md) found 137 predicates that preserved selected
 sine-path outputs. Applying those same gates to other input-selected handlers,
 without retuning their replies, separates four classes of control-flow behavior.

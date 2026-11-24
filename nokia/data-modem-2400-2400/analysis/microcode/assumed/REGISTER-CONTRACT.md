@@ -1,5 +1,7 @@
 # A diagnostic input contract for two register stores
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q2 and preceding-Y indexing at 07E/081, three future input bytes can
 control the nested Q load and both terminal store addresses. The model can
 select every destination pair and store `Q>>1` there, subject to a subsequent

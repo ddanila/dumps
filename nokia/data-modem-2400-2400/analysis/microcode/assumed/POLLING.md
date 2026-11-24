@@ -1,5 +1,7 @@
 # External-byte poll at 1EC
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The original-register, previous-flag zero-input reset example in
 [the condition study](DEFINED-CONDITIONS.md) stalls at 1EC. A changing external
 input releases that loop without changing its conditions, dispatch, starting

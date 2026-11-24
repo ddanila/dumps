@@ -1,5 +1,7 @@
 # Raw-bit-controlled branch address mux search
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A single raw PROM bit selecting an alternate B0 or B9 source does not improve
 the 999-word baseline graph in this bounded search. One clean alternative makes
 0FA reachable, but loses 85 baseline words. This gives a concrete entry-path

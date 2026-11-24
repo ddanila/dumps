@@ -1,5 +1,7 @@
 # q2's 3C0 wrapper repeats a fixed transform until its high-byte test passes
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 With a constant dispatch index and the shared previous-zero condition policy,
 3C0 is an idempotent transform loop: it repeatedly transforms the same source
 pair, writing the same result to R4–R7. It returns only when the second output's

@@ -1,5 +1,7 @@
 # Input-selected handlers and flag timing
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [prefix study](SELECTOR-PREFIX.md) established independent Q accumulation
 and entry into all eight handlers under q1/q3. This study follows those handlers
 through their subsequent execution and tests global flag timing without silently

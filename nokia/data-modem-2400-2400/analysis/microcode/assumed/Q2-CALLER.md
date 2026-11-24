@@ -1,5 +1,7 @@
 # q2 reset reaches zero-target polls through explicit external replies
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The retained q2 mapping can reach the [masked external poll](MASK-VARIANTS.md)
 from reset under the separately declared previous-flag/defined-carry policy.
 The target in these runs is always zero. This establishes a coherent sequence

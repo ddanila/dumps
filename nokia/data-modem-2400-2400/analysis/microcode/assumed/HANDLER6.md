@@ -1,5 +1,7 @@
 # Handler 6: masked capture and two Q drains
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3, the 09E handler combines an independently captured input byte with
 the input code, preserves a masked and halved result, and clears Q through two
 shift loops. The control flow and complete final register state can be predicted

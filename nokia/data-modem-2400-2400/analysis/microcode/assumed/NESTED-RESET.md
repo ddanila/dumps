@@ -1,5 +1,7 @@
 # The nested ROM wrapper executes from zero reset
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The q2 wrapper at 2BC–2C5 has clean integrated reset witnesses under the
 existing scoped dispatch tables, without an optional BRT gate. This connects
 the [local arithmetic interpretation](NESTED-PREPARE.md) to an actual

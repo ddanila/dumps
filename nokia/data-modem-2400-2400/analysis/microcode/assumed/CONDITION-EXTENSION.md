@@ -1,5 +1,7 @@
 # Extending the fitted condition policies
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The two local previous-flag policies run cleanly over the tested broader
 profiles, but they do not yet explain reset-to-preparation execution. None
 of the 256 reset-started cases reaches 341. The two million-cycle reset

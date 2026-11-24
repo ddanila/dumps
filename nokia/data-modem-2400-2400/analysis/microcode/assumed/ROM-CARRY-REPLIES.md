@@ -1,5 +1,7 @@
 # The ROM/carry wait has a finite feedback recurrence
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [handler comparison](ROM-GATE-HANDLERS.md) showed that the two-bit ROM-read
 gate creates a wait at 36C–36E and that a zero reply releases it. Exhausting all
 constant reply bytes shows a richer behavior: **215 bytes eventually return;

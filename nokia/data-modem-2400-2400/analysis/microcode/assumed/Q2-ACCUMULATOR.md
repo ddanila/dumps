@@ -1,5 +1,7 @@
 # q2 handler 133 gates transforms on accumulator carry
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under the retained q2 mapping and previous-flag policy, the prefix of handler
 133 adds an external byte to Q. It bypasses three transform calls when that
 addition does not carry. On carry, a comparison of the **old** Q against R7

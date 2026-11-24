@@ -1,5 +1,7 @@
 # Idempotent mask tests at 127 and 12C
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The fitted-original decode interprets loops 127–12A and 12C–12F as identical
 mask tests. They contain no external-D operand and no changing counter. Under
 the selected previous-flag policy, a failed first test cannot become successful

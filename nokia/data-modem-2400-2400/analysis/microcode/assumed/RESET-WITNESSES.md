@@ -1,5 +1,7 @@
 # Verified reset witnesses for the default graph gaps
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Five saved integrated runs cover all 22 used words outside the default
 999-word graph. `reset_witness_catalog.py` replays every run and indexes the
 first observed entry into each gap. The [annotated listing](PROGRAM-READING.md)

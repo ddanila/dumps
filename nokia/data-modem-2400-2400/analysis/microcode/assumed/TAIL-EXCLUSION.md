@@ -1,5 +1,7 @@
 # Why the remaining gated tail cannot execute under q2
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 **287–28A are excluded from reset execution under the declared gated q2
 scenario.** This is a compositional control/dataflow argument, checked by
 `tail_exclusion_study.py`, rather than an inference from unsuccessful sweeps.

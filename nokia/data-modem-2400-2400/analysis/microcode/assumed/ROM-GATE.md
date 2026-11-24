@@ -1,5 +1,7 @@
 # A raw-word ROM-read gate preserves the sine path, but remains ambiguous
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [sine operand experiment](SINE-OPERAND.md) selected ROM input specifically
 at PC 317. A small raw-control-word predicate can replace that single-PC choice
 and preserve its arithmetic result across the whole quarter-sine table. This

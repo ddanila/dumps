@@ -1,5 +1,7 @@
 # First-dispatch selectors depend on both mapping and input schedule
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The first dispatch at 109 exposes substantially different selector values
 under the six retained mappings. In q1/q3, two earlier input additions
 accumulate in Q. Supplying the same byte everywhere restricts Q to even

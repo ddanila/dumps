@@ -1,5 +1,7 @@
 # Handler 1: wrapped byte sum and shift-loop timing
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3, handler 1 retains a halved, eight-bit-wrapped sum of two independently
 supplied bytes in R14. Its earlier arithmetic passes through two shift wrappers
 whose Q values are ultimately cleared. The input code survives separately in

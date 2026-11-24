@@ -1,5 +1,7 @@
 # The 302 branch reaches a register-difference scan
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q2 and fitted_original, 319–334 writes neither RAM nor Q and selects
 no external D operand. Its loops repeatedly expose register differences on
 the ALU output. With the existing condition scenario, the first two loops

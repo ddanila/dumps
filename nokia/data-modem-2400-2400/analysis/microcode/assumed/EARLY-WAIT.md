@@ -1,5 +1,7 @@
 # Early dispatch and the fixed-register wait at 05D
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The alternative boot branch (selector 5 false at 003) reaches an eight-entry
 computed table at 008. Under q3 and previous flags, seven tested entries settle
 into the fixed-register wait at 05D–063; entry five clears Q and reaches 084.

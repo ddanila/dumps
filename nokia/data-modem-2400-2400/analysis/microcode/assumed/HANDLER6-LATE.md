@@ -1,5 +1,7 @@
 # Handler 6: late capture, masked input and two terminal entries
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A timed selector-1 transition reaches the previously bypassed 0CE continuation.
 An earlier transition also takes 0C7 through the input capture at 0E5–0E8.
 The new captured value and a masked input determine whether 0DE enters the

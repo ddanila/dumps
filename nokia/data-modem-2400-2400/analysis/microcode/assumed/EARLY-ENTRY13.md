@@ -1,5 +1,7 @@
 # Early entry 013: an input-carry wait followed by a fixed-register wait
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The early table's entry three reaches 013 from zero reset. Under q3 and
 previous flags, its call into 01E deliberately enters a loop through the BLT
 instruction. The initial call supplies a real stack frame; subsequent passes

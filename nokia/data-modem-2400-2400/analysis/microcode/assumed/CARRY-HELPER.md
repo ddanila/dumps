@@ -1,5 +1,7 @@
 # The complete q3 carry-gated input helper at 366
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 366–36F prepares three registers, runs the carry-controlled three-add loop,
 and on return masks an external byte with Q into R0. Reading the whole call
 reveals that the preparation values do not survive the first loop iteration,

@@ -1,5 +1,7 @@
 # Final review against PLAN.md
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The implementation satisfies steps 1–5 of the original plan under its explicit
 assumption policy. Step 6 is optional. This is a review of the executable
 implementation and its evidence, not certification of Nokia wiring or a claim

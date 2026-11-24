@@ -1,5 +1,7 @@
 # Global branch-address bit alternatives
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Changing B0 alone does not explain the remaining disconnected fragments while
 preserving the current control-flow structure. The existing B0 = 11.0 and
 B9 = 18.7 are the only candidates in their respective sweeps that retain

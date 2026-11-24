@@ -1,5 +1,7 @@
 # The D0/D1 ROM tail and the nested computed-call wrapper
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Ten previously disconnected words, 2BC–2C5, can be reached using two more
 actual Am27S31 bytes. The next bytes after the working 080–0CF range are
 D0=B3 and D1=BC. With bank 200, they select 2B3 and 2BC. The latter is a

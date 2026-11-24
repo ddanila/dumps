@@ -1,5 +1,7 @@
 # Handler 4: alternate preparation and two additive continuations
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The 230 continuation adds two independently supplied bytes to Q, clears R15,
 and exposes differences before the terminal stores. The 280 continuation
 stores the selected value directly. An earlier external-condition change

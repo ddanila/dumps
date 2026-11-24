@@ -1,5 +1,7 @@
 # q2 can capture a nonzero R10, but the tested polls still use reset zero
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [reset caller study](Q2-CALLER.md) reached the masked polls with R10=0.
 The wider [target study](q2_target_study.py) checks all eight global dispatch
 indices and all 256 default external bytes, with diagnostic zero replies at

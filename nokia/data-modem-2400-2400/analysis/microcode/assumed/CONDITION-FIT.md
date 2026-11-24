@@ -1,5 +1,7 @@
 # Consistent flag policies for the two numerical-use witnesses
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Both [downstream-use witnesses](FIRST-USE.md) can be replayed by the main
 integrated runner using one preceding-instruction flag source and polarity
 per condition selector. No instruction-specific condition override is needed

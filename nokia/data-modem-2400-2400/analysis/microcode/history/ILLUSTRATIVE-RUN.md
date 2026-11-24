@@ -1,44 +1,13 @@
-# DSC2847 bit-slice execution experiment
+# First illustrative microcode run (historical)
 
-**Next:** [PLAN-2.md](PLAN-2.md) re-plans the work top-down. New evidence points to a
-V.26 ter-class modem: the scrambler polynomials match exactly, USART 01/05 is a
-synchronous line-side port, the controller loads V.25 timing constants, and the
-board has a 14.4 MHz clock. Plan 2 uses that standard to constrain the microcode.
-
-**Current experiment:** [the assumption-driven workflow](assumed/README.md)
-implements analysis and execution tooling from [PLAN.md](PLAN.md). Independent
-[Am27S31 bytes now constrain dispatch targets](assumed/ROM-DISPATCH.md), with
-**91.97%** reset coverage in the working ROM-backed candidate. The ROM contains
-both candidate address tables and exact sine-wave tables. Target associations,
-high address bits, condition sources and physical DAC/controller connections
-remain hypotheses or unresolved. A [datapath index comparison](assumed/INDEX-SOURCES.md)
-now tests current versus retained ALU outputs at the ROM-backed branches.
-An [ALU feedback experiment](assumed/ALU-FEEDBACK.md) now supplies actual ROM
-bytes through retained-Y addressing; sampled arithmetic calls still have zero
-source pairs. The full plan is not finished.
-
-Historical [baseline](assumed/RESULTS.md), [branch-table](assumed/BRANCH-TABLES.md),
-[low-address handler](assumed/LOW-HANDLERS.md), and
-[exceptional-call](assumed/EXCEPTIONAL-CALL.md) results remain reproducible.
-
-Datapath work includes [register recovery](assumed/REGISTER-FIELDS.md),
-[paired arithmetic](assumed/PAIRED-ARITHMETIC.md), and
-[caller-state counterexamples](assumed/CALLER-STATES.md). The
-[separated source-bit search](assumed/Q-INDEPENDENT.md) removes the table
-arithmetic's Q dependency and supports a conditional shift-until-zero
-interpretation of 1E9. A [timing comparison](assumed/CONDITION-TIMING.md)
-leaves current versus previous condition flags unresolved.
-
-A subsequent [photo-only board reconstruction](board/README.md) adds a
-four-state event model, separate slices, explicit storage/clock behavior,
-annotated evidence, static listings and a tested synthetic integration path.
-The real Nokia wiring remains unresolved; its strict startup scenario executes
-zero cycles. The illustrative experiment below is preserved as historical
-evidence and is not used as the new board configuration.
+The first attempt to execute the DSC 2847 microcode, using a hand-written
+guessed field mapping. It stopped after two microinstructions and was
+superseded by the [assumption-driven experiment](../assumed/README.md). The
+component models it introduced (`model.py`) are still used.
 
 The board contains a **Signetics N8X02AN control-store sequencer** at position 9,
-confirmed by the [close-up](../../photos/PXL_20261123_113232157.jpg) and
-[whole-board photograph](../../photos/PXL_20261123_114926601.jpg). It accompanies
+confirmed by the [close-up](../../../photos/PXL_20261123_113232157.jpg) and
+[whole-board photograph](../../../photos/PXL_20261123_114926601.jpg). It accompanies
 both Am2901BDC slices and the four 1024-byte PROMs. The 8X02 has a 10-bit program
 address and a four-entry return/loop stack. This makes the proposed 1024-word
 microprogram architecture substantially more concrete.
@@ -71,7 +40,7 @@ exclude externally initialized stacks, address permutations or latch timing.
 A guessed map can easily produce loops without explaining the hardware. The
 runner therefore requires an explicit mapping argument, reports its status,
 and records raw PROM bytes alongside decoded fields. No trial trace is called
-a successful modem boot. Results are in [results/summary.json](results/summary.json).
+a successful modem boot. Results are in [results/summary.json](../results/summary.json).
 
 ## Reproduce
 
@@ -98,7 +67,7 @@ Arithmetic carry and overflow, ALU zero/sign, A-output selection, and explicit
 external shift input bits are modeled. Logical-operation carry/overflow pins
 default to `None` for historical experiments. Explicit `logic_flags=True`
 implements the manufacturer's Figure 9 equations with ordinary slice carry
-cascading; the [flag study](assumed/LOGIC-FLAGS.md) records its effect on fitted
+cascading; the [flag study](../assumed/LOGIC-FLAGS.md) records its effect on fitted
 reset paths. It does not identify the board's flag-selection wiring.
 
 The 8X02 implements all eight commands, modulo-1024 address arithmetic, its

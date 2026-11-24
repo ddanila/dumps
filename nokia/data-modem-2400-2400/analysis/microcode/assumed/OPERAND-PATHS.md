@@ -1,5 +1,7 @@
 # Control-flow separation of source writers and transforms
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The zero-input result is not just a consequence of testing too few random
 seeds. Exhaustive stack-aware exploration of the current ROM-backed control
 flow finds no path from any of the 27 source-register writers outside the

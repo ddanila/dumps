@@ -1,5 +1,7 @@
 # Command/selector-scoped branch address alternatives
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [global branch-bit search](BRANCH-BITS.md) left contextual decoding open.
 This follow-up tests B0 and B9 separately within a complete class of direct
 transfers sharing command and condition selector. It finds a limited alternative:

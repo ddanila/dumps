@@ -1,5 +1,7 @@
 # Disconnected entry families and a conditional one-unit adjustment
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The 22 unresolved words form seven entry families under the current control
 flow. Two roots cannot be supplied by an unchanged Am27S31 byte plus a bank:
 the complete 512-byte ROM contains neither 56 nor BD. This rules out simply

@@ -1,5 +1,7 @@
 # 2FD–2FF requires an incoming return frame
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [complete-entry policy audit](ENTRY-POLICY-AUDIT.md) always retained a
 possible stack underflow at 2FF. Fixing the known constant condition selectors
 does not remove it. The local structure explains why: 2FD–2FF is a computed-call

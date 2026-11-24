@@ -1,5 +1,7 @@
 # An input mask selects both nested ROM calls from reset
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3, a nonzero external-input mask can select 2BC at 21F and then select
 its inner callee at 2C4. This extends the earlier [nested reset examples](NESTED-RESET.md),
 which selected 2BC through a scenario index and entered with Q=0. The two call

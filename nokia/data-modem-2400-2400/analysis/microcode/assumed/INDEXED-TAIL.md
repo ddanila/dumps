@@ -1,5 +1,7 @@
 # Two indexed register stores in the terminal tail
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q2, the two computed calls at 07E and 081 select destinations in the
 register file. Their sixteen one-word entries at 08A–099 copy R0 into R0–R15
 respectively, then return. The preceding helper prepares R0=`Q>>1`, so the

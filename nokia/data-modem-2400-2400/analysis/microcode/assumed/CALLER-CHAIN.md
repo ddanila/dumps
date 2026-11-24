@@ -1,5 +1,7 @@
 # Following preparation bytes through the caller chain
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The A/B swap can make 341–344 write R10–R13, but that alone does not explain
 useful operand flow. In the tested 133 caller path, later table calls remove
 the preparation-byte effects from the final internal state. With the original

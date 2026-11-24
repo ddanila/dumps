@@ -1,5 +1,7 @@
 # Three q3 handler-5 continuations
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The three declared cases at 34C compose the already checked 335, 357 and 366
 helpers differently. From actual zero reset they select Q=0, Q=the input code,
 or Q=FF, and different external inputs survive in R4. All three enter the

@@ -1,5 +1,7 @@
 # Six q3 short-helper contracts
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Six previously unnamed direct-call entries have distinct computational roles
 under q3. Their retained RAM/Q effects and complete transient ALU-Y sequences
 are checked separately. A transient value is not automatically a physical

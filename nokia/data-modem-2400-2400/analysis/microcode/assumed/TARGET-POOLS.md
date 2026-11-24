@@ -1,5 +1,7 @@
 # Structurally constrained target pools: 91.48% reset coverage
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A permissive target hypothesis for 26F, 21F and 2C4 reaches **934 of 1,021 used
 words (91.48%)** across 128 reset-based runs. This exceeds the numerical 90%
 coverage target under declared assumptions. It does **not** recover the actual

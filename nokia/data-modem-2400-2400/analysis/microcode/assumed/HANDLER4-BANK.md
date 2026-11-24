@@ -1,5 +1,7 @@
 # Handler 4: bank-200 input replacement and capture preservation
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The bank-200 alternatives at 26F either replace earlier captures through two
 nested input helpers, or load a payload while retaining those captures. Both
 paths end with two indexed stores of half the payload. This connects the

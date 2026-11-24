@@ -1,5 +1,7 @@
 # Saving R0, optionally loading Q, and forming a byte sum
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q1, q2 and q4, the helper at 28E–295 saves old R0 in R3, optionally
 loads Q into R0, and leaves `(R0 + 2*R1 + 1) mod 256` in R15. Q and all
 other registers are preserved. Five q2 reset witnesses connect this operation

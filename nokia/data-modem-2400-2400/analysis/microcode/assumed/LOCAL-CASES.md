@@ -1,5 +1,7 @@
 # Additional cases after local branch entries
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The existing local-table heuristic stops at the end of a consecutive run of
 BRT words. At three boundaries, the next word begins disconnected executable
 code. Treating that body as an additional case is structurally consistent and

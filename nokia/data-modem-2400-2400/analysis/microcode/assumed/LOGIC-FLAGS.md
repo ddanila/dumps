@@ -1,5 +1,7 @@
 # Defined logical flags remove a carry-feedback assumption
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 An explicit Am2901B flag model removes unknown logical carry/overflow values
 from the functional datapath. Four fitted reset examples remain clean with
 their existing condition policies, dispatch and external-input stubs. Unknown

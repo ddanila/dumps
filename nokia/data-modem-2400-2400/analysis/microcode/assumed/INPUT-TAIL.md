@@ -1,5 +1,7 @@
 # The q3 input-preparation and comparison tail at 2EC
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 2EC–2FC prepares input-dependent registers, chooses one of three paths into a
 shared tail, and returns through two real nested calls. With the declared
 21F dispatch entry, the paths produce different transient Q/Y values and take

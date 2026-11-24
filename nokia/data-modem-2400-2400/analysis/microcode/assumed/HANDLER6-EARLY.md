@@ -1,5 +1,7 @@
 # Handler 6: early complement diversion and conditional input addition
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Raising the declared selector-1 line at 0C0 or 0C1 reaches 0E0–0E4 before the
 late continuations already studied. This changes Q from zero to FF. The same
 later capture at 0E5 consequently becomes input-minus-one, and the branch at

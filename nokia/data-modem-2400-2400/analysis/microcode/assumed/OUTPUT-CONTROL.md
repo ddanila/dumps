@@ -1,5 +1,7 @@
 # Output-control patterns remain ambiguous
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The transient adjustment motivates looking for a Y-output consumer, but the
 PROM patterns do not select a unique output enable. A bounded search finds
 43 different one-/two-bit predicates that separate the proposed example

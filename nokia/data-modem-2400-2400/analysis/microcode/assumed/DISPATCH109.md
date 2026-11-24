@@ -1,5 +1,7 @@
 # Input-derived dispatch candidate at 109
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under the fitted-original mapping and the tested reset path, the first visit
 to 109 has R0=255−D, Q=0, and carry input 1. The decoded operation is
 `~R0 + Q + 1`, so current ALU Y is `(D+1) mod 256`. The preceding instruction's

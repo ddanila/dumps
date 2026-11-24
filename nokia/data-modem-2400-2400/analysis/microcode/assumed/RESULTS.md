@@ -1,9 +1,11 @@
 # Measured results
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 **Latest experiment:** [independent lookup-ROM targets](ROM-DISPATCH.md)
 reach 91.97% under declared site/bank hypotheses; the baseline below is historical.
 
-**Later experiment:** [local branch tables](BRANCH-TABLES.md) improve runtime
+**Later experiment:** [local branch tables](history/BRANCH-TABLES.md) improve runtime
 coverage to 55.34% with clean runs. The measurements below describe the original
 baseline, preserved for comparison. Overall research acceptance remains unmet.
 
@@ -58,7 +60,7 @@ by unit tests.
 - [Search ranking](results/ranking.json), [dynamic comparison](results/dynamic-ranking.json).
 - [Fixed-suite acceptance](results/suite.json), [rejected diagnostic](results/diagnostics.json).
 - [Routine catalog and trace excerpts](results/routines.json).
-- [Commands and configuration contracts](README.md).
+- [Commands and configuration contracts](ASSUMPTIONS.md).
 
 The functional/assumption suite passes 24 tests; the existing strict board suite
 passes 18. Tests cover arithmetic, sequencer semantics, PROM evidence,

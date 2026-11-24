@@ -1,5 +1,7 @@
 # Datapath-derived indices at the ROM-backed branches
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The runner can now use the preceding executed instruction's ALU-Y output as
 a dispatch index, with an explicit initial retained value. This tests a
 possible address-building path before 008 and 26F rather than supplying every

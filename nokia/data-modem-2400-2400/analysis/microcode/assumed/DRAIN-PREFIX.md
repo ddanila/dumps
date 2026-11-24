@@ -1,5 +1,7 @@
 # The caller overwrites the first drain result before consuming it
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [30B mapping comparison](MASKED-DRAIN.md) found different retained R5
 values under q2 and fitted_original. The actual local caller prefix at
 304–308 invokes that helper twice. Its second call overwrites R5 with zero,

@@ -1,5 +1,7 @@
 # Actual sine-ROM bytes reach arithmetic under a selected-read hypothesis
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The earlier [global ROM-feedback experiment](ALU-FEEDBACK.md) replaced every
 external read, including handshake replies, and reached only zero operands in
 its sampled arithmetic calls. The [independent component path](PAIRED-COMPONENTS.md)

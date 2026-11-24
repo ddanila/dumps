@@ -1,5 +1,7 @@
 # The q3 paired self-arithmetic wait at 370
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 370–378 copies R0 to R1, preserves two 16-bit input words and Q, calls one of
 four arithmetic entries, and repeats according to the final high byte exposed
 by that entry. The table arithmetic changes no RAM. With unchanged inputs and

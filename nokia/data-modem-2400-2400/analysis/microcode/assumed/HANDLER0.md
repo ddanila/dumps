@@ -1,5 +1,7 @@
 # Handler 0: fixed-register waits and transient arithmetic
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3 with current flags and the established BLT-side reset replies,
 handler 11A returns through both fixed-register waits and calls the later
 arithmetic helpers. The complete retained effect is small: R4 retains the

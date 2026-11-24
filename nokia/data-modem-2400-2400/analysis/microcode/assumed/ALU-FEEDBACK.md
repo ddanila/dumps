@@ -1,5 +1,7 @@
 # Lookup-ROM feedback into the ALU
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The runner now tests actual Am27S31 bytes as the ALU D input, addressed by
 the preceding executed instruction's Y output. This replaces the constant
 external byte for this experiment. It does not recover the board's address

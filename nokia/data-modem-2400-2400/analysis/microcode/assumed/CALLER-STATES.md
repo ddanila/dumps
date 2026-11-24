@@ -1,5 +1,7 @@
 # Caller states challenge the simple rotation interpretation
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [paired-arithmetic experiment](PAIRED-ARITHMETIC.md) fits quarter-turn
 identities with Q=0. Reset-path traces show that this precondition depends on
 the external input stub. It is not established as a program invariant.

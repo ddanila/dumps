@@ -1,5 +1,7 @@
 # Handler 2: external reply versus an invariant loop
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [timing comparison](HANDLER-TIMING.md) left handler 18B repeating under
 both timings, at different locations. This follow-up identifies a specific
 reply that releases the previous-flag path and proves why later external

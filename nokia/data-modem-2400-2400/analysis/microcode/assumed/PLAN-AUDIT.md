@@ -1,5 +1,7 @@
 # Plan acceptance audit
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [plan](../PLAN.md) is **implemented under its declared assumption policy**.
 The [final review](FINAL-REVIEW.md) checks steps 1–5 against the implementation,
 traces and regression evidence. All 1,021 used words and 37 cataloged direct-call

@@ -1,5 +1,7 @@
 # Reset reaches preparation when unconstrained selector 5 is asserted
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The constant-zero defaults on selectors absent from the local fit were
 restricting startup. Setting selector 5 to constant one, while preserving
 every fitted flag source and polarity, lets both candidates reach 18B and

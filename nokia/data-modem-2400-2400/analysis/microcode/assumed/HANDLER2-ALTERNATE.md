@@ -1,5 +1,7 @@
 # Handler 2: alternate carry preparation and computed return leaves
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The 1E0–1E4 alternative selects the later comparison byte using an input sum's
 carry and the handler code. It replaces the normal 196–19B preparation and
 rejoins 19C. Four one-word return leaves at 1E5–1E8 produce different temporary

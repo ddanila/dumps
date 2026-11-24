@@ -1,5 +1,7 @@
 # Timed external input and the handler-3 continuation
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The executor now accepts a cycle-timed digital input in addition to the
 existing constant external bit. This lets a scenario preserve the boot
 condition and change the same external line later, without overriding a branch

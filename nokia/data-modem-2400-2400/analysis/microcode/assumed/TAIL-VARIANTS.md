@@ -1,5 +1,7 @@
 # A retained alternative reaches the excluded tail
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 **q3 reaches 287–28A from reset** with the same index-12, D=01 inputs used by
 the q2 witness. The [q2 exclusion argument](TAIL-EXCLUSION.md) remains valid:
 q3 changes the operations at 3BD–3BE, so the argument's final arithmetic step

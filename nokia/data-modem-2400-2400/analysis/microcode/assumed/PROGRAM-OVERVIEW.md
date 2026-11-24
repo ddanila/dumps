@@ -1,5 +1,7 @@
 # What the microprogram does under the tested assumptions
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The executable interpretation is an input-driven collection of arithmetic
 routines. It prepares registers, captures external bytes, selects one of eight
 handlers, performs byte or paired-byte arithmetic, and either stores results or

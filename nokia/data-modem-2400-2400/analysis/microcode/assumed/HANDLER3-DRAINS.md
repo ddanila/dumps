@@ -1,5 +1,7 @@
 # Handler 3: alternate drains and a transient paired component
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 A new, explicitly declared condition-source hypothesis reaches 1EF–1FF from
 zero reset. It explains the previously bypassed body as temporary component
 construction, two Q drains and register preparation before rejoining 308.

@@ -1,5 +1,7 @@
 # Reset-driven paths establish the shift wrapper's sensitive inputs
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [local caller experiment](DRAIN-CALLER.md) left open whether reset could
 reach the wrapper with R7=FF. Seeded dispatch runs now demonstrate that it can,
 under the existing fitted-original/previous-flag model. They do not recover

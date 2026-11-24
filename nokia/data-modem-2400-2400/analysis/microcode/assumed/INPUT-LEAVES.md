@@ -1,5 +1,7 @@
 # Outer input leaves: replacement and comparison-qualified return
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Two entries in the outer computed-call table have different retained effects.
 221 loads a temporary byte, calls a difference helper, then replaces Q from a
 second input. 2B3 preserves Q, clears R15 in this context, and either returns

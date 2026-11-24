@@ -1,5 +1,7 @@
 # Pairing clean contextual branch alternatives
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Combining two of the [contextual branch alternatives](CONTEXT-BRANCH.md) does
 not improve the best static coverage beyond 1,000 words. Some pairs do expose
 the disconnected 0FD fragment, but only while losing hundreds of other words.

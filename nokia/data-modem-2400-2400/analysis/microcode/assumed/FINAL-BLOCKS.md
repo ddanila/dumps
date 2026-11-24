@@ -1,5 +1,7 @@
 # Final branch blocks: early clear/capture and current-flag exit
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The last five previously unannotated words belong to two separate calling
 contexts. 043/044 expose an input difference and call a helper that clears Q
 and captures R3. 1DC–1DE expose arithmetic and select between two terminal

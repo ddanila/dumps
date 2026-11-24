@@ -1,5 +1,7 @@
 # Read the program by address
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Start with [the program overview](PROGRAM-OVERVIEW.md) for the combined
 startup, handler, helper and I/O account. The tables below provide the
 address-level evidence and the limitations of each interpretation.

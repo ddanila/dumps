@@ -1,5 +1,7 @@
 # Retained q2 mapping interprets the mask loop as an external poll
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Comparing the existing six mappings gives a concrete alternative to the
 [fitted-original mask-loop interpretation](MASK-LOOP.md). With mapping **q2**
 and an explicitly shared previous-flag/defined-logical-carry policy, 12C–130

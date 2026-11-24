@@ -7,7 +7,7 @@ unknown, the emulator takes an explicit, labelled assumption and keeps going
 instead of stopping.
 
 This replaces "trace every net first" as the way forward. The earlier attempts
-([illustrative map](README.md), [photo-only board model](board/README.md))
+([illustrative map](history/ILLUSTRATIVE-RUN.md), [photo-only board model](board/README.md))
 blocked on wiring that the photographs cannot supply. The PROM contents turn
 out to constrain the sequencer fields well enough to proceed without it.
 

@@ -1,5 +1,7 @@
 # Preceding Y selects nontrivial q2 paired-arithmetic paths
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 At call 38F, q2's preceding ALU result is a plausible dispatch index: it
 carries the external byte read at 38E. Using it lets nonzero captured values
 return from the 389 wrapper. Current Y and Q instead select a single entry.

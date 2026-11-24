@@ -1,5 +1,7 @@
 # q2 transform wrappers can alternate their own source values
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The wrappers at 3D5 and 3EA overwrite source registers, unlike the
 [fixed-source wrapper at 3C0](Q2-TRANSFORM-LOOP.md). Under q2 with a constant
 dispatch index and previous-zero loop control, this can produce a second-pass

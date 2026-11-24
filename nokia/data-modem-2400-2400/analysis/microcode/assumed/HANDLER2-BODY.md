@@ -1,5 +1,7 @@
 # Handler 2: comparison preparation, Q drains and payload storage
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 This study connects the q3 handler at 18B through its long preparation body,
 the paired-drain detour, the external poll and terminal stores. Three independent
 input bytes expose distinct effects: one selects the retained comparison byte,

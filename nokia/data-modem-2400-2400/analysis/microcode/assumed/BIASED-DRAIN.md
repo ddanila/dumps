@@ -1,5 +1,7 @@
 # Q shifting with input-dependent termination at 296
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Routine 296–29E shifts Q right while placing an input-dependent sequence in R0.
 Under the selected fitted-original mapping and previous-flag policy, reaching
 Q=0 does **not** guarantee return. This supplies a new constraint on that

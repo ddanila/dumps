@@ -1,5 +1,7 @@
 # Handler 4: sum-carry and comparison-selected inputs
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q3, the continuation at 2A0 selects an input value through two arithmetic
 conditions. It preserves the first input when a byte sum carries; otherwise it
 increments that input and either keeps the result or replaces it from later

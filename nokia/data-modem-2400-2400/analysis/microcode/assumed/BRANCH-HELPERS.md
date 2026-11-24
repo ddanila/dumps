@@ -1,5 +1,7 @@
 # Three q3 conditional helpers
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Actual local calls to 270, 335 and 357 distinguish conditional register
 updates from branches that change only transient output. These are q3
 interpretations with previous ALU flags, the declared ripple logical-carry

@@ -1,5 +1,7 @@
 # Caller establishes a successor-byte poll
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 The [1EC poll](POLLING.md) has a traceable target in the original-register,
 previous-flag reset scenario. Its caller does not simply wait for a fixed 01.
 The zero-input fixture is one instance of this sequence:

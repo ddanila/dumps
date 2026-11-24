@@ -1,5 +1,7 @@
 # Shifted-Q preparation and nested ROM dispatch
 
+*Runs under the [shared assumptions](ASSUMPTIONS.md).*
+
 Under q2, the previously structural-only wrapper at 2BC–2C5 prepares three
 registers while preserving Q, then calls a ROM-selected leaf. The leaf can
 replace Q with an external input, preserve it while exposing arithmetic
