@@ -728,3 +728,7 @@ retained-state and timing formulas distinguish this from the late-only entry.
 [Handler-4 bank continuations](HANDLER4-BANK.md) follow 200/204/217 through
 nested payload loading, capture replacement or preservation, and terminal
 indexed stores, with complete register and timing contracts from reset.
+
+[Handler-4 alternatives](HANDLER4-ALTERNATIVES.md) explain the timed 265
+preparation, the two input additions through 230/0ED and the direct 280 path,
+including complete terminal state, store overlaps and negative timing controls.

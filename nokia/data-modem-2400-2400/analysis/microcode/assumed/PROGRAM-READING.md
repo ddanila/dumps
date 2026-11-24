@@ -61,6 +61,7 @@ into one address listing.
 | 18B–1C2, 1CD–1D9, 1E7, 3A2–3AA (q3) | Carry-selected comparison, wrapped-sum drain and payload storage | Previous flags, fixed tables and diagnostic replies; bypassed branches excluded |
 | 148–177, 180–186, 2E6–2EB (q3) | Wrapped byte sum with input-dependent shift timing | Handler-1 diagnostic inputs; R14 consumer unknown |
 | 259–264, 26A–26F, 2A0–2B2 (q3) | Sum-carry and comparison-selected inputs | Handler-4 code-4 context and fixed dispatch; physical input meaning unknown |
+| 230–237, 251–255, 265–269, 0EB–0F9, 280, 28B–28D (q3) | Alternate handler-4 preparation, wrapped input accumulation and direct terminal path | Timed selector-5 input, selector 6 false and global index 3–6 |
 | 200–219, 281–286, 28E–295, 2CB–2CE (q3) | Handler-4 replacement or preservation of captured values, nested payload load and indexed stores | Fixed earlier handler inputs and global index 7–15; physical function unresolved |
 | 2EC–2FF, 3BB–3BC (q3) | Input preparation and three routes through a common nested return | Local calls, constant selector 1, fixed 21F target 224 |
 | 270–27F, 335–340, 357–360 (q3) | Overflow-selected copy, optional captures/complement, and three return sums | Local calls; explicit constant selectors; transient consumers unknown |
@@ -115,7 +116,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 953 used words, including overlaps and disconnected
+These annotations cover 984 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -152,7 +153,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 130 functional/assumption tests pass, including checks that
+byte. All 131 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -356,3 +357,8 @@ retained-state and timing formulas distinguish this from the late-only entry.
 remaining high table indices to input replacement or capture preservation.
 Real nested calls return through 2FF, payload-zero changes the short-path
 terminal skip, and indexed stores can overwrite the retained R12/R14/R15.
+
+[Handler 4's alternate preparation and additive routes](HANDLER4-ALTERNATIVES.md)
+connect a timed selector-5 fall to preserved input Q, carry-derived R14 and
+four terminal destinations. The 230/0ED path performs two wrapped additions;
+280 stores directly, and zero payload shortens either path by one instruction.

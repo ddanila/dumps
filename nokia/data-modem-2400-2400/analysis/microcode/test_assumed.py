@@ -127,6 +127,33 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler4_alternate_preparation_and_sum_routes(self):
+        import random
+        from handler4_alternatives import scenario_for,inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler4-alternatives.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x230)
+        cases=[(c,i,alt,d,u,v) for c in (4,252) for i in (3,4,5,6) for alt in (False,True)
+               for d,u,v in ((0,0,0),(255,1,0),(255,0,1))]
+        cases += [(4+8*rng.randrange(32),rng.choice((3,4,5,6)),bool(rng.randrange(2)),*[rng.randrange(256) for _ in range(3)]) for _ in range(96)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                scenario=scenario_for(config,*values)
+                result=execute(mapping,scenario,160,mode='integrated',out=out,trace_limit=160)
+                want=inspect(load_trace(out),result,*values)
+                if number%12==0:
+                    # These reads only affect exposed arithmetic, not retained state or the constant selectors.
+                    scenario['io']['read']['pc_sequences'].update({str(pc):[rng.randrange(256)] for pc in (0x252,0xf0,0xf3)})
+                    result=execute(mapping,scenario,160,mode='integrated',out=out,trace_limit=160)
+                    self.assertEqual(inspect(load_trace(out),result,*values),want)
+                if values[2] and number%7==0:
+                    # Falling one instruction too late leaves the original 2A0 route selected.
+                    scenario=scenario_for(config,*values);scenario['inputs']['external']['events']=[[71,0]]
+                    result=execute(mapping,scenario,160,mode='integrated',out=out,trace_limit=160)
+                    normal=(*values[:2],False,*values[3:])
+                    inspect(load_trace(out),result,*normal)
+
     def test_q3_handler4_bank_replacement_and_capture_preservation(self):
         import random
         from handler4_bank import scenario_for,inspect

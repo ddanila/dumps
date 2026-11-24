@@ -1705,6 +1705,42 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER4-ALTERNATIVES.md",
+        "limitations": "q3 previous-flag zero reset, established replies and global indices 3-6, independent D25D/D235/D0ED; selector 5 direct external, optionally falling at cycle 70, and selector 6 false. Prefix equality and late-fall negative controls verified. Other condition sources, 0E9/0EA and physical function unresolved.",
+        "meaning": "Timed selector-5 fall selects 265, retaining input d in Q and storing R3=c+1/R14=-c. Global indices 3/6 select two wrapped input additions through 230 and 0ED, clearing R15 and setting R3=FF; indices 4/5 take 280 directly. Terminal stores overwrite the indexed register with half Q, and zero Q skips 079.",
+        "name": "handler-4 alternate preparation and additive terminal routes",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "265",
+            "269"
+          ],
+          [
+            "230",
+            "237"
+          ],
+          [
+            "251",
+            "255"
+          ],
+          [
+            "0EB",
+            "0F9"
+          ],
+          [
+            "280",
+            "280"
+          ],
+          [
+            "28B",
+            "28D"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1727,7 +1763,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 953,
+    "annotated_used_words": 984,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5110,6 +5146,7 @@
     "HANDLER2-BODY.md": "9e6b8ee75f79b64e6e6e61aa6838a456e9483d8112949bbfe55d29e490615d09",
     "HANDLER2-ROUTES.md": "d21f4e16f835c7907d49512274d5ef368a7e060f83ada9b6083997f90b94050e",
     "HANDLER3-DRAINS.md": "148103c9b33b7080ab80421e7221eb129b50806b8d5b399412b3a0de61db3fc1",
+    "HANDLER4-ALTERNATIVES.md": "2f081b34706a5637ef476b3cfe7a59b7b2a2bf1272fe21b9d2a4c440d72df028",
     "HANDLER4-BANK.md": "13f3d3e805e51e9c059fad741ddd038c6d55314d7af806d551ddf1d41233f20d",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
