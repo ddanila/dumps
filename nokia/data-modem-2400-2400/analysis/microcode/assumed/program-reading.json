@@ -1549,6 +1549,26 @@
       "evidence": "HANDLER2-BODY.md",
       "meaning": "Previous-flag reset context retains FE/FF in R4 through the logical carry of D197 AND FE, drains the wrapped D197+D1A2 sum, takes the 2D0 detour and captures R4 in R12. A negated-R4 poll reply releases the continuation; D1D0 survives in Q and terminal half-Q stores.",
       "limitations": "Zero reset, PLP replies, fixed later table index 2 including tentative 1A2\u21921E7, other reads one. Bypassed 1C3\u20131CC and 1DA\u20131DE excluded. Boundary reset sweep and exhaustive local a/b arithmetic; physical signal purpose unknown."
+    },
+    {
+      "name": "alternative paired Q drains and preparation entry",
+      "ranges": [
+        [
+          "1C3",
+          "1CC"
+        ],
+        [
+          "1DA",
+          "1DB"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER2-ROUTES.md",
+      "meaning": "Timed selector-5 fall reaches 1C3; four selector-1 rises reach it through 1DA\u2192341\u21921DB. The body loads Q=u without the carry bias of the 2D0 detour, halves and drains two inputs, and rejoins 1CD with identical retained payload/comparison state but different timing.",
+      "limitations": "q3 previous flags, PLP reset replies, fixed later tables, externally scheduled selector hypotheses. Corresponding u/v input routes explicitly bound; arbitrary initial states and 1DC\u20131DE excluded. No physical condition pin or transient output consumer identified."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

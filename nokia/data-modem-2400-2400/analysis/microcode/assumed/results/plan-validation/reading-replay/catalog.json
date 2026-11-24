@@ -1533,6 +1533,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER2-ROUTES.md",
+        "limitations": "q3 previous flags, PLP reset replies, fixed later tables, externally scheduled selector hypotheses. Corresponding u/v input routes explicitly bound; arbitrary initial states and 1DC\u20131DE excluded. No physical condition pin or transient output consumer identified.",
+        "meaning": "Timed selector-5 fall reaches 1C3; four selector-1 rises reach it through 1DA\u2192341\u21921DB. The body loads Q=u without the carry bias of the 2D0 detour, halves and drains two inputs, and rejoins 1CD with identical retained payload/comparison state but different timing.",
+        "name": "alternative paired Q drains and preparation entry",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "1C3",
+            "1CC"
+          ],
+          [
+            "1DA",
+            "1DB"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1555,7 +1575,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 771,
+    "annotated_used_words": 783,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -4888,6 +4908,7 @@
     "HANDLER0.md": "6820336aafb949943d7c5d08681850a2c7c8434c50442fc067726b7d677f2598",
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
     "HANDLER2-BODY.md": "9e6b8ee75f79b64e6e6e61aa6838a456e9483d8112949bbfe55d29e490615d09",
+    "HANDLER2-ROUTES.md": "d21f4e16f835c7907d49512274d5ef368a7e060f83ada9b6083997f90b94050e",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",

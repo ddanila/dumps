@@ -1,0 +1,14 @@
+{
+  "status": "hypothesis",
+  "body_configuration": "handler2-body.json",
+  "cycles": 384,
+  "routes": [
+    "detour",
+    "fallthrough",
+    "prepare-1b8",
+    "prepare-1b9",
+    "prepare-1bc",
+    "prepare-1bd"
+  ],
+  "evidence": "q3 previous-flag handler 2 with PLP reset replies and fixed later tables. Selector 5 falls at or after the predicted 1C2 cycle; alternatively selector 1 rises at one of four predicted branch cycles. External line schedules are absolute instruction cycles, not PC overrides. Shared u/v inputs supplied to corresponding instructions in both Q-drain routes. Other handler inputs retain separately labelled body assumptions."
+}

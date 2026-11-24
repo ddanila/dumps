@@ -127,6 +127,27 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler2_timed_routes_and_wrap_boundary(self):
+        import random
+        from handler2_routes import scenario_for,inspect,prediction
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler2-routes.json');body=read(HERE/config['body_configuration']);h=read(HERE/body['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x1c3)
+        cases=[]
+        for route in config['routes']:
+            for a,b in ((0,0),(255,1),(1,1)):
+                cases.append((route,2,a,b,128,1,255,128))
+            for _ in range(8):
+                a,b,p,u,v=[rng.randrange(256) for _ in range(5)]
+                cases.append((route,2+8*rng.randrange(32),a,b,p,rng.randrange(8),u,v))
+        with tempfile.TemporaryDirectory() as temp:
+            for route,code,a,b,payload,delay,u,v in cases:
+                scenario=scenario_for(config,code,a,b,payload,delay,u,v,route);out=Path(temp)
+                result=execute(mapping,scenario,384,mode='integrated',out=out,trace_limit=384)
+                inspect(load_trace(out),result,scenario,a,b,payload,delay,u,v,route)
+        self.assertEqual(prediction(1,1,17,0,255,1,'detour')['first_poll']-
+                         prediction(1,1,17,0,255,1,'fallthrough')['first_poll'],-15)
+
     def test_q3_handler2_comparison_carry_and_payload(self):
         import random
         from handler2_body import scenario_for,inspect,check_arithmetic

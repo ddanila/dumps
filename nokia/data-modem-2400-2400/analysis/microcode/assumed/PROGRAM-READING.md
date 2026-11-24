@@ -50,6 +50,7 @@ into one address listing.
 | 04C–053, 09A–09D, 131–132, 228–22A, 238–247 (q3) | Register capture and transient sum/difference sequences | Local actual calls; handler-0 reset waits before reaching these helpers |
 | 09E–0CD, 0DE (q3) | Masked capture, conditional increment and two Q drains | Diagnostic handler-6 inputs and previous flags; modem purpose unknown |
 | 11A–130 (q3) | Fixed-register waits and transient arithmetic sequence | Current flags and BLT replies; temporary Q inputs are overwritten; physical timing unknown |
+| 1C3–1CC, 1DA–1DB (q3) | Alternative Q drains and preparation entry | Timed external selector hypotheses; retained-state equivalence does not imply equal output timing |
 | 18B–1C2, 1CD–1D9, 1E7, 3A2–3AA (q3) | Carry-selected comparison, wrapped-sum drain and payload storage | Previous flags, fixed tables and diagnostic replies; bypassed branches excluded |
 | 148–177, 180–186, 2E6–2EB (q3) | Wrapped byte sum with input-dependent shift timing | Handler-1 diagnostic inputs; R14 consumer unknown |
 | 259–264, 26A–26F, 2A0–2B2 (q3) | Sum-carry and comparison-selected inputs | Handler-4 code-4 context and fixed dispatch; physical input meaning unknown |
@@ -106,7 +107,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 771 used words, including overlaps and disconnected
+These annotations cover 783 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -143,7 +144,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 121 functional/assumption tests pass, including checks that
+byte. All 122 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -302,3 +303,8 @@ terminal storage, while the captured R4 sum survives.
 carry-selected FE/FF comparison byte, wrapped-sum drain timing, paired detour,
 external reply and terminal payload stores. The reply depends on a real
 upstream input; 02 is specific to the earlier default-input context.
+
+[Handler 2's alternative timed routes](HANDLER2-ROUTES.md) reach 1C3 and
+1DA through scheduled external conditions. The direct body and 2D0 detour
+retain the same final state but differ in carry-biased Q loading and drain
+timing, including the FF wrap boundary.

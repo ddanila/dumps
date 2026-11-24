@@ -684,3 +684,8 @@ terminal storage, while the captured R4 sum survives.
 carry-selected FE/FF comparison byte, wrapped-sum drain timing, paired detour,
 external reply and terminal payload stores. The reply depends on a real
 upstream input; 02 is specific to the earlier default-input context.
+
+[Handler 2's alternative timed routes](HANDLER2-ROUTES.md) reach 1C3 and
+1DA through scheduled external conditions. The direct body and 2D0 detour
+retain the same final state but differ in carry-biased Q loading and drain
+timing, including the FF wrap boundary.
