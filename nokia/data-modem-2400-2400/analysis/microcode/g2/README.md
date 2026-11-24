@@ -423,6 +423,13 @@ The next mapping search should require repeated ROM accesses whose address
 comes from actual controller dibits and whose retained state carries phase
 between symbols. This probe rules out only the declared q3 reset scenario.
 
+The [repeated-call diagnostic](GRAY-REENTRY.md) also tests whether this q3
+routine would carry phase if a caller re-entered it for each controller dibit.
+Across four distinct controller-ROM streams, the retained state settles by
+symbol 8 to the same alternating Q and candidate Y values, while ROM reads
+leave `07C`–`07F`. This disfavors that particular synthetic caller and D316
+input bridge; the actual caller and data route remain unresolved.
+
 ## Controller state-to-frame constraint
 
 The [executed octet-classifier study](PATTERN-CLASSIFIER.md) identifies a
