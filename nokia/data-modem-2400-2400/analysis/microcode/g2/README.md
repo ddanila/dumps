@@ -231,6 +231,12 @@ and the changing firmware variables, as well as the four-byte output. The
 [full 256-state report](results/controller-frames.json) retains every frame,
 source classification, collisions, execution checks and source hashes.
 
+The [state/frame cross-check](STATE-FRAME-CROSSCHECK.md) places selected
+executed countdowns, expiry successors and transmitted frames side by side.
+A0 and A2 both send `80 02 88 7A` in the fixed frame fixture despite
+different countdowns and successors. The state-step and frame runs have
+different initial RAM fixtures and do not constitute one continuous call.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/controller_frames.py \
   --out /tmp/nokia-g2-controller-frames.json
