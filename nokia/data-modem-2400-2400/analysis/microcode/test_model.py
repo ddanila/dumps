@@ -1,5 +1,6 @@
 import unittest
-from model import Am2901, X8X02, UnknownStack
+import random
+from model import Am2901, SplitAm2901, X8X02, UnknownStack
 
 
 def op(source, function, destination):
@@ -96,6 +97,38 @@ class DatapathTests(unittest.TestCase):
         w = wide.step(op(1, 0, 3), 0, 1)
         self.assertEqual(w['f'], (h['f'] << 4) | l['f'])
         self.assertEqual(w['overflow'], 1)
+
+    def test_split_slices_match_wide_model_without_cross_links(self):
+        rng=random.Random(2901)
+        for instruction in range(512):
+            ram=[rng.randrange(256) for _ in range(16)]
+            q,d=rng.randrange(256),rng.randrange(256)
+            a,b=rng.randrange(16),rng.randrange(16)
+            carry,ram_in,q_in=(rng.randrange(2) for _ in range(3))
+            wide=Am2901(ram=ram[:],q=q,logic_flags=True)
+            split=SplitAm2901(ram=ram[:],q=q)
+            expected=wide.step(instruction,a,b,d,carry,ram_in,q_in)
+            actual=split.step(instruction,a,b,d,carry,ram_in,q_in)
+            self.assertEqual((actual,split.ram,split.q),
+                             (expected,wide.ram,wide.q),instruction)
+
+    def test_split_instruction_link_changes_only_high_slice_destination(self):
+        instruction=op(7,3,0)  # D|0, load Q; source bit I2 is high.
+        split=SplitAm2901(q=0xC0,high_from_low={6:2})
+        result=split.step(instruction,0,0,d=0xA5)
+        self.assertEqual(split.high_instruction(instruction),instruction | (1<<6))
+        self.assertEqual(split.q,0xC5)
+        self.assertEqual(result['y'],0xA5)
+
+    def test_split_asymmetric_shift_uses_explicit_undriven_level(self):
+        instruction=op(0,3,4)  # Low Q shifts right; high I8 is cleared.
+        zero=SplitAm2901(q=0x81,high_from_low={8:0},undriven_shift=0)
+        one=SplitAm2901(q=0x81,high_from_low={8:0},undriven_shift=1)
+        zero.step(instruction,0,0)
+        one.step(instruction,0,0)
+        self.assertEqual(zero.q & 15,0)
+        self.assertEqual(one.q & 15,8)
+        self.assertEqual((zero.undriven_shift_reads,one.undriven_shift_reads),(2,2))
 
 
 class SequencerTests(unittest.TestCase):

@@ -7,7 +7,7 @@ from contextlib import ExitStack
 from collections import Counter
 from pathlib import Path
 from common import HERE, decode, digest, load, read, save, unconditional_transfer, table_targets, validate_brt_gate
-from model import Am2901, X8X02, UnknownStack
+from model import Am2901, SplitAm2901, X8X02, UnknownStack
 from external_line import validate_external_line, external_line_value
 
 
@@ -63,6 +63,25 @@ def validate_scenario(s):
         if (not isinstance(logic_flags,dict) or logic_flags.get('mode') not in ('unknown','am2901b-ripple')
                 or logic_flags.get('status') not in ('hypothesis','recovered-from-data','stub') or not logic_flags.get('evidence')):
             raise ValueError('logic flags require a supported mode and provenance')
+    slice_instruction = s['inputs'].get('slice_instruction')
+    if slice_instruction is not None:
+        links = slice_instruction.get('high_from_low') if isinstance(slice_instruction, dict) else None
+        undriven = slice_instruction.get('undriven_shift') if isinstance(slice_instruction, dict) else None
+        if (not isinstance(links, dict) or not links or
+                slice_instruction.get('status') not in ('hypothesis', 'stub', 'recovered-from-data')
+                or not slice_instruction.get('evidence') or
+                any(not isinstance(high, str) or not high.isdecimal() or
+                    str(int(high)) != high or not 3 <= int(high) <= 8 or
+                    type(low) is not int or not 0 <= low <= 8
+                    for high, low in links.items())):
+            raise ValueError('split-slice instruction links require provenance and valid bits')
+        if (not isinstance(undriven, dict) or type(undriven.get('value')) is not int
+                or undriven['value'] not in (0, 1)
+                or undriven.get('status') not in ('hypothesis', 'stub', 'recovered-from-data')
+                or not undriven.get('evidence')):
+            raise ValueError('split-slice undriven shift level requires explicit provenance')
+        if logic_flags is None or logic_flags['mode'] != 'am2901b-ripple':
+            raise ValueError('split-slice model requires the explicit ripple flag model')
     c=s['condition'];d=s['dispatch']
     if 'brt_unconditional_gate' in c:
         validate_brt_gate(c['brt_unconditional_gate'])
@@ -183,6 +202,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     cond=scenario['condition'];dispatch=scenario['dispatch'];inputs=scenario['inputs']
     if inputs.get('logic_flags',{}).get('mode')=='am2901b-ripple' and mode!='integrated':
         raise ValueError('logical flag model requires integrated mode')
+    slice_instruction = inputs.get('slice_instruction')
+    if slice_instruction is not None and mode != 'integrated':
+        raise ValueError('split-slice instruction model requires integrated mode')
     if mode=='sequencer' and (cond['mode']=='flags' or dispatch['source']!='scenario' or scenario['indirect_branch']['source'] in ('y','q')):
         raise ValueError('datapath source requires integrated mode')
     all_tables=[*dispatch['tables'].values(),*scenario.get('branch_tables',{}).values()]
@@ -205,8 +227,14 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     branch_targets={pc:table_targets(t) for pc,t in scenario.get('branch_tables',{}).items()}
     carry_input=CarryInput(inputs['carry'])
     rng=random.Random(seed); initial=scenario['initial']
-    seq=X8X02(pc=initial['pc']);cpu=Am2901(ram=initial['ram'][:],q=initial['q'],
-        logic_flags=inputs.get('logic_flags',{}).get('mode')=='am2901b-ripple')
+    seq=X8X02(pc=initial['pc'])
+    if slice_instruction is None:
+        cpu=Am2901(ram=initial['ram'][:],q=initial['q'],
+            logic_flags=inputs.get('logic_flags',{}).get('mode')=='am2901b-ripple')
+    else:
+        cpu=SplitAm2901(ram=initial['ram'][:],q=initial['q'],
+            high_from_low={int(k):v for k,v in slice_instruction['high_from_low'].items()},
+            undriven_shift=slice_instruction['undriven_shift']['value'])
     visited=Counter();edges=Counter();assumptions=Counter();events=[];depth=maximum=0
     stack_reads=stack_writes=underflows=overflows=unused=0
     source_read=scenario['io']['read'];table=source_read['table'];rom_hash=None
@@ -278,6 +306,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                     read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
             carry=carry_input.resolve(r)
             result=cpu.step(instruction,register_address['a'],register_address['b'],d,carry,inputs['ram_in'],inputs['q_in'])
+            if slice_instruction is not None:
+                assumptions['split-slice candidate instruction']+=1
             carry_input.observe(result)
             flags=result
             register_changes+=sum(a!=b for a,b in zip(old_ram,cpu.ram))+(old_q!=cpu.q)
@@ -342,6 +372,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             # Continue real circular-stack semantics; do not repair the model.
             if len(events)<32: events.append(dict(cycle=cycle,pc=pc,event='stack depth violation',depth=depth))
         h.update(bytes((pc&255,pc>>8,seq.pc&255,seq.pc>>8,test,cpu.q)))
+        if slice_instruction is not None:
+            high_instruction=cpu.high_instruction(instruction)
+            h.update(bytes((high_instruction&255,high_instruction>>8)))
         if result: h.update(bytes(cpu.ram))
         if track_previous_y or read_policy is not None:h.update(bytes((result['y'],)))
         if isinstance(inputs['carry'],dict):h.update(bytes((2 if carry_input.previous is None else carry_input.previous,)))
@@ -356,7 +389,10 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 stack_before=before,stack_after=dict(sp=seq.sp,depth=depth,values=seq.stack[:]),next_pc=seq.pc,
                 registers={str(i):v for i,v in enumerate(cpu.ram) if mode=='integrated' and old_ram[i]!=v},q=cpu.q,alu=result)
             if isinstance(inputs['carry'],dict):record['carry_in']=carry
-            if mode=='integrated' and instruction_overrides:record['instruction_i']=instruction
+            if mode=='integrated' and (instruction_overrides or slice_instruction is not None):
+                record['instruction_i']=instruction
+            if mode=='integrated' and slice_instruction is not None:
+                record['instruction_i_high']=cpu.high_instruction(instruction)
             if mode=='integrated' and address_overrides:
                 record['register_address_a']=register_address['a']
                 record['register_address_b']=register_address['b']
@@ -382,6 +418,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     if isinstance(inputs['carry'],dict):
         summary['carry_model']=dict(previous=carry_input.previous,counts=dict(carry_input.counts))
     if 'logic_flags' in inputs:summary['logic_flag_model']=inputs['logic_flags']
+    if slice_instruction is not None:
+        summary['slice_instruction_model']=slice_instruction
+        summary['undriven_shift_reads']=cpu.undriven_shift_reads
     if source_read['mode']=='pc_sequence':summary['read_sequence_visits']=dict(sequence_visits)
     if out:
         out=Path(out);out.mkdir(parents=True,exist_ok=True);save(out/'summary.json',summary)

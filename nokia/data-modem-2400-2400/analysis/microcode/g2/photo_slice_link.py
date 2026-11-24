@@ -20,11 +20,15 @@ from photo_mapping_stream_screen import MAPPINGS
 
 FRONT = HERE / '../../../photos/PXL_20261123_114926601.jpg'
 MANIFEST = HERE.parent / 'board/evidence/manifest.json'
-SEED = (3027, 1500)
-BOUNDS = (3007, 1358, 3031, 1533)
+SEGMENTS = (
+    dict(id='I4-I1', seed=(3027, 1500), bounds=(3007, 1358, 3031, 1533),
+         u8_pin='28 (I4)', u2_pin='13 (I1)', bits=(4, 1), color=(255, 20, 20)),
+    dict(id='I6-I2', seed=(2972, 1500), bounds=(2934, 1342, 2977, 1537),
+         u8_pin='26 (I6)', u2_pin='14 (I2)', bits=(6, 2), color=(255, 220, 20)),
+)
 
 
-def visible_segment(overlay):
+def visible_segments(overlay):
     view = json.loads(MANIFEST.read_text())['views']['front']
     if hashlib.sha256(FRONT.read_bytes()).hexdigest() != view['source_sha256']:
         raise ValueError('front photograph changed')
@@ -39,38 +43,47 @@ def visible_segment(overlay):
         r, g, b = pixels[x, y]
         return g > 90 and b > 105 and g > r * 1.3
 
-    if not bright(*SEED):
-        raise ValueError('track seed is not bright')
-    queue, seen = deque([SEED]), {SEED}
-    while queue:
-        x, y = queue.popleft()
-        for xx, yy in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
-            if (0 <= xx < frame.width and 0 <= yy < frame.height and
-                    (xx, yy) not in seen and bright(xx, yy)):
-                seen.add((xx, yy))
-                queue.append((xx, yy))
-    bounds = (min(x for x, _ in seen), min(y for _, y in seen),
-              max(x for x, _ in seen), max(y for _, y in seen))
-    if bounds != BOUNDS:
-        raise ValueError(f'candidate segment changed: {bounds}')
-    for x, y in seen:
-        pixels[x, y] = (255, 20, 20)
+    found = []
+    colors = []
+    for segment in SEGMENTS:
+        seed = segment['seed']
+        if not bright(*seed):
+            raise ValueError(f'{segment["id"]}: track seed is not bright')
+        queue, seen = deque([seed]), {seed}
+        while queue:
+            x, y = queue.popleft()
+            for xx, yy in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+                if (0 <= xx < frame.width and 0 <= yy < frame.height and
+                        (xx, yy) not in seen and bright(xx, yy)):
+                    seen.add((xx, yy))
+                    queue.append((xx, yy))
+        bounds = (min(x for x, _ in seen), min(y for _, y in seen),
+                  max(x for x, _ in seen), max(y for _, y in seen))
+        if bounds != segment['bounds']:
+            raise ValueError(f'{segment["id"]}: candidate segment changed: {bounds}')
+        found.append(dict(id=segment['id'], seed=list(seed), bounds=list(bounds),
+                          pixels=len(seen),
+                          candidate_endpoints=[f'U8 pin {segment["u8_pin"]}, upper pad vicinity',
+                                               f'U2 pin {segment["u2_pin"]}, lower pad vicinity'],
+                          status='photo-visible segment with pad gaps; not measured continuity'))
+        colors.append((seen, segment['color']))
+    for seen, color in colors:
+        for x, y in seen:
+            pixels[x, y] = color
     overlay.parent.mkdir(parents=True, exist_ok=True)
-    frame.crop((2920, 1290, 3140, 1580)).save(overlay, quality=94)
-    return dict(seed=list(SEED), bounds=list(bounds), pixels=len(seen),
-                threshold='G>90, B>105, G>1.3*R; four-neighbor component',
-                candidate_endpoints=['U8 pin 28 (I4), upper pad vicinity',
-                                     'U2 pin 13 (I1), lower pad vicinity'],
-                status='photo-visible segment with pad gaps; not measured continuity')
+    frame.crop((2900, 1290, 3140, 1580)).save(overlay, quality=94)
+    return dict(segments=found,
+                threshold='G>90, B>105, G>1.3*R; four-neighbor components')
 
 
-def mismatch(instruction):
-    return bool(((instruction >> 1) ^ (instruction >> 4)) & 1)
+def mismatch(instruction, bits):
+    hi, lo = bits
+    return bool(((instruction >> hi) ^ (instruction >> lo)) & 1)
 
 
 def run(out):
     overlay = out.parent / 'photo-slice-link' / 'candidate.jpg'
-    segment = visible_segment(overlay)
+    segments = visible_segments(overlay)
     _, base = fixture()
     _, bits = controller_stream()
     base['initial']['q'] = 5
@@ -80,19 +93,29 @@ def run(out):
         for name, path in MAPPINGS.items():
             mapping = mapped(path)
             rows = decode(mapping)
-            static = [row for row in rows if not row['unused'] and mismatch(row['i'])]
+            static_by_link = {link['id']: sum(not row['unused'] and
+                              mismatch(row['i'], link['bits']) for row in rows)
+                              for link in SEGMENTS}
+            static_either = sum(not row['unused'] and
+                                any(mismatch(row['i'], link['bits']) for link in SEGMENTS)
+                                for row in rows)
             result = execute(mapping, base, 1580, mode='integrated',
                              out=Path(temporary) / name, trace_limit=1580)
             trace = [json.loads(line) for line in
                      (Path(temporary) / name / 'trace.jsonl').read_text().splitlines()]
             if not result['clean'] or len(trace) != 1580:
                 raise ValueError(f'{name} controller-fed execution did not complete')
-            differing = [row for row in trace if mismatch(row['instruction_i'])]
+            executed_by_link = {link['id']: sum(mismatch(row['instruction_i'], link['bits'])
+                                for row in trace) for link in SEGMENTS}
+            differing = [row for row in trace if any(
+                mismatch(row['instruction_i'], link['bits']) for link in SEGMENTS)]
             cases.append(dict(mapping=name,
                               distinct_nonblank_words=len([row for row in rows if not row['unused']]),
-                              static_mismatch_words=len(static),
+                              static_mismatch_by_link=static_by_link,
+                              static_mismatch_either=static_either,
                               executed_cycles=len(trace),
-                              executed_mismatch_cycles=len(differing),
+                              executed_mismatch_by_link=executed_by_link,
+                              executed_mismatch_either=len(differing),
                               executed_mismatch_pcs={f'{pc:03X}': count for pc, count in
                                   sorted(Counter(row['pc'] for row in differing).items())},
                               trace_digest=result['trace_digest']))
@@ -102,9 +125,9 @@ def run(out):
                HERE/'controller_bit_dispatch.py', ASSUMED/'execute.py',
                *MAPPINGS.values()]
     report = dict(status='conditional photo link and shared-instruction compatibility test',
-                  visible_segment=segment,
-                  pin_interpretation='U8 and U2 markings have the same orientation. Using the Am2901 P-40/D-40 top-view pinout and existing U2 pin attribution, the facing pads are candidate U8.I4 and U2.I1.',
-                  test='If both slices receive one common 9-bit I word and the candidate net is real, I4 and I1 must agree on every executed word. The current mappings do not enforce that equality.',
+                  visible_segments=segments,
+                  pin_interpretation='U8 and U2 markings have the same orientation. Using the Am2901 P-40/D-40 top-view pinout and existing U2 pin attribution, the facing pads are candidate U8.I4 to U2.I1 and U8.I6 to U2.I2.',
+                  test='If both slices receive one common 9-bit I word and the candidate nets are real, I4=I1 and I6=I2 must hold on every executed word. The current mappings do not enforce these equalities.',
                   fixture=dict(cycles=1580, initial_q=5, controller_bits=len(bits)),
                   cases=cases,
                   limitations=['A bright track with dim pad gaps is not a continuity measurement.',
@@ -120,5 +143,5 @@ def run(out):
 
 if __name__ == '__main__':
     report = run(HERE / 'results/photo-slice-link.json')
-    print([(x['mapping'], x['static_mismatch_words'], x['executed_mismatch_cycles'])
+    print([(x['mapping'], x['static_mismatch_by_link'], x['executed_mismatch_by_link'])
            for x in report['cases']])

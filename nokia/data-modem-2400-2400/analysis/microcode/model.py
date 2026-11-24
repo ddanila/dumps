@@ -71,6 +71,62 @@ class Am2901:
                     overflow=overflow, zero=int(f == 0), sign=f >> (self.width - 1))
 
 
+@dataclass
+class SplitAm2901:
+    """Two four-bit slices with explicit high-slice instruction-bit links.
+
+    This is a diagnostic topology, not recovered Nokia wiring. Carry and shift
+    pins are cascaded in the ordinary eight-bit order.
+    """
+    ram: list = field(default_factory=lambda: [0] * 16)
+    q: int = 0
+    high_from_low: dict = field(default_factory=dict)
+    undriven_shift: int = 0
+    undriven_shift_reads: int = 0
+
+    def high_instruction(self, low_instruction):
+        high = low_instruction
+        for high_bit, low_bit in self.high_from_low.items():
+            high = (high & ~(1 << high_bit)) | (((low_instruction >> low_bit) & 1) << high_bit)
+        return high
+
+    def step(self, instruction, a, b, d=0, carry=0, ram_in=0, q_in=0):
+        high_instruction = self.high_instruction(instruction)
+        low = Am2901(width=4, ram=[v & 15 for v in self.ram], q=self.q & 15,
+                     logic_flags=True)
+        high = Am2901(width=4, ram=[v >> 4 for v in self.ram], q=self.q >> 4,
+                      logic_flags=True)
+        # Destination 1 leaves RAM/Q unchanged, allowing shift inputs and
+        # the high-slice carry to be computed from the old simultaneous state.
+        lo_f = low.step((instruction & 63) | 64, a, b, d & 15, carry)
+        hi_f = high.step((high_instruction & 63) | 64, a, b, d >> 4,
+                         lo_f['carry'])
+        lo_dest, hi_dest = instruction >> 6, high_instruction >> 6
+        lo_ram_in = hi_f['f'] & 1 if hi_dest in (4, 5) else self.undriven_shift
+        hi_ram_in = ram_in & 1
+        lo_q_in = high.q & 1 if hi_dest in (4, 5) else self.undriven_shift
+        hi_q_in = q_in & 1
+        if lo_dest in (6, 7):
+            lo_ram_in = ram_in & 1
+            lo_q_in = q_in & 1
+        if hi_dest in (6, 7):
+            hi_ram_in = (lo_f['f'] >> 3) & 1 if lo_dest in (6, 7) else self.undriven_shift
+            hi_q_in = (low.q >> 3) & 1 if lo_dest in (6, 7) else self.undriven_shift
+        if lo_dest in (4, 5) and hi_dest not in (4, 5):
+            self.undriven_shift_reads += 1 + (lo_dest == 4)
+        if hi_dest in (6, 7) and lo_dest not in (6, 7):
+            self.undriven_shift_reads += 1 + (hi_dest == 6)
+        lo_result = low.step(instruction, a, b, d & 15, carry, lo_ram_in, lo_q_in)
+        hi_result = high.step(high_instruction, a, b, d >> 4,
+                              lo_result['carry'], hi_ram_in, hi_q_in)
+        self.ram = [lower | (upper << 4) for lower, upper in zip(low.ram, high.ram)]
+        self.q = low.q | (high.q << 4)
+        return dict(f=lo_result['f'] | (hi_result['f'] << 4),
+                    y=lo_result['y'] | (hi_result['y'] << 4),
+                    carry=hi_result['carry'], overflow=hi_result['overflow'],
+                    zero=lo_result['zero'] & hi_result['zero'], sign=hi_result['sign'])
+
+
 class UnknownStack(RuntimeError):
     pass
 

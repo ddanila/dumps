@@ -1,5 +1,6 @@
 """Behavioral checks for the assumption-driven workflow."""
 import copy
+import json
 import sys
 import tempfile
 import unittest
@@ -2451,6 +2452,32 @@ class AssumedTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'logic flags'):execute(m,s,2,mode='integrated')
         s['inputs']['logic_flags']=None
         with self.assertRaisesRegex(ValueError,'logic flags'):execute(m,s,2,mode='integrated')
+
+    def test_split_slice_instruction_links_reach_execution(self):
+        m=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,select=3,i=7|(3<<3),a=0,b=0,d=0xA5).items():
+            m['fields'][name]=dict(bits=bits,status='stub',evidence='split-slice fixture')
+        s=copy.deepcopy(self.scenario)
+        s['initial']['q']=0xC0
+        s['inputs']['logic_flags']=dict(mode='am2901b-ripple',status='hypothesis',evidence='AMD Figure 9')
+        s['inputs']['slice_instruction']=dict(
+            high_from_low={'6':2},status='hypothesis',
+            evidence='facing-pin candidate fixture',
+            undriven_shift=dict(value=0,status='stub',evidence='diagnostic floating input'))
+        with tempfile.TemporaryDirectory() as temporary:
+            result=execute(m,s,1,mode='integrated',out=temporary,trace_limit=1)
+            row=json.loads((Path(temporary)/'trace.jsonl').read_text().splitlines()[0])
+        self.assertEqual(result['final_state']['q'],0xC5)
+        self.assertEqual((row['instruction_i'],row['instruction_i_high']),
+                         (7|(3<<3),(7|(3<<3))|(1<<6)))
+        invalid=copy.deepcopy(s)
+        invalid['inputs']['slice_instruction']['high_from_low']={'6':9}
+        with self.assertRaisesRegex(ValueError,'split-slice instruction links'):
+            execute(m,invalid,1,mode='integrated')
+        invalid=copy.deepcopy(s)
+        del invalid['inputs']['slice_instruction']['undriven_shift']
+        with self.assertRaisesRegex(ValueError,'undriven shift level'):
+            execute(m,invalid,1,mode='integrated')
 
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
