@@ -551,3 +551,9 @@ changing timing trades successful handlers rather than resolving all waits.
 to terminal execution for all 32 input sums in q1/q3, while a decoded
 R0/Q invariant excludes release of the current-flag loop by any later D
 values or choices among its four candidate table entries.
+
+[Independent paired components](PAIRED-COMPONENTS.md) follows a q3 input at
+317 and the captured 16-bit word into two nonzero arithmetic components from
+reset. The first high-byte result may be nonzero on return; only the final
+high-byte result controls the loop. Matched q1 inputs expose the source-field
+difference, and earlier-load controls verify the surviving input provenance.

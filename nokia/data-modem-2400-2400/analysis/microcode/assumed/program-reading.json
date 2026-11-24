@@ -987,6 +987,39 @@
       "meaning": "Current-zero loop control repeats iff R0 & Q is nonzero. Wrapper and all four candidate table entries preserve R0 and Q. Handler-2 reset entry gives R0=Q=s != 0, so later D replies or table choices cannot release it.",
       "evidence": "HANDLER-REPLY.md",
       "limitations": "Scoped to the four decoded table entries and current-zero policy. Previous flags test a different value; not an unconditional claim about hardware execution."
+    },
+    {
+      "name": "input-sum preparation with overwrite",
+      "ranges": [
+        [
+          "314",
+          "318"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q3"
+      ],
+      "meaning": "314/316 write D+Q to R13; 315/317 write D+Q to R4. In handler-5 zero-reset runs, the final 317 input supplies an independent first arithmetic component; earlier R4 loads are overwritten.",
+      "evidence": "PAIRED-COMPONENTS.md",
+      "limitations": "Previous-flag diagnostic reset schedule with Q=5. Physical meaning of D and any transient external consumers remain unknown."
+    },
+    {
+      "name": "paired-component copy and final-high-byte loop",
+      "ranges": [
+        [
+          "389",
+          "391"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q1",
+        "q3"
+      ],
+      "meaning": "Copy R4-R7 to R8-R11 and call paired arithmetic. Previous-zero exit observes only the last high byte. q3 reset inputs supply independent U byte and V word; both output results, including the first high byte, may be nonzero on return. q1 matched inputs retain a zero first component.",
+      "evidence": "PAIRED-COMPONENTS.md",
+      "limitations": "Operands within each pair are equal after the wrapper copies; first component high byte is zero on entry. Diagnostic inputs, previous-Y dispatch and virtual output captures do not recover physical ports."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

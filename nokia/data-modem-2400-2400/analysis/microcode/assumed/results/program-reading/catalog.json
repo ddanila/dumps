@@ -971,6 +971,39 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIRED-COMPONENTS.md",
+        "limitations": "Previous-flag diagnostic reset schedule with Q=5. Physical meaning of D and any transient external consumers remain unknown.",
+        "meaning": "314/316 write D+Q to R13; 315/317 write D+Q to R4. In handler-5 zero-reset runs, the final 317 input supplies an independent first arithmetic component; earlier R4 loads are overwritten.",
+        "name": "input-sum preparation with overwrite",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "314",
+            "318"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIRED-COMPONENTS.md",
+        "limitations": "Operands within each pair are equal after the wrapper copies; first component high byte is zero on entry. Diagnostic inputs, previous-Y dispatch and virtual output captures do not recover physical ports.",
+        "meaning": "Copy R4-R7 to R8-R11 and call paired arithmetic. Previous-zero exit observes only the last high byte. q3 reset inputs supply independent U byte and V word; both output results, including the first high byte, may be nonzero on return. q1 matched inputs retain a zero first component.",
+        "name": "paired-component copy and final-high-byte loop",
+        "profiles": [
+          "q1",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "389",
+            "391"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1722,6 +1755,22 @@
             ]
           ],
           "status": "hypothesis"
+        },
+        {
+          "evidence": "PAIRED-COMPONENTS.md",
+          "limitations": "Previous-flag diagnostic reset schedule with Q=5. Physical meaning of D and any transient external consumers remain unknown.",
+          "meaning": "314/316 write D+Q to R13; 315/317 write D+Q to R4. In handler-5 zero-reset runs, the final 317 input supplies an independent first arithmetic component; earlier R4 loads are overwritten.",
+          "name": "input-sum preparation with overwrite",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "314",
+              "318"
+            ]
+          ],
+          "status": "hypothesis"
         }
       ],
       "callers": [
@@ -1855,6 +1904,23 @@
           "name": "captured-register copy and paired-arithmetic loop",
           "profiles": [
             "q2"
+          ],
+          "ranges": [
+            [
+              "389",
+              "391"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "PAIRED-COMPONENTS.md",
+          "limitations": "Operands within each pair are equal after the wrapper copies; first component high byte is zero on entry. Diagnostic inputs, previous-Y dispatch and virtual output captures do not recover physical ports.",
+          "meaning": "Copy R4-R7 to R8-R11 and call paired arithmetic. Previous-zero exit observes only the last high byte. q3 reset inputs supply independent U byte and V word; both output results, including the first high byte, may be nonzero on return. q1 matched inputs retain a zero first component.",
+          "name": "paired-component copy and final-high-byte loop",
+          "profiles": [
+            "q1",
+            "q3"
           ],
           "ranges": [
             [
@@ -3384,6 +3450,7 @@
     "NESTED-RESET.md": "2e2acb562eee036b5c25e57e235c90adbb36263eb6cc3f0ec6faa266abc0b5ce",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "PAIRED-CAPTURE.md": "ef09bcfa192c97b1fdc004e5b09a858fef6777d6179ff7b2e23cb7d50a62962a",
+    "PAIRED-COMPONENTS.md": "d8789444a8c12c7e16c3c9cdd0125519ce9e3db824e2e16ec10f3207e5037bf3",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
     "Q-DISPATCH.md": "bf46fab50deda66a8a7e15756e568b53c0c4bb642674e42356b598ff9b37867a",

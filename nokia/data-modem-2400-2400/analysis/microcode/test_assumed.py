@@ -17,6 +17,29 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_paired_components_nonzero_first_high_byte(self):
+        from paired_components_study import scenario_for, inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'paired-components-study.json')
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)
+            for profile in ('q1','q3'):
+                mapping=read(HERE/config['profiles'][profile])
+                for v in (1,128,32769,65535):
+                    for entry in range(4):
+                        scenario=scenario_for(config,profile,255,v,entry)
+                        result=execute(mapping,scenario,160,mode='integrated',out=out,trace_limit=160)
+                        self.assertTrue(result['clean'])
+                        trace=load_trace(out);finding=inspect(trace,scenario,profile,255,v,entry)
+                        if profile=='q3' and v==1 and entry==0:
+                            self.assertEqual(finding['expected_pairs'],[510,2])
+                            self.assertEqual(finding['outcome'],'terminal')
+                            altered=copy.deepcopy(trace)
+                            output=next(r for r in altered if r['pc']==0x393)
+                            output['alu']['f']=output['alu']['y']=0
+                            with self.assertRaises(AssertionError):
+                                inspect(altered,scenario,profile,255,v,entry)
+
     def test_handler_reply_and_transform_invariant(self):
         from handler_reply_study import current_loop_invariant, prestate, verify_poll_bytes
         from handler_timing_study import scenario_for_case, classify

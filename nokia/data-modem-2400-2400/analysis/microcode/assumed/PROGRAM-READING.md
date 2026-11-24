@@ -127,7 +127,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 90 functional/assumption tests pass, including checks that
+byte. All 91 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -152,3 +152,9 @@ changing timing trades successful handlers rather than resolving all waits.
 to terminal execution for all 32 input sums in q1/q3, while a decoded
 R0/Q invariant excludes release of the current-flag loop by any later D
 values or choices among its four candidate table entries.
+
+[Independent paired components](PAIRED-COMPONENTS.md) follows a q3 input at
+317 and the captured 16-bit word into two nonzero arithmetic components from
+reset. The first high-byte result may be nonzero on return; only the final
+high-byte result controls the loop. Matched q1 inputs expose the source-field
+difference, and earlier-load controls verify the surviving input provenance.
