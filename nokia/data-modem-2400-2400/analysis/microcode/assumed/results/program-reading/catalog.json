@@ -1505,6 +1505,34 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER2-BODY.md",
+        "limitations": "Zero reset, PLP replies, fixed later table index 2 including tentative 1A2\u21921E7, other reads one. Bypassed 1C3\u20131CC and 1DA\u20131DE excluded. Boundary reset sweep and exhaustive local a/b arithmetic; physical signal purpose unknown.",
+        "meaning": "Previous-flag reset context retains FE/FF in R4 through the logical carry of D197 AND FE, drains the wrapped D197+D1A2 sum, takes the 2D0 detour and captures R4 in R12. A negated-R4 poll reply releases the continuation; D1D0 survives in Q and terminal half-Q stores.",
+        "name": "handler-2 carry-selected comparison and payload continuation",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "18B",
+            "1C2"
+          ],
+          [
+            "1CD",
+            "1D9"
+          ],
+          [
+            "1E7",
+            "1E7"
+          ],
+          [
+            "3A2",
+            "3AA"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1527,7 +1555,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 703,
+    "annotated_used_words": 771,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2834,6 +2862,34 @@
             "q3"
           ],
           "ranges": [
+            [
+              "3A2",
+              "3AA"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER2-BODY.md",
+          "limitations": "Zero reset, PLP replies, fixed later table index 2 including tentative 1A2\u21921E7, other reads one. Bypassed 1C3\u20131CC and 1DA\u20131DE excluded. Boundary reset sweep and exhaustive local a/b arithmetic; physical signal purpose unknown.",
+          "meaning": "Previous-flag reset context retains FE/FF in R4 through the logical carry of D197 AND FE, drains the wrapped D197+D1A2 sum, takes the 2D0 detour and captures R4 in R12. A negated-R4 poll reply releases the continuation; D1D0 survives in Q and terminal half-Q stores.",
+          "name": "handler-2 carry-selected comparison and payload continuation",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "18B",
+              "1C2"
+            ],
+            [
+              "1CD",
+              "1D9"
+            ],
+            [
+              "1E7",
+              "1E7"
+            ],
             [
               "3A2",
               "3AA"
@@ -4831,6 +4887,7 @@
     "HANDLER-REPLY.md": "4d19202b5d554ae76b201bb4d709a4d52cb3e31031aecac2ee99d3ae0970f76d",
     "HANDLER0.md": "6820336aafb949943d7c5d08681850a2c7c8434c50442fc067726b7d677f2598",
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
+    "HANDLER2-BODY.md": "9e6b8ee75f79b64e6e6e61aa6838a456e9483d8112949bbfe55d29e490615d09",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",

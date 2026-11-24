@@ -679,3 +679,8 @@ which input survives in R4, and the retained R3=3 caused by entry at 07B.
 source from the fitted-original mask test. Current timing permits the full
 reset arithmetic sequence; intermediate Q inputs are overwritten before
 terminal storage, while the captured R4 sum survives.
+
+[Handler 2 preparation and continuation](HANDLER2-BODY.md) connects the
+carry-selected FE/FF comparison byte, wrapped-sum drain timing, paired detour,
+external reply and terminal payload stores. The reply depends on a real
+upstream input; 02 is specific to the earlier default-input context.

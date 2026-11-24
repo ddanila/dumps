@@ -127,6 +127,20 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler2_comparison_carry_and_payload(self):
+        import random
+        from handler2_body import scenario_for,inspect,check_arithmetic
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler2-body.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x18b)
+        self.assertEqual(check_arithmetic(mapping),65536)
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for _ in range(48):
+                code=2+8*rng.randrange(32);a,b,payload=[rng.randrange(256) for _ in range(3)];delay=rng.randrange(8)
+                result=execute(mapping,scenario_for(config,code,a,b,payload,delay),320,mode='integrated',out=out,trace_limit=320)
+                inspect(load_trace(out),result,a,b,payload,delay)
+
     def test_q3_handler0_discards_intermediate_inputs(self):
         import random
         from handler0_study import scenario_for,inspect,check_local
