@@ -1,0 +1,112 @@
+{
+  "candidates": {
+    "frame-05": {
+      "c2_changing_sample_gate": false,
+      "centered_sample_energy": 0.0,
+      "codes": [
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146,
+        146
+      ],
+      "cycles": [
+        55,
+        67,
+        79,
+        91,
+        103,
+        115,
+        127,
+        139,
+        151,
+        163,
+        175,
+        187,
+        199,
+        211,
+        223,
+        235,
+        247
+      ],
+      "distinct_codes": 1,
+      "transfer_count": 17
+    },
+    "frame-85": {
+      "c2_changing_sample_gate": false,
+      "centered_sample_energy": 0.0,
+      "codes": [
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34,
+        34
+      ],
+      "cycles": [
+        55,
+        67,
+        79,
+        91,
+        103,
+        115,
+        127,
+        139,
+        151,
+        163,
+        175,
+        187,
+        199,
+        211,
+        223,
+        235,
+        247
+      ],
+      "distinct_codes": 1,
+      "transfer_count": 17
+    }
+  },
+  "interpretation": "Under the declared q3 bridge and DAC strobe hypothesis, each controller frame produces 17 transfers of one held code. Such a sequence has zero AC sample energy and cannot show the required carrier or dibit phase steps.",
+  "limitations": [
+    "The bridge input routing and DAC strobes are explicit hypotheses, not traced board nets.",
+    "Only the two saved controller fixtures and their 256-instruction microcode runs are compared.",
+    "The bridge study separately checked the repeating 12-instruction full-state recurrence.",
+    "Failure of this candidate does not rule out a different mapping, entry, output site or physical sample clock."
+  ],
+  "reference": {
+    "distinct_pcm_codes": 29,
+    "steady_1800_hz_peak": {
+      "bin_width_hz": 15.0,
+      "frequency_hz": 1800.0,
+      "power": 1636426491.60668
+    }
+  },
+  "source_sha256": {
+    "frame-05": "22443e47df9465ea93de0ccf37ca27b39471e4c2c5310c86dcdacb860308723f",
+    "frame-85": "3be247276918c6ffc52f7b205f1edea5e675f11c903fc68794a6d96ea8f0e59c"
+  },
+  "status": "both saved diagnostic bridge paths fail C2 changing-sample gate"
+}

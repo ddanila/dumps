@@ -78,6 +78,17 @@ C1**, not a bit-exact fixed-point hardware model. No board mapping, actual
 sample rate, DAC waveform, recovered USART bits or echo-canceller routine is
 established by this reference.
 
+The [C2 bridge check](c2_bridge_check.py) applies the first necessary transmit
+gate to both saved controller-to-DAC candidate runs. Each executes real
+microcode under its declared q3 routing and generates 17 DAC transfers at
+cycles 55, 67, …, 247. One run transfers code 34 every time; the other code
+146 every time. Both have zero changing-sample energy, whereas the reference
+1800 Hz fixture uses 29 different PCM codes. Thus **this particular bridge
+fails C2** before spectrum or phase tests. The [report](results/c2-bridge-check.json)
+records the exact codes, cycles and artifact hashes. Since its byte routing
+and DAC strobe are hypotheses, this failure does not reject other mappings or
+physical output paths.
+
 ### Additive-instruction screen
 
 Across the six existing datapath profiles, 62–82 used words per profile decode
