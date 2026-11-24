@@ -12,6 +12,13 @@ samples. An earlier description of that photographed converter as a DAC0830
 was incorrect. The output converter and both sample-bus routes remain to be
 identified; existing DAC0830 executions are diagnostic counterfactuals.
 
+The [ADC sample run](ADC-SAMPLE-RUN.md) feeds 256 complementary reference
+line-sample bytes to the recurring D read at 38E under the photo-constrained
+q3 mapping. All samples are consumed, but the observed post-dispatch state
+depends only on the current byte, even when sample order is reversed. This
+rules out that **scoped path alone** as the demonstrated differential receiver;
+other input routes and state locations remain open.
+
 The [photo-informed board experiment](../board/PHOTO-HYPOTHESES.md) revisits
 the physical-wiring blocker: missing proven nets do not prevent explicit
 candidate wiring from being executed. It runs the real control PROMs through
