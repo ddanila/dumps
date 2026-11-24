@@ -127,7 +127,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 94 functional/assumption tests pass, including checks that
+byte. All 95 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -169,3 +169,9 @@ remain unresolved.
 all activations of fitted control-word predicates. A two-bit gate preserves
 the full quarter-sine path, but 136 three-bit alternatives also fit the assumed
 labels and pass the tested boundaries while predicting different bus reads.
+
+[ROM gates across handlers](ROM-GATE-HANDLERS.md) separates four execution
+classes among the 137 fitted predicates. The two-bit gate creates a three-cycle
+ROM/carry wait in handler 5; a zero external reply releases it. Other gates
+change handler 2’s comparison value, showing why termination alone is not
+evidence of the physical read-selection signal.

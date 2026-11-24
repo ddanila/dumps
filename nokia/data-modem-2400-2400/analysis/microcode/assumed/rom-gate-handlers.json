@@ -1,0 +1,23 @@
+{
+  "status": "hypothesis",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "tables": "results/third-case-study/scenario-all_cases.json",
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q3": "results/independent-study/variant-3.json"
+  },
+  "cycles": 512,
+  "evidence": "Held-out handler comparison of every raw-bit ROM predicate fitted by rom-gate-study. Retain q3 previous flags, zero reset, independent Q input sum and early PLP replies; every other D=1 and non-109 dispatch index=2. No sine-specific 316/317 or captured-pair inputs, and no 36D reply except separately marked delayed-reply controls. Labels remain hypotheses, not physical bus observations.",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "gate_search": "rom-gate-study.json",
+  "input_sums": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ]
+}

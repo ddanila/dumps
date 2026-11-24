@@ -938,6 +938,34 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_rom_gate_handler_transfer_and_delayed_release(self):
+        from rom_gate_handlers import scenario_for_gate, outcome
+        from defined_condition_fit import load_trace
+        config=read(HERE/'rom-gate-handlers.json')
+        fits=read(HERE/'results/rom-gate-study/report.json')['fits']
+        mapping=read(HERE/config['profiles']['q3'])
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)
+            for gate,expected in ((None,'terminal'),(0,'repeat'),(50,'terminal')):
+                scenario=scenario_for_gate(config,5,None if gate is None else fits[gate]['pcs'])
+                result=execute(mapping,scenario,512,mode='integrated',out=out,trace_limit=512)
+                trace=load_trace(out);finding=outcome(trace,result,scenario)
+                self.assertEqual(finding['outcome'],expected)
+                self.assertIn('previous_y',finding['final_state'])
+                if gate==0:
+                    self.assertEqual(finding['repeat']['period'],3)
+                    for row in trace:
+                        if row['pc']==0x36c:
+                            self.assertEqual((row['external_read']['address'],row['external_read']['value']),(0x100,0))
+                        if row['pc']==0x36e:
+                            self.assertEqual((row['alu']['f'],row['alu']['y'],row['test']),(1,0,1))
+            for delay in (0,1,7):
+                scenario=scenario_for_gate(config,5,fits[0]['pcs'],delay)
+                result=execute(mapping,scenario,512,mode='integrated',out=out,trace_limit=512)
+                finding=outcome(load_trace(out),result,scenario)
+                self.assertTrue(finding['clean'])
+                self.assertEqual(finding['first_terminal'],110+3*delay)
+
     def test_rom_gate_fit_and_global_read_effects(self):
         from common import load
         from rom_gate_study import search, observe

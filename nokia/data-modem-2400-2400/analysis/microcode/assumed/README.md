@@ -568,3 +568,9 @@ remain unresolved.
 all activations of fitted control-word predicates. A two-bit gate preserves
 the full quarter-sine path, but 136 three-bit alternatives also fit the assumed
 labels and pass the tested boundaries while predicting different bus reads.
+
+[ROM gates across handlers](ROM-GATE-HANDLERS.md) separates four execution
+classes among the 137 fitted predicates. The two-bit gate creates a three-cycle
+ROM/carry wait in handler 5; a zero external reply releases it. Other gates
+change handler 2’s comparison value, showing why termination alone is not
+evidence of the physical read-selection signal.
