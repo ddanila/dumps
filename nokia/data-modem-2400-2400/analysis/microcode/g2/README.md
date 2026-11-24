@@ -719,4 +719,11 @@ D to table output, while the source and output wiring remain untraced.
 The [real-controller-byte continuation](PHOTO-TABLE-CONTROLLER-SOURCE.md)
 offers USART-01 bytes at D349. In q3 they change the later table source under
 the candidate route, but the only reached output candidate, `39E`, stays at
-ALU code `00` and no continuous stream develops.
+ALU code `00` and no continuous stream develops. A dynamic source-register
+check also finds no read of the table-written R10–R13 values across these
+32 runs, so the next control-path candidate must reach a table-output consumer.
+The [E2 phase candidate](PHOTO-TABLE-PHASE-CONSUMER.md) lowers the coupled
+pin only during the sign tables and raises it elsewhere. Across 16 diagnostic
+runs, real controller bytes then pass through the table into internal
+consumer `140`; the observed output candidate `39E` remains zero and the
+phase schedule is not physically traced.

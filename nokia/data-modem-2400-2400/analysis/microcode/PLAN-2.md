@@ -136,7 +136,16 @@ phases B–C turn "what" into "how".
   that actual USART-01 bytes can affect the q3 source under this candidate
   route, while the reached output word `39E` remains zero. The remaining
   transmitter task is a sustained input schedule and a changing DAC-bound
-  output after the table calls.
+  output after the table calls. A dynamic register-flow check finds no read
+  of the 1,056 table-written R10–R13 values in these 32 runs; test a branch
+  or timing candidate that reaches a real table-output consumer.
+  A [counterfactual E2 phase run](g2/PHOTO-TABLE-PHASE-CONSUMER.md) does reach
+  such consumers: held low during table words and high elsewhere, the q3
+  program passes actual controller bytes through D349, the sign table and
+  instruction `140` (16 clean runs, 144 external table-output reads). The
+  schedule is address-assigned, not a traced U5 clock; output candidate `39E`
+  remains zero. Replace it with a plausible latch timing rule and continue
+  toward a changing DAC-bound sample stream.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

@@ -21,6 +21,39 @@ SEEDS = (22, 116, 184, 245)
 OUTPUT_CANDIDATES = (0x392, 0x39E)
 
 
+def table_output_flow(trace):
+    """Track reads of R10:13 after table writes until another writer replaces them."""
+    tainted = set()
+    reads = []
+    writes = 0
+    overwritten = 0
+    for row in trace:
+        instruction = row['instruction_i']
+        source = instruction & 7
+        destination = instruction >> 6 & 7
+        a, b = row['register_address_a'], row['register_address_b']
+        inputs = []
+        if source in (0, 1, 4, 5):
+            inputs.append(a)
+        if source in (1, 3):
+            inputs.append(b)
+        if destination == 2:  # AM2901 Y selects A even when F does not.
+            inputs.append(a)
+        for register in set(inputs) & tainted:
+            reads.append(dict(cycle=row['cycle'], pc=f"{row['pc']:03X}",
+                              register=register))
+        if destination in (2, 3, 4, 5, 6, 7) and b in (10, 11, 12, 13):
+            pc = row['pc']
+            if 0x3C5 <= pc <= 0x3D4 or 0x3DA <= pc <= 0x3E9:
+                tainted.add(b)
+                writes += 1
+            else:
+                overwritten += b in tainted
+                tainted.discard(b)
+    return dict(table_writes=writes, overwritten_without_read=overwritten,
+                downstream_reads=reads, still_live=sorted(tainted))
+
+
 def run(out=HERE / 'results/photo-table-controller-source.json'):
     groups = read(CONTROLLER)['groups']
     cases = []
@@ -56,6 +89,9 @@ def run(out=HERE / 'results/photo-table-controller-source.json'):
                         if tuple(call['output_after']) != expected(call['source'], call['entry']):
                             raise ValueError('table sign formula changed')
                     samples = [row for row in trace if row['pc'] in OUTPUT_CANDIDATES]
+                    output_flow = table_output_flow(trace)
+                    if output_flow['downstream_reads']:
+                        raise ValueError('table output is read downstream; update path conclusion')
                     cases.append(dict(mapping=mapping_name, seed=seed,
                                       controller_selector=selector,
                                       controller_line_bytes=line_bytes,
@@ -74,6 +110,7 @@ def run(out=HERE / 'results/photo-table-controller-source.json'):
                                                                for row in samples],
                                       output_visits_after_last_source_update=sum(
                                           row['cycle'] > writes[-1]['cycle'] for row in samples),
+                                      table_output_flow=output_flow,
                                       trace_digest=result['trace_digest']))
     q3 = [case for case in cases if case['mapping'] == 'q3']
     q1 = [case for case in cases if case['mapping'] == 'q1']
@@ -108,6 +145,10 @@ def run(out=HERE / 'results/photo-table-controller-source.json'):
                                                           for x in cases),
                               output_visits_after_last_source_update=sum(
                                   x['output_visits_after_last_source_update'] for x in cases),
+                              table_output_writes=sum(
+                                  x['table_output_flow']['table_writes'] for x in cases),
+                              table_output_downstream_reads=sum(
+                                  len(x['table_output_flow']['downstream_reads']) for x in cases),
                               source_highs_by_mapping={name: dict(Counter(
                                   str(call['source'][0] >> 8) for case in cases
                                   if case['mapping'] == name for call in case['table_calls']))
@@ -116,6 +157,7 @@ def run(out=HERE / 'results/photo-table-controller-source.json'):
                       'USART-01 to D349, previous-Y table dispatch, photo-pin levels, upstream branches and AC=RST override are hypotheses.',
                       'Only one to three controller bytes are consumed per run; this is not a continuous bitstream receiver.',
                       'Output candidate words are not traced to DAC08, and none follows the last D349 source update.',
+                      'No table-written R10:13 value is read before replacement in these 32 runs; this is a dynamic fixture result, not whole-program dead-code proof.',
                       'No Am27S31 read or phase-advancing sample loop is established.'],
                   source_sha256={str(path.relative_to(HERE.parent)):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
