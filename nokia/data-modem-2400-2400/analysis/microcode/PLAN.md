@@ -109,6 +109,15 @@ are grounds to change the experiment, not to wait for measurements. The
 [photo-informed board experiment](board/PHOTO-HYPOTHESES.md) demonstrates this
 approach with executable candidate wiring and a targeted indirect-branch pulse.
 
+Operationally, when a candidate reaches a wait loop, produces a fixed output or
+misses a required path, close out **that run** with its exact assumptions and
+trace. Choose the next photo-compatible connection, clock phase or input/state
+fixture and state what observation would distinguish it. If the current batch
+cannot discriminate candidates, switch to another independent analysis of the
+controller, PROM or analog signal path. Keep the goal active while any of these
+experiments can still advance it; do not turn an unverified connection into a
+goal-level blocker merely because the first assumption failed.
+
 For G2, treat a connection suggested by the available board photographs as a
 testable candidate even when a trace disappears beneath a component or its
 destination pin is ambiguous. Record the visible segment and the inferred
