@@ -1,0 +1,380 @@
+{
+  "cases": {
+    "en_high_external_036": {
+      "en_high": true,
+      "external_address": "036",
+      "fetch": {
+        "branch": "300",
+        "command": "BRT",
+        "direct": 1,
+        "pc": "036",
+        "raw": [
+          1,
+          220,
+          131,
+          252
+        ],
+        "select": 0
+      },
+      "internal_pc": "084",
+      "next_pc": "300",
+      "stack_unchanged": true
+    },
+    "en_high_no_driver": {
+      "en_high": true,
+      "external_address": null,
+      "fetch": null,
+      "internal_pc": "084",
+      "next_pc": null,
+      "outcome": "unknown control-store address: U9 outputs high-Z, no driver"
+    },
+    "en_low": {
+      "en_high": false,
+      "external_address": null,
+      "fetch": {
+        "branch": "084",
+        "command": "BRT",
+        "direct": 1,
+        "pc": "084",
+        "raw": [
+          66,
+          128,
+          131,
+          3
+        ],
+        "select": 0
+      },
+      "internal_pc": "084",
+      "next_pc": "084",
+      "stack_unchanged": true
+    },
+    "next_internal_fetch": {
+      "command": "INC",
+      "pc": "300"
+    }
+  },
+  "component": "N8X02AN at U9, pin 2 EN-bar",
+  "datasheet_behavior": "EN high tri-states address outputs; an external driver may address control-store PROMs while the internal address register retains its state.",
+  "limitations": [
+    "No connection to U9 EN-bar or an external ten-bit address driver is established on the Nokia board.",
+    "The 036 address is a diagnostic choice from real PROM contents, not a recovered controller vector.",
+    "Only the 8X02 next-address and stack operation is modeled; no Am2901, controller, DAC or ADC participates.",
+    "Driving EN high without an external PROM address leaves the control word unknown, not a restart.",
+    "The Signetics source describes 8X02; the photographed part is marked N8X02AN."
+  ],
+  "manufacturer_reference": "https://bms.isjtr.ro/other/sos/Philips_elcoma_Signetics_Bipolar%26MOSMicroprocessors_1978.pdf",
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/results/rotation-study/scenario-3.json": "b1be66bc14689fe7f51181105e3fa5c87607e58d80cfe05987afa9979e30d678",
+    "assumed/sequencer.json": "b2e12bd569e614540a9e0db78ba2cf0888c41961077e221940fd8b69d1dfa99b",
+    "g2/enable_takeover_probe.py": "b1732edb46a51de09788d0c4973cf712bb3d3b709e402a68e91540c6ab6dc115",
+    "model.py": "12bafa9ff5f2c1f47bfc91b1e5ffcac810ab3e90df0f74b21433082b2b6b9267"
+  },
+  "status": "diagnostic external-address hypothesis, not Nokia wiring",
+  "unconditional_direct_brt_vectors_excluding_084": [
+    {
+      "fetch_pc": "00C",
+      "target": "05B"
+    },
+    {
+      "fetch_pc": "012",
+      "target": "05B"
+    },
+    {
+      "fetch_pc": "021",
+      "target": "059"
+    },
+    {
+      "fetch_pc": "027",
+      "target": "02B"
+    },
+    {
+      "fetch_pc": "02A",
+      "target": "02B"
+    },
+    {
+      "fetch_pc": "031",
+      "target": "05B"
+    },
+    {
+      "fetch_pc": "036",
+      "target": "300"
+    },
+    {
+      "fetch_pc": "037",
+      "target": "047"
+    },
+    {
+      "fetch_pc": "038",
+      "target": "049"
+    },
+    {
+      "fetch_pc": "039",
+      "target": "040"
+    },
+    {
+      "fetch_pc": "03D",
+      "target": "040"
+    },
+    {
+      "fetch_pc": "03E",
+      "target": "047"
+    },
+    {
+      "fetch_pc": "046",
+      "target": "00B"
+    },
+    {
+      "fetch_pc": "048",
+      "target": "045"
+    },
+    {
+      "fetch_pc": "04B",
+      "target": "03B"
+    },
+    {
+      "fetch_pc": "058",
+      "target": "05B"
+    },
+    {
+      "fetch_pc": "05C",
+      "target": "05D"
+    },
+    {
+      "fetch_pc": "0CD",
+      "target": "0DE"
+    },
+    {
+      "fetch_pc": "0DF",
+      "target": "1D3"
+    },
+    {
+      "fetch_pc": "0E4",
+      "target": "0C4"
+    },
+    {
+      "fetch_pc": "0E8",
+      "target": "0C8"
+    },
+    {
+      "fetch_pc": "0EA",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "0F9",
+      "target": "28B"
+    },
+    {
+      "fetch_pc": "0FC",
+      "target": "078"
+    },
+    {
+      "fetch_pc": "0FF",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "105",
+      "target": "106"
+    },
+    {
+      "fetch_pc": "10A",
+      "target": "11A"
+    },
+    {
+      "fetch_pc": "10B",
+      "target": "148"
+    },
+    {
+      "fetch_pc": "10C",
+      "target": "18B"
+    },
+    {
+      "fetch_pc": "10D",
+      "target": "300"
+    },
+    {
+      "fetch_pc": "10E",
+      "target": "259"
+    },
+    {
+      "fetch_pc": "10F",
+      "target": "345"
+    },
+    {
+      "fetch_pc": "110",
+      "target": "09E"
+    },
+    {
+      "fetch_pc": "111",
+      "target": "133"
+    },
+    {
+      "fetch_pc": "125",
+      "target": "079"
+    },
+    {
+      "fetch_pc": "147",
+      "target": "083"
+    },
+    {
+      "fetch_pc": "15F",
+      "target": "2E6"
+    },
+    {
+      "fetch_pc": "17E",
+      "target": "0E9"
+    },
+    {
+      "fetch_pc": "186",
+      "target": "0E9"
+    },
+    {
+      "fetch_pc": "1D9",
+      "target": "07A"
+    },
+    {
+      "fetch_pc": "1DB",
+      "target": "1C3"
+    },
+    {
+      "fetch_pc": "1DE",
+      "target": "1D3"
+    },
+    {
+      "fetch_pc": "1E4",
+      "target": "19C"
+    },
+    {
+      "fetch_pc": "1FF",
+      "target": "308"
+    },
+    {
+      "fetch_pc": "200",
+      "target": "281"
+    },
+    {
+      "fetch_pc": "203",
+      "target": "2CB"
+    },
+    {
+      "fetch_pc": "216",
+      "target": "078"
+    },
+    {
+      "fetch_pc": "219",
+      "target": "078"
+    },
+    {
+      "fetch_pc": "237",
+      "target": "251"
+    },
+    {
+      "fetch_pc": "255",
+      "target": "0EB"
+    },
+    {
+      "fetch_pc": "257",
+      "target": "2DC"
+    },
+    {
+      "fetch_pc": "280",
+      "target": "078"
+    },
+    {
+      "fetch_pc": "286",
+      "target": "201"
+    },
+    {
+      "fetch_pc": "28D",
+      "target": "078"
+    },
+    {
+      "fetch_pc": "2B0",
+      "target": "26A"
+    },
+    {
+      "fetch_pc": "2B2",
+      "target": "26A"
+    },
+    {
+      "fetch_pc": "2CA",
+      "target": "0FB"
+    },
+    {
+      "fetch_pc": "2CE",
+      "target": "204"
+    },
+    {
+      "fetch_pc": "2D8",
+      "target": "1CD"
+    },
+    {
+      "fetch_pc": "2DB",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "2DE",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "2E4",
+      "target": "3BB"
+    },
+    {
+      "fetch_pc": "2E5",
+      "target": "2FD"
+    },
+    {
+      "fetch_pc": "2EB",
+      "target": "160"
+    },
+    {
+      "fetch_pc": "2FC",
+      "target": "2E0"
+    },
+    {
+      "fetch_pc": "30A",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "325",
+      "target": "326"
+    },
+    {
+      "fetch_pc": "32B",
+      "target": "32C"
+    },
+    {
+      "fetch_pc": "334",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "34D",
+      "target": "361"
+    },
+    {
+      "fetch_pc": "34E",
+      "target": "353"
+    },
+    {
+      "fetch_pc": "352",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "356",
+      "target": "07B"
+    },
+    {
+      "fetch_pc": "365",
+      "target": "354"
+    },
+    {
+      "fetch_pc": "3BC",
+      "target": "2FD"
+    },
+    {
+      "fetch_pc": "3BF",
+      "target": "287"
+    }
+  ]
+}

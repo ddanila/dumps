@@ -675,3 +675,9 @@ and table outputs without changing which calls occur. All 28 calls per mapping
 then have nonzero source pairs, but none satisfies the simple sign-selection
 or quarter-turn formula. This narrows the arithmetic interpretation while
 leaving the controller and DAC routes unresolved.
+
+The [U9 enable diagnostic](ENABLE-TAKEOVER.md) uses the Signetics 8X02 pin
+description and real PROM words to distinguish a floating address bus from
+a one-cycle external control-store address. EN alone does not release `084`;
+an externally supplied PROM address could fetch a branch word and change the
+internal PC, but no such Nokia connection has been established.
