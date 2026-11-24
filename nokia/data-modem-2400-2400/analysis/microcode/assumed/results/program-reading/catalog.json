@@ -715,6 +715,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "GATE-ALIASES.md",
+        "limitations": "Requires the optional four-bit clause and diagnostic input scenario. The external output consumer remains unknown; default reachability stays unresolved.",
+        "meaning": "Under q2, expose Q-R0 without storing it, then re-enter the preparation call at 259. The four-bit gate extension supplies a reset witness with Q=FF, R0=0 and an empty live stack.",
+        "name": "transient difference before preparation re-entry",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "258",
+            "258"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -735,7 +751,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 300,
+    "annotated_used_words": 301,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -2022,6 +2038,7 @@
     "DRAIN-PREFIX.md": "78015a54cfbeb1ef74a8bff7fe9d1a40bb3396c44f5849901d938f185e606796",
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
+    "GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",

@@ -481,3 +481,8 @@ witnesses across explicitly different retained mappings and scenarios.
 clean 1,016-word graph. Matched q2 reset runs enter the adjustment selector
 when D+Q wraps R0 to zero; Q=FF selects the unadjusted tail. The gate remains
 an optional structural hypothesis, with five words still disconnected.
+
+[Identical-word gate limits](GATE-ALIASES.md) add a clean reset entry into 258
+and a 1,017-word optional graph. The four remaining words cannot be admitted
+by raw-only gate relaxation without free-flag stack-underflow paths; actual
+flag correlations and alternative entry models remain open investigations.

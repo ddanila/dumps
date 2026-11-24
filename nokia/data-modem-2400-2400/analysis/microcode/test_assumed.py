@@ -75,6 +75,19 @@ class AssumedTests(unittest.TestCase):
         row.update(command=4,select=0,direct=True)
         self.assertEqual(allowed_tests(row,scenario,test_policy=lambda r,s:[0]),[1])
 
+    def test_witness_can_require_empty_stack_at_failure_site(self):
+        from context_branch_study import witness
+        from unconditional_gate_study import policy_for
+        rows=decode(self.mapping)
+        scenario=read(HERE/'results/three-bit-gate-study/scenario.json')
+        aliases=[r['pc'] for r in rows if r['raw']==rows[0x0fc]['raw']]
+        path=witness(rows,scenario,0x220,policy_for(aliases),target_stack=())
+        self.assertEqual(path[-1]['next_pc'],0x220)
+        self.assertEqual(path[-1]['stack_after'],[])
+        self.assertEqual(rows[0x220]['command'],3)
+        with self.assertRaises(ValueError):
+            witness(rows,scenario,0x220,target_stack=())
+
     def test_unconditional_brt_gate_preserves_default_and_calls(self):
         from unconditional_gate_study import relaxed_pcs, policy_for
         from common import unconditional_transfer

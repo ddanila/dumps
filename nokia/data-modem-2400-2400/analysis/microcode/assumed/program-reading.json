@@ -730,6 +730,22 @@
         "q2"
       ],
       "limitations": "Matched reset sweep uses Q-indexed 26F and diagnostic reads at 2A8/235/251. The three-bit gate is a branch-address correlation, not recovered wiring. Output consumer and default entry remain unresolved."
+    },
+    {
+      "name": "transient difference before preparation re-entry",
+      "ranges": [
+        [
+          "258",
+          "258"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q2, expose Q-R0 without storing it, then re-enter the preparation call at 259. The four-bit gate extension supplies a reset witness with Q=FF, R0=0 and an empty live stack.",
+      "evidence": "GATE-ALIASES.md",
+      "profiles": [
+        "q2"
+      ],
+      "limitations": "Requires the optional four-bit clause and diagnostic input scenario. The external output consumer remains unknown; default reachability stays unresolved."
     }
   ]
 }

@@ -17,14 +17,15 @@ def alternative(rows,lanes,command,select,position,token):
     return result
 
 
-def witness(rows,scenario,target_pc,unconditional_policy=None,test_policy=None):
+def witness(rows,scenario,target_pc,unconditional_policy=None,test_policy=None,target_stack=None):
     policy=unconditional_policy or unconditional_transfer
     cfg=graph(rows,scenario,include_states=True,unconditional_policy=policy,test_policy=test_policy);adjacent={}
     for source,target in cfg['state_edges']:adjacent.setdefault(source,[]).append(target)
     root=(0,());parents={root:None};queue=deque([root]);end=None
     while queue:
         state=queue.popleft()
-        if state[0]==target_pc:end=state;break
+        if state[0]==target_pc and (target_stack is None or state[1]==tuple(target_stack)):
+            end=state;break
         for target in sorted(adjacent.get(state,[])):
             if target not in parents:parents[target]=state;queue.append(target)
     if end is None:raise ValueError('witness target not reached')
