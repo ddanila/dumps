@@ -1,10 +1,26 @@
 # Plan 2: establish what the Am2901 microprogram does, and why
 
-**Question to answer (target ≥80% confidence):** what signal-processing job
-the DSC2847 bit-slice board performs in this modem, and how the 1024-word
-microprogram implements it.
+## Goal G2
 
-[PLAN.md](PLAN.md) was accepted: the microcode now runs under six candidate
+> **Show what the DSC 2847 microprogram does in the modem, and how, by
+> running it.**
+
+In full: identify the signal-processing job of the Am2901 board (expected:
+V.26 ter DPSK modulation, demodulation and echo cancellation). Narrow the
+candidate field mappings to one that implements it. Then demonstrate it in
+the emulator: driven by the real 8031 controller's commands and bitstream, the
+microcode should produce the expected line signal.
+
+- **"What" is reached** when the identification holds at ≥80% confidence.
+- **"How" is reached** when the emulated transmitter passes, plus the
+  receiver or the echo canceller.
+
+The exact criteria are in [§3](#3-acceptance-for-g2).
+
+## Why a second plan
+
+Goal G1 in [PLAN.md](PLAN.md), running the microcode without errors under
+explicit assumptions, is complete: the microcode now runs under six candidate
 field mappings and every word has an annotation. That bottom-up approach
 reached its limit. Its own [final review](assumed/FINAL-REVIEW.md) states that
 it does not identify the algorithm, and the integrated DAC experiment only
@@ -141,7 +157,7 @@ Listed in order of value per effort:
   and check that the residual falls while training is enabled and freezes
   when it is commanded off.
 
-## 3. Acceptance for the question
+## 3. Acceptance for G2
 
 "What it is for" counts as answered at ≥80% when **A1 + A2 + E2** are
 consistent with one standard and either **A4 or B4(a)** shows a transmit

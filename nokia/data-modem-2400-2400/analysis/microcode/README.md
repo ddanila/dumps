@@ -9,14 +9,14 @@ traced, so the microcode runs only under explicit, labelled assumptions.
 
 ## Status
 
-- **Done ([PLAN.md](PLAN.md)):** the microcode runs without model errors
+- **Done, goal G1 ([PLAN.md](PLAN.md)):** the microcode runs without model errors
   under six candidate field mappings. Every used word is annotated, and a
   controller-to-DAC transaction is replayed. See the
   [overview](assumed/PROGRAM-OVERVIEW.md) and the
   [final review](assumed/FINAL-REVIEW.md).
 - **Not yet known:** the algorithm itself. Under the current mappings the
   microcode produces constant DAC codes, not a waveform.
-- **Next ([PLAN-2.md](PLAN-2.md)):** use the V.26 ter evidence from the
+- **Next, goal G2 ([PLAN-2.md](PLAN-2.md#goal-g2)):** use the V.26 ter evidence from the
   controller (scrambler, synchronous line USART, handshake timing, 14.4 MHz
   clock, sine tables) to rule mappings in or out by what a DPSK modem must
   compute. A few continuity checks on the board would settle the rest.

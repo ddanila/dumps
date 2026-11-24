@@ -1,6 +1,9 @@
 # DSC2847 microcode emulation plan
 
-**Goal:** get the four-PROM control store (810237C–810240C) running in an
+> **Status:** complete ([final review](assumed/FINAL-REVIEW.md)). The current
+> goal is **G2** in [PLAN-2.md](PLAN-2.md#goal-g2).
+
+**Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
 Bit-exact fidelity to the Nokia board is *not* required. Where the hardware is
 unknown, the emulator takes an explicit, labelled assumption and keeps going
