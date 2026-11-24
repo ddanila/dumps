@@ -1,7 +1,9 @@
 # DSC2847 microcode emulation plan
 
 > **Status:** complete ([final review](assumed/FINAL-REVIEW.md)). The current
-> goal is **G2** in [PLAN-2.md](PLAN-2.md#goal-g2).
+> goal is **G2** in [PLAN-2.md](PLAN-2.md#goal-g2). G2 remains active when a
+> photographed connection is ambiguous: model the plausible connections as
+> labelled assumptions, run them, and use the results to choose the next test.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
@@ -104,6 +106,9 @@ the negative result tied to that exact wiring and state fixture. If a sweep
 only yields fixed output or a wait loop, change the connection, timing or input
 fixture, or move to an independent controller, ROM or analog-path constraint.
 Do not wait for new photos or continuity measurements to make that next move.
+Only mark G2 blocked if no plausible assumed connection and no independent
+experiment can advance its acceptance checks; an unresolved physical net or a
+failed candidate run is not sufficient.
 The [D349 source-update experiment](g2/PHOTO-TABLE-SOURCE-UPDATE.md) is a
 concrete example: after two restart fixtures gave fixed table sources, four
 other photo-compatible scenarios found an input-sensitive R5 write before
