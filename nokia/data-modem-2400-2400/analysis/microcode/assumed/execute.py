@@ -47,6 +47,17 @@ def validate_scenario(s):
             or not policy.get('evidence')
             for bit, policy in overrides.items())):
         raise ValueError('instruction bit overrides require indexed, provenance-owned constant bits')
+    address_overrides = s['inputs'].get('register_address_bit_overrides', {})
+    if (not isinstance(address_overrides, dict) or any(
+            field not in ('a', 'b') or not isinstance(bits, dict) or any(
+                not isinstance(bit, str) or not bit.isdecimal() or str(int(bit)) != bit
+                or not 0 <= int(bit) < 4 or not isinstance(policy, dict)
+                or type(policy.get('value')) is not int or policy['value'] not in (0, 1)
+                or policy.get('status') not in ('hypothesis', 'stub', 'recovered-from-data')
+                or not policy.get('evidence')
+                for bit, policy in bits.items())
+            for field, bits in address_overrides.items())):
+        raise ValueError('register address overrides require indexed, provenance-owned constant bits')
     logic_flags=s['inputs'].get('logic_flags')
     if 'logic_flags' in s['inputs']:
         if (not isinstance(logic_flags,dict) or logic_flags.get('mode') not in ('unknown','am2901b-ripple')
@@ -201,6 +212,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     read_counts=Counter();selected_reads=0;sequence_visits=Counter()
     instruction_overrides={int(bit): policy['value'] for bit, policy in
                            inputs.get('instruction_bit_overrides', {}).items()}
+    address_overrides={field: {int(bit): policy['value'] for bit, policy in bits.items()}
+                       for field, bits in inputs.get('register_address_bit_overrides', {}).items()}
     writes={int(w['pc']):w for w in scenario['io']['writes']}
     trace_count=0;io_count=0;dispatch_counts=Counter();register_changes=0
     routine_entries={r['branch'] for r in rows if r['command']==4 and r['direct']}
@@ -219,6 +232,11 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             for bit, value in instruction_overrides.items():
                 instruction=(instruction & ~(1 << bit)) | (value << bit)
                 assumptions[f'instruction I{bit} scenario constant {value}']+=1
+            register_address={'a': r['a'], 'b': r['b']}
+            for field, bits in address_overrides.items():
+                for bit, value in bits.items():
+                    register_address[field]=(register_address[field] & ~(1 << bit)) | (value << bit)
+                    assumptions[f'register {field.upper()}{bit} scenario constant {value}']+=1
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
             if source_read['mode']=='pc_sequence' and read_policy is not None and pc in read_policy['pcs']:
@@ -251,7 +269,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                     selected_reads+=consumed;read_counts[address]+=1
                     read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
             carry=carry_input.resolve(r)
-            result=cpu.step(instruction,r['a'],r['b'],d,carry,inputs['ram_in'],inputs['q_in'])
+            result=cpu.step(instruction,register_address['a'],register_address['b'],d,carry,inputs['ram_in'],inputs['q_in'])
             carry_input.observe(result)
             flags=result
             register_changes+=sum(a!=b for a,b in zip(old_ram,cpu.ram))+(old_q!=cpu.q)
@@ -331,6 +349,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 registers={str(i):v for i,v in enumerate(cpu.ram) if mode=='integrated' and old_ram[i]!=v},q=cpu.q,alu=result)
             if isinstance(inputs['carry'],dict):record['carry_in']=carry
             if mode=='integrated' and instruction_overrides:record['instruction_i']=instruction
+            if mode=='integrated' and address_overrides:
+                record['register_address_a']=register_address['a']
+                record['register_address_b']=register_address['b']
             if read_event is not None:record['external_read']=read_event
             if external_condition is not None:record['external_condition']=external_condition
             if trace_index:record.update(dispatch_input=index,dispatch_source=index_source)

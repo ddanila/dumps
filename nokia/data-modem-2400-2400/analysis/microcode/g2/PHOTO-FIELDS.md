@@ -31,9 +31,10 @@ against those five register-role choices, not against all their other fields.
 The source bundle and its individual bit order remain assumptions. Its
 front-side tracks pass under packages; a track lined up with a PROM pad is
 not enough to assign the corresponding data bit. A fourth possible route,
-U6 Q0 toward U2 A0, is retained as an **incomplete fragment**: the highlighted
-segment stops below the possible target pad. It is not used in the three-route
-screen. If confirmed, it would challenge more of the current field layout.
+U6 Q0 toward U2 A0, is not used in the original three-route screen. It is
+examined below; its highlighted segment still stops below the target pad, so
+the connection remains conditional. If confirmed, it challenges more of the
+current field layout.
 Neither U8's matching inputs nor B0 has been traced here.
 
 ## Executable alternatives
@@ -111,6 +112,54 @@ vicinity to the U6 pin-3 pad vicinity; neighboring tracks remain separate at
 the recorded threshold. It helps inspect this particular photo interpretation,
 but cannot establish electrical continuity or the net's driver.
 
+The back photograph shows another candidate segment joining U11 pin 18 to
+U10 pin 18; U11 pin 19 (E3) also appears to touch it. The MMI pinout labels
+E3 and E4 as enable inputs, and the [MMI operating description](https://electronicsandbooks.com/edt/manual/Electronic%20Component%20Databook%20Datasheet/Brand/MMI%20Monolithic%20Memories%20Incorporated%20%28AMD%201987%29/Databook/1975%20MMI%20Semiconductors%20Data%20Applications%20c20130212%20%5B252%5D.pdf)
+requires both high for a 6381 read. Therefore **if** these photo segments
+are one net, it must be high while the corresponding PROMs provide data;
+whether U6 captures it then is a timing question. The highlighted segment
+does not reveal its driver.
+
+![Candidate back-side shared enable trace](results/photo-i7-probe/candidate-enable-bus.jpg)
+
+There is also a distinct front-side candidate from **U10 pin 17** to **U5 pin
+4, D1**. Pin 17 is the D7 output in the [documented PROM reader map](../../../microcode-810237c-810240c/README.md),
+while the adjacent pin 18 is E4. This suggests one actual data-bit permutation,
+U10 D7 → U5 D1, without making U5's other seven bits identity-wired.
+
+![Candidate U10 D7 to U5 D1 trace](results/photo-i7-probe/candidate-u10-d7-latch.jpg)
+
+The corresponding U5 pin 5, Q1, appears to pass through a front-side via and
+along a back-side track to **U2 pin 2, A2**. The bright-pixel component ends
+just short of the U2 pad in a dim segment; this and the approximate via
+registration keep the whole path conditional. If it is connected, A2 takes
+**PROM 10 bit 7** after the U5 latch. All ten current full mappings use
+`11.2` or `17.7` for A2 instead. The [photo A2 screen and run](photo_a2_probe.py)
+changes only this one field bit in the q3 photo-swapped fixture. With the
+earlier PROM-bit I7 baseline, both A2 choices still visit 38E 39 times;
+with candidate E4-high I7, neither visits it. This fixture therefore cannot
+separate A2 by control flow, but the photo route challenges the current
+register-address layouts. [Counts and source hashes](results/photo-a2-probe/report.json)
+are saved.
+
+![Candidate U5 Q1 to U2 A2 trace](results/photo-i7-probe/candidate-a2-route.jpg)
+
+Another back-side track appears to run from **U6 pin 2, Q0** to **U2 pin 4,
+A0**. This is the same U6 output implicated at U2 I7, so the photo candidate
+ties **A0 and I7 together after the U6 latch**. All current mappings instead
+assign them separate PROM bits. The U2 pad has a dim gap, so the tie remains
+conditional; the original photograph and [highlighted segment](results/photo-i7-probe/candidate-a0-route.jpg)
+allow that interpretation to be reviewed.
+
+The emulator can now supply an explicitly labelled constant to both a register
+address input and an instruction input. The [coupled A0/I7 run](photo_a2_probe.py)
+tests levels 0 and 1, with and without the photo A2 correction. Every coupled
+run completes 512 real-PROM instructions and reaches 084 without visiting
+38E or 392–39F. At level 1, correcting A2 changes the full trace digest but
+not this control-flow outcome. These bounded runs disfavor the old q3
+output-loop interpretation under the photo candidate; they do not yet recover
+the net's driver, latch timing or the real transmitter path.
+
 If those routes are correct, I7 is a latched version of the signal on U11's
 E4 input. That would invalidate the earlier assumption that U6 D0 takes a
 U11 data-output bit: I7 is not identified as either `11.0` or `11.6`.
@@ -144,6 +193,7 @@ python3 nokia/data-modem-2400-2400/analysis/microcode/g2/all_rom_gate_cycles.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i7_probe.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i7_trace.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i7_control.py
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_a2_probe.py
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2 -v
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/board -v
 ```

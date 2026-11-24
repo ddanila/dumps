@@ -1,0 +1,134 @@
+{
+  "candidate": "U10 pin 17 D7 -> U5 pin 4 D1/Q1 pin 5 -> U2 pin 2 A2",
+  "cases": [
+    {
+      "a0": "PROM-bit baseline",
+      "a2": "17.7",
+      "candidate_output_word_visits": 156,
+      "clean": true,
+      "final_pc": "389",
+      "i7": "PROM-bit baseline",
+      "input_38e_visits": 39,
+      "trace_digest": "a461cea51498d8184df4d7d092c34e595d915b45d4a181550d7d259c8aaf3380",
+      "visited_addresses": 51
+    },
+    {
+      "a0": "PROM-bit baseline",
+      "a2": "17.7",
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "final_pc": "084",
+      "i7": 1,
+      "input_38e_visits": 0,
+      "trace_digest": "ed349d74493ac54b456e36ab63475b575bd15fae922b73a6cc81b0fdae9b41fb",
+      "visited_addresses": 106
+    },
+    {
+      "a0": 0,
+      "a2": "17.7",
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "final_pc": "084",
+      "i7": 0,
+      "input_38e_visits": 0,
+      "trace_digest": "e3147946a39e82351af292d598b43613baa7d13e6d3cf8d261d6a84291a6ddd7",
+      "visited_addresses": 134
+    },
+    {
+      "a0": 1,
+      "a2": "17.7",
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "final_pc": "084",
+      "i7": 1,
+      "input_38e_visits": 0,
+      "trace_digest": "931b73659a4aaaa30226bfbb2c6a0d33f42407a2c318e1c3c8726506c318cc35",
+      "visited_addresses": 106
+    },
+    {
+      "a0": "PROM-bit baseline",
+      "a2": "10.7",
+      "candidate_output_word_visits": 156,
+      "clean": true,
+      "final_pc": "389",
+      "i7": "PROM-bit baseline",
+      "input_38e_visits": 39,
+      "trace_digest": "dd7cefeb19aa10a070e97127e1094d2a716a6b1c526416092b3ad7a80a297ec8",
+      "visited_addresses": 51
+    },
+    {
+      "a0": "PROM-bit baseline",
+      "a2": "10.7",
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "final_pc": "084",
+      "i7": 1,
+      "input_38e_visits": 0,
+      "trace_digest": "f5a9f1d1bd976983256dd77da8771b1ffaef060e80c12a9fb6f1a8b792d07865",
+      "visited_addresses": 106
+    },
+    {
+      "a0": 0,
+      "a2": "10.7",
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "final_pc": "084",
+      "i7": 0,
+      "input_38e_visits": 0,
+      "trace_digest": "e3147946a39e82351af292d598b43613baa7d13e6d3cf8d261d6a84291a6ddd7",
+      "visited_addresses": 134
+    },
+    {
+      "a0": 1,
+      "a2": "10.7",
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "final_pc": "084",
+      "i7": 1,
+      "input_38e_visits": 0,
+      "trace_digest": "a4cf7c223aeba65182e29847a060798ab4116337b19dd8946241a071eade63dc",
+      "visited_addresses": 106
+    }
+  ],
+  "cycle_limit": 512,
+  "existing_a2": {
+    "fitted_original": "11.2",
+    "fitted_swapped": "17.7",
+    "q1": "11.2",
+    "q1-photo-swapped": "17.7",
+    "q2": "11.2",
+    "q2-photo-swapped": "17.7",
+    "q3": "11.2",
+    "q3-photo-swapped": "17.7",
+    "q4": "11.2",
+    "q4-photo-swapped": "17.7"
+  },
+  "limitations": [
+    "The three visible segments and via registration are photo interpretations, not measured continuity.",
+    "Only A2 is changed; A0/A1/A3 and the rest of the instruction mapping remain hypotheses.",
+    "Fixed E4 levels and I7/A0 coupling are diagnostic assumptions about PROM-enable and latch timing.",
+    "The phase-32 input and ROM gate are diagnostic fixtures; this is not a transmitter demonstration."
+  ],
+  "mapped_bit": "10.7",
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/execute.py": "473cd639ba2b34892e58e1cd2a919416d0f062ad49180c312eeb41bab808be7e",
+    "assumed/program-reading.json": "d8460c3d46a9153fd7515b948cb56d0347f65ee6f6be029ee383d98745ef5351",
+    "assumed/results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
+    "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/independent-study/variant-4.json": "0ec561af24f767f8d43c327c1308244d684aaf37eca5057538395c189ae118e9",
+    "assumed/results/selector-completion/original-marked/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
+    "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+    "g2/photo-i7-constraint.json": "eaf9325535d6f3df28a1247041cb8b461f6f0f56cf3509d9a3f20effa2bf4651",
+    "g2/photo_a2_probe.py": "124e439cbeaa8cd44be00e7044d0dbcfc631d9494ba95f877e20c3f2abbd10ea",
+    "g2/results/photo-b-constraints/q1-photo-swapped.json": "73d1121385d20a419ab06329004b7d15fec18fb7ee42fee95d11c43685c97cbe",
+    "g2/results/photo-b-constraints/q2-photo-swapped.json": "18c85f7921c473054bb73bb8bbca2d99519e9fc710ae06a23809ea59b5ae43b2",
+    "g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "g2/results/photo-b-constraints/q4-photo-swapped.json": "1b6b47a1729dd03a77d0baf8c0daf47f8392cee28d474a55e47630899493ac37",
+    "g2/results/swapped-sine-loop/phase-20-mapping.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "g2/results/swapped-sine-loop/phase-20-scenario.json": "255ad276e7a808de4e17af7cac089be6fe82e52fb36e7b880e145dd2e5837b5e",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "status": "photo-a2-candidate-and-bounded-runtime-not-recovered-decode"
+}

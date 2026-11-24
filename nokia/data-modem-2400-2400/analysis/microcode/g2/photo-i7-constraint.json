@@ -23,6 +23,50 @@
     "status": "candidate-visible-route",
     "limitation": "The trace reaches the pad vicinity in one photo; a shared trace between two inputs does not identify what drives that net."
   },
+  "candidate_shared_enable_route": {
+    "start": "U11.18 (MMI 6381 E4 enable input)",
+    "start_pad_back_rectified": [637, 1314],
+    "additional_candidate_pad": "U11.19 (MMI 6381 E3 enable input), near [670, 1314]",
+    "end": "U10.18 (MMI 6381 E4 enable input)",
+    "end_pad_back_rectified": [1304, 1284],
+    "back_track_seed_rectified": [637, 1309],
+    "bright_component_bounds_at_threshold_120": [620, 1276, 1309, 1327],
+    "status": "candidate-visible-route",
+    "limitation": "The visible E4-to-E4 segment does not identify the shared signal's driver, logic level or timing."
+  },
+  "candidate_prom_data_route": {
+    "start": "U10.17 (MMI 6381 D7/O8 data output)",
+    "start_pad_front_rectified": [1238, 1338],
+    "end": "U5.4 (74LS374 D1)",
+    "end_pad_front_rectified": [1316, 1665],
+    "front_track_seed_rectified": [1280, 1415],
+    "bright_component_bounds_at_threshold_115": [1221, 1341, 1316, 1653],
+    "status": "candidate-visible-route",
+    "limitation": "This is the adjacent PROM data-output pin, distinct from the shared E4 enable on pin 18. Its continuation through U5 Q1 to U2 A2 is a separate photo candidate."
+  },
+  "candidate_a2_route": {
+    "start": "U5.5 (74LS374 Q1), via a front-side segment",
+    "front_via_approx_rectified": [1250, 1583],
+    "back_via_approx_rectified": [1288, 1615],
+    "end": "U2.2 (Am2901 A2)",
+    "end_pad_back_rectified": [3466, 1578],
+    "back_track_seed_rectified": [1288, 1615],
+    "bright_component_bounds_at_threshold_120": [1267, 1608, 3466, 1665],
+    "conditional_bit_assignment": "A2 = PROM 10 bit 7 if the two candidate segments and U5 latch interpretation are correct",
+    "status": "candidate-visible-route",
+    "limitation": "The back trace has a dim gap at the U2 pad and the front/back via registration is approximate; this is not measured continuity."
+  },
+  "candidate_shared_i7_a0_route": {
+    "start": "U6.2 (74LS374 Q0)",
+    "start_pad_back_rectified": [741, 1684],
+    "end": "U2.4 (Am2901 A0)",
+    "end_pad_back_rectified": [3393, 1578],
+    "back_track_seed_rectified": [3388, 1644],
+    "bright_component_bounds_at_threshold_120": [731, 1580, 3393, 1699],
+    "coupling": "The same U6 Q0 was separately traced toward U2.7 (I7).",
+    "status": "candidate-visible-route",
+    "limitation": "A dim gap remains at the U2 pad; the U6 Q0-to-I7 front/back path is separately photo-inferred."
+  },
   "conditional_bit_assignment": {
     "if_U11_to_U6_bundle_and_identity_bit_order": "I7 = PROM 11 bit 0",
     "existing_q3_bit": "PROM 11 bit 6",
