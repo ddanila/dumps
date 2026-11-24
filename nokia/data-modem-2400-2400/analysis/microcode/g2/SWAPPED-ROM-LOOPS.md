@@ -1,5 +1,11 @@
 # ROM-fed loops under photo-compatible A/B swaps
 
+**Mapping update:** The later [I7 photo constraint](PHOTO-FIELDS.md#i7-instruction-input-is-a-new-conditional-constraint)
+challenges the PROM-bit I7 assignment retained in these A/B swaps. In the
+q3 fixture, both fixed levels of the candidate E4-side I7 signal leave the
+output loop. The runs below describe the declared mappings and remain useful
+counterfactuals; their loop interpretation is not established board behavior.
+
 The three candidate U6→U2 B-input traces in [PHOTO-FIELDS](PHOTO-FIELDS.md)
 allow A/B-swapped variants of the q1–q4 instruction mappings. These runs test
 two reopened paths with the real control PROMs and Am27S31 bytes. The swaps,

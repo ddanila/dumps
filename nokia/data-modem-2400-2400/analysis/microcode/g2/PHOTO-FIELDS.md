@@ -96,30 +96,54 @@ The [AMD Am2901 package diagram](https://deramp.com/downloads/mfe_archive/050-Co
 confirms that U2 pin 7 is **I7** (and that pins 18–20 are B1–B3 as used
 above). In the rectified back photograph, a bright track from U2 pin 7
 reaches a via near `(713, 1602)`; the corresponding front-side segment appears
-to connect that via to **U6 pin 2, Q0**. This is a photo interpretation, not a
-continuity measurement. The [coordinate and source record](photo-i7-constraint.json)
-keeps the route separate from its additional PROM-bit assumption.
+to connect that via to **U6 pin 2, Q0**. The front photograph also shows a
+separate track from **U6 pin 3, D0** toward **U11 pin 18**. The
+[MMI 6381 pin diagram](https://bitsavers.trailing-edge.com/components/mmi/_dataBooks/1978_MMI_Bipolar_LSI_Databook_1ed.pdf)
+labels that U11 pin **E4, an enable input**, rather than a PROM data output.
+These are candidate photo routes, not continuity measurements. The
+[coordinate and source record](photo-i7-constraint.json) distinguishes the
+two routes and their unverified continuations.
 
-If U11 supplies U6 with **identity bit order**, the route makes I7 = `11.0`.
-All current q1–q4 and fitted mappings instead use `11.6`. The
-[`photo_i7_probe.py`](photo_i7_probe.py) experiment changes only I7 in the
-q3 photo-swapped mapping, retaining the real PROMs and the phase-32 diagnostic
-fixture. Over 512 instructions, the `11.6` baseline visits 38E and 38F 39
-times and executes 156 words in the candidate 392–39F output table. With
-either `11.0` or `!11.0`, it reaches 084 and visits none of those sites.
-Both altered runs are clean; the change is in control flow, not a model error.
-The [saved report](results/photo-i7-probe/report.json) records the exact source
-hashes, counts and trace digests.
+![Candidate front-side E4-to-D0 trace](results/photo-i7-probe/candidate-front-route.jpg)
 
-This challenges the q3 loop interpretation **if** the U11→U6 identity-bit
-assumption holds. The PROM-to-register permutation is still untraced, so the
-physical route alone cannot reject `11.6` or prove `11.0`. It does identify
-I7 and that permutation as higher-value targets for the next mapping search.
+The highlight follows one bright-pixel component from the U11 pin-18 pad
+vicinity to the U6 pin-3 pad vicinity; neighboring tracks remain separate at
+the recorded threshold. It helps inspect this particular photo interpretation,
+but cannot establish electrical continuity or the net's driver.
+
+If those routes are correct, I7 is a latched version of the signal on U11's
+E4 input. That would invalidate the earlier assumption that U6 D0 takes a
+U11 data-output bit: I7 is not identified as either `11.0` or `11.6`.
+The broader U11→U6 bundle in [the board ledger](../board/nets.json) was already
+marked inferred with unresolved bit order; this specific D0 path now challenges
+even its data-source assignment. The signal driving E4, its polarity and the
+U6 latch timing still need candidate models.
+
+The earlier [`photo_i7_probe.py`](photo_i7_probe.py) result remains a useful
+**counterfactual sensitivity test**, not a physical mapping result. In the
+q3 photo-swapped phase-32 fixture, `I7=11.6` visits 38E and 38F 39 times
+and executes 156 candidate output-table words in 512 instructions. Replacing
+only I7 with `11.0` or `!11.0` reaches 084 without visiting those sites;
+all three runs remain clean. The [saved report](results/photo-i7-probe/report.json)
+records hashes and counts.
+
+The emulator now accepts provenance-labelled constant instruction-bit inputs
+in a scenario. [`photo_i7_control.py`](photo_i7_control.py) uses this to test
+both fixed levels of the candidate E4-side signal at I7 while keeping the
+same real PROMs and q3 fixture. **Both levels run cleanly but visit neither
+38E nor 392–39F** in 512 instructions; the PROM-bit baseline visits 38E 39
+times. The [report](results/photo-i7-control/report.json) saves the routes
+and digests. A constant level is a diagnostic assumption, since the net's
+driver and U6 latch timing remain unknown. The result makes the q3
+controller-bit-output interpretation fragile under this photo route, and
+directs the next mapping search toward the E4 signal and other output sites.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_b_constraints.py --render
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/all_rom_gate_cycles.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i7_probe.py
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i7_trace.py
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i7_control.py
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2 -v
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/board -v
 ```

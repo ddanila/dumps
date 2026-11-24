@@ -38,6 +38,15 @@ def validate_scenario(s):
         raise ValueError('scenario requires provenance')
     if s.get('stack_fallback') is not None:
         raise ValueError('stack repair is unsupported: diagnose mapping instead')
+    overrides = s['inputs'].get('instruction_bit_overrides', {})
+    if (not isinstance(overrides, dict) or any(
+            not isinstance(bit, str) or not bit.isdecimal() or str(int(bit)) != bit
+            or not 0 <= int(bit) < 9 or not isinstance(policy, dict)
+            or type(policy.get('value')) is not int or policy['value'] not in (0, 1)
+            or policy.get('status') not in ('hypothesis', 'stub', 'recovered-from-data')
+            or not policy.get('evidence')
+            for bit, policy in overrides.items())):
+        raise ValueError('instruction bit overrides require indexed, provenance-owned constant bits')
     logic_flags=s['inputs'].get('logic_flags')
     if 'logic_flags' in s['inputs']:
         if (not isinstance(logic_flags,dict) or logic_flags.get('mode') not in ('unknown','am2901b-ripple')
@@ -190,6 +199,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         if read_policy is not None and (len(table)!=512 or rom_hash!=source_read['expected_sha256']):
             raise ValueError('Am27S31 feedback dump size/hash mismatch')
     read_counts=Counter();selected_reads=0;sequence_visits=Counter()
+    instruction_overrides={int(bit): policy['value'] for bit, policy in
+                           inputs.get('instruction_bit_overrides', {}).items()}
     writes={int(w['pc']):w for w in scenario['io']['writes']}
     trace_count=0;io_count=0;dispatch_counts=Counter();register_changes=0
     routine_entries={r['branch'] for r in rows if r['command']==4 and r['direct']}
@@ -204,19 +215,23 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         previous=flags
         result=None;read_event=None
         if mode=='integrated':
+            instruction=r['i']
+            for bit, value in instruction_overrides.items():
+                instruction=(instruction & ~(1 << bit)) | (value << bit)
+                assumptions[f'instruction I{bit} scenario constant {value}']+=1
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
             if source_read['mode']=='pc_sequence' and read_policy is not None and pc in read_policy['pcs']:
                 address=read_policy['bank']+previous.get('y',read_policy['initial_y'])
                 d=table[address];assumptions['table external read']+=1
-                consumed=(r['i']&7) in (5,6,7)
+                consumed=(instruction&7) in (5,6,7)
                 selected_reads+=consumed;read_counts[address]+=1
                 read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
             elif source_read['mode']=='constant': d=source_read['value'];assumptions['constant external read']+=1
             elif source_read['mode']=='pc_table':
                 d=source_read['pc_values'].get(str(pc),source_read['value'])
                 assumptions['PC-keyed external read']+=1
-                read_event=dict(value=d,source='scenario_pc',selected_by_alu=(r['i']&7) in (5,6,7),status=source_read['status'])
+                read_event=dict(value=d,source='scenario_pc',selected_by_alu=(instruction&7) in (5,6,7),status=source_read['status'])
             elif source_read['mode']=='pc_sequence':
                 sequence=source_read['pc_sequences'].get(str(pc))
                 visit=index=None;held=False
@@ -227,16 +242,16 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                     d=sequence[index];sequence_visits[pc]+=1
                 assumptions['PC-keyed external sequence read']+=1
                 read_event=dict(value=d,source='scenario_pc_sequence',visit=visit,sequence_index=index,
-                    held_last=held,selected_by_alu=(r['i']&7) in (5,6,7),status=source_read['status'])
+                    held_last=held,selected_by_alu=(instruction&7) in (5,6,7),status=source_read['status'])
             elif source_read['mode'] in ('table','am27s31'):
                 address=(read_policy['bank']+previous.get('y',read_policy['initial_y'])) if read_policy is not None else d%len(table)
                 d=table[address]; assumptions['table external read']+=1
                 if read_policy is not None:
-                    consumed=(r['i']&7) in (5,6,7)
+                    consumed=(instruction&7) in (5,6,7)
                     selected_reads+=consumed;read_counts[address]+=1
                     read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
             carry=carry_input.resolve(r)
-            result=cpu.step(r['i'],r['a'],r['b'],d,carry,inputs['ram_in'],inputs['q_in'])
+            result=cpu.step(instruction,r['a'],r['b'],d,carry,inputs['ram_in'],inputs['q_in'])
             carry_input.observe(result)
             flags=result
             register_changes+=sum(a!=b for a,b in zip(old_ram,cpu.ram))+(old_q!=cpu.q)
@@ -315,6 +330,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 stack_before=before,stack_after=dict(sp=seq.sp,depth=depth,values=seq.stack[:]),next_pc=seq.pc,
                 registers={str(i):v for i,v in enumerate(cpu.ram) if mode=='integrated' and old_ram[i]!=v},q=cpu.q,alu=result)
             if isinstance(inputs['carry'],dict):record['carry_in']=carry
+            if mode=='integrated' and instruction_overrides:record['instruction_i']=instruction
             if read_event is not None:record['external_read']=read_event
             if external_condition is not None:record['external_condition']=external_condition
             if trace_index:record.update(dispatch_input=index,dispatch_source=index_source)

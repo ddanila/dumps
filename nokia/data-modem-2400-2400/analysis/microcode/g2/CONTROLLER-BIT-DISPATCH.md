@@ -1,5 +1,12 @@
 # Controller bits through the recurring 38E–38F dispatch
 
+**Mapping update:** A later [photo route and fixed-level run](PHOTO-FIELDS.md#i7-instruction-input-is-a-new-conditional-constraint)
+suggest that U2 I7 is latched from a signal shared with U11's E4 enable,
+not a U11 PROM-data bit. Both fixed I7 levels remove the 38E path in the
+q3 fixture. The controller-bit experiment below remains a reproducible
+counterfactual for the earlier `I7=11.6` mapping, not a supported physical
+transmitter path.
+
 This experiment connects two executed programs under a labelled candidate
 interface. The unchanged 8031 ROM computes a scrambled byte stream; the real
 DSC2847 control PROMs then receive its bits on the external D input at word

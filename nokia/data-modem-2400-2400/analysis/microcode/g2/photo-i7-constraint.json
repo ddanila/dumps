@@ -10,16 +10,28 @@
     "start_pad_back_rectified": [3284, 1578],
     "end": "U6.2 (74LS374 Q0), through a front-side via",
     "back_track_end_rectified": [713, 1602],
-    "front_via_approx_rectified": [713, 1602],
+    "front_via_approx_rectified": [713, 1586],
     "status": "candidate-visible-route"
+  },
+  "candidate_input_route": {
+    "start": "U6.3 (74LS374 D0)",
+    "start_pad_front_rectified": [695, 1665],
+    "end": "U11.18 (MMI 6381 E4 enable input)",
+    "end_pad_front_rectified": [604, 1338],
+    "front_track_seed_rectified": [695, 1550],
+    "bright_component_bounds_at_threshold_115": [601, 1346, 705, 1658],
+    "status": "candidate-visible-route",
+    "limitation": "The trace reaches the pad vicinity in one photo; a shared trace between two inputs does not identify what drives that net."
   },
   "conditional_bit_assignment": {
     "if_U11_to_U6_bundle_and_identity_bit_order": "I7 = PROM 11 bit 0",
     "existing_q3_bit": "PROM 11 bit 6",
-    "limitation": "The PROM-to-U6 data bit permutation is untraced; the physical I7 route alone does not identify a PROM bit."
+    "status": "counterfactual-superseded-by-U6-D0-to-U11-E4-photo-candidate",
+    "limitation": "The new D0 photo route challenges the assumed PROM-data bundle itself. Neither 11.0 nor 11.6 is physically established for I7."
   },
   "pin_references": [
     "https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/AMD/2900%20Family/amd-2901b-c.pdf (01656B, page 5-3, P-40/D-40 top-view package diagram)",
-    "https://www.ti.com/lit/ds/symlink/sn74ls374.pdf (SDLS165B, page 1)"
+    "https://www.ti.com/lit/ds/symlink/sn74ls374.pdf (SDLS165B, page 1)",
+    "https://bitsavers.trailing-edge.com/components/mmi/_dataBooks/1978_MMI_Bipolar_LSI_Databook_1ed.pdf (page 2-7, 53/6381-1 package pinout)"
   ]
 }

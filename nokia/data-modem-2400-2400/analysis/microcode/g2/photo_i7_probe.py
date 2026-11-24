@@ -1,4 +1,4 @@
-"""Test an I7=U6.Q0 photo candidate against the current q3 loop fixture."""
+"""Test counterfactual PROM-bit assignments for the photo-traced I7 route."""
 from copy import deepcopy
 import hashlib
 import json
@@ -52,14 +52,15 @@ def run(out):
     sources = [Path(__file__), CONSTRAINT, MAPPING, SCENARIO,
                HERE.parent / 'assumed/execute.py', HERE.parent / 'assumed/common.py',
                HERE.parent / 'model.py']
-    report = dict(status='conditional-photo-i7-mapping-sensitivity',
+    report = dict(status='counterfactual-photo-i7-mapping-sensitivity',
                   cycle_limit=CYCLES,
-                  hypothesis='U2 I7 comes from U6 Q0; I7=11.0 additionally assumes U11->U6 identity bit order.',
+                  hypothesis='U2 I7 appears to come from U6 Q0. PROM-bit assignments are counterfactual: a second photo route suggests U6 D0 shares U11 E4 enable, rather than a PROM data output.',
                   cases=cases,
                   source_sha256={str(p.relative_to(HERE.parent)): hashlib.sha256(p.read_bytes()).hexdigest()
                                  for p in sources},
-                  limitations=['The photo route is not a continuity measurement.',
-                               'U11-to-U6 bit order and the q3 instruction mapping remain hypotheses.',
+                  limitations=['The photo routes are not continuity measurements.',
+                               'The new U6 D0-to-U11 E4 candidate challenges both PROM-bit assignments used here.',
+                               'The q3 instruction mapping remains a hypothesis.',
                                'The phase-32 input and ROM gate are diagnostic fixtures.',
                                'Absence of candidate output in this fixture does not exclude the real transmitter.'])
     out.mkdir(parents=True, exist_ok=True)
