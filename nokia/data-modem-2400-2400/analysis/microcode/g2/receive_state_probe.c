@@ -44,7 +44,24 @@ int main(int argc, char **argv) {
     c.mPC=0x1000;
     unsigned state_cycles=0;
     for (;state_cycles<200 && c.mPC!=0x1755;state_cycles++,cycle++) tick(&c);
-    printf("{\"received\":%u,\"stored_2e\":%u,\"state\":%u,\"state_cycles\":%u,\"reached_stop\":%s,\"errors\":%u}\n",
-        received,stored,c.mLowerData[0x34],state_cycles,c.mPC==0x1755?"true":"false",errors);
-    return errors || c.mPC!=0x1755;
+    if (c.mPC!=0x1755 || errors) return 4;
+    unsigned next_state=c.mLowerData[0x34];
+    c.mPC=0x1ee2; sending=1; tx_due=0;
+    unsigned completed=0;
+    for (unsigned count=0;count<2000 && c.mPC!=0x1ee8;count++,cycle++) {
+        tick(&c);
+        if (tx_due && cycle>=tx_due) {
+            c.mSFR[REG_SCON]|=2;
+            tx_due=0; completed++;
+        }
+    }
+    unsigned wire[4]={0},writes=0;
+    for (unsigned i=0;i<event_count;i++) if (!strcmp(events[i].kind,"tx")) {
+        if (writes<4) wire[writes]=events[i].value;
+        writes++;
+    }
+    printf("{\"received\":%u,\"stored_2e\":%u,\"state\":%u,\"state_cycles\":%u,\"output_stop\":%s,\"completed\":%u,\"writes\":%u,\"wire\":[%u,%u,%u,%u],\"errors\":%u}\n",
+        received,stored,next_state,state_cycles,c.mPC==0x1ee8?"true":"false",completed,
+        writes,wire[0],wire[1],wire[2],wire[3],errors);
+    return errors || c.mPC!=0x1ee8 || writes!=4 || completed!=4;
 }

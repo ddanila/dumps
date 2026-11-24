@@ -169,15 +169,27 @@ four bytes despite their different timer loads. The state trajectory therefore
 carries information that a single frame cannot supply. A continuous call
 simulation and the line-side/DSP connection are still required for A1/A2.
 
-The [composed receive/state probe](receive_state.py) executes the unchanged
+The [composed receive/state/output probe](receive_state.py) executes the unchanged
 8031 input routine at 0800 with seven synthetic USART receive completions,
-then executes the A2 state step on the **same CPU and RAM**. It sweeps all 256
+then the A2 state step and four-byte output routine on the **same CPU and RAM**.
+It sweeps all 256
 values of the fifth payload byte. The input routine stores that byte in RAM2E;
 on expired A2, every value with bit 6 clear leads to B8, and every value with
-bit 6 set leads to A3. All 256 runs reach the common state-step exit without
-emulator errors. This proves that a received frame bit controls the fork, but
-the frame's physical source and the two states' modem meanings are not yet
-known. The handoff between the local routines is still harness-directed.
+bit 6 set leads to A3. The resulting outgoing frame is exactly:
+
+| Received RAM2E bits 6, 0 | Next state | Output bytes |
+| --- | --- | --- |
+| 0, 0 | B8 | D0 42 81 22 |
+| 0, 1 | B8 | C0 42 81 22 |
+| 1, 0 | A3 | D0 42 81 BA |
+| 1, 1 | A3 | C0 42 81 BA |
+
+All 256 runs complete all four transmissions and reach the output routine's
+return without emulator errors. The other six bits have no effect in this
+fixture. This proves a received frame controls both the state fork and two
+outgoing control bits; the frame's physical source and the states' modem
+meanings are not yet known. The handoffs between local routines are still
+harness-directed.
 The [saved sweep](results/receive-state.json) records each result and source
 hashes.
 

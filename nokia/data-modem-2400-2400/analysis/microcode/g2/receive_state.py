@@ -1,4 +1,4 @@
-"""Compose actual 8031 receive and A2 state routines for every payload byte."""
+"""Compose actual 8031 receive, A2 state and output routines for every byte."""
 import argparse
 import hashlib
 import json
@@ -24,16 +24,20 @@ def run():
             result=json.loads(subprocess.run([str(exe),str(ROM),str(value)],
                 check=True,capture_output=True,text=True).stdout)
             expected=0xa3 if value&0x40 else 0xb8
+            expected_wire=[0xc0 if value&1 else 0xd0,0x42,0x81,
+                           0xba if value&0x40 else 0x22]
             assert result['received']==7 and result['stored_2e']==value
-            assert result['state']==expected and result['reached_stop'] and result['errors']==0
+            assert result['state']==expected and result['output_stop'] and result['errors']==0
+            assert result['writes']==result['completed']==4 and result['wire']==expected_wire
             rows.append(dict(received_fifth_payload=f'{value:02X}',next_state=f'{expected:02X}',
+                             wire=' '.join(f'{b:02X}' for b in result['wire']),
                              receive_count=result['received'],state_cycles=result['state_cycles']))
-    return dict(status='256 composed controller ROM executions pass',
+    return dict(status='256 composed controller ROM receive/state/output executions pass',
         controller_rom_sha256=ROM_SHA,rows=rows,
-        preconditions='Synthetic USART receive completions at 8 core ticks; discarded lead byte A5; all other payload bytes zero; after 0800 returns, A2 is selected with qualification set and expired timer; no interrupts.',
-        interpretation='The fifth received payload byte is stored at RAM2E. Its bit 6 selects A3 on A2 expiry, or B8 when clear.',
+        preconditions='Synthetic USART receive and transmit completions at 8 core ticks; discarded lead byte A5; other payload bytes zero; after 0800 returns, A2 is selected with qualification set and expired timer; after the state step, the output routine begins at 1EE2; no interrupts.',
+        interpretation='The fifth received payload byte is stored at RAM2E. Bit 6 selects A3 or B8 on A2 expiry and changes the fourth output byte BA/22. Bit 0 changes the first output byte C0/D0. The other six bits do not affect state or wire frame under this fixture.',
         limitations=['The physical source and meaning of the received frame remain unknown.',
-                     'The handoff to the state routine is a local harness step, not a continuous controller call.',
+                     'The handoffs between the three local routines are harness-directed, not a continuous controller call.',
                      'No DSC2847 microcode or line output is executed in this probe.'],
         source_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources})
 
