@@ -91,6 +91,10 @@ At Q=5 all consume 128 controller-derived bits, but none repeatedly reads
 the ROM or changes a candidate output after the input. This excludes the
 same scoped path under a broader set of field choices; startup and command
 routes remain to be tested.
+The [all-Q follow-up](PHOTO-MAPPING-Q-SWEEP.md) tests 256 reset Q bytes in
+each mapping. A q2 path repeatedly reads the ROM for Q≡0 mod 8, but each run
+reads one fixed address and never reaches the proposed controller-bit input.
+It is a Q-selected constant path under this fixture, not a carrier.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the
