@@ -15,6 +15,7 @@ from photo_controller_path import fixture, GATE_FITS, PHOTO_A_RECORD, PHOTO_RECO
 
 MAPPINGS = {name: HERE / f'results/photo-b-constraints/{name}-photo-swapped.json'
             for name in ('q1', 'q2')}
+ROM = HERE.parents[2] / 'am27s31dc-prom/nokia-modem-am27s31dc.bin'
 CYCLES = 2048
 
 
@@ -33,6 +34,29 @@ def recurrence(rows):
         seen[pair] = index
     return dict(preperiod=None, period=None, exact_to_end=False,
                 cycle_addresses=[], cycle_y=[])
+
+
+def rom_feedback_basins(data):
+    """Classify x -> upper-bank ROM[x+1], stopping when x reaches zero."""
+    basins = {}
+    for seed in range(256):
+        seen = {}
+        value = seed
+        while value not in seen and value != 0:
+            seen[value] = len(seen)
+            value = data[0x100 + ((value + 1) & 255)]
+        if value == 0:
+            key = ('zero', len(seen))
+        else:
+            cycle = []
+            while value not in cycle:
+                cycle.append(value)
+                value = data[0x100 + ((value + 1) & 255)]
+            key = ('cycle', tuple(sorted(cycle)))
+        basins.setdefault(key, []).append(seed)
+    return [dict(kind=key[0], steps_to_zero=key[1] if key[0] == 'zero' else None,
+                 cycle_values=list(key[1]) if key[0] == 'cycle' else [],
+                 seeds=seeds) for key, seeds in basins.items()]
 
 
 def run(out):
@@ -90,13 +114,45 @@ def run(out):
                             (path / filename).read_bytes())
     if any(not case['clean'] for case in cases):
         raise ValueError('photo variant ROM loop model stopped')
+    rom = ROM.read_bytes()
+    if len(rom) != 512:
+        raise ValueError('Am27S31 dump size changed')
+    basins = rom_feedback_basins(rom)
+    q1_mapping = read(MAPPINGS['q1'])
+    q1_mapping['fields']['a']['bits'][2:] = ['10.7', '10.6']
+    zero_exit = []
+    with tempfile.TemporaryDirectory() as temporary:
+        path = Path(temporary)
+        for value in (0, 1):
+            scenario = copy.deepcopy(base)
+            scenario['io']['read']['address']['pcs'] = [pc for pc in gates[0]['pcs']
+                                                         if pc != 0x12C]
+            scenario['io']['read']['pc_sequences']['300'] = [value]
+            scenario['name'] += f'; diagnostic D12C={value} replaces ROM read'
+            result = execute(q1_mapping, scenario, 128, mode='integrated',
+                             out=path, trace_limit=128)
+            trace = [json.loads(line) for line in
+                     (path / 'trace.jsonl').read_text().splitlines()]
+            first_blt = next(row for row in trace if row['pc'] == 0x12F)
+            zero_exit.append(dict(value=value, clean=result['clean'],
+                                  first_blt_test=first_blt['test'],
+                                  first_blt_next_pc=f'{first_blt["next_pc"]:03X}',
+                                  visits_12c=sum(row['pc'] == 0x12C for row in trace),
+                                  visits_130=sum(row['pc'] == 0x130 for row in trace),
+                                  trace_digest=result['trace_digest']))
+            if value == 0:
+                (out / 'q1-zero-exit-trace.jsonl').write_bytes(
+                    (path / 'trace.jsonl').read_bytes())
+                (out / 'q1-zero-exit-scenario.json').write_bytes(
+                    (path / 'scenario.json').read_bytes())
     source_paths = [Path(__file__), HERE / 'photo_controller_path.py',
                     GATE_FITS, PHOTO_A_RECORD, PHOTO_RECORD,
-                    *MAPPINGS.values(), ASSUMED / 'execute.py']
+                    ROM, *MAPPINGS.values(), ASSUMED / 'execute.py']
     report = dict(status='photo-candidate-ROM-feedback-not-modem-function-proof',
                   cycle_limit=CYCLES, initial_q=0, initial_ram=[0]*16,
                   gate_count=len(gates), cases=cases,
-                  source_sha256={str(path.relative_to(HERE.parent)):
+                  rom_feedback_basins=basins, zero_exit_probe=zero_exit,
+                  source_sha256={str(path.relative_to(HERE.parents[2])):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in source_paths},
                   limitations=[

@@ -38,7 +38,11 @@ through the upper Am27S31 bank and enters an exact 20-value cycle after eight
 reads under all 16 tested ROM gates. This is a computed recurrence in the
 declared emulator fixture, but it has no demonstrated phase increment,
 controller-symbol dependence or DAC connection. The matched q2 cases instead
-settle to fixed points or a two-value alternation.
+settle to fixed points or a two-value alternation. In the q1 fixture, BLT at
+12F exits when the preceding value is zero; 245 of 256 possible ROM-feedback
+byte states instead enter the same 20-cycle attractor. The observed initial
+state is one of those 245, which further cautions against calling this a
+modem carrier.
 
 The [controller-bit dispatch experiment](CONTROLLER-BIT-DISPATCH.md) takes
 128 scrambled bits computed by the unchanged 8031 ROM and supplies them, under

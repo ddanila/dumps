@@ -86,6 +86,18 @@ the ROM address does not advance by a constant phase step, and no physical
 DAC output, sample rate or controller-driven symbol change is established.
 Therefore the 20-cycle repetition is **not** a demonstrated line carrier.
 
+The loop has a more specific control interpretation under the declared
+condition mapping. At 12F the BLT repeats while the prior zero flag is false.
+A diagnostic replacement of the 12C ROM byte with **0** makes the first BLT
+fall through to 130; replacement with **1** repeats at 12C. The saved
+[zero-exit trace](results/photo-variant-rom-loop/q1-zero-exit-trace.jsonl)
+isolates that behavior. Following the real ROM recurrence from all 256 possible
+byte values shows that **245 feed the same 20-cycle attractor**, while 11 reach
+zero in at most three steps. The observed initial ROM value 11 is in the
+20-cycle basin. Thus the q1 fixture's long run is a zero-terminated loop that
+does not terminate from this start, rather than an identified transmit carrier.
+The real TEST wiring and intended input conditions remain unknown.
+
 In **q2**, eight gates remain in the 127 loop, where ALU Y settles to 3 or
 34. The other eight enter 12C: five settle to 3 and three alternate 49/40.
 Those small fixed points and two-cycles also fail to show a phase-advanced

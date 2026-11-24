@@ -23,6 +23,14 @@ class PhotoVariantRomLoopTest(unittest.TestCase):
             self.assertGreater(site['distinct_alu_y'], 16)
         self.assertTrue(all(case['sites']['12C']['recurrence']['period'] != 20
                             for case in q2))
+        self.assertEqual([(case['value'], case['first_blt_next_pc'])
+                          for case in report['zero_exit_probe']],
+                         [(0, '130'), (1, '12C')])
+        cycle_basins = [basin for basin in report['rom_feedback_basins']
+                        if basin['kind'] == 'cycle']
+        self.assertEqual(len(cycle_basins), 1)
+        self.assertEqual((len(cycle_basins[0]['cycle_values']),
+                          len(cycle_basins[0]['seeds'])), (20, 245))
 
 
 if __name__ == '__main__':
