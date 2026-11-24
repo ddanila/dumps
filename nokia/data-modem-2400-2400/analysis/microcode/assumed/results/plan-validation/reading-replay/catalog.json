@@ -1605,6 +1605,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "EARLY-ENTRY32.md",
+        "limitations": "q3 previous-flag zero reset, preceding-Y early index 6, scenario 036 index and preceding-Y 03C index. Full boundary reset sweep with independent random regressions; 043/044 bypassed and excluded. No physical mode or transient output meaning inferred.",
+        "meaning": "032 establishes Q=1; 034 captures a carry-adjusted input difference in R3. Four 036 cases either preserve it or reach 03C, replacing R3 with D03C-1. Preceding-Y second dispatch, the 03F skip and z=FF carry propagation select paths/timing before the shared Q/R3 wait and input-difference tail.",
+        "name": "early nested choices and comparison-input selection",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "032",
+            "042"
+          ],
+          [
+            "045",
+            "04B"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1627,7 +1647,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 854,
+    "annotated_used_words": 878,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -4970,6 +4990,7 @@
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
     "EARLY-ENTRY13.md": "af319c0cdb62da0e5c340cff2d864a14e8676164e3cef44f45e2bcfb00a01a90",
     "EARLY-ENTRY22.md": "2fcf1a9fe50dcaabecde4d866ab222ef38a05b01d88a9f7616c9401ed2da0fe1",
+    "EARLY-ENTRY32.md": "b92e4b1274056303a4ad3a15db0d5c1f30cb443e2eb408c3c99a4d57bce95cc7",
     "EARLY-WAIT.md": "782a235637935008a110fa660cc8bf5dd9a6b31dc659ea424894ff6faad973b3",
     "EXTERNAL-LINE.md": "56d7fa74c06cf3d4b86d911935e54ed031081404d8abba276d8cf3d95ffdcb3d",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",

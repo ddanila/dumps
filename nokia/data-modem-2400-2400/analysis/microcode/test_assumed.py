@@ -127,6 +127,25 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_early_entry32_nested_indices_and_retained_input(self):
+        import random
+        from early_entry32 import scenario_for,inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'early-entry32.json');early=read(HERE/config['early_configuration']);h=read(HERE/early['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x32)
+        cases=[]
+        for i in range(4):
+            for j in range(3):
+                cases.append((i,j,1,2,2,255,0,255))
+                for _ in range(4):cases.append((i,j,*[rng.randrange(256) for _ in range(6)]))
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for values in cases:
+                scenario=scenario_for(config,*values)
+                result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                want=inspect(load_trace(out),result,scenario,*values)
+                if values[2:5]==(1,2,2):self.assertTrue(want['terminal'])
+
     def test_q3_early_entry22_skip_preserves_actual_loop_frame(self):
         import random
         from early_entry22 import scenario_for,inspect,inspect_local,check_arithmetic

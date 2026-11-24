@@ -704,3 +704,8 @@ Q reload and the already checked 05D wait or terminal tail.
 input threshold that either executes BLT or skips it with its PLP frame still
 present. Local fixtures also verify the Q-zero shift branch excluded by this
 reset entry. Both reset paths join the same fixed-register wait.
+
+[Early entry 032's nested choices](EARLY-ENTRY32.md) connects both declared
+indices to retained R3, the 03F skip and the FF carry boundary through 045.
+Checked formulas distinguish terminal entry from the shared fixed-register
+wait; bypassed 043/044 remain outside the annotation.

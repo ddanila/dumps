@@ -1621,6 +1621,26 @@
       "evidence": "EARLY-ENTRY22.md",
       "meaning": "023 produces a Q-zero shift-selection predicate; 025 halves Q while the q=0 alternative shifts a temporary input left. Two additions at 02B/02C select whether TSK skips BLT. Skipping retains the PLP frame; executing BLT pops it and writes a temporary sum, before both paths join the fixed-register wait.",
       "limitations": "q3 previous flags; reset q=FF and explicit early entry 4. The q=0 branch is local-fixture evidence only. Retained frame is reported as an assumption-model consequence, not repaired or attributed to physical hardware. No transient output consumer identified."
+    },
+    {
+      "name": "early nested choices and comparison-input selection",
+      "ranges": [
+        [
+          "032",
+          "042"
+        ],
+        [
+          "045",
+          "04B"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "EARLY-ENTRY32.md",
+      "meaning": "032 establishes Q=1; 034 captures a carry-adjusted input difference in R3. Four 036 cases either preserve it or reach 03C, replacing R3 with D03C-1. Preceding-Y second dispatch, the 03F skip and z=FF carry propagation select paths/timing before the shared Q/R3 wait and input-difference tail.",
+      "limitations": "q3 previous-flag zero reset, preceding-Y early index 6, scenario 036 index and preceding-Y 03C index. Full boundary reset sweep with independent random regressions; 043/044 bypassed and excluded. No physical mode or transient output meaning inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

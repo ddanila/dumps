@@ -48,6 +48,7 @@ into one address listing.
 | 000–012, 054–06E (q3) | Alternative boot entries, fixed-register comparison wait and input-difference tail | Explicit 008 index; longer target bodies and physical completion remain unresolved |
 | 013–021 (q3) | Input capture and call-fed external carry wait | Previous flags and explicit early entry; later Q reload selects a separate fixed-register wait |
 | 022–031 (q3) | Shift selection and carry-controlled execution of BLT | Zero-Q branch verified locally; skipping BLT retains its actual loop frame |
+| 032–042, 045–04B (q3) | Nested choices selecting the retained comparison input | Declared index sources; 043/044 excluded; timing depends on input carry and zero flags |
 | 01C–01F | Call-fed loop entry | Control-flow explanation, not a counted-loop algorithm |
 | 06F–077, 112–116 (q3) | Carry-selected half/difference, Q accumulation and register preparation | Local nonzero planes plus zero-reset calls; external channels unknown |
 | 04C–053, 09A–09D, 131–132, 228–22A, 238–247 (q3) | Register capture and transient sum/difference sequences | Local actual calls; handler-0 reset waits before reaching these helpers |
@@ -110,7 +111,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 854 used words, including overlaps and disconnected
+These annotations cover 878 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -147,7 +148,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 125 functional/assumption tests pass, including checks that
+byte. All 126 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -326,3 +327,8 @@ Q reload and the already checked 05D wait or terminal tail.
 input threshold that either executes BLT or skips it with its PLP frame still
 present. Local fixtures also verify the Q-zero shift branch excluded by this
 reset entry. Both reset paths join the same fixed-register wait.
+
+[Early entry 032's nested choices](EARLY-ENTRY32.md) connects both declared
+indices to retained R3, the 03F skip and the FF carry boundary through 045.
+Checked formulas distinguish terminal entry from the shared fixed-register
+wait; bypassed 043/044 remain outside the annotation.
