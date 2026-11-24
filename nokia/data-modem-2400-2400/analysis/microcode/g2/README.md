@@ -77,6 +77,12 @@ but its 0 and 1 entries yield equal output quartets in all 65 tested
 quarter-sine phase fixtures. Its retained state after each group is likewise
 identical across the 128-bit run. This exercises a controller-derived input stream
 without establishing a modulated line signal or the physical input route.
+The [main-loop-to-DSC bridge](MAIN-LOOP-DSP-BRIDGE.md) replaces that local
+scrambler stimulus with four real 8031 main-loop USART byte streams and their
+concatenation. Under the photo-constrained D38E hypothesis, all 448 bit
+presentations are consumed, but the candidate ALU group and post-group state still
+depend only on the current bit. No ROM read follows the recurring dispatch.
+This narrows the same candidate path without establishing a transmitter.
 
 A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
 changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,
