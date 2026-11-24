@@ -732,3 +732,12 @@ enabled and supplies the low-in-table/high-at-consumer pattern from real PROM
 data. Combined with candidate controller byte and dibit routes, it reaches
 all four table entries and changing internal consumers in 16 runs. The U5
 inverter/clock and DSP input timing remain hypotheses, and `39E` stays zero.
+The [256-seed output-order screen](PHOTO-TABLE-OUTPUT-ORDER.md) finds eight
+paths with D349, table and `392`/`39E` in sequence. Four expose nonzero
+internal consumer bytes, but none carries one to those candidate output
+words. A different latch clock or a missing data-transfer path remains to be
+tested.
+A [digital latch replay](PHOTO-TABLE-OUTPUT-ORDER.md#diagnostic-latch-at-the-internal-consumers)
+at `140`/`146` does capture controller-dependent bytes, but only one to three
+per run under the tested strict branch scenarios. It remains a sparse,
+untraced clock candidate rather than a transmitter sample stream.

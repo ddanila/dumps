@@ -153,6 +153,15 @@ phases B–C turn "what" into "how".
   table result to instruction `140`. The inverter, U5 clock and both input
   routes remain untraced; `39E` still outputs zero. Test a physically timed
   latch and a continuing DAC path next.
+  A [256-seed ordering screen](g2/PHOTO-TABLE-OUTPUT-ORDER.md) finds eight
+  diagnostic paths with D349 → table → `392`/`39E` in time; four include a
+  nonzero table-derived internal byte, yet none has a nonzero value at those
+  candidate output words. Test a photo-compatible latch clock at `140`/`146`
+  or another path from those consumers to DAC08.
+  A [diagnostic LS273 replay](g2/PHOTO-TABLE-OUTPUT-ORDER.md#diagnostic-latch-at-the-internal-consumers)
+  clocks `140` or `146` and captures controller-dependent bytes, but only
+  one to three per run. The clock net and full data bus are untraced, and
+  this does not satisfy the sustained transmitter check.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

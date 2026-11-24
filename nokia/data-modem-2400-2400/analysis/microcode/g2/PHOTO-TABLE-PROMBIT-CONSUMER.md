@@ -45,6 +45,11 @@ still have ALU Y=`00`. No DAC08 latch strobe or sustained waveform is
 identified. The next test should constrain the U5 source and clock against
 the photos and real PROM enables, then seek a continuing path from the
 table consumer to a changing DAC-bound code.
+A [256-seed control-flow screen](PHOTO-TABLE-OUTPUT-ORDER.md) finds eight
+diagnostic paths that reach D349, a table, then `392`/`39E`; four have a
+nonzero internal `140`/`146` byte, but every later candidate output byte is
+zero. This narrows the output-clock question without proving either candidate
+word is the physical latch strobe.
 
 The [byte-only report](results/photo-table-prombit-consumer.json) and
 [combined report](results/photo-table-prombit-symbols.json) record calls,
