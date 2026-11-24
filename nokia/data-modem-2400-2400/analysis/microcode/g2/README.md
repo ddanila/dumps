@@ -26,6 +26,17 @@ match the first quarter of a 256-point sine, including both endpoints. These
 are numerical identities, independent of the six microcode mapping choices.
 They do not by themselves identify the standard or the physical ROM wiring.
 
+The [pulse-family fit](pulse_fit.py) tests the predetermined signed window
+16F–1CF (97 bytes) as one contiguous raised-cosine or root-raised-cosine
+impulse. It searches 4, 6, 8 and 12 samples/symbol, roll-off 0.05–1.00,
+quarter-sample center positions, and freely fitted scale and offset. The best
+R² is only **0.358** for raised cosine and **0.332** for root raised cosine,
+both at 12 samples/symbol; at eight samples/symbol they are 0.234 and 0.203.
+This rejects those *simple contiguous-window* interpretations. It says
+nothing decisive about split, polyphase or transformed tables, whose indexing
+and physical clock are still unknown. The [report](results/pulse-fit.json)
+retains the full signed bytes, search domain and fit parameters.
+
 The [runner](table_signatures.py) verifies the acquisition hash, scans every
 possible four-byte start, checks both sine identities, and computes reference
 phase trajectories from the stored 07C bytes. Repeated dibit 11 yields
