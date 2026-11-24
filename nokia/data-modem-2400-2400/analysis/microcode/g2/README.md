@@ -708,3 +708,7 @@ USART-output dibits to the two predecessor words under a candidate D route.
 With previous ALU Y selecting the computed entry, q1/q3 follow all four
 dibit choices across 28 calls each; q2/q4/fitted-swapped always choose entry
 3. The 40 short runs return to `084` and do not establish a DAC waveform.
+The [diagnostic restart follow-up](PHOTO-TABLE-RESTART.md) preserves RAM/Q
+across 15 AC=RST pulses at `084` while feeding controller dibits. Its 16 runs
+make 112 table calls but retain one fixed source pair each, so that
+counterfactual continuation does not reveal an advancing carrier.

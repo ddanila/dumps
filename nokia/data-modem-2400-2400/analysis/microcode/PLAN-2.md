@@ -123,6 +123,10 @@ phases B–C turn "what" into "how".
   all four entries, while q2/q4/fitted-swapped stay at entry 3. The next
   discriminating check is whether the physical branch bus and input timing
   support that route and whether the values reach an advancing sample path.
+  A [diagnostic AC=RST continuation](g2/PHOTO-TABLE-RESTART.md) repeats the
+  controller-fed calls but leaves their source pair fixed, so the arithmetic
+  path still needs a real ROM/data-driven source update before a transmitter
+  interpretation is warranted.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

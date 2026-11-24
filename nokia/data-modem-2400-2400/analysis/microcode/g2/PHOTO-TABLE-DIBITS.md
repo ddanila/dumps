@@ -44,6 +44,8 @@ call timing, previous-Y connection to U9's branch bus, held E4/E2 levels,
 upstream scenario dispatch, source-pair initialization and DAC08 route are all
 unverified. The executed path makes at most five table calls per run, then
 parks at `084`; its outputs show no continuing carrier or pulse shaping. The
+[diagnostic RST continuation](PHOTO-TABLE-RESTART.md) repeats those calls with
+retained RAM/Q and still finds one fixed source pair per run. The
 [report](results/photo-table-controller-dibits.json) records every offered
 dibit, predecessor ALU value, selected entry, source and output pair, plus
 the controller and microcode source hashes.
