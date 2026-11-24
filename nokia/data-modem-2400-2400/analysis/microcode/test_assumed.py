@@ -127,6 +127,30 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_short_helpers_preserve_transient_order(self):
+        from short_helpers_study import prediction,fixture,inspect_reset
+        from reset_helpers_study import scenario_for,probe,verify_core
+        from defined_condition_fit import load_trace
+        config=read(HERE/'short-helpers-study.json');base_path=HERE/config['base']
+        mapping,base=read(base_path/'mapping.json'),read(base_path/'scenario.json');rows=decode(mapping)
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            for key,helper in config['helpers'].items():
+                entry=int(key);ram,q,d=fixture(entry,1,127)
+                if entry==0x04c:ram[0]=165;ram[3]=90
+                scenario=scenario_for(base,config,entry,ram,q,d)
+                got=probe(rows,scenario,helper,record=True);want=prediction(entry,ram,q,d)
+                self.assertEqual((got['ram'],got['q']),(want['ram'],want['q']))
+                self.assertEqual([t['alu']['y'] for t in got['trace'][1:]],want['y'])
+                verify_core(mapping,scenario,helper,got,root/key)
+            ram=list(range(16));ram[0]=1;ram[4]=7
+            a=prediction(0x238,ram,99,1);b=prediction(0x240,ram,99,1)
+            self.assertEqual((a['ram'],a['q']),(b['ram'],b['q']))
+            self.assertEqual(a['y'],[0,0,2,1,1,0,7,1])
+            self.assertEqual(b['y'],[0,1,1,0,2,0,7,1])
+        calls=inspect_reset(load_trace(base_path),base,config)
+        self.assertEqual(calls,[])
+
     def test_q3_reset_helpers_half_boundaries_and_negation(self):
         from reset_helpers_study import prediction,scenario_for,probe,verify_core,inspect_reset
         from defined_condition_fit import load_trace

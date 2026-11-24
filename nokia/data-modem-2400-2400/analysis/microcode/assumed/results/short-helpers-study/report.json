@@ -1,0 +1,659 @@
+{
+  "configuration": {
+    "base": "results/handler-timing-study/q3-previous-plp-00",
+    "evidence": "q3 short-helper contracts using actual caller opcodes, declared nonzero local RAM and empty initial stack. Compare complete retained state and ALU-Y sequence. Previous flags, selector 6 false, default D=1 outside the entry read and zero-fill shifts are explicit assumptions. No external output strobe is assigned.",
+    "helpers": {
+      "154": {
+        "caller": 284,
+        "end": 157,
+        "entry": 154,
+        "input_pc": 154
+      },
+      "305": {
+        "caller": 290,
+        "end": 306,
+        "entry": 305,
+        "input_pc": 305
+      },
+      "552": {
+        "caller": 547,
+        "end": 554,
+        "entry": 552,
+        "input_pc": 552
+      },
+      "568": {
+        "caller": 289,
+        "end": 575,
+        "entry": 568,
+        "input_pc": 568
+      },
+      "576": {
+        "caller": 291,
+        "end": 583,
+        "entry": 576,
+        "input_pc": 576
+      },
+      "76": {
+        "caller": 68,
+        "end": 83,
+        "entry": 76,
+        "input_pc": 76
+      }
+    },
+    "status": "hypothesis",
+    "witnesses": [
+      [
+        76,
+        0,
+        255
+      ],
+      [
+        76,
+        255,
+        0
+      ],
+      [
+        154,
+        0,
+        255
+      ],
+      [
+        154,
+        255,
+        0
+      ],
+      [
+        305,
+        0,
+        255
+      ],
+      [
+        305,
+        255,
+        0
+      ],
+      [
+        552,
+        0,
+        255
+      ],
+      [
+        552,
+        255,
+        0
+      ],
+      [
+        568,
+        0,
+        255
+      ],
+      [
+        568,
+        255,
+        0
+      ],
+      [
+        576,
+        0,
+        255
+      ],
+      [
+        576,
+        255,
+        0
+      ],
+      [
+        568,
+        1,
+        127
+      ],
+      [
+        576,
+        1,
+        127
+      ]
+    ]
+  },
+  "counts": {
+    "04c": 65536,
+    "09a": 65536,
+    "131": 65536,
+    "228": 65536,
+    "238": 65536,
+    "240": 65536
+  },
+  "execution_sha256": "14798d042a2da5d03c548d15db4c13d32b8c5384cc050fc7ab2a77f361bce706",
+  "interpretation": "Six q3 short helpers have checked retained-state and transient Y contracts. 238/240 retain identical state but emit different carry-adjustment order. Local actual BSR/POP calls plus unchanged handler-0 reset replay; no physical Y consumer or output strobe is inferred.",
+  "reset_calls": [],
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "assumed/execute.py": "8b2ecbf5fb90f52e593afc89d0c3d6ffff41666e725038f19443ee4bb58f71d5",
+    "assumed/reset_helpers_study.py": "4d75bc83bdee906193d910f6404db7153e95596b98606412301507708caccf01",
+    "assumed/results/handler-timing-study/q3-previous-plp-00/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/handler-timing-study/q3-previous-plp-00/scenario.json": "2788ed73f553ad0cad0ab51c58687d719132d9dc053414b829cfcc6666aaae0f",
+    "assumed/results/handler-timing-study/q3-previous-plp-00/summary.json": "dc638e45b6a91228fdfc92867ee86db76bd569a2328e65308e4fc618b52be612",
+    "assumed/results/handler-timing-study/q3-previous-plp-00/trace.jsonl": "8a5581e6e15217dda262c62e9140bf713beb1301ba0300c0a90f3a9f73173d50",
+    "assumed/short-helpers-study.json": "492eff6389957d04efc17384a1bc829ffe29e1ea4d676ad7e20061a28bef977c",
+    "assumed/short_helpers_study.py": "8502c3112e2c2053d70c379d6718e1d5516204d476951fe3c6b16da71b034ced",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": [
+    {
+      "a": 0,
+      "b": 255,
+      "entry": 76,
+      "path": "04c-00-ff",
+      "prediction": {
+        "cycles": 9,
+        "q": 0,
+        "ram": [
+          0,
+          56,
+          93,
+          0,
+          167,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          0,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          255,
+          255,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "trace_digest": "bb52e9f8d12f70131d7340e07515fa85f40710bf5ab6103385cf2afd9c4c38e8"
+    },
+    {
+      "a": 255,
+      "b": 0,
+      "entry": 76,
+      "path": "04c-ff-00",
+      "prediction": {
+        "cycles": 9,
+        "q": 0,
+        "ram": [
+          255,
+          56,
+          93,
+          255,
+          167,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          255,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          0,
+          0,
+          255,
+          0,
+          255,
+          254,
+          255
+        ]
+      },
+      "trace_digest": "2d6792d355c2f7c5e78d581fd1b39f782dcdb48c6910c21f13ada61a65557640"
+    },
+    {
+      "a": 0,
+      "b": 255,
+      "entry": 154,
+      "path": "09a-00-ff",
+      "prediction": {
+        "cycles": 5,
+        "q": 255,
+        "ram": [
+          0,
+          255,
+          255,
+          130,
+          167,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          255,
+          204,
+          0
+        ]
+      },
+      "trace_digest": "422ceca3c33c4a818ae2e6ae63cbae64fa90bc23d40c95254f0a0d8db0047845"
+    },
+    {
+      "a": 255,
+      "b": 0,
+      "entry": 154,
+      "path": "09a-ff-00",
+      "prediction": {
+        "cycles": 5,
+        "q": 255,
+        "ram": [
+          255,
+          0,
+          0,
+          130,
+          167,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          255,
+          0,
+          203,
+          255
+        ]
+      },
+      "trace_digest": "50d6715aafe9790f75a370989b4bf3691263f9a3d8376d39cd70419c7b90e31f"
+    },
+    {
+      "a": 0,
+      "b": 255,
+      "entry": 305,
+      "path": "131-00-ff",
+      "prediction": {
+        "cycles": 3,
+        "q": 255,
+        "ram": [
+          0,
+          56,
+          93,
+          130,
+          165,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          255,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          164,
+          0
+        ]
+      },
+      "trace_digest": "deb5eb83e4be86fe042e4ce47eeb2747ed162be6a0393697f33a68777af6905f"
+    },
+    {
+      "a": 255,
+      "b": 0,
+      "entry": 305,
+      "path": "131-ff-00",
+      "prediction": {
+        "cycles": 3,
+        "q": 255,
+        "ram": [
+          255,
+          56,
+          93,
+          130,
+          90,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          0,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          90,
+          0
+        ]
+      },
+      "trace_digest": "a7471d45088657cfee019b78e93433b83b98676dfb1655f5e286c118e02840d5"
+    },
+    {
+      "a": 0,
+      "b": 255,
+      "entry": 552,
+      "path": "228-00-ff",
+      "prediction": {
+        "cycles": 4,
+        "q": 255,
+        "ram": [
+          0,
+          56,
+          93,
+          130,
+          167,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          254,
+          255,
+          254
+        ]
+      },
+      "trace_digest": "1ea835f1d065415612b6cc64d8be89180b2ac3239e1f6c7cb8ffbd13d30fde1e"
+    },
+    {
+      "a": 255,
+      "b": 0,
+      "entry": 552,
+      "path": "228-ff-00",
+      "prediction": {
+        "cycles": 4,
+        "q": 0,
+        "ram": [
+          255,
+          56,
+          93,
+          130,
+          167,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          1,
+          255
+        ]
+      },
+      "trace_digest": "3dc1976514c130130bcd770bce7f08876ef88273352eba14753310589e4f414a"
+    },
+    {
+      "a": 0,
+      "b": 255,
+      "entry": 568,
+      "path": "238-00-ff",
+      "prediction": {
+        "cycles": 9,
+        "q": 0,
+        "ram": [
+          0,
+          56,
+          255,
+          130,
+          255,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          255,
+          0,
+          0,
+          0,
+          0,
+          255,
+          0
+        ]
+      },
+      "trace_digest": "e64e480e90c7a6d0644cb54cf08cc458d468d9168bf13892ab4175cc4f789bcd"
+    },
+    {
+      "a": 1,
+      "b": 127,
+      "entry": 568,
+      "path": "238-01-7f",
+      "prediction": {
+        "cycles": 9,
+        "q": 1,
+        "ram": [
+          1,
+          56,
+          127,
+          130,
+          127,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          127,
+          1
+        ]
+      },
+      "trace_digest": "473791eee3d9f267cef0a68ad4974c395d82329887a757347bd7283fd978fb69"
+    },
+    {
+      "a": 255,
+      "b": 0,
+      "entry": 568,
+      "path": "238-ff-00",
+      "prediction": {
+        "cycles": 9,
+        "q": 255,
+        "ram": [
+          255,
+          56,
+          0,
+          130,
+          0,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          254,
+          0,
+          255,
+          255,
+          0,
+          0,
+          255
+        ]
+      },
+      "trace_digest": "59a8fe30caa9a768e7b294c1b851b0cddc385eb4f29d46a86a5d72f930c9ab3b"
+    },
+    {
+      "a": 0,
+      "b": 255,
+      "entry": 576,
+      "path": "240-00-ff",
+      "prediction": {
+        "cycles": 9,
+        "q": 0,
+        "ram": [
+          0,
+          56,
+          255,
+          130,
+          255,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          0,
+          0,
+          255,
+          0,
+          0,
+          255,
+          0
+        ]
+      },
+      "trace_digest": "7b91857053c99e9722e4b16a9dfb9628ebefcd9f8efd5a13059cf36baf4d649d"
+    },
+    {
+      "a": 1,
+      "b": 127,
+      "entry": 576,
+      "path": "240-01-7f",
+      "prediction": {
+        "cycles": 9,
+        "q": 1,
+        "ram": [
+          1,
+          56,
+          127,
+          130,
+          127,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          1,
+          1,
+          0,
+          2,
+          0,
+          127,
+          1
+        ]
+      },
+      "trace_digest": "7bc31310f98aad6b2a00e0099b2cb9af0e7404a8070050807e33788b7c1a977a"
+    },
+    {
+      "a": 255,
+      "b": 0,
+      "entry": 576,
+      "path": "240-ff-00",
+      "prediction": {
+        "cycles": 9,
+        "q": 255,
+        "ram": [
+          255,
+          56,
+          0,
+          130,
+          0,
+          204,
+          241,
+          22,
+          59,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ],
+        "y": [
+          0,
+          255,
+          255,
+          254,
+          0,
+          0,
+          0,
+          255
+        ]
+      },
+      "trace_digest": "e3b171c448ae8426264a7aa7a39354e9b175d1a468371e757eeee38ceb268d8a"
+    }
+  ]
+}

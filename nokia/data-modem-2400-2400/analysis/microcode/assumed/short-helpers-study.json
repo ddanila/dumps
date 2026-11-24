@@ -1,0 +1,115 @@
+{
+  "status": "hypothesis",
+  "evidence": "q3 short-helper contracts using actual caller opcodes, declared nonzero local RAM and empty initial stack. Compare complete retained state and ALU-Y sequence. Previous flags, selector 6 false, default D=1 outside the entry read and zero-fill shifts are explicit assumptions. No external output strobe is assigned.",
+  "base": "results/handler-timing-study/q3-previous-plp-00",
+  "helpers": {
+    "76": {
+      "entry": 76,
+      "end": 83,
+      "caller": 68,
+      "input_pc": 76
+    },
+    "154": {
+      "entry": 154,
+      "end": 157,
+      "caller": 284,
+      "input_pc": 154
+    },
+    "305": {
+      "entry": 305,
+      "end": 306,
+      "caller": 290,
+      "input_pc": 305
+    },
+    "552": {
+      "entry": 552,
+      "end": 554,
+      "caller": 547,
+      "input_pc": 552
+    },
+    "568": {
+      "entry": 568,
+      "end": 575,
+      "caller": 289,
+      "input_pc": 568
+    },
+    "576": {
+      "entry": 576,
+      "end": 583,
+      "caller": 291,
+      "input_pc": 576
+    }
+  },
+  "witnesses": [
+    [
+      76,
+      0,
+      255
+    ],
+    [
+      76,
+      255,
+      0
+    ],
+    [
+      154,
+      0,
+      255
+    ],
+    [
+      154,
+      255,
+      0
+    ],
+    [
+      305,
+      0,
+      255
+    ],
+    [
+      305,
+      255,
+      0
+    ],
+    [
+      552,
+      0,
+      255
+    ],
+    [
+      552,
+      255,
+      0
+    ],
+    [
+      568,
+      0,
+      255
+    ],
+    [
+      568,
+      255,
+      0
+    ],
+    [
+      576,
+      0,
+      255
+    ],
+    [
+      576,
+      255,
+      0
+    ],
+    [
+      568,
+      1,
+      127
+    ],
+    [
+      576,
+      1,
+      127
+    ]
+  ]
+}

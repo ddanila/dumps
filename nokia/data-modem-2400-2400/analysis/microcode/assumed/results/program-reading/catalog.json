@@ -1241,6 +1241,102 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "SHORT-HELPERS.md",
+        "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+        "meaning": "Clear Q and copy R3 into R12 after transient input exposure; entry D is not retained.",
+        "name": "Q-clear and R3 capture",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "04C",
+            "053"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SHORT-HELPERS.md",
+        "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+        "meaning": "Copy R0 then R1 into R2; expose R0+R5 and R0, preserving Q.",
+        "name": "overwritten R0 copy and R1 capture",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "09A",
+            "09D"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SHORT-HELPERS.md",
+        "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+        "meaning": "Expose R4+R12 modulo 256 then R0 AND R12, preserving all RAM/Q.",
+        "name": "sum-and-mask exposure",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "131",
+            "132"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SHORT-HELPERS.md",
+        "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+        "meaning": "Expose Q-R0-1, Q-R0 and Q-1 modulo 256 without changing RAM/Q.",
+        "name": "three-difference exposure",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "228",
+            "22A"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SHORT-HELPERS.md",
+        "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+        "meaning": "Expose a decrement/carry-adjusted R0 pair before two unchanged R0 values, then set R2=R4 and Q=R0.",
+        "name": "early carry-adjustment and register copy",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "238",
+            "23F"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SHORT-HELPERS.md",
+        "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+        "meaning": "Expose two unchanged R0 values before the decrement/carry-adjusted pair, then set R2=R4 and Q=R0.",
+        "name": "late carry-adjustment and register copy",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "240",
+            "247"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1263,7 +1359,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 547,
+    "annotated_used_words": 578,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -1313,7 +1409,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "SHORT-HELPERS.md",
+          "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+          "meaning": "Clear Q and copy R3 into R12 after transient input exposure; entry D is not retained.",
+          "name": "Q-clear and R3 capture",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "04C",
+              "053"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "044",
         "0DD"
@@ -1426,7 +1539,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "SHORT-HELPERS.md",
+          "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+          "meaning": "Copy R0 then R1 into R2; expose R0+R5 and R0, preserving Q.",
+          "name": "overwritten R0 copy and R1 capture",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "09A",
+              "09D"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "11C",
         "11E"
@@ -1581,7 +1711,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "SHORT-HELPERS.md",
+          "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+          "meaning": "Expose R4+R12 modulo 256 then R0 AND R12, preserving all RAM/Q.",
+          "name": "sum-and-mask exposure",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "131",
+              "132"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "122",
         "124"
@@ -1747,7 +1894,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "SHORT-HELPERS.md",
+          "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+          "meaning": "Expose Q-R0-1, Q-R0 and Q-1 modulo 256 without changing RAM/Q.",
+          "name": "three-difference exposure",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "228",
+              "22A"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "223"
       ],
@@ -1760,7 +1924,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "SHORT-HELPERS.md",
+          "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+          "meaning": "Expose a decrement/carry-adjusted R0 pair before two unchanged R0 values, then set R2=R4 and Q=R0.",
+          "name": "early carry-adjustment and register copy",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "238",
+              "23F"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "121",
         "18F",
@@ -1775,7 +1956,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "SHORT-HELPERS.md",
+          "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred.",
+          "meaning": "Expose two unchanged R0 values before the decrement/carry-adjusted pair, then set R2=R4 and Q=R0.",
+          "name": "late carry-adjustment and register copy",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "240",
+              "247"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "123",
         "192",
@@ -4318,6 +4516,7 @@
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",
     "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
     "SELECTOR-PREFIX.md": "e5802528379b05c901803d6d20e9c554b586ec0650060a0e5a2282132824bedf",
+    "SHORT-HELPERS.md": "a2e0108de96deb4829c5a2802e2e7e0c39bd998cb86d84bb159014bf8d83b270",
     "TAIL-CONVERGENCE.md": "b1e6b58589106a25d44bfb1ae08829cd83dc52121a75e52b838f448a2a5d087a",
     "TAIL-STACK-CONTRACT.md": "3b37fcb577ff52bf92b5f24d977538e433386248b9313d0338adb9dbd0b02a90",
     "TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",

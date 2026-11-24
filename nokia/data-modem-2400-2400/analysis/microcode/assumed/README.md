@@ -629,3 +629,8 @@ all connections remain labelled hypotheses, and core traces are unchanged.
 112–116, including the carry-selected half/difference boundaries, Q input
 accumulation and overwritten register copies. Local calls and an unchanged
 reset witness verify the preconditions used by later handlers.
+
+[Six short-helper contracts](SHORT-HELPERS.md) distinguish retained register
+effects from transient Y sequences under q3. The 238/240 pair retains identical
+RAM/Q but exposes carry-adjustment results in a different order; no external
+consumer is assigned to those values.

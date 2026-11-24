@@ -2,7 +2,7 @@
 
 The [plan](../PLAN.md) is **not yet complete**. Its execution requirements now
 have a consolidated check against the current executor. Program interpretation
-still has concrete gaps, including 12 direct-call entries with no annotation.
+still has concrete gaps, including 6 direct-call entries with no annotation.
 Physical fidelity is not an additional acceptance gate: the plan explicitly
 allows labelled assumptions and makes hardware checks optional.
 
@@ -68,7 +68,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Integrated slices/sequencer with selectable flags and logged external world | `execute.py`, component tests, current q2/q3 traces | Implemented |
 | Datapath-derived dispatch when suggested | Q and preceding-Y index policies; nonzero masked nested reset study | Demonstrated with real caller stack; other sites may remain scenario-driven |
 | Millions of clean integrated instructions and stable inspectable activity | Two million primary integrated instructions plus exact full replays; q3 live ROM feedback | Execution criterion passes |
-| Name subroutines and annotate from traces | 547 used words annotated; 25 of 37 cataloged direct-call entries have annotations | **Incomplete: 12 direct-call entries still unannotated** |
+| Name subroutines and annotate from traces | 578 used words annotated; 31 of 37 cataloged direct-call entries have annotations | **Incomplete: 6 direct-call entries still unannotated** |
 | Relate I/O to sine lookup, DAC, sample timing and controller exchange | Live sine input; hypothetical DAC sink; measured instruction counts; separately verified 8031 frame/handshake routines | **Partial: no complete controller/microcode or recurring sample transaction yet** |
 | Feed routine evidence back into mapping/execution | Q-independent alternatives, source-register comparisons, carry/flag timing and handler studies | Implemented, ongoing where interpretations disagree |
 | Optional continuity checks | Prioritized in the plan and board worksheets | Optional; not an execution or interpretation blocker |
@@ -85,11 +85,11 @@ still expose a possible stack underflow at 2FF.
 The catalog identifies these unannotated direct-call entries:
 
 ```
-04C 09A 131 228 238 240 270 2EC 335 357 366 370
+270 2EC 335 357 366 370
 ```
 
 They are the next concrete routine-reading queue. There are also unannotated
-branch/case bodies; 547/1,021 is an annotation count, not a percentage of
+branch/case bodies; 578/1,021 is an annotation count, not a percentage of
 understood modem functionality. Annotating these entries alone would not prove
 that all of step 5 is finished.
 
@@ -113,5 +113,5 @@ The runner's execution gate requires clean complete runs, maximum depth at most
 four, no unused words, exact full replays and unchanged saved prefixes, at least
 one million sequencer and two million integrated primary instructions, and at
 least 90% clean random-sweep coverage. Tests reject failed, truncated,
-non-reproducible, over-depth and insufficient-coverage summaries. The 107-test
+non-reproducible, over-depth and insufficient-coverage summaries. The 108-test
 suite passes. No full-plan completion flag is inferred from this execution gate.
