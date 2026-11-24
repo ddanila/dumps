@@ -76,8 +76,9 @@ ROM beyond waveform constants: supplying low sequencer-address bytes to the
 DSC2847 processor. The physical route through buffers/connectors and the two
 high address bits are still untraced.
 
-DED3558 contains the photographed DAC0830. The sine tables supply plausible
-waveform data, but no microcode output strobe or DAC address has been identified.
+DED3558 contains a photographed ADC0800PCD, not a confirmed DAC0830
+([correction](../g2/ADC0800-INPUT.md)). The sine tables supply plausible
+waveform data, but no microcode output strobe or physical DAC has been identified.
 Existing virtual ALU-output captures therefore retain their virtual labels.
 
 The controller ROM independently establishes six-byte mode-0 input and four-byte

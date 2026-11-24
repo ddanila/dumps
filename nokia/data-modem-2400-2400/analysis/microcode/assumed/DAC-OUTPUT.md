@@ -10,9 +10,12 @@ an analog voltage or physical sample rate.
 
 ## Evidence and component boundary
 
-The [DED3558 photograph](../../../photos/PXL_20261123_114854803.jpg) identifies
-a DAC0830 on the conversion board. This does not establish a route from the
-DSC2847 ALU bus, an intervening latch, byte order, or a write signal.
+**Hardware correction:** The [DED3558 photograph](../../../photos/PXL_20261123_114854803.jpg)
+shows a stickered **ADC0800PCD**, an A/D converter, not a confirmed DAC0830.
+See the [photo and datasheet review](../g2/ADC0800-INPUT.md). No DAC0830 has
+been identified on DED 3558 from this photograph. The model below is an
+explicit *counterfactual output adapter*; it does not establish a route from
+the DSC2847 ALU bus, an intervening latch, byte order or a write signal.
 
 The digital component follows Texas Instruments **SNAS534B**, pages 5–6 and
 9–11 ([manufacturer datasheet, mirrored PDF](https://pdf.direnc.net/upload/dac0830-dac0832-datasheet.pdf)).

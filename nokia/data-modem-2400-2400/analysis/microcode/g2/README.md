@@ -6,6 +6,12 @@ G2. The required end result remains a controller-driven microcode transmitter,
 plus a demonstrated receiver or echo canceller, with the modem functions
 identified in the routines.
 
+The [DED3558 photo and datasheet review](ADC0800-INPUT.md) identifies a
+stickered ADC0800PCD as a candidate source of complementary 8-bit receive
+samples. An earlier description of that photographed converter as a DAC0830
+was incorrect. The output converter and both sample-bus routes remain to be
+identified; existing DAC0830 executions are diagnostic counterfactuals.
+
 The [photo-informed board experiment](../board/PHOTO-HYPOTHESES.md) revisits
 the physical-wiring blocker: missing proven nets do not prevent explicit
 candidate wiring from being executed. It runs the real control PROMs through

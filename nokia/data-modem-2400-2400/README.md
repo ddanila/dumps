@@ -48,7 +48,7 @@ switches and status LEDs; there is no evidence of a Hayes-style command set.
 | DSU 3555, Nokia 9970067, 1175512 | Transformers and analog circuitry: line interface | [Front](photos/PXL_20261123_114637263.jpg) / [back](photos/PXL_20261123_114645232.jpg) |
 | DSU 3556, Nokia 1177954 | Intel P8031, two AMD P8251A USARTs, EPROM 810244E, 11.9808 MHz oscillator: controller | [Front](photos/PXL_20261123_114723348.jpg) / [back](photos/PXL_20261123_114730247.jpg) |
 | DSC 3557, Nokia 9970356a, 1177033 | Four MCM93422 SRAMs (256 × 4); socketed 810241 and labelled devices 810111/810112: probably data memory for the signal processor | [Front](photos/PXL_20261123_114811760.jpg) / [back](photos/PXL_20261123_114818924.jpg) |
-| DED 3558, Nokia 9970362 B, 1176272 | Digital logic and a DAC0830: conversion and timing | [Front](photos/PXL_20261123_114854803.jpg) / [back](photos/PXL_20261123_114901193.jpg) |
+| DED 3558, Nokia 9970362 B, 1176272 | Digital logic and a stickered ADC0800PCD: receive conversion and timing candidates; output converter unconfirmed | [Front](photos/PXL_20261123_114854803.jpg) / [back](photos/PXL_20261123_114901193.jpg) |
 | DSC 2847, Nokia 9996446 C, 1177201 | Two Am2901BDC slices, N8X02AN sequencer, four MMI 6381 PROMs, output latches, 14.400 MHz oscillator: bit-slice signal processor | [Front](photos/PXL_20261123_114926601.jpg) / [back](photos/PXL_20261123_114932814.jpg) |
 
 - **Confirmed chips.** The owner confirmed **810244E** as the dumped 2764 on

@@ -191,8 +191,9 @@ Candidate bits are what the sequencer does not use: chip 11 bits 1–7, 17.3,
   in multiply/divide style loops such as 1E9);
 - chip 10 as an 8-bit immediate (D input) in words where it is not an address,
   read in the same reversed bit order;
-- the Am27S31 sine table and the DAC0830 on DED 3558 as hints for what
-  constants and outputs to expect.
+- the Am27S31 sine table and the photographed ADC0800 on DED 3558 as hints
+  for lookup constants and receiver inputs; the transmit output converter
+  remains unidentified.
 
 Score candidate layouts the same way the address field was scored, and keep
 alternatives that cannot be separated as named variants.
