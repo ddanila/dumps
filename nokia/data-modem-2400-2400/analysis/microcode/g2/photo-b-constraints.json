@@ -1,0 +1,71 @@
+{
+  "status": "photo-traced-candidates-not-continuity-measurements",
+  "source_photo": "../../../photos/PXL_20261123_114932814.jpg",
+  "source_sha256": "1b526e960598b86ee18bb2f336fe47a15f9c8535dc10700c7a24c78a9ada8840",
+  "orientation": "flip vertically, then use board/evidence/manifest.json back quadrilateral",
+  "rectified_size": [4000, 2000],
+  "pin_references": [
+    "https://www.ti.com/lit/ds/symlink/sn74ls374.pdf (SDLS165B, page 1; Q numbers below are zero-based)",
+    "https://pccomponents.com/datasheets/ADVAN-AM2901BDMB.pdf (01656B, page 3, P-40/D-40 top-view pin diagram)"
+  ],
+  "bundle_assumption": {
+    "source": "11",
+    "register": "U6",
+    "evidence": "../board/nets.json candidate_bundles: U11.D -> U6.D",
+    "limitation": "The PROM-to-register bit permutation is not traced. Lane compatibility is weaker than an exact bit assignment."
+  },
+  "traces": [
+    {
+      "id": "PB1",
+      "source": "U6.9",
+      "source_port": "Q3",
+      "source_bit": 3,
+      "target": "U2.18",
+      "target_port": "B1",
+      "target_bit": 1,
+      "seed": [500, 1555],
+      "source_pad": [479, 1684],
+      "target_pad": [2882, 1578],
+      "color": [255, 80, 30]
+    },
+    {
+      "id": "PB2",
+      "source": "U6.6",
+      "source_port": "Q2",
+      "source_bit": 2,
+      "target": "U2.19",
+      "target_port": "B2",
+      "target_bit": 2,
+      "seed": [593, 1600],
+      "source_pad": [593, 1684],
+      "target_pad": [2846, 1578],
+      "color": [255, 200, 0]
+    },
+    {
+      "id": "PB3",
+      "source": "U6.5",
+      "source_port": "Q1",
+      "source_bit": 1,
+      "target": "U2.20",
+      "target_port": "B3",
+      "target_bit": 3,
+      "seed": [630, 1620],
+      "source_pad": [630, 1684],
+      "target_pad": [2809, 1578],
+      "color": [255, 80, 220]
+    }
+  ],
+  "unresolved_trace": {
+    "source": "U6.2 (Q0)",
+    "seed": [742, 1665],
+    "possible_target": "U2.4 (A0)",
+    "status": "incomplete-fragment-not-used-as-a-constraint",
+    "reason": "The threshold-connected segment ends below the apparent target pad; its final connection needs closer checking. If confirmed, this challenges more than the A/B swap."
+  },
+  "limitations": [
+    "Pin attribution and visible routing are photo interpretations; there are no measured nets here.",
+    "The image threshold is a tracing aid, not an electrical-connectivity detector. It breaks at dim copper and can merge adjacent traces at lower thresholds.",
+    "No U8 endpoint, B0 connection, full A field, instruction field, clock, or external interface is established.",
+    "The front-side PROM/register bundle passes under packages; do not infer its exact bit permutation from nearby trace alignment."
+  ]
+}

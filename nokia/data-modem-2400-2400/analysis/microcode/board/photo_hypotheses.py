@@ -26,9 +26,11 @@ def save(path, value):
     path.write_text(json.dumps(value, indent=2, sort_keys=True) + '\n')
 
 
-def candidate(profile, sequence_source='registered', branch_source='literal'):
-    profiles = read(ASSUMED / 'program-reading.json')['profiles']
-    mapping_path = ASSUMED / profiles[profile]
+def candidate(profile, sequence_source='registered', branch_source='literal', mapping_path=None):
+    if mapping_path is None:
+        profiles = read(ASSUMED / 'program-reading.json')['profiles']
+        mapping_path = ASSUMED / profiles[profile]
+    mapping_path = Path(mapping_path).resolve()
     mapping = read(mapping_path)
     board = deepcopy(read(HERE / 'dsc2847.json'))
     board['name'] = f'DSC photo hypothesis: {profile}/{sequence_source}/{branch_source}'
@@ -41,7 +43,7 @@ def candidate(profile, sequence_source='registered', branch_source='literal'):
         'topology': 'Four PROM/register pairings from nets.json candidate_bundles; two Am2901 devices from the photo inventory.',
         'register_bits': 'Identity D-to-D order is a naming convention for untraced register bits; output references use the same convention. Not a recovered pin permutation.',
         'address': 'U9 ten-bit address feeds all four PROMs without permutation; enables asserted.',
-        'fields': {'path': str(mapping_path.relative_to(HERE.parent)),
+        'fields': {'path': os.path.relpath(mapping_path, HERE.parent),
                    'sha256': hashlib.sha256(mapping_path.read_bytes()).hexdigest(),
                    'mapping': mapping},
         'sequence_controls': sequence_source,

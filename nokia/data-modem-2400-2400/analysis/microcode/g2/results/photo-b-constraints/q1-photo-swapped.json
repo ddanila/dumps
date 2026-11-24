@@ -1,0 +1,139 @@
+{
+  "address_wiring": {
+    "evidence": "PROM structural analysis",
+    "status": "hypothesis",
+    "value": "straight-through"
+  },
+  "fields": {
+    "a": {
+      "bits": [
+        "18.1",
+        "18.0",
+        "17.7",
+        "17.6"
+      ],
+      "evidence": "photo-b-constraints.json suggests U6 drives U2 B1-B3, assuming the U11/U6 bundle. Swapping the full A/B fields is an experiment; B0, A wiring and PROM/register bit order remain untraced.",
+      "status": "hypothesis"
+    },
+    "b": {
+      "bits": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "evidence": "photo-b-constraints.json suggests U6 drives U2 B1-B3, assuming the U11/U6 bundle. Swapping the full A/B fields is an experiment; B0, A wiring and PROM/register bit order remain untraced.",
+      "status": "hypothesis"
+    },
+    "branch": {
+      "bits": [
+        "11.0",
+        "10.7",
+        "10.6",
+        "10.5",
+        "10.4",
+        "10.3",
+        "10.2",
+        "10.1",
+        "10.0",
+        "18.7"
+      ],
+      "evidence": "PLAN.md target-window search; B0/B9 less certain",
+      "status": "recovered-from-data"
+    },
+    "carry": {
+      "bits": [
+        "10.4"
+      ],
+      "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+      "status": "hypothesis"
+    },
+    "carry_select": {
+      "bits": [
+        "11.0"
+      ],
+      "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+      "status": "hypothesis"
+    },
+    "command": {
+      "bits": [
+        "17.2",
+        "17.1",
+        "17.0"
+      ],
+      "evidence": "PLAN.md command histogram",
+      "status": "recovered-from-data"
+    },
+    "d": {
+      "bits": 0,
+      "evidence": "External D input supplied by scenario, not chip-10 immediate",
+      "status": "stub"
+    },
+    "direct": {
+      "bits": [
+        "17.7"
+      ],
+      "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+      "status": "hypothesis"
+    },
+    "i": {
+      "bits": [
+        "17.5",
+        "!17.3",
+        "18.6",
+        "10.2",
+        "10.3",
+        "!10.0",
+        "11.7",
+        "11.6",
+        "11.5"
+      ],
+      "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+      "status": "hypothesis"
+    },
+    "output_slot": {
+      "bits": [
+        "10.1",
+        "10.5",
+        "10.6",
+        "10.7"
+      ],
+      "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+      "status": "hypothesis"
+    },
+    "register": {
+      "bits": [
+        "11.4",
+        "11.3",
+        "11.2",
+        "11.1"
+      ],
+      "evidence": "photo-b-constraints.json suggests U6 drives U2 B1-B3, assuming the U11/U6 bundle. Swapping the full A/B fields is an experiment; B0, A wiring and PROM/register bit order remain untraced.",
+      "status": "hypothesis"
+    },
+    "select": {
+      "bits": [
+        "17.4",
+        "17.5",
+        "17.6"
+      ],
+      "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+      "status": "hypothesis"
+    }
+  },
+  "name": "q-independent-1-photo-ab-swapped",
+  "photo_constraint_scope": "B1-B3 source-lane constraint only; full swap and unchanged instruction field remain hypotheses.",
+  "ranking": {
+    "i": [
+      "17.5",
+      "!17.3",
+      "18.6",
+      "10.2",
+      "10.3",
+      "!10.0",
+      "11.7",
+      "11.6",
+      "11.5"
+    ]
+  }
+}

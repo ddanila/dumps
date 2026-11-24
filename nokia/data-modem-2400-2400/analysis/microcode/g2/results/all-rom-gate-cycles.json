@@ -2,35 +2,227 @@
   "by_mapping": {
     "fitted_original": {
       "cyclic_d_register_writes": {
+        "187": 12,
         "1EC": 18,
+        "299": 48,
+        "29B": 36,
+        "29C": 24,
         "36C": 25,
         "36E": 10
       },
-      "cyclic_pc_count": 193
+      "cyclic_pc_count": 193,
+      "operations": [
+        {
+          "a": 4,
+          "b": 0,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F<<1; Q<<1",
+          "pc": "187"
+        },
+        {
+          "a": 4,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "1EC"
+        },
+        {
+          "a": 2,
+          "b": 0,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F<<1",
+          "pc": "299"
+        },
+        {
+          "a": 6,
+          "b": 0,
+          "operation": "R,S=D,Q; F=R&S; RAM[B]=F",
+          "pc": "29B"
+        },
+        {
+          "a": 4,
+          "b": 0,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "29C"
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36C"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36E"
+        }
+      ]
     },
     "fitted_swapped": {
       "cyclic_d_register_writes": {
+        "187": 12,
         "1EC": 18,
+        "299": 48,
+        "29B": 36,
+        "29C": 24,
         "36C": 25,
         "36E": 10
       },
-      "cyclic_pc_count": 193
+      "cyclic_pc_count": 193,
+      "operations": [
+        {
+          "a": 0,
+          "b": 4,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F<<1; Q<<1",
+          "pc": "187"
+        },
+        {
+          "a": 3,
+          "b": 4,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "1EC"
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F<<1",
+          "pc": "299"
+        },
+        {
+          "a": 0,
+          "b": 6,
+          "operation": "R,S=D,Q; F=R&S; RAM[B]=F",
+          "pc": "29B"
+        },
+        {
+          "a": 0,
+          "b": 4,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "29C"
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36C"
+        },
+        {
+          "a": 3,
+          "b": 2,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36E"
+        }
+      ]
     },
     "q1": {
       "cyclic_d_register_writes": {
+        "05E": 58,
+        "061": 22,
+        "127": 16,
+        "12C": 16,
         "1EC": 18,
         "36C": 25,
         "36E": 10
       },
-      "cyclic_pc_count": 193
+      "cyclic_pc_count": 193,
+      "operations": [
+        {
+          "a": 2,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "05E"
+        },
+        {
+          "a": 3,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "061"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "127"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "12C"
+        },
+        {
+          "a": 4,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "1EC"
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36C"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36E"
+        }
+      ]
     },
     "q2": {
       "cyclic_d_register_writes": {
+        "05E": 58,
+        "061": 22,
+        "127": 16,
+        "12C": 16,
         "1EC": 18,
         "36C": 25,
         "36E": 10
       },
-      "cyclic_pc_count": 193
+      "cyclic_pc_count": 193,
+      "operations": [
+        {
+          "a": 2,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "05E"
+        },
+        {
+          "a": 3,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "061"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "127"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "operation": "R,S=D,Q; F=R+S+C; RAM[B]=F",
+          "pc": "12C"
+        },
+        {
+          "a": 4,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "1EC"
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36C"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36E"
+        }
+      ]
     },
     "q3": {
       "cyclic_d_register_writes": {
@@ -38,7 +230,27 @@
         "36C": 25,
         "36E": 10
       },
-      "cyclic_pc_count": 193
+      "cyclic_pc_count": 193,
+      "operations": [
+        {
+          "a": 4,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "1EC"
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36C"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36E"
+        }
+      ]
     },
     "q4": {
       "cyclic_d_register_writes": {
@@ -46,9 +258,30 @@
         "36C": 25,
         "36E": 10
       },
-      "cyclic_pc_count": 193
+      "cyclic_pc_count": 193,
+      "operations": [
+        {
+          "a": 4,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "1EC"
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36C"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36E"
+        }
+      ]
     }
   },
+  "correction": "The previous report incorrectly reused d_selected_pcs cached under q3 when screening the other five mappings. Its claim that every mapping had the same three sites is withdrawn.",
   "cyclic_d_site_counts": {
     "02B": 15,
     "02C": 29,
@@ -2862,7 +3095,7 @@
   "fits_with_d_in_paired_output_loop": 0,
   "fits_without_cyclic_d": 73,
   "gate_fit_count": 137,
-  "interpretation": "Across all six retained mappings, cyclic D-driven register writes selected by the 137 diagnostic gate fits occur only at 1EC, 36C and 36E. None of the fits selects D in paired-output loop 38C\u20133A1. In q3, 73 gates select no D-consuming word in a declared cyclic component.",
+  "interpretation": "Operand selection is recomputed separately for each mapping from the gate activation PCs. q3/q4 retain three cyclic D-write sites; q1/q2 additionally admit 05E, 061, 127 and 12C; the fitted mappings additionally admit 187, 299, 29B and 29C. The top-level fit summaries describe q3 only.",
   "limitations": [
     "All 137 gates were fitted to assumed diagnostic labels, not physical ROM read-enable measurements.",
     "The graph follows one declared stack/dispatch policy and overapproximates conditional branch feasibility.",

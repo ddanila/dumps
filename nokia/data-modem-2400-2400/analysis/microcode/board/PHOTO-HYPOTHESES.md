@@ -74,6 +74,11 @@ The reason to continue is that the assumptions now produce testable traces;
 no additional photographs or continuity measurements are prerequisites for
 trying the next candidates.
 
+A [subsequent photo field study](../g2/PHOTO-FIELDS.md) supplies three candidate
+U6→U2 B-input routes, screens the six baseline mappings against that constraint,
+and executes four new A/B-swapped variants. The 72-run screen above is preserved
+as the baseline experiment; it is not a ranking against those later traces.
+
 ## Reproduce
 
 From the repository root:

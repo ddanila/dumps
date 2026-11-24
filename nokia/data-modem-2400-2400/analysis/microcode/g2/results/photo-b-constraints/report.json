@@ -1,0 +1,470 @@
+{
+  "existing_profiles": {
+    "fitted_original": {
+      "checks": [
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "18.0",
+          "trace": "PB1"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.7",
+          "trace": "PB2"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.6",
+          "trace": "PB3"
+        }
+      ],
+      "identity_permutation_match": false,
+      "lane_compatible": false
+    },
+    "fitted_swapped": {
+      "checks": [
+        {
+          "identity_permutation_match": true,
+          "lane_compatible": true,
+          "mapped_bit": "11.3",
+          "trace": "PB1"
+        },
+        {
+          "identity_permutation_match": true,
+          "lane_compatible": true,
+          "mapped_bit": "11.2",
+          "trace": "PB2"
+        },
+        {
+          "identity_permutation_match": true,
+          "lane_compatible": true,
+          "mapped_bit": "11.1",
+          "trace": "PB3"
+        }
+      ],
+      "identity_permutation_match": true,
+      "lane_compatible": true
+    },
+    "q1": {
+      "checks": [
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "18.0",
+          "trace": "PB1"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.7",
+          "trace": "PB2"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.6",
+          "trace": "PB3"
+        }
+      ],
+      "identity_permutation_match": false,
+      "lane_compatible": false
+    },
+    "q2": {
+      "checks": [
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "18.0",
+          "trace": "PB1"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.7",
+          "trace": "PB2"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.6",
+          "trace": "PB3"
+        }
+      ],
+      "identity_permutation_match": false,
+      "lane_compatible": false
+    },
+    "q3": {
+      "checks": [
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "18.0",
+          "trace": "PB1"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.7",
+          "trace": "PB2"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.6",
+          "trace": "PB3"
+        }
+      ],
+      "identity_permutation_match": false,
+      "lane_compatible": false
+    },
+    "q4": {
+      "checks": [
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "18.0",
+          "trace": "PB1"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.7",
+          "trace": "PB2"
+        },
+        {
+          "identity_permutation_match": false,
+          "lane_compatible": false,
+          "mapped_bit": "17.6",
+          "trace": "PB3"
+        }
+      ],
+      "identity_permutation_match": false,
+      "lane_compatible": false
+    }
+  },
+  "interpretation": "Under the U11-to-U6 bundle assumption, the three candidate B-input traces conflict with the B-source lane in q1-q4 and fitted_original. fitted_swapped agrees. Four new full A/B swaps retain the independent source-field variants; they also agree with the three constraints. This is not a unique recovered instruction decode.",
+  "limitations": [
+    "Pin attribution and visible routing are photo interpretations; there are no measured nets here.",
+    "The image threshold is a tracing aid, not an electrical-connectivity detector. It breaks at dim copper and can merge adjacent traces at lower thresholds.",
+    "No U8 endpoint, B0 connection, full A field, instruction field, clock, or external interface is established.",
+    "The front-side PROM/register bundle passes under packages; do not infer its exact bit permutation from nearby trace alignment.",
+    "The complete A/B swap is broader than the three photo constraints.",
+    "Runs use the earlier literal-branch, external TEST/D/carry, and fetch/execute schedule assumptions.",
+    "Neither a running transmitter nor a controller-driven handshake is demonstrated."
+  ],
+  "source_photo_sha256": "1b526e960598b86ee18bb2f336fe47a15f9c8535dc10700c7a24c78a9ada8840",
+  "source_sha256": {
+    "assumed/program-reading.json": "d8460c3d46a9153fd7515b948cb56d0347f65ee6f6be029ee383d98745ef5351",
+    "assumed/results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
+    "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/independent-study/variant-4.json": "0ec561af24f767f8d43c327c1308244d684aaf37eca5057538395c189ae118e9",
+    "assumed/results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
+    "assumed/results/selector-completion/original-marked/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
+    "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+    "assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "g2/photo-b-constraints.json": "201a99119d67a3f1ad1f1e7f91639d0cd41b16b33183efba9dee44d7a239666c"
+  },
+  "status": "photo-constrained-hypotheses-not-G2-acceptance",
+  "variants": {
+    "q1-photo-swapped": {
+      "cyclic_d_register_writes": {
+        "05E": 58,
+        "061": 22,
+        "127": 16,
+        "12C": 16,
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "photo_check": {
+        "checks": [
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.3",
+            "trace": "PB1"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.2",
+            "trace": "PB2"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.1",
+            "trace": "PB3"
+          }
+        ],
+        "identity_permutation_match": true,
+        "lane_compatible": true
+      },
+      "runs": [
+        {
+          "board": "DSC photo hypothesis: q1-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 0,
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=0, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 43
+        },
+        {
+          "board": "DSC photo hypothesis: q1-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 1,
+          "g2_acceptance": false,
+          "last_pc": "118",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=1, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 23
+        },
+        {
+          "board": "DSC photo hypothesis: q1-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": "pulse17",
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 2,
+          "scenario": "Diagnostic external TEST=pulse17, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 67
+        }
+      ]
+    },
+    "q2-photo-swapped": {
+      "cyclic_d_register_writes": {
+        "05E": 58,
+        "061": 22,
+        "127": 16,
+        "12C": 16,
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "photo_check": {
+        "checks": [
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.3",
+            "trace": "PB1"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.2",
+            "trace": "PB2"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.1",
+            "trace": "PB3"
+          }
+        ],
+        "identity_permutation_match": true,
+        "lane_compatible": true
+      },
+      "runs": [
+        {
+          "board": "DSC photo hypothesis: q2-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 0,
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=0, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 43
+        },
+        {
+          "board": "DSC photo hypothesis: q2-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 1,
+          "g2_acceptance": false,
+          "last_pc": "118",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=1, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 23
+        },
+        {
+          "board": "DSC photo hypothesis: q2-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": "pulse17",
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 4,
+          "scenario": "Diagnostic external TEST=pulse17, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 67
+        }
+      ]
+    },
+    "q3-photo-swapped": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "photo_check": {
+        "checks": [
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.3",
+            "trace": "PB1"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.2",
+            "trace": "PB2"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.1",
+            "trace": "PB3"
+          }
+        ],
+        "identity_permutation_match": true,
+        "lane_compatible": true
+      },
+      "runs": [
+        {
+          "board": "DSC photo hypothesis: q3-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 0,
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=0, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 43
+        },
+        {
+          "board": "DSC photo hypothesis: q3-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 1,
+          "g2_acceptance": false,
+          "last_pc": "118",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=1, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 23
+        },
+        {
+          "board": "DSC photo hypothesis: q3-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": "pulse17",
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 6,
+          "scenario": "Diagnostic external TEST=pulse17, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 67
+        }
+      ]
+    },
+    "q4-photo-swapped": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "photo_check": {
+        "checks": [
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.3",
+            "trace": "PB1"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.2",
+            "trace": "PB2"
+          },
+          {
+            "identity_permutation_match": true,
+            "lane_compatible": true,
+            "mapped_bit": "11.1",
+            "trace": "PB3"
+          }
+        ],
+        "identity_permutation_match": true,
+        "lane_compatible": true
+      },
+      "runs": [
+        {
+          "board": "DSC photo hypothesis: q4-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 0,
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=0, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 43
+        },
+        {
+          "board": "DSC photo hypothesis: q4-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": 1,
+          "g2_acceptance": false,
+          "last_pc": "118",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 0,
+          "scenario": "Diagnostic external TEST=1, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 23
+        },
+        {
+          "board": "DSC photo hypothesis: q4-photo-swapped/registered/literal",
+          "completed_cycles": 128,
+          "faithful_nokia_execution": false,
+          "fixture": "pulse17",
+          "g2_acceptance": false,
+          "last_pc": "084",
+          "last_phase": "execute rise",
+          "max_known_ram_bytes": 7,
+          "scenario": "Diagnostic external TEST=pulse17, D=0, carry=0; indirect bus unknown",
+          "stop": "cycle limit",
+          "unique_pcs": 67
+        }
+      ]
+    }
+  }
+}

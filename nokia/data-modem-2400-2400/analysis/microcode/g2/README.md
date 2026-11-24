@@ -13,6 +13,13 @@ the chip models, preserving unknown startup data, and screens control-source
 and indirect-branch alternatives. This reopens hypothesis testing; it does not
 yet satisfy G2's functional acceptance checks.
 
+The subsequent [photo field constraints](PHOTO-FIELDS.md) identify three
+candidate U6→U2 B-address routes and introduce four A/B-swapped instruction
+variants. This also uncovered and corrected a cross-mapping operand-selection
+bug in the ROM-read screen, reopening loop candidates that were previously
+excluded. The new variants and corrected screen remain hypotheses to test
+against the full transmitter/receiver requirements.
+
 ## First independent ROM constraint
 
 [ITU-T V.26 ter (11/88), §2.5.2.1, Table 1](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I!!PDF-E&lang=e&type=items)
@@ -157,14 +164,18 @@ The [family-wide screen](all_rom_gate_cycles.py) repeats the intersection for
 **all 137** gates that fit the original diagnostic ROM-read labels. Seventy-three
 select no D-consuming word in any cyclic q3 component. None selects a D
 operand in the recurring paired-output loop 38C–3A1. Across the other gates,
-only 1EC, 36C and 36E combine a cyclic D read with a register write; those
-sites are the poll and carry recurrence above. The same three cyclic write
-sites and gate counts hold in **all six retained datapath mappings** under
-the shared control-flow policy. The [full result](results/all-rom-gate-cycles.json)
-keeps every gate's terms and cyclic sites. This makes further transmitter
-claims from this *fitted-gate family* unlikely without new wiring or a
-different mapping. A ROM operand may be captured before a loop, so the screen
-does not exclude every possible modulator algorithm.
+only 1EC, 36C and 36E combine a cyclic D read with a register write **in q3
+and q4**; those sites are the poll and carry recurrence above.
+
+**Correction:** the earlier claim that all six mappings shared those three
+sites was wrong. The screen reused operand-selection results cached under q3.
+Recomputing D selection for each mapping additionally admits **05E, 061, 127,
+12C in q1/q2**, and **187, 299, 29B, 29C in both fitted mappings**. These are
+renewed candidates for runtime experiments, not established oscillators. The
+[corrected result](results/all-rom-gate-cycles.json) preserves the mapping-specific
+operations and counts; regression tests detect reuse of another mapping's
+operand selection. A ROM operand may also be captured before a loop, so the
+screen does not exclude every possible modulator algorithm.
 
 The screen therefore does not identify a transmitter. The next discriminating
 search must combine a *reached* D-add instruction with independently supported
