@@ -65,6 +65,14 @@ bug in the ROM-read screen, reopening loop candidates that were previously
 excluded. The new variants and corrected screen remain hypotheses to test
 against the full transmitter/receiver requirements.
 
+The [photo-constrained transform check](PHOTO-TRANSFORM-CHECK.md) revisits the
+G1 quarter-turn tables at 3C5/3DA. The original mapping passes its local
+rotation fixtures, but all five photo-constrained mappings fail those
+identities when the candidate A0/I7 pin tie is applied, even across all
+four-word timing patterns. Separating A0 from I7 gives component sign
+selection instead. Neither result establishes the physical table function;
+it prevents using the earlier rotation fit as independent modem evidence.
+
 The [photo-swapped ROM-loop runs](SWAPPED-ROM-LOOPS.md) exercise two of those
 reopened paths. In q3, real quarter-sine bytes affect the recurring 392–395
 output quartet, but each reset fixture repeats one constant quartet. In q2,

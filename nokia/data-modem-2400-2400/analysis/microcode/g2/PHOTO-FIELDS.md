@@ -163,6 +163,12 @@ assign them separate PROM bits. The U2 pad has a dim gap, so the tie remains
 conditional; the original photograph and [highlighted segment](results/photo-i7-probe/candidate-a0-route.jpg)
 allow that interpretation to be reviewed.
 
+The [local transform check](PHOTO-TRANSFORM-CHECK.md) applies this possible
+A0/I7 tie to the 3C5/3DA four-entry tables. Under the simple coupled-pin
+interpretation, their earlier G1 quarter-turn identity fails for every
+four-word signal pattern tested; an uncoupled control gives sign selection
+instead. This narrows the mapping interpretation without confirming the tie.
+
 The emulator can now supply an explicitly labelled constant to both a register
 address input and an instruction input. The [coupled A0/I7 run](photo_a2_probe.py)
 tests levels 0 and 1, with and without the photo A2 correction. Every coupled
