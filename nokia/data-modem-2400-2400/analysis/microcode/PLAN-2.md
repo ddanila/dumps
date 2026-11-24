@@ -162,6 +162,11 @@ phases B–C turn "what" into "how".
   clocks `140` or `146` and captures controller-dependent bytes, but only
   one to three per run. The clock net and full data bus are untraced, and
   this does not satisfy the sustained transmitter check.
+  A [U10 source/polarity screen](g2/PHOTO-U10-Q0-SOURCE-SCREEN.md) compares
+  all eight real PROM data bits, direct and inverted. Only inverted bit 5
+  preserves all 33 tested sign-table calls and nonzero downstream reads;
+  the inverter and U5 connection are untraced. Use this as a targeted
+  hypothesis, not proof of the physical mapping.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

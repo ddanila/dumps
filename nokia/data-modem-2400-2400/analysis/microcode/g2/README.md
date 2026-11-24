@@ -741,3 +741,7 @@ A [digital latch replay](PHOTO-TABLE-OUTPUT-ORDER.md#diagnostic-latch-at-the-int
 at `140`/`146` does capture controller-dependent bytes, but only one to three
 per run under the tested strict branch scenarios. It remains a sparse,
 untraced clock candidate rather than a transmitter sample stream.
+The [U10 D0-source screen](PHOTO-U10-Q0-SOURCE-SCREEN.md) ranks all eight
+PROM data bits and polarities for this table/consumer path. Only inverted
+bit 5 passes both the exact table and nonzero-consumer checks in four
+diagnostic branch fixtures; the inversion and physical route remain open.

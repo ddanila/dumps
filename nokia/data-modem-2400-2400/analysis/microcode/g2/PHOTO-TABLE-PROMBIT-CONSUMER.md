@@ -50,6 +50,10 @@ diagnostic paths that reach D349, a table, then `392`/`39E`; four have a
 nonzero internal `140`/`146` byte, but every later candidate output byte is
 zero. This narrows the output-clock question without proving either candidate
 word is the physical latch strobe.
+A [full U10 data-bit/polarity screen](PHOTO-U10-Q0-SOURCE-SCREEN.md) confirms
+that inverted bit 5 is the only one of 16 tested source choices that preserves
+every sign-table formula and a nonzero downstream consumer in four diagnostic
+branch fixtures. The inversion and U5 wiring remain untraced.
 
 The [byte-only report](results/photo-table-prombit-consumer.json) and
 [combined report](results/photo-table-prombit-symbols.json) record calls,
