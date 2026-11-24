@@ -141,6 +141,10 @@ declaring one, identify that dependency, explain why candidate assumptions
 cannot support further useful experiments, and account for the remaining work.
 Missing confidence in the true wiring does not meet this test while explicit
 photo-informed scenarios can still be run and compared.
+Keep G2 active after a candidate wiring or fixture fails: record the failed
+assumptions, choose the next discriminating experiment, and continue the
+independent controller, ROM and signal analyses. Do not mark missing or
+ambiguous photo-derived connections as a goal blocker.
 
 This policy changes how we make progress, not the acceptance criteria. Keep
 G2's transmitter and receiver/echo-canceller checks: completing a candidate run
