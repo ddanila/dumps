@@ -1,0 +1,9741 @@
+{
+  "configuration": {
+    "baseline_report": "results/sine-operand-study/report.json",
+    "datasheet": {
+      "document": "SNAS534B, revised March 2013",
+      "pages": [
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "publisher": "Texas Instruments",
+      "scope": "Digital level-actuated input and DAC latches only; no board-specific signals inferred",
+      "sha256": "aced2ddc709c7d9e730b57e6c26b8899c67bea707cdf2f01e3d7160864237292",
+      "url": "https://pdf.direnc.net/upload/dac0830-dac0832-datasheet.pdf"
+    },
+    "evidence": "Diagnostic connection from selected microcode ALU-Y bytes to a DAC0830 digital input. PC selection and within-instruction load/transfer pulses are explicit assumptions, not recovered Nokia wiring or timing. No analog voltage, clock frequency or settling claim is made.",
+    "idle_pins": {
+      "cs_n": 0,
+      "ile": 1,
+      "wr1_n": 1,
+      "wr2_n": 1,
+      "xfer_n": 0
+    },
+    "initial": {
+      "dac_register": null,
+      "input_register": null
+    },
+    "photo": "../../../photos/PXL_20261123_114854803.jpg",
+    "routes": {
+      "all_four": {
+        "pcs": [
+          914,
+          915,
+          916,
+          917
+        ],
+        "source": "alu_y"
+      },
+      "first_high": {
+        "pcs": [
+          915
+        ],
+        "source": "alu_y"
+      },
+      "first_low": {
+        "pcs": [
+          914
+        ],
+        "source": "alu_y"
+      },
+      "rom_sum": {
+        "pcs": [
+          791
+        ],
+        "source": "alu_y"
+      }
+    },
+    "sine_config": "sine-operand-study.json",
+    "status": "hypothesis",
+    "transfer_modes": {
+      "load_only": {
+        "when": "never"
+      },
+      "per_load": {
+        "when": "after_each_load"
+      },
+      "terminal": {
+        "pc": 132,
+        "when": "first_pc"
+      }
+    },
+    "witness_phases": [
+      0,
+      53,
+      54,
+      64
+    ]
+  },
+  "control_cases": 8192,
+  "core_replays": 65,
+  "first_low_drops": [
+    {
+      "after": 0,
+      "before": 254,
+      "from_phase": 53,
+      "to_phase": 54
+    }
+  ],
+  "interpretation": "Explicit hypothetical DAC sink, not recovered wiring. First-low route drops 254 to 0 at phase 54; first-high is only 0/1; all-four ends at 0; ROM-sum route retains S+5. Loading alone leaves output unknown. Transfer timing changes when DAC code updates without altering any microcode trace.",
+  "runs": [
+    {
+      "dac_register": 5,
+      "input_register": 5,
+      "phase": 0,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 5,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 5,
+      "input_register": 5,
+      "phase": 0,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 5,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 5,
+      "phase": 0,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 10,
+      "input_register": 10,
+      "phase": 0,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 10,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 10,
+      "input_register": 10,
+      "phase": 0,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 10,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 10,
+      "phase": 0,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 0,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 0,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 0,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 0,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 10,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 0,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 0,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 1,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 1,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 8,
+      "phase": 1,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 16,
+      "input_register": 16,
+      "phase": 1,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 16,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 16,
+      "input_register": 16,
+      "phase": 1,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 16,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 16,
+      "phase": 1,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 1,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 1,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 1,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 1,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 16,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 1,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 1,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 11,
+      "input_register": 11,
+      "phase": 2,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 11,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 11,
+      "input_register": 11,
+      "phase": 2,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 11,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 11,
+      "phase": 2,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 22,
+      "input_register": 22,
+      "phase": 2,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 22,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 22,
+      "input_register": 22,
+      "phase": 2,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 22,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 22,
+      "phase": 2,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 2,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 2,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 2,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 2,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 22,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 2,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 2,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 14,
+      "input_register": 14,
+      "phase": 3,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 14,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 14,
+      "input_register": 14,
+      "phase": 3,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 14,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 14,
+      "phase": 3,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 28,
+      "input_register": 28,
+      "phase": 3,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 28,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 28,
+      "input_register": 28,
+      "phase": 3,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 28,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 28,
+      "phase": 3,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 3,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 3,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 3,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 3,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 28,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 3,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 3,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 17,
+      "input_register": 17,
+      "phase": 4,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 17,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 17,
+      "input_register": 17,
+      "phase": 4,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 17,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 17,
+      "phase": 4,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 34,
+      "input_register": 34,
+      "phase": 4,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 34,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 34,
+      "input_register": 34,
+      "phase": 4,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 34,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 34,
+      "phase": 4,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 4,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 4,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 4,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 4,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 34,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 4,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 4,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 21,
+      "input_register": 21,
+      "phase": 5,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 21,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 21,
+      "input_register": 21,
+      "phase": 5,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 21,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 21,
+      "phase": 5,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 42,
+      "input_register": 42,
+      "phase": 5,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 42,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 42,
+      "input_register": 42,
+      "phase": 5,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 42,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 42,
+      "phase": 5,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 5,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 5,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 5,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 5,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 42,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 5,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 5,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 24,
+      "input_register": 24,
+      "phase": 6,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 24,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 24,
+      "input_register": 24,
+      "phase": 6,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 24,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 24,
+      "phase": 6,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 48,
+      "input_register": 48,
+      "phase": 6,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 48,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 48,
+      "input_register": 48,
+      "phase": 6,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 48,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 48,
+      "phase": 6,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 6,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 6,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 6,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 6,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 48,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 6,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 6,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 27,
+      "input_register": 27,
+      "phase": 7,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 27,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 27,
+      "input_register": 27,
+      "phase": 7,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 27,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 27,
+      "phase": 7,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 54,
+      "input_register": 54,
+      "phase": 7,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 54,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 54,
+      "input_register": 54,
+      "phase": 7,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 54,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 54,
+      "phase": 7,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 7,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 7,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 7,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 7,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 54,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 7,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 7,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 30,
+      "input_register": 30,
+      "phase": 8,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 30,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 30,
+      "input_register": 30,
+      "phase": 8,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 30,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 30,
+      "phase": 8,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 60,
+      "input_register": 60,
+      "phase": 8,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 60,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 60,
+      "input_register": 60,
+      "phase": 8,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 60,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 60,
+      "phase": 8,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 8,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 8,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 8,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 8,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 60,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 8,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 8,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 33,
+      "input_register": 33,
+      "phase": 9,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 33,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 33,
+      "input_register": 33,
+      "phase": 9,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 33,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 33,
+      "phase": 9,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 66,
+      "input_register": 66,
+      "phase": 9,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 66,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 66,
+      "input_register": 66,
+      "phase": 9,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 66,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 66,
+      "phase": 9,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 9,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 9,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 9,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 9,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 66,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 9,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 9,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 36,
+      "input_register": 36,
+      "phase": 10,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 36,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 36,
+      "input_register": 36,
+      "phase": 10,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 36,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 36,
+      "phase": 10,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 72,
+      "input_register": 72,
+      "phase": 10,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 72,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 72,
+      "input_register": 72,
+      "phase": 10,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 72,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 72,
+      "phase": 10,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 10,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 10,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 10,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 10,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 72,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 10,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 10,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 39,
+      "input_register": 39,
+      "phase": 11,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 39,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 39,
+      "input_register": 39,
+      "phase": 11,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 39,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 39,
+      "phase": 11,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 78,
+      "input_register": 78,
+      "phase": 11,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 78,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 78,
+      "input_register": 78,
+      "phase": 11,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 78,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 78,
+      "phase": 11,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 11,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 11,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 11,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 11,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 78,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 11,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 11,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 42,
+      "input_register": 42,
+      "phase": 12,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 42,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 42,
+      "input_register": 42,
+      "phase": 12,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 42,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 42,
+      "phase": 12,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 84,
+      "input_register": 84,
+      "phase": 12,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 84,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 84,
+      "input_register": 84,
+      "phase": 12,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 84,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 84,
+      "phase": 12,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 12,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 12,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 12,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 12,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 84,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 12,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 12,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 45,
+      "input_register": 45,
+      "phase": 13,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 45,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 45,
+      "input_register": 45,
+      "phase": 13,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 45,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 45,
+      "phase": 13,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 90,
+      "input_register": 90,
+      "phase": 13,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 90,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 90,
+      "input_register": 90,
+      "phase": 13,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 90,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 90,
+      "phase": 13,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 13,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 13,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 13,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 13,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 90,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 13,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 13,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 48,
+      "input_register": 48,
+      "phase": 14,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 48,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 48,
+      "input_register": 48,
+      "phase": 14,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 48,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 48,
+      "phase": 14,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 96,
+      "input_register": 96,
+      "phase": 14,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 96,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 96,
+      "input_register": 96,
+      "phase": 14,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 96,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 96,
+      "phase": 14,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 14,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 14,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 14,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 14,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 96,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 14,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 14,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 51,
+      "input_register": 51,
+      "phase": 15,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 51,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 51,
+      "input_register": 51,
+      "phase": 15,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 51,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 51,
+      "phase": 15,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 102,
+      "input_register": 102,
+      "phase": 15,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 102,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 102,
+      "input_register": 102,
+      "phase": 15,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 102,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 102,
+      "phase": 15,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 15,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 15,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 15,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 15,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 102,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 15,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 15,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 54,
+      "input_register": 54,
+      "phase": 16,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 54,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 54,
+      "input_register": 54,
+      "phase": 16,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 54,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 54,
+      "phase": 16,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 108,
+      "input_register": 108,
+      "phase": 16,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 108,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 108,
+      "input_register": 108,
+      "phase": 16,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 108,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 108,
+      "phase": 16,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 16,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 16,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 16,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 16,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 108,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 16,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 16,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 56,
+      "input_register": 56,
+      "phase": 17,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 56,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 56,
+      "input_register": 56,
+      "phase": 17,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 56,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 56,
+      "phase": 17,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 112,
+      "input_register": 112,
+      "phase": 17,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 112,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 112,
+      "input_register": 112,
+      "phase": 17,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 112,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 112,
+      "phase": 17,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 17,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 17,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 17,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 17,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 112,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 17,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 17,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 59,
+      "input_register": 59,
+      "phase": 18,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 59,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 59,
+      "input_register": 59,
+      "phase": 18,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 59,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 59,
+      "phase": 18,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 118,
+      "input_register": 118,
+      "phase": 18,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 118,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 118,
+      "input_register": 118,
+      "phase": 18,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 118,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 118,
+      "phase": 18,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 18,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 18,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 18,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 18,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 118,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 18,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 18,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 62,
+      "input_register": 62,
+      "phase": 19,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 62,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 62,
+      "input_register": 62,
+      "phase": 19,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 62,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 62,
+      "phase": 19,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 124,
+      "input_register": 124,
+      "phase": 19,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 124,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 124,
+      "input_register": 124,
+      "phase": 19,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 124,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 124,
+      "phase": 19,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 19,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 19,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 19,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 19,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 124,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 19,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 19,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 65,
+      "input_register": 65,
+      "phase": 20,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 65,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 65,
+      "input_register": 65,
+      "phase": 20,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 65,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 65,
+      "phase": 20,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 130,
+      "input_register": 130,
+      "phase": 20,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 130,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 130,
+      "input_register": 130,
+      "phase": 20,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 130,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 130,
+      "phase": 20,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 20,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 20,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 20,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 20,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 130,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 20,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 20,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 68,
+      "input_register": 68,
+      "phase": 21,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 68,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 68,
+      "input_register": 68,
+      "phase": 21,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 68,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 68,
+      "phase": 21,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 136,
+      "input_register": 136,
+      "phase": 21,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 136,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 136,
+      "input_register": 136,
+      "phase": 21,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 136,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 136,
+      "phase": 21,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 21,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 21,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 21,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 21,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 136,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 21,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 21,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 70,
+      "input_register": 70,
+      "phase": 22,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 70,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 70,
+      "input_register": 70,
+      "phase": 22,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 70,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 70,
+      "phase": 22,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 140,
+      "input_register": 140,
+      "phase": 22,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 140,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 140,
+      "input_register": 140,
+      "phase": 22,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 140,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 140,
+      "phase": 22,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 22,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 22,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 22,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 22,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 140,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 22,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 22,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 73,
+      "input_register": 73,
+      "phase": 23,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 73,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 73,
+      "input_register": 73,
+      "phase": 23,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 73,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 73,
+      "phase": 23,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 146,
+      "input_register": 146,
+      "phase": 23,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 146,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 146,
+      "input_register": 146,
+      "phase": 23,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 146,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 146,
+      "phase": 23,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 23,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 23,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 23,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 23,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 146,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 23,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 23,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 76,
+      "input_register": 76,
+      "phase": 24,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 76,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 76,
+      "input_register": 76,
+      "phase": 24,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 76,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 76,
+      "phase": 24,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 152,
+      "input_register": 152,
+      "phase": 24,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 152,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 152,
+      "input_register": 152,
+      "phase": 24,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 152,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 152,
+      "phase": 24,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 24,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 24,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 24,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 24,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 152,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 24,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 24,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 78,
+      "input_register": 78,
+      "phase": 25,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 78,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 78,
+      "input_register": 78,
+      "phase": 25,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 78,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 78,
+      "phase": 25,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 156,
+      "input_register": 156,
+      "phase": 25,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 156,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 156,
+      "input_register": 156,
+      "phase": 25,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 156,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 156,
+      "phase": 25,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 25,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 25,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 25,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 25,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 156,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 25,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 25,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 81,
+      "input_register": 81,
+      "phase": 26,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 81,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 81,
+      "input_register": 81,
+      "phase": 26,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 81,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 81,
+      "phase": 26,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 162,
+      "input_register": 162,
+      "phase": 26,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 162,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 162,
+      "input_register": 162,
+      "phase": 26,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 162,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 162,
+      "phase": 26,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 26,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 26,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 26,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 26,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 162,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 26,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 26,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 83,
+      "input_register": 83,
+      "phase": 27,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 83,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 83,
+      "input_register": 83,
+      "phase": 27,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 83,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 83,
+      "phase": 27,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 166,
+      "input_register": 166,
+      "phase": 27,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 166,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 166,
+      "input_register": 166,
+      "phase": 27,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 166,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 166,
+      "phase": 27,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 27,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 27,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 27,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 27,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 166,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 27,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 27,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 86,
+      "input_register": 86,
+      "phase": 28,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 86,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 86,
+      "input_register": 86,
+      "phase": 28,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 86,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 86,
+      "phase": 28,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 172,
+      "input_register": 172,
+      "phase": 28,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 172,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 172,
+      "input_register": 172,
+      "phase": 28,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 172,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 172,
+      "phase": 28,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 28,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 28,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 28,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 28,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 172,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 28,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 28,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 88,
+      "input_register": 88,
+      "phase": 29,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 88,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 88,
+      "input_register": 88,
+      "phase": 29,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 88,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 88,
+      "phase": 29,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 176,
+      "input_register": 176,
+      "phase": 29,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 176,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 176,
+      "input_register": 176,
+      "phase": 29,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 176,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 176,
+      "phase": 29,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 29,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 29,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 29,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 29,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 176,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 29,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 29,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 90,
+      "input_register": 90,
+      "phase": 30,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 90,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 90,
+      "input_register": 90,
+      "phase": 30,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 90,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 90,
+      "phase": 30,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 180,
+      "input_register": 180,
+      "phase": 30,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 180,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 180,
+      "input_register": 180,
+      "phase": 30,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 180,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 180,
+      "phase": 30,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 30,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 30,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 30,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 30,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 180,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 30,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 30,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 93,
+      "input_register": 93,
+      "phase": 31,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 93,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 93,
+      "input_register": 93,
+      "phase": 31,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 93,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 93,
+      "phase": 31,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 186,
+      "input_register": 186,
+      "phase": 31,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 186,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 186,
+      "input_register": 186,
+      "phase": 31,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 186,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 186,
+      "phase": 31,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 31,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 31,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 31,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 31,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 186,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 31,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 31,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 95,
+      "input_register": 95,
+      "phase": 32,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 95,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 95,
+      "input_register": 95,
+      "phase": 32,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 95,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 95,
+      "phase": 32,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 190,
+      "input_register": 190,
+      "phase": 32,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 190,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 190,
+      "input_register": 190,
+      "phase": 32,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 190,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 190,
+      "phase": 32,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 32,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 32,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 32,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 32,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 190,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 32,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 32,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 97,
+      "input_register": 97,
+      "phase": 33,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 97,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 97,
+      "input_register": 97,
+      "phase": 33,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 97,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 97,
+      "phase": 33,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 194,
+      "input_register": 194,
+      "phase": 33,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 194,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 194,
+      "input_register": 194,
+      "phase": 33,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 194,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 194,
+      "phase": 33,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 33,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 33,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 33,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 33,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 194,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 33,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 33,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 99,
+      "input_register": 99,
+      "phase": 34,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 99,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 99,
+      "input_register": 99,
+      "phase": 34,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 99,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 99,
+      "phase": 34,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 198,
+      "input_register": 198,
+      "phase": 34,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 198,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 198,
+      "input_register": 198,
+      "phase": 34,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 198,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 198,
+      "phase": 34,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 34,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 34,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 34,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 34,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 198,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 34,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 34,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 101,
+      "input_register": 101,
+      "phase": 35,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 101,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 101,
+      "input_register": 101,
+      "phase": 35,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 101,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 101,
+      "phase": 35,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 202,
+      "input_register": 202,
+      "phase": 35,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 202,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 202,
+      "input_register": 202,
+      "phase": 35,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 202,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 202,
+      "phase": 35,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 35,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 35,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 35,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 35,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 202,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 35,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 35,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 103,
+      "input_register": 103,
+      "phase": 36,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 103,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 103,
+      "input_register": 103,
+      "phase": 36,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 103,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 103,
+      "phase": 36,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 206,
+      "input_register": 206,
+      "phase": 36,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 206,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 206,
+      "input_register": 206,
+      "phase": 36,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 206,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 206,
+      "phase": 36,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 36,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 36,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 36,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 36,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 206,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 36,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 36,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 105,
+      "input_register": 105,
+      "phase": 37,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 105,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 105,
+      "input_register": 105,
+      "phase": 37,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 105,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 105,
+      "phase": 37,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 210,
+      "input_register": 210,
+      "phase": 37,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 210,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 210,
+      "input_register": 210,
+      "phase": 37,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 210,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 210,
+      "phase": 37,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 37,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 37,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 37,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 37,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 210,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 37,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 37,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 107,
+      "input_register": 107,
+      "phase": 38,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 107,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 107,
+      "input_register": 107,
+      "phase": 38,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 107,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 107,
+      "phase": 38,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 214,
+      "input_register": 214,
+      "phase": 38,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 214,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 214,
+      "input_register": 214,
+      "phase": 38,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 214,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 214,
+      "phase": 38,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 38,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 38,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 38,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 38,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 214,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 38,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 38,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 109,
+      "input_register": 109,
+      "phase": 39,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 109,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 109,
+      "input_register": 109,
+      "phase": 39,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 109,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 109,
+      "phase": 39,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 218,
+      "input_register": 218,
+      "phase": 39,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 218,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 218,
+      "input_register": 218,
+      "phase": 39,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 218,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 218,
+      "phase": 39,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 39,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 39,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 39,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 39,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 218,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 39,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 39,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 111,
+      "input_register": 111,
+      "phase": 40,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 111,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 111,
+      "input_register": 111,
+      "phase": 40,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 111,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 111,
+      "phase": 40,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 222,
+      "input_register": 222,
+      "phase": 40,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 222,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 222,
+      "input_register": 222,
+      "phase": 40,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 222,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 222,
+      "phase": 40,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 40,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 40,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 40,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 40,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 222,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 40,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 40,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 112,
+      "input_register": 112,
+      "phase": 41,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 112,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 112,
+      "input_register": 112,
+      "phase": 41,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 112,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 112,
+      "phase": 41,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 224,
+      "input_register": 224,
+      "phase": 41,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 224,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 224,
+      "input_register": 224,
+      "phase": 41,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 224,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 224,
+      "phase": 41,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 41,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 41,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 41,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 41,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 224,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 41,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 41,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 114,
+      "input_register": 114,
+      "phase": 42,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 114,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 114,
+      "input_register": 114,
+      "phase": 42,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 114,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 114,
+      "phase": 42,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 228,
+      "input_register": 228,
+      "phase": 42,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 228,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 228,
+      "input_register": 228,
+      "phase": 42,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 228,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 228,
+      "phase": 42,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 42,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 42,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 42,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 42,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 228,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 42,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 42,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 116,
+      "input_register": 116,
+      "phase": 43,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 116,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 116,
+      "input_register": 116,
+      "phase": 43,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 116,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 116,
+      "phase": 43,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 232,
+      "input_register": 232,
+      "phase": 43,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 232,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 232,
+      "input_register": 232,
+      "phase": 43,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 232,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 232,
+      "phase": 43,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 43,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 43,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 43,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 43,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 232,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 43,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 43,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 117,
+      "input_register": 117,
+      "phase": 44,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 117,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 117,
+      "input_register": 117,
+      "phase": 44,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 117,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 117,
+      "phase": 44,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 234,
+      "input_register": 234,
+      "phase": 44,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 234,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 234,
+      "input_register": 234,
+      "phase": 44,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 234,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 234,
+      "phase": 44,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 44,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 44,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 44,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 44,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 234,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 44,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 44,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 118,
+      "input_register": 118,
+      "phase": 45,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 118,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 118,
+      "input_register": 118,
+      "phase": 45,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 118,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 118,
+      "phase": 45,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 236,
+      "input_register": 236,
+      "phase": 45,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 236,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 236,
+      "input_register": 236,
+      "phase": 45,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 236,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 236,
+      "phase": 45,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 45,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 45,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 45,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 45,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 236,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 45,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 45,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 120,
+      "input_register": 120,
+      "phase": 46,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 120,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 120,
+      "input_register": 120,
+      "phase": 46,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 120,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 120,
+      "phase": 46,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 240,
+      "input_register": 240,
+      "phase": 46,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 240,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 240,
+      "input_register": 240,
+      "phase": 46,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 240,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 240,
+      "phase": 46,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 46,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 46,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 46,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 46,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 240,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 46,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 46,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 121,
+      "input_register": 121,
+      "phase": 47,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 121,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 121,
+      "input_register": 121,
+      "phase": 47,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 121,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 121,
+      "phase": 47,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 242,
+      "input_register": 242,
+      "phase": 47,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 242,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 242,
+      "input_register": 242,
+      "phase": 47,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 242,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 242,
+      "phase": 47,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 47,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 47,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 47,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 47,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 242,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 47,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 47,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 122,
+      "input_register": 122,
+      "phase": 48,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 122,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 122,
+      "input_register": 122,
+      "phase": 48,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 122,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 122,
+      "phase": 48,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 244,
+      "input_register": 244,
+      "phase": 48,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 244,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 244,
+      "input_register": 244,
+      "phase": 48,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 244,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 244,
+      "phase": 48,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 48,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 48,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 48,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 48,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 244,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 48,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 48,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 123,
+      "input_register": 123,
+      "phase": 49,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 123,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 123,
+      "input_register": 123,
+      "phase": 49,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 123,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 123,
+      "phase": 49,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 246,
+      "input_register": 246,
+      "phase": 49,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 246,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 246,
+      "input_register": 246,
+      "phase": 49,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 246,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 246,
+      "phase": 49,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 49,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 49,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 49,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 49,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 246,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 49,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 49,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 125,
+      "input_register": 125,
+      "phase": 50,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 125,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 125,
+      "input_register": 125,
+      "phase": 50,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 125,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 125,
+      "phase": 50,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 250,
+      "input_register": 250,
+      "phase": 50,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 250,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 250,
+      "input_register": 250,
+      "phase": 50,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 250,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 250,
+      "phase": 50,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 50,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 50,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 50,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 50,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 250,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 50,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 50,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 126,
+      "input_register": 126,
+      "phase": 51,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 126,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 126,
+      "input_register": 126,
+      "phase": 51,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 126,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 126,
+      "phase": 51,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 252,
+      "input_register": 252,
+      "phase": 51,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 252,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 252,
+      "input_register": 252,
+      "phase": 51,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 252,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 252,
+      "phase": 51,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 51,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 51,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 51,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 51,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 252,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 51,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 51,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 127,
+      "input_register": 127,
+      "phase": 52,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 127,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 127,
+      "input_register": 127,
+      "phase": 52,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 127,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 127,
+      "phase": 52,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 254,
+      "input_register": 254,
+      "phase": 52,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 254,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 254,
+      "input_register": 254,
+      "phase": 52,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 254,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 254,
+      "phase": 52,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 52,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 52,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 52,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 52,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 254,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 52,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 52,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 127,
+      "input_register": 127,
+      "phase": 53,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 127,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 127,
+      "input_register": 127,
+      "phase": 53,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 127,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 127,
+      "phase": 53,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 254,
+      "input_register": 254,
+      "phase": 53,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 254,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 254,
+      "input_register": 254,
+      "phase": 53,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 254,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 254,
+      "phase": 53,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 53,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 53,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 53,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 53,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 254,
+          "cycle": 55
+        },
+        {
+          "code": 0,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 53,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 53,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 128,
+      "input_register": 128,
+      "phase": 54,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 128,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 128,
+      "input_register": 128,
+      "phase": 54,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 128,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 128,
+      "phase": 54,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 54,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 54,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 54,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 54,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 54,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 54,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 54,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 54,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 54,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 129,
+      "input_register": 129,
+      "phase": 55,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 129,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 129,
+      "input_register": 129,
+      "phase": 55,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 129,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 129,
+      "phase": 55,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 2,
+      "input_register": 2,
+      "phase": 55,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 2,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 2,
+      "input_register": 2,
+      "phase": 55,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 2,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 2,
+      "phase": 55,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 55,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 55,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 55,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 55,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 2,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 55,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 55,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 130,
+      "input_register": 130,
+      "phase": 56,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 130,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 130,
+      "input_register": 130,
+      "phase": 56,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 130,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 130,
+      "phase": 56,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 4,
+      "input_register": 4,
+      "phase": 56,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 4,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 4,
+      "input_register": 4,
+      "phase": 56,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 4,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 4,
+      "phase": 56,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 56,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 56,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 56,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 56,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 4,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 56,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 56,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 130,
+      "input_register": 130,
+      "phase": 57,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 130,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 130,
+      "input_register": 130,
+      "phase": 57,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 130,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 130,
+      "phase": 57,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 4,
+      "input_register": 4,
+      "phase": 57,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 4,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 4,
+      "input_register": 4,
+      "phase": 57,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 4,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 4,
+      "phase": 57,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 57,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 57,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 57,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 57,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 4,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 57,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 57,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 131,
+      "input_register": 131,
+      "phase": 58,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 131,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 131,
+      "input_register": 131,
+      "phase": 58,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 131,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 131,
+      "phase": 58,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 6,
+      "input_register": 6,
+      "phase": 58,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 6,
+      "input_register": 6,
+      "phase": 58,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 6,
+      "phase": 58,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 58,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 58,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 58,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 58,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 58,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 58,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 131,
+      "input_register": 131,
+      "phase": 59,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 131,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 131,
+      "input_register": 131,
+      "phase": 59,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 131,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 131,
+      "phase": 59,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 6,
+      "input_register": 6,
+      "phase": 59,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 6,
+      "input_register": 6,
+      "phase": 59,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 6,
+      "phase": 59,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 59,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 59,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 59,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 59,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 59,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 59,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 131,
+      "input_register": 131,
+      "phase": 60,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 131,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 131,
+      "input_register": 131,
+      "phase": 60,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 131,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 131,
+      "phase": 60,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 6,
+      "input_register": 6,
+      "phase": 60,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 6,
+      "input_register": 6,
+      "phase": 60,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 6,
+      "phase": 60,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 60,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 60,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 60,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 60,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 6,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 60,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 60,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 61,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 61,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 132,
+      "phase": 61,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 61,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 61,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 8,
+      "phase": 61,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 61,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 61,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 61,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 61,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 61,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 61,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 62,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 62,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 132,
+      "phase": 62,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 62,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 62,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 8,
+      "phase": 62,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 62,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 62,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 62,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 62,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 62,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 62,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 63,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 63,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 132,
+      "phase": 63,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 63,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 63,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 8,
+      "phase": 63,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 63,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 63,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 63,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 63,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 63,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 63,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 64,
+      "route": "rom_sum",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 45
+        }
+      ]
+    },
+    {
+      "dac_register": 132,
+      "input_register": 132,
+      "phase": 64,
+      "route": "rom_sum",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 132,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 132,
+      "phase": 64,
+      "route": "rom_sum",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 64,
+      "route": "first_low",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        }
+      ]
+    },
+    {
+      "dac_register": 8,
+      "input_register": 8,
+      "phase": 64,
+      "route": "first_low",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 8,
+      "phase": 64,
+      "route": "first_low",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 64,
+      "route": "first_high",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 56
+        }
+      ]
+    },
+    {
+      "dac_register": 1,
+      "input_register": 1,
+      "phase": 64,
+      "route": "first_high",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 1,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 1,
+      "phase": 64,
+      "route": "first_high",
+      "transfer": "load_only",
+      "updates": []
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 64,
+      "route": "all_four",
+      "transfer": "per_load",
+      "updates": [
+        {
+          "code": 8,
+          "cycle": 55
+        },
+        {
+          "code": 1,
+          "cycle": 56
+        },
+        {
+          "code": 2,
+          "cycle": 57
+        },
+        {
+          "code": 0,
+          "cycle": 58
+        }
+      ]
+    },
+    {
+      "dac_register": 0,
+      "input_register": 0,
+      "phase": 64,
+      "route": "all_four",
+      "transfer": "terminal",
+      "updates": [
+        {
+          "code": 0,
+          "cycle": 110
+        }
+      ]
+    },
+    {
+      "dac_register": null,
+      "input_register": 0,
+      "phase": 64,
+      "route": "all_four",
+      "transfer": "load_only",
+      "updates": []
+    }
+  ],
+  "sink_cases": 780,
+  "source_sha256": {
+    "analysis/microcode/assumed/../../../photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d",
+    "analysis/microcode/assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "analysis/microcode/assumed/dac-output-study.json": "3c68c178ce0edb3d8ca45db72997a443e52687c579f3ec2d608d5ea45978a7a0",
+    "analysis/microcode/assumed/dac0830.py": "29357b4d0e32d6997c2e43649b862b35e1f6f06b9b79eb165af8fdc54f54c7cc",
+    "analysis/microcode/assumed/dac_output_study.py": "80c9ebe4580ecd77aadb0a314bcafbd759d136bf39877736ce088818890840a5",
+    "analysis/microcode/assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "analysis/microcode/assumed/execute.py": "8b2ecbf5fb90f52e593afc89d0c3d6ffff41666e725038f19443ee4bb58f71d5",
+    "analysis/microcode/assumed/handler_timing_study.py": "e8cedc2790f807bac67ceefad4890488fef3f216f6c806075fdb4797e31e0195",
+    "analysis/microcode/assumed/paired_components_study.py": "a46544d49957c4ead8388462859575fdbf21e7a73e0102678f993eb244e5fee2",
+    "analysis/microcode/assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "analysis/microcode/assumed/results/polling-study/immediate-one/scenario.json": "94f0ae04e678e90f8fa1d58e5cc0b26ef437c28911d1deebc1e1b40693a13fb8",
+    "analysis/microcode/assumed/results/sine-operand-study/report.json": "2c52bbe72f013082c301cc19c4cb9987bd4d051b651748de0e5218dc45f4b06e",
+    "analysis/microcode/assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "analysis/microcode/assumed/rom_study.py": "3cae3e862f0c51fe575011b117d8235e8e6feeb673ff8d06703a0fc5473cb054",
+    "analysis/microcode/assumed/selector_prefix_study.py": "0c2e19572f8e68fc8ada7afbc6d3e709cbc6fa8af8b94b42952d120db2b34c71",
+    "analysis/microcode/assumed/sine-operand-study.json": "f6b912fe2125885586c2add7e9b9aa70221b1cb1068a3e4a5b772a5f5e4cf59c",
+    "analysis/microcode/assumed/sine_operand_study.py": "85bcb70777bd7d0b5f7913965effaf9b95e8b077daf02cdad66186f29cb7df24",
+    "analysis/microcode/model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": [
+    "phase-00",
+    "phase-53",
+    "phase-54",
+    "phase-64"
+  ]
+}

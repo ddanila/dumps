@@ -132,7 +132,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 103 functional/assumption tests pass, including checks that
+byte. All 105 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -220,3 +220,8 @@ all 65,536 local byte pairs distinguish wrapping from ordinary averaging.
 comparison and a logical-XOR skip to retained Q and terminal register stores.
 Exhaustive A/B continuations distinguish captured R7=00/FF, with complete
 reset replays checking all intermediate and final state.
+
+[Explicit DAC output hypotheses](DAC-OUTPUT.md) replay the live sine-path
+bytes through a datasheet-based DAC0830 digital buffer model. Candidate byte
+routes and transfer policies produce distinct retained codes and update times;
+all connections remain labelled hypotheses, and core traces are unchanged.

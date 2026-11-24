@@ -1,0 +1,82 @@
+{
+  "dac_register": 5,
+  "events": [
+    {
+      "action": "load-open",
+      "cycle": 45,
+      "dac_register": null,
+      "data": 5,
+      "evidence": "Diagnostic connection from selected microcode ALU-Y bytes to a DAC0830 digital input. PC selection and within-instruction load/transfer pulses are explicit assumptions, not recovered Nokia wiring or timing. No analog voltage, clock frequency or settling claim is made.",
+      "input_register": 5,
+      "load_enabled": true,
+      "pc": 791,
+      "pins": {
+        "cs_n": 0,
+        "ile": 1,
+        "wr1_n": 0,
+        "wr2_n": 1,
+        "xfer_n": 0
+      },
+      "status": "hypothesis",
+      "transfer_enabled": false
+    },
+    {
+      "action": "load-close",
+      "cycle": 45,
+      "dac_register": null,
+      "data": 5,
+      "evidence": "Diagnostic connection from selected microcode ALU-Y bytes to a DAC0830 digital input. PC selection and within-instruction load/transfer pulses are explicit assumptions, not recovered Nokia wiring or timing. No analog voltage, clock frequency or settling claim is made.",
+      "input_register": 5,
+      "load_enabled": false,
+      "pc": 791,
+      "pins": {
+        "cs_n": 0,
+        "ile": 1,
+        "wr1_n": 1,
+        "wr2_n": 1,
+        "xfer_n": 0
+      },
+      "status": "hypothesis",
+      "transfer_enabled": false
+    },
+    {
+      "action": "transfer-open",
+      "cycle": 110,
+      "dac_register": 5,
+      "data": 5,
+      "evidence": "Diagnostic connection from selected microcode ALU-Y bytes to a DAC0830 digital input. PC selection and within-instruction load/transfer pulses are explicit assumptions, not recovered Nokia wiring or timing. No analog voltage, clock frequency or settling claim is made.",
+      "input_register": 5,
+      "load_enabled": false,
+      "pc": 132,
+      "pins": {
+        "cs_n": 0,
+        "ile": 1,
+        "wr1_n": 1,
+        "wr2_n": 0,
+        "xfer_n": 0
+      },
+      "status": "hypothesis",
+      "transfer_enabled": true
+    },
+    {
+      "action": "transfer-close",
+      "cycle": 110,
+      "dac_register": 5,
+      "data": 5,
+      "evidence": "Diagnostic connection from selected microcode ALU-Y bytes to a DAC0830 digital input. PC selection and within-instruction load/transfer pulses are explicit assumptions, not recovered Nokia wiring or timing. No analog voltage, clock frequency or settling claim is made.",
+      "input_register": 5,
+      "load_enabled": false,
+      "pc": 132,
+      "pins": {
+        "cs_n": 0,
+        "ile": 1,
+        "wr1_n": 1,
+        "wr2_n": 1,
+        "xfer_n": 0
+      },
+      "status": "hypothesis",
+      "transfer_enabled": false
+    }
+  ],
+  "input_register": 5
+}

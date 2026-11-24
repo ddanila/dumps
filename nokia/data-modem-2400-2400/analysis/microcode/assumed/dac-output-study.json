@@ -1,0 +1,29 @@
+{
+  "status": "hypothesis",
+  "evidence": "Diagnostic connection from selected microcode ALU-Y bytes to a DAC0830 digital input. PC selection and within-instruction load/transfer pulses are explicit assumptions, not recovered Nokia wiring or timing. No analog voltage, clock frequency or settling claim is made.",
+  "sine_config": "sine-operand-study.json",
+  "baseline_report": "results/sine-operand-study/report.json",
+  "datasheet": {
+    "publisher": "Texas Instruments",
+    "document": "SNAS534B, revised March 2013",
+    "url": "https://pdf.direnc.net/upload/dac0830-dac0832-datasheet.pdf",
+    "sha256": "aced2ddc709c7d9e730b57e6c26b8899c67bea707cdf2f01e3d7160864237292",
+    "pages": [5,6,9,10,11],
+    "scope": "Digital level-actuated input and DAC latches only; no board-specific signals inferred"
+  },
+  "photo": "../../../photos/PXL_20261123_114854803.jpg",
+  "initial": {"input_register": null, "dac_register": null},
+  "idle_pins": {"ile": 1, "cs_n": 0, "wr1_n": 1, "wr2_n": 1, "xfer_n": 0},
+  "routes": {
+    "rom_sum": {"source": "alu_y", "pcs": [791]},
+    "first_low": {"source": "alu_y", "pcs": [914]},
+    "first_high": {"source": "alu_y", "pcs": [915]},
+    "all_four": {"source": "alu_y", "pcs": [914,915,916,917]}
+  },
+  "transfer_modes": {
+    "per_load": {"when": "after_each_load"},
+    "terminal": {"when": "first_pc", "pc": 132},
+    "load_only": {"when": "never"}
+  },
+  "witness_phases": [0,53,54,64]
+}

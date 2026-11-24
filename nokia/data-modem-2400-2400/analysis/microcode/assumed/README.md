@@ -614,3 +614,8 @@ all 65,536 local byte pairs distinguish wrapping from ordinary averaging.
 comparison and a logical-XOR skip to retained Q and terminal register stores.
 Exhaustive A/B continuations distinguish captured R7=00/FF, with complete
 reset replays checking all intermediate and final state.
+
+[Explicit DAC output hypotheses](DAC-OUTPUT.md) replay the live sine-path
+bytes through a datasheet-based DAC0830 digital buffer model. Candidate byte
+routes and transfer policies produce distinct retained codes and update times;
+all connections remain labelled hypotheses, and core traces are unchanged.

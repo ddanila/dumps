@@ -127,6 +127,51 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_dac0830_level_buffers_and_unknown_startup(self):
+        from dac0830 import DAC0830
+        pins=dict(ile=1,cs_n=0,wr1_n=1,wr2_n=1,xfer_n=0)
+        dac=DAC0830()
+        self.assertIsNone(dac.drive(123,**pins)['dac_register'])
+        pins['wr2_n']=0
+        self.assertIsNone(dac.drive(123,**pins)['dac_register'])
+        pins['wr2_n']=1;pins['wr1_n']=0
+        self.assertEqual(dac.drive(17,**pins)['input_register'],17)
+        self.assertEqual(dac.drive(34,**pins)['input_register'],34)
+        self.assertIsNone(dac.dac_register)
+        pins['wr1_n']=1
+        self.assertEqual(dac.drive(99,**pins)['input_register'],34)
+        pins['wr2_n']=0
+        self.assertEqual(dac.drive(99,**pins)['dac_register'],34)
+        pins['wr1_n']=0
+        self.assertEqual(dac.drive(255,**pins)['dac_register'],255)
+        pins['ile']=0
+        self.assertEqual(dac.drive(0,**pins)['dac_register'],255)
+        pins['ile']=1;pins['cs_n']=1
+        self.assertEqual(dac.drive(0,**pins)['dac_register'],255)
+        with self.assertRaises(ValueError):DAC0830(256,0)
+        with self.assertRaises(ValueError):dac.drive(0,**dict(pins,wr1_n=2))
+
+    def test_hypothetical_dac_sine_routes(self):
+        from dac0830 import replay
+        from sine_operand_study import scenario_for_phase
+        from defined_condition_fit import load_trace
+        config=read(HERE/'dac-output-study.json');sine=read(HERE/config['sine_config'])
+        mapping=read(HERE/sine['profiles']['q3'])
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)/'run'
+            for phase,low in ((53,254),(54,0),(64,8)):
+                execute(mapping,scenario_for_phase(sine,'q3',phase),160,mode='integrated',out=out,trace_limit=160)
+                trace=load_trace(out)
+                self.assertEqual(replay(trace,config,'first_low','per_load')['dac_register'],low)
+                self.assertIsNone(replay(trace,config,'first_low','load_only')['dac_register'])
+                self.assertEqual(replay(trace,config,'all_four','terminal')['dac_register'],0)
+                later=replay(trace,config,'first_low','terminal')
+                self.assertEqual([e['cycle'] for e in later['events'] if e['action']=='transfer-open'],[110])
+            bad=copy.deepcopy(config);bad['routes']['first_low']['source']='untraced_bus'
+            with self.assertRaises(ValueError):replay(trace,bad,'first_low','per_load')
+            bad=copy.deepcopy(config);bad['status']='recovered-from-data'
+            with self.assertRaises(ValueError):replay(trace,bad,'first_low','per_load')
+
     def test_handler4_sum_carry_and_xor_skip(self):
         from handler4_study import scenario_for, capture, prediction, probe, verify_full
         from defined_condition_fit import load_trace
