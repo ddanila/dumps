@@ -46,6 +46,22 @@ python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2
 
 ## Next evidence and acceptance status
 
+### Additive-instruction screen
+
+Across the six existing datapath profiles, 62–82 used words per profile decode
+as an addition with an external D operand and a retained Q or RAM destination.
+This is a capability screen, not evidence that D comes from the Am27S31 at
+those words. The prominent repeated candidate, 36C–36E, writes three successive
+RAM registers. In the q3 reset run with the declared upper-bank ROM gate, its
+checked recurrence uses ROM data, an external reply and carry to choose whether
+to repeat. R0 and Q remain fixed; the next ROM address comes from an old
+register value on Y. This is a ROM-address/carry wait, not demonstrated phase
+accumulation. See the [exhaustive recurrence study](../assumed/ROM-CARRY-REPLIES.md).
+
+The screen therefore does not identify a transmitter. The next discriminating
+search must combine a *reached* D-add instruction with independently supported
+ROM selection, dibit-derived address and retained phase across symbol periods.
+
 The next discriminating question is whether a candidate mapping can derive
 07C plus the real line-side dibit, add the returned phase increment to retained
 phase, and then address the sine table. The index must arise from microcode
