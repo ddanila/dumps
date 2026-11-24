@@ -209,6 +209,12 @@ between symbols. This probe rules out only the declared q3 reset scenario.
 
 ## Controller state-to-frame constraint
 
+The [executed octet-classifier study](PATTERN-CLASSIFIER.md) identifies a
+state-dependent detector reached from controller states 83 and A6. On local
+entry it marks 40 of 256 received-octet candidates in state 83 and 16 in A6,
+including single-one and adjacent-pair patterns. Its relationship to the
+V.26 ter rate-pattern rules is not yet established.
+
 [The controller frame sweep](controller_frames.py) executes the unchanged 8031
 ROM from 1EE2 through actual output construction and four-byte transmission
 for every one of the 256 possible RAM34 state values. A single fixed diagnostic
