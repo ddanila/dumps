@@ -13,7 +13,8 @@
   "sequencer_sweep": "results/third-case-study/all_cases.json",
   "reset_examples": {
     "original": "results/selector-completion/original-marked/summary.json",
-    "swapped": "results/selector-completion/swapped-marked/summary.json"
+    "swapped": "results/selector-completion/swapped-marked/summary.json",
+    "q2_nested": "results/nested-reset-study/seed-0115/summary.json"
   },
   "annotations": [
     {
@@ -792,9 +793,9 @@
       "profiles": [
         "q2"
       ],
-      "evidence": "NESTED-PREPARE.md",
+      "evidence": "NESTED-RESET.md",
       "meaning": "Preserve Q; prepare R0=Q>>1, R2=D_2C2+Q and R4=((D_2C0+Q) mod 256)>>1. Expose R5+Q immediately before the nested call; expose current Q-1 at the outer return.",
-      "limitations": "Local actual-call fixtures at 21F, not reset entry. Scoped ROM table, zero-fill shifts and previous flags remain hypotheses. Physical index and output consumer unknown."
+      "limitations": "Nonzero states use local actual-call fixtures; five zero-reset witnesses enter with Q=R5=0. Scoped ROM table, zero-fill shifts and previous flags remain hypotheses. Physical index and output consumer unknown."
     },
     {
       "name": "nested input-load and Q-exposure leaves",

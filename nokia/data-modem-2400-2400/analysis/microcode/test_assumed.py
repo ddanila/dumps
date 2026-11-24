@@ -17,6 +17,36 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_nested_reset_reaches_actual_four_frame_call(self):
+        from nested_reset_study import scenario_for, inspect
+        from defined_condition_fit import load_trace
+        config = read(HERE/'nested-reset-study.json')
+        mapping = read(HERE/config['mapping'])
+        rows = decode(mapping)
+        base = read(HERE/config['scenario'])
+        tables = read(HERE/config['tables'])
+        with tempfile.TemporaryDirectory() as temporary:
+            before = None
+            for source in ('scenario', 'y', 'q', 'previous_y'):
+                scenario = scenario_for(base, tables, config, 204)
+                scenario['dispatch']['tables'][str(0x2c4)]['index_source'] = source
+                result = execute(mapping, scenario, 256, seed=115, mode='integrated',
+                                 out=Path(temporary), trace_limit=256)
+                self.assertTrue(result['clean'])
+                trace = load_trace(Path(temporary))
+                call = inspect(trace, rows, scenario, 204)[0]
+                self.assertEqual(call['entry_q'], 0)
+                self.assertEqual(call['entry_q_writer']['pc'], 0x2f3)
+                self.assertEqual(call['caller_depth'], 2)
+                self.assertEqual(call['return_depth'], 2)
+                self.assertEqual(result['stack']['max_depth'], 4)
+                self.assertEqual(call['nested_target'], 0x225 if source == 'scenario' else 0x2b3)
+                self.assertEqual(call['return_q'], 204 if source == 'scenario' else 0)
+                prefix = trace[:call['nested_cycle']]
+                if before is not None:
+                    self.assertEqual(prefix, before)
+                before = prefix
+
     def test_nested_prepare_preserves_or_replaces_q_by_leaf(self):
         from nested_prepare_study import fixture, prediction, probe, scenario_for
         from common import table_targets
@@ -1120,7 +1150,10 @@ class AssumedTests(unittest.TestCase):
             self.assertTrue(json.loads(row['reset_hypothesis_witnesses']))
         self.assertEqual(json.loads(listing[0x84]['reset_hypothesis_witnesses']),[])
 
-        self.assertEqual(catalog['counts']['reset_examples'],dict(original=187,swapped=186))
+        self.assertEqual(catalog['counts']['reset_examples'],dict(original=187,swapped=186,q2_nested=187))
+        self.assertTrue(listing[0x2bc]['reset_q2_nested_visited'])
+        self.assertTrue(listing[0x2ff]['reset_q2_nested_visited'])
+        self.assertFalse(listing[0x1df]['reset_q2_nested_visited'])
         self.assertIn('equality poll',listing[0x1ec]['fitted_original_labels'])
         self.assertNotIn('equality poll',listing[0x1ec]['fitted_swapped_labels'])
         self.assertIn('quarter-turn',listing[0x3c5]['q2_labels'])

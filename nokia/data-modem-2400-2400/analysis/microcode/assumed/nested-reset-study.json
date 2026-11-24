@@ -1,0 +1,12 @@
+{
+  "status": "hypothesis",
+  "evidence": "Fixed q2 zero-reset sweep with actual previous ALU flags and seeded random dispatch into the existing scoped tables. Early reads at 117/106 supply D then zero; all others supply D. No optional BRT gate, stack repair or initialized RAM/Q. First nested witness is compared at 2C4 through its outer return only, avoiding later RNG-consumption differences.",
+  "mapping": "results/independent-study/variant-2.json",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "tables": "results/third-case-study/scenario-all_cases.json",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "seeds": 4096,
+  "cycles": 512,
+  "input_multiplier": 73,
+  "input_offset": 1
+}

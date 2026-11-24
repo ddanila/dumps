@@ -512,3 +512,8 @@ Physical output and the input protocol remain unresolved.
 prefix preserves Q while preparing shifted/summed registers; selected leaves
 then preserve Q, replace it from D, or capture D+Q in R15. These are local
 call fixtures, not new reset or physical-I/O coverage.
+
+[Nested reset witnesses](NESTED-RESET.md) reach 2BC in five of 4,096
+clean q2 runs with actual ALU flags and seeded dispatch. The real caller
+context permits depth four and a balanced return through 2FF. The fixed
+sweep visits 718 used words; the selected reset example is indexed separately.

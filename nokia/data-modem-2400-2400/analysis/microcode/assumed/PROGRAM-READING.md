@@ -55,7 +55,7 @@ into one address listing.
 | 3C0–3C4 (q2) | Fixed-source transform high-byte loop | Constant dispatch; failed tests repeat without changing source data |
 | 3C5–3D4, 3DA–3E9 | Paired quarter-turn transform | Identities were search constraints; nonzero evidence is local |
 | 3EF–3FE | Source-overlapping transform | Cannot reuse the independent quarter-turn formula |
-| 2BC–2C5 | Nested computed-call wrapper; shifted-Q preparation under q2 | Local call fixtures; needs site-scoped dispatch assumptions |
+| 2BC–2C5 | Nested computed-call wrapper; shifted-Q preparation under q2 | Local nonzero fixtures and Q=0 reset witnesses; scoped dispatch assumptions |
 | 224–227, 229–22F (q2) | Nested input-load and Q-exposure leaves | Local 2BC calling context; physical output unknown |
 | 2B3–2B8 (q2) | Input-sum capture and carry-qualified return | Prepared R0=Q>>1 forces return; not a global branch constraint |
 | 187–18A | Input-matched left shift | Constant nonzero D can prevent return after Q reaches zero |
@@ -101,8 +101,9 @@ Unannotated operations and remaining routine meanings stay open.
 | `sequencer_sweep_visited` | Its fixed 128-seed sequencer sweep | 941 |
 | `reset_original_visited` | Selected fitted original-role reset example | 187 |
 | `reset_swapped_visited` | Selected fitted swapped-role reset example | 186 |
+| `reset_q2_nested_visited` | Q2 seed-115 reset example entering the nested ROM wrapper | 187 |
 
-The two reset examples use different datapath/condition hypotheses from the
+The selected reset examples use different datapath/condition hypotheses from the
 sequencer sweep. These columns are not merged into a single execution claim.
 For example, 2D9 has both a local interpretation and a clean reset witness
 under an optional gate, but remains outside the default graph. All 22 default
@@ -123,7 +124,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 83 functional/assumption tests pass, including checks that
+byte. All 84 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.

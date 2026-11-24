@@ -9,7 +9,9 @@ interpretation of the [nested-call structure](ROM-TAIL.md).
 The experiment starts at the actual call instruction 21F with explicit RAM/Q
 fixtures. It executes both real calls and returns, stopping when the outer
 call returns to 220. It does **not** establish an integrated reset path to this
-routine or identify a physical peripheral.
+routine or identify a physical peripheral. A subsequent
+[reset sweep](NESTED-RESET.md) reaches this wrapper in five clean runs, all
+with Q=R5=0 on entry; those witnesses complement the nonzero local fixtures.
 
 ## Prefix state and transient results
 
