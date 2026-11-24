@@ -127,6 +127,13 @@ The [all-Q follow-up](PHOTO-MAPPING-Q-SWEEP.md) tests 256 reset Q bytes in
 each mapping. A q2 path repeatedly reads the ROM for Q≡0 mod 8, but each run
 reads one fixed address and never reaches the proposed controller-bit input.
 It is a Q-selected constant path under this fixture, not a carrier.
+The [one-bit instruction-map search](INSTRUCTION-BIT-NEIGHBORHOOD.md) changes
+one untraced Am2901 instruction input at a time across 1,120 candidate
+mappings. Ninety-eight sustain both controller-input visits and repeated ROM
+reads, but none develops a changing lookup or candidate output pattern for
+repeated copies of the same bit. Four produce different fixed candidate bytes
+for 0 and 1. The result narrows this mapping neighborhood without identifying
+the transmitter or physical instruction wiring.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the
