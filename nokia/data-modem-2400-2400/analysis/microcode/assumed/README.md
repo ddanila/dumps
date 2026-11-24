@@ -563,3 +563,8 @@ bytes through q3 arithmetic to a surviving result, using an explicit ROM read
 only at 317 and external replies elsewhere. Address setup and read-to-result
 latency are logged in microinstructions; physical strobes and sample timing
 remain unresolved.
+
+[Raw-word ROM-read gates](ROM-GATE.md) replaces the single-PC sine read with
+all activations of fitted control-word predicates. A two-bit gate preserves
+the full quarter-sine path, but 136 three-bit alternatives also fit the assumed
+labels and pass the tested boundaries while predicting different bus reads.

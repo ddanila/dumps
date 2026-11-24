@@ -938,6 +938,34 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_rom_gate_fit_and_global_read_effects(self):
+        from common import load
+        from rom_gate_study import search, observe
+        from sine_operand_study import scenario_for_phase
+        from rom_study import load_rom
+        from defined_condition_fit import load_trace
+        config=read(HERE/'rom-gate-study.json')
+        tested,fits=search(config,load())
+        self.assertEqual(tested,41728)
+        small=[f for f in fits if len(f['terms'])<=2]
+        self.assertEqual(len(small),1)
+        self.assertEqual(small[0]['terms'],[('11.4',0),('18.5',0)])
+        self.assertEqual(len(small[0]['pcs']),433)
+        self.assertEqual(len(fits),137)
+        scenario=scenario_for_phase(config,'q3',32)
+        scenario['io']['read']['address']['pcs']=small[0]['pcs']
+        with tempfile.TemporaryDirectory() as temporary:
+            result=execute(read(HERE/config['profiles']['q3']),scenario,160,
+                mode='integrated',out=Path(temporary),trace_limit=160)
+            finding=observe(load_trace(Path(temporary)),result,load_rom(config),32)
+        self.assertTrue(finding['clean'] and finding['output_matches'])
+        self.assertEqual(finding['first_terminal'],110)
+        self.assertEqual([(r['pc'],r['address'],r['value']) for r in finding['selected_rom_reads']],
+                         [(0x115,0x106,19),(0x115,0x106,19),(0x317,0x120,90),(0x36c,0x100,0)])
+        # Asking the same raw word to be both external and ROM is inconsistent.
+        contradictory=copy.deepcopy(config);contradictory['negative'].append(0x317)
+        self.assertEqual(search(contradictory,load())[1],[])
+
     def test_rom_feedback_at_selected_pcs_preserves_external_sequences(self):
         from defined_condition_fit import load_trace
         mapping=copy.deepcopy(self.mapping)
