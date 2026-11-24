@@ -699,3 +699,8 @@ inside the repeating loop cannot release it under this decode.
 initial BSR/BLT frame, the external reply threshold at 01D, and why 01E's own
 input does not select the branch. Release leads to a separately controlled
 Q reload and the already checked 05D wait or terminal tail.
+
+[Early entry 022's carry-selected loop pop](EARLY-ENTRY22.md) explains the
+input threshold that either executes BLT or skips it with its PLP frame still
+present. Local fixtures also verify the Q-zero shift branch excluded by this
+reset entry. Both reset paths join the same fixed-register wait.

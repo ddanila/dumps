@@ -127,6 +127,24 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_early_entry22_skip_preserves_actual_loop_frame(self):
+        import random
+        from early_entry22 import scenario_for,inspect,inspect_local,check_arithmetic
+        from defined_condition_fit import load_trace
+        config=read(HERE/'early-entry22.json');early=read(HERE/config['early_configuration']);h=read(HERE/early['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x22)
+        arithmetic=check_arithmetic(mapping)
+        self.assertEqual(arithmetic['pop_pairs']+arithmetic['skip_pairs'],65536)
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for case in range(64):
+                a,shift,x,y,capture=[rng.randrange(256) for _ in range(5)]
+                scenario=scenario_for(config,a,shift,x,y,capture)
+                result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                inspect(load_trace(out),result,scenario,a,shift,x,y,capture)
+                ram=[rng.randrange(256) for _ in range(16)];q=0 if case%4==0 else rng.randrange(256)
+                inspect_local(mapping,config,ram,q,a,shift,x,y,out)
+
     def test_q3_early_entry13_call_fed_carry_wait(self):
         import random
         from early_entry13 import scenario_for,inspect,check_threshold

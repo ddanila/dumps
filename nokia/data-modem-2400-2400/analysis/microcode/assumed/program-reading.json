@@ -1605,6 +1605,22 @@
       "evidence": "EARLY-ENTRY13.md",
       "meaning": "013 captures a complemented input difference in R14, 014 captures R0=u, and 01A forms Q=u+b. 01C supplies a real return frame and carry one for initial BLT entry. Later 01E repeats on D01D+u carry, independently of D01E; release reaches a discarded Q difference and a new Q load at 059.",
       "limitations": "q3 previous flags, zero reset and explicit early entry 3; other setup inputs fixed as declared. u=0 cannot hold the carry wait. Later Q reload may enter a separate fixed-register wait. No physical input or acknowledgment mapping inferred."
+    },
+    {
+      "name": "early shift preparation and carry-selected loop pop",
+      "ranges": [
+        [
+          "022",
+          "031"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "EARLY-ENTRY22.md",
+      "meaning": "023 produces a Q-zero shift-selection predicate; 025 halves Q while the q=0 alternative shifts a temporary input left. Two additions at 02B/02C select whether TSK skips BLT. Skipping retains the PLP frame; executing BLT pops it and writes a temporary sum, before both paths join the fixed-register wait.",
+      "limitations": "q3 previous flags; reset q=FF and explicit early entry 4. The q=0 branch is local-fixture evidence only. Retained frame is reported as an assumption-model consequence, not repaired or attributed to physical hardware. No transient output consumer identified."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"
