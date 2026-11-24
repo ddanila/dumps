@@ -69,13 +69,56 @@ carry-in, D source, shift linkage). In non-branch words chip 10 is mostly
 
 ## Working rules
 
-- Every assumption lives in a mapping or scenario file with a status
-  (`recovered-from-data`, `hypothesis`, `stub`), never hard-coded in the model.
-- Unknown inputs become scenario parameters with logged values rather than a
-  stop. A run that completes is reported as "runs under these assumptions",
-  not as faithful Nokia execution.
+These rules remain in force for G2 in [PLAN-2.md](PLAN-2.md) and subsequent
+reconstruction work; completing G1 does not retire the assumption-driven approach.
+
+- Every assumption lives in a mapping, candidate board configuration or scenario
+  file with a status (`recovered-from-data`, `hypothesis`, `stub`), never
+  hard-coded in the model.
+- Unknown inputs become explicit scenario parameters with logged values or
+  remain unknown in a diagnostic run. Never silently replace wiring, RAM or inputs with
+  zeros. A run that completes is reported as "runs under these assumptions",
+  not as faithful Nokia execution or proof of modem function.
 - Raw dumps and photographs stay untouched. Each step lands with tests and a
   checked-in result summary, as in the existing experiments.
+
+### Uncertainty is a reason to experiment, not a goal blocker
+
+Missing pin traces, uncertain clock phases, unidentified signal sources and
+unavailable continuity measurements **do not by themselves block progress**.
+Use the photos, component topology, chip behavior, ROM structure and existing
+traces to propose plausible connections, then run them. Physical checks are
+optional ways to discriminate candidates, not prerequisites for continuing.
+
+For each unresolved dependency:
+
+1. Record what is observed, what is inferred and what must be assumed. Keep
+   candidate connections separate from the verified evidence ledger.
+2. Choose a reasonable baseline and a small set of meaningful alternatives;
+   there is no requirement to enumerate every possible wiring permutation.
+3. Make those choices configurable and run bounded, reproducible experiments
+   with the real dumps. Select stimuli that exercise the disputed connection.
+4. Compare initialization, control flow, stack behavior, I/O and signal output.
+   Record which candidates fail, which remain possible and what the experiment
+   cannot distinguish. Revise the assumptions or pursue another useful path.
+
+**A stopped simulation is an experimental result, not a blocked goal.** An
+unknown branch bus can stop one diagnostic run while explicit candidate bus
+sources are tested in others. Repeated failures under one set of assumptions
+are grounds to change the experiment, not to wait for measurements. The
+[photo-informed board experiment](board/PHOTO-HYPOTHESES.md) demonstrates this
+approach with executable candidate wiring and a targeted indirect-branch pulse.
+
+Reserve a goal blocker for an indispensable dependency that cannot be supplied
+or usefully approximated and leaves no meaningful independent work. Before
+declaring one, identify that dependency, explain why candidate assumptions
+cannot support further useful experiments, and account for the remaining work.
+Lack of verified wiring or confidence in a hypothesis is not sufficient.
+
+This policy changes how we make progress, not the acceptance criteria. Keep
+G2's transmitter and receiver/echo-canceller checks: completing a candidate run
+does not satisfy them. Do not inject the expected waveform, force control flow
+past a wait loop, or relabel an assumption as evidence to claim success.
 
 ## Steps
 
