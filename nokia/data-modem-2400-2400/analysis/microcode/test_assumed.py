@@ -127,6 +127,34 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_paired_wait_high_byte_and_preceding_input(self):
+        import random
+        from pair_wait_study import scenario_for,probe,prediction,check,verify_core,fixture
+        from defined_condition_fit import load_trace
+        config=read(HERE/'pair-wait-study.json');p=HERE/config['base']
+        mapping,base=read(p/'mapping.json'),read(p/'scenario.json');rows=decode(mapping)
+        rng=random.Random(370);outcomes=set()
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            for case in range(64):
+                ram=[rng.randrange(256) for _ in range(16)];q=rng.randrange(256);d=rng.randrange(256)
+                source='scenario' if case%2 else 'previous_y';index=case%4 if source=='scenario' else d%4
+                scenario=scenario_for(base,config,ram,q,index,d,source)
+                got=probe(rows,scenario,True);check(got,prediction(ram,q,index,d))
+                verify_core(mapping,scenario,got,root/'core');outcomes.add(got['outcome'])
+                self.assertEqual(got['ram'][4:8],ram[4:8])
+            ram,q=fixture(0x8001)
+            want=prediction(ram,q,0,1)
+            self.assertEqual(want['output'][2:],[2,0]);self.assertEqual(want['outcome'],'return')
+            ram,q=fixture(0x1234)
+            for source,index in [('previous_y',3),('y',0)]:
+                scenario=scenario_for(base,config,ram,q,0,3,source)
+                summary=execute(mapping,scenario,40,mode='integrated',out=root/source,trace_limit=40)
+                self.assertTrue(summary['clean'])
+                call=next(row for row in load_trace(root/source) if row['pc']==0x376)
+                self.assertEqual(call['next_pc'],0x379+4*index)
+        self.assertEqual(outcomes,{'return','repeat'})
+
     def test_q3_full_carry_helper_return_mask_and_recurrence(self):
         import random
         from carry_helper_study import scenario_for,probe,prediction,check,verify_core,inspect_reset

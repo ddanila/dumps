@@ -1401,6 +1401,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIR-WAIT.md",
+        "limitations": "Actual local caller 309 and three stack frames; fixed or preceding-Y dispatch under explicit constant reads. No reset reachability, physical output consumer or autonomous sample progression inferred.",
+        "meaning": "Copy R0 to R1, preserve R4\u2013R7/Q, and expose doubled or self-subtracted 16-bit words through four table entries. Previous final high-byte zero controls return; fixed inputs otherwise repeat with period 12. D375 can select the table via preceding Y while current Y always selects zero.",
+        "name": "paired self-arithmetic high-byte wait",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "370",
+            "388"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1423,7 +1439,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 623,
+    "annotated_used_words": 632,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2554,7 +2570,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "PAIR-WAIT.md",
+          "limitations": "Actual local caller 309 and three stack frames; fixed or preceding-Y dispatch under explicit constant reads. No reset reachability, physical output consumer or autonomous sample progression inferred.",
+          "meaning": "Copy R0 to R1, preserve R4\u2013R7/Q, and expose doubled or self-subtracted 16-bit words through four table entries. Previous final high-byte zero controls return; fixed inputs otherwise repeat with period 12. D375 can select the table via preceding Y while current Y always selects zero.",
+          "name": "paired self-arithmetic high-byte wait",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "370",
+              "388"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "309"
       ],
@@ -4629,6 +4662,7 @@
     "MASKED-NESTED-DISPATCH.md": "e06bfa78d539d793a7102e5d5f59be8ff216fdf4bdae63eb48c697e2868921dc",
     "NESTED-PREPARE.md": "715e379e086f8c8a8c76fa06a285392786987d8e24164bf93695a9f4957bafe0",
     "NESTED-RESET.md": "2e2acb562eee036b5c25e57e235c90adbb36263eb6cc3f0ec6faa266abc0b5ce",
+    "PAIR-WAIT.md": "23e0bd19a66d2fdd63f0d57db95a83cbec044218fea86f109720211cd0f4d2fb",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "PAIRED-CAPTURE.md": "ef09bcfa192c97b1fdc004e5b09a858fef6777d6179ff7b2e23cb7d50a62962a",
     "PAIRED-COMPONENTS.md": "d8789444a8c12c7e16c3c9cdd0125519ce9e3db824e2e16ec10f3207e5037bf3",

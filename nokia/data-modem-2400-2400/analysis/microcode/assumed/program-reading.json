@@ -1417,6 +1417,22 @@
       "evidence": "CARRY-HELPER.md",
       "meaning": "Preparatory R1\u2013R3 writes are overwritten by the three-add loop. Previous middle carry controls repetition. On return, 36F masks the external byte with preserved Q into R0. Constant per-PC reads give immediate return or exact period-three recurrence; the saved ROM zero-reply reset validates a complete call.",
       "limitations": "q3 previous flags and constant selector 5. Local constant-input recurrence does not apply to general ROM-address feedback. No physical input protocol or output consumer inferred."
+    },
+    {
+      "name": "paired self-arithmetic high-byte wait",
+      "ranges": [
+        [
+          "370",
+          "388"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "PAIR-WAIT.md",
+      "meaning": "Copy R0 to R1, preserve R4\u2013R7/Q, and expose doubled or self-subtracted 16-bit words through four table entries. Previous final high-byte zero controls return; fixed inputs otherwise repeat with period 12. D375 can select the table via preceding Y while current Y always selects zero.",
+      "limitations": "Actual local caller 309 and three stack frames; fixed or preceding-Y dispatch under explicit constant reads. No reset reachability, physical output consumer or autonomous sample progression inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

@@ -644,3 +644,7 @@ with identical retained state. Local calls do not imply reset reachability.
 the carry-controlled wait and the final external-byte/Q mask into one checked
 call. Constant-input recurrence and a real zero-reply reset call are verified
 separately from the existing changing-ROM feedback recurrence.
+
+[The paired self-arithmetic wait](PAIR-WAIT.md) explains q3 370 and its
+four-entry table, including high-byte-only return, exact period-12 recurrence,
+and the distinction between preceding-Y input selection and current-Y zero.

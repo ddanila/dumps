@@ -59,6 +59,7 @@ into one address listing.
 | 1EC–1EE | External-byte equality poll | Previous-zero condition and external channel remain hypotheses |
 | 1E9–1EB | Conditional Q drain | Current versus previous zero flag changes iteration count |
 | 341–344 | Preparation with disputed register roles | External operand and destination roles remain hypotheses |
+| 370–388 (q3) | Paired self-arithmetic and high-byte wait | Local calls; fixed inputs or preceding-Y dispatch; no physical output assignment |
 | 379–388, 392–3A1, 3AB–3BA | Paired add/subtract and permute | Output slots are virtual |
 | 3D5–3D9, 3EA–3EE (q2) | Source-overwriting transform loops | Fixed dispatch; nonzero caller states are local fixtures |
 | 3C0–3C4 (q2) | Fixed-source transform high-byte loop | Constant dispatch; failed tests repeat without changing source data |
@@ -99,7 +100,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 623 used words, including overlaps and disconnected
+These annotations cover 632 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -136,7 +137,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 110 functional/assumption tests pass, including checks that
+byte. All 111 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -231,8 +232,8 @@ routes and transfer policies produce distinct retained codes and update times;
 all connections remain labelled hypotheses, and core traces are unchanged.
 
 [The plan acceptance audit](PLAN-AUDIT.md) verifies the current long-run and
-coverage evidence separately from interpretation. Two cataloged direct-call
-entries still lack annotations; physical fidelity is not added as a prerequisite
+coverage evidence separately from interpretation. One cataloged direct-call
+entry still lacks an annotation; physical fidelity is not added as a prerequisite
 beyond the plan’s explicit assumption-based scope.
 
 [Reset preparation helpers](RESET-HELPERS.md) explain q3 06F–077 and
@@ -254,3 +255,7 @@ with identical retained state. Local calls do not imply reset reachability.
 the carry-controlled wait and the final external-byte/Q mask into one checked
 call. Constant-input recurrence and a real zero-reply reset call are verified
 separately from the existing changing-ROM feedback recurrence.
+
+[The paired self-arithmetic wait](PAIR-WAIT.md) explains q3 370 and its
+four-entry table, including high-byte-only return, exact period-12 recurrence,
+and the distinction between preceding-Y input selection and current-Y zero.
