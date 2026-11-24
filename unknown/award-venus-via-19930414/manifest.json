@@ -1,22 +1,36 @@
 {
-  "acquisition_date": "2026-11-22",
-  "source": "unidentified 486 motherboard, per owner; 32-pin 27-series EPROM labelled AWARD 486DX BIOS",
-  "device": "27C010-class EPROM inferred, not confirmed",
-  "identification": "Award Modular BIOS v4.20, ID 04/14/93-VENUS-VIA; Cirrus CL-GD540X/542X VGA BIOS 1.00d",
-  "reads": [
+  "schema": "dumps-manifest/1",
+  "title": "Unidentified board — Award VENUS-VIA BIOS, 1993-04-14",
+  "status": "preserved",
+  "images": [
     {
-      "file": "evidence/read-1m-1.bin",
-      "profile": "AT27C080",
-      "size": 1048576,
-      "note": "eight identical 128 KiB blocks"
-    },
-    {
-      "file": "evidence/read-128k.bin",
-      "profile": "AT27C010",
+      "file": "award-venus-via.bin",
       "size": 131072,
-      "note": "matches one block exactly"
+      "sha256": "4f8a8874f18e36c12a13aaa5bfdf369451db5bd355c8292b372080b441e63d34",
+      "sha1": "f4c224bdc3ced42db5b91e72bdd40f24f8f90647",
+      "crc32": "d2c062a6"
     }
   ],
-  "analysis": "evidence/analysis.json",
-  "public_comparison": "evidence/86box-comparison.json"
+  "details": {
+    "acquisition_date": "2026-11-22",
+    "source": "unidentified 486 motherboard, per owner; 32-pin 27-series EPROM labelled AWARD 486DX BIOS",
+    "device": "27C010-class EPROM inferred, not confirmed",
+    "identification": "Award Modular BIOS v4.20, ID 04/14/93-VENUS-VIA; Cirrus CL-GD540X/542X VGA BIOS 1.00d",
+    "reads": [
+      {
+        "file": "evidence/read-1m-1.bin",
+        "profile": "AT27C080",
+        "size": 1048576,
+        "note": "eight identical 128 KiB blocks"
+      },
+      {
+        "file": "evidence/read-128k.bin",
+        "profile": "AT27C010",
+        "size": 131072,
+        "note": "matches one block exactly"
+      }
+    ],
+    "analysis": "evidence/analysis.json",
+    "public_comparison": "evidence/86box-comparison.json"
+  }
 }

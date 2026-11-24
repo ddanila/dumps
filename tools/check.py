@@ -10,8 +10,8 @@ Checks:
              filename / image), or some file in the set if no name is given.
              Hashes of readers, public references and captures kept in local
              sessions (entries with "url" or "session") are not checked.
-  coverage   every dump at the top of a set folder is hashed by its manifest
-             or SHA256SUMS
+  schema     every set manifest uses dumps-manifest/1 and its "images" list
+             matches exactly the dumps at the top of the set folder
   links      every relative Markdown link resolves
   paths      no personal absolute paths (/home/<user>/, /Users/<user>/) in
              Markdown or manifests; raw records under evidence/ are exempt
@@ -136,20 +136,41 @@ def check_manifests(files):
     return errors
 
 
-def check_coverage(files):
-    """Every dump at the top of a set folder is hashed by its manifest or SHA256SUMS."""
+def check_schema(files):
+    """Set manifests use dumps-manifest/1, and "images" lists exactly the set's dumps."""
+    sys.path.insert(0, str(ROOT / 'tools'))
+    from manifest import SCHEMA, is_dump
     errors = []
     for d in set_dirs(files):
-        known = {digest for _, digest in manifest_hashes(d / 'manifest.json')}
-        sums = d / 'SHA256SUMS'
-        if sums.is_file():
-            known |= {line.split()[0] for line in sums.read_text().splitlines() if line.strip()}
-        for f in sorted(p for p in d.iterdir() if p.is_file()):
-            if (f.suffix in DOC_SUFFIXES or f.name.startswith('.') or f.name.endswith('SHA256SUMS')
-                    or f.suffix == '.zip'):
+        manifest = d / 'manifest.json'
+        m = json.loads(manifest.read_text())
+        where = rel(manifest)
+        if m.get('schema') != SCHEMA:
+            errors.append(f'{where}: not {SCHEMA} (run tools/manifest.py {rel(d)})')
+            continue
+        missing = [k for k in ('title', 'status', 'images', 'details') if k not in m]
+        if missing or m['status'] not in ('preserved', 'record-only'):
+            errors.append(f'{where}: missing {missing} or bad status')
+            continue
+        listed = {}
+        for image in m['images']:
+            if not all(k in image for k in ('file', 'size', 'sha256', 'sha1', 'crc32')):
+                errors.append(f'{where}: incomplete image entry {image.get("file")}')
                 continue
-            if cached_sha256(f) not in known:
-                errors.append(f'{rel(f)}: dump not hashed in manifest.json or SHA256SUMS')
+            f = d / image['file']
+            if not f.is_file():
+                errors.append(f'{where}: image {image["file"]} missing')
+            elif f.stat().st_size != image['size'] or cached_sha256(f) != image['sha256']:
+                errors.append(f'{where}: image {image["file"]} does not match')
+            listed[image['file']] = image
+        on_disk = {p.name for p in d.iterdir() if is_dump(p)}
+        if m['status'] == 'record-only' and m['images']:
+            errors.append(f'{where}: record-only set lists images')
+        if m['status'] == 'preserved':
+            for name in sorted(on_disk - set(listed)):
+                errors.append(f'{rel(d / name)}: dump not listed in manifest images')
+            if not listed:
+                errors.append(f'{where}: preserved set has no images')
     return errors
 
 
@@ -224,7 +245,7 @@ def check_listed(files):
     return errors
 
 
-CHECKS = [('checksums', check_checksums), ('manifests', check_manifests), ('coverage', check_coverage), ('links', check_links),
+CHECKS = [('checksums', check_checksums), ('manifests', check_manifests), ('schema', check_schema), ('links', check_links),
           ('paths', check_paths), ('summaries', check_summaries), ('listed', check_listed)]
 
 

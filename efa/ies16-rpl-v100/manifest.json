@@ -1,284 +1,298 @@
 {
-  "date": "2026-11-14T22:21:24.461566+02:00",
-  "device": "another orphan 2764; owner suspects boot ROM",
-  "profile": "M2764A@DIP28",
-  "reader_sha256": "c1cf43c827861baa2320a02b3a981cbda410f2739d9da8666dc820e355a71cfc",
-  "reads": [
+  "schema": "dumps-manifest/1",
+  "title": "EFA IES16-series Novell RPL boot ROM",
+  "status": "preserved",
+  "images": [
     {
-      "command": [
-        "minipro",
-        "-p",
-        "M2764A@DIP28",
-        "-x",
-        "-r",
-        "dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124/read1.bin"
-      ],
-      "exit_code": 0
-    },
-    {
-      "command": [
-        "minipro",
-        "-p",
-        "M2764A@DIP28",
-        "-x",
-        "-r",
-        "dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124/read2.bin"
-      ],
-      "exit_code": 0
+      "file": "ies16-rpl-2764.bin",
+      "size": 8192,
+      "sha256": "8948a241119cc8fe3fa5849d5dfffc024aaaad21d1cef53b748a978f285f3beb",
+      "sha1": "17bcb6a56bf7f5742a6a1ed1c48e50550c60fa64",
+      "crc32": "95abede4"
     }
   ],
-  "identification": "EFA IES16 series NE2000-compatible Novell RPL boot ROM, from embedded strings",
-  "board": "unknown; orphan chip",
-  "matching_reads": 2,
-  "size": 8192,
-  "sha256": "8948a241119cc8fe3fa5849d5dfffc024aaaad21d1cef53b748a978f285f3beb",
-  "crc32": "95abede4",
-  "checksum_mod256": 0,
-  "session_path": "dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124",
-  "public_match": "No exact match located in bounded searches and comparisons, 2026-11-14.",
-  "additional_acquisitions": [
-    {
-      "date": "2026-11-15",
-      "device": "second matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261115-144302",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/second-chip-20261115/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-15",
-      "device": "third matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261115-165239",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/third-chip-20261115/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "fourth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-104905",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/fourth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "fifth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-105624",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/fifth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "sixth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-110237",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/sixth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "seventh matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-185557",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/seventh-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "eighth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-185930",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/eighth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "ninth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-190810",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/ninth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "tenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-190944",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/tenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "eleventh matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191605",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/eleventh-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "twelfth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191703",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twelfth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "thirteenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191755",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/thirteenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "fourteenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191915",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/fourteenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "fifteenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-192025",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/fifteenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "sixteenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-192314",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/sixteenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "seventeenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-193049",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/seventeenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "eighteenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-200422",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/eighteenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-16",
-      "device": "nineteenth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-200518",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/nineteenth-chip-20261116/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twentieth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-101217",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twentieth-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-first matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204034",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-first-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-second matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204211",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-second-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-third matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204621",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-third-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-fourth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204743",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-fourth-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-fifth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205321",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-fifth-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-sixth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205424",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-sixth-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-seventh matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205532",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-seventh-chip-20261117/",
-      "crc32": "95abede4"
-    },
-    {
-      "date": "2026-11-17",
-      "device": "twenty-eighth matching acquisition; owner reported another 2764",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205629",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/twenty-eighth-chip-20261117/",
-      "crc32": "95abede4"
-    }
-  ]
+  "details": {
+    "date": "2026-11-14T22:21:24.461566+02:00",
+    "device": "another orphan 2764; owner suspects boot ROM",
+    "profile": "M2764A@DIP28",
+    "reader_sha256": "c1cf43c827861baa2320a02b3a981cbda410f2739d9da8666dc820e355a71cfc",
+    "reads": [
+      {
+        "command": [
+          "minipro",
+          "-p",
+          "M2764A@DIP28",
+          "-x",
+          "-r",
+          "dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124/read1.bin"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "minipro",
+          "-p",
+          "M2764A@DIP28",
+          "-x",
+          "-r",
+          "dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124/read2.bin"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "identification": "EFA IES16 series NE2000-compatible Novell RPL boot ROM, from embedded strings",
+    "board": "unknown; orphan chip",
+    "matching_reads": 2,
+    "size": 8192,
+    "sha256": "8948a241119cc8fe3fa5849d5dfffc024aaaad21d1cef53b748a978f285f3beb",
+    "crc32": "95abede4",
+    "checksum_mod256": 0,
+    "session_path": "dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124",
+    "public_match": "No exact match located in bounded searches and comparisons, 2026-11-14.",
+    "additional_acquisitions": [
+      {
+        "date": "2026-11-15",
+        "device": "second matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261115-144302",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/second-chip-20261115/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-15",
+        "device": "third matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261115-165239",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/third-chip-20261115/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "fourth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-104905",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/fourth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "fifth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-105624",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/fifth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "sixth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-110237",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/sixth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "seventh matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-185557",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/seventh-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "eighth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-185930",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/eighth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "ninth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-190810",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/ninth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "tenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-190944",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/tenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "eleventh matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191605",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/eleventh-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "twelfth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191703",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twelfth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "thirteenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191755",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/thirteenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "fourteenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-191915",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/fourteenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "fifteenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-192025",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/fifteenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "sixteenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-192314",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/sixteenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "seventeenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-193049",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/seventeenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "eighteenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-200422",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/eighteenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-16",
+        "device": "nineteenth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-200518",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/nineteenth-chip-20261116/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twentieth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-101217",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twentieth-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-first matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204034",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-first-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-second matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204211",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-second-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-third matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204621",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-third-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-fourth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-204743",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-fourth-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-fifth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205321",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-fifth-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-sixth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205424",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-sixth-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-seventh matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205532",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-seventh-chip-20261117/",
+        "crc32": "95abede4"
+      },
+      {
+        "date": "2026-11-17",
+        "device": "twenty-eighth matching acquisition; owner reported another 2764",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261117-205629",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/twenty-eighth-chip-20261117/",
+        "crc32": "95abede4"
+      }
+    ]
+  }
 }

@@ -45,17 +45,30 @@ with a table of its subfolders.
 
 ## manifest.json
 
-There is no strict schema yet, but `tools/check.py` relies on these rules:
+Every set has a `manifest.json` in the `dumps-manifest/1` layout. The
+canonical core is generated from the files on disk. Run
+`python3 tools/manifest.py <set-folder>` after adding or changing dumps.
 
-- Every hash of a preserved file is a `"sha256"` key in an object that names
-  the file with `"file"` (preferred), `"filename"` or `"image"`, relative to
-  the manifest. A single-image manifest may leave the name out.
-- Hashes of things outside the repository sit next to a `"url"` or `"session"`
-  key, or under a key containing `reader`, `public`, `comparison` or
-  `reference`. Examples are public reference ROMs, reader binaries and
-  captures kept in local sessions.
-- Record the date, the source device and board position, the chip marking
-  as reported, and the session identifier.
+```json
+{
+  "schema": "dumps-manifest/1",
+  "title": "first line of README.md",
+  "status": "preserved",
+  "images": [
+    {"file": "chip10-810237c.bin", "size": 1024, "sha256": "…", "sha1": "…", "crc32": "…"}
+  ],
+  "details": { "free-form acquisition and identification record" }
+}
+```
+
+- `images` lists exactly the dumps at the top of the set folder. `status` is
+  `record-only` when the binaries are kept in local sessions, and then
+  `images` is empty.
+- `details` is the free-form record: dates, board positions, reported
+  markings, sessions, reads and comparisons. The tool never rewrites it.
+  Prefer `file` for file names and `session` for session paths. Hashes of
+  things outside the repository go next to a `url` or `session` key, or under
+  a key containing `reader`, `public`, `comparison` or `reference`.
 
 ## Checksums and paths
 

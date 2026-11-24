@@ -1,41 +1,69 @@
 {
-  "inventory_tag": "MB007",
-  "chips": [
+  "schema": "dumps-manifest/1",
+  "title": "MB007 — integrated video BIOS, Low / High pair",
+  "status": "preserved",
+  "images": [
     {
-      "size": 16384,
-      "matching_reads": true,
-      "sha256": "d34ca970f6778a13c64129ca745e096f485ea59f9e52ef1b250971c4cbf86164",
-      "crc32": "1870d66f",
-      "sum_mod_256": 46,
-      "first16": "55403434303030303030303030303049",
-      "inventory_tag": "MB007",
-      "role": "integrated video BIOS Low, per owner",
-      "chip_type": "27128, per owner",
-      "profile": "M27128A@DIP28",
-      "file": "mb007-video-bios-low.bin"
+      "file": "mb007-video-bios-combined.bin",
+      "size": 32768,
+      "sha256": "99f982f8d3f2ffecb41d2fb70dc4b81f93b504045e15f3bf6a7b452229f1507f",
+      "sha1": "c1f63ad7fa6483e935b64bebf90a8e79c028847f",
+      "crc32": "c5e1265b"
     },
     {
-      "size": 16384,
-      "matching_reads": true,
-      "sha256": "9a5ac232dc5009884dbac71f752f74bf38248eada45710bf630c2bb29f9ba5e7",
-      "crc32": "e55fb2a6",
-      "sum_mod_256": 210,
       "file": "mb007-video-bios-high.bin",
-      "role": "High",
-      "profile": "M27128A@DIP28"
+      "size": 16384,
+      "sha256": "9a5ac232dc5009884dbac71f752f74bf38248eada45710bf630c2bb29f9ba5e7",
+      "sha1": "9cfef050f2ca7fb69af59dc428d95cdf3089446a",
+      "crc32": "e55fb2a6"
+    },
+    {
+      "file": "mb007-video-bios-low.bin",
+      "size": 16384,
+      "sha256": "d34ca970f6778a13c64129ca745e096f485ea59f9e52ef1b250971c4cbf86164",
+      "sha1": "234f9fae933955f4d36ba917d78a184536198968",
+      "crc32": "1870d66f"
     }
   ],
-  "combined": {
-    "size": 32768,
-    "layout": "Low at even addresses; High at odd addresses",
-    "sha256": "99f982f8d3f2ffecb41d2fb70dc4b81f93b504045e15f3bf6a7b452229f1507f",
-    "crc32": "c5e1265b",
-    "sum_mod_256": 0,
-    "header": "55aa40eb343734303030303030303030",
-    "declared_size": 32768,
-    "declared_sum_mod_256": 0,
-    "file": "mb007-video-bios-combined.bin"
-  },
-  "firmware": "Chips 451 VGA BIOS Version 2.0.1",
-  "boot_tested": false
+  "details": {
+    "inventory_tag": "MB007",
+    "chips": [
+      {
+        "size": 16384,
+        "matching_reads": true,
+        "sha256": "d34ca970f6778a13c64129ca745e096f485ea59f9e52ef1b250971c4cbf86164",
+        "crc32": "1870d66f",
+        "sum_mod_256": 46,
+        "first16": "55403434303030303030303030303049",
+        "inventory_tag": "MB007",
+        "role": "integrated video BIOS Low, per owner",
+        "chip_type": "27128, per owner",
+        "profile": "M27128A@DIP28",
+        "file": "mb007-video-bios-low.bin"
+      },
+      {
+        "size": 16384,
+        "matching_reads": true,
+        "sha256": "9a5ac232dc5009884dbac71f752f74bf38248eada45710bf630c2bb29f9ba5e7",
+        "crc32": "e55fb2a6",
+        "sum_mod_256": 210,
+        "file": "mb007-video-bios-high.bin",
+        "role": "High",
+        "profile": "M27128A@DIP28"
+      }
+    ],
+    "combined": {
+      "size": 32768,
+      "layout": "Low at even addresses; High at odd addresses",
+      "sha256": "99f982f8d3f2ffecb41d2fb70dc4b81f93b504045e15f3bf6a7b452229f1507f",
+      "crc32": "c5e1265b",
+      "sum_mod_256": 0,
+      "header": "55aa40eb343734303030303030303030",
+      "declared_size": 32768,
+      "declared_sum_mod_256": 0,
+      "file": "mb007-video-bios-combined.bin"
+    },
+    "firmware": "Chips 451 VGA BIOS Version 2.0.1",
+    "boot_tested": false
+  }
 }

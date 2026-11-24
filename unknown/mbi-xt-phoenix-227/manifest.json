@@ -1,144 +1,165 @@
 {
-  "size": 8192,
-  "matching_reads": 3,
-  "sha256": "3f2b7bce83b44a0c5fe49a115a9c7cd174c6721c9c7c9c0371dc77ea17b107eb",
-  "sha1": "c9323e78702497fafe428a132349a1b74f372dd7",
-  "crc32": "7af839c8",
-  "sum_mod_256": 190,
-  "last_32_bytes": "8006110040c3ffffffff110002270000ea5be000f030352f32392f3836fffeef",
-  "strings": [
+  "schema": "dumps-manifest/1",
+  "title": "MBI XT Board / Phoenix 2.27 BIOS — raw capture",
+  "status": "preserved",
+  "images": [
     {
-      "offset": 32,
-      "text": "Copyright (c) 1984,1985,1986 Phoenix Technologies Ltd"
+      "file": "mbi-xt-phoenix-227-fixed.bin",
+      "size": 8192,
+      "sha256": "b508104334d85d526f5b681246d7e93317c56f2eb45b5ef47845a88ea4fe9b7f",
+      "sha1": "3915555c9e56815d4e27b83791469a477f8e9bb5",
+      "crc32": "e51aeb4a"
     },
     {
-      "offset": 685,
-      "text": "All Rights Reserved"
-    },
-    {
-      "offset": 725,
-      "text": "ROM bad Chksm = "
-    },
-    {
-      "offset": 808,
-      "text": " Keyboard Bad"
-    },
-    {
-      "offset": 975,
-      "text": "Error. Press F1 key"
-    },
-    {
-      "offset": 1388,
-      "text": "<128K not OK, par dsb"
-    },
-    {
-      "offset": 1435,
-      "text": " RAM Bad "
-    },
-    {
-      "offset": 1580,
-      "text": " NMI at "
-    },
-    {
-      "offset": 1618,
-      "text": "I/O Card"
-    },
-    {
-      "offset": 1678,
-      "text": " (R)eboot, other keys to continue"
-    },
-    {
-      "offset": 1720,
-      "text": "MBI XT Board"
-    },
-    {
-      "offset": 2159,
-      "text": "1234567890-="
-    },
-    {
-      "offset": 2173,
-      "text": "qwertyuiop[]"
-    },
-    {
-      "offset": 2187,
-      "text": "asdfghjkl;'`"
-    },
-    {
-      "offset": 2200,
-      "text": "\\zxcvbnm,./"
-    },
-    {
-      "offset": 2216,
-      "text": ";<=>?@ABCD"
-    },
-    {
-      "offset": 2229,
-      "text": "!@#$%^&*()_+"
-    },
-    {
-      "offset": 2243,
-      "text": "QWERTYUIOP{}"
-    },
-    {
-      "offset": 2257,
-      "text": "ASDFGHJKL:\"~"
-    },
-    {
-      "offset": 2270,
-      "text": "|ZXCVBNM<>?"
-    },
-    {
-      "offset": 2286,
-      "text": "TUVWXYZ[\\]"
-    },
-    {
-      "offset": 2356,
-      "text": "^_`abcdefg"
-    },
-    {
-      "offset": 2426,
-      "text": "hijklmnopq"
-    },
-    {
-      "offset": 3083,
-      "text": "M+OPQRS789-456+1230.w"
-    },
-    {
-      "offset": 4331,
-      "text": "@((PP((PP,(-)*."
-    },
-    {
-      "offset": 6606,
-      "text": " Type (S)hut off NMI,"
-    },
-    {
-      "offset": 6672,
-      "text": "Boot disk failure. Type key to retry"
-    },
-    {
-      "offset": 7995,
-      "text": "IOS Ver 2.27"
-    },
-    {
-      "offset": 8181,
-      "text": "05/29/86"
+      "file": "mbi-xt-phoenix-227-raw.bin",
+      "size": 8192,
+      "sha256": "3f2b7bce83b44a0c5fe49a115a9c7cd174c6721c9c7c9c0371dc77ea17b107eb",
+      "sha1": "c9323e78702497fafe428a132349a1b74f372dd7",
+      "crc32": "7af839c8"
     }
   ],
-  "identification": "Phoenix 2.27, 05/29/86, MBI XT Board variant",
-  "profile": "M2764A@DIP28",
-  "session_path": "rom-programmers/sessions/xt-bios-2764-20261117-113827",
-  "physical_origin": "Owner identifies 2764 XT motherboard BIOS; board and full chip markings not recorded",
-  "validation": "Three identical reads; raw sum modulo 256 is 0xBE. Suspect zero byte at 0x1F3A in BIOS string. Replacing it with 0x42 would make sum zero; no modification made.",
-  "public_match": "No exact match to published Phoenix 2.27 29MAY86 YANGTECH image; 14 differing bytes, detailed in evidence/public-comparison.json.",
-  "corrected_image": {
-    "file": "mbi-xt-phoenix-227-fixed.bin",
-    "sha256": "b508104334d85d526f5b681246d7e93317c56f2eb45b5ef47845a88ea4fe9b7f",
-    "patch": {
-      "offset": 7994,
-      "from": 0,
-      "to": 66
-    },
-    "checksum_mod_256": 0,
-    "validation": "86Box POST, DOS 5 boot and BIOS service checks pass; raw control reports checksum BEh. See emulation/."
+  "details": {
+    "size": 8192,
+    "matching_reads": 3,
+    "sha256": "3f2b7bce83b44a0c5fe49a115a9c7cd174c6721c9c7c9c0371dc77ea17b107eb",
+    "sha1": "c9323e78702497fafe428a132349a1b74f372dd7",
+    "crc32": "7af839c8",
+    "sum_mod_256": 190,
+    "last_32_bytes": "8006110040c3ffffffff110002270000ea5be000f030352f32392f3836fffeef",
+    "strings": [
+      {
+        "offset": 32,
+        "text": "Copyright (c) 1984,1985,1986 Phoenix Technologies Ltd"
+      },
+      {
+        "offset": 685,
+        "text": "All Rights Reserved"
+      },
+      {
+        "offset": 725,
+        "text": "ROM bad Chksm = "
+      },
+      {
+        "offset": 808,
+        "text": " Keyboard Bad"
+      },
+      {
+        "offset": 975,
+        "text": "Error. Press F1 key"
+      },
+      {
+        "offset": 1388,
+        "text": "<128K not OK, par dsb"
+      },
+      {
+        "offset": 1435,
+        "text": " RAM Bad "
+      },
+      {
+        "offset": 1580,
+        "text": " NMI at "
+      },
+      {
+        "offset": 1618,
+        "text": "I/O Card"
+      },
+      {
+        "offset": 1678,
+        "text": " (R)eboot, other keys to continue"
+      },
+      {
+        "offset": 1720,
+        "text": "MBI XT Board"
+      },
+      {
+        "offset": 2159,
+        "text": "1234567890-="
+      },
+      {
+        "offset": 2173,
+        "text": "qwertyuiop[]"
+      },
+      {
+        "offset": 2187,
+        "text": "asdfghjkl;'`"
+      },
+      {
+        "offset": 2200,
+        "text": "\\zxcvbnm,./"
+      },
+      {
+        "offset": 2216,
+        "text": ";<=>?@ABCD"
+      },
+      {
+        "offset": 2229,
+        "text": "!@#$%^&*()_+"
+      },
+      {
+        "offset": 2243,
+        "text": "QWERTYUIOP{}"
+      },
+      {
+        "offset": 2257,
+        "text": "ASDFGHJKL:\"~"
+      },
+      {
+        "offset": 2270,
+        "text": "|ZXCVBNM<>?"
+      },
+      {
+        "offset": 2286,
+        "text": "TUVWXYZ[\\]"
+      },
+      {
+        "offset": 2356,
+        "text": "^_`abcdefg"
+      },
+      {
+        "offset": 2426,
+        "text": "hijklmnopq"
+      },
+      {
+        "offset": 3083,
+        "text": "M+OPQRS789-456+1230.w"
+      },
+      {
+        "offset": 4331,
+        "text": "@((PP((PP,(-)*."
+      },
+      {
+        "offset": 6606,
+        "text": " Type (S)hut off NMI,"
+      },
+      {
+        "offset": 6672,
+        "text": "Boot disk failure. Type key to retry"
+      },
+      {
+        "offset": 7995,
+        "text": "IOS Ver 2.27"
+      },
+      {
+        "offset": 8181,
+        "text": "05/29/86"
+      }
+    ],
+    "identification": "Phoenix 2.27, 05/29/86, MBI XT Board variant",
+    "profile": "M2764A@DIP28",
+    "session_path": "rom-programmers/sessions/xt-bios-2764-20261117-113827",
+    "physical_origin": "Owner identifies 2764 XT motherboard BIOS; board and full chip markings not recorded",
+    "validation": "Three identical reads; raw sum modulo 256 is 0xBE. Suspect zero byte at 0x1F3A in BIOS string. Replacing it with 0x42 would make sum zero; no modification made.",
+    "public_match": "No exact match to published Phoenix 2.27 29MAY86 YANGTECH image; 14 differing bytes, detailed in evidence/public-comparison.json.",
+    "corrected_image": {
+      "file": "mbi-xt-phoenix-227-fixed.bin",
+      "sha256": "b508104334d85d526f5b681246d7e93317c56f2eb45b5ef47845a88ea4fe9b7f",
+      "patch": {
+        "offset": 7994,
+        "from": 0,
+        "to": 66
+      },
+      "checksum_mod_256": 0,
+      "validation": "86Box POST, DOS 5 boot and BIOS service checks pass; raw control reports checksum BEh. See emulation/."
+    }
   }
 }

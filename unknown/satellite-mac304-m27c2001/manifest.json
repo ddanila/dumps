@@ -1,90 +1,104 @@
 {
-  "date": "2026-11-16T19:27:29.247190+02:00",
-  "device": "ST M27C2001 -15F1 DIP32, confirmed by owner photo",
-  "programmer": "T48",
-  "profile": "M27C2001@DIP32",
-  "reader_sha256": "c1cf43c827861baa2320a02b3a981cbda410f2739d9da8666dc820e355a71cfc",
-  "reads": [
+  "schema": "dumps-manifest/1",
+  "title": "Probable Nokia MAC4 family — MAC 3.04",
+  "status": "preserved",
+  "images": [
     {
-      "command": [
-        "minipro",
-        "-p",
-        "M27C2001@DIP32",
-        "-x",
-        "-r",
-        "dosravi/sessions/orphan-m27c2001-t48-20261116-192729/read1.bin"
-      ],
-      "exit_code": 0
-    },
-    {
-      "command": [
-        "minipro",
-        "-p",
-        "M27C2001@DIP32",
-        "-x",
-        "-r",
-        "dosravi/sessions/orphan-m27c2001-t48-20261116-192729/read2.bin"
-      ],
-      "exit_code": 0
+      "file": "mac304-m27c2001.bin",
+      "size": 262144,
+      "sha256": "8bea3d9a252bcb72c86594d4bed711c56cba43158baf454b0f53ba189e564d8a",
+      "sha1": "d7b1867eebdf6529ac0484509414e05667ca7f49",
+      "crc32": "8012f03b"
     }
   ],
-  "size": 262144,
-  "sha256": "8bea3d9a252bcb72c86594d4bed711c56cba43158baf454b0f53ba189e564d8a",
-  "sha1": "d7b1867eebdf6529ac0484509414e05667ca7f49",
-  "crc32": "8012f03b",
-  "matching_reads": 2,
-  "session_path": "dosravi/sessions/orphan-m27c2001-t48-20261116-192729",
-  "identification": "Probable Nokia MAC4-family satellite receiver/decoder firmware; exact model and source board unconfirmed",
-  "version_string": "FRONT:xxx   MAC:3.04  93-10-13",
-  "architecture": "8051 instruction set with Philips 80C652-compatible I2C registers; fixed 32 KiB plus banked 32 KiB code window",
-  "public_match": "No exact match located in bounded CRC32, SHA1 and version-string web searches on 2026-11-16; no candidate binary located for comparison.",
-  "physical_markings": [
-    "ST logo",
-    "M27C2001",
-    "-15F1",
-    "V88AB",
-    "9348C",
-    "SINGAPORE"
-  ],
-  "sticker": {
-    "clear_text": [
-      "MAC4",
-      "V:3.04"
+  "details": {
+    "date": "2026-11-16T19:27:29.247190+02:00",
+    "device": "ST M27C2001 -15F1 DIP32, confirmed by owner photo",
+    "programmer": "T48",
+    "profile": "M27C2001@DIP32",
+    "reader_sha256": "c1cf43c827861baa2320a02b3a981cbda410f2739d9da8666dc820e355a71cfc",
+    "reads": [
+      {
+        "command": [
+          "minipro",
+          "-p",
+          "M27C2001@DIP32",
+          "-x",
+          "-r",
+          "dosravi/sessions/orphan-m27c2001-t48-20261116-192729/read1.bin"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "minipro",
+          "-p",
+          "M27C2001@DIP32",
+          "-x",
+          "-r",
+          "dosravi/sessions/orphan-m27c2001-t48-20261116-192729/read2.bin"
+        ],
+        "exit_code": 0
+      }
     ],
-    "lower_line": "worn; not reliably transcribed"
-  },
-  "photo": {
-    "file": "photos/PXL_20261116_173434247.jpg",
-    "sha256": "fced99a5cedc795224f5f7b7aa4f4176707a5dcb21ccaae98167502d2cd34073",
-    "source": "Owner-directed inspection of latest Downloads photo, 2026-11-16"
-  },
-  "analysis": {
-    "date": "2026-11-16",
-    "report": "analysis/README.md",
-    "firmware_executed": true,
-    "hardware_model": "Synthetic front-controller replies and IM-bus input; not a full receiver emulation",
-    "rom_patched": false,
-    "exact_hardware_identity_confirmed": false,
-    "catalog": "analysis/menus/out/catalog.html",
-    "execution_results": "analysis/emulation/output/SUMMARY.json",
-    "screen_gallery": "analysis/emulation/output/gallery/index.html",
-    "main_pointer_slots": 1424,
-    "language_groups": 130,
-    "languages": [
-      "en",
-      "sv",
-      "da",
-      "no",
-      "fi",
-      "nl",
-      "de",
-      "fr",
-      "it",
-      "es"
+    "size": 262144,
+    "sha256": "8bea3d9a252bcb72c86594d4bed711c56cba43158baf454b0f53ba189e564d8a",
+    "sha1": "d7b1867eebdf6529ac0484509414e05667ca7f49",
+    "crc32": "8012f03b",
+    "matching_reads": 2,
+    "session_path": "dosravi/sessions/orphan-m27c2001-t48-20261116-192729",
+    "identification": "Probable Nokia MAC4-family satellite receiver/decoder firmware; exact model and source board unconfirmed",
+    "version_string": "FRONT:xxx   MAC:3.04  93-10-13",
+    "architecture": "8051 instruction set with Philips 80C652-compatible I2C registers; fixed 32 KiB plus banked 32 KiB code window",
+    "public_match": "No exact match located in bounded CRC32, SHA1 and version-string web searches on 2026-11-16; no candidate binary located for comparison.",
+    "physical_markings": [
+      "ST logo",
+      "M27C2001",
+      "-15F1",
+      "V88AB",
+      "9348C",
+      "SINGAPORE"
     ],
-    "screen_state_language_cases": 310,
-    "service_cases": 471,
-    "dispatch_cases": 319,
-    "dispatch_expected_powerdowns": 5
+    "sticker": {
+      "clear_text": [
+        "MAC4",
+        "V:3.04"
+      ],
+      "lower_line": "worn; not reliably transcribed"
+    },
+    "photo": {
+      "file": "photos/PXL_20261116_173434247.jpg",
+      "sha256": "fced99a5cedc795224f5f7b7aa4f4176707a5dcb21ccaae98167502d2cd34073",
+      "source": "Owner-directed inspection of latest Downloads photo, 2026-11-16"
+    },
+    "analysis": {
+      "date": "2026-11-16",
+      "report": "analysis/README.md",
+      "firmware_executed": true,
+      "hardware_model": "Synthetic front-controller replies and IM-bus input; not a full receiver emulation",
+      "rom_patched": false,
+      "exact_hardware_identity_confirmed": false,
+      "catalog": "analysis/menus/out/catalog.html",
+      "execution_results": "analysis/emulation/output/SUMMARY.json",
+      "screen_gallery": "analysis/emulation/output/gallery/index.html",
+      "main_pointer_slots": 1424,
+      "language_groups": 130,
+      "languages": [
+        "en",
+        "sv",
+        "da",
+        "no",
+        "fi",
+        "nl",
+        "de",
+        "fr",
+        "it",
+        "es"
+      ],
+      "screen_state_language_cases": 310,
+      "service_cases": 471,
+      "dispatch_cases": 319,
+      "dispatch_expected_powerdowns": 5
+    }
   }
 }

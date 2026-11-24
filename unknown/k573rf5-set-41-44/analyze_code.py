@@ -26,7 +26,7 @@ RANGES = [
 def load_rom():
     manifest = json.loads((ROOT / 'manifest.json').read_text())
     images = []
-    for chip in sorted(manifest['chips'], key=lambda c: c['label']):
+    for chip in sorted(manifest['details']['chips'], key=lambda c: c['label']):
         data = (ROOT / chip['filename']).read_bytes()
         if len(data) != chip['bytes'] or hashlib.sha256(data).hexdigest() != chip['sha256']:
             raise ValueError(f"image size/hash mismatch: {chip['filename']}")

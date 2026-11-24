@@ -1,75 +1,115 @@
 {
-  "schema": 1,
-  "status": "unidentified",
-  "reported_not_juku": true,
-  "connection": "four devices reported connected in parallel",
-  "analysis": {
-    "date": "2026-09-07",
-    "architecture": "8080-compatible; exact CPU unconfirmed",
-    "layout": "sequential concatenation",
-    "label_order": ["41", "42", "43", "44"],
-    "combined_bytes": 8192,
-    "combined_sha256": "b12fd392ea3a49fdd507e8c61decfe2f5972c3c1b7b9aec51455a329548c00b8",
-    "internal_additive_checksums": "all four pass",
-    "hypothesis": "programmable instrument or subsystem with GPIB-style talker/listener interface and signed decimal data",
-    "hardware_identity_confirmed": false,
-    "firmware_executed": false,
-    "report": "ANALYSIS.md",
-    "reproduction_script": "analyze_code.py"
-  },
-  "acquisition": {
-    "date": "2026-08-07",
-    "programmer": "Willem PCB5.0E",
-    "device_route": "2716 read-only",
-    "vcc_volts": 5,
-    "software_vpp_enabled": false,
-    "reader": "https://github.com/ddanila/willem-v30",
-    "transport": "https://github.com/ddanila/dosravi"
-  },
-  "chips": [
+  "schema": "dumps-manifest/1",
+  "title": "Unidentified K573RF5 set 41-44",
+  "status": "preserved",
+  "images": [
     {
-      "pcb_position": 1,
-      "label": "44",
-      "part": "K573RF5",
-      "filename": "pcb1-label44.bin",
-      "bytes": 2048,
-      "matching_reads": 10,
-      "crc16_ccitt": "AFD3",
-      "crc32": "633D0952",
-      "sha256": "f15117b3914b8df9779ea8fe608e012bb462d0ee68e9cf3c5772e2b96bfe8c3e"
+      "file": "pcb1-label44.bin",
+      "size": 2048,
+      "sha256": "f15117b3914b8df9779ea8fe608e012bb462d0ee68e9cf3c5772e2b96bfe8c3e",
+      "sha1": "aafc4d9487dc9e1f57b22b8742931ce282b3f311",
+      "crc32": "633d0952"
     },
     {
-      "pcb_position": 2,
-      "label": "43",
-      "part": "K573RF5",
-      "filename": "pcb2-label43.bin",
-      "bytes": 2048,
-      "matching_reads": 2,
-      "crc16_ccitt": "784A",
-      "crc32": "B02C841B",
-      "sha256": "70b32dcd2e60c757495933d1e12f4e3a780c68888a50b24cd92ebd5d2d859b47"
+      "file": "pcb2-label43.bin",
+      "size": 2048,
+      "sha256": "70b32dcd2e60c757495933d1e12f4e3a780c68888a50b24cd92ebd5d2d859b47",
+      "sha1": "e338d47bf9b3dffce43b49691d95c527c8081718",
+      "crc32": "b02c841b"
     },
     {
-      "pcb_position": 3,
-      "label": "42",
-      "part": "K573RF5",
-      "filename": "pcb3-label42.bin",
-      "bytes": 2048,
-      "matching_reads": 2,
-      "crc16_ccitt": "708D",
-      "crc32": "0B92EAEC",
-      "sha256": "4015ef546151d9fc396cb0ff2ae0dc51e0284d0258e9ddae97adf84bfe386607"
+      "file": "pcb3-label42.bin",
+      "size": 2048,
+      "sha256": "4015ef546151d9fc396cb0ff2ae0dc51e0284d0258e9ddae97adf84bfe386607",
+      "sha1": "659f9dca7ed172201b71d4947e612d6d1ec436a9",
+      "crc32": "0b92eaec"
     },
     {
-      "pcb_position": 4,
-      "label": "41",
-      "part": "K573RF5",
-      "filename": "pcb4-label41.bin",
-      "bytes": 2048,
-      "matching_reads": 2,
-      "crc16_ccitt": "8B8C",
-      "crc32": "51798125",
-      "sha256": "95111798e9e19b0c54ee015d0dda6f86832e6645af6fe6b5ab2eda9d6dcbc60a"
+      "file": "pcb4-label41.bin",
+      "size": 2048,
+      "sha256": "95111798e9e19b0c54ee015d0dda6f86832e6645af6fe6b5ab2eda9d6dcbc60a",
+      "sha1": "61a3966b32aa4e66e107cceea522db85f7aefbd4",
+      "crc32": "51798125"
     }
-  ]
+  ],
+  "details": {
+    "schema": 1,
+    "status": "unidentified",
+    "reported_not_juku": true,
+    "connection": "four devices reported connected in parallel",
+    "analysis": {
+      "date": "2026-09-07",
+      "architecture": "8080-compatible; exact CPU unconfirmed",
+      "layout": "sequential concatenation",
+      "label_order": [
+        "41",
+        "42",
+        "43",
+        "44"
+      ],
+      "combined_bytes": 8192,
+      "combined_sha256": "b12fd392ea3a49fdd507e8c61decfe2f5972c3c1b7b9aec51455a329548c00b8",
+      "internal_additive_checksums": "all four pass",
+      "hypothesis": "programmable instrument or subsystem with GPIB-style talker/listener interface and signed decimal data",
+      "hardware_identity_confirmed": false,
+      "firmware_executed": false,
+      "report": "ANALYSIS.md",
+      "reproduction_script": "analyze_code.py"
+    },
+    "acquisition": {
+      "date": "2026-08-07",
+      "programmer": "Willem PCB5.0E",
+      "device_route": "2716 read-only",
+      "vcc_volts": 5,
+      "software_vpp_enabled": false,
+      "reader": "https://github.com/ddanila/willem-v30",
+      "transport": "https://github.com/ddanila/dosravi"
+    },
+    "chips": [
+      {
+        "pcb_position": 1,
+        "label": "44",
+        "part": "K573RF5",
+        "filename": "pcb1-label44.bin",
+        "bytes": 2048,
+        "matching_reads": 10,
+        "crc16_ccitt": "AFD3",
+        "crc32": "633D0952",
+        "sha256": "f15117b3914b8df9779ea8fe608e012bb462d0ee68e9cf3c5772e2b96bfe8c3e"
+      },
+      {
+        "pcb_position": 2,
+        "label": "43",
+        "part": "K573RF5",
+        "filename": "pcb2-label43.bin",
+        "bytes": 2048,
+        "matching_reads": 2,
+        "crc16_ccitt": "784A",
+        "crc32": "B02C841B",
+        "sha256": "70b32dcd2e60c757495933d1e12f4e3a780c68888a50b24cd92ebd5d2d859b47"
+      },
+      {
+        "pcb_position": 3,
+        "label": "42",
+        "part": "K573RF5",
+        "filename": "pcb3-label42.bin",
+        "bytes": 2048,
+        "matching_reads": 2,
+        "crc16_ccitt": "708D",
+        "crc32": "0B92EAEC",
+        "sha256": "4015ef546151d9fc396cb0ff2ae0dc51e0284d0258e9ddae97adf84bfe386607"
+      },
+      {
+        "pcb_position": 4,
+        "label": "41",
+        "part": "K573RF5",
+        "filename": "pcb4-label41.bin",
+        "bytes": 2048,
+        "matching_reads": 2,
+        "crc16_ccitt": "8B8C",
+        "crc32": "51798125",
+        "sha256": "95111798e9e19b0c54ee015d0dda6f86832e6645af6fe6b5ab2eda9d6dcbc60a"
+      }
+    ]
+  }
 }

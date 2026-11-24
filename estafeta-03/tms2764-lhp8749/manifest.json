@@ -1,95 +1,144 @@
 {
-  "schema": 1,
-  "status": "attributed; exact hardware provenance unconfirmed",
-  "attributed_system": "Станция Локальной Связи (СЛС) Эстафета-03",
-  "expected_chips": 2,
-  "acquisition_status": "complete; both labels independently read twice",
-  "reported_common_marking": "TMS 2764-20JL LHP8749",
-  "analysis": {
-    "status": "8086-compatible code confirmed by static analysis; strong Estafeta-03 family attribution",
-    "architecture": "8086-compatible 16-bit x86",
-    "combined_sha256": "cdfa3999780ac80e96b7ca4e0d575c6cf3c9467cf66cc99dd88bb9f3268b7f0f",
-    "reset_stub_offset_hex": "3FF0",
-    "reset_far_jump": "0000:08AF",
-    "inline_string_routine_offset_hex": "1F3F",
-    "reference_url": "https://retropc.org/Stanciya_Lokal_noj_Svyazi_(SLS)_Estafeta-03_s_142.html",
-    "combined_bytes": 16384,
-    "even_offset_label": "01",
-    "odd_offset_label": "02",
-    "observed_banner": "ЭСТАФЕТА - III",
-    "banner_text_offset_hex": "0989",
-    "encoding": "KOI-7-style Cyrillic with 0E/0F shift delimiters",
-    "hypothesis": "Estafeta-03 local communications station firmware",
-    "firmware_executed": false,
-    "hardware_identity_confirmed": false,
-    "reproduction_script": "analyze_strings.py"
-  },
-  "acquisition": {
-    "date": "2026-09-06",
-    "date_basis": "host UTC; DOS clock unset",
-    "programmer": "Willem PCB5.0E",
-    "machine": "Pocket8086, existing documented setup",
-    "device_route": "2764 read-only",
-    "expected_vcc_volts": 5,
-    "voltages_remeasured": false,
-    "software_vpp_enabled": false,
-    "profile": "conservative",
-    "lpt_base_hex": "378",
-    "required_dip_mask_hex": "12B",
-    "reader": "https://github.com/ddanila/willem-v30",
-    "reader_checkout": "c3629065d11bf3b11878b8abf24161d5e1d4e3e9",
-    "reader_build_id": "dosravi-m2764a-write-v1",
-    "reader_binary_sha256": "3909c219d41f6db463817ee45543cc063e024917b2adc4646a4019f9eb1ebe03",
-    "transport": "https://github.com/ddanila/dosravi",
-    "transport_commit": "0cc0927f3f9624eedd01f9460c97681685fbebed",
-    "baud": 57600
-  },
-  "chips": [
+  "schema": "dumps-manifest/1",
+  "title": "Estafeta-03 — TMS2764 LHP8749 set",
+  "status": "preserved",
+  "images": [
     {
-      "label": "01",
-      "part": "TMS2764-20JL",
-      "additional_marking": "LHP8749",
-      "filename": "label01.bin",
-      "bytes": 8192,
-      "matching_reads": 2,
-      "trusted_reference": null,
-      "crc16_ccitt": "7557",
-      "crc32": "F4FFFEA1",
+      "file": "label01.bin",
+      "size": 8192,
       "sha256": "82a53447a1832d5040bcb919c8cc45e54a8f59f1ba7991040965285d5f843c9c",
-      "reads": [
-        {"execution_id": 2067182507, "dos_filename": "U01A.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label01-read1.log"},
-        {"execution_id": 3480211927, "dos_filename": "U01B.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label01-read2.log"}
-      ]
+      "sha1": "49ca2b2450a66a8108626443b2ac8c506165c1e5",
+      "crc32": "f4fffea1"
     },
     {
-      "label": "02",
-      "part": "TMS2764-20JL",
-      "additional_marking": "LHP8749",
-      "filename": "label02.bin",
-      "bytes": 8192,
-      "matching_reads": 2,
-      "trusted_reference": null,
-      "crc16_ccitt": "8845",
-      "crc32": "F404B705",
+      "file": "label02.bin",
+      "size": 8192,
       "sha256": "4b1fcd3ec5b051ec9b189e6badc088d928d64f5eeceeaad87740543bd295b5fa",
-      "reads": [
-        {"execution_id": 3253823782, "dos_filename": "U02A.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label02-read1.log"},
-        {"execution_id": 4251646868, "dos_filename": "U02B.BIN", "read_ms": 112035, "exit_code": 0, "safe_shutdown": true, "log": "evidence/label02-read2.log"}
-      ]
-    }
-  ],
-  "additional_acquisitions": [
-    {
-      "date": "2026-11-16",
-      "device": "owner reported another orphan 2764; physical label and board provenance unknown",
-      "matches_filename": "label02.bin",
-      "programmer": "T48",
-      "profile": "M2764A@DIP28",
-      "session_path": "dosravi/sessions/orphan-2764-t48-20261116-105114",
-      "matching_reads": 2,
-      "matches_canonical_image": true,
-      "evidence": "evidence/label02-t48-20261116/",
+      "sha1": "a0320ff2d492d230225f1ee212cb16c1bbdc5d7b",
       "crc32": "f404b705"
     }
-  ]
+  ],
+  "details": {
+    "schema": 1,
+    "status": "attributed; exact hardware provenance unconfirmed",
+    "attributed_system": "Станция Локальной Связи (СЛС) Эстафета-03",
+    "expected_chips": 2,
+    "acquisition_status": "complete; both labels independently read twice",
+    "reported_common_marking": "TMS 2764-20JL LHP8749",
+    "analysis": {
+      "status": "8086-compatible code confirmed by static analysis; strong Estafeta-03 family attribution",
+      "architecture": "8086-compatible 16-bit x86",
+      "combined_sha256": "cdfa3999780ac80e96b7ca4e0d575c6cf3c9467cf66cc99dd88bb9f3268b7f0f",
+      "reset_stub_offset_hex": "3FF0",
+      "reset_far_jump": "0000:08AF",
+      "inline_string_routine_offset_hex": "1F3F",
+      "reference_url": "https://retropc.org/Stanciya_Lokal_noj_Svyazi_(SLS)_Estafeta-03_s_142.html",
+      "combined_bytes": 16384,
+      "even_offset_label": "01",
+      "odd_offset_label": "02",
+      "observed_banner": "ЭСТАФЕТА - III",
+      "banner_text_offset_hex": "0989",
+      "encoding": "KOI-7-style Cyrillic with 0E/0F shift delimiters",
+      "hypothesis": "Estafeta-03 local communications station firmware",
+      "firmware_executed": false,
+      "hardware_identity_confirmed": false,
+      "reproduction_script": "analyze_strings.py"
+    },
+    "acquisition": {
+      "date": "2026-09-06",
+      "date_basis": "host UTC; DOS clock unset",
+      "programmer": "Willem PCB5.0E",
+      "machine": "Pocket8086, existing documented setup",
+      "device_route": "2764 read-only",
+      "expected_vcc_volts": 5,
+      "voltages_remeasured": false,
+      "software_vpp_enabled": false,
+      "profile": "conservative",
+      "lpt_base_hex": "378",
+      "required_dip_mask_hex": "12B",
+      "reader": "https://github.com/ddanila/willem-v30",
+      "reader_checkout": "c3629065d11bf3b11878b8abf24161d5e1d4e3e9",
+      "reader_build_id": "dosravi-m2764a-write-v1",
+      "reader_binary_sha256": "3909c219d41f6db463817ee45543cc063e024917b2adc4646a4019f9eb1ebe03",
+      "transport": "https://github.com/ddanila/dosravi",
+      "transport_commit": "0cc0927f3f9624eedd01f9460c97681685fbebed",
+      "baud": 57600
+    },
+    "chips": [
+      {
+        "label": "01",
+        "part": "TMS2764-20JL",
+        "additional_marking": "LHP8749",
+        "filename": "label01.bin",
+        "bytes": 8192,
+        "matching_reads": 2,
+        "trusted_reference": null,
+        "crc16_ccitt": "7557",
+        "crc32": "F4FFFEA1",
+        "sha256": "82a53447a1832d5040bcb919c8cc45e54a8f59f1ba7991040965285d5f843c9c",
+        "reads": [
+          {
+            "execution_id": 2067182507,
+            "dos_filename": "U01A.BIN",
+            "read_ms": 112035,
+            "exit_code": 0,
+            "safe_shutdown": true,
+            "log": "evidence/label01-read1.log"
+          },
+          {
+            "execution_id": 3480211927,
+            "dos_filename": "U01B.BIN",
+            "read_ms": 112035,
+            "exit_code": 0,
+            "safe_shutdown": true,
+            "log": "evidence/label01-read2.log"
+          }
+        ]
+      },
+      {
+        "label": "02",
+        "part": "TMS2764-20JL",
+        "additional_marking": "LHP8749",
+        "filename": "label02.bin",
+        "bytes": 8192,
+        "matching_reads": 2,
+        "trusted_reference": null,
+        "crc16_ccitt": "8845",
+        "crc32": "F404B705",
+        "sha256": "4b1fcd3ec5b051ec9b189e6badc088d928d64f5eeceeaad87740543bd295b5fa",
+        "reads": [
+          {
+            "execution_id": 3253823782,
+            "dos_filename": "U02A.BIN",
+            "read_ms": 112035,
+            "exit_code": 0,
+            "safe_shutdown": true,
+            "log": "evidence/label02-read1.log"
+          },
+          {
+            "execution_id": 4251646868,
+            "dos_filename": "U02B.BIN",
+            "read_ms": 112035,
+            "exit_code": 0,
+            "safe_shutdown": true,
+            "log": "evidence/label02-read2.log"
+          }
+        ]
+      }
+    ],
+    "additional_acquisitions": [
+      {
+        "date": "2026-11-16",
+        "device": "owner reported another orphan 2764; physical label and board provenance unknown",
+        "matches_filename": "label02.bin",
+        "programmer": "T48",
+        "profile": "M2764A@DIP28",
+        "session_path": "dosravi/sessions/orphan-2764-t48-20261116-105114",
+        "matching_reads": 2,
+        "matches_canonical_image": true,
+        "evidence": "evidence/label02-t48-20261116/",
+        "crc32": "f404b705"
+      }
+    ]
+  }
 }

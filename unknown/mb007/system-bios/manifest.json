@@ -1,40 +1,68 @@
 {
-  "inventory_tag": "MB007",
-  "chips": [
+  "schema": "dumps-manifest/1",
+  "title": "MB007 — 286 system BIOS, Low / High pair",
+  "status": "preserved",
+  "images": [
     {
-      "size": 32768,
-      "matching_reads": true,
-      "sha256": "640d2dafe5c861ab34848a75a1163d6cdc5f25ce97f996efda85e5b5e3b52f95",
-      "sha1": "3bf9a3ead36301748716b9078cee6008406a832e",
-      "crc32": "fdf30486",
-      "sum_mod_256": 0,
-      "first16": "436f7079726967687420313938352d31",
-      "last32": "ffffffffffff783200007021031030362f31322f393000f2eae0f031312f38fc",
-      "inventory_tag": "MB007",
-      "role": "system BIOS Low, per owner",
-      "chip_type": "27256, per owner",
-      "profile": "M27256@DIP28",
-      "file": "mb007-system-bios-low.bin"
+      "file": "mb007-system-bios-combined.bin",
+      "size": 65536,
+      "sha256": "502cf1a0511549ad4c09288e7f96038cc0502840ee6d616f40d244d6ae6f0e03",
+      "sha1": "cc8efba409144d6419329845da1075042906e2b9",
+      "crc32": "525d9105"
     },
     {
-      "size": 32768,
-      "matching_reads": true,
-      "sha256": "4cd243ca1a30366d7c1c5be726cd3fe6c10e83c162b3174f4085c6cb877dbf0a",
-      "crc32": "6b194b20",
-      "sum_mod_256": 0,
       "file": "mb007-system-bios-high.bin",
-      "role": "High",
-      "profile": "M27256@DIP28"
+      "size": 32768,
+      "sha256": "4cd243ca1a30366d7c1c5be726cd3fe6c10e83c162b3174f4085c6cb877dbf0a",
+      "sha1": "dfc068e380074e9e0762784265b746009f17d3ed",
+      "crc32": "6b194b20"
+    },
+    {
+      "file": "mb007-system-bios-low.bin",
+      "size": 32768,
+      "sha256": "640d2dafe5c861ab34848a75a1163d6cdc5f25ce97f996efda85e5b5e3b52f95",
+      "sha1": "3bf9a3ead36301748716b9078cee6008406a832e",
+      "crc32": "fdf30486"
     }
   ],
-  "combined": {
-    "size": 65536,
-    "layout": "Low at even addresses; High at odd addresses",
-    "sha256": "502cf1a0511549ad4c09288e7f96038cc0502840ee6d616f40d244d6ae6f0e03",
-    "crc32": "525d9105",
-    "sum_mod_256": 0,
-    "last32": "2f2f313132322f2f393930300000f2d8ea5be000f030312f31352f3838fffc00",
-    "file": "mb007-system-bios-combined.bin"
-  },
-  "boot_tested": false
+  "details": {
+    "inventory_tag": "MB007",
+    "chips": [
+      {
+        "size": 32768,
+        "matching_reads": true,
+        "sha256": "640d2dafe5c861ab34848a75a1163d6cdc5f25ce97f996efda85e5b5e3b52f95",
+        "sha1": "3bf9a3ead36301748716b9078cee6008406a832e",
+        "crc32": "fdf30486",
+        "sum_mod_256": 0,
+        "first16": "436f7079726967687420313938352d31",
+        "last32": "ffffffffffff783200007021031030362f31322f393000f2eae0f031312f38fc",
+        "inventory_tag": "MB007",
+        "role": "system BIOS Low, per owner",
+        "chip_type": "27256, per owner",
+        "profile": "M27256@DIP28",
+        "file": "mb007-system-bios-low.bin"
+      },
+      {
+        "size": 32768,
+        "matching_reads": true,
+        "sha256": "4cd243ca1a30366d7c1c5be726cd3fe6c10e83c162b3174f4085c6cb877dbf0a",
+        "crc32": "6b194b20",
+        "sum_mod_256": 0,
+        "file": "mb007-system-bios-high.bin",
+        "role": "High",
+        "profile": "M27256@DIP28"
+      }
+    ],
+    "combined": {
+      "size": 65536,
+      "layout": "Low at even addresses; High at odd addresses",
+      "sha256": "502cf1a0511549ad4c09288e7f96038cc0502840ee6d616f40d244d6ae6f0e03",
+      "crc32": "525d9105",
+      "sum_mod_256": 0,
+      "last32": "2f2f313132322f2f393930300000f2d8ea5be000f030312f31352f3838fffc00",
+      "file": "mb007-system-bios-combined.bin"
+    },
+    "boot_tested": false
+  }
 }

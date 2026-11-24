@@ -29,7 +29,7 @@ def strings(data):
 def main():
     manifest = json.loads((ROOT / "manifest.json").read_text())
     images = {}
-    for chip in manifest["chips"]:
+    for chip in manifest["details"]["chips"]:
         data = (ROOT / chip["filename"]).read_bytes()
         if len(data) != chip["bytes"] or hashlib.sha256(data).hexdigest() != chip["sha256"]:
             raise ValueError(f"archived image checksum/size mismatch: {chip['filename']}")
