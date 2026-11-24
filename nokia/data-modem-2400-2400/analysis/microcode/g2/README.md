@@ -183,3 +183,36 @@ countdown values as exact milliseconds.
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/state_matrix.py \
   --out /tmp/nokia-g2-state-matrix.json
 ```
+
+## Microcycle budget and the G1 DAC loop
+
+[The timing comparison](cycle_budget.py) reads the six completed G1 bridge
+transactions and their saved microcode traces. Each reaches output word 392
+at cycles 55, 67, 79, …, 247: a repeated DAC transfer every **12
+microinstructions**, with a constant held code for each frame. The
+oscillator marked on DSC2847 is 14.4 MHz; the divider feeding the sequencer
+has not been identified.
+
+| Assumed divisor from 14.4 MHz | Microinstructions per 9600 Hz sample | Unpaced 12-cycle transfer rate |
+| ---: | ---: | ---: |
+| 1 | 1500 | 1.2 MHz |
+| 2 | 750 | 600 kHz |
+| 3 | 500 | 400 kHz |
+| 4 | 375 | 300 kHz |
+
+At 1200 baud, the corresponding budget is 12000, 6000, 4000 or 3000
+microinstructions per symbol. If every modeled transfer represented one
+sample at 9600 Hz, a divisor of **125** would be needed. Under the k=1–4
+cases proposed in Plan 2, some additional output gating or a different
+clock relationship would be needed. The observed G1 bridge by itself cannot
+serve as the expected transmitter waveform: its two held codes do not change
+and its unpaced transfer rate is far above the candidate sample rate.
+
+These are conditional clock calculations, not a measured 8X02 clock or DAC
+wiring. The [saved comparison](results/cycle-budget.json) records the source
+hashes and exact frequency ratios.
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/cycle_budget.py \
+  --out /tmp/nokia-g2-cycle-budget.json
+```

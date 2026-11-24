@@ -1,0 +1,68 @@
+{
+  "assumed_baud": 1200,
+  "assumed_sample_hz": 9600,
+  "candidates": [
+    {
+      "divisor": 1,
+      "microclock_hz": 14400000,
+      "microinstructions_per_1200_baud": 12000,
+      "microinstructions_per_9600_sample": 1500,
+      "transfer_rate_over_9600": [
+        125,
+        1
+      ],
+      "unpaced_transfer_rate_hz": 1200000
+    },
+    {
+      "divisor": 2,
+      "microclock_hz": 7200000,
+      "microinstructions_per_1200_baud": 6000,
+      "microinstructions_per_9600_sample": 750,
+      "transfer_rate_over_9600": [
+        125,
+        2
+      ],
+      "unpaced_transfer_rate_hz": 600000
+    },
+    {
+      "divisor": 3,
+      "microclock_hz": 4800000,
+      "microinstructions_per_1200_baud": 4000,
+      "microinstructions_per_9600_sample": 500,
+      "transfer_rate_over_9600": [
+        125,
+        3
+      ],
+      "unpaced_transfer_rate_hz": 400000
+    },
+    {
+      "divisor": 4,
+      "microclock_hz": 3600000,
+      "microinstructions_per_1200_baud": 3000,
+      "microinstructions_per_9600_sample": 375,
+      "transfer_rate_over_9600": [
+        125,
+        4
+      ],
+      "unpaced_transfer_rate_hz": 300000
+    }
+  ],
+  "compared_complete_bridge_transactions": 6,
+  "divider_if_every_12_cycle_transfer_were_9600_hz": 125,
+  "interpretation": "For k=1..4 the modeled 12-cycle transfer repeats 31.25 to 125 times faster than 9600 Hz. A slower divider or output gating is required for one transfer per sample.",
+  "limitations": [
+    "The 14.4 MHz marking does not establish the 8X02 microclock divider.",
+    "The DAC connection and per-load transfer strobes are declared G1 hypotheses.",
+    "The 9600 Hz rate is a candidate 8-sample-per-baud model, not a measured sample rate.",
+    "This does not exclude a transmitter elsewhere in the microcode."
+  ],
+  "observed_q3_dac_loop_period_microinstructions": 12,
+  "oscillator_hz": 14400000,
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/frame-dac-bridge.json": "4889e4d3c74d2d9c55ea13727f32cfcca807953a591948baf935cfb5880c780d",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/frame_dac_bridge.py": "12b1d0c701f950fa40788e106bb09bd2af8f65f99df2bfa9aceee39dc88f2fe4",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/results/frame-dac-bridge/report.json": "df082c7eadcfa2f7df552cb20fd5b77e31545be8f85534c4b5eb760690811a1a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/cycle_budget.py": "f4ef5f605d8d71ee472e62d3ed09690273cea502240e040270812beaed0612df"
+  },
+  "status": "conditional timing comparison; no clock divider or DAC wiring recovered"
+}
