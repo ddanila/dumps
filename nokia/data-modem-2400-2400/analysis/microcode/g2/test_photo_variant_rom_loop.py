@@ -26,11 +26,19 @@ class PhotoVariantRomLoopTest(unittest.TestCase):
         self.assertEqual([(case['value'], case['first_blt_next_pc'])
                           for case in report['zero_exit_probe']],
                          [(0, '130'), (1, '12C')])
-        cycle_basins = [basin for basin in report['rom_feedback_basins']
+        cycle_basins = [basin for basin in report['rom_feedback_basins']['256']
                         if basin['kind'] == 'cycle']
         self.assertEqual(len(cycle_basins), 1)
         self.assertEqual((len(cycle_basins[0]['cycle_values']),
                           len(cycle_basins[0]['seeds'])), (20, 245))
+        lower = report['rom_feedback_basins']['0']
+        self.assertTrue(all(basin['kind'] == 'zero' for basin in lower))
+        self.assertEqual(sum(len(basin['seeds']) for basin in lower), 256)
+        self.assertLessEqual(max(basin['steps_to_zero'] for basin in lower), 10)
+        self.assertEqual((report['lower_bank_probe']['first_rom_address'],
+                          report['lower_bank_probe']['first_rom_value'],
+                          report['lower_bank_probe']['first_blt_next_pc']),
+                         (255, 0, '130'))
 
 
 if __name__ == '__main__':

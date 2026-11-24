@@ -43,6 +43,10 @@ settle to fixed points or a two-value alternation. In the q1 fixture, BLT at
 byte states instead enter the same 20-cycle attractor. The observed initial
 state is one of those 245, which further cautions against calling this a
 modem carrier.
+The alternative lower-ROM-bank fixture reads zero at 12C and exits at once;
+all 256 possible lower-bank feedback states reach zero within ten steps. The
+bank-select wiring is unknown, so this comparison identifies a useful
+terminating candidate rather than the board's actual mode.
 
 The [controller-bit dispatch experiment](CONTROLLER-BIT-DISPATCH.md) takes
 128 scrambled bits computed by the unchanged 8031 ROM and supplies them, under

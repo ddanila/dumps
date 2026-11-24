@@ -36,22 +36,22 @@ def recurrence(rows):
                 cycle_addresses=[], cycle_y=[])
 
 
-def rom_feedback_basins(data):
-    """Classify x -> upper-bank ROM[x+1], stopping when x reaches zero."""
+def rom_feedback_basins(data, bank):
+    """Classify x -> ROM[bank+x+1], stopping when x reaches zero."""
     basins = {}
     for seed in range(256):
         seen = {}
         value = seed
         while value not in seen and value != 0:
             seen[value] = len(seen)
-            value = data[0x100 + ((value + 1) & 255)]
+            value = data[bank + ((value + 1) & 255)]
         if value == 0:
             key = ('zero', len(seen))
         else:
             cycle = []
             while value not in cycle:
                 cycle.append(value)
-                value = data[0x100 + ((value + 1) & 255)]
+                value = data[bank + ((value + 1) & 255)]
             key = ('cycle', tuple(sorted(cycle)))
         basins.setdefault(key, []).append(seed)
     return [dict(kind=key[0], steps_to_zero=key[1] if key[0] == 'zero' else None,
@@ -117,7 +117,7 @@ def run(out):
     rom = ROM.read_bytes()
     if len(rom) != 512:
         raise ValueError('Am27S31 dump size changed')
-    basins = rom_feedback_basins(rom)
+    basins = {str(bank): rom_feedback_basins(rom, bank) for bank in (0, 256)}
     q1_mapping = read(MAPPINGS['q1'])
     q1_mapping['fields']['a']['bits'][2:] = ['10.7', '10.6']
     zero_exit = []
@@ -145,6 +145,29 @@ def run(out):
                     (path / 'trace.jsonl').read_bytes())
                 (out / 'q1-zero-exit-scenario.json').write_bytes(
                     (path / 'scenario.json').read_bytes())
+    lower_scenario = copy.deepcopy(base)
+    lower_scenario['name'] += '; q1 lower Am27S31 bank candidate'
+    lower_scenario['io']['read']['address']['pcs'] = gates[0]['pcs']
+    lower_scenario['io']['read']['address']['bank'] = 0
+    with tempfile.TemporaryDirectory() as temporary:
+        path = Path(temporary)
+        lower_result = execute(q1_mapping, lower_scenario, 128, mode='integrated',
+                               out=path, trace_limit=128)
+        lower_trace = [json.loads(line) for line in
+                       (path / 'trace.jsonl').read_text().splitlines()]
+        lower_reads = [row for row in lower_trace if row['pc'] == 0x12C]
+        lower_blt = next(row for row in lower_trace if row['pc'] == 0x12F)
+        for filename in ('trace.jsonl', 'scenario.json'):
+            (out / f'q1-lower-bank-{filename}').write_bytes(
+                (path / filename).read_bytes())
+    lower_bank_probe = dict(clean=lower_result['clean'],
+        reads_12c=len(lower_reads),
+        first_rom_address=lower_reads[0]['external_read']['address'],
+        first_rom_value=lower_reads[0]['external_read']['value'],
+        first_blt_next_pc=f'{lower_blt["next_pc"]:03X}',
+        visits_130=sum(row['pc'] == 0x130 for row in lower_trace),
+        final_pc=f'{lower_result["final_state"]["pc"]:03X}',
+        trace_digest=lower_result['trace_digest'])
     source_paths = [Path(__file__), HERE / 'photo_controller_path.py',
                     GATE_FITS, PHOTO_A_RECORD, PHOTO_RECORD,
                     ROM, *MAPPINGS.values(), ASSUMED / 'execute.py']
@@ -152,6 +175,7 @@ def run(out):
                   cycle_limit=CYCLES, initial_q=0, initial_ram=[0]*16,
                   gate_count=len(gates), cases=cases,
                   rom_feedback_basins=basins, zero_exit_probe=zero_exit,
+                  lower_bank_probe=lower_bank_probe,
                   source_sha256={str(path.relative_to(HERE.parents[2])):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in source_paths},

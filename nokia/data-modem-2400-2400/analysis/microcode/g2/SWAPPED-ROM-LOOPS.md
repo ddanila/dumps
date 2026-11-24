@@ -98,6 +98,17 @@ zero in at most three steps. The observed initial ROM value 11 is in the
 does not terminate from this start, rather than an identified transmit carrier.
 The real TEST wiring and intended input conditions remain unknown.
 
+The Am27S31 **bank select is also untraced**. Changing only the diagnostic
+ROM-address bank from `0x100` to `0x000` makes the first 12C access
+`0x0FF→0`, so the BLT falls through to 130 on its first pass. The
+[lower-bank trace](results/photo-variant-rom-loop/q1-lower-bank-trace.jsonl)
+preserves that control run. Across every possible input byte to the same
+feedback function, the lower bank reaches zero in at most ten steps; the upper
+bank sends 245 of 256 values to the 20-cycle. The lower bank is therefore a
+useful candidate for a terminating routine in this fixture, but this comparison
+does not establish how the board drives Am27S31 A8 or whether this routine is
+entered in the real modem.
+
 In **q2**, eight gates remain in the 127 loop, where ALU Y settles to 3 or
 34. The other eight enter 12C: five settle to 3 and three alternate 49/40.
 Those small fixed points and two-cycles also fail to show a phase-advanced
