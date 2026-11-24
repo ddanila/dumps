@@ -29,6 +29,13 @@ control-flow trace but yields the identical 128 quartets. Thus the controller
 bits affect control flow in this candidate path without modulating its
 candidate output.
 
+Reconstructing RAM from the trace's register writes gives one identical
+post-group state at word 390 across all 128 visits: RAM, Q, ALU flags, stack
+and next PC also match the all-zero-bit control. Within this candidate loop,
+the input bit is therefore not retained as phase or symbol state after the
+selected four-word group. This conclusion is limited to the declared mapping,
+startup and input timing.
+
 First-pass values 0, 1, 2 and 3 select 392, 396, 39A and 39E respectively.
 At phase 32, values 0 and 1 repeat their equal quartets 81 times in a
 1,020-instruction fixture. Values 2 and 3 produce a zero quartet once and

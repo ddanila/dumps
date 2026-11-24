@@ -76,6 +76,18 @@ def groups_for(trace):
     return groups
 
 
+def post_group_states(trace, initial_ram):
+    ram = initial_ram[:]
+    states = []
+    for row in trace:
+        for address, value in row['registers'].items():
+            ram[int(address)] = value
+        if row['pc'] == 0x390:
+            states.append(dict(ram=ram[:], q=row['q'], flags=row['alu'],
+                               stack=row['stack_after'], next_pc=row['next_pc']))
+    return states
+
+
 def execute_bits(mapping, scenario, bits, cycles, path):
     fixture = copy.deepcopy(scenario)
     fixture['name'] = f'candidate D38E controller bits, {len(bits)} values'
@@ -106,9 +118,13 @@ def run(out):
         result, groups = execute_bits(mapping, scenario, bits, CYCLES, path)
         (out / 'controller-trace.jsonl').write_bytes((path / 'trace.jsonl').read_bytes())
         (out / 'controller-scenario.json').write_bytes((path / 'scenario.json').read_bytes())
+        controller_trace = [json.loads(line) for line in (path / 'trace.jsonl').read_text().splitlines()]
+        controller_states = post_group_states(controller_trace, scenario['initial']['ram'])
         zero_result, zero_groups = execute_bits(mapping, scenario, [0]*len(bits), CYCLES, path)
-    if [group['bytes'] for group in groups] != [group['bytes'] for group in zero_groups]:
-        raise ValueError('controller bits changed output groups; inspect before reporting')
+        zero_trace = [json.loads(line) for line in (path / 'trace.jsonl').read_text().splitlines()]
+        zero_states = post_group_states(zero_trace, scenario['initial']['ram'])
+    controller_state_variants = {json.dumps(state, sort_keys=True) for state in controller_states}
+    zero_state_variants = {json.dumps(state, sort_keys=True) for state in zero_states}
     four_way = []
     with tempfile.TemporaryDirectory() as temporary:
         path = Path(temporary)
@@ -161,6 +177,12 @@ def run(out):
         bit_order='LSB first', bit_count=len(bits), bits=bits,
         cycle_limit=CYCLES, candidate_input_pc=f'{INPUT_PC:03X}',
         controller_groups=groups, zero_control_groups=zero_groups,
+        output_equal_to_zero_control=([group['bytes'] for group in groups] ==
+                                      [group['bytes'] for group in zero_groups]),
+        post_group_state_count=len(controller_states),
+        distinct_post_group_states=len(controller_state_variants),
+        first_post_group_state=controller_states[0] if controller_states else None,
+        post_group_states_equal_to_zero_control=controller_state_variants == zero_state_variants,
         four_way=four_way,
         phase_comparison=phase_comparison,
         controller_trace_digest=result['trace_digest'],

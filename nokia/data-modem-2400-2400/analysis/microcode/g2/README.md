@@ -24,7 +24,8 @@ The [photo-swapped ROM-loop runs](SWAPPED-ROM-LOOPS.md) exercise two of those
 reopened paths. In q3, real quarter-sine bytes affect the recurring 392–395
 output quartet, but each reset fixture repeats one constant quartet. In q2,
 eight diagnostic ROM gates sustain a D-fed loop at 127, yet its value settles
-after the first transition. These results narrow the tested assumptions; they
+after the first transition. Four other gates sustain a D-fed loop at 12C that
+also settles. These results narrow the tested assumptions; they
 do not demonstrate a phase accumulator or a controller-driven waveform.
 The photo-compatible fitted mapping has a separate ROM-fed path at 299: all
 48 diagnostic ROM gates that select it make two to five reads with changing
@@ -36,7 +37,8 @@ The [controller-bit dispatch experiment](CONTROLLER-BIT-DISPATCH.md) takes
 an explicit candidate connection, to the recurring D-consuming word 38E in
 one continuous DSC2847 run. The following dispatch at 38F follows every bit,
 but its 0 and 1 entries yield equal output quartets in all 65 tested
-quarter-sine phase fixtures. This exercises a controller-derived input stream
+quarter-sine phase fixtures. Its retained state after each group is likewise
+identical across the 128-bit run. This exercises a controller-derived input stream
 without establishing a modulated line signal or the physical input route.
 
 ## First independent ROM constraint

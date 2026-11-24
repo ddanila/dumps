@@ -41,6 +41,13 @@ different routes in this fixture. Every repeating case has a
 constant ALU Y value for its last 16 visits. The [report and witness](results/swapped-q2-rom-loop/report.json)
 preserve each gate, selected read, state value and trace.
 
+Four of the eight gates that leave 127 enter a second ROM-fed loop at **12C**.
+They select real ROM data on all 116 visits in the 512-instruction fixture.
+The first read is at 1FF → 0B, then 101 → 03 repeats; Q stays zero and Y at
+12C stays 3 for the last 16 visits. The updated report records these four
+cases and includes a separate 12C trace witness. Thus the additional q2 site
+also settles in this input fixture.
+
 These are useful negative tests for the present candidate wiring and stimuli:
 neither loop demonstrates an evolving transmitter waveform or C2. A changed
 ROM gate, input schedule, sequencer decode, or another routine can still

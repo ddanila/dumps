@@ -1546,6 +1546,47 @@
   "controller_rom_sha256": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
   "controller_trace_digest": "1d0ab2621e6e4f6b52fe2543202cd421a3f2e03e903a9d6b857f36bd4311789e",
   "cycle_limit": 1580,
+  "distinct_post_group_states": 1,
+  "first_post_group_state": {
+    "flags": {
+      "carry": 1,
+      "f": 4,
+      "overflow": 1,
+      "sign": 0,
+      "y": 4,
+      "zero": 0
+    },
+    "next_pc": 905,
+    "q": 5,
+    "ram": [
+      6,
+      0,
+      6,
+      6,
+      0,
+      0,
+      95,
+      32,
+      0,
+      0,
+      95,
+      32,
+      0,
+      0,
+      0,
+      0
+    ],
+    "stack": {
+      "depth": 1,
+      "sp": 1,
+      "values": [
+        null,
+        839,
+        905,
+        912
+      ]
+    }
+  },
   "four_way": [
     {
       "entry_count": 81,
@@ -1647,6 +1688,7 @@
     "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
     "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
   },
+  "output_equal_to_zero_control": true,
   "phase_comparison": [
     {
       "bit_0": [
@@ -2689,6 +2731,8 @@
       "phase": 64
     }
   ],
+  "post_group_state_count": 128,
+  "post_group_states_equal_to_zero_control": true,
   "scrambled_bytes": [
     56,
     105,
@@ -2716,7 +2760,7 @@
     "nokia/data-modem-2400-2400/analysis/microcode/assumed/results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
     "nokia/data-modem-2400-2400/analysis/microcode/assumed/sine-operand-study.json": "f6b912fe2125885586c2add7e9b9aa70221b1cb1068a3e4a5b772a5f5e4cf59c",
     "nokia/data-modem-2400-2400/analysis/microcode/assumed/sine_operand_study.py": "85bcb70777bd7d0b5f7913965effaf9b95e8b077daf02cdad66186f29cb7df24",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_bit_dispatch.py": "fd62434e9da0f81adcd309bfcb18bfe6473e3f0359af567c434a7b9ab3e801ee",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_b_constraints.py": "4656f02179d847040061bb66c13bcc78158af8fa14c0ce71e47bf3dff26a39ff",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/results/swapped-sine-loop/phase-20-mapping.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/results/swapped-sine-loop/phase-20-scenario.json": "255ad276e7a808de4e17af7cac089be6fe82e52fb36e7b880e145dd2e5837b5e",

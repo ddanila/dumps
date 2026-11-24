@@ -26,6 +26,7 @@ def run(out, cycles=512):
     gates.sort(key=lambda fit: (len(fit['pcs']), fit['terms']))
     out.mkdir(parents=True, exist_ok=True)
     cases = []
+    saved_12c = False
     with tempfile.TemporaryDirectory() as temporary:
         path = Path(temporary)
         for gate in gates:
@@ -36,6 +37,8 @@ def run(out, cycles=512):
             trace = [json.loads(line) for line in (path / 'trace.jsonl').read_text().splitlines()]
             rows = [row for row in trace if row['pc'] == 0x127]
             reads = [row for row in rows if row.get('external_read', {}).get('selected_by_alu')]
+            rows_12c = [row for row in trace if row['pc'] == 0x12c]
+            reads_12c = [row for row in rows_12c if row.get('external_read', {}).get('selected_by_alu')]
             case = dict(terms=gate['terms'], selected_pcs=len(gate['pcs']),
                         clean=result['clean'], final_pc=f'{result["final_state"]["pc"]:03X}',
                         visits_127=len(rows), selected_reads_127=len(reads),
@@ -44,6 +47,12 @@ def run(out, cycles=512):
                         y_127=sorted({row['alu']['y'] for row in rows}),
                         q_127=sorted({row['q'] for row in rows}),
                         last_16_y=[row['alu']['y'] for row in rows[-16:]],
+                        visits_12c=len(rows_12c), selected_reads_12c=len(reads_12c),
+                        addresses_12c=sorted({row['external_read']['address'] for row in reads_12c}),
+                        values_12c=sorted({row['external_read']['value'] for row in reads_12c}),
+                        y_12c=sorted({row['alu']['y'] for row in rows_12c}),
+                        q_12c=sorted({row['q'] for row in rows_12c}),
+                        last_16_y_12c=[row['alu']['y'] for row in rows_12c[-16:]],
                         trace_digest=result['trace_digest'],
                         mapping_digest=result['mapping_digest'],
                         scenario_digest=result['scenario_digest'],
@@ -53,12 +62,17 @@ def run(out, cycles=512):
                 (out / 'witness-trace.jsonl').write_bytes((path / 'trace.jsonl').read_bytes())
                 save(out / 'witness-mapping.json', mapping)
                 (out / 'witness-scenario.json').write_bytes((path / 'scenario.json').read_bytes())
+            if len(rows_12c) > 1 and not saved_12c:
+                saved_12c = True
+                (out / 'witness-12c-trace.jsonl').write_bytes((path / 'trace.jsonl').read_bytes())
+                (out / 'witness-12c-scenario.json').write_bytes((path / 'scenario.json').read_bytes())
     sources = [Path(__file__), config_path, mapping_path, gate_path,
                HERE / 'photo-b-constraints.json', HERE / 'photo_b_constraints.py',
                ASSUMED / 'sine_operand_study.py', ASSUMED / 'execute.py',
                ASSUMED / 'common.py', HERE.parent / 'model.py']
     report = dict(status='candidate-ROM-loop-not-G2-C2', cycle_limit=cycles,
                   fixture_phase=32, candidate_gate_count=len(gates), cases=cases,
+                  repeated_12c_gate_count=sum(case['visits_12c'] > 1 for case in cases),
                   source_sha256={str(p.relative_to(HERE.parent)): hashlib.sha256(p.read_bytes()).hexdigest()
                                  for p in sources},
                   limitations=['The gates fit diagnostic labels, not measured ROM enable wiring.',

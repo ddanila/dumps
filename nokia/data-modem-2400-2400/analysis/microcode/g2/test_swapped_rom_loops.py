@@ -34,6 +34,13 @@ class SwappedRomLoops(unittest.TestCase):
             self.assertEqual(len(set(case['last_16_y'])), 1)
             self.assertEqual(case['q_127'], [0])
             self.assertGreater(len(case['addresses_127']), 1)
+        self.assertEqual(report['repeated_12c_gate_count'], 4)
+        for case in (c for c in report['cases'] if c['visits_12c'] > 1):
+            self.assertEqual(case['visits_12c'], 116)
+            self.assertEqual(case['selected_reads_12c'], 116)
+            self.assertEqual(case['addresses_12c'], [257, 511])
+            self.assertEqual(case['values_12c'], [3, 11])
+            self.assertEqual(set(case['last_16_y_12c']), {3})
 
 
 if __name__ == '__main__':

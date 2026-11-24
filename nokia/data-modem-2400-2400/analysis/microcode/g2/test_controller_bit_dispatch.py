@@ -17,6 +17,10 @@ class ControllerBitDispatch(unittest.TestCase):
         self.assertEqual({g['first_pc'] for g in report['controller_groups']}, {'392', '396'})
         self.assertTrue(all(g['bytes'] == [0, 0, 190, 64]
                             for g in report['controller_groups']))
+        self.assertTrue(report['output_equal_to_zero_control'])
+        self.assertEqual(report['post_group_state_count'], 128)
+        self.assertEqual(report['distinct_post_group_states'], 1)
+        self.assertTrue(report['post_group_states_equal_to_zero_control'])
         self.assertNotEqual(report['controller_trace_digest'], report['zero_trace_digest'])
         self.assertTrue(all(row['equal'] for row in report['phase_comparison']))
         self.assertEqual([row['first_entry']['first_pc'] for row in report['four_way']],
