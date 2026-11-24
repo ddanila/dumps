@@ -127,6 +127,30 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_handler6_masked_capture_and_drain(self):
+        from handler6_study import scenario_for, prediction, inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler6-study.json')
+        mapping=read(HERE/config['mapping'])
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)/'run'
+            for code,captured in config['witnesses']:
+                scenario=scenario_for(config,code,captured)
+                result=execute(mapping,scenario,160,mode='integrated',out=out,trace_limit=160)
+                self.assertTrue(result['clean'])
+                trace=load_trace(out)
+                inspect(trace,scenario,code,captured)
+                self.assertEqual(result['final_state']['ram'],prediction(code,captured)['ram'])
+            # The logical carry at the mask feeds the following increment.
+            scenario=scenario_for(config,6,7)
+            execute(mapping,scenario,160,mode='integrated',out=out,trace_limit=160)
+            trace=load_trace(out)
+            next(t for t in trace if t['pc']==0x0ad)['alu']['carry']=0
+            with self.assertRaises(AssertionError):inspect(trace,scenario,6,7)
+        self.assertEqual(prediction(254,255)['incremented'],0)
+        self.assertEqual(prediction(254,254)['half'],127)
+        self.assertEqual(prediction(126,255)['first_terminal'],131)
+
     def test_q3_direct_register_destinations(self):
         from q3_register_contract import scenario_for, prediction
         from register_contract_study import capture, resume, verify_full

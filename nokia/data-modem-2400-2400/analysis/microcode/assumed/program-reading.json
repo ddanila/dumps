@@ -1121,6 +1121,26 @@
       "evidence": "Q3-REGISTER-CONTRACT.md",
       "meaning": "Prepare Q>>1 and store it twice through the 08A register-copy table. Under preceding-Y dispatch, 089 exposes the external destination byte unchanged. First R6 does not alter the second address; first R5 is overwritten by the second helper.",
       "limitations": "Verified after the A3 masked nested reset prefix with diagnostic PC-keyed input bytes. Physical destination wiring and output consumer remain unknown."
+    },
+    {
+      "name": "masked capture and double Q drain",
+      "ranges": [
+        [
+          "09E",
+          "0CD"
+        ],
+        [
+          "0DE",
+          "0DE"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER6.md",
+      "meaning": "Handler 6 forms m=R7&(code+1), increments m iff nonzero using logical carry, retains t and t>>1 in R13 and R12/R15, and clears Q through two drains. Complete zero-reset code/captured-byte sweep predicts every final register and terminal cycle.",
+      "limitations": "q3 previous flags, zero reset, fixed later dispatch index 2 and documented input schedule. FF mask wraps to zero. Alternate selector-1 paths and physical modem purpose remain unresolved."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

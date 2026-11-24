@@ -46,6 +46,7 @@ into one address listing.
 | Addresses | Interpretation | Principal limitation |
 | --- | --- | --- |
 | 01C–01F | Call-fed loop entry | Control-flow explanation, not a counted-loop algorithm |
+| 09E–0CD, 0DE (q3) | Masked capture, conditional increment and two Q drains | Diagnostic handler-6 inputs and previous flags; modem purpose unknown |
 | 078–084 | Terminal tail | Physical completion and restart unknown |
 | 085–089 | Register right-shift helper; q2 half-Q/input-difference preparation | Not established as serial output |
 | 07C–081, 08A–099 (q2) | Two indexed register stores and R0-copy table | Index source and physical output remain unknown |
@@ -92,7 +93,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 372 used words, including overlaps and disconnected
+These annotations cover 421 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -129,7 +130,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 100 functional/assumption tests pass, including checks that
+byte. All 101 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -202,3 +203,8 @@ four-entry stack without injected state.
 masked nested reset path to two half-Q stores. All 65,536 payload/destination
 combinations match the full-register contract; first R6 no longer changes the
 second address, while first R5 is still overwritten by the second helper.
+
+[Handler 6 masked capture](HANDLER6.md) explains 09E–0CD and exit 0DE under
+q3: a captured byte is masked by the input code, conditionally incremented
+using logical carry, and halved into surviving registers. Two Q drains account
+for input-dependent timing; the FF mask wraps to zero before halving.

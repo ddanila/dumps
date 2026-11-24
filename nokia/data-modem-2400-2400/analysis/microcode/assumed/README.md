@@ -599,3 +599,8 @@ four-entry stack without injected state.
 masked nested reset path to two half-Q stores. All 65,536 payload/destination
 combinations match the full-register contract; first R6 no longer changes the
 second address, while first R5 is still overwritten by the second helper.
+
+[Handler 6 masked capture](HANDLER6.md) explains 09E–0CD and exit 0DE under
+q3: a captured byte is masked by the input code, conditionally incremented
+using logical carry, and halved into surviving registers. Two Q drains account
+for input-dependent timing; the FF mask wraps to zero before halving.

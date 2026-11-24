@@ -1105,6 +1105,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER6.md",
+        "limitations": "q3 previous flags, zero reset, fixed later dispatch index 2 and documented input schedule. FF mask wraps to zero. Alternate selector-1 paths and physical modem purpose remain unresolved.",
+        "meaning": "Handler 6 forms m=R7&(code+1), increments m iff nonzero using logical carry, retains t and t>>1 in R13 and R12/R15, and clears Q through two drains. Complete zero-reset code/captured-byte sweep predicts every final register and terminal cycle.",
+        "name": "masked capture and double Q drain",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "09E",
+            "0CD"
+          ],
+          [
+            "0DE",
+            "0DE"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1127,7 +1147,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 372,
+    "annotated_used_words": 421,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -4066,6 +4086,7 @@
     "GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
     "HANDLER-REPLY.md": "4d19202b5d554ae76b201bb4d709a4d52cb3e31031aecac2ee99d3ae0970f76d",
+    "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
     "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",
     "LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
