@@ -19,6 +19,15 @@ photo a 74LS273 register sits next to its digital-input side, and visible
 front-side traces run between their pad regions. That makes the 74LS273 a
 candidate sample-code latch. Individual data bits, the latch clock, DAC08
 reference and current-output route still need tracing or explicit hypotheses.
+One visible front-side trace runs from the DAC08 pin-9 region toward the
+74LS273 pin-9 region (approximately x=1220–1540, y=3470 in the original
+photo). With both package notches at the top, the datasheets label these pads
+DAC08 **B5** and 74LS273 **Q4**. This is a **photo-derived B5←Q4 candidate**,
+not a continuity-verified net: the photo does not resolve copper hidden by
+the pads or any connection on the back. A neighboring parallel trace appears
+to terminate at the 74LS273 pin-10 ground region; it is not evidence for a
+second DAC data bit. The B5←Q4 candidate also cautions against treating an
+in-order Q1–Q8→B1–B8 connection as the observed byte wiring.
 The same photo also shows a **74LS373** on the side of the 74LS273 away from
 the DAC08,
 with a group of front-side traces between their pad regions, and 74LS244
@@ -43,7 +52,8 @@ specifies eight rising-edge D flip-flops with active-low clear. The
 [digital-only probe](dac08_latch_probe.py) tests one candidate: the Am2901
 ALU Y byte drives the latch D pins, a rising clock occurs at the selected
 microcode word, and Q1–Q8 map in order to DAC08 B1–B8. Neither that clock
-nor the individual bus connections have been traced on the board. Its saved
+nor the full bus connections have been traced on the board; the B5←Q4 photo
+candidate above differs from the assumed in-order mapping. Its saved
 [result](results/dac08-latch-probe.json) is a proposed *DAC input code*, not
 a measured line-output waveform.
 
