@@ -85,6 +85,12 @@ depend only on the current bit. No ROM read follows the recurring dispatch.
 A whole-loop scan finds only the D38E input arithmetic varying in ALU Y;
 the other 15 recurring PCs each emit one fixed Y value. This narrows the
 same candidate path without establishing a transmitter.
+The [five-mapping controller screen](PHOTO-MAPPING-STREAM.md) applies the
+photo A/I constraints to q1–q4 photo-swapped and fitted-swapped mappings.
+At Q=5 all consume 128 controller-derived bits, but none repeatedly reads
+the ROM or changes a candidate output after the input. This excludes the
+same scoped path under a broader set of field choices; startup and command
+routes remain to be tested.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the

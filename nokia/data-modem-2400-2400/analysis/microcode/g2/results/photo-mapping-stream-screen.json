@@ -1,0 +1,142 @@
+{
+  "cases": [
+    {
+      "candidate_output_y": {
+        "392": [
+          11
+        ]
+      },
+      "clean": true,
+      "final_pc": "389",
+      "input_bits": 128,
+      "mapping": "q1",
+      "recurring_pc_count": 16,
+      "rom_after_first_input": {},
+      "trace_digest": "a191631cb77f3123f9187e285ad76f6eaecb7e73cc209e0e760303c6a27e4c09",
+      "variable_recurring_pcs": {
+        "38E": {
+          "distinct_y": [
+            251,
+            252
+          ],
+          "visits": 127
+        }
+      },
+      "visits_392": 57,
+      "visits_396": 0
+    },
+    {
+      "candidate_output_y": {},
+      "clean": true,
+      "final_pc": "389",
+      "input_bits": 128,
+      "mapping": "q2",
+      "recurring_pc_count": 12,
+      "rom_after_first_input": {},
+      "trace_digest": "dc3f9ff24f6189f23b46138a222e562721614165dc04fd7acd77581831f3774b",
+      "variable_recurring_pcs": {},
+      "visits_392": 0,
+      "visits_396": 0
+    },
+    {
+      "candidate_output_y": {
+        "392": [
+          11
+        ]
+      },
+      "clean": true,
+      "final_pc": "389",
+      "input_bits": 128,
+      "mapping": "q3",
+      "recurring_pc_count": 16,
+      "rom_after_first_input": {},
+      "trace_digest": "67a4fd5399e32f50db7864bc3d5d25b8baa44cd9d2f04b64b5aa79327210e140",
+      "variable_recurring_pcs": {
+        "38E": {
+          "distinct_y": [
+            251,
+            252
+          ],
+          "visits": 127
+        }
+      },
+      "visits_392": 57,
+      "visits_396": 0
+    },
+    {
+      "candidate_output_y": {},
+      "clean": true,
+      "final_pc": "389",
+      "input_bits": 128,
+      "mapping": "q4",
+      "recurring_pc_count": 12,
+      "rom_after_first_input": {},
+      "trace_digest": "e07162411c0df916c6ca74f0afe8a0b91bea383d83a5be676557c9962ff71aad",
+      "variable_recurring_pcs": {},
+      "visits_392": 0,
+      "visits_396": 0
+    },
+    {
+      "candidate_output_y": {
+        "396": [
+          1
+        ]
+      },
+      "clean": true,
+      "final_pc": "389",
+      "input_bits": 128,
+      "mapping": "fitted_swapped",
+      "recurring_pc_count": 12,
+      "rom_after_first_input": {},
+      "trace_digest": "a2ca8c12cc6d613937e3f05eb22a16121987e2c5b50f490f5524a585c0e5a6b3",
+      "variable_recurring_pcs": {},
+      "visits_392": 0,
+      "visits_396": 128
+    }
+  ],
+  "limitations": [
+    "The same q3-derived branch, ROM, condition and input fixture is reused across five ALU mappings.",
+    "The photo-derived A2/A3 and E4/E2 routes are candidates, not measured wiring.",
+    "No physical DAC output or sample clock is identified; this excludes only the scoped Q=5 path."
+  ],
+  "source_sha256": {
+    "assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
+    "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+    "g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "g2/photo-a-input-constraint.json": "5a1f87a0de6a788a8083aec1fa78a43a7773bee01328116f28137f51063f9028",
+    "g2/photo-i7-constraint.json": "eaf9325535d6f3df28a1247041cb8b461f6f0f56cf3509d9a3f20effa2bf4651",
+    "g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "g2/results/photo-b-constraints/q1-photo-swapped.json": "73d1121385d20a419ab06329004b7d15fec18fb7ee42fee95d11c43685c97cbe",
+    "g2/results/photo-b-constraints/q2-photo-swapped.json": "18c85f7921c473054bb73bb8bbca2d99519e9fc710ae06a23809ea59b5ae43b2",
+    "g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "g2/results/photo-b-constraints/q4-photo-swapped.json": "1b6b47a1729dd03a77d0baf8c0daf47f8392cee28d474a55e47630899493ac37",
+    "g2/results/swapped-sine-loop/phase-20-scenario.json": "255ad276e7a808de4e17af7cac089be6fe82e52fb36e7b880e145dd2e5837b5e",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "status": "scoped cross-mapping controller screen, not recovered wiring",
+  "stimulus": {
+    "controller_bits": 128,
+    "cycles": 1580,
+    "hypothetical_d_pc": "38E",
+    "initial_q": 5,
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
