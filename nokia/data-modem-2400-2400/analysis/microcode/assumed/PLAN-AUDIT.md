@@ -2,7 +2,8 @@
 
 The [plan](../PLAN.md) is **not yet complete**. Its execution requirements now
 have a consolidated check against the current executor. Program interpretation
-still has concrete gaps, including 1 direct-call entry with no annotation.
+still has concrete gaps in branch/case interpretation and external transactions.
+All 37 cataloged direct-call entries now have scoped annotations.
 Physical fidelity is not an additional acceptance gate: the plan explicitly
 allows labelled assumptions and makes hardware checks optional.
 
@@ -68,7 +69,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Integrated slices/sequencer with selectable flags and logged external world | `execute.py`, component tests, current q2/q3 traces | Implemented |
 | Datapath-derived dispatch when suggested | Q and preceding-Y index policies; nonzero masked nested reset study | Demonstrated with real caller stack; other sites may remain scenario-driven |
 | Millions of clean integrated instructions and stable inspectable activity | Two million primary integrated instructions plus exact full replays; q3 live ROM feedback | Execution criterion passes |
-| Name subroutines and annotate from traces | 632 used words annotated; 36 of 37 cataloged direct-call entries have annotations | **Incomplete: 1 direct-call entry still unannotated** |
+| Name subroutines and annotate from traces | 649 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Direct-call catalog annotated; broader branch/case interpretation remains incomplete** |
 | Relate I/O to sine lookup, DAC, sample timing and controller exchange | Live sine input; hypothetical DAC sink; measured instruction counts; separately verified 8031 frame/handshake routines | **Partial: no complete controller/microcode or recurring sample transaction yet** |
 | Feed routine evidence back into mapping/execution | Q-independent alternatives, source-register comparisons, carry/flag timing and handler studies | Implemented, ongoing where interpretations disagree |
 | Optional continuity checks | Prioritized in the plan and board worksheets | Optional; not an execution or interpretation blocker |
@@ -82,16 +83,16 @@ still expose a possible stack underflow at 2FF.
 
 ## Remaining work
 
-The catalog identifies these unannotated direct-call entries:
-
-```
-2EC
-```
-
-They are the next concrete routine-reading queue. There are also unannotated
-branch/case bodies; 632/1,021 is an annotation count, not a percentage of
-understood modem functionality. Annotating these entries alone would not prove
-that all of step 5 is finished.
+All 37 cataloged direct-call entries have evidence-linked annotations, including
+2EC's three paths through an actual nested return. This closes the direct-call
+naming queue, not the whole program-reading step. Unannotated branch/case
+bodies remain: 649/1,021 is an annotation count, not a percentage of understood
+modem functionality. The next reading work must connect these bodies to the
+existing handler contracts and distinguish scoped local evidence from reset
+reachability and physical function. The largest currently unannotated listing
+spans are 19D–1DE (66 words), 020–04B (44), 1EF–219 (43), 054–06E (27),
+and 0DF–0F8 (26). These are contiguous listing spans, not inferred subroutine
+boundaries; the catalog and traces should guide their decomposition.
 
 The external-interface work needs a coherent transaction that relates data
 production, buffering, transfer, repetition and controller interaction under
@@ -113,5 +114,5 @@ The runner's execution gate requires clean complete runs, maximum depth at most
 four, no unused words, exact full replays and unchanged saved prefixes, at least
 one million sequencer and two million integrated primary instructions, and at
 least 90% clean random-sweep coverage. Tests reject failed, truncated,
-non-reproducible, over-depth and insufficient-coverage summaries. The 111-test
+non-reproducible, over-depth and insufficient-coverage summaries. The 112-test
 suite passes. No full-plan completion flag is inferred from this execution gate.

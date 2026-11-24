@@ -1433,6 +1433,26 @@
       "evidence": "PAIR-WAIT.md",
       "meaning": "Copy R0 to R1, preserve R4\u2013R7/Q, and expose doubled or self-subtracted 16-bit words through four table entries. Previous final high-byte zero controls return; fixed inputs otherwise repeat with period 12. D375 can select the table via preceding Y while current Y always selects zero.",
       "limitations": "Actual local caller 309 and three stack frames; fixed or preceding-Y dispatch under explicit constant reads. No reset reachability, physical output consumer or autonomous sample progression inferred."
+    },
+    {
+      "name": "input preparation and comparison-selected return tail",
+      "ranges": [
+        [
+          "2EC",
+          "2FF"
+        ],
+        [
+          "3BB",
+          "3BC"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "INPUT-TAIL.md",
+      "meaning": "Prepare input sum/XOR and carry-adjusted R3, then select comparison, constant-selector or reload-mask paths into 3BB. Under default BRT policy and 21F index 2, actual nested calls return with common RAM/Q formulas; 225 reloads Q, erasing route-dependent Q.",
+      "limitations": "Local actual BSR 212 with previous flags, constant selector 1 and declared 21F target 224. Does not establish reset reachability or other dispatch/gated-tail behavior; physical input/output channels unknown."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

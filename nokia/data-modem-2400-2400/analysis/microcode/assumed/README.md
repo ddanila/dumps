@@ -648,3 +648,8 @@ separately from the existing changing-ROM feedback recurrence.
 [The paired self-arithmetic wait](PAIR-WAIT.md) explains q3 370 and its
 four-entry table, including high-byte-only return, exact period-12 recurrence,
 and the distinction between preceding-Y input selection and current-Y zero.
+
+[Input preparation and comparison tail](INPUT-TAIL.md) explains q3 2EC
+through its real nested return. Three paths differ in intermediate Q and timing,
+but the declared 224 leaf reloads Q and gives a common final-state contract.
+This completes the direct-call naming queue; broader program reading remains.

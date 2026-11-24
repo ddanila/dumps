@@ -127,6 +127,26 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_input_tail_three_routes_and_full_return(self):
+        import random
+        from input_tail_study import scenario_for,probe,prediction,check,verify_core
+        config=read(HERE/'input-tail-study.json');p=HERE/config['base']
+        mapping,base=read(p/'mapping.json'),read(p/'scenario.json');rows=decode(mapping)
+        rng=random.Random(0x2ec);routes=set()
+        with tempfile.TemporaryDirectory() as temporary:
+            for case in range(96):
+                ram=[rng.randrange(256) for _ in range(16)];q=rng.randrange(256)
+                inputs={pc:rng.randrange(256) for pc in [*range(0x2ec,0x2fd),*range(0x2e0,0x2e5),0x21b,0x225]}
+                s1=case%2;scenario=scenario_for(base,config,ram,q,inputs,s1)
+                got=probe(rows,scenario,True);want=prediction(ram,q,inputs,s1);check(got,want)
+                verify_core(mapping,scenario,got,Path(temporary)/'core');routes.add(want['route'])
+                other=scenario_for(base,config,ram,q,inputs,1-s1)
+                alternative=probe(rows,other)
+                self.assertEqual((got['ram'],got['q']),(alternative['ram'],alternative['q']))
+                self.assertEqual(got['q'],inputs[0x225])
+                self.assertEqual(got['cycles'],{'comparison':28,'selector':32,'reload-mask':39}[want['route']])
+        self.assertEqual(routes,{'comparison','selector','reload-mask'})
+
     def test_q3_paired_wait_high_byte_and_preceding_input(self):
         import random
         from pair_wait_study import scenario_for,probe,prediction,check,verify_core,fixture
