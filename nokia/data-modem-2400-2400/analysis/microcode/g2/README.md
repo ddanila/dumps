@@ -246,6 +246,12 @@ operations and counts; regression tests detect reuse of another mapping's
 operand selection. A ROM operand may also be captured before a loop, so the
 screen does not exclude every possible modulator algorithm.
 
+The [photo-constrained 05D–063 run](PHOTO-05D-LOOP.md) now tests the first
+two renewed q1 sites. No initial Q byte in the declared reset fixture reaches
+them. A diagnostic direct entry makes 05E and 061 read the same Q-indexed ROM
+byte repeatedly while Q stays fixed, under either bank. This narrows that
+local loop without ruling out a caller that changes Q or another mapping.
+
 The screen therefore does not identify a transmitter. The next discriminating
 search must combine a *reached* D-add instruction with independently supported
 ROM selection, dibit-derived address and retained phase across symbol periods.

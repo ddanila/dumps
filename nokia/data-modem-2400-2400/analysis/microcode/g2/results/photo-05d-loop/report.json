@@ -1,0 +1,250 @@
+{
+  "cases": [
+    {
+      "bank": 0,
+      "local_clean": 256,
+      "local_final_pcs": {
+        "05F": 255,
+        "084": 1
+      },
+      "local_q_changes": [],
+      "reset_final_pcs": {
+        "084": 127,
+        "127": 16,
+        "128": 16,
+        "389": 16,
+        "38A": 16,
+        "3A2": 16,
+        "3A3": 16,
+        "3D0": 1,
+        "3F9": 16,
+        "3FA": 16
+      },
+      "reset_reached_q": []
+    },
+    {
+      "bank": 256,
+      "local_clean": 256,
+      "local_final_pcs": {
+        "05F": 255,
+        "084": 1
+      },
+      "local_q_changes": [],
+      "reset_final_pcs": {
+        "084": 127,
+        "127": 16,
+        "128": 16,
+        "389": 16,
+        "38A": 16,
+        "3A2": 16,
+        "3A3": 16,
+        "3D0": 1,
+        "3F9": 16,
+        "3FA": 16
+      },
+      "reset_reached_q": []
+    }
+  ],
+  "gate_index": 47,
+  "gate_selected_pcs": 81,
+  "gate_terms": [
+    [
+      "11.3",
+      1
+    ],
+    [
+      "11.6",
+      1
+    ],
+    [
+      "17.6",
+      0
+    ]
+  ],
+  "limitations": [
+    "The ROM gate is fitted to diagnostic labels, not measured wiring.",
+    "The 05D entry is forced only for the local test; reset never reaches it in this fixture.",
+    "The q1 photo mapping, startup state, branch conditions and ROM bank are hypotheses.",
+    "A fixed local Q does not rule out another caller updating Q between invocations.",
+    "No physical output site or line signal is observed."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
+    "analysis/microcode/assumed/results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
+    "analysis/microcode/g2/photo_05d_loop.py": "25900c8cd0bf99aa98b39758f37010f8e2937e3b26ecb5e8983618ab0e8c787a",
+    "analysis/microcode/g2/results/photo-variant-rom-loop/q1-mixed-bank-scenario.json": "f3e892a7438b786d2e5b0009c6bbbb92978dd7c64bab51421e3df747928e0cf9",
+    "analysis/microcode/g2/results/photo-variant-rom-loop/q1-witness-mapping.json": "0c3921439dfb302db22ca35e78c14626760c3d9e1fad99e507c2a8aaabb8be7a"
+  },
+  "status": "photo-candidate-local-loop-not-transmitter",
+  "witnesses": [
+    {
+      "bank": 0,
+      "final_pc": "084",
+      "final_q": 0,
+      "initial_q": 0,
+      "sites": {
+        "05E": {
+          "address": 1,
+          "alu_y": 49,
+          "rom_value": 49,
+          "visits": 1
+        },
+        "061": {
+          "address": 1,
+          "alu_y": 49,
+          "rom_value": 49,
+          "visits": 1
+        }
+      },
+      "trace_digest": "9945bf0be27e4c6d1379230439e2408ca716d4858e94445d6d5b5dd79863f472"
+    },
+    {
+      "bank": 0,
+      "final_pc": "05F",
+      "final_q": 1,
+      "initial_q": 1,
+      "sites": {
+        "05E": {
+          "address": 2,
+          "alu_y": 91,
+          "rom_value": 90,
+          "visits": 19
+        },
+        "061": {
+          "address": 2,
+          "alu_y": 91,
+          "rom_value": 90,
+          "visits": 18
+        }
+      },
+      "trace_digest": "b9957eaebce1286260862eeca2a7d322d34051f440c02bd085fd2f43d8e01ff0"
+    },
+    {
+      "bank": 0,
+      "final_pc": "05F",
+      "final_q": 127,
+      "initial_q": 127,
+      "sites": {
+        "05E": {
+          "address": 128,
+          "alu_y": 160,
+          "rom_value": 33,
+          "visits": 19
+        },
+        "061": {
+          "address": 128,
+          "alu_y": 160,
+          "rom_value": 33,
+          "visits": 18
+        }
+      },
+      "trace_digest": "dcfc39f1d146efc954c39a04aa60f677a52b0d7b06bcff5a8db45bdbba522022"
+    },
+    {
+      "bank": 0,
+      "final_pc": "05F",
+      "final_q": 255,
+      "initial_q": 255,
+      "sites": {
+        "05E": {
+          "address": 0,
+          "alu_y": 255,
+          "rom_value": 0,
+          "visits": 19
+        },
+        "061": {
+          "address": 0,
+          "alu_y": 255,
+          "rom_value": 0,
+          "visits": 18
+        }
+      },
+      "trace_digest": "99ae70f1cb8d961a95a9087d6c4e6a5bb438cfbc949d965244fb72ff14d9b6d7"
+    },
+    {
+      "bank": 256,
+      "final_pc": "084",
+      "final_q": 0,
+      "initial_q": 0,
+      "sites": {
+        "05E": {
+          "address": 257,
+          "alu_y": 3,
+          "rom_value": 3,
+          "visits": 1
+        },
+        "061": {
+          "address": 257,
+          "alu_y": 3,
+          "rom_value": 3,
+          "visits": 1
+        }
+      },
+      "trace_digest": "ca01b1165fc9d0f551e260f7a4122823552e68a10b747268e4b2989fd41a678b"
+    },
+    {
+      "bank": 256,
+      "final_pc": "05F",
+      "final_q": 1,
+      "initial_q": 1,
+      "sites": {
+        "05E": {
+          "address": 258,
+          "alu_y": 7,
+          "rom_value": 6,
+          "visits": 19
+        },
+        "061": {
+          "address": 258,
+          "alu_y": 7,
+          "rom_value": 6,
+          "visits": 18
+        }
+      },
+      "trace_digest": "51e65f325824c3a33d7f0328555ffb9c9bacce497d6dbb835e686e8217db3ce2"
+    },
+    {
+      "bank": 256,
+      "final_pc": "05F",
+      "final_q": 127,
+      "initial_q": 127,
+      "sites": {
+        "05E": {
+          "address": 384,
+          "alu_y": 136,
+          "rom_value": 9,
+          "visits": 19
+        },
+        "061": {
+          "address": 384,
+          "alu_y": 136,
+          "rom_value": 9,
+          "visits": 18
+        }
+      },
+      "trace_digest": "2844a6edd2b385215a44bc39281c81e4085963445b28173920bdb798cf440774"
+    },
+    {
+      "bank": 256,
+      "final_pc": "05F",
+      "final_q": 255,
+      "initial_q": 255,
+      "sites": {
+        "05E": {
+          "address": 256,
+          "alu_y": 255,
+          "rom_value": 0,
+          "visits": 19
+        },
+        "061": {
+          "address": 256,
+          "alu_y": 255,
+          "rom_value": 0,
+          "visits": 18
+        }
+      },
+      "trace_digest": "99ae70f1cb8d961a95a9087d6c4e6a5bb438cfbc949d965244fb72ff14d9b6d7"
+    }
+  ]
+}
