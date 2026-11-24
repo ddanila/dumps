@@ -111,7 +111,13 @@ phases B–C turn "what" into "how".
   with loop lengths in the listing. The main loop must close in a whole
   number of samples.
 
-### Phase B: physical evidence from the owner (small, decisive)
+### Phase B: optional physical checks to discriminate candidates
+
+The [assumption and blocker rules in PLAN.md](PLAN.md#uncertainty-is-a-reason-to-experiment-not-a-goal-blocker)
+apply throughout G2. Start with photo-based candidate connections and run
+Phases A and C under explicit alternatives where a net is ambiguous. The
+checks below can confirm or reject candidates if they become available; none
+is a prerequisite or a reason to stop executable experiments.
 
 Listed in order of value per effort:
 

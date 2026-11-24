@@ -109,6 +109,13 @@ are grounds to change the experiment, not to wait for measurements. The
 [photo-informed board experiment](board/PHOTO-HYPOTHESES.md) demonstrates this
 approach with executable candidate wiring and a targeted indirect-branch pulse.
 
+For G2, treat a connection suggested by the available board photographs as a
+testable candidate even when a trace disappears beneath a component or its
+destination pin is ambiguous. Record the visible segment and the inferred
+continuation separately, encode competing continuations when they affect the
+result, and run the microcode under each. Do not wait for new photographs or
+continuity measurements before trying those candidates.
+
 Reserve a goal blocker for an indispensable dependency that cannot be supplied
 or usefully approximated and leaves no meaningful independent work. Before
 declaring one, identify that dependency, explain why candidate assumptions
