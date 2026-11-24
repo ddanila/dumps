@@ -134,6 +134,11 @@ reads, but none develops a changing lookup or candidate output pattern for
 repeated copies of the same bit. Four produce different fixed candidate bytes
 for 0 and 1. The result narrows this mapping neighborhood without identifying
 the transmitter or physical instruction wiring.
+A [second-bit follow-up](SECOND-INSTRUCTION-BIT-SCREEN.md) keeps the only
+bit-sensitive I1 hypothesis and changes one more instruction input across
+960 runs. Five hundred thirty-nine sustain both input visits and ROM reads;
+none changes a lookup or candidate output pattern between repeated equal
+bits. This points away from further local edits to the same 38E/Q=5 path.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the
