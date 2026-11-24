@@ -18,6 +18,10 @@ now clocks candidate ALU bytes through a digital 74LS273 model. The changing
 q1 loop lacks controller input; both tested controller-fed paths hold one code.
 These are scoped results under untraced clock and data hypotheses, so G2 stays
 active.
+An [initial-RAM screen](DAC08-OUTPUT.md#explicit-latch-hypothesis-and-replay)
+further shows that only RAM13 affects this q3 candidate code under one-byte
+startup changes: 254 of its 256 values yield a held offset code, and two
+values exit the path before capture.
 
 The [ADC sample run](ADC-SAMPLE-RUN.md) feeds 256 complementary reference
 line-sample bytes to the recurring D read at 38E under the photo-constrained

@@ -1,0 +1,3433 @@
+{
+  "baseline": {
+    "captures_392": 17,
+    "codes_392": [
+      11
+    ],
+    "final_pc": "389",
+    "reads_38e": 39,
+    "register": 13,
+    "seed": 0,
+    "selected_rom_reads": 3,
+    "trace_digest": "81545b743162337fc108d74ebfb4af1e27b8c4b11bbe21ca64b6dea7b03ade5b",
+    "writes_13": []
+  },
+  "coarse": {
+    "cases": 144,
+    "non_ram13_path_metrics": {
+      "389:captures=17:reads=39": 135
+    },
+    "ram13_codes": {
+      "1": [
+        12
+      ],
+      "128": [
+        139
+      ],
+      "16": [
+        27
+      ],
+      "2": [
+        13
+      ],
+      "255": [
+        10
+      ],
+      "32": [
+        43
+      ],
+      "4": [
+        15
+      ],
+      "64": [
+        75
+      ],
+      "8": [
+        19
+      ]
+    },
+    "registers": 16,
+    "values": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      255
+    ]
+  },
+  "fixture": {
+    "assumed_latch_clock_pc": "392",
+    "assumed_latch_data": "Am2901 ALU Y",
+    "controller_bits_supplied": 128,
+    "cycles_per_case": 512,
+    "mapping": "q-independent-3-photo-ab-swapped-photo-a2-a3",
+    "q": 5
+  },
+  "limitations": [
+    "RAM starts with exactly one varied byte; simultaneous RAM changes are not screened.",
+    "The D38E controller-bit route, ALU-Y output source and clock-at-392 are untraced hypotheses.",
+    "A fixed code under this fixture does not exclude other mappings, command paths or latch clocks."
+  ],
+  "ram13_full": {
+    "code_formula": "(11 + initial RAM13) mod 256",
+    "exit_branch": {
+      "249": {
+        "baseline_next": "389",
+        "exit_next": "391",
+        "first_different_cycle": 56,
+        "preceding_pc": "390"
+      },
+      "250": {
+        "baseline_next": "389",
+        "exit_next": "391",
+        "first_different_cycle": 56,
+        "preceding_pc": "390"
+      }
+    },
+    "exit_seeds": [
+      249,
+      250
+    ],
+    "normal_seeds": 254,
+    "rows": [
+      {
+        "captures_392": 17,
+        "codes_392": [
+          11
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 0,
+        "selected_rom_reads": 3,
+        "trace_digest": "81545b743162337fc108d74ebfb4af1e27b8c4b11bbe21ca64b6dea7b03ade5b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          12
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 1,
+        "selected_rom_reads": 3,
+        "trace_digest": "c80aa2a83f4cdbbf7b7ed5a136e3175456bceae9144a1e13bec85880e4869f19",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          13
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 2,
+        "selected_rom_reads": 3,
+        "trace_digest": "13ff5f025fb06a9c33d9bb1b9431fe119a2d4eb89c86716ac91e52b7f62fe6f0",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          14
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 3,
+        "selected_rom_reads": 3,
+        "trace_digest": "be7107707095be18da2bbf17cf853c6307237e898ecee38e76ec4c980cd2b0cf",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          15
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 4,
+        "selected_rom_reads": 3,
+        "trace_digest": "5c015e70263c51f557f3b544d65be8ecc745a68cad6b7dc545297262fd5e60b7",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          16
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 5,
+        "selected_rom_reads": 3,
+        "trace_digest": "21498f28f92cc4849317be2698f6e193de0a612eb7eca4ff0d31d777ec742f13",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          17
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 6,
+        "selected_rom_reads": 3,
+        "trace_digest": "7bc5c8f5b0568fee2930fa580b1d20828df3052d733029f66267ed65268d2c02",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          18
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 7,
+        "selected_rom_reads": 3,
+        "trace_digest": "00fb7edd2092f52f291ca58822d49bcf5d831f309c9f9ad0bc2fe390ca4da976",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          19
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 8,
+        "selected_rom_reads": 3,
+        "trace_digest": "f2eb58e3502e3590b1a6d48d67bacb6a037c76239c35a0ec10070382fbc4bdfd",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          20
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 9,
+        "selected_rom_reads": 3,
+        "trace_digest": "39ce8099596ba19cdcbb81b5fa3c72b2ac8ea43c48918de724fcd861d2095220",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          21
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 10,
+        "selected_rom_reads": 3,
+        "trace_digest": "871f2ead643a3aae0249fc37b02b90218e6c3c2e4d720dff78f3d16d310b60a5",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          22
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 11,
+        "selected_rom_reads": 3,
+        "trace_digest": "ae0b4c2ee6b60174ab425b8aab435d5e4941dfd299686cf897b0f3018c4b065b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          23
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 12,
+        "selected_rom_reads": 3,
+        "trace_digest": "41e57fe5c6366efecccfeab3b68890cb089048125295423cb61a9795cc9fd90e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          24
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 13,
+        "selected_rom_reads": 3,
+        "trace_digest": "2058f1fa316db4bafabf0e97c585fb8cf39590342260ba7cfa56b209bb29c1cb",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          25
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 14,
+        "selected_rom_reads": 3,
+        "trace_digest": "1a109b8bf57be6a8a5e55239fe30da963ca846c737bc40bece48d5046580559b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          26
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 15,
+        "selected_rom_reads": 3,
+        "trace_digest": "26324cdb8234f693283a187609d8ace9909bfa0a80ea25dd1fbbe3a16a4dd8db",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          27
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 16,
+        "selected_rom_reads": 3,
+        "trace_digest": "9769cc5823672c4debc00f9346085665f95b011ddbf7b07d88aabf4b5866475d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          28
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 17,
+        "selected_rom_reads": 3,
+        "trace_digest": "916ad657d546d110db719271edf47e7ce178d5b9da5d6ed7db31a268890ee74f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          29
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 18,
+        "selected_rom_reads": 3,
+        "trace_digest": "86c3ca15523ad4c7a5354c6791b71d54ef3254eee088d67cc21775344343bcb6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          30
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 19,
+        "selected_rom_reads": 3,
+        "trace_digest": "5763c9404b0511a28a079f757865632c833965e25841ddfe0a27d956657331a2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          31
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 20,
+        "selected_rom_reads": 3,
+        "trace_digest": "c72d1dc652f00cc27a20b51156629f5346780fc2b37586a9ab24e632b9e7511d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          32
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 21,
+        "selected_rom_reads": 3,
+        "trace_digest": "7a9e17daf277cc8b2faaf26b79f76b51d3ae3702ee9f15c73b54c5f008def746",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          33
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 22,
+        "selected_rom_reads": 3,
+        "trace_digest": "3ee30cdb0b506ac0a12d702bf17a13723568b8e6e18159ed5dbb289a6ac1912c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          34
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 23,
+        "selected_rom_reads": 3,
+        "trace_digest": "523824bb279c35d8a2f26c3d4953828f188d75f5a61aa8caedd57f107a1e3a4a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          35
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 24,
+        "selected_rom_reads": 3,
+        "trace_digest": "0fc8033d13debcabf75b0467d837a1376cfe0afb77ad793233b86c1fe3e878ca",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          36
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 25,
+        "selected_rom_reads": 3,
+        "trace_digest": "6e07f32d85d599c7a25a87d3a1a33ed85d83a36efc7710e4c7c101e12e0c6e5a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          37
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 26,
+        "selected_rom_reads": 3,
+        "trace_digest": "a47b3953868b1198b2a7b3876cb453c0208719075a6fc10d2f385c2ccce7e89e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          38
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 27,
+        "selected_rom_reads": 3,
+        "trace_digest": "d8a0b3c451e5f92c47a03c6933cba005b97e9d7576d38024edd80a958b29bf90",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          39
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 28,
+        "selected_rom_reads": 3,
+        "trace_digest": "bc99b3c1692d97337cec054386258cf13bb285f27c99e8877e08edd18c6e8c2b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          40
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 29,
+        "selected_rom_reads": 3,
+        "trace_digest": "1cc9aa978cd242f2737db89ac3e6dc4db5cd4eadcec2bc49e9551b63ab9ddcdf",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          41
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 30,
+        "selected_rom_reads": 3,
+        "trace_digest": "f3aaeddce2861e7586989983550483d1e2e451a8e47cf8ec9b57fd9022ae6fbf",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          42
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 31,
+        "selected_rom_reads": 3,
+        "trace_digest": "bfd5a7ccb81592ec63156073fda502ddc8fa9b8a469cb64f18015f8e9932cf6c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          43
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 32,
+        "selected_rom_reads": 3,
+        "trace_digest": "cd1f93af45e1adea2e5ca254bae5d7a65c33da734efeafdb8d4c6cbed81a5027",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          44
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 33,
+        "selected_rom_reads": 3,
+        "trace_digest": "5e2fc7c9c6b9ebd1618b8e166119f11435472ef7502466cb96a374235279e045",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          45
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 34,
+        "selected_rom_reads": 3,
+        "trace_digest": "80014b91a68c24979aa7262f5b216323b1be6e2bcfe287cbd26c43ffc9be851c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          46
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 35,
+        "selected_rom_reads": 3,
+        "trace_digest": "9a824c8b05158390c3692da58621e972c20ebacec4069caf47d4f0e5a5b5219b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          47
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 36,
+        "selected_rom_reads": 3,
+        "trace_digest": "7048e5c6cc24705e6732d8a38c8a960accc0740ddc294421a1924c04bff86408",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          48
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 37,
+        "selected_rom_reads": 3,
+        "trace_digest": "ec643458586871ad04c8c869790db1217432f467aaccadd0a904604a059458a5",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          49
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 38,
+        "selected_rom_reads": 3,
+        "trace_digest": "f3bbe983ae92203650492e49bea8e323fb21e529667725249175b1b179560404",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          50
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 39,
+        "selected_rom_reads": 3,
+        "trace_digest": "d88bebbd675f9ab1c6e04530ffec91e4b641d3127c2fd91bc49f337b57332a22",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          51
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 40,
+        "selected_rom_reads": 3,
+        "trace_digest": "8d5f3d4e67a34f45701413d3f90fa5d5e631532c04eeded121b288ed821d1bfa",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          52
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 41,
+        "selected_rom_reads": 3,
+        "trace_digest": "d06f12ec05b34c67ca54fd1ae933ba0159f288bc4bd9f5e85068e2c1ca7381ff",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          53
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 42,
+        "selected_rom_reads": 3,
+        "trace_digest": "91c93a378288cb9b255f05318867d8ff53dd7b3aa2dacc73fc2f1af30d56140a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          54
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 43,
+        "selected_rom_reads": 3,
+        "trace_digest": "913deccafec909f026ee977c20808d5dcbb7c80f2b5ae44482959d803116a4ab",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          55
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 44,
+        "selected_rom_reads": 3,
+        "trace_digest": "401f2e14ea36db2b7266d99a9594a6d829e3df40ffdc6572db8496488e6ba028",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          56
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 45,
+        "selected_rom_reads": 3,
+        "trace_digest": "3eb18de1fed0a77b2074225a54fb686bde89ea09459b64615d9329ef116184f6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          57
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 46,
+        "selected_rom_reads": 3,
+        "trace_digest": "6d130e607cb33acbe0b8b90d0404700ab1680cb77248aeb13ab37d23f948f4c2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          58
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 47,
+        "selected_rom_reads": 3,
+        "trace_digest": "cf362bb00c63bd884d4ef175d059daa76e8f34cd5aac7b907219ddf6bf084f37",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          59
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 48,
+        "selected_rom_reads": 3,
+        "trace_digest": "cf009a40f6cb27e94705bf50e8738186b10c0aa4e4ebe8da573d3a5c5eb2e0e7",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          60
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 49,
+        "selected_rom_reads": 3,
+        "trace_digest": "e18fa191fa4394176f290929a41abfa49e8678ea9e6fb143272182a5f43b6048",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          61
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 50,
+        "selected_rom_reads": 3,
+        "trace_digest": "71255f6ad34365f66fcc02eb7e50089f2aee1e2b2690f7e188d1f590631882d9",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          62
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 51,
+        "selected_rom_reads": 3,
+        "trace_digest": "7a5f4c88ab9c5ed0de84ca3b044bf5ab91b6ac00fe9b7bffc371c472db82c853",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          63
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 52,
+        "selected_rom_reads": 3,
+        "trace_digest": "5536421a906e00036b0c8fa48b93de6e38be49812d3d1d281162a049375e25d0",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          64
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 53,
+        "selected_rom_reads": 3,
+        "trace_digest": "a855d24568305a04a911f34a7bf0679586f75ab1030c74b801922ba5a2014961",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          65
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 54,
+        "selected_rom_reads": 3,
+        "trace_digest": "1c8fc902a74055a4db605f52c538966c671fddd48d01a402d5544ea829fde97a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          66
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 55,
+        "selected_rom_reads": 3,
+        "trace_digest": "56f6a75ed7fb8cda89c2026d072546ed57ff2a61fb1b4f936c0f7a6e82570dc6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          67
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 56,
+        "selected_rom_reads": 3,
+        "trace_digest": "c1cc318f8633132a428d53a72cd5c11e6fe2a54c1b1b94e124a17985607bd8d8",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          68
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 57,
+        "selected_rom_reads": 3,
+        "trace_digest": "cf9d08b02b3740ff5667cff5d5469bb31ad14fcbf2855e3bd7fb3056306f2f8e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          69
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 58,
+        "selected_rom_reads": 3,
+        "trace_digest": "bf73c9b44696f2e2370679470a699728e9b393591d5c523d2f2d684a3a6c6d01",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          70
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 59,
+        "selected_rom_reads": 3,
+        "trace_digest": "5bd243f2999357bfcb8014a41388cdcaf34ad23719f16c14f16ae5b0ab2effb2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          71
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 60,
+        "selected_rom_reads": 3,
+        "trace_digest": "990ab961ad168de77a89182f6543412bb79a8f549455d7b1ff74ca62c155d211",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          72
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 61,
+        "selected_rom_reads": 3,
+        "trace_digest": "bc1d3135e7f466473d73d5b1ba1cbc0f03add84b30dfd4f71d70bb8ecffdd187",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          73
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 62,
+        "selected_rom_reads": 3,
+        "trace_digest": "7641b69810f924e0849420c312979ba3a3a275329ebb5715c4bed0b8770bc13f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          74
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 63,
+        "selected_rom_reads": 3,
+        "trace_digest": "5ad1f22e9d1f34c3813379b724df0ba716f788afc2b010a29a7596d24bd668cb",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          75
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 64,
+        "selected_rom_reads": 3,
+        "trace_digest": "82b29f0c197c4be66234d4f94485c1312def2c3d5bacc4b43b6a1ec1eb5c2c2d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          76
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 65,
+        "selected_rom_reads": 3,
+        "trace_digest": "bcfd9bbdfd424a732c0616993d287d6e3cc66471ddfa6177ca560d37ee90cc78",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          77
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 66,
+        "selected_rom_reads": 3,
+        "trace_digest": "d2312681caa06627eb6072240b593fc87193eed98b946fa7df60e8a1291d62cd",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          78
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 67,
+        "selected_rom_reads": 3,
+        "trace_digest": "ebc73ec784a65ff6dce5c33947aa5b9de1c68f8477ef4a0d3d09baf3335a9906",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          79
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 68,
+        "selected_rom_reads": 3,
+        "trace_digest": "44c77c8c9a2f526a7bf7ae7503c6e78b684c5cd9206984a8f1e9d987feffa0b3",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          80
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 69,
+        "selected_rom_reads": 3,
+        "trace_digest": "f30117310d5066d65e6d06d9d1e69343e8c7254b4e6ddc8bfe6f202c7c03620a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          81
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 70,
+        "selected_rom_reads": 3,
+        "trace_digest": "84457b2a98935838822ba6aec834ece63c005e65595567252b554e99b89f4216",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          82
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 71,
+        "selected_rom_reads": 3,
+        "trace_digest": "f71321e59127fae909ce20985eacbda7b65647bbacb6a2ff45abe12d5b489487",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          83
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 72,
+        "selected_rom_reads": 3,
+        "trace_digest": "49cb20da1e510ced63a9892012ef4dcb67d9fff895f67aecae7d61f676280e49",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          84
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 73,
+        "selected_rom_reads": 3,
+        "trace_digest": "aaf13e1e11486a003b87d95c0f369e842836a79b59fd886864711a7411475998",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          85
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 74,
+        "selected_rom_reads": 3,
+        "trace_digest": "fa68caa885d1d994690514154b6e9ddd446604f6ef77a67ac68578e19e14e202",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          86
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 75,
+        "selected_rom_reads": 3,
+        "trace_digest": "4fb02e72fc81bc1b990a020d1ba1dfe78c45d2e9f31decd3516579221f013cac",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          87
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 76,
+        "selected_rom_reads": 3,
+        "trace_digest": "414ac6da5663fa6b80da3b44b3ab3114d2dbee428e2d1b8b56ad18c77415d0aa",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          88
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 77,
+        "selected_rom_reads": 3,
+        "trace_digest": "9b0bba07df64cf7428244b95b777402d7d878227355f6d2191f8a13c01fa7642",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          89
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 78,
+        "selected_rom_reads": 3,
+        "trace_digest": "a4dd6abbb4982c3eed61fe224492bf4b97ebbf8313e949f8cd14101954d4d108",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          90
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 79,
+        "selected_rom_reads": 3,
+        "trace_digest": "741f1cf7d9a782a4cd75cf8123abac42697c740ef19fc986a176ef4a5f2e0909",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          91
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 80,
+        "selected_rom_reads": 3,
+        "trace_digest": "b53b739a239b052439d53c3d26fecc9857e63580ba4cb9e78a329a4449dd818e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          92
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 81,
+        "selected_rom_reads": 3,
+        "trace_digest": "2e165052c876be945bfabee279d81783ecb18df56504acb08ff6956389648f29",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          93
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 82,
+        "selected_rom_reads": 3,
+        "trace_digest": "d7bb5bac7b46c8dc7d231014a1829c973a4e3f6151f0be5f418d030e1b055f87",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          94
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 83,
+        "selected_rom_reads": 3,
+        "trace_digest": "a02b6866b11bfe237a388780991b2de1c4e20a9fb6fe06938298230ff3cd22d1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          95
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 84,
+        "selected_rom_reads": 3,
+        "trace_digest": "e91ed3f66abf3e9388f5fb48a6fa9bc2b88d260b7bae6f56e038d43ccf5f0275",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          96
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 85,
+        "selected_rom_reads": 3,
+        "trace_digest": "6905cdd6b9a9439726c0224bdd2245a2f07e01cd60a1190f9d2236698b5c44a4",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          97
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 86,
+        "selected_rom_reads": 3,
+        "trace_digest": "3f4bddc327bd3f97c89a09ba72d7c39f56a19ad96faab8ff18638f7556d8eaea",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          98
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 87,
+        "selected_rom_reads": 3,
+        "trace_digest": "dd94e8d4c43c71ee064037b9c8c317181ab56ba443da56ead721066f0037e32e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          99
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 88,
+        "selected_rom_reads": 3,
+        "trace_digest": "55aa6d89b098df4aac07cb10b1b9b73ee3b85b0a34f1ff900ebc9c168f116b26",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          100
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 89,
+        "selected_rom_reads": 3,
+        "trace_digest": "b8b16e40e3f96794e07cfe77396bc9d47b9d1d9e7e5829a08a73def927e2e8f5",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          101
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 90,
+        "selected_rom_reads": 3,
+        "trace_digest": "ed034d5fc96e743f6eb1ab3e1848ea92734f17c2705a2d2a3dd2d2cb44687c0a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          102
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 91,
+        "selected_rom_reads": 3,
+        "trace_digest": "198b1688ea1b6be5e4b8ae1351d6082c440410e4e01d74782ecdf6f85bfc560c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          103
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 92,
+        "selected_rom_reads": 3,
+        "trace_digest": "708c3b0c666348d94dff2572b99c2f270d528dc5691d1533343211dc753deb44",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          104
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 93,
+        "selected_rom_reads": 3,
+        "trace_digest": "01f2281150a4845b57026f8318869b414a101f053b20a22c50973e77d57e8c76",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          105
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 94,
+        "selected_rom_reads": 3,
+        "trace_digest": "f159629d50ff45864982263a81a7dd543cd1472661a7bd68c78584a673d3dbc6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          106
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 95,
+        "selected_rom_reads": 3,
+        "trace_digest": "e87f7b1de586c515c00fe01b7c325ad48029c19075a170fa4ec49b396797023f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          107
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 96,
+        "selected_rom_reads": 3,
+        "trace_digest": "e3f5c5ff17729b2e7d2f66daf485f84b44ef1cd806f08c8bc0547559e1f5bfe1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          108
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 97,
+        "selected_rom_reads": 3,
+        "trace_digest": "73617a115026972affaa1c8d0e4a9fa24918dbf29d8c67468e266cd1791dc2bc",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          109
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 98,
+        "selected_rom_reads": 3,
+        "trace_digest": "20eabb9932004b2fe8aa6b3bb38b079b2482ccd3266aba22e4a24bae725a4102",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          110
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 99,
+        "selected_rom_reads": 3,
+        "trace_digest": "0729418acea0e696f1caaacb8aaf3d1a68a9279814715b29ec9a25b0055bc08f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          111
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 100,
+        "selected_rom_reads": 3,
+        "trace_digest": "b7d3f4c45ec73627e786f9292fff9faa0f68cf07414ee452e1a15fc824452104",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          112
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 101,
+        "selected_rom_reads": 3,
+        "trace_digest": "5d668a4c992e9bd7645b77caf10125ae45f564168d6216952f874e79a6fc1ecc",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          113
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 102,
+        "selected_rom_reads": 3,
+        "trace_digest": "14a61be518926c8c594476fbc460a2ec672fb831f9fc6f24d36f5c5f56fb8114",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          114
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 103,
+        "selected_rom_reads": 3,
+        "trace_digest": "97ce9e749d167ce32053b6bc67e82446bddedd8d6e5164acd6033e97399304ea",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          115
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 104,
+        "selected_rom_reads": 3,
+        "trace_digest": "61dc12a1e71283c2f5c260f7cf742711fee9a21608b09d04528587f8c9628d92",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          116
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 105,
+        "selected_rom_reads": 3,
+        "trace_digest": "10e92c2d56c88880ef105945dbf344b3d552b6df9f152bcdc344695af728c5c9",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          117
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 106,
+        "selected_rom_reads": 3,
+        "trace_digest": "f02491ca8c32def8b9f7d7d7976de96cf27ca17a2a02f9827a79ff3c38267129",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          118
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 107,
+        "selected_rom_reads": 3,
+        "trace_digest": "4457f7ba53d0e3a566037ef6e22da247cfbb97c1af6ea88d661e842c6294a8e2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          119
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 108,
+        "selected_rom_reads": 3,
+        "trace_digest": "d9ae5bb3319230b514b4bd6524477aafcd64952b4dcc23ca9cfd054d63b2a764",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          120
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 109,
+        "selected_rom_reads": 3,
+        "trace_digest": "e3c75c1b775e7f5474d02fe9854ca7284d8852d198390a643af12a788187bea5",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          121
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 110,
+        "selected_rom_reads": 3,
+        "trace_digest": "4a1202d4c2fc212066f7df57e23434bb6f4ce41dc2f3193ed60e8fc9c9b5e57b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          122
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 111,
+        "selected_rom_reads": 3,
+        "trace_digest": "7cd9155abc885943be63d672faff44f5588925cb471446a16babd030926f44dd",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          123
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 112,
+        "selected_rom_reads": 3,
+        "trace_digest": "0c39f5cf9f9b9ca65e0822346093e083559a79782887bb912ab24225dd5f9c6b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          124
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 113,
+        "selected_rom_reads": 3,
+        "trace_digest": "2f4aaddf3f65f85024465c4253591f56a1d30545da0a0fb8bf4eccb705f9c185",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          125
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 114,
+        "selected_rom_reads": 3,
+        "trace_digest": "59d6b4d5d3de2437de672038c118dc08ec54da4df777e9cc6b4d8a4277e1dcb6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          126
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 115,
+        "selected_rom_reads": 3,
+        "trace_digest": "79f1910998d6fb8f980bd8b86e6d810d339125a073aff2a41a610b500c8e4246",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          127
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 116,
+        "selected_rom_reads": 3,
+        "trace_digest": "3d54dad326877f6f3b0169307bd3873675b8a0b8af319586cc6e66dd7e33b842",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          128
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 117,
+        "selected_rom_reads": 3,
+        "trace_digest": "ac9322d067d31302e66ea4c764d49823056e1db5dfc7d07f178b87148e7c03e4",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          129
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 118,
+        "selected_rom_reads": 3,
+        "trace_digest": "461054a01781022c070357ac62783074ead0db0812dbaf0b90a6742ffa419cb1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          130
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 119,
+        "selected_rom_reads": 3,
+        "trace_digest": "f037736e4f521a47b57558c15af42f824d33731608711d361eb3416ddd94b00b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          131
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 120,
+        "selected_rom_reads": 3,
+        "trace_digest": "027a23d4944c2fd00460676727f2221f6f30be10a2ca2b532cadb3f7a17f6cb1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          132
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 121,
+        "selected_rom_reads": 3,
+        "trace_digest": "e614e38fa23e658c0f197db609d7452ed86bd528a8689b896b76c188415de5c2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          133
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 122,
+        "selected_rom_reads": 3,
+        "trace_digest": "83dd15fe479d7b247d19947ae20be84136233e6d78c83f0bafa74ec7718106a2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          134
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 123,
+        "selected_rom_reads": 3,
+        "trace_digest": "5bcaa78bc279fd544335c4b44a71aa4a6c52cae81e6d11597f8dc5f5122c745c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          135
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 124,
+        "selected_rom_reads": 3,
+        "trace_digest": "8dec10f18f771e0c093b3f9440a1c81fd2b23eb7e2bf8343afcda4c6741a207d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          136
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 125,
+        "selected_rom_reads": 3,
+        "trace_digest": "3a0a2b747a0c88219c3eec42c764a2ca3f21ee09b0b06621db300ab253993ced",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          137
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 126,
+        "selected_rom_reads": 3,
+        "trace_digest": "517ca2db540c715dfcb137a42acdc6968c247546d842c4103c01e068e60809c2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          138
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 127,
+        "selected_rom_reads": 3,
+        "trace_digest": "6badc0383ec6025deb65e32c402e1ae93e3cd167c8b2473d09ebba65a35454fe",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          139
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 128,
+        "selected_rom_reads": 3,
+        "trace_digest": "cf2370e03643f3a6ee453e6795f6c340b2cb30c68e8f1a54fe54034ce996bde2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          140
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 129,
+        "selected_rom_reads": 3,
+        "trace_digest": "1e47070cfe8eef96b0ab4dfbfb4a899f17761823d3e51faa7fe5caa5d05c5842",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          141
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 130,
+        "selected_rom_reads": 3,
+        "trace_digest": "92037a820c7bfdc4663a41eb00db1a2c590ed37bded31e92460738f6f55d6934",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          142
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 131,
+        "selected_rom_reads": 3,
+        "trace_digest": "e4ed41cb01326564d90c031cca996db743bff291ebd0fb106eaa6d8fb93fe2df",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          143
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 132,
+        "selected_rom_reads": 3,
+        "trace_digest": "59e968a788720f74cc189ee008d942f785c334ef5d2b911c5b95b4386e27038b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          144
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 133,
+        "selected_rom_reads": 3,
+        "trace_digest": "67dfda67d4ff959d2a9e0d3853e50aa202afe5d32d6274f8f300177395da30fa",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          145
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 134,
+        "selected_rom_reads": 3,
+        "trace_digest": "9df8a01cc7ab5091c62de229452ffc3a84bc0473ce8d1db4fa28e689264ff07e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          146
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 135,
+        "selected_rom_reads": 3,
+        "trace_digest": "858184650586e4f4b697a8317315fee1c370aea297bff4e61a327936e89aebe3",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          147
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 136,
+        "selected_rom_reads": 3,
+        "trace_digest": "ae45ca2d44d66d3c5bfbc584a3ff9361d6466b97bb9c1efbb7cb18bdfd9eafc1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          148
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 137,
+        "selected_rom_reads": 3,
+        "trace_digest": "b7f2fb08d72a28190976900f206de25d9ae329f11ef7507c40eef45bc63ce20e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          149
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 138,
+        "selected_rom_reads": 3,
+        "trace_digest": "319418dd0ba391e55f7e8c4a659b6ef596879a069abf85043e410219254ccded",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          150
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 139,
+        "selected_rom_reads": 3,
+        "trace_digest": "5ec8c51ec9ad5145c258685cb3a343e6e3c8cb7b1f6382a2e76591755c41731b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          151
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 140,
+        "selected_rom_reads": 3,
+        "trace_digest": "bf8ce4f1fcbae3b028367795b4b8238ba4927b282da3913273dd9ecf34974082",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          152
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 141,
+        "selected_rom_reads": 3,
+        "trace_digest": "ecb00d37507190e853d5fb4813eb48fec6263bc60ed10e621e3ea3e476293fb1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          153
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 142,
+        "selected_rom_reads": 3,
+        "trace_digest": "bde3998f9d2b9c60635865c97074b4a58ce85c0a016cfeffa4f760c44d89ecb3",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          154
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 143,
+        "selected_rom_reads": 3,
+        "trace_digest": "e8a9500d1819e838fa724fda5ea68c073067da067f4128db4e5ef1c71fd81f9c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          155
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 144,
+        "selected_rom_reads": 3,
+        "trace_digest": "584c224ea76438f43a91b0379678eabf2881a21c9eae73bc7a7f9515ecc99f2a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          156
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 145,
+        "selected_rom_reads": 3,
+        "trace_digest": "19f45cb24936fe521483500a0e35482224369e36ecd9af3f913985fb0b7e45d2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          157
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 146,
+        "selected_rom_reads": 3,
+        "trace_digest": "da171440205d6730b2ff56048f092994e0d51c1f8234c358d0d8b1f5fba7ed06",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          158
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 147,
+        "selected_rom_reads": 3,
+        "trace_digest": "81a768e78c0fe96b0da37af0fb3e13dc68e4087d55b8e8c79d9149abe18c53d2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          159
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 148,
+        "selected_rom_reads": 3,
+        "trace_digest": "a928bd9fc7998e02e3aa3e63e5d63307ff4f16d4422645a62273ef2e4f9272c8",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          160
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 149,
+        "selected_rom_reads": 3,
+        "trace_digest": "9f1223ba604a5bc81da0b78ac8ed1ffe450bd33ec98f4a474eb33f7f0a01a2a4",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          161
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 150,
+        "selected_rom_reads": 3,
+        "trace_digest": "0b5d16670c41c3f1150dfeeed5804a58dea40ebb7fc062fd8ffbef61980d5f97",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          162
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 151,
+        "selected_rom_reads": 3,
+        "trace_digest": "67c3393eb2cd260bfac79c1a93f6959797948dc161140f134121c6574f67ae46",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          163
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 152,
+        "selected_rom_reads": 3,
+        "trace_digest": "8a8465d1881a8df4ed26d82948bfcf8e7cb166811d8da84c75735f174b78696c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          164
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 153,
+        "selected_rom_reads": 3,
+        "trace_digest": "af456c7b661faa005aace501abaaa3680a7659966824996b69b377deb10b8a9c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          165
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 154,
+        "selected_rom_reads": 3,
+        "trace_digest": "6c87acaa18024dc78e80a4a3e4ca457ccc90ddc9b44bca5b39189e7708045641",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          166
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 155,
+        "selected_rom_reads": 3,
+        "trace_digest": "3e810f454d99bfe4550e0a9351af1408558b405f855a4f32c7021422c4c83ab1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          167
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 156,
+        "selected_rom_reads": 3,
+        "trace_digest": "958f172d2b7d97b0b973e3419b260c3b47e0fd9c2dd9b53fba645cb63bfc1882",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          168
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 157,
+        "selected_rom_reads": 3,
+        "trace_digest": "d0eb64a08e6585501821570cb3c864e6aafc733f0703ba7525e31c24fb5c9377",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          169
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 158,
+        "selected_rom_reads": 3,
+        "trace_digest": "24760754e23ae6010c70d70e8091b2a71711f3e01397b21a25f8649b81926ee6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          170
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 159,
+        "selected_rom_reads": 3,
+        "trace_digest": "6142e2098f71e9d4d644cbf091ce2b8d7101c577a1dbb50cf3658df93175600c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          171
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 160,
+        "selected_rom_reads": 3,
+        "trace_digest": "3cd024c0d260aa327cabb3392eac43a0e6f6d15d65740fd321594e776b2cb70f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          172
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 161,
+        "selected_rom_reads": 3,
+        "trace_digest": "df2ac75dea3bcc83e2576b3f98b104dac360e501223ca54446d77603d3172596",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          173
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 162,
+        "selected_rom_reads": 3,
+        "trace_digest": "2cb76e4405ec3205319069850e0495a2374e17ab0c27fe9db6dc1cf2d14775bd",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          174
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 163,
+        "selected_rom_reads": 3,
+        "trace_digest": "7a4dec221e8e3ed7692625ac098ea938e89d996b9cc88d00bdf60653b0104bc7",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          175
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 164,
+        "selected_rom_reads": 3,
+        "trace_digest": "14595347fa561d1a4966109be3067e3935c348ff0dc12c4a4c5b5fc0e6a8907a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          176
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 165,
+        "selected_rom_reads": 3,
+        "trace_digest": "a3526ce3286710ecaed21eca849bb902c8270c44cde97a83648f39738ae32422",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          177
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 166,
+        "selected_rom_reads": 3,
+        "trace_digest": "276876e804e27dc2b3158f4e48ba47cc9cc2547b8f89269da7b494e3aa8031d6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          178
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 167,
+        "selected_rom_reads": 3,
+        "trace_digest": "c8c3fddee8be813b49faec87b05b9811247e11f6cac3fd4d255e3d69713d591f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          179
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 168,
+        "selected_rom_reads": 3,
+        "trace_digest": "2d7c28efffabc1cc2303397225ba491c2590eca4e555172b7acf488777c92bf8",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          180
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 169,
+        "selected_rom_reads": 3,
+        "trace_digest": "6d677f644ce3c36d0f9a75e35b5c2df74a09cef599d42bd9a2a91dbd82275c93",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          181
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 170,
+        "selected_rom_reads": 3,
+        "trace_digest": "88d4910cd462cf29c744f63f8775f2de2686643a5a4870e20a05c119c86707ca",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          182
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 171,
+        "selected_rom_reads": 3,
+        "trace_digest": "0d0c5b6bb4fb5f87a32659381424c4b55eb9b213d2c8542791dc2b660f6b692c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          183
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 172,
+        "selected_rom_reads": 3,
+        "trace_digest": "34b5aa1473fddeabc4ba51c85c974d7850829a2cdee7d6184ff9490cacd60859",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          184
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 173,
+        "selected_rom_reads": 3,
+        "trace_digest": "3e12c65664087b445b51299fbc9c5bbd2973eaeca1a4d5831998aa98bcfa5d1d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          185
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 174,
+        "selected_rom_reads": 3,
+        "trace_digest": "d01eb8f57f2297ee2357f00d43965b8c36370f56e0cd8c21155abd6d02077bbc",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          186
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 175,
+        "selected_rom_reads": 3,
+        "trace_digest": "c53bddbbe221fb51c92d8a7fc465bb934ba524c169d2f890fe552f2b346995ee",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          187
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 176,
+        "selected_rom_reads": 3,
+        "trace_digest": "75235c12840cfb2d5d60a2a8af78a7c5cdcc22e341a0353eb3f281c6329ac2b6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          188
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 177,
+        "selected_rom_reads": 3,
+        "trace_digest": "e01000a2ba357500f75d83152c8ff7fdfcdd01531380d86f5a1c4b002eafe582",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          189
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 178,
+        "selected_rom_reads": 3,
+        "trace_digest": "f7ecf4a5ff3defa0d3c063212152bfe3ef68be12ffbce36e4fd6cf790b6947ce",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          190
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 179,
+        "selected_rom_reads": 3,
+        "trace_digest": "b4e82cbb5711f9c2ed14585038d0fe0f123df429c3e5dfe9f25bb4995188b65e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          191
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 180,
+        "selected_rom_reads": 3,
+        "trace_digest": "429c4c9a2ef45fc50c6ebd5b4d37f9b444e9117100afd03acde575354fff9d2d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          192
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 181,
+        "selected_rom_reads": 3,
+        "trace_digest": "9410338809837776b2332de479502e208806b331f6362672986e07075bcde057",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          193
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 182,
+        "selected_rom_reads": 3,
+        "trace_digest": "4fada7c32cd07dbed80da95db6944f672302d54f109b4ae165896436dd1cda28",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          194
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 183,
+        "selected_rom_reads": 3,
+        "trace_digest": "e1ac90707fc20854cde4e248117b0fcf099917abb28f45d560e5581aa62043b2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          195
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 184,
+        "selected_rom_reads": 3,
+        "trace_digest": "fe17aae6ad2681c7772287ace37280ac8319d17aa992a16cba3f0174861952e7",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          196
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 185,
+        "selected_rom_reads": 3,
+        "trace_digest": "80559e44d97f3c5eaac99fafa260de8b3bf962cb572140dbaf04b10321c9afdc",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          197
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 186,
+        "selected_rom_reads": 3,
+        "trace_digest": "1f987b758088c7d5091690ddee70d7e03dda949b237707e7c09a51cdd57e69eb",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          198
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 187,
+        "selected_rom_reads": 3,
+        "trace_digest": "aef9f6851e612f589be168b131f998b90eab5e9f136cafb3aea4060838fc7b98",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          199
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 188,
+        "selected_rom_reads": 3,
+        "trace_digest": "a9aea21f6934deb1f3228bf8418321dbf5bea180bfb735bc13d5aba13dd19245",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          200
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 189,
+        "selected_rom_reads": 3,
+        "trace_digest": "1e9e8b9bf1078664b7c88a6dd2f261d9e513fabc76e455ac685234d3cbd120e4",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          201
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 190,
+        "selected_rom_reads": 3,
+        "trace_digest": "99d6330677754a57d6b31f20f2be112f7bbd61bc9dc52e5abf8def1cb32abf96",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          202
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 191,
+        "selected_rom_reads": 3,
+        "trace_digest": "14dc6af890954f85741d0fdbe8d5d580082ee1b3a65367c61fd00e51dd321398",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          203
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 192,
+        "selected_rom_reads": 3,
+        "trace_digest": "f61c77f8a7b3fa151331290787c8454560ce67e62ba576bf9e9e4923d34e7375",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          204
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 193,
+        "selected_rom_reads": 3,
+        "trace_digest": "e61d8ddcb3fdac0b831e98e9250af5ab2b139304d0ee281bd3628e58f5c49316",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          205
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 194,
+        "selected_rom_reads": 3,
+        "trace_digest": "a7978bbe25702f6b6358c0e78fbd5270de7edd949e9dee0c8fc257c231683776",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          206
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 195,
+        "selected_rom_reads": 3,
+        "trace_digest": "176454b5327414974e40655ba0385069b584c39f221a1dc2b2d654557ca92d73",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          207
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 196,
+        "selected_rom_reads": 3,
+        "trace_digest": "5c28f7be669be1078a976c606d3dd80165235336b7e171c1fedc5224af694c14",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          208
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 197,
+        "selected_rom_reads": 3,
+        "trace_digest": "9e96f915d5556456015019e22cbfc024045cfec475c84d25e4c39a7d6605f799",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          209
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 198,
+        "selected_rom_reads": 3,
+        "trace_digest": "5539666b5c9c2890a0fac644e58a0fe7b2ca877245e4680ff3e2969d6873a0a0",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          210
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 199,
+        "selected_rom_reads": 3,
+        "trace_digest": "2755ed51a936d4d5375da57e878cecf5a04d2bc4364ad524e93d2ed46ce40e84",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          211
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 200,
+        "selected_rom_reads": 3,
+        "trace_digest": "a08082e395ec88c605ddd6003b1efffe9305a38d9ecb26571bb9f8c58fdfe257",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          212
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 201,
+        "selected_rom_reads": 3,
+        "trace_digest": "685db84d00d216084cf8f304a9bddd6a2dcae936715df4374900e79486dc627a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          213
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 202,
+        "selected_rom_reads": 3,
+        "trace_digest": "da758eabaa162c2e59d97d1df50f99f6740c58fff9bc788b360b495981ce8112",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          214
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 203,
+        "selected_rom_reads": 3,
+        "trace_digest": "76084fa04035c10477809210be3c2eef870c25256a5ebca186a8a2330449abde",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          215
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 204,
+        "selected_rom_reads": 3,
+        "trace_digest": "b1791b633f9869781a6668b6345baee523d85b6bfd472d2a8ab2d663ca2d7763",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          216
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 205,
+        "selected_rom_reads": 3,
+        "trace_digest": "634c9ababd7bc30b3d22962d5b4887e97adaefeecdda29f511afcd5e5705d0e2",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          217
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 206,
+        "selected_rom_reads": 3,
+        "trace_digest": "cc50644109438f016a7a5fb8b5a1c205be9246c51766ac1df72853af03548024",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          218
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 207,
+        "selected_rom_reads": 3,
+        "trace_digest": "26ac910878cd1cab3a99c96bb794d69a8dd98ace1e3ab8704274bbc8371c5212",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          219
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 208,
+        "selected_rom_reads": 3,
+        "trace_digest": "94244f9cd9bc70ed87018e08c7d8b93b514281aa9f05c6ba1d6454a328e073af",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          220
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 209,
+        "selected_rom_reads": 3,
+        "trace_digest": "4168cbb3ac67c4ae2aba03f43af6596cbd9fdbb17f048c94ea132bf7dbecc29c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          221
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 210,
+        "selected_rom_reads": 3,
+        "trace_digest": "0fb040ff57576c165b6fc4df66bd705d410bb458422de0a03dec4a20427132fb",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          222
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 211,
+        "selected_rom_reads": 3,
+        "trace_digest": "10caa59082a67d209915c05ae37ec0b0a9c0967eaf5471c0c85c26e6fbc0fc4c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          223
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 212,
+        "selected_rom_reads": 3,
+        "trace_digest": "045bddd4b434a55944b15debe9f4655455fd4bf355b7faba24986800469f95e4",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          224
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 213,
+        "selected_rom_reads": 3,
+        "trace_digest": "54a52e74a3e4f959124fb8d5a6f21bbc1fd362fbb2ed388e1eb0dfc473e28e40",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          225
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 214,
+        "selected_rom_reads": 3,
+        "trace_digest": "6fdd58920c4697c3ea3009c3ac66191896eeaf86a505461dbe0b8b274d06ccb6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          226
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 215,
+        "selected_rom_reads": 3,
+        "trace_digest": "7ef210fe4adf4e087478bf05ae7561dd3ca0e85b7db8abc02eb88ec1d5d248ae",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          227
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 216,
+        "selected_rom_reads": 3,
+        "trace_digest": "91258476a0610a77fb31a55053757173bd3ff25966bc9d49b0ed81ce943cf316",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          228
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 217,
+        "selected_rom_reads": 3,
+        "trace_digest": "452dce52c42796b74e923fc996cd615db8d3e0d2b1f4f6b01d8a3f98c1483a10",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          229
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 218,
+        "selected_rom_reads": 3,
+        "trace_digest": "e0db9417d546ad353784d14ed0c6150e0363c71a1959917ccda4a47d58f8d97b",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          230
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 219,
+        "selected_rom_reads": 3,
+        "trace_digest": "d8cef988f1a67520caadff0fdd600eac573a0f2df124eebbc6e0e4c28d15545d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          231
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 220,
+        "selected_rom_reads": 3,
+        "trace_digest": "2f816f5f16c876c84c348d32dcbb66548308f7c2edad2c9ae67bf5f80ec454ee",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          232
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 221,
+        "selected_rom_reads": 3,
+        "trace_digest": "ff6af83bce62dbc62a364b834b49f68c14a85ada2f4df73549b4e04fdc49a80e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          233
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 222,
+        "selected_rom_reads": 3,
+        "trace_digest": "69a220eb81948da1c0d7557a4660ba52d21393b3c8c93657d8ca714ac4a89c6c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          234
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 223,
+        "selected_rom_reads": 3,
+        "trace_digest": "9dcce029539c7adb2bf5f5a43a581e44299c0fca8577576a631c88bdead6c4ae",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          235
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 224,
+        "selected_rom_reads": 3,
+        "trace_digest": "e2c7a714e0ca996997a55b44a21e1a401f3c0ec299ebac30236c50d233b21145",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          236
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 225,
+        "selected_rom_reads": 3,
+        "trace_digest": "0cd4a8972123e74e8e2c75ecafba4e36c5143ffd785a52cc8a2309c02e035b57",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          237
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 226,
+        "selected_rom_reads": 3,
+        "trace_digest": "d1a5eef837f73dbe016f9bbaaef5ca368b1d7c3086c1678b0295a6bb5df62da8",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          238
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 227,
+        "selected_rom_reads": 3,
+        "trace_digest": "32d6f08a3269a3362c9964ea70bc1ce50fcab8810a0e09973467a9621bc76fac",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          239
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 228,
+        "selected_rom_reads": 3,
+        "trace_digest": "ce23508b9fef967844add75c53a080bcae4263e6d16bffda817f68689e1b382f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          240
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 229,
+        "selected_rom_reads": 3,
+        "trace_digest": "bb738dfbf84aacf754c1f27ac17537b1ce062dcdeae7750450a303bfcc37216c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          241
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 230,
+        "selected_rom_reads": 3,
+        "trace_digest": "d6af948dc70d74bed1a4f834b4a7e48bbed43931cbbd6e33edeb04882556f9d4",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          242
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 231,
+        "selected_rom_reads": 3,
+        "trace_digest": "336f84ce615b6045cb7b8bc525b0dbbff08ad00d78fad52b48dcd9cbfe489b0f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          243
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 232,
+        "selected_rom_reads": 3,
+        "trace_digest": "0ac8dd8f6f8531c0e646a3cc0259ad7aaaf2d1131c6844208570a91845cf7443",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          244
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 233,
+        "selected_rom_reads": 3,
+        "trace_digest": "0aba6abd2843d9e03395d04fa0b1c2c06306e130f1e7c24d63fa43ed9119e0a0",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          245
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 234,
+        "selected_rom_reads": 3,
+        "trace_digest": "d048fed36ff13f8c7a720b1caa07b9a489d4b5eea36ef6c40d35bed82a01775c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          246
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 235,
+        "selected_rom_reads": 3,
+        "trace_digest": "9155c1e73e9a81bb87861c6e86616f9e1690660dfb8f51f96326053d568fa753",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          247
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 236,
+        "selected_rom_reads": 3,
+        "trace_digest": "ff2389d93bd5a9bb792ac6a03574e2ad040f7f9addd9366305dfabc3f0ca6fc5",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          248
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 237,
+        "selected_rom_reads": 3,
+        "trace_digest": "c3d664115b5fd839fbc5b93c80a0aadfa73cb7fe3391b64de7d88d5d69a81514",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          249
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 238,
+        "selected_rom_reads": 3,
+        "trace_digest": "9ad622bf29f49bdbc1a8a4aa78696d545c0721117125fc37d864be2b77068e28",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          250
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 239,
+        "selected_rom_reads": 3,
+        "trace_digest": "215e974e22157c6ea01f9d77ab3278897e7b6eda7ed21584ec098fd9876d7f9c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          251
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 240,
+        "selected_rom_reads": 3,
+        "trace_digest": "d4e9967cb7643b68db91deb289757ccc69de5db9fbf2990a4f59433939bcc79e",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          252
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 241,
+        "selected_rom_reads": 3,
+        "trace_digest": "63395c8cf2d77f76b86bafb1e6f74a327cfec9b12aca9dd59cb9f088a578563c",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          253
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 242,
+        "selected_rom_reads": 3,
+        "trace_digest": "9f620e55c029b741e388a9f2b2375107d84447f9a374c68dc49dd5c5477a7214",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          254
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 243,
+        "selected_rom_reads": 3,
+        "trace_digest": "a1115dc8ed2eedec34b35da695748252b948d9c1df26053fa5e9d5efb17fa72f",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          255
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 244,
+        "selected_rom_reads": 3,
+        "trace_digest": "ef0bd59e5f42f27746c2a8d3cf529775e1139732e9cb752cd4e5dc511220be2a",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          0
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 245,
+        "selected_rom_reads": 3,
+        "trace_digest": "a0244e77fccc1a3ea5ad3304c4fd88e1f0434d7ddeabbb83ff29385c7efa3f8d",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          1
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 246,
+        "selected_rom_reads": 3,
+        "trace_digest": "79f3bc223f05e7e628c024072ee8a585b6e0569cf4268c534103222740eebec0",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          2
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 247,
+        "selected_rom_reads": 3,
+        "trace_digest": "69875c387b07dd1b5f67ee7fe036512b9a4086475598ea9f46a8a0d708e2f741",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          3
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 248,
+        "selected_rom_reads": 3,
+        "trace_digest": "d147acf582f6c96ca6f37e52ed5248dbe1d628b14d23bd79dc4a31a994019cbd",
+        "writes_13": []
+      },
+      {
+        "captures_392": 0,
+        "codes_392": [],
+        "final_pc": "084",
+        "reads_38e": 1,
+        "register": 13,
+        "seed": 249,
+        "selected_rom_reads": 3,
+        "trace_digest": "0d2cd0409af844f84f0f1e008eb72524bfd453b596fd2ccd32caacfc34dccbbd",
+        "writes_13": []
+      },
+      {
+        "captures_392": 0,
+        "codes_392": [],
+        "final_pc": "084",
+        "reads_38e": 1,
+        "register": 13,
+        "seed": 250,
+        "selected_rom_reads": 3,
+        "trace_digest": "b9ad9b9b278ca46d708cfef2adb9dab0746b94706c7b5abff037c3625b7f37e6",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          6
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 251,
+        "selected_rom_reads": 3,
+        "trace_digest": "2c83c273aa81896bc6351895c25d17ac8daae6c6ece66ae07cbea317fa6fc9fa",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          7
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 252,
+        "selected_rom_reads": 3,
+        "trace_digest": "e27f2fc903b8d511b2bdaa80db3e4673b6ea40e94e838af5bb11b069b41a4f25",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          8
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 253,
+        "selected_rom_reads": 3,
+        "trace_digest": "53f28d6560740c9bdc041af44d82d6667ee6b343c2ea020548810835ff908a92",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          9
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 254,
+        "selected_rom_reads": 3,
+        "trace_digest": "cc1629b5bffee2466d1e4b5bb36bab89b04b31d533be7b4376bb1163d69afaf1",
+        "writes_13": []
+      },
+      {
+        "captures_392": 17,
+        "codes_392": [
+          10
+        ],
+        "final_pc": "389",
+        "reads_38e": 39,
+        "register": 13,
+        "seed": 255,
+        "selected_rom_reads": 3,
+        "trace_digest": "2fa547abadb79d6efb3e70671c7ba408cf9647c0338ef2c9e4ee78f78801e297",
+        "writes_13": []
+      }
+    ],
+    "seeds": 256
+  },
+  "source_sha256": {
+    "assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
+    "g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "g2/ram_seed_output_screen.py": "e06ab46895fc4c33e112eecaec3ad3f958ce2cc8cab0265dea1ce2fcaa42ca04",
+    "g2/results/swapped-sine-loop/phase-20-mapping.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "g2/results/swapped-sine-loop/phase-20-scenario.json": "255ad276e7a808de4e17af7cac089be6fe82e52fb36e7b880e145dd2e5837b5e"
+  },
+  "status": "scoped startup-state screen, not physical output"
+}

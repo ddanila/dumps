@@ -50,3 +50,17 @@ sequence is changing, but without controller-symbol dependence or a traced
 clock/output route it is not a demonstrated transmitter. Next experiments
 should vary the latch data source and clock phase, then test any surviving
 path against the transmitter checks in [PLAN-2.md](../PLAN-2.md#3-acceptance-for-g2).
+
+The [startup-RAM screen](ram_seed_output_screen.py) tests another concrete
+alternative to that fixed q3 code. With Q=5 and the same controller-bit
+fixture, it changes each initial Am2901 RAM byte independently through nine
+nonzero values. None of the 135 non-RAM13 cases changes the 392 latch code or
+control-flow counts. A complete 256-value sweep of RAM13 shows a more precise
+dependency: 254 seeds capture one constant code, `(11 + RAM13) mod 256`, for
+all 17 visits in 512 cycles. RAM13 is never written in these runs. Seeds 249
+and 250 instead leave the recurring path at the branch at 390, visit the
+controller input once, capture no code at 392 and reach 084. The
+[saved result](results/ram-seed-output-screen.json) includes source hashes and
+per-seed outcomes. This rules out a changing 392 output from any *single*
+initial RAM-byte change in this fixture; simultaneous state changes, other
+clock sites and other input routes remain open.
