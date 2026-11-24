@@ -33,3 +33,15 @@ This physical fragment narrows a PROM-to-latch assignment, while the tested
 I1 destination remains speculative. It neither identifies the transmitter
 nor closes off other U5 Q3 destinations, control modes, D-input routes or
 clock phases.
+
+The ROM-enable choice was another shared assumption in those ten runs. A
+[follow-up sweep](photo_d4_gate_sweep.py) keeps the same direct/inverted I1
+hypotheses in q1 and fitted-swapped, but tries all 137 previously fitted
+diagnostic Am27S31 read gates. All **548** controller-fed runs complete with
+38 full input groups. For direct `I1=10.4`, none of the gates gives more than
+ten ROM reads. For inverted `I1=!10.4`, 69 gates per mapping do, but every
+case still has one fixed ROM-address and candidate output pattern per repeated
+bit value. The [saved gate report](results/photo-d4-gate-sweep.json) preserves
+each gate and trace digest. These fitted gates are neither traced wiring nor
+an exhaustive set of possible enable circuits; the result closes only this
+candidate source/destination/gate neighborhood.
