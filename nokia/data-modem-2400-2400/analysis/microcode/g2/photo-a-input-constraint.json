@@ -1,0 +1,46 @@
+{
+  "status": "photo-candidates-not-continuity-measurements",
+  "front_photo": "../../../photos/PXL_20261123_114926601.jpg",
+  "front_sha256": "9f15c0ee40fa352a7c123975e83753a7f073320d7bc8971dc9c282358c06f7b2",
+  "back_photo": "../../../photos/PXL_20261123_114932814.jpg",
+  "back_sha256": "1b526e960598b86ee18bb2f336fe47a15f9c8535dc10700c7a24c78a9ada8840",
+  "rectified_size": [4000, 2000],
+  "candidate_routes": [
+    {
+      "from": "U10 pin 16 (MMI 6381 D6)",
+      "through": "U5 pin 7 (74LS374 D2) and U5 pin 6 (Q2)",
+      "to": "U2 pin 1 (Am2901 A3)",
+      "front_data_track_seed": [1204, 1450],
+      "front_bright_component_bounds_threshold_115": [1185, 1341, 1208, 1654],
+      "front_via_approx": [1222, 1583],
+      "back_via_approx": [1247, 1639],
+      "back_address_track_seed": [3500, 1670],
+      "back_bright_component_bounds_threshold_120": [1239, 1617, 3502, 1676],
+      "conditional_assignment": "A3 = 10.6",
+      "limitation": "Pin-pad alignment and front/back via registration are approximate; a dim gap remains near the U2 destination."
+    },
+    {
+      "from": "U10 pin 20 (MMI 6381 active-low E2 input)",
+      "through": "U5 pin 3 (74LS374 D0) and U5 pin 2 (Q0)",
+      "to": "U2 pin 12 (Am2901 I0)",
+      "front_data_track_seed": [1350, 1450],
+      "front_bright_component_bounds_threshold_115": [1330, 1341, 1352, 1653],
+      "front_via_approx": [1432, 1548],
+      "back_via_approx": [1470, 1573],
+      "back_instruction_track_seed": [3096, 1578],
+      "back_bright_component_bounds_threshold_120": [1470, 1568, 3111, 1608],
+      "conditional_assignment": "I0 = latched E2-side level",
+      "limitation": "The route crosses front/back via registration and ends at a dim destination pad. The driver and latch timing are unknown."
+    },
+    {
+      "from": "U10 pin 20 E2-side candidate net",
+      "to": "U2 pin 3 (Am2901 A1)",
+      "front_via_approx": [1368, 1590],
+      "back_via_approx": [1400, 1608],
+      "back_address_track_seed": [3428, 1650],
+      "back_bright_component_bounds_threshold_120": [1389, 1600, 3430, 1657],
+      "conditional_assignment": "A1 = E2-side level",
+      "limitation": "A shared E2-side signal is inferred from pad and via alignment; electrical connection is unmeasured."
+    }
+  ]
+}
