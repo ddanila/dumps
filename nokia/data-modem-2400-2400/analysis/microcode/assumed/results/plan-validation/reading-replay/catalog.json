@@ -1489,6 +1489,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER0.md",
+        "limitations": "Current flags with BLT-side replies, fixed later dispatch index 2 and zero initial state. R6/R7=FF arise from that reply policy. Local loop predicates cover every R0; reset boundary sweep does not identify physical timing or a transient output consumer.",
+        "meaning": "127/12C clear Q and test fixed R0: previous flags return only at 00, current only at FF. Current-timing zero reset composes 09A/270/238/240/131, discards temporary input Q values and retains Q=FF, R0=R2=127 and R4=c+D115 at terminal.",
+        "name": "fixed-register waits and handler-0 arithmetic sequence",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "11A",
+            "130"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1511,7 +1527,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 691,
+    "annotated_used_words": 703,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -1803,6 +1819,22 @@
             ]
           ],
           "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER0.md",
+          "limitations": "Current flags with BLT-side replies, fixed later dispatch index 2 and zero initial state. R6/R7=FF arise from that reply policy. Local loop predicates cover every R0; reset boundary sweep does not identify physical timing or a transient output consumer.",
+          "meaning": "127/12C clear Q and test fixed R0: previous flags return only at 00, current only at FF. Current-timing zero reset composes 09A/270/238/240/131, discards temporary input Q values and retains Q=FF, R0=R2=127 and R4=c+D115 at terminal.",
+          "name": "fixed-register waits and handler-0 arithmetic sequence",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "11A",
+              "130"
+            ]
+          ],
+          "status": "hypothesis"
         }
       ],
       "callers": [
@@ -1845,6 +1877,22 @@
           "ranges": [
             [
               "12C",
+              "130"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER0.md",
+          "limitations": "Current flags with BLT-side replies, fixed later dispatch index 2 and zero initial state. R6/R7=FF arise from that reply policy. Local loop predicates cover every R0; reset boundary sweep does not identify physical timing or a transient output consumer.",
+          "meaning": "127/12C clear Q and test fixed R0: previous flags return only at 00, current only at FF. Current-timing zero reset composes 09A/270/238/240/131, discards temporary input Q values and retains Q=FF, R0=R2=127 and R4=c+D115 at terminal.",
+          "name": "fixed-register waits and handler-0 arithmetic sequence",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "11A",
               "130"
             ]
           ],
@@ -4781,6 +4829,7 @@
     "GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
     "HANDLER-REPLY.md": "4d19202b5d554ae76b201bb4d709a4d52cb3e31031aecac2ee99d3ae0970f76d",
+    "HANDLER0.md": "6820336aafb949943d7c5d08681850a2c7c8434c50442fc067726b7d677f2598",
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",

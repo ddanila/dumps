@@ -674,3 +674,8 @@ counts and zero-source termination under the declared table entry.
 [Handler 5 continuation composition](HANDLER5-BRANCHES.md) connects all three
 34C cases to actual reset and terminal R2 stores. It distinguishes Q=0/c/FF,
 which input survives in R4, and the retained R3=3 caused by entry at 07B.
+
+[Handler 0's fixed-register waits](HANDLER0.md) distinguish q3's zero/Q
+source from the fitted-original mask test. Current timing permits the full
+reset arithmetic sequence; intermediate Q inputs are overwritten before
+terminal storage, while the captured R4 sum survives.

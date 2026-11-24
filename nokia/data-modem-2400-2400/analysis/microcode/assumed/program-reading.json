@@ -1505,6 +1505,22 @@
       "evidence": "HANDLER5-BRANCHES.md",
       "meaning": "From reset code c=5 mod 8, initial zero second component permits paired return. Three 34C cases compose 366/357/335 to retain Q=0,c,FF and select v,v+c,u in R4. Entry 07B preserves R3=3 and bypasses earlier terminal preparation; two preceding-Y stores target R2.",
       "limitations": "q3 previous flags, PLP replies, sampled u/v/m inputs and zero initial RAM. Global table index 0/1/2, separate D089=2 terminal index. Nonzero captured components can instead repeat before 34C; no physical mode/output assignment inferred."
+    },
+    {
+      "name": "fixed-register waits and handler-0 arithmetic sequence",
+      "ranges": [
+        [
+          "11A",
+          "130"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER0.md",
+      "meaning": "127/12C clear Q and test fixed R0: previous flags return only at 00, current only at FF. Current-timing zero reset composes 09A/270/238/240/131, discards temporary input Q values and retains Q=FF, R0=R2=127 and R4=c+D115 at terminal.",
+      "limitations": "Current flags with BLT-side replies, fixed later dispatch index 2 and zero initial state. R6/R7=FF arise from that reply policy. Local loop predicates cover every R0; reset boundary sweep does not identify physical timing or a transient output consumer."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"
