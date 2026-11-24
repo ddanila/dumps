@@ -1,0 +1,691 @@
+{
+  "configuration": {
+    "base": "results/nested-reset-study/seed-0115",
+    "cycles": 512,
+    "evidence": "Construct a diagnostic contract from q2 seed-115 reset: change only D at 225, two D reads at 089, and the terminal index sources to previous Y. Restore the exact state after a replayed common 186-cycle reset prefix. No fabricated return frame, PC repair or initial data register is used. Inputs are PC-keyed stubs, not a recovered controller/board protocol.",
+    "prefix_cycles": 186,
+    "seed": 115,
+    "status": "hypothesis",
+    "unadjusted_witness": [
+      1,
+      6,
+      7
+    ],
+    "witnesses": [
+      [
+        0,
+        0,
+        15
+      ],
+      [
+        1,
+        6,
+        7
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        127,
+        6,
+        5
+      ],
+      [
+        128,
+        5,
+        5
+      ],
+      [
+        204,
+        10,
+        15
+      ],
+      [
+        254,
+        15,
+        0
+      ],
+      [
+        255,
+        6,
+        15
+      ]
+    ]
+  },
+  "counts": {
+    "contract_cases": 65536,
+    "first_destination_r6": 4096,
+    "first_value_absent_at_finish": 3840,
+    "unadjusted_cases": 4096,
+    "unadjusted_wrong_second_address": 3840
+  },
+  "execution_sha256": "ece84d51556b5105d3e5ca6bb2c8731bd126d726c8ed721e9beb158c761a29fc",
+  "interpretation": "Constructed diagnostic input contract under q2 and preceding-Y terminal indexing. Exhaustive suffixes restore a freshly replayed zero-reset prefix, including its real four-frame stack; selected full core runs match every restored step. This is not a recovered board protocol. Stores contain Q>>1, and the first R5 store is overwritten; a second R5 store restores its value.",
+  "snapshot": {
+    "cycle": 186,
+    "depth": 4,
+    "pc": 549,
+    "prefix_trace_digest": "003059ad49930fe0e44f3b1d9f8e7cef26d8646f80fd85fccd489eb2bae4e309",
+    "previous": {
+      "carry": 0,
+      "f": 0,
+      "overflow": 0,
+      "sign": 0,
+      "y": 0,
+      "zero": 1
+    },
+    "q": 0,
+    "ram": [
+      0,
+      0,
+      204,
+      0,
+      102,
+      0,
+      203,
+      203,
+      0,
+      0,
+      0,
+      0,
+      100,
+      0,
+      1,
+      204
+    ],
+    "sp": 0,
+    "stack": [
+      709,
+      531,
+      767,
+      544
+    ]
+  },
+  "source_sha256": {
+    "assumed/affine_tail_study.py": "799b3574e12b7e0540f4b6e78aadd3660a092416ef5ea890444341fdd321794c",
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "assumed/execute.py": "5a92df72447522918fbb3db64610f5bb9e65db5609e76a95627e4a264786a0de",
+    "assumed/register-contract-study.json": "61f6ed791b4c5c628344f5b5023c16604cdb67302d562bd2631f5babbd5586df",
+    "assumed/register_contract_study.py": "16d1474872e8f3161f70e5bf174fc4c5cbdcbb7daf4580416a18fe6b32b321d5",
+    "assumed/results/nested-reset-study/seed-0115/mapping.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/nested-reset-study/seed-0115/scenario.json": "0d23fb1226220ffe34623d29a89bbff133d9495e6b96ba9a5d03824befe34569",
+    "assumed/results/nested-reset-study/seed-0115/summary.json": "c260c5ccca516af322ca498bd3a301f65a0204850e5916e6f36f36534f61329d",
+    "assumed/results/nested-reset-study/seed-0115/trace.jsonl": "f01a847419ccc57764e5355c0ee769cc8785ff753c0f990f5b29e2bd4fe8cc4e",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "stored_values": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "witnesses": [
+    {
+      "dispatches": [
+        {
+          "index": 0,
+          "pc": 126,
+          "register": 0,
+          "target": 138
+        },
+        {
+          "index": 15,
+          "pc": 129,
+          "register": 15,
+          "target": 153
+        }
+      ],
+      "first": 0,
+      "first_value_absent_at_finish": false,
+      "inputs": [
+        203,
+        218
+      ],
+      "path": "q00-r00-r15",
+      "payload": 0,
+      "prediction": {
+        "helper5": 101,
+        "q": 0,
+        "ram": [
+          0,
+          0,
+          0,
+          0,
+          102,
+          101,
+          203,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          0
+        ],
+        "value": 0
+      },
+      "second": 15,
+      "trace_digest": "1ce146c5b398805e9a4d9592346d4c5ff79a61fcf7d2267c886fe2d411cade5f"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 6,
+          "pc": 126,
+          "register": 6,
+          "target": 144
+        },
+        {
+          "index": 7,
+          "pc": 129,
+          "register": 7,
+          "target": 145
+        }
+      ],
+      "first": 6,
+      "first_value_absent_at_finish": false,
+      "inputs": [
+        209,
+        7
+      ],
+      "path": "q01-r06-r07",
+      "payload": 1,
+      "prediction": {
+        "helper5": 101,
+        "q": 1,
+        "ram": [
+          0,
+          0,
+          0,
+          0,
+          102,
+          101,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          2
+        ],
+        "value": 0
+      },
+      "second": 7,
+      "trace_digest": "a81589e3ac31cbc12225902ada01b0f43598ab9a9252cca5d06b09e805391603"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 6,
+          "pc": 126,
+          "register": 6,
+          "target": 144
+        },
+        {
+          "index": 210,
+          "pc": 129,
+          "register": 2,
+          "target": 140
+        }
+      ],
+      "first": 6,
+      "inputs": [
+        209,
+        210
+      ],
+      "path": "unadjusted",
+      "payload": 1,
+      "prediction": {
+        "helper5": 101,
+        "q": 1,
+        "ram": [
+          0,
+          0,
+          0,
+          0,
+          102,
+          101,
+          0,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          2
+        ],
+        "value": 0
+      },
+      "second": 7,
+      "trace_digest": "a3df280b9f80e4f57dda82a9b20b3a737e1d05ae26e0ae65a8b86ec9f0b40181"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 5,
+          "pc": 126,
+          "register": 5,
+          "target": 143
+        },
+        {
+          "index": 0,
+          "pc": 129,
+          "register": 0,
+          "target": 138
+        }
+      ],
+      "first": 5,
+      "first_value_absent_at_finish": true,
+      "inputs": [
+        208,
+        203
+      ],
+      "path": "q02-r05-r00",
+      "payload": 2,
+      "prediction": {
+        "helper5": 100,
+        "q": 2,
+        "ram": [
+          1,
+          0,
+          0,
+          0,
+          102,
+          100,
+          203,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          3
+        ],
+        "value": 1
+      },
+      "second": 0,
+      "trace_digest": "f5ee13e72c4f4a00ff87babe2d2b97f29fbf53d20283ea05fcd91943be883247"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 6,
+          "pc": 126,
+          "register": 6,
+          "target": 144
+        },
+        {
+          "index": 5,
+          "pc": 129,
+          "register": 5,
+          "target": 143
+        }
+      ],
+      "first": 6,
+      "first_value_absent_at_finish": false,
+      "inputs": [
+        209,
+        68
+      ],
+      "path": "q7f-r06-r05",
+      "payload": 127,
+      "prediction": {
+        "helper5": 38,
+        "q": 127,
+        "ram": [
+          63,
+          0,
+          0,
+          0,
+          102,
+          63,
+          63,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          128
+        ],
+        "value": 63
+      },
+      "second": 5,
+      "trace_digest": "95a328f2a3529c5efa904407cd74e8d5c060d5d55da426c4110242720f2b4d23"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 5,
+          "pc": 126,
+          "register": 5,
+          "target": 143
+        },
+        {
+          "index": 5,
+          "pc": 129,
+          "register": 5,
+          "target": 143
+        }
+      ],
+      "first": 5,
+      "first_value_absent_at_finish": false,
+      "inputs": [
+        208,
+        208
+      ],
+      "path": "q80-r05-r05",
+      "payload": 128,
+      "prediction": {
+        "helper5": 37,
+        "q": 128,
+        "ram": [
+          64,
+          0,
+          0,
+          0,
+          102,
+          64,
+          203,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          129
+        ],
+        "value": 64
+      },
+      "second": 5,
+      "trace_digest": "f2d864b40f703b7ce3e5e33df6a25d8f84db9bd80aeaa106219bf8fe516e497c"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 10,
+          "pc": 126,
+          "register": 10,
+          "target": 148
+        },
+        {
+          "index": 15,
+          "pc": 129,
+          "register": 15,
+          "target": 153
+        }
+      ],
+      "first": 10,
+      "first_value_absent_at_finish": false,
+      "inputs": [
+        213,
+        218
+      ],
+      "path": "qcc-r10-r15",
+      "payload": 204,
+      "prediction": {
+        "helper5": 127,
+        "q": 204,
+        "ram": [
+          102,
+          0,
+          0,
+          0,
+          102,
+          127,
+          203,
+          203,
+          0,
+          0,
+          102,
+          0,
+          100,
+          0,
+          1,
+          102
+        ],
+        "value": 102
+      },
+      "second": 15,
+      "trace_digest": "b9555e7be6e7b519813927c85998055174f0467ca2e4f968efdff1298bbf8036"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 15,
+          "pc": 126,
+          "register": 15,
+          "target": 153
+        },
+        {
+          "index": 0,
+          "pc": 129,
+          "register": 0,
+          "target": 138
+        }
+      ],
+      "first": 15,
+      "first_value_absent_at_finish": false,
+      "inputs": [
+        218,
+        203
+      ],
+      "path": "qfe-r15-r00",
+      "payload": 254,
+      "prediction": {
+        "helper5": 102,
+        "q": 254,
+        "ram": [
+          127,
+          0,
+          0,
+          0,
+          102,
+          102,
+          203,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          127
+        ],
+        "value": 127
+      },
+      "second": 0,
+      "trace_digest": "a7f7f115b62fa7eacc075a7589ce4fba63fd3434d5d3d014430765475640ee99"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 6,
+          "pc": 126,
+          "register": 6,
+          "target": 144
+        },
+        {
+          "index": 15,
+          "pc": 129,
+          "register": 15,
+          "target": 153
+        }
+      ],
+      "first": 6,
+      "first_value_absent_at_finish": false,
+      "inputs": [
+        209,
+        142
+      ],
+      "path": "qff-r06-r15",
+      "payload": 255,
+      "prediction": {
+        "helper5": 102,
+        "q": 255,
+        "ram": [
+          127,
+          0,
+          0,
+          0,
+          102,
+          102,
+          127,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          127
+        ],
+        "value": 127
+      },
+      "second": 15,
+      "trace_digest": "03a292e097c20fb6e77408fffb811f2f4f0393e33b716cca2f16d843f6498b1a"
+    }
+  ]
+}

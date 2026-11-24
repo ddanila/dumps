@@ -529,3 +529,9 @@ table as copies of R0 into each RAM register. The caller stores Q>>1 twice,
 nine modeled instruction cycles apart. A preceding-Y address candidate
 feeds back through R6 when the first store selects it. Four index candidates
 remain compatible with clean termination but leave different RAM states.
+
+[A diagnostic two-store input contract](REGISTER-CONTRACT.md) connects the
+nested Q load to independently selected terminal register stores. It checks
+65,536 continuations of an actual reset checkpoint and nine complete core
+replays, retaining the R5 overwrite and the need to adjust the second index
+when the first destination is R6. The physical protocol remains unknown.

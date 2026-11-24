@@ -836,9 +836,9 @@
         "status": "hypothesis"
       },
       {
-        "evidence": "INDEXED-TAIL.md",
-        "limitations": "Index source is an explicit candidate, not recovered wiring. Twenty matched reset runs terminate with different RAM destinations; no physical external write is identified.",
-        "meaning": "Copy R1 into R2, call the half-Q preparation twice, and use two computed calls to store Q>>1 into selected RAM registers. Under preceding-Y indexing, a first store into R6 can change the second address calculation.",
+        "evidence": "REGISTER-CONTRACT.md",
+        "limitations": "A constructed input contract exhausts all Q bytes/destination pairs from a verified reset checkpoint. The index source and PC-keyed inputs remain hypotheses, not a recovered board protocol or physical output.",
+        "meaning": "Copy R1 into R2, prepare Q>>1 twice, and store it into two selected RAM registers. Under preceding-Y indexing, a first store into R6 changes the base for the second address. The second helper overwrites a first R5 store; a second R5 store restores the value.",
         "name": "two indexed register stores",
         "profiles": [
           "q2"
@@ -3251,7 +3251,7 @@
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
-    "INDEXED-TAIL.md": "565feee229fd842e0ce9e686d8fcc9a630af0f93dc5de66eb0453421077ae89f",
+    "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",
     "LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
@@ -3269,6 +3269,7 @@
     "Q2-DISPATCH.md": "ec2c3d05187ef9a86c48cfe0a85399d0de4482041a8799daa7cb540506ecf47f",
     "Q2-OVERWRITE.md": "9c943cafa9a4a9da2f5c19d4da5cd005e26e5c4488af7ab0f5b9983be42dd3ad",
     "Q2-TRANSFORM-LOOP.md": "975f3af99162e38c5a4bc0040536ebc2072068ec1a3b0a6cbe53a977643e2b63",
+    "REGISTER-CONTRACT.md": "b0769c1d90f1cc3e8f6fc8d780f723e57bfe6666583f3d87ae505e7ffd193cf9",
     "REGISTER-SCAN.md": "715ef8a8a1ada20eb4852f3be42828f18424dbad4fbffbcbe4ab031c00ec1683",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",

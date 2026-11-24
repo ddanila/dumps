@@ -126,7 +126,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 86 functional/assumption tests pass, including checks that
+byte. All 87 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -136,3 +136,8 @@ of 287–28A under the optional gate and zero-reset scenario. It checks every
 entry and the reaching register writes, allowing arbitrary external bytes and
 declared dispatch entries. This scoped explanation does not change the default
 listing's unresolved hardware-entry labels.
+
+The [diagnostic register-store contract](REGISTER-CONTRACT.md) connects the
+nested Q load to the terminal stores using explicitly constructed input bytes.
+It exhausts destination pairs from a verified reset checkpoint, preserves
+register side effects, and does not identify a physical controller protocol.

@@ -863,9 +863,9 @@
       "profiles": [
         "q2"
       ],
-      "evidence": "INDEXED-TAIL.md",
-      "meaning": "Copy R1 into R2, call the half-Q preparation twice, and use two computed calls to store Q>>1 into selected RAM registers. Under preceding-Y indexing, a first store into R6 can change the second address calculation.",
-      "limitations": "Index source is an explicit candidate, not recovered wiring. Twenty matched reset runs terminate with different RAM destinations; no physical external write is identified."
+      "evidence": "REGISTER-CONTRACT.md",
+      "meaning": "Copy R1 into R2, prepare Q>>1 twice, and store it into two selected RAM registers. Under preceding-Y indexing, a first store into R6 changes the base for the second address. The second helper overwrites a first R5 store; a second R5 store restores the value.",
+      "limitations": "A constructed input contract exhausts all Q bytes/destination pairs from a verified reset checkpoint. The index source and PC-keyed inputs remain hypotheses, not a recovered board protocol or physical output."
     },
     {
       "name": "half-Q and input-difference preparation",

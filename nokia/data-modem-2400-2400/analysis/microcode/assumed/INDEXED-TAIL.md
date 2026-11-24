@@ -128,3 +128,8 @@ python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode -p
 [report](results/indexed-tail-study/report.json) retain the fixture scope,
 execution digest, twelve local witnesses, twenty full reset comparisons and
 source hashes. The new arithmetic/store annotations apply only to q2.
+
+The follow-up [diagnostic input contract](REGISTER-CONTRACT.md) supplies
+independent Q and address bytes from the same verified reset prefix. It
+checks all destination pairs, including R6 address feedback and the R5
+overwrite, without treating the constructed inputs as a recovered protocol.

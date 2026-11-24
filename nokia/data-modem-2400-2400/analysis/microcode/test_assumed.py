@@ -17,6 +17,35 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_register_contract_restores_real_reset_stack(self):
+        from register_contract_study import capture, scenario_for, resume, verify_full
+        from model import UnknownStack
+        config = read(HERE/'register-contract-study.json')
+        base_path = HERE/config['base']
+        mapping = read(base_path/'mapping.json')
+        base = read(base_path/'scenario.json')
+        rows = decode(mapping)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            snapshot = capture(mapping, base, config, root/'prefix')
+            self.assertEqual((snapshot['pc'], snapshot['depth'], snapshot['cycle']), (0x225, 4, 186))
+            for number,(payload,first,second,adjust,actual_second) in enumerate((
+                    (1,6,7,True,7), (1,6,7,False,2), (2,5,0,True,0), (255,6,15,True,15))):
+                scenario = scenario_for(base, config, payload, first, second, snapshot['ram'][6], adjust)
+                got = resume(rows, scenario, snapshot, payload, first, second, adjust)
+                self.assertEqual([d['register'] for d in got['dispatches']], [first,actual_second])
+                self.assertEqual((got['cycles'], got['max_depth'], got['q']), (42,4,payload))
+                if first == 5:
+                    self.assertEqual(got['ram'][5], 100)
+                if payload == 255:
+                    self.assertEqual((got['ram'][6], got['ram'][15]), (127,127))
+                verify_full(mapping,scenario,config,snapshot,got,root/f'case-{number}')
+            broken = copy.deepcopy(snapshot)
+            broken['stack'][broken['sp']] = None
+            scenario = scenario_for(base,config,1,6,7,snapshot['ram'][6])
+            with self.assertRaises(UnknownStack):
+                resume(rows,scenario,broken,1,6,7)
+
     def test_indexed_tail_address_feedback_and_overwrite(self):
         from indexed_tail_study import probe, local_scenario, inspect_reset
         from nested_reset_study import scenario_for
