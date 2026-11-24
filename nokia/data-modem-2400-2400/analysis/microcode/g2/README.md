@@ -84,6 +84,15 @@ presentations are consumed, but the candidate ALU group and post-group state sti
 depend only on the current bit. No ROM read follows the recurring dispatch.
 This narrows the same candidate path without establishing a transmitter.
 
+The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
+an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the
+terminal word. Fifteen such pulses produce clean, stack-preserving restarts
+of the real-PROM q3 Gray-operand path, but only six candidate output visits.
+A changing D316 fixture yields alternating Y values 10 and 34, with no
+demonstrated phase accumulation or physical output route. The datasheet
+offers no dedicated runtime reset pin; the command override has no traced
+board circuit and remains a diagnostic alternative.
+
 A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
 changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,
 it consumes the same 128 controller bits and gives distinct but fixed ALU
