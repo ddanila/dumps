@@ -1353,6 +1353,54 @@
       "evidence": "SHORT-HELPERS.md",
       "meaning": "Expose two unchanged R0 values before the decrement/carry-adjusted pair, then set R2=R4 and Q=R0.",
       "limitations": "q3 previous flags, selector 6 false and documented input/initial-state planes. Actual local BSR/POP validation; no physical Y consumer or output strobe inferred."
+    },
+    {
+      "name": "input capture and overflow-selected copy",
+      "ranges": [
+        [
+          "270",
+          "27F"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "BRANCH-HELPERS.md",
+      "meaning": "Load Q from D271, replace R2 with R1, and copy Q to R0 iff old R0+R3 overflows. Previous carries prove 273 and 279\u201327A are bypassed. Other registers are preserved.",
+      "limitations": "Previous-flag q3 local calls; bypass proof does not extend to other timing or condition assignments. No reset reachability is inferred."
+    },
+    {
+      "name": "optional captures and Q complement",
+      "ranges": [
+        [
+          "335",
+          "340"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "BRANCH-HELPERS.md",
+      "meaning": "Load R4 from D336; selector 5 optionally bypasses R12=D338+Q and R0=D339 AND Q. Constant selector 6 chooses preserved Q with zero final Y or complemented Q with R0 exposed on final Y.",
+      "limitations": "Local q3 calls with independently declared constant selectors 5/6; changing selector 6 between 33C and 33D is outside the contract. No reset reachability is inferred."
+    },
+    {
+      "name": "three return-sum exposures",
+      "ranges": [
+        [
+          "357",
+          "360"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "BRANCH-HELPERS.md",
+      "meaning": "Copy R1 to R0 and D359+Q to R4, preserving Q. Selector 5 and preceding OR carry choose a final transient sum of R12 with R2, R3 or R1 without changing retained state.",
+      "limitations": "q3 local calls with constant selector 5 and previous ripple logical carry; physical consumers of transient sums unknown. No reset reachability is inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

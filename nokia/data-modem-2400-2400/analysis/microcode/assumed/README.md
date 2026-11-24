@@ -634,3 +634,8 @@ reset witness verify the preconditions used by later handlers.
 effects from transient Y sequences under q3. The 238/240 pair retains identical
 RAM/Q but exposes carry-adjustment results in a different order; no external
 consumer is assigned to those values.
+
+[Conditional helper contracts](BRANCH-HELPERS.md) explain q3 270, 335 and
+357 across explicit branch policies. They separate an overflow-selected register
+copy, optional captures and Q complement, and three transient return sums
+with identical retained state. Local calls do not imply reset reachability.

@@ -51,6 +51,7 @@ into one address listing.
 | 09E–0CD, 0DE (q3) | Masked capture, conditional increment and two Q drains | Diagnostic handler-6 inputs and previous flags; modem purpose unknown |
 | 148–177, 180–186, 2E6–2EB (q3) | Wrapped byte sum with input-dependent shift timing | Handler-1 diagnostic inputs; R14 consumer unknown |
 | 259–264, 26A–26F, 2A0–2B2 (q3) | Sum-carry and comparison-selected inputs | Handler-4 code-4 context and fixed dispatch; physical input meaning unknown |
+| 270–27F, 335–340, 357–360 (q3) | Overflow-selected copy, optional captures/complement, and three return sums | Local calls; explicit constant selectors; transient consumers unknown |
 | 078–084 | Terminal tail | Physical completion and restart unknown |
 | 085–089 | Register right-shift helper; q2 half-Q/input-difference preparation | Not established as serial output |
 | 07C–081, 08A–099 (q2) | Two indexed register stores and R0-copy table | Index source and physical output remain unknown |
@@ -97,7 +98,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 578 used words, including overlaps and disconnected
+These annotations cover 616 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -134,7 +135,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 108 functional/assumption tests pass, including checks that
+byte. All 109 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -229,7 +230,7 @@ routes and transfer policies produce distinct retained codes and update times;
 all connections remain labelled hypotheses, and core traces are unchanged.
 
 [The plan acceptance audit](PLAN-AUDIT.md) verifies the current long-run and
-coverage evidence separately from interpretation. Six cataloged direct-call
+coverage evidence separately from interpretation. Three cataloged direct-call
 entries still lack annotations; physical fidelity is not added as a prerequisite
 beyond the plan’s explicit assumption-based scope.
 
@@ -242,3 +243,8 @@ reset witness verify the preconditions used by later handlers.
 effects from transient Y sequences under q3. The 238/240 pair retains identical
 RAM/Q but exposes carry-adjustment results in a different order; no external
 consumer is assigned to those values.
+
+[Conditional helper contracts](BRANCH-HELPERS.md) explain q3 270, 335 and
+357 across explicit branch policies. They separate an overflow-selected register
+copy, optional captures and Q complement, and three transient return sums
+with identical retained state. Local calls do not imply reset reachability.

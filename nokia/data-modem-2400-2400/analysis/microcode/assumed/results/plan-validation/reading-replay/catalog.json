@@ -1337,6 +1337,54 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "BRANCH-HELPERS.md",
+        "limitations": "Previous-flag q3 local calls; bypass proof does not extend to other timing or condition assignments. No reset reachability is inferred.",
+        "meaning": "Load Q from D271, replace R2 with R1, and copy Q to R0 iff old R0+R3 overflows. Previous carries prove 273 and 279\u201327A are bypassed. Other registers are preserved.",
+        "name": "input capture and overflow-selected copy",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "270",
+            "27F"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "BRANCH-HELPERS.md",
+        "limitations": "Local q3 calls with independently declared constant selectors 5/6; changing selector 6 between 33C and 33D is outside the contract. No reset reachability is inferred.",
+        "meaning": "Load R4 from D336; selector 5 optionally bypasses R12=D338+Q and R0=D339 AND Q. Constant selector 6 chooses preserved Q with zero final Y or complemented Q with R0 exposed on final Y.",
+        "name": "optional captures and Q complement",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "335",
+            "340"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "BRANCH-HELPERS.md",
+        "limitations": "q3 local calls with constant selector 5 and previous ripple logical carry; physical consumers of transient sums unknown. No reset reachability is inferred.",
+        "meaning": "Copy R1 to R0 and D359+Q to R4, preserving Q. Selector 5 and preceding OR carry choose a final transient sum of R12 with R2, R3 or R1 without changing retained state.",
+        "name": "three return-sum exposures",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "357",
+            "360"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1359,7 +1407,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 578,
+    "annotated_used_words": 616,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2066,7 +2114,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "BRANCH-HELPERS.md",
+          "limitations": "Previous-flag q3 local calls; bypass proof does not extend to other timing or condition assignments. No reset reachability is inferred.",
+          "meaning": "Load Q from D271, replace R2 with R1, and copy Q to R0 iff old R0+R3 overflows. Previous carries prove 273 and 279\u201327A are bypassed. Other registers are preserved.",
+          "name": "input capture and overflow-selected copy",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "270",
+              "27F"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "120",
         "18E"
@@ -2326,7 +2391,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "BRANCH-HELPERS.md",
+          "limitations": "Local q3 calls with independently declared constant selectors 5/6; changing selector 6 between 33C and 33D is outside the contract. No reset reachability is inferred.",
+          "meaning": "Load R4 from D336; selector 5 optionally bypasses R12=D338+Q and R0=D339 AND Q. Constant selector 6 chooses preserved Q with zero final Y or complemented Q with R0 exposed on final Y.",
+          "name": "optional captures and Q complement",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "335",
+              "340"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "350",
         "364"
@@ -2393,7 +2475,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "BRANCH-HELPERS.md",
+          "limitations": "q3 local calls with constant selector 5 and previous ripple logical carry; physical consumers of transient sums unknown. No reset reachability is inferred.",
+          "meaning": "Copy R1 to R0 and D359+Q to R4, preserving Q. Selector 5 and preceding OR carry choose a final transient sum of R12 with R2, R3 or R1 without changing retained state.",
+          "name": "three return-sum exposures",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "357",
+              "360"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "355",
         "362"
@@ -4474,6 +4573,7 @@
     "AFFINE-TAIL.md": "393c8bdc499ddbed9b397c077c028c455052c2376d4a8e5160071c158ca45700",
     "ALIAS-RUNTIME.md": "62e8ae91040c104ccbaf35ec7aaada079bbc72587aec3894fc5c69bba80d5dfe",
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
+    "BRANCH-HELPERS.md": "2fb38758b9913ba609f1a67abe3a898519cca2a64dede33e48254bc6b6700c2d",
     "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",
     "DISPATCH-RANGE.md": "090b900eb0dfbedd879791ebf549a2f7c2504bc08e9797c5ccea12efe627914d",
     "DISPATCH109.md": "c1bacc10b862be013766e19dcbdd234fad53848ea066e53152afd561b9f92403",

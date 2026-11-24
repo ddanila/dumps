@@ -127,6 +127,28 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_conditional_helpers_arbitrary_inputs_and_returns(self):
+        import random
+        from branch_helpers_study import scenario_for,probe,prediction,check
+        from reset_helpers_study import verify_core
+        config=read(HERE/'branch-helpers-study.json');base_path=HERE/config['base']
+        mapping,base=read(base_path/'mapping.json'),read(base_path/'scenario.json');rows=decode(mapping)
+        rng=random.Random(335357);paths={}
+        with tempfile.TemporaryDirectory() as temporary:
+            for entry in (0x270,0x335,0x357):
+                helper=config['helpers'][str(entry)];paths[entry]=set()
+                for case in range(64):
+                    ram=[rng.randrange(256) for _ in range(16)];q=rng.randrange(256)
+                    inputs={pc:rng.randrange(256) for pc in range(entry,helper['end']+1)}
+                    s5,s6=case%2,(case//2)%2
+                    scenario=scenario_for(base,config,entry,ram,q,inputs,s5,s6)
+                    got=probe(rows,scenario,helper,record=True)
+                    want=prediction(entry,ram,q,inputs,s5,s6);check(got,want)
+                    paths[entry].add(tuple(want['pcs']))
+                    verify_core(mapping,scenario,helper,got,Path(temporary)/'core')
+        self.assertEqual({entry:len(p) for entry,p in paths.items()},{0x270:2,0x335:4,0x357:3})
+        self.assertTrue(all(not ({0x273,0x279,0x27a}&set(p)) for p in paths[0x270]))
+
     def test_q3_short_helpers_preserve_transient_order(self):
         from short_helpers_study import prediction,fixture,inspect_reset
         from reset_helpers_study import scenario_for,probe,verify_core
