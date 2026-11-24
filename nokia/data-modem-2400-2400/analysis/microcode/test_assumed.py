@@ -17,6 +17,52 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_indexed_tail_address_feedback_and_overwrite(self):
+        from indexed_tail_study import probe, local_scenario, inspect_reset
+        from nested_reset_study import scenario_for
+        from defined_condition_fit import load_trace
+        config = read(HERE/'indexed-tail-study.json')
+        mapping = read(HERE/config['mapping'])
+        rows = decode(mapping)
+        base = read(HERE/config['scenario'])
+        for source, q, d, indices in (
+                ('previous_y', 0, 7, [198, 7]),
+                ('previous_y', 2, 7, [198, 6]),
+                ('y', 1, 0, [165, 0]),
+                ('q', 255, 255, [255, 255])):
+            ram = config['initial_ram'][:]
+            ram[1], ram[6] = d^0xa5, (2*d+0x33)&255
+            got = probe(rows, base, ram, q, d, source)
+            self.assertEqual([t['index'] for t in got['trace'] if t['index'] is not None], indices)
+            self.assertEqual([i for i,t in enumerate(got['trace']) if t['index'] is not None], [7,16])
+            self.assertEqual((got['cycles'], got['max_depth'], got['q']), (20, 1, q))
+            if source == 'previous_y':
+                self.assertEqual(got['ram'][6], q>>1)
+                if q == 0:
+                    self.assertEqual(got['ram'][7], 0)
+            if source == 'y':
+                self.assertEqual(got['ram'][5], 127)  # First store of zero was overwritten.
+            scenario = local_scenario(base, config, ram, q, d, source)
+            result = execute(mapping, scenario, 20, mode='integrated', trace_limit=0)
+            self.assertTrue(result['clean'])
+            self.assertEqual(result['final_state']['ram'], got['ram'])
+            self.assertEqual(result['final_state']['pc'], 0x084)
+        reset_config = read(HERE/config['reset_config'])
+        reset_base = read(HERE/reset_config['scenario'])
+        tables = read(HERE/reset_config['tables'])
+        with tempfile.TemporaryDirectory() as temporary:
+            for source, entries in (('scenario',[10,15]), ('y',[0,0]), ('q',[12,12]), ('previous_y',[1,1])):
+                scenario = scenario_for(reset_base, tables, reset_config, 204)
+                for pc in (0x07e, 0x081):
+                    scenario['dispatch']['tables'][str(pc)]['index_source'] = source
+                result = execute(mapping, scenario, 256, seed=115, mode='integrated',
+                                 out=Path(temporary), trace_limit=256)
+                self.assertTrue(result['clean'])
+                got = inspect_reset(load_trace(Path(temporary)), 204, source)
+                self.assertEqual([t['entry'] for t in got['dispatches']], entries)
+                self.assertEqual(got['prediction']['stored_value'], 102)
+                self.assertEqual(got['final_ram'][15], 102 if source == 'scenario' else 205)
+
     def test_affine_helper_skip_and_reset_consumers(self):
         from affine_tail_study import probe, local_scenario, inspect_reset, selected_registers
         from defined_condition_fit import load_trace

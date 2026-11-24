@@ -834,6 +834,54 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "INDEXED-TAIL.md",
+        "limitations": "Index source is an explicit candidate, not recovered wiring. Twenty matched reset runs terminate with different RAM destinations; no physical external write is identified.",
+        "meaning": "Copy R1 into R2, call the half-Q preparation twice, and use two computed calls to store Q>>1 into selected RAM registers. Under preceding-Y indexing, a first store into R6 can change the second address calculation.",
+        "name": "two indexed register stores",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "07C",
+            "081"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "INDEXED-TAIL.md",
+        "limitations": "Constant D per local fixture; zero-fill and carry policy remain hypotheses. Repeated shifts do not shift Q, and no serial-output role is established.",
+        "meaning": "Preserve Q; write R0=Q>>1 and R5=((D-Q-1) mod 256)>>1 under zero-fill shifts. Expose D-R6 on Y at the return, providing a candidate index for the next computed call.",
+        "name": "half-Q and input-difference preparation",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "085",
+            "089"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "INDEXED-TAIL.md",
+        "limitations": "The inferred table is exercised by scenario/current-Y/Q/preceding-Y candidates. Register writes do not establish a physical DAC transfer or index wiring.",
+        "meaning": "Sixteen one-word POP entries copy R0 into R0 through R15 respectively. The q2 terminal caller supplies Q>>1 as the stored byte.",
+        "name": "indexed R0 copy and return",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "08A",
+            "099"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -856,7 +904,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 336,
+    "annotated_used_words": 352,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -943,6 +991,22 @@
           "profiles": [
             "fitted_original",
             "fitted_swapped"
+          ],
+          "ranges": [
+            [
+              "085",
+              "089"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "INDEXED-TAIL.md",
+          "limitations": "Constant D per local fixture; zero-fill and carry policy remain hypotheses. Repeated shifts do not shift Q, and no serial-output role is established.",
+          "meaning": "Preserve Q; write R0=Q>>1 and R5=((D-Q-1) mod 256)>>1 under zero-fill shifts. Expose D-R6 on Y at the return, providing a candidate index for the next computed call.",
+          "name": "half-Q and input-difference preparation",
+          "profiles": [
+            "q2"
           ],
           "ranges": [
             [
@@ -3187,6 +3251,7 @@
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
+    "INDEXED-TAIL.md": "565feee229fd842e0ce9e686d8fcc9a630af0f93dc5de66eb0453421077ae89f",
     "LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",

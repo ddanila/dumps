@@ -1,0 +1,3198 @@
+{
+  "configuration": {
+    "evidence": "Local q2 entry at 07C with actual helper/table calls, zero-fill shifts and mapped/previous carry. Compare declared scenario, current-Y, Q and previous-Y index sources at 07E and 081. Default D is constant within each local fixture. Reset comparisons change only these two final dispatch sources; no random operation follows them. No physical index or DAC output is identified.",
+    "initial_ram": [
+      19,
+      37,
+      53,
+      71,
+      89,
+      107,
+      127,
+      149,
+      167,
+      181,
+      199,
+      211,
+      227,
+      239,
+      251,
+      13
+    ],
+    "mapping": "results/independent-study/variant-2.json",
+    "reset_config": "nested-reset-study.json",
+    "reset_report": "results/nested-reset-study/report.json",
+    "scenario": "results/polling-study/immediate-one/scenario.json",
+    "sources": [
+      "scenario",
+      "y",
+      "q",
+      "previous_y"
+    ],
+    "status": "hypothesis",
+    "witness_pairs": [
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        255,
+        255
+      ]
+    ]
+  },
+  "counts": {
+    "previous_y:calls": 65536,
+    "previous_y:different_targets": 3840,
+    "previous_y:first_store_r6": 4096,
+    "q:calls": 65536,
+    "q:different_targets": 0,
+    "q:first_store_r6": 4096,
+    "scenario:calls": 65536,
+    "scenario:different_targets": 0,
+    "scenario:first_store_r6": 4096,
+    "y:calls": 65536,
+    "y:different_targets": 61440,
+    "y:first_store_r6": 4096
+  },
+  "execution_sha256": "4190190519c271fc24a8de20fabb3c4447cdac14d7d0e27384c42fd1bfc9f0bf",
+  "interpretation": "q2 terminal tail performs two indexed stores of Q>>1 into RAM. The helper also forms R5=((D-Q-1) mod 256)>>1 and exposes D-R6 for candidate preceding-Y indexing. A first store to R6 can change the second address. Explicit candidates, not recovered physical dispatch or DAC writes.",
+  "reset_comparisons": [
+    {
+      "d": 204,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 215,
+            "entry": 10,
+            "index": 10,
+            "pc": 126,
+            "ram_before": [
+              102,
+              0,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              0,
+              0,
+              100,
+              0,
+              1,
+              205
+            ],
+            "target": 148
+          },
+          {
+            "cycle": 224,
+            "entry": 15,
+            "index": 15,
+            "pc": 129,
+            "ram_before": [
+              102,
+              0,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              102,
+              0,
+              100,
+              0,
+              1,
+              205
+            ],
+            "target": 153
+          }
+        ],
+        "final_q": 204,
+        "final_ram": [
+          102,
+          0,
+          0,
+          0,
+          102,
+          127,
+          203,
+          203,
+          0,
+          0,
+          102,
+          0,
+          100,
+          0,
+          1,
+          102
+        ],
+        "first_terminal": 228,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            10,
+            15
+          ],
+          "q": 204,
+          "ram": [
+            102,
+            0,
+            0,
+            0,
+            102,
+            127,
+            203,
+            203,
+            0,
+            0,
+            102,
+            0,
+            100,
+            0,
+            1,
+            102
+          ],
+          "stored_value": 102,
+          "targets": [
+            148,
+            153
+          ]
+        },
+        "start": {
+          "cycle": 208,
+          "q": 204,
+          "ram": [
+            204,
+            0,
+            204,
+            0,
+            102,
+            0,
+            203,
+            203,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0,
+            1,
+            205
+          ]
+        }
+      },
+      "seed": 115,
+      "source": "scenario",
+      "trace_digest": "78176c78674143e54f6237df9c109708b3f047e1f22047290cb7dcbefde4a5f4"
+    },
+    {
+      "d": 204,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 215,
+            "entry": 0,
+            "index": 0,
+            "pc": 126,
+            "ram_before": [
+              102,
+              0,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              0,
+              0,
+              100,
+              0,
+              1,
+              205
+            ],
+            "target": 138
+          },
+          {
+            "cycle": 224,
+            "entry": 0,
+            "index": 0,
+            "pc": 129,
+            "ram_before": [
+              102,
+              0,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              0,
+              0,
+              100,
+              0,
+              1,
+              205
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 204,
+        "final_ram": [
+          102,
+          0,
+          0,
+          0,
+          102,
+          127,
+          203,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          205
+        ],
+        "first_terminal": 228,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            0,
+            0
+          ],
+          "q": 204,
+          "ram": [
+            102,
+            0,
+            0,
+            0,
+            102,
+            127,
+            203,
+            203,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0,
+            1,
+            205
+          ],
+          "stored_value": 102,
+          "targets": [
+            138,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 208,
+          "q": 204,
+          "ram": [
+            204,
+            0,
+            204,
+            0,
+            102,
+            0,
+            203,
+            203,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0,
+            1,
+            205
+          ]
+        }
+      },
+      "seed": 115,
+      "source": "y",
+      "trace_digest": "8530a163eab7de3818b5951007a541f330e56d38444fbecbe263049a9d056d40"
+    },
+    {
+      "d": 204,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 215,
+            "entry": 12,
+            "index": 204,
+            "pc": 126,
+            "ram_before": [
+              102,
+              0,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              0,
+              0,
+              100,
+              0,
+              1,
+              205
+            ],
+            "target": 150
+          },
+          {
+            "cycle": 224,
+            "entry": 12,
+            "index": 204,
+            "pc": 129,
+            "ram_before": [
+              102,
+              0,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              0,
+              0,
+              102,
+              0,
+              1,
+              205
+            ],
+            "target": 150
+          }
+        ],
+        "final_q": 204,
+        "final_ram": [
+          102,
+          0,
+          0,
+          0,
+          102,
+          127,
+          203,
+          203,
+          0,
+          0,
+          0,
+          0,
+          102,
+          0,
+          1,
+          205
+        ],
+        "first_terminal": 228,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            204,
+            204
+          ],
+          "q": 204,
+          "ram": [
+            102,
+            0,
+            0,
+            0,
+            102,
+            127,
+            203,
+            203,
+            0,
+            0,
+            0,
+            0,
+            102,
+            0,
+            1,
+            205
+          ],
+          "stored_value": 102,
+          "targets": [
+            150,
+            150
+          ]
+        },
+        "start": {
+          "cycle": 208,
+          "q": 204,
+          "ram": [
+            204,
+            0,
+            204,
+            0,
+            102,
+            0,
+            203,
+            203,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0,
+            1,
+            205
+          ]
+        }
+      },
+      "seed": 115,
+      "source": "q",
+      "trace_digest": "bd457097c2bff59a377c8b9410561489826a0dbfc2f9f4d750f54a90fc7ebdb3"
+    },
+    {
+      "d": 204,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 215,
+            "entry": 1,
+            "index": 1,
+            "pc": 126,
+            "ram_before": [
+              102,
+              0,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              0,
+              0,
+              100,
+              0,
+              1,
+              205
+            ],
+            "target": 139
+          },
+          {
+            "cycle": 224,
+            "entry": 1,
+            "index": 1,
+            "pc": 129,
+            "ram_before": [
+              102,
+              102,
+              0,
+              0,
+              102,
+              127,
+              203,
+              203,
+              0,
+              0,
+              0,
+              0,
+              100,
+              0,
+              1,
+              205
+            ],
+            "target": 139
+          }
+        ],
+        "final_q": 204,
+        "final_ram": [
+          102,
+          102,
+          0,
+          0,
+          102,
+          127,
+          203,
+          203,
+          0,
+          0,
+          0,
+          0,
+          100,
+          0,
+          1,
+          205
+        ],
+        "first_terminal": 228,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            1,
+            1
+          ],
+          "q": 204,
+          "ram": [
+            102,
+            102,
+            0,
+            0,
+            102,
+            127,
+            203,
+            203,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0,
+            1,
+            205
+          ],
+          "stored_value": 102,
+          "targets": [
+            139,
+            139
+          ]
+        },
+        "start": {
+          "cycle": 208,
+          "q": 204,
+          "ram": [
+            204,
+            0,
+            204,
+            0,
+            102,
+            0,
+            203,
+            203,
+            0,
+            0,
+            0,
+            0,
+            100,
+            0,
+            1,
+            205
+          ]
+        }
+      },
+      "seed": 115,
+      "source": "previous_y",
+      "trace_digest": "19e98733551aa1202dbbf3f048737d0edf0b1f9893ddbd6b9f289963708e92fd"
+    },
+    {
+      "d": 222,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 179,
+            "entry": 10,
+            "index": 10,
+            "pc": 126,
+            "ram_before": [
+              111,
+              0,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              0,
+              0,
+              154,
+              0,
+              1,
+              223
+            ],
+            "target": 148
+          },
+          {
+            "cycle": 188,
+            "entry": 11,
+            "index": 11,
+            "pc": 129,
+            "ram_before": [
+              111,
+              0,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              111,
+              0,
+              154,
+              0,
+              1,
+              223
+            ],
+            "target": 149
+          }
+        ],
+        "final_q": 222,
+        "final_ram": [
+          111,
+          0,
+          0,
+          0,
+          111,
+          127,
+          221,
+          221,
+          0,
+          0,
+          111,
+          111,
+          154,
+          0,
+          1,
+          223
+        ],
+        "first_terminal": 192,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            10,
+            11
+          ],
+          "q": 222,
+          "ram": [
+            111,
+            0,
+            0,
+            0,
+            111,
+            127,
+            221,
+            221,
+            0,
+            0,
+            111,
+            111,
+            154,
+            0,
+            1,
+            223
+          ],
+          "stored_value": 111,
+          "targets": [
+            148,
+            149
+          ]
+        },
+        "start": {
+          "cycle": 172,
+          "q": 222,
+          "ram": [
+            222,
+            0,
+            222,
+            0,
+            111,
+            0,
+            221,
+            221,
+            0,
+            0,
+            0,
+            0,
+            154,
+            0,
+            1,
+            223
+          ]
+        }
+      },
+      "seed": 501,
+      "source": "scenario",
+      "trace_digest": "a14cdec684027134ded3a39a9ad6f6d9907efa21aea22ecdf15e990553434482"
+    },
+    {
+      "d": 222,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 179,
+            "entry": 0,
+            "index": 0,
+            "pc": 126,
+            "ram_before": [
+              111,
+              0,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              0,
+              0,
+              154,
+              0,
+              1,
+              223
+            ],
+            "target": 138
+          },
+          {
+            "cycle": 188,
+            "entry": 0,
+            "index": 0,
+            "pc": 129,
+            "ram_before": [
+              111,
+              0,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              0,
+              0,
+              154,
+              0,
+              1,
+              223
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 222,
+        "final_ram": [
+          111,
+          0,
+          0,
+          0,
+          111,
+          127,
+          221,
+          221,
+          0,
+          0,
+          0,
+          0,
+          154,
+          0,
+          1,
+          223
+        ],
+        "first_terminal": 192,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            0,
+            0
+          ],
+          "q": 222,
+          "ram": [
+            111,
+            0,
+            0,
+            0,
+            111,
+            127,
+            221,
+            221,
+            0,
+            0,
+            0,
+            0,
+            154,
+            0,
+            1,
+            223
+          ],
+          "stored_value": 111,
+          "targets": [
+            138,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 172,
+          "q": 222,
+          "ram": [
+            222,
+            0,
+            222,
+            0,
+            111,
+            0,
+            221,
+            221,
+            0,
+            0,
+            0,
+            0,
+            154,
+            0,
+            1,
+            223
+          ]
+        }
+      },
+      "seed": 501,
+      "source": "y",
+      "trace_digest": "c1af8ef8246a3407d107060e07effa6363fa0b244f9e85c31c1c6a6c028f456b"
+    },
+    {
+      "d": 222,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 179,
+            "entry": 14,
+            "index": 222,
+            "pc": 126,
+            "ram_before": [
+              111,
+              0,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              0,
+              0,
+              154,
+              0,
+              1,
+              223
+            ],
+            "target": 152
+          },
+          {
+            "cycle": 188,
+            "entry": 14,
+            "index": 222,
+            "pc": 129,
+            "ram_before": [
+              111,
+              0,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              0,
+              0,
+              154,
+              0,
+              111,
+              223
+            ],
+            "target": 152
+          }
+        ],
+        "final_q": 222,
+        "final_ram": [
+          111,
+          0,
+          0,
+          0,
+          111,
+          127,
+          221,
+          221,
+          0,
+          0,
+          0,
+          0,
+          154,
+          0,
+          111,
+          223
+        ],
+        "first_terminal": 192,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            222,
+            222
+          ],
+          "q": 222,
+          "ram": [
+            111,
+            0,
+            0,
+            0,
+            111,
+            127,
+            221,
+            221,
+            0,
+            0,
+            0,
+            0,
+            154,
+            0,
+            111,
+            223
+          ],
+          "stored_value": 111,
+          "targets": [
+            152,
+            152
+          ]
+        },
+        "start": {
+          "cycle": 172,
+          "q": 222,
+          "ram": [
+            222,
+            0,
+            222,
+            0,
+            111,
+            0,
+            221,
+            221,
+            0,
+            0,
+            0,
+            0,
+            154,
+            0,
+            1,
+            223
+          ]
+        }
+      },
+      "seed": 501,
+      "source": "q",
+      "trace_digest": "6061251da804b381ac2cb8708db2c8cac00b790d1ddc4b6bc716c53207b12beb"
+    },
+    {
+      "d": 222,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 179,
+            "entry": 1,
+            "index": 1,
+            "pc": 126,
+            "ram_before": [
+              111,
+              0,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              0,
+              0,
+              154,
+              0,
+              1,
+              223
+            ],
+            "target": 139
+          },
+          {
+            "cycle": 188,
+            "entry": 1,
+            "index": 1,
+            "pc": 129,
+            "ram_before": [
+              111,
+              111,
+              0,
+              0,
+              111,
+              127,
+              221,
+              221,
+              0,
+              0,
+              0,
+              0,
+              154,
+              0,
+              1,
+              223
+            ],
+            "target": 139
+          }
+        ],
+        "final_q": 222,
+        "final_ram": [
+          111,
+          111,
+          0,
+          0,
+          111,
+          127,
+          221,
+          221,
+          0,
+          0,
+          0,
+          0,
+          154,
+          0,
+          1,
+          223
+        ],
+        "first_terminal": 192,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            1,
+            1
+          ],
+          "q": 222,
+          "ram": [
+            111,
+            111,
+            0,
+            0,
+            111,
+            127,
+            221,
+            221,
+            0,
+            0,
+            0,
+            0,
+            154,
+            0,
+            1,
+            223
+          ],
+          "stored_value": 111,
+          "targets": [
+            139,
+            139
+          ]
+        },
+        "start": {
+          "cycle": 172,
+          "q": 222,
+          "ram": [
+            222,
+            0,
+            222,
+            0,
+            111,
+            0,
+            221,
+            221,
+            0,
+            0,
+            0,
+            0,
+            154,
+            0,
+            1,
+            223
+          ]
+        }
+      },
+      "seed": 501,
+      "source": "previous_y",
+      "trace_digest": "6733fb7f4ed343d3562890253cca381aa95e4ce2e259a4341b3d852824509247"
+    },
+    {
+      "d": 32,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 180,
+            "entry": 14,
+            "index": 14,
+            "pc": 126,
+            "ram_before": [
+              16,
+              0,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              1,
+              33
+            ],
+            "target": 152
+          },
+          {
+            "cycle": 189,
+            "entry": 15,
+            "index": 15,
+            "pc": 129,
+            "ram_before": [
+              16,
+              0,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              16,
+              33
+            ],
+            "target": 153
+          }
+        ],
+        "final_q": 32,
+        "final_ram": [
+          16,
+          0,
+          0,
+          0,
+          16,
+          127,
+          31,
+          31,
+          0,
+          0,
+          0,
+          0,
+          64,
+          0,
+          16,
+          16
+        ],
+        "first_terminal": 193,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            14,
+            15
+          ],
+          "q": 32,
+          "ram": [
+            16,
+            0,
+            0,
+            0,
+            16,
+            127,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            16,
+            16
+          ],
+          "stored_value": 16,
+          "targets": [
+            152,
+            153
+          ]
+        },
+        "start": {
+          "cycle": 173,
+          "q": 32,
+          "ram": [
+            32,
+            0,
+            32,
+            0,
+            16,
+            0,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            1,
+            33
+          ]
+        }
+      },
+      "seed": 2855,
+      "source": "scenario",
+      "trace_digest": "3fcc48d44f356abd81ba0446299334bff3bcccc247ebd4300d68b7fcd639e316"
+    },
+    {
+      "d": 32,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 180,
+            "entry": 0,
+            "index": 0,
+            "pc": 126,
+            "ram_before": [
+              16,
+              0,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              1,
+              33
+            ],
+            "target": 138
+          },
+          {
+            "cycle": 189,
+            "entry": 0,
+            "index": 0,
+            "pc": 129,
+            "ram_before": [
+              16,
+              0,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              1,
+              33
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 32,
+        "final_ram": [
+          16,
+          0,
+          0,
+          0,
+          16,
+          127,
+          31,
+          31,
+          0,
+          0,
+          0,
+          0,
+          64,
+          0,
+          1,
+          33
+        ],
+        "first_terminal": 193,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            0,
+            0
+          ],
+          "q": 32,
+          "ram": [
+            16,
+            0,
+            0,
+            0,
+            16,
+            127,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            1,
+            33
+          ],
+          "stored_value": 16,
+          "targets": [
+            138,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 173,
+          "q": 32,
+          "ram": [
+            32,
+            0,
+            32,
+            0,
+            16,
+            0,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            1,
+            33
+          ]
+        }
+      },
+      "seed": 2855,
+      "source": "y",
+      "trace_digest": "5a7fbccd8d5d9c24f3431b2fefacf33ae1126c4db4fdca01b421043e3af35048"
+    },
+    {
+      "d": 32,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 180,
+            "entry": 0,
+            "index": 32,
+            "pc": 126,
+            "ram_before": [
+              16,
+              0,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              1,
+              33
+            ],
+            "target": 138
+          },
+          {
+            "cycle": 189,
+            "entry": 0,
+            "index": 32,
+            "pc": 129,
+            "ram_before": [
+              16,
+              0,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              1,
+              33
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 32,
+        "final_ram": [
+          16,
+          0,
+          0,
+          0,
+          16,
+          127,
+          31,
+          31,
+          0,
+          0,
+          0,
+          0,
+          64,
+          0,
+          1,
+          33
+        ],
+        "first_terminal": 193,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            32,
+            32
+          ],
+          "q": 32,
+          "ram": [
+            16,
+            0,
+            0,
+            0,
+            16,
+            127,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            1,
+            33
+          ],
+          "stored_value": 16,
+          "targets": [
+            138,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 173,
+          "q": 32,
+          "ram": [
+            32,
+            0,
+            32,
+            0,
+            16,
+            0,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            1,
+            33
+          ]
+        }
+      },
+      "seed": 2855,
+      "source": "q",
+      "trace_digest": "5a7fbccd8d5d9c24f3431b2fefacf33ae1126c4db4fdca01b421043e3af35048"
+    },
+    {
+      "d": 32,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 180,
+            "entry": 1,
+            "index": 1,
+            "pc": 126,
+            "ram_before": [
+              16,
+              0,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              1,
+              33
+            ],
+            "target": 139
+          },
+          {
+            "cycle": 189,
+            "entry": 1,
+            "index": 1,
+            "pc": 129,
+            "ram_before": [
+              16,
+              16,
+              0,
+              0,
+              16,
+              127,
+              31,
+              31,
+              0,
+              0,
+              0,
+              0,
+              64,
+              0,
+              1,
+              33
+            ],
+            "target": 139
+          }
+        ],
+        "final_q": 32,
+        "final_ram": [
+          16,
+          16,
+          0,
+          0,
+          16,
+          127,
+          31,
+          31,
+          0,
+          0,
+          0,
+          0,
+          64,
+          0,
+          1,
+          33
+        ],
+        "first_terminal": 193,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            1,
+            1
+          ],
+          "q": 32,
+          "ram": [
+            16,
+            16,
+            0,
+            0,
+            16,
+            127,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            1,
+            33
+          ],
+          "stored_value": 16,
+          "targets": [
+            139,
+            139
+          ]
+        },
+        "start": {
+          "cycle": 173,
+          "q": 32,
+          "ram": [
+            32,
+            0,
+            32,
+            0,
+            16,
+            0,
+            31,
+            31,
+            0,
+            0,
+            0,
+            0,
+            64,
+            0,
+            1,
+            33
+          ]
+        }
+      },
+      "seed": 2855,
+      "source": "previous_y",
+      "trace_digest": "5f703eb57f7a8994a29f1482ad2242d668494c8fa93a4d01f4b738d8daffe42c"
+    },
+    {
+      "d": 120,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 184,
+            "entry": 13,
+            "index": 13,
+            "pc": 126,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 151
+          },
+          {
+            "cycle": 193,
+            "entry": 0,
+            "index": 0,
+            "pc": 129,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 0,
+        "final_ram": [
+          0,
+          0,
+          0,
+          0,
+          60,
+          59,
+          119,
+          119,
+          0,
+          0,
+          0,
+          0,
+          240,
+          0,
+          1,
+          1
+        ],
+        "first_terminal": 197,
+        "prediction": {
+          "helper_r5": 59,
+          "indices": [
+            13,
+            0
+          ],
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            60,
+            59,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ],
+          "stored_value": 0,
+          "targets": [
+            151,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 177,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            120,
+            0,
+            60,
+            0,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "seed": 3519,
+      "source": "scenario",
+      "trace_digest": "6887abeb21a9fe35eb679762870b5a8545b42a9f245b11a4593a3afa4af1ba43"
+    },
+    {
+      "d": 120,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 184,
+            "entry": 0,
+            "index": 0,
+            "pc": 126,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 138
+          },
+          {
+            "cycle": 193,
+            "entry": 0,
+            "index": 0,
+            "pc": 129,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 0,
+        "final_ram": [
+          0,
+          0,
+          0,
+          0,
+          60,
+          59,
+          119,
+          119,
+          0,
+          0,
+          0,
+          0,
+          240,
+          0,
+          1,
+          1
+        ],
+        "first_terminal": 197,
+        "prediction": {
+          "helper_r5": 59,
+          "indices": [
+            0,
+            0
+          ],
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            60,
+            59,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ],
+          "stored_value": 0,
+          "targets": [
+            138,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 177,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            120,
+            0,
+            60,
+            0,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "seed": 3519,
+      "source": "y",
+      "trace_digest": "435624462745dd4c0aa4bd324f5bbbdf71cad757f46c5679f166164429800e35"
+    },
+    {
+      "d": 120,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 184,
+            "entry": 0,
+            "index": 0,
+            "pc": 126,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 138
+          },
+          {
+            "cycle": 193,
+            "entry": 0,
+            "index": 0,
+            "pc": 129,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 0,
+        "final_ram": [
+          0,
+          0,
+          0,
+          0,
+          60,
+          59,
+          119,
+          119,
+          0,
+          0,
+          0,
+          0,
+          240,
+          0,
+          1,
+          1
+        ],
+        "first_terminal": 197,
+        "prediction": {
+          "helper_r5": 59,
+          "indices": [
+            0,
+            0
+          ],
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            60,
+            59,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ],
+          "stored_value": 0,
+          "targets": [
+            138,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 177,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            120,
+            0,
+            60,
+            0,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "seed": 3519,
+      "source": "q",
+      "trace_digest": "435624462745dd4c0aa4bd324f5bbbdf71cad757f46c5679f166164429800e35"
+    },
+    {
+      "d": 120,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 184,
+            "entry": 1,
+            "index": 1,
+            "pc": 126,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 139
+          },
+          {
+            "cycle": 193,
+            "entry": 1,
+            "index": 1,
+            "pc": 129,
+            "ram_before": [
+              0,
+              0,
+              0,
+              0,
+              60,
+              59,
+              119,
+              119,
+              0,
+              0,
+              0,
+              0,
+              240,
+              0,
+              1,
+              1
+            ],
+            "target": 139
+          }
+        ],
+        "final_q": 0,
+        "final_ram": [
+          0,
+          0,
+          0,
+          0,
+          60,
+          59,
+          119,
+          119,
+          0,
+          0,
+          0,
+          0,
+          240,
+          0,
+          1,
+          1
+        ],
+        "first_terminal": 197,
+        "prediction": {
+          "helper_r5": 59,
+          "indices": [
+            1,
+            1
+          ],
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            0,
+            0,
+            60,
+            59,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ],
+          "stored_value": 0,
+          "targets": [
+            139,
+            139
+          ]
+        },
+        "start": {
+          "cycle": 177,
+          "q": 0,
+          "ram": [
+            0,
+            0,
+            120,
+            0,
+            60,
+            0,
+            119,
+            119,
+            0,
+            0,
+            0,
+            0,
+            240,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "seed": 3519,
+      "source": "previous_y",
+      "trace_digest": "3a3dcfabf0c7d70f3151df2a34d1933b534f469095db7ab279be2c2dc6cd81e4"
+    },
+    {
+      "d": 143,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 191,
+            "entry": 1,
+            "index": 1,
+            "pc": 126,
+            "ram_before": [
+              71,
+              0,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              144
+            ],
+            "target": 139
+          },
+          {
+            "cycle": 200,
+            "entry": 6,
+            "index": 6,
+            "pc": 129,
+            "ram_before": [
+              71,
+              71,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              144
+            ],
+            "target": 144
+          }
+        ],
+        "final_q": 143,
+        "final_ram": [
+          71,
+          71,
+          0,
+          0,
+          71,
+          127,
+          71,
+          142,
+          0,
+          0,
+          0,
+          0,
+          173,
+          0,
+          1,
+          144
+        ],
+        "first_terminal": 204,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            1,
+            6
+          ],
+          "q": 143,
+          "ram": [
+            71,
+            71,
+            0,
+            0,
+            71,
+            127,
+            71,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            144
+          ],
+          "stored_value": 71,
+          "targets": [
+            139,
+            144
+          ]
+        },
+        "start": {
+          "cycle": 184,
+          "q": 143,
+          "ram": [
+            143,
+            0,
+            143,
+            0,
+            71,
+            0,
+            142,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            144
+          ]
+        }
+      },
+      "seed": 3614,
+      "source": "scenario",
+      "trace_digest": "8053eb903f6f18b897e4582344c9ec6a9407d3114ab2f0294c2ae0cab21df633"
+    },
+    {
+      "d": 143,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 191,
+            "entry": 0,
+            "index": 0,
+            "pc": 126,
+            "ram_before": [
+              71,
+              0,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              144
+            ],
+            "target": 138
+          },
+          {
+            "cycle": 200,
+            "entry": 0,
+            "index": 0,
+            "pc": 129,
+            "ram_before": [
+              71,
+              0,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              144
+            ],
+            "target": 138
+          }
+        ],
+        "final_q": 143,
+        "final_ram": [
+          71,
+          0,
+          0,
+          0,
+          71,
+          127,
+          142,
+          142,
+          0,
+          0,
+          0,
+          0,
+          173,
+          0,
+          1,
+          144
+        ],
+        "first_terminal": 204,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            0,
+            0
+          ],
+          "q": 143,
+          "ram": [
+            71,
+            0,
+            0,
+            0,
+            71,
+            127,
+            142,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            144
+          ],
+          "stored_value": 71,
+          "targets": [
+            138,
+            138
+          ]
+        },
+        "start": {
+          "cycle": 184,
+          "q": 143,
+          "ram": [
+            143,
+            0,
+            143,
+            0,
+            71,
+            0,
+            142,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            144
+          ]
+        }
+      },
+      "seed": 3614,
+      "source": "y",
+      "trace_digest": "2a47600668295627f48db40fa645ee16f0fff5f65d495d9a6d2619c31b357564"
+    },
+    {
+      "d": 143,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 191,
+            "entry": 15,
+            "index": 143,
+            "pc": 126,
+            "ram_before": [
+              71,
+              0,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              144
+            ],
+            "target": 153
+          },
+          {
+            "cycle": 200,
+            "entry": 15,
+            "index": 143,
+            "pc": 129,
+            "ram_before": [
+              71,
+              0,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              71
+            ],
+            "target": 153
+          }
+        ],
+        "final_q": 143,
+        "final_ram": [
+          71,
+          0,
+          0,
+          0,
+          71,
+          127,
+          142,
+          142,
+          0,
+          0,
+          0,
+          0,
+          173,
+          0,
+          1,
+          71
+        ],
+        "first_terminal": 204,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            143,
+            143
+          ],
+          "q": 143,
+          "ram": [
+            71,
+            0,
+            0,
+            0,
+            71,
+            127,
+            142,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            71
+          ],
+          "stored_value": 71,
+          "targets": [
+            153,
+            153
+          ]
+        },
+        "start": {
+          "cycle": 184,
+          "q": 143,
+          "ram": [
+            143,
+            0,
+            143,
+            0,
+            71,
+            0,
+            142,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            144
+          ]
+        }
+      },
+      "seed": 3614,
+      "source": "q",
+      "trace_digest": "e25d08f4acd429a9467bbc9036bb84743b6ae80b534feb189160e244a98ddcf3"
+    },
+    {
+      "d": 143,
+      "observed": {
+        "dispatches": [
+          {
+            "cycle": 191,
+            "entry": 1,
+            "index": 1,
+            "pc": 126,
+            "ram_before": [
+              71,
+              0,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              144
+            ],
+            "target": 139
+          },
+          {
+            "cycle": 200,
+            "entry": 1,
+            "index": 1,
+            "pc": 129,
+            "ram_before": [
+              71,
+              71,
+              0,
+              0,
+              71,
+              127,
+              142,
+              142,
+              0,
+              0,
+              0,
+              0,
+              173,
+              0,
+              1,
+              144
+            ],
+            "target": 139
+          }
+        ],
+        "final_q": 143,
+        "final_ram": [
+          71,
+          71,
+          0,
+          0,
+          71,
+          127,
+          142,
+          142,
+          0,
+          0,
+          0,
+          0,
+          173,
+          0,
+          1,
+          144
+        ],
+        "first_terminal": 204,
+        "prediction": {
+          "helper_r5": 127,
+          "indices": [
+            1,
+            1
+          ],
+          "q": 143,
+          "ram": [
+            71,
+            71,
+            0,
+            0,
+            71,
+            127,
+            142,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            144
+          ],
+          "stored_value": 71,
+          "targets": [
+            139,
+            139
+          ]
+        },
+        "start": {
+          "cycle": 184,
+          "q": 143,
+          "ram": [
+            143,
+            0,
+            143,
+            0,
+            71,
+            0,
+            142,
+            142,
+            0,
+            0,
+            0,
+            0,
+            173,
+            0,
+            1,
+            144
+          ]
+        }
+      },
+      "seed": 3614,
+      "source": "previous_y",
+      "trace_digest": "b340c28bc612aa0ad345400db8d7f4e8bc4c970126f812c627a4b7f3d17f577c"
+    }
+  ],
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "assumed/execute.py": "5a92df72447522918fbb3db64610f5bb9e65db5609e76a95627e4a264786a0de",
+    "assumed/indexed-tail-study.json": "d938523af4522c38c8508eb0f70795e8c431433e8f079dde328250abddb3bda2",
+    "assumed/indexed_tail_study.py": "1757cb82969fb8947b34930c76af427a4ad9a5063c1bd5d003e498e2c6f7e01a",
+    "assumed/nested-reset-study.json": "62eae41eae09bedfd2a2e0d1a059e098b39123f0a933450ade971dd19a70e6d3",
+    "assumed/nested_reset_study.py": "c970d29d124ae7100080246bbd6eb08e5e81ce43624aa1aaec3cadc9b4f38e9f",
+    "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/nested-reset-study/report.json": "082924d80683d99355da1a3f02a9071d98709b6e6f9bb173d97fb3245633d75c",
+    "assumed/results/polling-study/immediate-one/scenario.json": "94f0ae04e678e90f8fa1d58e5cc0b26ef437c28911d1deebc1e1b40693a13fb8",
+    "assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": [
+    {
+      "d": 7,
+      "path": "scenario-q00-d07",
+      "prediction": {
+        "helper_r5": 3,
+        "indices": [
+          7,
+          7
+        ],
+        "q": 0,
+        "ram": [
+          0,
+          162,
+          162,
+          71,
+          89,
+          3,
+          65,
+          0,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          145,
+          145
+        ]
+      },
+      "q": 0,
+      "source": "scenario",
+      "trace_digest": "99f5b4ac772c8732764686201cc4e1bb52cf339d055b6c2fcc93de077b9da845"
+    },
+    {
+      "d": 0,
+      "path": "scenario-q01-d00",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          0,
+          0
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          165,
+          165,
+          71,
+          89,
+          127,
+          51,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          138,
+          138
+        ]
+      },
+      "q": 1,
+      "source": "scenario",
+      "trace_digest": "b3e9a57392f2446498e8e6ed226a0d5348f6312e2fd84b4607618ef7f2f88c43"
+    },
+    {
+      "d": 255,
+      "path": "scenario-qff-dff",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          255,
+          255
+        ],
+        "q": 255,
+        "ram": [
+          127,
+          90,
+          90,
+          71,
+          89,
+          127,
+          49,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          127
+        ],
+        "stored_value": 127,
+        "targets": [
+          153,
+          153
+        ]
+      },
+      "q": 255,
+      "source": "scenario",
+      "trace_digest": "9e739c4f248b849e715582ea55ba8de0f8023202a238c9e27a9c9ef8e86114ea"
+    },
+    {
+      "d": 7,
+      "path": "y-q00-d07",
+      "prediction": {
+        "helper_r5": 3,
+        "indices": [
+          162,
+          0
+        ],
+        "q": 0,
+        "ram": [
+          0,
+          162,
+          0,
+          71,
+          89,
+          3,
+          65,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          140,
+          138
+        ]
+      },
+      "q": 0,
+      "source": "y",
+      "trace_digest": "bb54509ace689bec6b08fce29e740223385ab6fc2758980921aa8587bb1e07e5"
+    },
+    {
+      "d": 0,
+      "path": "y-q01-d00",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          165,
+          0
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          165,
+          165,
+          71,
+          89,
+          127,
+          51,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          143,
+          138
+        ]
+      },
+      "q": 1,
+      "source": "y",
+      "trace_digest": "48ba7016ab245627f4f62bcde7176e9cb8d512480a355ddd77e159be624e910d"
+    },
+    {
+      "d": 255,
+      "path": "y-qff-dff",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          90,
+          0
+        ],
+        "q": 255,
+        "ram": [
+          127,
+          90,
+          90,
+          71,
+          89,
+          127,
+          49,
+          149,
+          167,
+          181,
+          127,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 127,
+        "targets": [
+          148,
+          138
+        ]
+      },
+      "q": 255,
+      "source": "y",
+      "trace_digest": "5bb0fa580ac3c0bfde53baabed7c9c052c58bb3f3aef38d5809f5314954fb9f8"
+    },
+    {
+      "d": 7,
+      "path": "q-q00-d07",
+      "prediction": {
+        "helper_r5": 3,
+        "indices": [
+          0,
+          0
+        ],
+        "q": 0,
+        "ram": [
+          0,
+          162,
+          162,
+          71,
+          89,
+          3,
+          65,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          138,
+          138
+        ]
+      },
+      "q": 0,
+      "source": "q",
+      "trace_digest": "4b34f70587dbc85768eef3c9fccf5140bd456417eaeafae0689d7e2a023a67df"
+    },
+    {
+      "d": 0,
+      "path": "q-q01-d00",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          1,
+          1
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          0,
+          165,
+          71,
+          89,
+          127,
+          51,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          139,
+          139
+        ]
+      },
+      "q": 1,
+      "source": "q",
+      "trace_digest": "1aee6d7268638d863537a680af0c14a1726fb633ef30fd9952a037fbb43cf05e"
+    },
+    {
+      "d": 255,
+      "path": "q-qff-dff",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          255,
+          255
+        ],
+        "q": 255,
+        "ram": [
+          127,
+          90,
+          90,
+          71,
+          89,
+          127,
+          49,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          127
+        ],
+        "stored_value": 127,
+        "targets": [
+          153,
+          153
+        ]
+      },
+      "q": 255,
+      "source": "q",
+      "trace_digest": "9e739c4f248b849e715582ea55ba8de0f8023202a238c9e27a9c9ef8e86114ea"
+    },
+    {
+      "d": 7,
+      "path": "previous_y-q00-d07",
+      "prediction": {
+        "helper_r5": 3,
+        "indices": [
+          198,
+          7
+        ],
+        "q": 0,
+        "ram": [
+          0,
+          162,
+          162,
+          71,
+          89,
+          3,
+          0,
+          0,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          144,
+          145
+        ]
+      },
+      "q": 0,
+      "source": "previous_y",
+      "trace_digest": "e5c56195e924e21c3a2dbf9b91322f96f116346333a3b598ff378e79b9325cbb"
+    },
+    {
+      "d": 0,
+      "path": "previous_y-q01-d00",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          205,
+          205
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          165,
+          165,
+          71,
+          89,
+          127,
+          51,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          0,
+          251,
+          13
+        ],
+        "stored_value": 0,
+        "targets": [
+          151,
+          151
+        ]
+      },
+      "q": 1,
+      "source": "previous_y",
+      "trace_digest": "b98386b15261543a092fee2815a4a34c109100c64d8af6ded4d840d62f569505"
+    },
+    {
+      "d": 255,
+      "path": "previous_y-qff-dff",
+      "prediction": {
+        "helper_r5": 127,
+        "indices": [
+          206,
+          206
+        ],
+        "q": 255,
+        "ram": [
+          127,
+          90,
+          90,
+          71,
+          89,
+          127,
+          49,
+          149,
+          167,
+          181,
+          199,
+          211,
+          227,
+          239,
+          127,
+          13
+        ],
+        "stored_value": 127,
+        "targets": [
+          152,
+          152
+        ]
+      },
+      "q": 255,
+      "source": "previous_y",
+      "trace_digest": "f36a2eaff88fea664aea924dfb04926bbff698156056f1daf8e34d4a294bbe8d"
+    }
+  ]
+}

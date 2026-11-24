@@ -45,7 +45,8 @@ into one address listing.
 | --- | --- | --- |
 | 01C–01F | Call-fed loop entry | Control-flow explanation, not a counted-loop algorithm |
 | 078–084 | Terminal tail | Physical completion and restart unknown |
-| 085–089 | Register right-shift helper | Not established as serial output |
+| 085–089 | Register right-shift helper; q2 half-Q/input-difference preparation | Not established as serial output |
+| 07C–081, 08A–099 (q2) | Two indexed register stores and R0-copy table | Index source and physical output remain unknown |
 | 18D, 19C | Successor-byte wait preparation | Tested original-role reset path only |
 | 1EC–1EE | External-byte equality poll | Previous-zero condition and external channel remain hypotheses |
 | 1E9–1EB | Conditional Q drain | Current versus previous zero flag changes iteration count |
@@ -88,7 +89,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 336 used words, including overlaps and disconnected
+These annotations cover 352 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -125,7 +126,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 85 functional/assumption tests pass, including checks that
+byte. All 86 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.

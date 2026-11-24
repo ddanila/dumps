@@ -1,0 +1,11 @@
+{
+  "status": "hypothesis",
+  "evidence": "Local q2 entry at 07C with actual helper/table calls, zero-fill shifts and mapped/previous carry. Compare declared scenario, current-Y, Q and previous-Y index sources at 07E and 081. Default D is constant within each local fixture. Reset comparisons change only these two final dispatch sources; no random operation follows them. No physical index or DAC output is identified.",
+  "mapping": "results/independent-study/variant-2.json",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "sources": ["scenario", "y", "q", "previous_y"],
+  "initial_ram": [19, 37, 53, 71, 89, 107, 127, 149, 167, 181, 199, 211, 227, 239, 251, 13],
+  "witness_pairs": [[0,7], [1,0], [255,255]],
+  "reset_config": "nested-reset-study.json",
+  "reset_report": "results/nested-reset-study/report.json"
+}

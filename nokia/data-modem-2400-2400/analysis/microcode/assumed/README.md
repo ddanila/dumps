@@ -523,3 +523,9 @@ q1/q2/q4: save old R0, optionally load Q, and form R0+2*R1+1 in R15.
 393,216 local calls check both skip outcomes; five reset replays connect
 the R0 copy to the following XNOR/skip decisions. R15 has no identified
 physical consumer.
+
+[Two indexed terminal stores](INDEXED-TAIL.md) identify the q2 08A–099
+table as copies of R0 into each RAM register. The caller stores Q>>1 twice,
+nine modeled instruction cycles apart. A preceding-Y address candidate
+feeds back through R6 when the first store selects it. Four index candidates
+remain compatible with clean termination but leave different RAM states.

@@ -850,6 +850,54 @@
       "evidence": "AFFINE-TAIL.md",
       "meaning": "Save old R0 in R3; select-6 skip optionally suppresses loading Q into R0. Return with R15=(R0+2*R1+1) mod 256, preserving Q and all other RAM. Five q2 reset traces connect the R0 copy to the following XNOR/skip decisions.",
       "limitations": "Both select-6 outcomes are explicit local condition stubs; reset witnesses use fixed-false select 6. No physical consumer is identified for the transient or retained R15 result. Other mappings decode these instructions differently."
+    },
+    {
+      "name": "two indexed register stores",
+      "ranges": [
+        [
+          "07C",
+          "081"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q2"
+      ],
+      "evidence": "INDEXED-TAIL.md",
+      "meaning": "Copy R1 into R2, call the half-Q preparation twice, and use two computed calls to store Q>>1 into selected RAM registers. Under preceding-Y indexing, a first store into R6 can change the second address calculation.",
+      "limitations": "Index source is an explicit candidate, not recovered wiring. Twenty matched reset runs terminate with different RAM destinations; no physical external write is identified."
+    },
+    {
+      "name": "half-Q and input-difference preparation",
+      "ranges": [
+        [
+          "085",
+          "089"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q2"
+      ],
+      "evidence": "INDEXED-TAIL.md",
+      "meaning": "Preserve Q; write R0=Q>>1 and R5=((D-Q-1) mod 256)>>1 under zero-fill shifts. Expose D-R6 on Y at the return, providing a candidate index for the next computed call.",
+      "limitations": "Constant D per local fixture; zero-fill and carry policy remain hypotheses. Repeated shifts do not shift Q, and no serial-output role is established."
+    },
+    {
+      "name": "indexed R0 copy and return",
+      "ranges": [
+        [
+          "08A",
+          "099"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q2"
+      ],
+      "evidence": "INDEXED-TAIL.md",
+      "meaning": "Sixteen one-word POP entries copy R0 into R0 through R15 respectively. The q2 terminal caller supplies Q>>1 as the stored byte.",
+      "limitations": "The inferred table is exercised by scenario/current-Y/Q/preceding-Y candidates. Register writes do not establish a physical DAC transfer or index wiring."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"
