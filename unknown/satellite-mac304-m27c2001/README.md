@@ -48,7 +48,7 @@ CRC32 `8012f03b`, SHA-1 `d7b1867eebdf6529ac0484509414e05667ca7f49`,
 No candidate binary was found to compare. This is not proof of uniqueness.
 
 Raw logs, acquisition metadata and analysis are in `evidence/`. Full local
-session: `/home/ddanila/fun/dosravi/sessions/orphan-m27c2001-t48-20261116-192729/`.
+session: `dosravi/sessions/orphan-m27c2001-t48-20261116-192729/`.
 Only read operations were performed, with no programming, erasing or ID test.
 Minipro warns of incomplete T48 support and outdated programmer firmware.
 Reported USB supply voltage is not an independent chip-pin measurement.

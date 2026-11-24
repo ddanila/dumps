@@ -49,7 +49,7 @@ Both commands exited zero; ID checks disabled. No programming or erase.
 The profile reports 5 V read/verify VCC, not an independently measured rail.
 Minipro warns about incomplete T48 support and outdated firmware. Logs remain
 unchanged in `evidence/`. Full local session:
-`/home/ddanila/fun/dosravi/sessions/orphan-2764-t48-20261114-222508/`.
+`dosravi/sessions/orphan-2764-t48-20261114-222508/`.
 
 ## Public-image comparison
 

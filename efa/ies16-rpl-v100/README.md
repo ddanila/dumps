@@ -55,7 +55,7 @@ Profile uses 5 V verify/read VCC; this is not an independent chip-pin measuremen
 Minipro warns that T48 support is incomplete and its firmware is outdated.
 Original logs are preserved unchanged in `evidence/`.
 Full captures and session metadata remain at
-`/home/ddanila/fun/dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124/`.
+`dosravi/sessions/orphan-bootrom-2764-t48-20261114-222124/`.
 
 ## Availability check
 

@@ -34,7 +34,7 @@ The selected profile reports 5 V verify/read VCC; programming-voltage defaults
 were not used. No independent chip-pin voltage measurement was made.
 Minipro warns about incomplete T48 support and outdated firmware. Original
 read logs and metadata are in `evidence/`. Full local session:
-`/home/ddanila/fun/dosravi/sessions/orphan-next-2764-t48-20261114-221613/`.
+`dosravi/sessions/orphan-next-2764-t48-20261114-221613/`.
 
 ## Identification and behavior
 

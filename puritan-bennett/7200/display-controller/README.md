@@ -2,8 +2,8 @@
 
 Board photographed by owner: Display Controller Assy 19570, revision label
 `-30D`. The three yellow-labelled EPROMs are Q1/U406, Q2/U504 and Q3/U507.
-All three are acquired; read details are in the sections below. Photo
-reference: `/home/ddanila/Downloads/133870084.jpg`.
+All three are acquired; read details are in the sections below. Owner photo
+`133870084.jpg` (not in the repository).
 
 ## Q1 / U406: Q1-962269, 19536-H
 

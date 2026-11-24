@@ -20,4 +20,4 @@ Read took 448855 ms; exit code 0; safe shutdown reported VCC and VPP off.
 for checksums and acquisition details. Original stdout and logs are in
 `evidence/`; `WILLEM.LOG` can include prior runs. The DOS clock is incorrect;
 the acquisition date uses the host clock. Full transport evidence remains in
-`/home/ddanila/fun/dosravi/sessions/27256-20260920-chip03-read1`.
+`dosravi/sessions/27256-20260920-chip03-read1`.

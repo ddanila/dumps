@@ -24,7 +24,7 @@ code structure, and successful Latin/alternate-table keyboard tests in MAME.
 - CRC32: `7AB50D44`
 - SHA-256: `9e99be945655d39d9fbb34a32ec66969612442eda4f1e6992a43e454991a2034`
 
-Reader output, logs, execution identities, and session metadata are retained in `evidence/`. Full serial transport records remain in `/home/ddanila/fun/dosravi/sessions/facit-keyboard-20260917-read1` and `facit-keyboard-20260917-read2`.
+Reader output, logs, execution identities, and session metadata are retained in `evidence/`. Full serial transport records remain in `dosravi/sessions/facit-keyboard-20260917-read1` and `facit-keyboard-20260917-read2`.
 
 The retained `WILLEM.LOG` files are unmodified cumulative programmer logs
 and include earlier operations. The final run in each log is the corresponding

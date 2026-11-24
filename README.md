@@ -12,6 +12,9 @@ them. Exact known matches, including matches after removing padding or
 converting documented byte layouts, stay in local acquisition sessions rather
 than the firmware collection. Keep all-FF captures local as well.
 
+Layout, README and manifest conventions are in [CONTRIBUTING.md](CONTRIBUTING.md).
+Run `python3 tools/check.py` before committing; CI runs it on every push.
+
 ## Sets
 
 Each set's README gives the chip markings, where the chips sat on the board,
@@ -67,8 +70,6 @@ acquisition details, checksums and open questions.
   and [deep analysis](landis-gyr/pru-ac-20260924/analysis/).
 - [Diversa Aquarius 2000 Q-meter](diversa/aquarius-2000/)
 - [Norma Systems VMD-4 v1.1](norma-systems/vmd-4/27c512/): firmware 1.01.
-- [Probable Beckman DU-7 HS](unknown/beckman-du7-hs-20261107/): eight ROMs from
-  an 8088 board; attribution rests on embedded text.
 
 ### Unidentified
 
@@ -107,5 +108,8 @@ trustworthy firmware.
   unresolved.
 - [Blank 27256 read records](analysis/20260921-27256-blank-records/): metadata
   only; all-FF binaries are excluded.
+- [Probable Beckman DU-7 HS](unknown/beckman-du7-hs-20261107/): inventory and
+  analysis of eight ROMs from an 8088 board. The binaries stay in local
+  sessions until one suspicious chip is re-verified.
 - [Norma Systems VMD-4 AT29C512](norma-systems/vmd-4/at29c512/): anomalous first
   capture.

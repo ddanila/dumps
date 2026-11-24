@@ -92,17 +92,18 @@ Useful follow-up experiments, not performed here:
 
 ## Reproduce the model
 
-From this dumps repository:
+From the workspace that holds this repository next to the `willem-v30` and
+`dosravi` checkouts:
 
 ```sh
 cc -std=c89 -Wall -Wextra -Werror \
-  -I/home/ddanila/fun/willem-v30/include \
-  /home/ddanila/fun/willem-v30/src/willem.c \
-  analysis/20260919-programmer-echo/model.c -o /tmp/willem-echo-model
+  -Iwillem-v30/include \
+  willem-v30/src/willem.c \
+  dumps/analysis/20260919-programmer-echo/model.c -o /tmp/willem-echo-model
 /tmp/willem-echo-model rf5 > /tmp/rf5-echo.bin
 /tmp/willem-echo-model 27256 > /tmp/27256-echo.bin
-cmp /tmp/rf5-echo.bin /home/ddanila/fun/dosravi/sessions/rf5-20260919-chip10-read1/RF510A.BIN
-cmp /tmp/27256-echo.bin /home/ddanila/fun/dosravi/sessions/27256-20260919-chip01-read1/E25601A.BIN
+cmp /tmp/rf5-echo.bin dosravi/sessions/rf5-20260919-chip10-read1/RF510A.BIN
+cmp /tmp/27256-echo.bin dosravi/sessions/27256-20260919-chip01-read1/E25601A.BIN
 ```
 
 The anomalous captures and acquisition records are retained only in local
