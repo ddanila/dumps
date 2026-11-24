@@ -155,3 +155,31 @@ simulation and the line-side/DSP connection are still required for A1/A2.
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/state_transitions.py \
   --out /tmp/nokia-g2-state-transitions.json
 ```
+
+## State-byte timer matrix
+
+[The full state-step matrix](state_matrix.py) runs the same unchanged 8031 ROM
+for all 256 RAM34 values, once with the changed-input reload flag and once
+with a negative high timer byte. All 512 bounded runs reach the common 1755
+exit without a core error. The [report](results/state-matrix.json) retains
+entry state, resulting state and countdown, visited instruction addresses and
+source hashes. The matrix is a sensitivity map: arbitrary RAM34 bytes are not
+necessarily reachable during a real call.
+
+In the tested path, the A0→A1→A2→B8 expiry chain has reload values
+1805→2605→60→70. Other distinct loads include 250, 455, 580, 1000 and 2000.
+Those figures support a staged handshake hypothesis, but assigning particular
+V.26 ter tone or silence names requires the actual output and line behavior at
+each stage. Branches depend on other firmware flags too; the matrix holds
+those inputs at zero.
+
+The Timer 1 handler reloads `FC21`. At 11.9808 MHz and 12 oscillator clocks
+per machine cycle, its 991 counts last **0.9926 ms before overflow**. The time
+between software counter decrements also includes interrupt and reload
+latency. Plan 2 now states “approximately 1 ms” rather than treating the
+countdown values as exact milliseconds.
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/state_matrix.py \
+  --out /tmp/nokia-g2-state-matrix.json
+```

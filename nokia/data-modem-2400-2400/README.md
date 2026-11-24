@@ -22,8 +22,9 @@ cancellation. The evidence, all from the controller side, is set out in
 - **USARTs.** One 8251A is programmed for synchronous mode and carries the
   scrambled line bitstream. The other is the switch-selectable DTE port
   (start-stop or synchronous).
-- **Handshake timing.** The controller's 1 ms timers load the V.25/V.26 ter
-  handshake windows (1.8 s, 2.6 s, 250 ms, 2 s).
+- **Handshake timing.** The controller reloads countdowns of 1805, 2605,
+  250 and 2000 ticks. Its tick is approximately 1 ms, so these durations
+  resemble V.25/V.26 ter handshake windows; the state roles remain hypotheses.
 - **Dates.** The boards are date-coded 1984, the year V.26 ter was approved.
 
 The **8031 controller** handles the DTE port, scrambling, the handshake and
