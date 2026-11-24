@@ -58,6 +58,16 @@ to repeat. R0 and Q remain fixed; the next ROM address comes from an old
 register value on Y. This is a ROM-address/carry wait, not demonstrated phase
 accumulation. See the [exhaustive recurrence study](../assumed/ROM-CARRY-REPLIES.md).
 
+A [stricter direct-accumulator screen](phase_add_screen.py) requires a single
+word to add D to Q and write Q, or add D to RAM[A] and write the same register.
+It finds 23/23/21/20 candidates in q1/q2/q3/q4 and none in the two fitted
+profiles. This **does not eliminate** the fitted profiles: a phase update can
+take multiple words or use another operand source. In four saved q3 runs,
+including the long ROM/carry feedback run and both controller-frame bridge
+traces, only 002 and 076 among these candidates are reached, once each during
+startup. No direct candidate repeats in those particular runs. The [report](results/phase-add-screen.json)
+records every candidate, visit, and mapping/trace digest.
+
 The screen therefore does not identify a transmitter. The next discriminating
 search must combine a *reached* D-add instruction with independently supported
 ROM selection, dibit-derived address and retained phase across symbol periods.
