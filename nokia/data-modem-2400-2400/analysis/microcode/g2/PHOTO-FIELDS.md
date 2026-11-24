@@ -219,6 +219,29 @@ history, advancing phase or varying carrier samples at these points. The
 [saved mapping, scenario, trace and report](results/photo-controller-path/)
 make the negative and positive observations reviewable.
 
+The same fixture was run for both repeated bit values under **every one of
+the 32 active Q seeds**. Each of the 64 runs reaches 38F 39 times and produces
+only one four-word ALU Y group throughout its run; Q also stays at its initial
+value. The dispatch index follows `(bit - initial_Q) mod 256` in all 64 cases.
+The fixed output therefore depends on the starting Q and current bit, but
+none of these active seeds reveals a running phase in this candidate path.
+At 38E the candidate instruction produces and stores `(D - Q) mod 256` in
+RAM14, and 38F uses that preceding ALU result for a four-way dispatch.
+This makes the path look more like a difference-driven table selection under
+the current mapping than a phase accumulator. Interpreting D as a controller
+bit is still only the test stimulus; a sampled line value is another plausible
+source to test when the D bus is better constrained.
+
+A diagnostic D sweep of bytes `00`–`FF` and then `FF`–`00` makes the
+four-way behavior explicit. All 512 values are consumed; each of the four
+entries receives 128 visits. The output groups depend only on `D mod 4`:
+`0→[11,11,6,6]`, `1→[11,11,16,16]`, `2→[1,1,6,6]`, and
+`3→[1,1,252,251]` with Q=5. The 256 distinct post-group states repeat
+exactly when the same D value arrives in reverse order. In this fixture,
+RAM14 retains the current D−Q difference, but the observed state does not
+retain earlier values. A four-way selection could serve several modem jobs;
+this experiment does not identify one.
+
 These ALU values have no traced route to the physical DAC. The ROM gate,
 dispatch timing and initial state remain assumptions, so the result is not
 G2's transmitter test. It does narrow the next search: a viable mapping or

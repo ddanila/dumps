@@ -1,4 +1,4 @@
-"""Test a photo-informed A/I mapping against the real controller bitstream.
+"""Test a photo-informed A/I mapping against controller bits and byte values.
 
 All added connections, latch levels, dispatch timing and startup state are
 diagnostic hypotheses. The output examined here is Am2901 ALU Y, not the DAC.
@@ -7,6 +7,7 @@ import copy
 import hashlib
 import json
 import sys
+import tempfile
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -67,6 +68,33 @@ def run(out):
     if any(not row['clean'] for row in sweep):
         raise ValueError('startup sweep contains a model stop')
 
+    seed_outputs = []
+    with tempfile.TemporaryDirectory() as temporary:
+        path = Path(temporary)
+        for q in (row['q'] for row in sweep if row['visits_38e']):
+            for bit in (0, 1):
+                candidate = copy.deepcopy(scenario)
+                candidate['initial']['q'] = q
+                candidate['io']['read']['pc_sequences'][str(INPUT_PC)] = [bit]
+                result = execute(mapping, candidate, SEED_CYCLES, mode='integrated',
+                                 out=path, trace_limit=SEED_CYCLES)
+                trace = [json.loads(line) for line in
+                         (path / 'trace.jsonl').read_text().splitlines()]
+                groups = groups_for(trace)
+                seed_outputs.append(dict(q=q, bit=bit, clean=result['clean'],
+                                         group_count=len(groups),
+                                         distinct_groups=sorted({tuple(group['bytes'])
+                                                                 for group in groups}),
+                                         dispatch_indices=sorted({group['index']
+                                                                  for group in groups}),
+                                         final_q=result['final_state']['q']))
+    if any(not row['clean'] or row['group_count'] < 2 for row in seed_outputs):
+        raise ValueError('active startup seed lacks a repeated group')
+    index_rule_holds = all(row['dispatch_indices'] == [(row['bit'] - row['q']) & 255]
+                           for row in seed_outputs)
+    constant_per_seed_bit = all(len(row['distinct_groups']) == 1 and
+                                row['final_q'] == row['q'] for row in seed_outputs)
+
     shift_inputs = []
     for q_in in (0, 1):
         for ram_in in (0, 1):
@@ -102,6 +130,30 @@ def run(out):
     if set(bits) != {0, 1}:
         raise ValueError('controller stimulus lacks both bit values')
 
+    byte_values = list(range(256)) + list(range(255, -1, -1))
+    byte_scenario = copy.deepcopy(scenario)
+    byte_scenario['name'] += '; ascending and descending byte-valued D sweep'
+    byte_scenario['io']['read']['pc_sequences'][str(INPUT_PC)] = byte_values
+    with tempfile.TemporaryDirectory() as temporary:
+        path = Path(temporary)
+        byte_result = execute(mapping, byte_scenario, 6192, mode='integrated',
+                              out=path, trace_limit=6192)
+        byte_trace = [json.loads(line) for line in
+                      (path / 'trace.jsonl').read_text().splitlines()]
+    byte_reads = [row['external_read']['value'] for row in byte_trace
+                  if row['pc'] == INPUT_PC]
+    byte_groups = groups_for(byte_trace)
+    byte_states = post_group_states(byte_trace, byte_scenario['initial']['ram'])
+    if (not byte_result['clean'] or byte_reads != byte_values or
+            len(byte_groups) != 512 or len(byte_states) != 512):
+        raise ValueError('byte D sweep did not complete all dispatch groups')
+    byte_group_by_mod4 = {
+        str(mod): sorted({tuple(group['bytes']) for value, group in
+                          zip(byte_values, byte_groups) if value % 4 == mod})
+        for mod in range(4)}
+    byte_state_repeats = all(byte_states[i] == byte_states[511-i]
+                             for i in range(256))
+
     source_paths = [Path(__file__), BASE_MAPPING, BASE_SCENARIO, PHOTO_RECORD,
                     PHOTO_A_RECORD,
                     HERE / 'controller_bit_dispatch.py', ASSUMED / 'execute.py']
@@ -113,7 +165,10 @@ def run(out):
                                                             if row['visits_38e']}),
                                   counts_by_final_pc=dict(Counter(f'{row["final_pc"]:03X}'
                                                                   for row in sweep)),
-                                  rows=sweep, shift_input_cases=shift_inputs),
+                                  rows=sweep, shift_input_cases=shift_inputs,
+                                  repeated_bit_output_cases=seed_outputs,
+                                  index_is_bit_minus_initial_q_mod_256=index_rule_holds,
+                                  each_seed_bit_has_fixed_output_and_q=constant_per_seed_bit),
                   controller_stream=dict(bits=len(bits), zero_bits=bits.count(0),
                                          one_bits=bits.count(1), seed_q=5,
                                          hypothetical_input_pc=f'{INPUT_PC:03X}',
@@ -130,6 +185,23 @@ def run(out):
                                              state_variants[0] | state_variants[1]),
                                          trace_digest=result['trace_digest'],
                                          final_pc=f'{result["final_state"]["pc"]:03X}'),
+                  byte_sweep=dict(values=512, unique_values=256,
+                                  ascending_then_descending=True,
+                                  initial_q=5,
+                                  index_is_d_minus_q_mod_256=all(
+                                      group['index'] == ((value - 5) & 255)
+                                      for value, group in zip(byte_values, byte_groups)),
+                                  entry_counts=dict(Counter(group['first_pc']
+                                                            for group in byte_groups)),
+                                  alu_y_by_d_mod_4={key: list(map(list, groups))
+                                                    for key, groups in
+                                                    byte_group_by_mod4.items()},
+                                  same_post_group_state_on_reverse_replay=
+                                      byte_state_repeats,
+                                  distinct_post_group_states=len({
+                                      json.dumps(state, sort_keys=True)
+                                      for state in byte_states}),
+                                  trace_digest=byte_result['trace_digest']),
                   source_sha256={str(path.relative_to(HERE.parent)):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in source_paths},
@@ -139,8 +211,10 @@ def run(out):
                       'one controller bit per 38E read are diagnostic assumptions.',
                       'The four-word values are ALU Y; the physical DAC path and sample clock '
                       'remain unidentified.',
-                      'The fixed response per input bit is not evidence of a carrier, phase '
-                      'accumulator, pulse shaping or receiver/echo processing.'])
+                      'The four-way byte response is compatible with several functions; '
+                      'the D bus source is not identified.',
+                      'The fixed response per input value is not evidence of a carrier, '
+                      'phase accumulator, pulse shaping or receiver/echo processing.'])
     save(out / 'report.json', report)
     return report
 
