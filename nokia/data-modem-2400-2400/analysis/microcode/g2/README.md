@@ -59,3 +59,38 @@ A4 has a numerical target but no demonstrated modulator. A5, C1's complete
 reference model, C2 and C3/C4 remain outstanding. Hardware checks in phase B
 have not been performed. G2 remains active; the ≥80% identification threshold
 and the execution acceptance criteria have not been met.
+
+## Executed lower-bank operand test
+
+[The Gray operand probe](gray_operand_probe.py) reuses the q3 path that was
+already shown to read the Am27S31 at microinstruction 317. It changes the
+declared bank to zero and sets the diagnostic input at 316 so previous Y
+addresses 07C–07F. Each run starts from zero RAM/Q, executes the real control
+store, and logs the actual ROM address, operand and ALU output.
+
+| Input dibit label | ROM address | ROM byte | First Y at 392 | First terminal 084 |
+| --- | ---: | ---: | ---: | ---: |
+| 00 | 07C | 00 | 10 | cycle 110 |
+| 01 | 07D | 04 | 18 | cycle 110 |
+| 10 | 07E | 0C | 34 | cycle 110 |
+| 11 | 07F | 08 | 26 | cycle 110 |
+
+The 160-instruction traces make exactly one ROM read and one visit to output
+word 392, then repeat at terminal 084. Changing the ROM byte changes that
+single output by twice the byte value. There is no phase accumulation or
+sample stream in this scoped path. Its address input comes from a diagnostic
+D316 value; the real controller line-side bitstream was not connected. Thus
+this candidate path does not satisfy the transmitter test, even though it can
+consume the exact Gray-map bytes.
+
+The [report and four full traces](results/gray-operand-probe/report.json)
+preserve the outcomes and source hashes. Reproduce them with:
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/gray_operand_probe.py \
+  --out /tmp/nokia-g2-gray-operand
+```
+
+The next mapping search should require repeated ROM accesses whose address
+comes from actual controller dibits and whose retained state carries phase
+between symbols. This probe rules out only the declared q3 reset scenario.

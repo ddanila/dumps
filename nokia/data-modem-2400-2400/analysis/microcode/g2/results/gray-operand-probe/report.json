@@ -1,0 +1,82 @@
+{
+  "cases": [
+    {
+      "dibit": "00",
+      "final_pc": "084",
+      "final_q": 255,
+      "first_output": 10,
+      "first_terminal_cycle": 110,
+      "output_cycle": 55,
+      "rom_address": "07C",
+      "rom_byte": 0,
+      "rom_read_cycle": 45,
+      "trace_digest": "1e374878f6274d9910adaceb06d58641e3e1b9cf521ec13b5446c04c73804bca"
+    },
+    {
+      "dibit": "01",
+      "final_pc": "084",
+      "final_q": 255,
+      "first_output": 18,
+      "first_terminal_cycle": 110,
+      "output_cycle": 55,
+      "rom_address": "07D",
+      "rom_byte": 4,
+      "rom_read_cycle": 45,
+      "trace_digest": "f644ca5186013040fb6db09df9d7a35737a5a364aaa255b310c3ea85cfce184e"
+    },
+    {
+      "dibit": "10",
+      "final_pc": "084",
+      "final_q": 255,
+      "first_output": 34,
+      "first_terminal_cycle": 110,
+      "output_cycle": 55,
+      "rom_address": "07E",
+      "rom_byte": 12,
+      "rom_read_cycle": 45,
+      "trace_digest": "a0f53954a3e4a6644c283a172d7ffadc60943d61ae8a32938938a57a096716be"
+    },
+    {
+      "dibit": "11",
+      "final_pc": "084",
+      "final_q": 255,
+      "first_output": 26,
+      "first_terminal_cycle": 110,
+      "output_cycle": 55,
+      "rom_address": "07F",
+      "rom_byte": 8,
+      "rom_read_cycle": 45,
+      "trace_digest": "08eecdc0b15f174468092ecf9d9120025bb88958dd8b2f5bdc3a68751a8c2e50"
+    }
+  ],
+  "configuration": {
+    "address_input_pc": "316",
+    "address_source": "previous Y",
+    "bank": 0,
+    "base": "results/polling-study/immediate-one/scenario.json",
+    "code": 5,
+    "cycles": 160,
+    "mapping": "results/independent-study/variant-3.json",
+    "read_pc": "317"
+  },
+  "interpretation": "One diagnostic input selects one real ROM operand and one output; every run reaches terminal 084 at cycle 110. No persistent phase update or repeated sample stream occurs.",
+  "limitations": [
+    "D316 is a diagnostic input, not a traced USART connection.",
+    "The ROM bank, enable and output port are unverified hardware choices.",
+    "Different control/condition and datapath mappings may have a transmitter path."
+  ],
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/execute.py": "240e84ad8c31a9d5d595e69c38bd2d3e7a22c48b6dc5305bfdba5a2985df051f",
+    "assumed/handler_timing_study.py": "49de0efa3b96e5deaf81230d17489e10b9864f538413a807198100a36005668e",
+    "assumed/paired_components_study.py": "a46544d49957c4ead8388462859575fdbf21e7a73e0102678f993eb244e5fee2",
+    "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/sine-operand-study.json": "f6b912fe2125885586c2add7e9b9aa70221b1cb1068a3e4a5b772a5f5e4cf59c",
+    "assumed/sine_operand_study.py": "85bcb70777bd7d0b5f7913965effaf9b95e8b077daf02cdad66186f29cb7df24",
+    "g2/gray_operand_probe.py": "d7f7b576752b41e42a9fd9805673750cd19022e787592ef55d34b0ee34c0f5ae",
+    "g2/table_signatures.py": "00237faeb3f310cf4c59591e2ee9000d743f86f1c00c7eb7303e0a46c781ca71",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "status": "negative for this q3 scenario, not a global transmitter exclusion"
+}
