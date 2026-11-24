@@ -491,3 +491,8 @@ flag correlations and alternative entry models remain open investigations.
 fitted_swapped reset cases. All 3,072 matched runs terminate cleanly, while
 the conservative graph still exposes underflows at untested alias paths.
 The continuation copies R2 to R0 and branches according to whether Q is zero.
+
+[2DF entry and input boundary](LAST-ENTRY.md) supply clean q3/q4 FF reset
+witnesses for the last disconnected word, while retaining 1,279 failing
+extended-gate runs. The following masked-input test requires both bytes FF
+when R0=0; the broader gate remains diagnostic rather than globally validated.

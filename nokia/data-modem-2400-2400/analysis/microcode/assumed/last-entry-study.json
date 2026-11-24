@@ -1,0 +1,20 @@
+{
+  "status": "hypothesis",
+  "evidence": "Relax the identical raw-word class containing 2DE and compare actual index-2 reset runs across all D bytes. Preserve stack failures as evidence. Successful FF input is a diagnostic assumption, not recovered controller protocol.",
+  "scenario": "results/gate-runtime-study/q2-gated-i2-dff/scenario.json",
+  "gate_scenario": "results/alias-runtime-study/extended-scenario.json",
+  "clause": [
+    "!10.2",
+    "!10.3",
+    "!10.7",
+    "!11.0"
+  ],
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q2": "results/independent-study/variant-2.json",
+    "q3": "results/independent-study/variant-3.json",
+    "q4": "results/independent-study/variant-4.json",
+    "fitted_original": "results/selector-completion/original-marked/mapping.json",
+    "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json"
+  }
+}

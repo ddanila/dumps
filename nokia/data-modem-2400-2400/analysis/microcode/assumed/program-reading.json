@@ -762,6 +762,23 @@
         "fitted_swapped"
       ],
       "limitations": "Requires diagnostic relaxation of the entire 0FC identical-word class and fixed-false select 6. Clean index-3 reset witnesses do not eliminate the conservative underflow paths at other aliases. Output consumer and physical wiring remain unknown."
+    },
+    {
+      "name": "masked-input continuation test",
+      "ranges": [
+        [
+          "2DF",
+          "2E5"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under q3/q4, expose R4-R0/R4 respectively, then load Q from the AND of two external reads. Preserve RAM and continue at 2E6 iff Q equals R0-1 modulo 256, otherwise branch to 2FD.",
+      "evidence": "LAST-ENTRY.md",
+      "profiles": [
+        "q3",
+        "q4"
+      ],
+      "limitations": "Requires the diagnostic alias gate, previous flags and fixed-false select 1. Clean zero-reset entry is shown at FF; other input bytes in the same sweep underflow at 2FF. No physical input protocol or globally safe gate is established."
     }
   ]
 }
