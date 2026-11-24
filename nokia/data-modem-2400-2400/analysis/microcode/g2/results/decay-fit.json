@@ -1,0 +1,111 @@
+{
+  "fits": {
+    "exponential": {
+      "max_absolute_error": 2.380062605286952,
+      "offset": 6.041269528781317,
+      "r_squared": 0.9819587411992102,
+      "rmse": 0.7910858501425909,
+      "rounded_exact": 28,
+      "scale": 26.338793076505638,
+      "shape_parameter": 31.4
+    },
+    "inverse_sqrt": {
+      "max_absolute_error": 2.3661310809775813,
+      "offset": -25.608328818747754,
+      "r_squared": 0.9794094223681997,
+      "rmse": 0.8451318389600961,
+      "rounded_exact": 26,
+      "scale": 332.02717723374303,
+      "shape_parameter": 32.8
+    },
+    "linear": {
+      "max_absolute_error": 2.7961147086031453,
+      "offset": 29.79185938945421,
+      "r_squared": 0.9452922101764354,
+      "rmse": 1.3775735107186367,
+      "rounded_exact": 8,
+      "scale": -0.4313290163428924,
+      "shape_parameter": 0.1
+    },
+    "logarithm": {
+      "max_absolute_error": 2.3563776619951184,
+      "offset": 79.69526366186929,
+      "r_squared": 0.9780145185709445,
+      "rmse": 0.8732893991758901,
+      "rounded_exact": 24,
+      "scale": -16.35706355606462,
+      "shape_parameter": 18.1
+    },
+    "reciprocal": {
+      "max_absolute_error": 2.3770033562757362,
+      "offset": -9.520258092705465,
+      "r_squared": 0.980083827917669,
+      "rmse": 0.8311762654999152,
+      "rounded_exact": 27,
+      "scale": 2011.0685495510977,
+      "shape_parameter": 48.0
+    }
+  },
+  "following_signed_byte": -8,
+  "interpretation": "The 46-byte descending segment is closer to an affine exponential than a line; reciprocal and other smooth decays are nearly as good. No candidate is an exact rounded match.",
+  "limitations": [
+    "The segment boundary is chosen from the visible discontinuity at 16F.",
+    "These flexible smooth curves are not specific signatures of an AGC or filter algorithm.",
+    "ROM address wiring and the microcode consumer are unverified."
+  ],
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "search": {
+    "amplitude": "least-squares free scale and offset",
+    "parameter_grid": "0.1 to 100.0 in steps of 0.1; linear has no parameter"
+  },
+  "status": "scoped shape comparison, no DSP table role established",
+  "unsigned_values": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    29,
+    28,
+    26,
+    26,
+    25,
+    24,
+    23,
+    23,
+    22,
+    21,
+    21,
+    20,
+    20,
+    20,
+    19,
+    19,
+    18,
+    18,
+    18,
+    17,
+    17,
+    17,
+    16,
+    16,
+    16,
+    15,
+    15,
+    15,
+    15,
+    14,
+    14,
+    14,
+    14,
+    14,
+    13,
+    13,
+    13,
+    13,
+    13
+  ],
+  "window": "141-16E"
+}

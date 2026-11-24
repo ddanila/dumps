@@ -37,6 +37,14 @@ nothing decisive about split, polyphase or transformed tables, whose indexing
 and physical clock are still unknown. The [report](results/pulse-fit.json)
 retains the full signed bytes, search domain and fit parameters.
 
+The adjacent 141–16E segment is a separate monotone 46-byte decline from
+30 to 13, ending just before the signed jump to −8 at 16F. A
+[scoped shape comparison](decay_fit.py) gives affine exponential R² 0.982,
+reciprocal 0.980, inverse-square-root 0.979 and logarithm 0.978, versus
+linear 0.945. The best exponential reproduces only 28/46 rounded bytes, and
+the near-tied smooth families do not identify an AGC or filter table. The
+[saved fit](results/decay-fit.json) records the scan and source hash.
+
 The [runner](table_signatures.py) verifies the acquisition hash, scans every
 possible four-byte start, checks both sine identities, and computes reference
 phase trajectories from the stored 07C bytes. Repeated dibit 11 yields
@@ -163,7 +171,8 @@ reproduce the reference calculation. Actual control-flow and ROM-address
 traces are needed before naming a transmitter routine.
 
 A1/A2 controller state and command identification remain outstanding. A3 now
-has exact sine and direct Gray-map constraints; coefficient fitting remains.
+has exact sine and direct Gray-map constraints plus scoped pulse and decay
+fits; the remaining table roles are unidentified.
 A4 has a numerical target but no demonstrated modulator. A5, C1's complete
 reference model, C2 and C3/C4 remain outstanding. Hardware checks in phase B
 have not been performed. G2 remains active; the ≥80% identification threshold
