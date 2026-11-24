@@ -50,6 +50,11 @@ terminating candidate rather than the board's actual mode.
 A site-specific four-case test shows that the 12C bank alone determines the
 immediate exit in this fixture; changing the 127 bank has no effect because
 both candidate bytes there are zero. The exit path later parks at 084.
+All 256 diagnostic bytes at the early D read at 002 were also executed under
+both 12C bank choices. They change the ALU result at 002 but never reach the
+07C–07F phase map or 392–39F candidate output sites; each bank retains its
+same exit or loop outcome. [The saved sweep](SWAPPED-ROM-LOOPS.md#new-photo-constrained-q1-loop-an-exact-20-value-rom-recurrence)
+narrows this fixture without identifying the physical input source.
 
 The [controller-bit dispatch experiment](CONTROLLER-BIT-DISPATCH.md) takes
 128 scrambled bits computed by the unchanged 8031 ROM and supplies them, under

@@ -118,6 +118,17 @@ the fixture's immediate loop decision to the 12C bank choice, without tracing
 A8 or identifying what controls it. The lower-bank run later parks at 084,
 so the exit still does not demonstrate a transmitter.
 
+The [early-byte sweep](photo_bank_input_sweep.py) also tests every D value
+00–FF at microinstruction 002, which selects D in this mapping. Its ALU F
+changes with the supplied byte (three saved witnesses show 00, A5 and FF),
+but all 256 values reach 084 with lower-bank 12C, and all 256 remain in the
+12C loop at the 256-cycle bound with upper-bank 12C. Each bank's runs end
+with one RAM/Q state. None reads the candidate 07C–07F phase map or visits
+the 392–39F candidate output sites. The [report](results/photo-bank-input-sweep/report.json)
+records the bounded sweep and provenance. PC 002's physical input source is
+unknown; this result excludes a simple early-byte change as a rescue for
+this fixture, not other mappings, input sites or startup states.
+
 In **q2**, eight gates remain in the 127 loop, where ALU Y settles to 3 or
 34. The other eight enter 12C: five settle to 3 and three alternate 49/40.
 Those small fixed points and two-cycles also fail to show a phase-advanced
