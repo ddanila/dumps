@@ -134,6 +134,11 @@ reference model, C2 and C3/C4 remain outstanding. Hardware checks in phase B
 have not been performed. G2 remains active; the ≥80% identification threshold
 and the execution acceptance criteria have not been met.
 
+The [unpowered continuity worksheet](PHYSICAL-CHECKS.md) gives exact U9,
+control-PROM and LS374 pin pairs that would directly constrain the sequencer
+command, test, address and clock nets. It records no measurements; the current
+[board ledger](../board/nets.json) still has zero complete nets.
+
 ## Executed lower-bank operand test
 
 [The Gray operand probe](gray_operand_probe.py) reuses the q3 path that was
