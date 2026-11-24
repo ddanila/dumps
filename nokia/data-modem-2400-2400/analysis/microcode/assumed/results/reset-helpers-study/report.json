@@ -1,0 +1,482 @@
+{
+  "configuration": {
+    "base": "results/handler-timing-study/q3-previous-plp-01",
+    "evidence": "Characterize q3 helpers 06F and 112 through real caller instructions 004 and 102, starting with declared nonzero local RAM and an empty stack. Compare independent register and input planes, then verify actual zero-reset calls without changed inputs. Previous flags and zero-fill shifts remain assumptions.",
+    "helpers": {
+      "111": {
+        "caller": 4,
+        "end": 119,
+        "entry": 111,
+        "input_pc": 118
+      },
+      "274": {
+        "caller": 258,
+        "end": 278,
+        "entry": 274,
+        "input_pc": 277
+      }
+    },
+    "status": "hypothesis",
+    "witnesses": [
+      [
+        111,
+        "register_q",
+        0,
+        0
+      ],
+      [
+        111,
+        "register_q",
+        127,
+        255
+      ],
+      [
+        111,
+        "register_q",
+        128,
+        127
+      ],
+      [
+        111,
+        "register_q",
+        254,
+        1
+      ],
+      [
+        111,
+        "register_q",
+        255,
+        255
+      ],
+      [
+        111,
+        "input_q",
+        255,
+        1
+      ],
+      [
+        274,
+        "register_q",
+        0,
+        0
+      ],
+      [
+        274,
+        "register_q",
+        1,
+        255
+      ],
+      [
+        274,
+        "register_q",
+        255,
+        127
+      ],
+      [
+        274,
+        "input_q",
+        255,
+        1
+      ]
+    ]
+  },
+  "counts": {
+    "06f:input_q": 65536,
+    "06f:register_q": 65536,
+    "112:input_q": 65536,
+    "112:register_q": 65536
+  },
+  "execution_sha256": "0f08d1e406fbabadbafa9b011025ba756a4d9f45f1077f053a178eb8f71a1763",
+  "interpretation": "q3 06F combines carry-selected half/difference preparation with Q+=D and R8 copy. 112 replaces R2 with -R0 and R4 with D+Q. Local calls use actual BSR/POP and arbitrary declared initial RAM; unchanged zero-reset replay verifies both helpers in context. Physical meanings of R8/R9 and external reads remain unresolved.",
+  "reset_calls": [
+    {
+      "entry": 111,
+      "entry_cycle": 6,
+      "input": 92,
+      "q": 1,
+      "ram": [
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "return_cycle": 14
+    },
+    {
+      "entry": 274,
+      "entry_cycle": 16,
+      "input": 1,
+      "q": 1,
+      "ram": [
+        255,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "return_cycle": 20
+    },
+    {
+      "entry": 274,
+      "entry_cycle": 28,
+      "input": 1,
+      "q": 1,
+      "ram": [
+        255,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "return_cycle": 32
+    }
+  ],
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "assumed/execute.py": "8b2ecbf5fb90f52e593afc89d0c3d6ffff41666e725038f19443ee4bb58f71d5",
+    "assumed/reset-helpers-study.json": "210fb2d12b450a578c86192d45dece9090e57bb1ded2fafff93fd6f2f411dbb4",
+    "assumed/reset_helpers_study.py": "4d75bc83bdee906193d910f6404db7153e95596b98606412301507708caccf01",
+    "assumed/results/handler-timing-study/q3-previous-plp-01/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/handler-timing-study/q3-previous-plp-01/scenario.json": "68f7a2900fa1fe5dfea0611f746c73589f2148edfe2a5e739e127217e05d9389",
+    "assumed/results/handler-timing-study/q3-previous-plp-01/summary.json": "5339f1733ba9942f885069ab399dcdaf237041ae0aa59cc7c658ec99db6a9584",
+    "assumed/results/handler-timing-study/q3-previous-plp-01/trace.jsonl": "d3e4cc2ea8c021761303a07f299a38afb9b9182400a09d94c0e03fbc12e272ed",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": [
+    {
+      "a": 0,
+      "entry": 111,
+      "path": "06f-register_q-00-00",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 10,
+        "q": 1,
+        "ram": [
+          255,
+          56,
+          85,
+          130,
+          167,
+          204,
+          241,
+          22,
+          85,
+          0,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 0,
+      "trace_digest": "b088bd27a5d1cc3947028cef10e4aca9986db3396139762344627596966be544"
+    },
+    {
+      "a": 127,
+      "entry": 111,
+      "path": "06f-register_q-7f-ff",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 10,
+        "q": 0,
+        "ram": [
+          192,
+          56,
+          42,
+          130,
+          167,
+          204,
+          241,
+          22,
+          42,
+          127,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 255,
+      "trace_digest": "6d976f500a56c53d8c3b09c9ac6a54001dfa59b87a5c2dcf1494f3cb2db5ef6a"
+    },
+    {
+      "a": 128,
+      "entry": 111,
+      "path": "06f-register_q-80-7f",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 9,
+        "q": 128,
+        "ram": [
+          64,
+          56,
+          213,
+          130,
+          167,
+          204,
+          241,
+          22,
+          213,
+          128,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 127,
+      "trace_digest": "343a1a7cdd7586ccccc6011cec8fcafb5927e870cb1c0c27440f919d752e7387"
+    },
+    {
+      "a": 254,
+      "entry": 111,
+      "path": "06f-register_q-fe-01",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 9,
+        "q": 2,
+        "ram": [
+          127,
+          56,
+          171,
+          130,
+          167,
+          204,
+          241,
+          22,
+          171,
+          254,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 1,
+      "trace_digest": "95056e71d56bbfdffd4b04f7c5f860ea598701ce664781db5acefbf18f61d1f0"
+    },
+    {
+      "a": 255,
+      "entry": 111,
+      "path": "06f-register_q-ff-ff",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 10,
+        "q": 0,
+        "ram": [
+          0,
+          56,
+          170,
+          130,
+          167,
+          204,
+          241,
+          22,
+          170,
+          255,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 255,
+      "trace_digest": "467cea0589bd38f70770ec20b410e33883b7a6e443054496b1328981b49949ef"
+    },
+    {
+      "a": 255,
+      "entry": 111,
+      "path": "06f-input_q-ff-01",
+      "plane": "input_q",
+      "prediction": {
+        "cycles": 10,
+        "q": 0,
+        "ram": [
+          0,
+          56,
+          170,
+          130,
+          167,
+          204,
+          241,
+          22,
+          170,
+          255,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 1,
+      "trace_digest": "bdf680994a44ccd18eb07d5cb50cbb94a15ec3c39fd326551691f20a31ed24ca"
+    },
+    {
+      "a": 0,
+      "entry": 274,
+      "path": "112-register_q-00-00",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 6,
+        "q": 0,
+        "ram": [
+          0,
+          56,
+          0,
+          130,
+          1,
+          204,
+          241,
+          22,
+          85,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 0,
+      "trace_digest": "0e1a9468f2e2423fc500efe26b53cd4899f94d1b82df13bcc38e773f32d2475b"
+    },
+    {
+      "a": 1,
+      "entry": 274,
+      "path": "112-register_q-01-ff",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 6,
+        "q": 255,
+        "ram": [
+          1,
+          56,
+          255,
+          130,
+          0,
+          204,
+          241,
+          22,
+          84,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 255,
+      "trace_digest": "42549e1c0b5a2e1f258c3f2e21b8a735871c7ae834ba2f36bf66bd074d52eb5d"
+    },
+    {
+      "a": 255,
+      "entry": 274,
+      "path": "112-register_q-ff-7f",
+      "plane": "register_q",
+      "prediction": {
+        "cycles": 6,
+        "q": 127,
+        "ram": [
+          255,
+          56,
+          1,
+          130,
+          128,
+          204,
+          241,
+          22,
+          170,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 127,
+      "trace_digest": "6f434026dd5882f8e7ee8bb33c749cd21ad7965cd4ff73ed422e28607c2e19d0"
+    },
+    {
+      "a": 255,
+      "entry": 274,
+      "path": "112-input_q-ff-01",
+      "plane": "input_q",
+      "prediction": {
+        "cycles": 6,
+        "q": 1,
+        "ram": [
+          255,
+          56,
+          1,
+          130,
+          0,
+          204,
+          241,
+          22,
+          170,
+          96,
+          133,
+          170,
+          207,
+          244,
+          25,
+          62
+        ]
+      },
+      "q": 1,
+      "trace_digest": "a92a07e76f1823d946266e6e22a20801793788496e5c80f0814502e5e3a76e78"
+    }
+  ]
+}

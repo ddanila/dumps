@@ -127,6 +127,27 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_reset_helpers_half_boundaries_and_negation(self):
+        from reset_helpers_study import prediction,scenario_for,probe,verify_core,inspect_reset
+        from defined_condition_fit import load_trace
+        config=read(HERE/'reset-helpers-study.json');base_path=HERE/config['base']
+        mapping,base=read(base_path/'mapping.json'),read(base_path/'scenario.json');rows=decode(mapping)
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            for r9,expected in ((0,255),(127,192),(128,64),(254,127),(255,0)):
+                ram=[(37*i+19)&255 for i in range(16)];ram[9]=r9
+                scenario=scenario_for(base,config,0x06f,ram,255,1)
+                got=probe(rows,scenario,config['helpers']['111'],record=True)
+                self.assertEqual((got['ram'][0],got['ram'][2],got['q']),(expected,ram[8],0))
+                verify_core(mapping,scenario,config['helpers']['111'],got,root/f'half-{r9}')
+            ram=list(range(16));ram[0]=255
+            scenario=scenario_for(base,config,0x112,ram,255,2)
+            got=probe(rows,scenario,config['helpers']['274'],record=True)
+            self.assertEqual((got['ram'][2],got['ram'][4],got['q']),(1,1,255))
+            verify_core(mapping,scenario,config['helpers']['274'],got,root/'negation')
+        calls=inspect_reset(load_trace(base_path),base)
+        self.assertEqual([c['entry'] for c in calls],[0x06f,0x112,0x112])
+
     def test_plan_execution_acceptance_keeps_failure_gates(self):
         from plan_validation import acceptance
         def run(mode,cycles):

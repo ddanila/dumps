@@ -1225,6 +1225,38 @@
       "evidence": "HANDLER4.md",
       "meaning": "Copy R4\u2013R7 to R12\u2013R15, invoke paired arithmetic and repeat according to the final high-byte result under previous-zero timing. Tested entry 2 subtracts each copied operand from itself and returns after one pass for captured R7=00/FF.",
       "limitations": "Reset evidence is scoped to handler 4, code 4, fixed table entry 2 and q3 previous flags. Transient paired results are not identified physical output writes."
+    },
+    {
+      "name": "carry-selected half/difference and input accumulation",
+      "ranges": [
+        [
+          "06F",
+          "077"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "RESET-HELPERS.md",
+      "meaning": "Prepare R0 from R9 by increment, shift and carry-selected subtraction; copy R8 into R2 and add the 076 input into Q. R9=00 produces R0=FF on the verified reset path; 7F/80 and FE/FF are distinct boundaries.",
+      "limitations": "q3 previous flags and zero-fill shift; local nonzero register planes plus unchanged zero-reset witness. Physical meanings of R8/R9 and input 076 are unknown."
+    },
+    {
+      "name": "negated-register and input-sum preparation",
+      "ranges": [
+        [
+          "112",
+          "116"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "RESET-HELPERS.md",
+      "meaning": "Preserve Q, replace R2 with -R0 modulo 256 and R4 with D115+Q. The initial R1 copy is overwritten. Two real reset calls with R0=FF produce R2=1 and R4=2 around the early wait.",
+      "limitations": "q3 mapping; arithmetic/register contract does not identify an external channel or physical completion signal."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

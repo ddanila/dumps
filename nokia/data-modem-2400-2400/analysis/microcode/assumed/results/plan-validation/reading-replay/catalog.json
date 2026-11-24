@@ -1209,6 +1209,38 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "RESET-HELPERS.md",
+        "limitations": "q3 previous flags and zero-fill shift; local nonzero register planes plus unchanged zero-reset witness. Physical meanings of R8/R9 and input 076 are unknown.",
+        "meaning": "Prepare R0 from R9 by increment, shift and carry-selected subtraction; copy R8 into R2 and add the 076 input into Q. R9=00 produces R0=FF on the verified reset path; 7F/80 and FE/FF are distinct boundaries.",
+        "name": "carry-selected half/difference and input accumulation",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "06F",
+            "077"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "RESET-HELPERS.md",
+        "limitations": "q3 mapping; arithmetic/register contract does not identify an external channel or physical completion signal.",
+        "meaning": "Preserve Q, replace R2 with -R0 modulo 256 and R4 with D115+Q. The initial R1 copy is overwritten. Two real reset calls with R0=FF produce R2=1 and R4=2 around the early wait.",
+        "name": "negated-register and input-sum preparation",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "112",
+            "116"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1231,7 +1263,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 534,
+    "annotated_used_words": 547,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -1295,7 +1327,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "RESET-HELPERS.md",
+          "limitations": "q3 previous flags and zero-fill shift; local nonzero register planes plus unchanged zero-reset witness. Physical meanings of R8/R9 and input 076 are unknown.",
+          "meaning": "Prepare R0 from R9 by increment, shift and carry-selected subtraction; copy R8 into R2 and add the 076 input into Q. R9=00 produces R0=FF on the verified reset path; 7F/80 and FE/FF are distinct boundaries.",
+          "name": "carry-selected half/difference and input accumulation",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "06F",
+              "077"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "004",
         "101"
@@ -1391,7 +1440,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "RESET-HELPERS.md",
+          "limitations": "q3 mapping; arithmetic/register contract does not identify an external channel or physical completion signal.",
+          "meaning": "Preserve Q, replace R2 with -R0 modulo 256 and R4 with D115+Q. The initial R1 copy is overwritten. Two real reset calls with R0=FF produce R2=1 and R4=2 around the early wait.",
+          "name": "negated-register and input-sum preparation",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "112",
+              "116"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "102",
         "104"
@@ -4246,6 +4312,7 @@
     "Q3-REGISTER-CONTRACT.md": "ddfca52767abfea4c7aec717f52f0bc0e9445b16216f62514e9b4b4cd6c49021",
     "REGISTER-CONTRACT.md": "b0769c1d90f1cc3e8f6fc8d780f723e57bfe6666583f3d87ae505e7ffd193cf9",
     "REGISTER-SCAN.md": "715ef8a8a1ada20eb4852f3be42828f18424dbad4fbffbcbe4ab031c00ec1683",
+    "RESET-HELPERS.md": "6fedc449b62c0b8e956125a9b98b0fc5dde5579c5d56486951c7bcdea157ca8f",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
     "ROM-CARRY-REPLIES.md": "a5674d5d938effce4f3465af7bb6753ed09bddda735e75b34286f824f996f625",
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",

@@ -624,3 +624,8 @@ reset replays checking all intermediate and final state.
 bytes through a datasheet-based DAC0830 digital buffer model. Candidate byte
 routes and transfer policies produce distinct retained codes and update times;
 all connections remain labelled hypotheses, and core traces are unchanged.
+
+[Reset preparation helpers](RESET-HELPERS.md) explain q3 06F–077 and
+112–116, including the carry-selected half/difference boundaries, Q input
+accumulation and overwritten register copies. Local calls and an unchanged
+reset witness verify the preconditions used by later handlers.

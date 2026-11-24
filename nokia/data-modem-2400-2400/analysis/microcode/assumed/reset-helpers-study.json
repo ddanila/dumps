@@ -1,0 +1,15 @@
+{
+  "status": "hypothesis",
+  "evidence": "Characterize q3 helpers 06F and 112 through real caller instructions 004 and 102, starting with declared nonzero local RAM and an empty stack. Compare independent register and input planes, then verify actual zero-reset calls without changed inputs. Previous flags and zero-fill shifts remain assumptions.",
+  "base": "results/handler-timing-study/q3-previous-plp-01",
+  "helpers": {
+    "111": {"entry": 111, "end": 119, "caller": 4, "input_pc": 118},
+    "274": {"entry": 274, "end": 278, "caller": 258, "input_pc": 277}
+  },
+  "witnesses": [
+    [111,"register_q",0,0], [111,"register_q",127,255], [111,"register_q",128,127],
+    [111,"register_q",254,1], [111,"register_q",255,255], [111,"input_q",255,1],
+    [274,"register_q",0,0], [274,"register_q",1,255], [274,"register_q",255,127],
+    [274,"input_q",255,1]
+  ]
+}
