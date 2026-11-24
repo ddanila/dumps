@@ -45,14 +45,16 @@ scenario, not a running transmitter. A different, evidence-supported control
 path or sequencer timing hypothesis is needed before interpreting these calls
 as steady modem processing.
 
-The reached results do not establish a simple sign selection or quarter-turn.
-Among calls with nonzero sources and E4 high, the exact sign-selection formula
-from the uncoupled local diagnostic matches only 4/25, 9/25, 4/25, 0/21 and
-0/25 calls respectively across the five mappings. The quarter-turn formula
-matches only 3/25, 3/25, 3/25, 0/21 and 0/25. These counts compare the
-*whole output pair* after the call; prior output state and the current Q may
-also matter. They are narrow checks of those formulas, not identifications of
-the actual table function.
+The original full-word sign-selection formula from the uncoupled local
+diagnostic matches only 4/25, 9/25, 4/25, 0/21 and 0/25 calls with nonzero
+sources and E4 high, respectively. A quarter-turn of the complete source
+words matches only 3/25, 3/25, 3/25, 0/21 and 0/25. These were narrow checks
+of the wrong source-byte assumption. The [exact follow-up](PHOTO-TABLE-EXACT.md)
+shows that the held coupled-pin fixture instead duplicates each source word's
+high byte and selects its sign; that rule matches **all 140 E4-high reached
+calls** across the five mappings. This is a concrete arithmetic identification
+for the declared mapping, while its physical pin route and modem role remain
+unverified.
 
 The saved branch conditions and dispatch indices are scenario inputs, and
 external D is a constant stub per run, not a real controller stream. The E4

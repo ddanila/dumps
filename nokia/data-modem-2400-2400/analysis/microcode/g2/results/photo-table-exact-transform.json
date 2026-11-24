@@ -1,0 +1,204 @@
+{
+  "cases": [
+    {
+      "local_checks": 576,
+      "local_failures": 0,
+      "mapping": "q1",
+      "reached_by_site": {
+        "3C2": 12,
+        "3D7": 16
+      },
+      "reached_calls": 28,
+      "reached_matches": 28,
+      "witness": null
+    },
+    {
+      "local_checks": 576,
+      "local_failures": 0,
+      "mapping": "q2",
+      "reached_by_site": {
+        "3C2": 12,
+        "3D7": 16
+      },
+      "reached_calls": 28,
+      "reached_matches": 28,
+      "witness": null
+    },
+    {
+      "local_checks": 576,
+      "local_failures": 0,
+      "mapping": "q3",
+      "reached_by_site": {
+        "3C2": 12,
+        "3D7": 16
+      },
+      "reached_calls": 28,
+      "reached_matches": 28,
+      "witness": {
+        "output": [
+          4626,
+          43434
+        ],
+        "prior": [
+          41394,
+          50132
+        ],
+        "q": 5,
+        "source": [
+          4660,
+          22136
+        ],
+        "words": [
+          {
+            "a": 9,
+            "b": 12,
+            "i": 212,
+            "pc": "3C9",
+            "y": 170
+          },
+          {
+            "a": 9,
+            "b": 13,
+            "i": 212,
+            "pc": "3CA",
+            "y": 169
+          },
+          {
+            "a": 5,
+            "b": 10,
+            "i": 196,
+            "pc": "3CB",
+            "y": 18
+          },
+          {
+            "a": 5,
+            "b": 11,
+            "i": 196,
+            "pc": "3CC",
+            "y": 18
+          }
+        ]
+      }
+    },
+    {
+      "local_checks": 576,
+      "local_failures": 0,
+      "mapping": "q4",
+      "reached_by_site": {
+        "3C2": 12,
+        "3D7": 16
+      },
+      "reached_calls": 28,
+      "reached_matches": 28,
+      "witness": null
+    },
+    {
+      "local_checks": 576,
+      "local_failures": 0,
+      "mapping": "fitted_swapped",
+      "reached_by_site": {
+        "3C2": 12,
+        "3D7": 16
+      },
+      "reached_calls": 28,
+      "reached_matches": 28,
+      "witness": null
+    }
+  ],
+  "fixture": {
+    "e2_i0_a1": 0,
+    "e4_i7_a0": 1,
+    "local_checks_per_mapping": 576,
+    "output_register_bases": [
+      10,
+      12
+    ],
+    "prior_outputs": [
+      [
+        0,
+        0
+      ],
+      [
+        41394,
+        50132
+      ],
+      [
+        65535,
+        1
+      ]
+    ],
+    "q_values": [
+      0,
+      5,
+      255
+    ],
+    "source_pairs": [
+      [
+        4660,
+        22136
+      ],
+      [
+        4863,
+        22016
+      ],
+      [
+        37428,
+        54904
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        65535,
+        32769
+      ],
+      [
+        255,
+        65280
+      ],
+      [
+        42405,
+        23130
+      ]
+    ],
+    "source_register_bases": [
+      4,
+      8
+    ],
+    "table_bases": [
+      "3C5",
+      "3DA"
+    ]
+  },
+  "formula": "H(v)=0x0101*(v>>8); entry 0:(Hx,Hy), 1:(Hx,-Hy), 2:(-Hx,-Hy), 3:(-Hx,Hy), modulo 65536",
+  "limitations": [
+    "The E4-to-I7/A0 and E2-to-I0/A1 routes are photo candidates with untraced pin continuations and held levels.",
+    "The local sweep executes four real-PROM words per entry with the G1 carry policy; it is not a controller call.",
+    "The reached-call match uses the saved rotation-study branch and dispatch scenario, not recovered physical conditions.",
+    "The model still shares instruction controls across both Am2901 slices; split-slice wiring could change this formula.",
+    "The output register pairs are not traced to the DAC08 or a line waveform."
+  ],
+  "source_sha256": {
+    "assumed/execute.py": "b9599564a558b9d8400bf813334d5c4cc57d1ccf6534442aae598281e5d788d3",
+    "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+    "assumed/rotation-search.json": "1ecdda942f97bbd2e52cd6f0faa66edf3c058906538d22abacdfbd8ffcb9145a",
+    "assumed/rotation_study.py": "9359540d7b30fae184ce60a3584f3b7466bc3d75cab37a28117d660f12018077",
+    "g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "g2/photo_table_exact_transform.py": "eef2b1ed11466181cc9fa5c271f70f9985cba947fa1a0d7591579aafe4140515",
+    "g2/results/photo-b-constraints/q1-photo-swapped.json": "73d1121385d20a419ab06329004b7d15fec18fb7ee42fee95d11c43685c97cbe",
+    "g2/results/photo-b-constraints/q2-photo-swapped.json": "18c85f7921c473054bb73bb8bbca2d99519e9fc710ae06a23809ea59b5ae43b2",
+    "g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "g2/results/photo-b-constraints/q4-photo-swapped.json": "1b6b47a1729dd03a77d0baf8c0daf47f8392cee28d474a55e47630899493ac37",
+    "g2/results/photo-table-callers.json": "96f03869fb42d650c32ade69e44867761d9ff3f57b045d95fb2fb6018f55179f",
+    "model.py": "12bafa9ff5f2c1f47bfc91b1e5ffcac810ab3e90df0f74b21433082b2b6b9267"
+  },
+  "status": "exact transform under held photo-pin hypothesis, not recovered board wiring",
+  "total_local_checks": 2880,
+  "total_reached_matches": 140
+}

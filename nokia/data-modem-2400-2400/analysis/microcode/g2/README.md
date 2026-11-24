@@ -675,6 +675,12 @@ and table outputs without changing which calls occur. All 28 calls per mapping
 then have nonzero source pairs, but none satisfies the simple sign-selection
 or quarter-turn formula. This narrows the arithmetic interpretation while
 leaving the controller and DAC routes unresolved.
+The [exact shared-control table check](PHOTO-TABLE-EXACT.md) resolves the
+earlier low full-word sign-selection counts: with E4 held high, each table
+duplicates the high byte of two source words and selects their signs. The
+formula matches 2,880 local executions and all 140 reached E4-high calls
+across five mappings. The split-slice candidate is a different mapping and
+does not inherit that formula.
 
 The [U9 enable diagnostic](ENABLE-TAKEOVER.md) uses the Signetics 8X02 pin
 description and real PROM words to distinguish a floating address bus from

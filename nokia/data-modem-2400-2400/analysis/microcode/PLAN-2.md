@@ -115,6 +115,13 @@ phases B–C turn "what" into "how".
     filter, timing, carrier or decision state. Test byte polarity alternatives
     until the physical bus route is known.
 
+  A conditional A4 result is now available: under the held E4/I7/A0 photo-pin
+  candidate, both 3C5 and 3DA tables [select the signs of duplicated source
+  high bytes](g2/PHOTO-TABLE-EXACT.md). The rule matches all 140 reset-reached
+  calls in that fixture. The next discriminating check is whether a real
+  controller dibit selects those entries and whether their values reach an
+  advancing sample path. The arithmetic identity alone is not a transmitter.
+
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
   rather than statistical plausibility.
