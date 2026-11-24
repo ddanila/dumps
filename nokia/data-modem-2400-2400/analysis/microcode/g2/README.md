@@ -1,0 +1,61 @@
+# G2: establish the modem function by execution
+
+This work follows [PLAN-2.md](../PLAN-2.md). G1's assumption-driven executor
+and annotations are tools for this goal; their acceptance does not establish
+G2. The required end result remains a controller-driven microcode transmitter,
+plus a demonstrated receiver or echo canceller, with the modem functions
+identified in the routines.
+
+## First independent ROM constraint
+
+[ITU-T V.26 ter (11/88), §2.5.2.1, Table 1](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I!!PDF-E&lang=e&type=items)
+assigns differential phase changes 0°, 90°, 270°, 180° to dibits in binary
+index order 00, 01, 10, 11; the first bit arrives first. In a 16-position phase
+representation these increments are **00, 04, 0C, 08**.
+
+The unmodified Am27S31 dump contains that exact four-byte sequence once,
+at **07C–07F**. This supplies a more specific transmit-encoder candidate than
+the proposed 068–06F region. The two four-byte blocks there are 0,1,2,3 and
+1,0,2,3: neither directly matches the quarter-turn map 0,1,3,2. This rejects
+those direct interpretations only; an unknown input/output permutation could
+still give them another role.
+
+The same dump supplies an exact rounded 127-amplitude 16-point sine at
+000–00F and five wrap samples at 010–014. The 65 bytes at 100–140 exactly
+match the first quarter of a 256-point sine, including both endpoints. These
+are numerical identities, independent of the six microcode mapping choices.
+They do not by themselves identify the standard or the physical ROM wiring.
+
+The [runner](table_signatures.py) verifies the acquisition hash, scans every
+possible four-byte start, checks both sine identities, and computes reference
+phase trajectories from the stored 07C bytes. Repeated dibit 11 yields
+alternating half-turn phases for 32 symbols, a target signature for segment 1.
+The sample calculation with phase increment 3 at an assumed 9600 samples/s
+has frequency 1800 Hz. **These are reference calculations, not executed
+microcode or observed DAC output.** They do not count as C2 success.
+
+The [saved report](results/table-signatures.json) includes the exact search
+results, negative candidate comparisons, reference trajectories, source hash
+and limitations. Tests cover differential accumulation across every initial
+phase, repeated reversals, altered-ROM rejection and the last search window.
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/table_signatures.py
+python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2 -v
+```
+
+## Next evidence and acceptance status
+
+The next discriminating question is whether a candidate mapping can derive
+07C plus the real line-side dibit, add the returned phase increment to retained
+phase, and then address the sine table. The index must arise from microcode
+state and controller data; inserting that sequence into a scenario would only
+reproduce the reference calculation. Actual control-flow and ROM-address
+traces are needed before naming a transmitter routine.
+
+A1/A2 controller state and command identification remain outstanding. A3 now
+has exact sine and direct Gray-map constraints; coefficient fitting remains.
+A4 has a numerical target but no demonstrated modulator. A5, C1's complete
+reference model, C2 and C3/C4 remain outstanding. Hardware checks in phase B
+have not been performed. G2 remains active; the ≥80% identification threshold
+and the execution acceptance criteria have not been met.

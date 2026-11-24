@@ -1,0 +1,231 @@
+{
+  "gray16": {
+    "candidate_068_matches": false,
+    "candidate_06c_matches": false,
+    "compared_068": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "compared_06c": [
+      1,
+      0,
+      2,
+      3
+    ],
+    "exact_occurrences": [
+      "07C"
+    ],
+    "expected": [
+      0,
+      4,
+      12,
+      8
+    ],
+    "stored_07c": [
+      0,
+      4,
+      12,
+      8
+    ]
+  },
+  "limitations": [
+    "Four-byte match is a candidate address, not a unique identification of the standard.",
+    "No tested microcode trace yet derives these addresses from the real USART bitstream.",
+    "The 9600 Hz sample rate is hypothetical; this calculation is not a DAC waveform.",
+    "Coefficient fitting for 141-1CF and controller A1/A2 remain outstanding.",
+    "No G2 transmit, receive, or echo-cancellation acceptance criterion passes here."
+  ],
+  "reference_only": {
+    "carrier_frequency": 1800.0,
+    "carrier_one_period": [
+      0,
+      117,
+      90,
+      -49,
+      -127,
+      -49,
+      90,
+      117,
+      0,
+      -117,
+      -90,
+      49,
+      127,
+      49,
+      -90,
+      -117
+    ],
+    "carrier_phase_step": 3,
+    "dibits": [
+      0,
+      1,
+      2,
+      3,
+      3,
+      2,
+      1,
+      0
+    ],
+    "hypothetical_sample_rate": 9600,
+    "phases": [
+      0,
+      4,
+      0,
+      8,
+      0,
+      12,
+      0,
+      0
+    ],
+    "samples_at_symbol_phase": [
+      0,
+      127,
+      0,
+      0,
+      0,
+      -127,
+      0,
+      0
+    ],
+    "segment1_dibits": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "segment1_phases": [
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0
+    ]
+  },
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "sine16": {
+    "actual": [
+      0,
+      49,
+      90,
+      117,
+      127,
+      117,
+      90,
+      49,
+      0,
+      -49,
+      -90,
+      -117,
+      -127,
+      -117,
+      -90,
+      -49
+    ],
+    "exact": true,
+    "expected": [
+      0,
+      49,
+      90,
+      117,
+      127,
+      117,
+      90,
+      49,
+      0,
+      -49,
+      -90,
+      -117,
+      -127,
+      -117,
+      -90,
+      -49
+    ],
+    "wrap_010_014": [
+      0,
+      49,
+      90,
+      117,
+      127
+    ],
+    "wrap_exact": true
+  },
+  "sine256_quarter": {
+    "exact": true,
+    "mismatches": []
+  },
+  "source_sha256": "00237faeb3f310cf4c59591e2ee9000d743f86f1c00c7eb7303e0a46c781ca71",
+  "standard": {
+    "degrees": [
+      0,
+      90,
+      270,
+      180
+    ],
+    "dibit_order": [
+      "00",
+      "01",
+      "10",
+      "11"
+    ],
+    "section": "2.5.2.1, Table 1",
+    "url": "https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I!!PDF-E&lang=e&type=items"
+  },
+  "status": "reference signature; no microcode execution or physical routing inferred"
+}
