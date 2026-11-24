@@ -70,6 +70,20 @@ def main():
     for name in ('listing.csv','catalog.json'):
         assert (reading_out/name).read_bytes()==(HERE/'results/program-reading'/name).read_bytes()
     catalog=read(reading_out/'catalog.json')
+    interface_out=args.out/'interface-replay'
+    subprocess.run([sys.executable,str(HERE/'frame_dac_bridge.py'),'--out',str(interface_out)],check=True)
+    interface_base=(HERE/config['interface_report']).parent
+    interface_files=sorted(str(p.relative_to(interface_out)) for p in interface_out.rglob('*') if p.is_file())
+    assert interface_files==sorted(str(p.relative_to(interface_base)) for p in interface_base.rglob('*') if p.is_file())
+    for name in interface_files:assert (interface_out/name).read_bytes()==(interface_base/name).read_bytes(),name
+    interface=read(interface_out/'report.json')
+    complete=[r for r in interface['runs'] if r['microcode_started']]
+    incomplete=[r for r in interface['runs'] if not r['microcode_started']]
+    assert len(complete)==6 and len(incomplete)==4 and all(r['latch'] is None for r in incomplete)
+    interface_evidence=dict(files_reproduced=interface_files,completed_transactions=len(complete),
+        rejected_incomplete_transfers=len(incomplete),diagnostic_connection_only=True,
+        recurring_dac_periods=sorted({r['finding']['classification']['repeat']['period'] for r in complete}),
+        autonomous_phase_advance=False,controller_feedback=False)
     variants={}
     for name,path in read(HERE/'program-reading.json')['profiles'].items():
         mapping=read(HERE/path);rows=decode(mapping)
@@ -96,15 +110,15 @@ def main():
     finding=acceptance(ordered,sweep,config['minimum_coverage'])
     missing=[dict(entry=e['entry'],callers=e['callers']) for e in catalog['direct_call_entries'] if not e['annotations']]
     historical=read(HERE/'results/suite.json')
-    sources=[Path(__file__),HERE/'plan-validation.json',HERE.parent/'PLAN.md',HERE/'analyze.py',HERE/'program_reading.py',
+    sources=[Path(__file__),HERE/'plan-validation.json',HERE/'frame_dac_bridge.py',HERE/'frame-dac-bridge.json',HERE/config['interface_report'],HERE.parent/'PLAN.md',HERE/'analyze.py',HERE/'program_reading.py',
         HERE/'program-reading.json',HERE/config['catalog'],HERE/config['sequencer_mapping'],HERE/config['sequencer_scenario'],
         HERE/config['sweep_reference'],HERE/'results/suite.json',HERE/'execute.py',HERE/'external_line.py',HERE/'common.py',
         HERE/'defined_condition_fit.py',HERE.parent/'model.py',*(HERE/p for p in config['input_manifests'])]
     save(args.out/'report.json',dict(configuration=config,preserved_inputs=preserved,analysis_files_reproduced=analysis_files,variants=variants,
-        long_runs=ordered,sweep=sweep,execution_acceptance=finding,
+        long_runs=ordered,sweep=sweep,execution_acceptance=finding,interface_evidence=interface_evidence,
         interpretation_audit=dict(annotated_used_words=catalog['counts']['annotated_used_words'],
             used_words=1021,direct_call_entries=len(catalog['direct_call_entries']),unannotated_direct_entries=missing,
-            full_plan_complete=False,reason='Routine interpretation remains incomplete; external interface hypotheses do not establish a complete controller or recurring sample transaction.'),
+            full_plan_complete=False,reason='Routine and branch/case interpretation remains incomplete. The verified controller-to-DAC transaction is an explicit one-way diagnostic hypothesis, not recovered board function.'),
         historical_suite=dict(acceptance_met=historical['acceptance_met'],coverage=historical['aggregate_sequencer_coverage'],
                               completed_cycles=sum(r['completed_cycles'] for r in historical['runs'].values())),
         source_sha256={str(p.relative_to(HERE.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}))

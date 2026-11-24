@@ -139,7 +139,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 115 functional/assumption tests pass, including checks that
+byte. All 117 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -273,3 +273,9 @@ a provenance-labelled cycle schedule without PC branch overrides. It preserves
 boot while reaching the double-preparation and paired-wait path from reset,
 and explains why these contexts still exclude 1EF. Recurrence checks account
 for future scheduled input changes.
+
+[A completion-qualified controller-to-DAC bridge](FRAME-DAC-BRIDGE.md) executes
+the actual controller builder/transmitter, gates startup on full frame completion
+and latch, routes bytes into a zero-reset microcode run, and drives recurring DAC
+transfers. The connection and time ratio are explicit hypotheses; the held codes
+are constant and no autonomous phase advance or return protocol is inferred.

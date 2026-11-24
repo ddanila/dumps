@@ -21,6 +21,7 @@
       "../../../../unknown-modem-am27s31dc/manifest.json",
       "../../../../unknown-modem-other-board-2764/manifest.json"
     ],
+    "interface_report": "results/frame-dac-bridge/report.json",
     "long_runs": [
       {
         "cycles": 1000000,
@@ -66,11 +67,36 @@
     "completed_cycles": 61000000,
     "coverage": 0.28795298726738494
   },
+  "interface_evidence": {
+    "autonomous_phase_advance": false,
+    "completed_transactions": 6,
+    "controller_feedback": false,
+    "diagnostic_connection_only": true,
+    "files_reproduced": [
+      "frame-05/dac.json",
+      "frame-05/io.jsonl",
+      "frame-05/mapping.json",
+      "frame-05/scenario.json",
+      "frame-05/summary.json",
+      "frame-05/trace.jsonl",
+      "frame-85/dac.json",
+      "frame-85/io.jsonl",
+      "frame-85/mapping.json",
+      "frame-85/scenario.json",
+      "frame-85/summary.json",
+      "frame-85/trace.jsonl",
+      "report.json"
+    ],
+    "recurring_dac_periods": [
+      12
+    ],
+    "rejected_incomplete_transfers": 4
+  },
   "interpretation_audit": {
     "annotated_used_words": 655,
     "direct_call_entries": 37,
     "full_plan_complete": false,
-    "reason": "Routine interpretation remains incomplete; external interface hypotheses do not establish a complete controller or recurring sample transaction.",
+    "reason": "Routine and branch/case interpretation remains incomplete. The verified controller-to-DAC transaction is an explicit one-way diagnostic hypothesis, not recovered board function.",
     "unannotated_direct_entries": [],
     "used_words": 1021
   },
@@ -5925,10 +5951,13 @@
     "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
     "assumed/execute.py": "ebc49c477ce6d6a63ae2e1b5232319a0d45eca4fc57b1ee8295404b4eac53149",
     "assumed/external_line.py": "29c89ffc0cea6e961e7be10dbea45377497d83f974e2bf16f64cf7354aaffaf3",
-    "assumed/plan-validation.json": "d0c5b81ae56628111ade6a73d95fa6a417a62a236b6b99c571e23f015eb4132d",
-    "assumed/plan_validation.py": "c3e398568df3687662be11d63f06054571a1b9929c8d42fa291978407c3c5527",
+    "assumed/frame-dac-bridge.json": "4889e4d3c74d2d9c55ea13727f32cfcca807953a591948baf935cfb5880c780d",
+    "assumed/frame_dac_bridge.py": "12b1d0c701f950fa40788e106bb09bd2af8f65f99df2bfa9aceee39dc88f2fe4",
+    "assumed/plan-validation.json": "719ef2444725dab3983a420a5623185094f84b30f1bff0a2c66cfd55c0a461ed",
+    "assumed/plan_validation.py": "4434e12a651dfc15de5112e3fe62323aa8f2ade7f7af237488808104e82d2636",
     "assumed/program-reading.json": "d4779b8bfd593e993661fcf015dc16fef6b90809c33bbfddb6699c021503796f",
     "assumed/program_reading.py": "b1adb9721dd1672c371220f64699e69399493645bf6535beeffb96b3f5412f34",
+    "assumed/results/frame-dac-bridge/report.json": "603ef3f5eef9aa3d7ff6a03664e36bb2f3604c4436104f08c7224f72fd695cf5",
     "assumed/results/program-reading/catalog.json": "74a0f4fd9f8d63aacae7163cfc5eb5e5db5ea9d621ad8e72005d5ae9e607a5a6",
     "assumed/results/suite.json": "1ff6711c6540cdc2b29b45dec050f73366a1b98dc8833f9eb4fd5bbfd5c5c0ed",
     "assumed/results/third-case-study/all_cases.json": "8ca7ee6496f18e00cfa3a64f0a16a34e91159c3665b65a11097951b11c36be31",

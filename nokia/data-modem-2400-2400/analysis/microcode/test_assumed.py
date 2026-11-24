@@ -127,6 +127,44 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_controller_frame_bridge_requires_completion_and_latch(self):
+        from frame_dac_bridge import latched_frame
+        report=read(HERE/'results/frame-dac-bridge/report.json')
+        complete=next(r for r in report['runs'] if r['completions']==4)
+        result=complete['controller'];initial=248
+        self.assertEqual(latched_frame(result,initial),complete['latch'])
+        missing=copy.deepcopy(result)
+        missing['events']=[e for e in missing['events'] if not (e['kind']=='tx_complete' and e['value']==4)]
+        with self.assertRaisesRegex(ValueError,'preceded complete'):latched_frame(missing,initial)
+        unlatched=copy.deepcopy(result)
+        unlatched['events']=[e for e in unlatched['events'] if e['pc'] not in (0x8d7,0x8da)]
+        self.assertIsNone(latched_frame(unlatched,initial))
+        for r in report['runs']:
+            if r['completions']<4:
+                self.assertIsNone(latched_frame(r['controller'],initial));self.assertFalse(r['microcode_started'])
+
+    def test_controller_frame_bridge_operand_and_recurring_dac(self):
+        from frame_dac_bridge import scenario_for_frame,inspect_micro
+        from rom_study import load_rom
+        from defined_condition_fit import load_trace
+        from dac0830 import replay
+        config=read(HERE/'frame-dac-bridge.json');sine=read(HERE/config['sine_config'])
+        mapping=read(HERE/sine['profiles']['q3']);rom=load_rom(sine)
+        with tempfile.TemporaryDirectory() as temporary:
+            for case in config['frames']:
+                wire=case['expected_wire'];scenario=scenario_for_frame(config,wire)
+                summary=execute(mapping,scenario,256,mode='integrated',out=Path(temporary),trace_limit=256)
+                self.assertTrue(summary['clean']);trace=load_trace(Path(temporary))
+                finding=inspect_micro(trace,scenario,wire,rom)
+                for pc,index in config['bindings'].items():
+                    rows=[r for r in trace if r['pc']==int(pc)]
+                    self.assertTrue(rows)
+                    self.assertTrue(all(r['external_read']['value']==wire[index] for r in rows))
+                dac=replay(trace,read(HERE/config['dac_config']),'first_low','per_load')
+                self.assertEqual(dac['dac_register'],34 if wire[0]==133 else 146)
+                self.assertEqual(finding['update_cycles'],list(range(55,256,12)))
+                self.assertEqual(finding['quarter_sine'],wire[0]==5)
+
     def test_external_line_event_validation_and_boundaries(self):
         from external_line import validate_external_line,external_line_value
         policy=dict(mode='cycle-events',initial=1,events=[[3,0],[7,1]],status='stub',evidence='test clocked input')

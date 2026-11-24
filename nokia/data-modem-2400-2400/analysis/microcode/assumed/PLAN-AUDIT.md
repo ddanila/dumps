@@ -2,7 +2,7 @@
 
 The [plan](../PLAN.md) is **not yet complete**. Its execution requirements now
 have a consolidated check against the current executor. Program interpretation
-still has concrete gaps in branch/case interpretation and external transactions.
+still has concrete gaps in branch/case interpretation and modem-function attribution.
 All 37 cataloged direct-call entries now have scoped annotations.
 Physical fidelity is not an additional acceptance gate: the plan explicitly
 allows labelled assumptions and makes hardware checks optional.
@@ -70,7 +70,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Datapath-derived dispatch when suggested | Q and preceding-Y index policies; nonzero masked nested reset study | Demonstrated with real caller stack; other sites may remain scenario-driven |
 | Millions of clean integrated instructions and stable inspectable activity | Two million primary integrated instructions plus exact full replays; q3 live ROM feedback | Execution criterion passes |
 | Name subroutines and annotate from traces | 655 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Direct-call catalog annotated; broader branch/case interpretation remains incomplete** |
-| Relate I/O to sine lookup, DAC, sample timing and controller exchange | Live sine input; hypothetical DAC sink; measured instruction counts; separately verified 8031 frame/handshake routines | **Partial: no complete controller/microcode or recurring sample transaction yet** |
+| Relate I/O to sine lookup, DAC, sample timing and controller exchange | Replayed actual 8031 build/transmit, completion-qualified frame latch, declared byte routing, actual ROM operand and recurring DAC transfers with explicit relative clock ratio | Implemented as a one-way diagnostic hypothesis; physical routing and signal-processing purpose unresolved |
 | Feed routine evidence back into mapping/execution | Q-independent alternatives, source-register comparisons, carry/flag timing and handler studies | Implemented, ongoing where interpretations disagree |
 | Optional continuity checks | Prioritized in the plan and board worksheets | Optional; not an execution or interpretation blocker |
 
@@ -94,14 +94,17 @@ spans are 19D–1DE (66 words), 020–04B (44), 1EF–219 (43), 054–06E (27),
 and 0DF–0F8 (26). These are contiguous listing spans, not inferred subroutine
 boundaries; the catalog and traces should guide their decomposition.
 
-The external-interface work needs a coherent transaction that relates data
-production, buffering, transfer, repetition and controller interaction under
-stated assumptions. Independently replaying 65 reset phases is not evidence of
-autonomous phase advance. An unknown physical clock may remain a parameter;
-assigning an arbitrary frequency does not establish a recurring sample path.
-Likewise, a verified four-byte controller frame is not by itself a DSP command.
-These are software/evidence tasks, not a demand for continuity measurements
-before continuing.
+The [controller-to-DAC bridge](FRAME-DAC-BRIDGE.md) now supplies a coherent
+one-way transaction under the plan's assumption policy. It joins actual
+controller construction/transmission, completion and latch ordering, microcode
+input consumption, ROM lookup and recurring DAC load/transfer. Six complete
+transactions and four rejected incomplete transfers are replayed by this audit.
+The DAC updates recur every 12 microinstructions with constant held codes;
+there is no claimed autonomous phase advance or controller return protocol.
+Physical routing and clocks remain labelled assumptions, not additional
+completion gates. The remaining reading work must explain broader handler/case
+behavior and its computational role without treating this diagnostic connection
+as recovered modem functionality.
 
 ## Reproduce
 
@@ -114,5 +117,5 @@ The runner's execution gate requires clean complete runs, maximum depth at most
 four, no unused words, exact full replays and unchanged saved prefixes, at least
 one million sequencer and two million integrated primary instructions, and at
 least 90% clean random-sweep coverage. Tests reject failed, truncated,
-non-reproducible, over-depth and insufficient-coverage summaries. The 115-test
+non-reproducible, over-depth and insufficient-coverage summaries. The 117-test
 suite passes. No full-plan completion flag is inferred from this execution gate.

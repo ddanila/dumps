@@ -1,0 +1,123 @@
+{
+  "status": "hypothesis",
+  "evidence": "Diagnostic connection only: a completed 8031 four-byte transmit frame latched by P1.2 starts one zero-reset microcode run. Bytes route unchanged to 002,316,118,107; 076 is held zero. Existing early replies, fixed paired entry zero and ROM read at 317 remain explicit assumptions. ALU Y at 392 loads and transfers the DAC0830. No physical nets, controller feedback or autonomous phase increment inferred.",
+  "controller_config": "../../controller-output-send-scenario.json",
+  "controller_evidence": "../../results/controller-output-send-study/report.json",
+  "sine_config": "sine-operand-study.json",
+  "dac_config": "dac-output-study.json",
+  "bindings": {
+    "2": 0,
+    "790": 1,
+    "280": 2,
+    "263": 3
+  },
+  "constant_reads": {
+    "118": 0
+  },
+  "frames": [
+    {
+      "name": "frame-85",
+      "fixture": {
+        "counters": [
+          96,
+          37,
+          119
+        ],
+        "flags": [
+          87,
+          195,
+          139,
+          73,
+          125,
+          102
+        ],
+        "patterns": [
+          125,
+          45
+        ],
+        "payload": [
+          60,
+          1,
+          202,
+          217,
+          145,
+          112
+        ],
+        "previous": [
+          175,
+          164,
+          76,
+          234
+        ],
+        "prior_mode": 236,
+        "state": 160
+      },
+      "expected_wire": [
+        133,
+        2,
+        152,
+        124
+      ]
+    },
+    {
+      "name": "frame-05",
+      "fixture": {
+        "counters": [
+          43,
+          107,
+          22
+        ],
+        "flags": [
+          236,
+          6,
+          165,
+          67,
+          228,
+          95
+        ],
+        "patterns": [
+          55,
+          136
+        ],
+        "payload": [
+          0,
+          29,
+          152,
+          227,
+          151,
+          107
+        ],
+        "previous": [
+          149,
+          252,
+          168,
+          38
+        ],
+        "prior_mode": 1,
+        "state": 160
+      },
+      "expected_wire": [
+        5,
+        18,
+        168,
+        124
+      ]
+    }
+  ],
+  "completion_delays": [
+    8,
+    16,
+    32
+  ],
+  "incomplete_counts": [
+    0,
+    3
+  ],
+  "microcode_cycles": 256,
+  "timing": {
+    "status": "hypothesis",
+    "evidence": "Relative diagnostic time only; no measured oscillator rate. Four microcode cycles per controller harness tick and two-cycle start latency.",
+    "microcycles_per_controller_tick": 4,
+    "start_latency": 2
+  }
+}
