@@ -39,6 +39,13 @@ test for q1–q4 and fitted-swapped, and separately feeds four real-controller
 frame streams into D38E. All 30 runs consume their bytes, but each group has
 one signature per current byte and no ROM read after the first input. This
 deprioritizes D38E as the shared command/sample route under the tested fixture.
+The [alternate D-site inventory](ALTERNATE-INPUT-SITES.md) finds six other
+recurring input operations in representative Q path classes. Reference ADC
+samples at 3EB, 3A7, 3C1 and 12A are memoryless or fixed-state under those
+fixtures. A zero at q1's 127 triggers the changing 12C ROM recurrence but
+then stops consuming D127; fitted-swapped 187 is an input-sensitive PLP/BLT
+shift loop that exits early on the test waveform. Neither is yet a sustained
+controller-driven transmitter or receiver.
 
 The [photo-informed board experiment](../board/PHOTO-HYPOTHESES.md) revisits
 the physical-wiring blocker: missing proven nets do not prevent explicit
