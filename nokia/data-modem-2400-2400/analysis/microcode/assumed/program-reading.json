@@ -953,6 +953,40 @@
       "evidence": "SELECTOR-PREFIX.md",
       "meaning": "The eight branch words select handlers 11A, 148, 18B, 300, 259, 345, 09E and 133. Independent q1/q3 input sums reach each through the actual 109 dispatch.",
       "limitations": "Uses the default unconditional-transfer policy, not optional BRT gates. No physical opcode assignment or full handler algorithm is established."
+    },
+    {
+      "name": "handler-2 external-byte comparison",
+      "ranges": [
+        [
+          "1EC",
+          "1EE"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q1",
+        "q3"
+      ],
+      "meaning": "Previous flags wait for D=-R4 modulo 256. With input-sum handler-2 reset entry, q1 R4=s-2 and q3 R4=FE; a matching reply returns and reaches 084.",
+      "evidence": "HANDLER-REPLY.md",
+      "limitations": "Diagnostic input schedule, fixed other dispatch indices and previous-zero condition. Physical byte channel and protocol remain unknown."
+    },
+    {
+      "name": "preserved-R0/Q transform-loop predicate",
+      "ranges": [
+        [
+          "3EA",
+          "3EE"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q1",
+        "q3"
+      ],
+      "meaning": "Current-zero loop control repeats iff R0 & Q is nonzero. Wrapper and all four candidate table entries preserve R0 and Q. Handler-2 reset entry gives R0=Q=s != 0, so later D replies or table choices cannot release it.",
+      "evidence": "HANDLER-REPLY.md",
+      "limitations": "Scoped to the four decoded table entries and current-zero policy. Previous flags test a different value; not an unconditional claim about hardware execution."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

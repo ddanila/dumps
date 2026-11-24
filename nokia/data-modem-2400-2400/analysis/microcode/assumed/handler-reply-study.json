@@ -1,0 +1,17 @@
+{
+  "status": "hypothesis",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "tables": "results/third-case-study/scenario-all_cases.json",
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q3": "results/independent-study/variant-3.json"
+  },
+  "cycles": 384,
+  "evidence": "Handler-2 input reply experiment under the handler-timing-study hypotheses. Only the read sequence at 1EC changes between previous-flag runs. Current-flag runs preserve the original matched BLT replies. Logical invariants are scoped to the decoded four-entry 3EC table; no physical input protocol is identified.",
+  "delays": [
+    null,
+    0,
+    1,
+    7
+  ]
+}

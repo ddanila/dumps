@@ -546,3 +546,8 @@ remains explicit; no physical source or default layout is selected.
 through q1/q3 handlers under both flag timings and both early reply schedules.
 Full-state recurrence distinguishes persistent loops from bounded traces;
 changing timing trades successful handlers rather than resolving all waits.
+
+[Handler-2 reply analysis](HANDLER-REPLY.md) connects the previous-flag poll
+to terminal execution for all 32 input sums in q1/q3, while a decoded
+R0/Q invariant excludes release of the current-flag loop by any later D
+values or choices among its four candidate table entries.

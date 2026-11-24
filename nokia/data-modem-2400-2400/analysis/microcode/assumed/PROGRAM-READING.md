@@ -127,7 +127,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 89 functional/assumption tests pass, including checks that
+byte. All 90 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -147,3 +147,8 @@ register side effects, and does not identify a physical controller protocol.
 through q1/q3 handlers under both flag timings and both early reply schedules.
 Full-state recurrence distinguishes persistent loops from bounded traces;
 changing timing trades successful handlers rather than resolving all waits.
+
+[Handler-2 reply analysis](HANDLER-REPLY.md) connects the previous-flag poll
+to terminal execution for all 32 input sums in q1/q3, while a decoded
+R0/Q invariant excludes release of the current-flag loop by any later D
+values or choices among its four candidate table entries.

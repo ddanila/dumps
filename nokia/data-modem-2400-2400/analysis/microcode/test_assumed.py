@@ -17,6 +17,36 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_handler_reply_and_transform_invariant(self):
+        from handler_reply_study import current_loop_invariant, prestate, verify_poll_bytes
+        from handler_timing_study import scenario_for_case, classify
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler-reply-study.json')
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)
+            for profile in ('q1','q3'):
+                mapping=read(HERE/config['profiles'][profile]);rows=decode(mapping)
+                current=scenario_for_case(config,profile,'current','blt',250)
+                current_loop_invariant(rows,current)
+                bad=copy.deepcopy(rows);bad[0x3f7]['b']=0
+                with self.assertRaisesRegex(AssertionError,'writes R0'):
+                    current_loop_invariant(bad,current)
+                bad=copy.deepcopy(rows);bad[0x3f7]['i'] &= 63
+                with self.assertRaisesRegex(AssertionError,'writes Q'):
+                    current_loop_invariant(bad,current)
+                scenario=scenario_for_case(config,profile,'previous','plp',250)
+                execute(mapping,scenario,384,mode='integrated',out=out,trace_limit=384)
+                original=load_trace(out);state=prestate(original,0x1ec)
+                reply=verify_poll_bytes(rows,state)
+                self.assertEqual(reply,8 if profile=='q1' else 2)
+                scenario['io']['read']['pc_sequences'][str(0x1ec)]=[1]*7+[reply]
+                result=execute(mapping,scenario,384,mode='integrated',out=out,trace_limit=384)
+                self.assertTrue(result['clean'])
+                trace=load_trace(out)
+                self.assertEqual(trace[:state['cycle']],original[:state['cycle']])
+                self.assertEqual(classify(trace,scenario)['first_terminal'],state['cycle']+46)
+                self.assertEqual(result['final_state']['ram'][12],state['ram'][4])
+
     def test_handler_timing_recurrence_and_reply_phase(self):
         from handler_timing_study import scenario_for_case, classify
         from defined_condition_fit import load_trace
