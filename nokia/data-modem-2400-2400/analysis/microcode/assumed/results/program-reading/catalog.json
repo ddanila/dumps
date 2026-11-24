@@ -1741,6 +1741,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER1-BRANCHES.md",
+        "limitations": "q3 previous flags, handler-1 zero reset, established replies and table index 2; independent D164/D17F and D167/D16A, explicit selector-5 schedule, selector 6 false. Full reset and exhaustive local parity/shift checks; no physical signal or modem function assigned.",
+        "meaning": "D164 supplies R3=1-d; later mask with R15=1 leaves Q=(1-d)&1. Timed selector-5 fall reaches 178; a rise at 17A selects 17F, whose wrapped input half is transient. Its previous-OR zero flag skips 180 iff Q=1. Both routes expose comparisons and join 0E9/0EA to 07B with the same final RAM/Q, differing by three or four cycles on the rise route.",
+        "name": "handler-1 parity-selected timed terminal continuations",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "178",
+            "17F"
+          ],
+          [
+            "0E9",
+            "0EA"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1763,7 +1783,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 984,
+    "annotated_used_words": 994,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5142,6 +5162,7 @@
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
     "HANDLER-REPLY.md": "4d19202b5d554ae76b201bb4d709a4d52cb3e31031aecac2ee99d3ae0970f76d",
     "HANDLER0.md": "6820336aafb949943d7c5d08681850a2c7c8434c50442fc067726b7d677f2598",
+    "HANDLER1-BRANCHES.md": "940a5e00ee1e5430afbca4703452269128b39a9834773e690d1fa3ef2b992123",
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
     "HANDLER2-BODY.md": "9e6b8ee75f79b64e6e6e61aa6838a456e9483d8112949bbfe55d29e490615d09",
     "HANDLER2-ROUTES.md": "d21f4e16f835c7907d49512274d5ef368a7e060f83ada9b6083997f90b94050e",

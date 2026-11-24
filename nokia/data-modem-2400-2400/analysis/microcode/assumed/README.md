@@ -732,3 +732,7 @@ indexed stores, with complete register and timing contracts from reset.
 [Handler-4 alternatives](HANDLER4-ALTERNATIVES.md) explain the timed 265
 preparation, the two input additions through 230/0ED and the direct 280 path,
 including complete terminal state, store overlaps and negative timing controls.
+
+[Handler-1 branch continuations](HANDLER1-BRANCHES.md) explain how an earlier
+input's parity controls the 17F skip, while scheduled external-line changes
+select equal-result paths with different microinstruction counts.

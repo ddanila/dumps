@@ -127,6 +127,35 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler1_parity_and_timed_continuations(self):
+        import random
+        from handler1_branches import scenario_for,inspect,check_parity
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler1-branches.json');base=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/base['mapping']);rng=random.Random(0x178)
+        self.assertEqual(check_parity(mapping),65536)
+        cases=[(1,0,255,d,w,route) for d in (0,255) for w in (0,255) for route in ('high','low','rise')]
+        cases += [(1+8*rng.randrange(32),*[rng.randrange(256) for _ in range(4)],rng.choice(('high','low','rise'))) for _ in range(96)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                scenario=scenario_for(config,*values)
+                result=execute(mapping,scenario,240,mode='integrated',out=out,trace_limit=240)
+                want=inspect(load_trace(out),result,*values)
+                if number%12==0:
+                    other=(*values[:4],values[4]^255,values[5]);scenario=scenario_for(config,*other)
+                    result=execute(mapping,scenario,240,mode='integrated',out=out,trace_limit=240)
+                    got=inspect(load_trace(out),result,*other)
+                    self.assertEqual((got['ram'],got['q'],got['first_terminal']),(want['ram'],want['q'],want['first_terminal']))
+                if values[-1]=='rise' and number%5==0:
+                    scenario=scenario_for(config,*values);scenario['inputs']['external']['events'][1][0]+=1
+                    result=execute(mapping,scenario,240,mode='integrated',out=out,trace_limit=240)
+                    inspect(load_trace(out),result,*values[:-1],'low')
+                if values[-1]=='low' and number%7==0:
+                    scenario=scenario_for(config,*values);scenario['inputs']['external']['events'][0][0]+=1
+                    result=execute(mapping,scenario,240,mode='integrated',out=out,trace_limit=240)
+                    inspect(load_trace(out),result,*values[:-1],'high')
+
     def test_q3_handler4_alternate_preparation_and_sum_routes(self):
         import random
         from handler4_alternatives import scenario_for,inspect
