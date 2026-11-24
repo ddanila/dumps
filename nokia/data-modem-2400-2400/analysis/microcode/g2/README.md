@@ -656,3 +656,13 @@ hashes and exact frequency ratios.
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/cycle_budget.py \
   --out /tmp/nokia-g2-cycle-budget.json
 ```
+
+## Photo-constrained table callers
+
+The [reached-call experiment](PHOTO-TABLE-CALLERS.md) executes the 3C5/3DA
+tables from reset under five photo-based field candidates. With the candidate
+E4 latch high, 21–25 of 28 reached calls per mapping have nonzero source
+pairs, and 16–20 change the candidate output pair. Holding E4 low leaves
+those source pairs zero and makes no output writes. These are results under
+saved branch/dispatch scenarios and constant external-D stubs, not a
+controller-driven transmitter or DAC sample stream.
