@@ -58,6 +58,32 @@
         25,
         76
       ],
+      "first_24_photo_candidate_b5": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
       "hypothetical_clock_pc": "12C",
       "last_40_codes": [
         124,
@@ -102,6 +128,10 @@
         54
       ],
       "name": "q1_rom_loop",
+      "photo_candidate_b5_values": [
+        0,
+        1
+      ],
       "trace_digest": "e3eed4a3307c51095883b809bddfdb27dbbc151152a39df666df608688de8fd3"
     },
     {
@@ -135,6 +165,32 @@
         11,
         11,
         11
+      ],
+      "first_24_photo_candidate_b5": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ],
       "hypothetical_clock_pc": "392",
       "last_40_codes": [
@@ -180,6 +236,9 @@
         11
       ],
       "name": "q3_controller",
+      "photo_candidate_b5_values": [
+        0
+      ],
       "trace_digest": "67a4fd5399e32f50db7864bc3d5d25b8baa44cd9d2f04b64b5aa79327210e140"
     },
     {
@@ -213,6 +272,32 @@
         1,
         1,
         1
+      ],
+      "first_24_photo_candidate_b5": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ],
       "hypothetical_clock_pc": "396",
       "last_40_codes": [
@@ -258,11 +343,15 @@
         1
       ],
       "name": "fitted_controller",
+      "photo_candidate_b5_values": [
+        0
+      ],
       "trace_digest": "a2ca8c12cc6d613937e3f05eb22a16121987e2c5b50f490f5524a585c0e5a6b3"
     }
   ],
   "limitations": [
     "Clock-at-PC and LS273 Q1..Q8 to DAC08 B1..B8 identity are explicit untraced hypotheses.",
+    "B5\u2190Q4 is a photo-derived candidate; its Y-to-D input bit and latch clock remain hypotheses.",
     "The LS373 staging, its input/enable, and the two-site LS273 clock decode are untraced hypotheses.",
     "q1 has a changing 20-code loop but no controller bits, phase increment or demonstrated output route.",
     "The two controller-driven paths produce held codes and cannot demonstrate a carrier.",
@@ -273,7 +362,7 @@
     "assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
     "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
     "g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
-    "g2/dac08_latch_probe.py": "e645ea96e113c5c2062f567ef81aafa09ddd8a1f8b083dfed29816f9bc13d401",
+    "g2/dac08_latch_probe.py": "c1599a6525f35793d56ff0be1e01c4172a6e4faa684a597e40194bc817897c73",
     "g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
     "g2/results/photo-variant-rom-loop/q1-witness-mapping.json": "0c3921439dfb302db22ca35e78c14626760c3d9e1fad99e507c2a8aaabb8be7a",
     "g2/results/photo-variant-rom-loop/q1-witness-scenario.json": "6a644ef4f83a8b97c751642d448ba2e4879a68f98540143fad73d6eef4de9f48",
@@ -321,7 +410,15 @@
       251,
       252
     ],
-    "hypothesis": "ALU Y at 38E passes through transparent LS373, then is held until LS273 clock at branch output 392 or 39E"
+    "hypothesis": "ALU Y at 38E passes through transparent LS373, then is held until LS273 clock at branch output 392 or 39E",
+    "photo_candidate_b5_by_bit": {
+      "0": [
+        1
+      ],
+      "1": [
+        1
+      ]
+    }
   },
   "status": "hypothetical DAC08 input replay, not physical output"
 }

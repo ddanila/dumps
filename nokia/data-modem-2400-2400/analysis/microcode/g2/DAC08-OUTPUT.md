@@ -90,3 +90,14 @@ follows. All 128 controller-derived bits produce one capture each, with code
 through the dispatch, but this candidate gives only two bit-dependent levels,
 with no demonstrated carrier or pulse shaping. Its data route, latch enable
 and two-site clock decode are hypotheses, not recovered board connections.
+
+The same [replay](results/dac08-latch-probe.json) now reports the photo-derived
+B5←Q4 candidate separately from the untraced full-byte mapping. It retains
+the test fixture's Y-bit-to-74LS273-D-bit order and clock assumptions, so this
+is still a conditional result. Under those assumptions, B5 changes in the q1
+ROM-only loop but has no controller input; it stays at zero in both direct
+controller runs. In the two-stage q3 run, full candidate codes 251 and 252
+both put **one** on B5, regardless of the controller bit. Thus the existing
+two-code difference does not demonstrate modulation on this particular
+photo-supported DAC input. Other DAC bits and the latch input order remain
+open candidates.

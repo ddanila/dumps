@@ -86,6 +86,11 @@ def staged_capture(trace):
     return captures
 
 
+def photo_b5(latch_q):
+    """B5←Q4 photo candidate, with the existing D1..D8←Y[7..0] hypothesis."""
+    return None if latch_q is None else (latch_q >> 4) & 1
+
+
 def execute_trace(mapping, scenario, cycles):
     with tempfile.TemporaryDirectory() as temporary:
         result = execute(mapping, scenario, cycles, mode='integrated',
@@ -151,9 +156,17 @@ def run(out):
         values = [row['latch_q'] for row in codes]
         cases.append(dict(name=name, hypothetical_clock_pc=f'{pc:03X}',
                           captures=len(codes), distinct_latch_codes=sorted(set(values)),
+                          photo_candidate_b5_values=sorted({photo_b5(value) for value in values}),
+                          first_24_photo_candidate_b5=[photo_b5(value) for value in values[:24]],
                           first_24_codes=values[:24], last_40_codes=values[-40:],
                           controller_bits_consumed=controller_bits,
                           trace_digest=result['trace_digest']))
+    if ([case['photo_candidate_b5_values'] for case in cases] !=
+            [[0, 1], [0], [0]] or
+            {bit: {photo_b5(row['latch_q']) for row in q3_staged
+                   if row['controller_bit'] == bit} for bit in (0, 1)} !=
+            {0: {1}, 1: {1}}):
+        raise ValueError('photo-derived B5 replay changed')
     if len(set(cases[0]['last_40_codes'][:20])) != 20 or cases[0]['last_40_codes'][:20] != cases[0]['last_40_codes'][20:]:
         raise ValueError('q1 20-code recurrence changed')
     paths = [Path(__file__), Q1_MAPPING, Q1_SCENARIO, FITTED_MAPPING,
@@ -171,10 +184,15 @@ def run(out):
                                  code_by_bit={str(bit): sorted({row['latch_q'] for row in q3_staged
                                                                 if row['controller_bit'] == bit})
                                               for bit in (0, 1)},
+                                 photo_candidate_b5_by_bit={str(bit): sorted({photo_b5(row['latch_q'])
+                                                                              for row in q3_staged
+                                                                              if row['controller_bit'] == bit})
+                                                            for bit in (0, 1)},
                                  clock_sites={site: sum(row['pc'] == site for row in q3_staged)
                                               for site in ('392', '39E')},
                                  first_24_codes=[row['latch_q'] for row in q3_staged[:24]]),
                   limitations=['Clock-at-PC and LS273 Q1..Q8 to DAC08 B1..B8 identity are explicit untraced hypotheses.',
+                               'B5←Q4 is a photo-derived candidate; its Y-to-D input bit and latch clock remain hypotheses.',
                                'The LS373 staging, its input/enable, and the two-site LS273 clock decode are untraced hypotheses.',
                                'q1 has a changing 20-code loop but no controller bits, phase increment or demonstrated output route.',
                                'The two controller-driven paths produce held codes and cannot demonstrate a carrier.',
