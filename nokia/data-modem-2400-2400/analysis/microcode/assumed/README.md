@@ -594,3 +594,8 @@ the tail. Clean and failed full-reset examples are both replayed.
 indices from nonzero q3 input masks. Real reset reads select 2BC and its inner
 leaf, preserve or replace Q as predicted, and return through the existing
 four-entry stack without injected state.
+
+[Direct q3 register destinations](Q3-REGISTER-CONTRACT.md) connects the nonzero
+masked nested reset path to two half-Q stores. All 65,536 payload/destination
+combinations match the full-register contract; first R6 no longer changes the
+second address, while first R5 is still overwritten by the second helper.

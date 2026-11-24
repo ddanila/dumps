@@ -1,0 +1,467 @@
+{
+  "configuration": {
+    "base": "results/masked-nested-dispatch/mask-a3-q-q",
+    "cycles": 512,
+    "evidence": "Extend the q3 A3 masked nested reset witness by changing D at 225, two D bytes at 089, and terminal dispatch sources to previous Y. The common reset prefix supplies the real four-frame stack. PC-keyed inputs and index wiring are explicit diagnostic assumptions, not a recovered board protocol.",
+    "prefix_cycles": 188,
+    "seed": 115,
+    "status": "hypothesis",
+    "witnesses": [
+      [
+        0,
+        0,
+        15
+      ],
+      [
+        1,
+        6,
+        7
+      ],
+      [
+        2,
+        5,
+        0
+      ],
+      [
+        127,
+        6,
+        5
+      ],
+      [
+        128,
+        5,
+        5
+      ],
+      [
+        204,
+        10,
+        15
+      ],
+      [
+        254,
+        15,
+        0
+      ],
+      [
+        255,
+        6,
+        15
+      ]
+    ]
+  },
+  "counts": {
+    "contract_cases": 65536,
+    "first_r6_second_address_unchanged": 4096,
+    "first_value_absent_at_finish": 3840
+  },
+  "execution_sha256": "5696b075bf2c7320d6ad2921d48736651cff777bb746c2fad27ec87fbc0d1c5d",
+  "interpretation": "q3 diagnostic contract: each 089 external byte directly selects the register through previous Y. Payload Q is retained and Q>>1 is stored twice. First R5 is overwritten by the second helper; first R6 does not change the second address. Real zero-reset prefix and four-frame stack; selected complete core runs match every continuation step. Physical read/index wiring and controller protocol remain hypotheses.",
+  "snapshot": {
+    "cycle": 188,
+    "depth": 4,
+    "pc": 549,
+    "prefix_trace_digest": "2c213dcac0dcdff6659534c2dc000fc7c049a00b2917f6c7c6ca40af1e0574b0",
+    "previous": {
+      "carry": 0,
+      "f": 0,
+      "overflow": 0,
+      "sign": 0,
+      "y": 0,
+      "zero": 1
+    },
+    "q": 163,
+    "ram": [
+      81,
+      0,
+      0,
+      0,
+      55,
+      0,
+      203,
+      255,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      84
+    ],
+    "sp": 0,
+    "stack": [
+      709,
+      531,
+      767,
+      544
+    ]
+  },
+  "source_sha256": {
+    "assumed/affine_tail_study.py": "799b3574e12b7e0540f4b6e78aadd3660a092416ef5ea890444341fdd321794c",
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "assumed/execute.py": "8b2ecbf5fb90f52e593afc89d0c3d6ffff41666e725038f19443ee4bb58f71d5",
+    "assumed/q3-register-contract.json": "8eb697bd1ea942b3f5ea4b76e57a4eff8ddbf5df89ffc750dbc224095903043a",
+    "assumed/q3_register_contract.py": "2b2f6c41389dfe064899f0b9e98bfaab10f6e3dfb1eb658157bbf6a529ba1814",
+    "assumed/register_contract_study.py": "f8f69b3b5d37f915ebdb0f593f497272c12fdbf791b1203d99328f6dce51a70a",
+    "assumed/results/masked-nested-dispatch/mask-a3-q-q/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/masked-nested-dispatch/mask-a3-q-q/scenario.json": "b478fd8c107be6b73137a9f4a70f4f2ae9a074233e5600a6cd7e3ef080ba2a27",
+    "assumed/results/masked-nested-dispatch/mask-a3-q-q/summary.json": "f9fc41b2688bdb19be188f5ac941d228c3a76988a07ffa8253c5f621c0af9460",
+    "assumed/results/masked-nested-dispatch/mask-a3-q-q/trace.jsonl": "2993177539e01e6b6f45bea1eae3402e31e86eb19ba517948acb2810d9166ef1",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": [
+    {
+      "dispatches": [
+        {
+          "index": 0,
+          "pc": 126,
+          "register": 0,
+          "target": 138
+        },
+        {
+          "index": 15,
+          "pc": 129,
+          "register": 15,
+          "target": 153
+        }
+      ],
+      "first": 0,
+      "path": "q00-r00-r15",
+      "payload": 0,
+      "prediction": {
+        "helper5": 101,
+        "q": 0,
+        "ram": [
+          0,
+          0,
+          204,
+          204,
+          55,
+          101,
+          203,
+          255,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "value": 0
+      },
+      "second": 15,
+      "trace_digest": "1fcd63ce88ec37b7b9aea294bb59a0f8c826a3aeb5a044168f3e029d1c2a41a7"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 6,
+          "pc": 126,
+          "register": 6,
+          "target": 144
+        },
+        {
+          "index": 7,
+          "pc": 129,
+          "register": 7,
+          "target": 145
+        }
+      ],
+      "first": 6,
+      "path": "q01-r06-r07",
+      "payload": 1,
+      "prediction": {
+        "helper5": 101,
+        "q": 1,
+        "ram": [
+          0,
+          0,
+          205,
+          205,
+          55,
+          101,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          54
+        ],
+        "value": 0
+      },
+      "second": 7,
+      "trace_digest": "1e1f53090b23e992b82048b5ddda1425b6db8f4fc26277059f909aad8529375f"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 5,
+          "pc": 126,
+          "register": 5,
+          "target": 143
+        },
+        {
+          "index": 0,
+          "pc": 129,
+          "register": 0,
+          "target": 138
+        }
+      ],
+      "first": 5,
+      "path": "q02-r05-r00",
+      "payload": 2,
+      "prediction": {
+        "helper5": 100,
+        "q": 2,
+        "ram": [
+          1,
+          0,
+          206,
+          206,
+          55,
+          100,
+          203,
+          255,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          55
+        ],
+        "value": 1
+      },
+      "second": 0,
+      "trace_digest": "f052610ad0178f78650c7fbbd9fe78650ccdccc63704ba467bce43262e2295df"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 6,
+          "pc": 126,
+          "register": 6,
+          "target": 144
+        },
+        {
+          "index": 5,
+          "pc": 129,
+          "register": 5,
+          "target": 143
+        }
+      ],
+      "first": 6,
+      "path": "q7f-r06-r05",
+      "payload": 127,
+      "prediction": {
+        "helper5": 38,
+        "q": 127,
+        "ram": [
+          63,
+          0,
+          75,
+          75,
+          55,
+          63,
+          63,
+          255,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          180
+        ],
+        "value": 63
+      },
+      "second": 5,
+      "trace_digest": "3983d9424348259826b34a46ce0c4852fa1a22630bdeefdb7fbb9447e8909a30"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 5,
+          "pc": 126,
+          "register": 5,
+          "target": 143
+        },
+        {
+          "index": 5,
+          "pc": 129,
+          "register": 5,
+          "target": 143
+        }
+      ],
+      "first": 5,
+      "path": "q80-r05-r05",
+      "payload": 128,
+      "prediction": {
+        "helper5": 37,
+        "q": 128,
+        "ram": [
+          64,
+          0,
+          76,
+          76,
+          55,
+          64,
+          203,
+          255,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          181
+        ],
+        "value": 64
+      },
+      "second": 5,
+      "trace_digest": "93b45a3e923bd5541bf5244df9cdb335172c351703baf2c74aa6b5a49ab8e7bb"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 10,
+          "pc": 126,
+          "register": 10,
+          "target": 148
+        },
+        {
+          "index": 15,
+          "pc": 129,
+          "register": 15,
+          "target": 153
+        }
+      ],
+      "first": 10,
+      "path": "qcc-r10-r15",
+      "payload": 204,
+      "prediction": {
+        "helper5": 127,
+        "q": 204,
+        "ram": [
+          102,
+          0,
+          152,
+          152,
+          55,
+          127,
+          203,
+          255,
+          0,
+          0,
+          102,
+          0,
+          0,
+          0,
+          0,
+          102
+        ],
+        "value": 102
+      },
+      "second": 15,
+      "trace_digest": "7e55ced97a2c67585bd2db70535d811ab64d8f6381886c3a174bce6a0ef8526d"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 15,
+          "pc": 126,
+          "register": 15,
+          "target": 153
+        },
+        {
+          "index": 0,
+          "pc": 129,
+          "register": 0,
+          "target": 138
+        }
+      ],
+      "first": 15,
+      "path": "qfe-r15-r00",
+      "payload": 254,
+      "prediction": {
+        "helper5": 102,
+        "q": 254,
+        "ram": [
+          127,
+          0,
+          202,
+          202,
+          55,
+          102,
+          203,
+          255,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          127
+        ],
+        "value": 127
+      },
+      "second": 0,
+      "trace_digest": "86d3e4fd1562e71ad159e678f069d6cf87db268b82fbce1e673813f92768fc37"
+    },
+    {
+      "dispatches": [
+        {
+          "index": 6,
+          "pc": 126,
+          "register": 6,
+          "target": 144
+        },
+        {
+          "index": 15,
+          "pc": 129,
+          "register": 15,
+          "target": 153
+        }
+      ],
+      "first": 6,
+      "path": "qff-r06-r15",
+      "payload": 255,
+      "prediction": {
+        "helper5": 102,
+        "q": 255,
+        "ram": [
+          127,
+          0,
+          203,
+          203,
+          55,
+          102,
+          127,
+          255,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          127
+        ],
+        "value": 127
+      },
+      "second": 15,
+      "trace_digest": "27aef8cf296dd8ebdbd332ca7ce7025e47ab1bd8c23bd04f955756a291412b67"
+    }
+  ]
+}

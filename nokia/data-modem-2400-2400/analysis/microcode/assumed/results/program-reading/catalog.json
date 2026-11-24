@@ -1085,6 +1085,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "Q3-REGISTER-CONTRACT.md",
+        "limitations": "Verified after the A3 masked nested reset prefix with diagnostic PC-keyed input bytes. Physical destination wiring and output consumer remain unknown.",
+        "meaning": "Prepare Q>>1 and store it twice through the 08A register-copy table. Under preceding-Y dispatch, 089 exposes the external destination byte unchanged. First R6 does not alter the second address; first R5 is overwritten by the second helper.",
+        "name": "direct-byte indexed half-Q stores",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "07C",
+            "081"
+          ],
+          [
+            "085",
+            "099"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1215,6 +1235,26 @@
             [
               "085",
               "089"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "Q3-REGISTER-CONTRACT.md",
+          "limitations": "Verified after the A3 masked nested reset prefix with diagnostic PC-keyed input bytes. Physical destination wiring and output consumer remain unknown.",
+          "meaning": "Prepare Q>>1 and store it twice through the 08A register-copy table. Under preceding-Y dispatch, 089 exposes the external destination byte unchanged. First R6 does not alter the second address; first R5 is overwritten by the second helper.",
+          "name": "direct-byte indexed half-Q stores",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "07C",
+              "081"
+            ],
+            [
+              "085",
+              "099"
             ]
           ],
           "status": "hypothesis"
@@ -4046,6 +4086,7 @@
     "Q2-DISPATCH.md": "ec2c3d05187ef9a86c48cfe0a85399d0de4482041a8799daa7cb540506ecf47f",
     "Q2-OVERWRITE.md": "9c943cafa9a4a9da2f5c19d4da5cd005e26e5c4488af7ab0f5b9983be42dd3ad",
     "Q2-TRANSFORM-LOOP.md": "975f3af99162e38c5a4bc0040536ebc2072068ec1a3b0a6cbe53a977643e2b63",
+    "Q3-REGISTER-CONTRACT.md": "ddfca52767abfea4c7aec717f52f0bc0e9445b16216f62514e9b4b4cd6c49021",
     "REGISTER-CONTRACT.md": "b0769c1d90f1cc3e8f6fc8d780f723e57bfe6666583f3d87ae505e7ffd193cf9",
     "REGISTER-SCAN.md": "715ef8a8a1ada20eb4852f3be42828f18424dbad4fbffbcbe4ab031c00ec1683",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",

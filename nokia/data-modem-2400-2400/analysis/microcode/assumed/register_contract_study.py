@@ -66,14 +66,15 @@ def prediction(snapshot, payload, d, first, second):
     return dict(ram=ram, q=payload, value=value, helper5=helper5)
 
 
-def resume(rows, scenario, snapshot, payload, first, second, adjust=True):
+def resume(rows, scenario, snapshot, payload, first, second, adjust=True, read_values=None):
     cpu = Am2901(ram=snapshot['ram'][:], q=snapshot['q'], logic_flags=True)
     seq = X8X02(pc=snapshot['pc'], sp=snapshot['sp'], stack=snapshot['stack'][:])
     carry = CarryInput(scenario['inputs']['carry'])
     carry.previous = snapshot['previous']['carry']
     previous = snapshot['previous']
     depth = maximum = snapshot['depth']
-    reads = inputs_for(snapshot, payload, first, second, adjust)
+    reads = inputs_for(snapshot, payload, first, second, adjust) if read_values is None else read_values
+    assert len(reads) == 2 and all(type(v) is int and 0 <= v <= 255 for v in reads)
     read_count = load_count = 0
     trace = []
     dispatches = []

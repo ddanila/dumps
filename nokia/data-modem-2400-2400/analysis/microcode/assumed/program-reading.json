@@ -1101,6 +1101,26 @@
       "evidence": "MASKED-NESTED-DISPATCH.md",
       "meaning": "In the verified nonzero-mask reset context, preserve Q=m, prepare R0=m>>1 and R4=((CC+m)&FF)>>1, and overwrite temporary R2 with R5=0. Q or preceding Y selects the inner ROM call, reaching 22B or 225 with real depth-four stack use.",
       "limitations": "Three nested mask cases from a 256-mask reset sweep. q3 differs from q2 at 2C2; formulas are scoped to the documented input and register context. Physical protocol and table wiring remain hypotheses."
+    },
+    {
+      "name": "direct-byte indexed half-Q stores",
+      "ranges": [
+        [
+          "07C",
+          "081"
+        ],
+        [
+          "085",
+          "099"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "Q3-REGISTER-CONTRACT.md",
+      "meaning": "Prepare Q>>1 and store it twice through the 08A register-copy table. Under preceding-Y dispatch, 089 exposes the external destination byte unchanged. First R6 does not alter the second address; first R5 is overwritten by the second helper.",
+      "limitations": "Verified after the A3 masked nested reset prefix with diagnostic PC-keyed input bytes. Physical destination wiring and output consumer remain unknown."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

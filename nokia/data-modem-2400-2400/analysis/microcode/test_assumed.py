@@ -127,6 +127,30 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_direct_register_destinations(self):
+        from q3_register_contract import scenario_for, prediction
+        from register_contract_study import capture, resume, verify_full
+        config = read(HERE/'q3-register-contract.json')
+        base_path = HERE/config['base']
+        mapping, base = read(base_path/'mapping.json'), read(base_path/'scenario.json')
+        rows = decode(mapping)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            snapshot = capture(mapping,base,config,root/'prefix')
+            self.assertEqual((snapshot['cycle'],snapshot['depth']), (188,4))
+            for number,(payload,first,second) in enumerate(config['witnesses']):
+                scenario = scenario_for(base,config,payload,first,second)
+                got = resume(rows,scenario,snapshot,payload,first,second,read_values=[first,second])
+                want = prediction(snapshot,payload,base['io']['read']['value'],first,second)
+                self.assertEqual(got['ram'],want['ram'])
+                self.assertEqual([d['register'] for d in got['dispatches']],[first,second])
+                self.assertEqual((got['cycles'],got['q']),(42,payload))
+                verify_full(mapping,scenario,config,snapshot,got,root/f'case-{number}')
+            # Using the q2 address adjustment under q3 must select a different register.
+            scenario = scenario_for(base,config,1,6,7)
+            wrong = resume(rows,scenario,snapshot,1,6,7)
+            self.assertNotEqual(wrong['dispatches'][0]['register'],6)
+
     def test_register_contract_restores_real_reset_stack(self):
         from register_contract_study import capture, scenario_for, resume, verify_full
         from model import UnknownStack
