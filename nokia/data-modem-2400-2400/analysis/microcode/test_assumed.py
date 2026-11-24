@@ -127,6 +127,34 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_early_wait_predicates_and_completing_entry(self):
+        import random
+        from early_wait import scenario_for,inspect,loop_pass,check_loop
+        from defined_condition_fit import load_trace
+        config=read(HERE/'early-wait.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rows=decode(mapping);rng=random.Random(0x5d)
+        self.assertEqual(check_loop(mapping)['returns'],dict(previous=256,current=256))
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for _ in range(48):
+                entry=rng.randrange(8);a,b,capture,tail=[rng.randrange(256) for _ in range(4)]
+                scenario=scenario_for(config,entry,a,b,capture,tail)
+                result=execute(mapping,scenario,256,mode='integrated',out=out,trace_limit=256)
+                inspect(load_trace(out),result,scenario,entry,capture,tail)
+            for case in range(36):
+                q=rng.randrange(256);ram=[rng.randrange(256) for _ in range(16)]
+                ram[3]=[q,(-q)&255,rng.randrange(256)][case%3];d=rng.randrange(256)
+                for timing in ('previous','current'):
+                    scenario=scenario_for(config,0,1,1,1,1);scenario['initial']=dict(pc=0x5d,ram=ram[:],q=q)
+                    scenario['condition']['flag_timing']=timing;scenario['io']['read']['pc_sequences'][str(0x60)]=[d]
+                    want=loop_pass(rows,ram,q,d,scenario['inputs']['carry'])
+                    result=execute(mapping,scenario,7,mode='integrated',trace_limit=0)
+                    self.assertEqual(result['final_state']['ram'],want['ram'])
+                    self.assertEqual(result['final_state']['q'],q)
+                    self.assertEqual(result['final_state']['pc'],0x64 if want[timing+'_returns'] else 0x5d)
+                    self.assertEqual(result['stack']['max_depth'],1)
+                    self.assertEqual(result['stack']['final_depth'],0)
+
     def test_q3_handler2_timed_routes_and_wrap_boundary(self):
         import random
         from handler2_routes import scenario_for,inspect,prediction

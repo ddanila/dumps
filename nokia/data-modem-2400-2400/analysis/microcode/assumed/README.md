@@ -689,3 +689,8 @@ upstream input; 02 is specific to the earlier default-input context.
 1DA through scheduled external conditions. The direct body and 2D0 detour
 retain the same final state but differ in carry-biased Q loading and drain
 timing, including the FF wrap boundary.
+
+[Early dispatch and the fixed-register wait](EARLY-WAIT.md) compares all
+eight alternative boot entries, proves the 05D loop predicates, and follows
+the Q-clearing entry through a complete terminal register contract. The D read
+inside the repeating loop cannot release it under this decode.

@@ -1569,6 +1569,26 @@
       "evidence": "HANDLER2-ROUTES.md",
       "meaning": "Timed selector-5 fall reaches 1C3; four selector-1 rises reach it through 1DA\u2192341\u21921DB. The body loads Q=u without the carry bias of the 2D0 detour, halves and drains two inputs, and rejoins 1CD with identical retained payload/comparison state but different timing.",
       "limitations": "q3 previous flags, PLP reset replies, fixed later tables, externally scheduled selector hypotheses. Corresponding u/v input routes explicitly bound; arbitrary initial states and 1DC\u20131DE excluded. No physical condition pin or transient output consumer identified."
+    },
+    {
+      "name": "alternative boot prefix, short entries and fixed-register wait",
+      "ranges": [
+        [
+          "000",
+          "012"
+        ],
+        [
+          "054",
+          "06E"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "EARLY-WAIT.md",
+      "meaning": "Selector-5-false reset calls 06F then overwrites Q with R0=FF at 008. Declared table entry 5 reaches 00D, clears Q and exits the 05D wait into the D064-minus-one tail. Other tested short entries preserve nonmatching Q. 05D copies Q+1/R3 and tests fixed Q=R3 under previous flags, or Q+R3=0 under current flags.",
+      "limitations": "q3 zero reset, explicit scenario index at ROM-associated 008 table, other reads default one except declared inputs. Full reset formulas do not interpret all branches of longer target bodies. Local predicates cover all Q/R3 bytes; no external poll or physical completion meaning claimed."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

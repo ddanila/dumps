@@ -45,6 +45,7 @@ into one address listing.
 
 | Addresses | Interpretation | Principal limitation |
 | --- | --- | --- |
+| 000–012, 054–06E (q3) | Alternative boot entries, fixed-register comparison wait and input-difference tail | Explicit 008 index; longer target bodies and physical completion remain unresolved |
 | 01C–01F | Call-fed loop entry | Control-flow explanation, not a counted-loop algorithm |
 | 06F–077, 112–116 (q3) | Carry-selected half/difference, Q accumulation and register preparation | Local nonzero planes plus zero-reset calls; external channels unknown |
 | 04C–053, 09A–09D, 131–132, 228–22A, 238–247 (q3) | Register capture and transient sum/difference sequences | Local actual calls; handler-0 reset waits before reaching these helpers |
@@ -107,7 +108,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 783 used words, including overlaps and disconnected
+These annotations cover 827 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -144,7 +145,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 122 functional/assumption tests pass, including checks that
+byte. All 123 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -308,3 +309,8 @@ upstream input; 02 is specific to the earlier default-input context.
 1DA through scheduled external conditions. The direct body and 2D0 detour
 retain the same final state but differ in carry-biased Q loading and drain
 timing, including the FF wrap boundary.
+
+[Early dispatch and the fixed-register wait](EARLY-WAIT.md) compares all
+eight alternative boot entries, proves the 05D loop predicates, and follows
+the Q-clearing entry through a complete terminal register contract. The D read
+inside the repeating loop cannot release it under this decode.
