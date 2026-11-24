@@ -1,0 +1,45 @@
+{
+  "cycle": [
+    {
+      "name": "fetch rise",
+      "set": {
+        "rc": 1
+      }
+    },
+    {
+      "name": "fetch fall",
+      "set": {
+        "rc": 0
+      }
+    },
+    {
+      "name": "execute fall",
+      "set": {
+        "sc": 0
+      }
+    },
+    {
+      "name": "execute rise",
+      "set": {
+        "sc": 1
+      }
+    }
+  ],
+  "cycle_inputs": {
+    "17": {
+      "test": 1
+    },
+    "18": {
+      "test": 0
+    }
+  },
+  "initial_inputs": {
+    "carry": 0,
+    "data": 0,
+    "rc": 0,
+    "sc": 1,
+    "test": 0
+  },
+  "name": "Diagnostic external TEST=pulse17, D=0, carry=0; indirect bus unknown",
+  "note": "One-cycle TEST pulse at the baseline visit to 008; diagnostic dispatch stimulus, not controller behavior."
+}

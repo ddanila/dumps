@@ -6,6 +6,13 @@ G2. The required end result remains a controller-driven microcode transmitter,
 plus a demonstrated receiver or echo canceller, with the modem functions
 identified in the routines.
 
+The [photo-informed board experiment](../board/PHOTO-HYPOTHESES.md) revisits
+the physical-wiring blocker: missing proven nets do not prevent explicit
+candidate wiring from being executed. It runs the real control PROMs through
+the chip models, preserving unknown startup data, and screens control-source
+and indirect-branch alternatives. This reopens hypothesis testing; it does not
+yet satisfy G2's functional acceptance checks.
+
 ## First independent ROM constraint
 
 [ITU-T V.26 ter (11/88), §2.5.2.1, Table 1](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I!!PDF-E&lang=e&type=items)

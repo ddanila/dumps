@@ -1,0 +1,572 @@
+{
+  "components": {
+    "H_test": {
+      "connection_status": "hypothetical-logic-no-package-assignment",
+      "inputs": {
+        "A": "H_unconditional_4.Y",
+        "B": "EXT.test"
+      },
+      "type": "OR"
+    },
+    "H_unconditional_0": {
+      "connection_status": "hypothetical-logic-no-package-assignment",
+      "inputs": {
+        "A": "U29.Q[0]",
+        "B": {
+          "not": "U29.Q[2]"
+        }
+      },
+      "type": "AND"
+    },
+    "H_unconditional_1": {
+      "connection_status": "hypothetical-logic-no-package-assignment",
+      "inputs": {
+        "A": "H_unconditional_0.Y",
+        "B": "U29.Q[7]"
+      },
+      "type": "AND"
+    },
+    "H_unconditional_2": {
+      "connection_status": "hypothetical-logic-no-package-assignment",
+      "inputs": {
+        "A": "H_unconditional_1.Y",
+        "B": {
+          "not": "U29.Q[4]"
+        }
+      },
+      "type": "AND"
+    },
+    "H_unconditional_3": {
+      "connection_status": "hypothetical-logic-no-package-assignment",
+      "inputs": {
+        "A": "H_unconditional_2.Y",
+        "B": {
+          "not": "U29.Q[5]"
+        }
+      },
+      "type": "AND"
+    },
+    "H_unconditional_4": {
+      "connection_status": "hypothetical-logic-no-package-assignment",
+      "inputs": {
+        "A": "H_unconditional_3.Y",
+        "B": {
+          "not": "U29.Q[6]"
+        }
+      },
+      "type": "AND"
+    },
+    "U10": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "A": "U9.A",
+        "ENn": 0
+      },
+      "rom": {
+        "path": "../../../../../../microcode-810237c-810240c/chip10-810237c.bin",
+        "sha256": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+      },
+      "type": "PROM"
+    },
+    "U11": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "A": "U9.A",
+        "ENn": 0
+      },
+      "rom": {
+        "path": "../../../../../../microcode-810237c-810240c/chip11-810238c.bin",
+        "sha256": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939"
+      },
+      "type": "PROM"
+    },
+    "U17": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "A": "U9.A",
+        "ENn": 0
+      },
+      "rom": {
+        "path": "../../../../../../microcode-810237c-810240c/chip17-810239c.bin",
+        "sha256": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231"
+      },
+      "type": "PROM"
+    },
+    "U18": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "A": "U9.A",
+        "ENn": 0
+      },
+      "rom": {
+        "path": "../../../../../../microcode-810237c-810240c/chip18-810240c.bin",
+        "sha256": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "type": "PROM"
+    },
+    "U2": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "A": [
+          "U6.Q[4]",
+          "U6.Q[3]",
+          "U6.Q[2]",
+          "U6.Q[1]"
+        ],
+        "B": [
+          "U30.Q[1]",
+          "U30.Q[0]",
+          "U29.Q[7]",
+          "U29.Q[6]"
+        ],
+        "CLK": "EXT.sc",
+        "Cn": "EXT.carry",
+        "D": [
+          "EXT.data[0]",
+          "EXT.data[1]",
+          "EXT.data[2]",
+          "EXT.data[3]"
+        ],
+        "I": [
+          "U29.Q[5]",
+          "U30.Q[3]",
+          "U30.Q[6]",
+          "U5.Q[2]",
+          "U5.Q[3]",
+          {
+            "not": "U5.Q[0]"
+          },
+          "U6.Q[7]",
+          "U6.Q[6]",
+          "U6.Q[5]"
+        ],
+        "OEn": 0,
+        "Q0in": 0,
+        "Q3in": "U8.Q0out",
+        "RAM0in": 0,
+        "RAM3in": "U8.RAM0out"
+      },
+      "type": "AM2901"
+    },
+    "U29": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "CLK": "EXT.rc",
+        "D": "U17.D",
+        "OEn": 0
+      },
+      "type": "REG374"
+    },
+    "U30": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "CLK": "EXT.rc",
+        "D": "U18.D",
+        "OEn": 0
+      },
+      "type": "REG374"
+    },
+    "U5": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "CLK": "EXT.rc",
+        "D": "U10.D",
+        "OEn": 0
+      },
+      "type": "REG374"
+    },
+    "U6": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "CLK": "EXT.rc",
+        "D": "U11.D",
+        "OEn": 0
+      },
+      "type": "REG374"
+    },
+    "U8": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "A": [
+          "U6.Q[4]",
+          "U6.Q[3]",
+          "U6.Q[2]",
+          "U6.Q[1]"
+        ],
+        "B": [
+          "U30.Q[1]",
+          "U30.Q[0]",
+          "U29.Q[7]",
+          "U29.Q[6]"
+        ],
+        "CLK": "EXT.sc",
+        "Cn": "U2.Cn4",
+        "D": [
+          "EXT.data[4]",
+          "EXT.data[5]",
+          "EXT.data[6]",
+          "EXT.data[7]"
+        ],
+        "I": [
+          "U29.Q[5]",
+          "U30.Q[3]",
+          "U30.Q[6]",
+          "U5.Q[2]",
+          "U5.Q[3]",
+          {
+            "not": "U5.Q[0]"
+          },
+          "U6.Q[7]",
+          "U6.Q[6]",
+          "U6.Q[5]"
+        ],
+        "OEn": 0,
+        "Q0in": "U2.Q3out",
+        "Q3in": 0,
+        "RAM0in": "U2.RAM3out",
+        "RAM3in": 0
+      },
+      "type": "AM2901"
+    },
+    "U9": {
+      "connection_status": "hypothesis",
+      "evidence": "inventory.json",
+      "inputs": {
+        "AC": [
+          "U29.Q[2]",
+          "U29.Q[1]",
+          "U29.Q[0]"
+        ],
+        "B": [
+          "U6.Q[0]",
+          "U5.Q[7]",
+          "U5.Q[6]",
+          "U5.Q[5]",
+          "U5.Q[4]",
+          "U5.Q[3]",
+          "U5.Q[2]",
+          "U5.Q[1]",
+          "U5.Q[0]",
+          "U30.Q[7]"
+        ],
+        "CLK": "EXT.sc",
+        "ENn": 0,
+        "TEST": "H_test.Y"
+      },
+      "type": "SEQ8X02"
+    }
+  },
+  "decode": {
+    "AC": [
+      "U17.D[2]",
+      "U17.D[1]",
+      "U17.D[0]"
+    ],
+    "BRANCH": [
+      "U11.D[0]",
+      "U10.D[7]",
+      "U10.D[6]",
+      "U10.D[5]",
+      "U10.D[4]",
+      "U10.D[3]",
+      "U10.D[2]",
+      "U10.D[1]",
+      "U10.D[0]",
+      "U18.D[7]"
+    ],
+    "I_HIGH": [
+      "U17.D[5]",
+      "U18.D[3]",
+      "U18.D[6]",
+      "U10.D[2]",
+      "U10.D[3]",
+      {
+        "not": "U10.D[0]"
+      },
+      "U11.D[7]",
+      "U11.D[6]",
+      "U11.D[5]"
+    ],
+    "I_LOW": [
+      "U17.D[5]",
+      "U18.D[3]",
+      "U18.D[6]",
+      "U10.D[2]",
+      "U10.D[3]",
+      {
+        "not": "U10.D[0]"
+      },
+      "U11.D[7]",
+      "U11.D[6]",
+      "U11.D[5]"
+    ]
+  },
+  "external": {
+    "carry": {
+      "width": 1
+    },
+    "data": {
+      "width": 8
+    },
+    "indirect": {
+      "width": 10
+    },
+    "rc": {
+      "width": 1
+    },
+    "sc": {
+      "width": 1
+    },
+    "test": {
+      "width": 1
+    }
+  },
+  "hypotheses": {
+    "address": "U9 ten-bit address feeds all four PROMs without permutation; enables asserted.",
+    "branch_source": "literal",
+    "clock": "Register fetch rising edge, then sequencer/ALU falling and rising phases. No frequency or physical divider asserted.",
+    "condition": "TEST = external test OR (BSR/BRT AND select=0 AND direct=1). Abstract gates H_* have no assigned PCB package or pins.",
+    "datapath": "U2 low nibble, U8 high nibble, common I/A/B; ripple carry and inter-slice RAM/Q shifts. External shift endpoints zero. Carry selector/latch circuit is bypassed by an external carry fixture.",
+    "external": "D and carry supplied by diagnostic fixture; no ADC, DAC, controller handshake, lookup ROM, or modem waveform is invented.",
+    "fields": {
+      "mapping": {
+        "address_wiring": {
+          "evidence": "PROM structural analysis",
+          "status": "hypothesis",
+          "value": "straight-through"
+        },
+        "fields": {
+          "a": {
+            "bits": [
+              "11.4",
+              "11.3",
+              "11.2",
+              "11.1"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "b": {
+            "bits": [
+              "18.1",
+              "18.0",
+              "17.7",
+              "17.6"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "branch": {
+            "bits": [
+              "11.0",
+              "10.7",
+              "10.6",
+              "10.5",
+              "10.4",
+              "10.3",
+              "10.2",
+              "10.1",
+              "10.0",
+              "18.7"
+            ],
+            "evidence": "PLAN.md target-window search; B0/B9 less certain",
+            "status": "recovered-from-data"
+          },
+          "carry": {
+            "bits": [
+              "10.4"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "carry_select": {
+            "bits": [
+              "11.0"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "command": {
+            "bits": [
+              "17.2",
+              "17.1",
+              "17.0"
+            ],
+            "evidence": "PLAN.md command histogram",
+            "status": "recovered-from-data"
+          },
+          "d": {
+            "bits": 0,
+            "evidence": "External D input supplied by scenario, not chip-10 immediate",
+            "status": "stub"
+          },
+          "direct": {
+            "bits": [
+              "17.7"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "i": {
+            "bits": [
+              "17.5",
+              "18.3",
+              "18.6",
+              "10.2",
+              "10.3",
+              "!10.0",
+              "11.7",
+              "11.6",
+              "11.5"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "output_slot": {
+            "bits": [
+              "10.1",
+              "10.5",
+              "10.6",
+              "10.7"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "register": {
+            "bits": [
+              "18.1",
+              "18.0",
+              "17.7",
+              "17.6"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          },
+          "select": {
+            "bits": [
+              "17.4",
+              "17.5",
+              "17.6"
+            ],
+            "evidence": "Q-independent paired arithmetic hypotheses; see independent-search.json and rotation-search.json",
+            "status": "hypothesis"
+          }
+        },
+        "name": "q-independent-3",
+        "ranking": {
+          "i": [
+            "17.5",
+            "18.3",
+            "18.6",
+            "10.2",
+            "10.3",
+            "!10.0",
+            "11.7",
+            "11.6",
+            "11.5"
+          ]
+        }
+      },
+      "path": "assumed/results/independent-study/variant-3.json",
+      "sha256": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2"
+    },
+    "initial_state": "Actual model defaults: unknown RAM/Q/registers/stack; sequencer address zero. No zero-filled RAM.",
+    "register_bits": "Identity D-to-D order is a naming convention for untraced register bits; output references use the same convention. Not a recovered pin permutation.",
+    "sequence_controls": "registered",
+    "topology": "Four PROM/register pairings from nets.json candidate_bundles; two Am2901 devices from the photo inventory."
+  },
+  "limitations": [
+    "All executable connections here are hypotheses; nets.json remains the measured/visible evidence ledger.",
+    "Model completion is not G2 C2/C3/C4 acceptance or proof of actual Nokia wiring.",
+    "Unmodeled physical components remain omitted. H_* cells express hypothetical logic, not identified packages.",
+    "Literal branch bypasses indirect dispatch. Unknown branch leaves the indirect bus unknown until evidence supplies it.",
+    "Unknown data can propagate without stopping; a completed instruction does not establish valid arithmetic.",
+    "Timing rejection may be an adapter limitation, not a physical impossibility."
+  ],
+  "name": "DSC photo hypothesis: q3/registered/literal",
+  "observables": {
+    "microaddress": "U9.A"
+  },
+  "status": "photo-informed-hypothesis",
+  "unresolved": [
+    {
+      "id": "CLOCK",
+      "priority": 1,
+      "reason": "Oscillator visible, but divider/gating and phase relationship not reconstructed.",
+      "targets": [
+        "U9.25",
+        "U5.11",
+        "U6.11",
+        "U29.11",
+        "U30.11",
+        "U2.CLK",
+        "U8.CLK"
+      ]
+    },
+    {
+      "id": "ADDRESS",
+      "priority": 2,
+      "reason": "Address permutations and PROM enable wiring unresolved.",
+      "targets": [
+        "U9.A",
+        "U10.A",
+        "U11.A",
+        "U17.A",
+        "U18.A"
+      ]
+    },
+    {
+      "id": "REGISTER",
+      "priority": 3,
+      "reason": "Pairings inferred from adjacent trace bundles; individual bit connections and output enables not established.",
+      "targets": [
+        "U10.D -> U5.D",
+        "U11.D -> U6.D",
+        "U17.D -> U29.D",
+        "U18.D -> U30.D"
+      ]
+    },
+    {
+      "id": "SEQUENCE",
+      "priority": 4,
+      "reason": "Commands, TEST selection and branch source unresolved.",
+      "targets": [
+        "U9.27",
+        "U9.28",
+        "U9.1",
+        "U9.26",
+        "U9.B"
+      ]
+    },
+    {
+      "id": "DATAPATH",
+      "priority": 5,
+      "reason": "Instruction/address fields, slice significance, carry, shifts, data buses and enables unresolved.",
+      "targets": [
+        "U2",
+        "U8"
+      ]
+    },
+    {
+      "id": "EXTERNAL",
+      "priority": 6,
+      "reason": "External pin functions and three component identifications unresolved.",
+      "targets": [
+        "board connector",
+        "U20",
+        "U22",
+        "U23"
+      ]
+    }
+  ]
+}

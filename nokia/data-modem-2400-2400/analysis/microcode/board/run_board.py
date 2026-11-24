@@ -32,6 +32,9 @@ def run(board_path, scenario_path, out, cycles):
             if not events:
                 raise Stop('No evidence-backed clock schedule: '+scenario.get('blocked_reason','cycle events missing'))
             for cycle in range(cycles):
+                if str(cycle) in scenario.get('cycle_inputs', {}):
+                    engine.step(scenario['cycle_inputs'][str(cycle)])
+                    record(f'cycle={cycle} external stimulus')
                 for event in events:
                     engine.step(event['set'])
                     for name, ref in board.get('observables', {}).items():
@@ -53,7 +56,7 @@ def run(board_path, scenario_path, out, cycles):
                'faithful_nokia_execution':False,
                'unconnected_inputs':report['unconnected_inputs'],
                'limitations':board.get('limitations',[]),
-               'interpretation':'A model run, not hardware validation. Unknown connections are not filled in.'}
+               'interpretation':'A model run, not hardware validation. Connections follow the configuration and its declared evidence status; missing inputs remain unknown.'}
     dump(out/'summary.json', summary)
     return summary
 

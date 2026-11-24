@@ -2,9 +2,16 @@
 
 **The software infrastructure is implemented; the Nokia circuit reconstruction
 remains incomplete. No faithful Nokia microcode execution has been achieved.**
-The real-board configuration preserves unresolved connections instead of using
+The evidence-only configuration preserves unresolved connections instead of using
 the earlier illustrative instruction map. Its startup run stops before the
 first cycle because the clock relationships have not been recovered.
+
+**That evidence gap does not block hypothesis testing.** The separate
+[photo-informed wiring experiment](PHOTO-HYPOTHESES.md) connects the likely
+PROM/register bundles, assumes address and clock wiring, and executes the real
+PROMs through the chip models. It records every assumption and tests alternative
+control sources and indirect-branch handling. These runs are conditional
+predictions; the evidence-only configuration remains incomplete.
 
 The integration demonstration executes synthetic microcode through a PROM,
 edge-triggered control register, 8X02 and two separate Am2901 models. Its eight
@@ -37,9 +44,10 @@ The supplied photographs permit useful component identification and visible
 trace segments, but this attempt did not recover a complete control path.
 Paths beneath packages and uncertain via continuations prevent assigning the
 sequencer command/condition, ROM address permutations, clock phases, and slice
-controls with confidence. No complete candidate netlist is sufficiently
-constrained to enumerate meaningful alternatives. The earlier arbitrary map
-remains separately preserved in the parent directory and is not imported here.
+controls with confidence. This limits confidence in the wiring, rather than
+preventing candidate netlists from being tested. The separate experiment combines
+the photographed topology with the six existing ROM-derived field hypotheses.
+Those field assignments are not newly established by the photographs.
 
 ## Run and inspect
 
@@ -98,6 +106,9 @@ established in a separate event before its sampling edge; this is not an
 analog setup/hold simulator. Static `decode` fields are optional explicit
 expressions for fetched control signals and must carry the board's evidence
 status; they do not alter the runtime circuit.
+An optional `cycle_inputs` object supplies input changes before selected cycles,
+using decimal cycle numbers as keys. This supports reproducible diagnostic
+pulses without editing microcode or jumping the sequencer program counter.
 
 Implemented primitives include PROMs, LS374 registers, LS373 transparent
 latches, separate four-bit Am2901 slices, an 8X02 adapter, logic gates,
@@ -131,14 +142,14 @@ analog path, external memory protocol, or other modem boards are simulated.
 
 ## Verification and next evidence needed
 
-**18 new tests plus the original 11 pass.** They cover unknown/tri-state logic,
+**21 board tests pass**, including three photo-hypothesis tests. They cover unknown/tri-state logic,
 exhaustive nibble arithmetic flags, ROM integrity and permutations, transparent
 versus edge-triggered storage, simultaneous sampling, conditional sequencing,
 call/return, invalid timing, separate-slice carry and RAM/Q shifts, deterministic
 replay, static decode, and synthetic control-store integration. Evidence audits
 check identifiers and pin ranges, not continuity.
 
-The next meaningful reconstruction requires resolving the six groups listed
+Verification of the physical reconstruction requires resolving the six groups listed
 in `dsc2847.json`: CLOCK, ADDRESS, REGISTER, SEQUENCE, DATAPATH, and EXTERNAL.
 Particularly useful endpoints remain U9 AC0/AC1/AC2 (pins 27/28/1), TEST (26),
 clock (25), and the clock/enable inputs of the four control registers. Further
