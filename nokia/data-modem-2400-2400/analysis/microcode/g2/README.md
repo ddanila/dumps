@@ -688,3 +688,7 @@ The [one-cycle vector screen](BOARD-VECTOR-SCREEN.md) repeats that hypothetical
 handoff for all 76 direct BRT words; 69 return to `084` and seven reach an
 unknown-stack stop. This is a bounded result for TEST=0 and D=0, not a blocker
 for further controller-input and timing hypotheses.
+The [candidate-byte follow-up](BOARD-VECTOR-INPUT.md) finds that real 8031
+frame-byte values change the modeled Am2901 state when RAM/Q startup bits are
+explicitly seeded, while the path still returns to `084` without visiting the
+candidate output sites. The frame-to-DSP route remains a hypothesis.

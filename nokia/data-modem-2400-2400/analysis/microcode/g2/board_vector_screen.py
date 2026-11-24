@@ -11,6 +11,7 @@ BOARD = HERE.parent / 'board'
 ASSUMED = HERE.parent / 'assumed'
 sys.path[:0] = [str(BOARD), str(ASSUMED), str(HERE)]
 from engine import Engine, Stop
+from logic import Word
 from photo_hypotheses import scenario
 from common import decode, read, save, unconditional_transfer
 from board_enable_takeover import candidate_board
@@ -21,9 +22,25 @@ MAX_AFTER_VECTOR = 512
 OUTPUT_PCS = set(range(0x392, 0x3A0))
 
 
-def at_wait(board, fixture):
+def datapath_summary(engine):
+    words = [word.text() for name in ('U2', 'U8')
+             for word in (engine.state[name]['q'],
+                          *engine.state[name]['ram'])]
+    bits = ''.join(words)
+    return dict(q={name: engine.state[name]['q'].text()
+                   for name in ('U2', 'U8')},
+                known_bits=sum(bit in '01' for bit in bits),
+                sha256=hashlib.sha256(bits.encode()).hexdigest())
+
+
+def at_wait(board, fixture, initial_ram_q=None):
     engine = Engine(board, BOARD)
     engine.initialize(fixture['initial_inputs'])
+    if initial_ram_q is not None:
+        for name in ('U2', 'U8'):
+            engine.state[name]['q'] = Word.of(initial_ram_q, 4)
+            engine.state[name]['ram'] = [Word.of(initial_ram_q, 4)] * 16
+        engine.settle()
     for cycle in range(128):
         if engine.state['U9']['pc'].integer() == 0x084:
             return cycle, engine
@@ -32,13 +49,16 @@ def at_wait(board, fixture):
     raise ValueError('baseline did not reach 084 within 128 cycles')
 
 
-def screen_one(wait_engine, fixture, vector, expected_target):
+def screen_one(wait_engine, fixture, vector, expected_target, stimulus=None):
     engine = deepcopy(wait_engine)
     event = dict(fetch_pc=f'{vector:03X}', target=f'{expected_target:03X}')
     pcs = []
     output_y = []
+    call_y = []
     try:
-        engine.step({'address': vector})
+        engine.step(dict(address=vector, **(stimulus or {})))
+        if stimulus:
+            event['candidate_external_inputs'] = stimulus
         engine.step({'takeover': 1})
         event['floating_bus'] = engine.inputs('U10')['A'].text()
         engine.step({'drive': 1})
@@ -68,6 +88,10 @@ def screen_one(wait_engine, fixture, vector, expected_target):
             pcs.append(pc)
             for phase in fixture['cycle']:
                 engine.step(phase['set'])
+                if phase['name'] == 'fetch rise' and pc in (0x3C2, 0x3D7):
+                    call_y.append(dict(pc=f'{pc:03X}',
+                                       y=engine.values['U8.Y'].text() +
+                                         engine.values['U2.Y'].text()))
                 if phase['name'] == 'fetch rise' and pc in OUTPUT_PCS:
                     output_y.append(dict(pc=f'{pc:03X}',
                                          y=engine.values['U8.Y'].text() +
@@ -77,21 +101,29 @@ def screen_one(wait_engine, fixture, vector, expected_target):
         return dict(**event, outcome=outcome, cycles_after_vector=len(pcs),
                     final_pc=f'{engine.state["U9"]["pc"].integer():03X}',
                     visited_pcs=sorted({f'{pc:03X}' for pc in pcs}),
+                    first_pcs=[f'{pc:03X}' for pc in pcs[:32]],
+                    pc_trace_sha256=hashlib.sha256(bytes().join(pc.to_bytes(2, 'big') for pc in pcs)).hexdigest(),
                     table_calls={f'{pc:03X}': pcs.count(pc) for pc in (0x3C2, 0x3D7)},
+                    call_y=call_y,
                     output_site_visits=len(output_y),
                     known_output_y=sorted({x['y'] for x in output_y
                                            if set(x['y']) <= {'0', '1'}}),
-                    output_witness=output_y[:8]), None
+                    output_witness=output_y[:8],
+                    datapath=datapath_summary(engine)), None
     except Stop as error:
         return dict(**event, outcome='model-stop', stop=str(error),
                     cycles_after_vector=len(pcs),
                     final_pc=f'{engine.state["U9"]["pc"].integer():03X}',
                     visited_pcs=sorted({f'{pc:03X}' for pc in pcs}),
+                    first_pcs=[f'{pc:03X}' for pc in pcs[:32]],
+                    pc_trace_sha256=hashlib.sha256(bytes().join(pc.to_bytes(2, 'big') for pc in pcs)).hexdigest(),
                     table_calls={f'{pc:03X}': pcs.count(pc) for pc in (0x3C2, 0x3D7)},
+                    call_y=call_y,
                     output_site_visits=len(output_y),
                     known_output_y=sorted({x['y'] for x in output_y
                                            if set(x['y']) <= {'0', '1'}}),
-                    output_witness=output_y[:8]), error
+                    output_witness=output_y[:8],
+                    datapath=datapath_summary(engine)), error
 
 
 def run(out=HERE / 'results/board-vector-screen.json'):
