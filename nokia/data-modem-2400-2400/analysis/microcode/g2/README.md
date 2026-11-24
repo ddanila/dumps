@@ -128,6 +128,27 @@ wiring.** This rules out a demonstrated modulator only in this gate/mapping/
 dispatch combination; it does not eliminate other ROM-read policies or
 multiword phase logic.
 
+Existing execution studies narrow two of these static cycles further. In
+[1,024 q3 early-entry reset runs](../assumed/EARLY-ENTRY22.md), 02B is visited
+once before control reaches a different wait at 05D; the apparent 02B–02E
+cycle is an overapproximation for those inputs and previous-flag timing.
+At [1EC–1ED](../assumed/HANDLER-REPLY.md), the repeated D read is a checked
+equality poll: R4 and Q remain fixed while each reply overwrites R3. Neither
+run demonstrates phase progression. This leaves the already characterized
+36C–36E recurrence as the only exercised ROM-fed cycle among these three
+under its diagnostic gate, and that recurrence does not generate a waveform.
+
+The [family-wide screen](all_rom_gate_cycles.py) repeats the intersection for
+**all 137** gates that fit the original diagnostic ROM-read labels. Seventy-three
+select no D-consuming word in any cyclic q3 component. None selects a D
+operand in the recurring paired-output loop 38C–3A1. Across the other gates,
+only 1EC, 36C and 36E combine a cyclic D read with a register write; those
+sites are the poll and carry recurrence above. The [full result](results/all-rom-gate-cycles.json)
+keeps every gate's terms and cyclic sites. This makes further transmitter
+claims from this *fitted-gate family* unlikely without new wiring or a
+different mapping. A ROM operand may be captured before a loop, so the screen
+does not exclude every possible modulator algorithm.
+
 The screen therefore does not identify a transmitter. The next discriminating
 search must combine a *reached* D-add instruction with independently supported
 ROM selection, dibit-derived address and retained phase across symbol periods.
