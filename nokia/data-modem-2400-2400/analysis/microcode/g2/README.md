@@ -684,3 +684,7 @@ internal PC, but no such Nokia connection has been established.
 The four-PROM board replay in the same note verifies a staged address-bus
 handoff through the control latches and sequencer clock: it reaches `300`
 without a stack repair, then returns to `084` under the tested fixture.
+The [one-cycle vector screen](BOARD-VECTOR-SCREEN.md) repeats that hypothetical
+handoff for all 76 direct BRT words; 69 return to `084` and seven reach an
+unknown-stack stop. This is a bounded result for TEST=0 and D=0, not a blocker
+for further controller-input and timing hypotheses.

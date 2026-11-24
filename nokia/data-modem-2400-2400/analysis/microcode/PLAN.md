@@ -188,6 +188,16 @@ controller, ROM and signal analyses. A failed wiring candidate or an unknown
 physical net alone does not meet this test; keep G2 active and choose the next
 discriminating experiment.
 
+Apply this rule to the U9 enable/address-bus idea as well. A hypothesised
+external driver can be modelled from the chip's documented pin behavior and
+the photographed board, even though its Nokia wiring is untraced. Run the
+candidate with the real PROMs, record exactly which address, input levels and
+timing were assumed, and treat a return to `084` or a model stop as the outcome
+of that fixture. The [one-cycle BRT vector screen](g2/BOARD-VECTOR-SCREEN.md)
+does this for 76 candidate entry words. Its negative result directs the next
+controller-input or timing experiment; it is neither a reason to block G2 nor
+proof that address takeover is the physical control path.
+
 This policy changes how we make progress, not the acceptance criteria. Keep
 G2's transmitter and receiver/echo-canceller checks: completing a candidate run
 does not satisfy them. Do not inject the expected waveform, force control flow
