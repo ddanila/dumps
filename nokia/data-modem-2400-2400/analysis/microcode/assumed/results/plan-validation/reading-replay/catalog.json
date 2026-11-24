@@ -1385,6 +1385,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "CARRY-HELPER.md",
+        "limitations": "q3 previous flags and constant selector 5. Local constant-input recurrence does not apply to general ROM-address feedback. No physical input protocol or output consumer inferred.",
+        "meaning": "Preparatory R1\u2013R3 writes are overwritten by the three-add loop. Previous middle carry controls repetition. On return, 36F masks the external byte with preserved Q into R0. Constant per-PC reads give immediate return or exact period-three recurrence; the saved ROM zero-reply reset validates a complete call.",
+        "name": "carry-gated input chain and return Q mask",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "366",
+            "36F"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1407,7 +1423,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 616,
+    "annotated_used_words": 623,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2506,7 +2522,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "CARRY-HELPER.md",
+          "limitations": "q3 previous flags and constant selector 5. Local constant-input recurrence does not apply to general ROM-address feedback. No physical input protocol or output consumer inferred.",
+          "meaning": "Preparatory R1\u2013R3 writes are overwritten by the three-add loop. Previous middle carry controls repetition. On return, 36F masks the external byte with preserved Q into R0. Constant per-PC reads give immediate return or exact period-three recurrence; the saved ROM zero-reply reset validates a complete call.",
+          "name": "carry-gated input chain and return Q mask",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "366",
+              "36F"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "351",
         "353",
@@ -4575,6 +4608,7 @@
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
     "BRANCH-HELPERS.md": "2fb38758b9913ba609f1a67abe3a898519cca2a64dede33e48254bc6b6700c2d",
     "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",
+    "CARRY-HELPER.md": "20d27a7122d9edceb30b8bd3a9f9b9fbce835de1f72d8a6a69437a7c94ac95d1",
     "DISPATCH-RANGE.md": "090b900eb0dfbedd879791ebf549a2f7c2504bc08e9797c5ccea12efe627914d",
     "DISPATCH109.md": "c1bacc10b862be013766e19dcbdd234fad53848ea066e53152afd561b9f92403",
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",

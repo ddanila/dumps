@@ -74,6 +74,7 @@ into one address listing.
 | 319–334 | Register-difference scan and carry wait | Shared condition stubs; transient ALU output consumers unknown |
 | 304–308, 311–318 | Double drain and input preparation prefix | Local entry; shared select-5 stub bypasses this path from 300 |
 | 30B–310 | Cleared-Q helper (q1–q4) or masked-Q drain (fitted_original) | Different retained R5 values; shared previous-zero and zero-fill hypotheses |
+| 366–36F (q3) | Overwritten preparation, carry-gated input chain and return Q mask | Constant local reads; one complete ROM zero-reply reset call |
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
 | 109 | Input-code dispatch candidates | Mapping and input schedule change current/previous-Y and Q selectors |
 | 002, 076, 109–111 (q1/q3) | Input accumulation, Q-based selector and eight-way handler table | Independent-input prefixes verified; physical command protocol unknown |
@@ -98,7 +99,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 616 used words, including overlaps and disconnected
+These annotations cover 623 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -135,7 +136,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 109 functional/assumption tests pass, including checks that
+byte. All 110 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -230,7 +231,7 @@ routes and transfer policies produce distinct retained codes and update times;
 all connections remain labelled hypotheses, and core traces are unchanged.
 
 [The plan acceptance audit](PLAN-AUDIT.md) verifies the current long-run and
-coverage evidence separately from interpretation. Three cataloged direct-call
+coverage evidence separately from interpretation. Two cataloged direct-call
 entries still lack annotations; physical fidelity is not added as a prerequisite
 beyond the plan’s explicit assumption-based scope.
 
@@ -248,3 +249,8 @@ consumer is assigned to those values.
 357 across explicit branch policies. They separate an overflow-selected register
 copy, optional captures and Q complement, and three transient return sums
 with identical retained state. Local calls do not imply reset reachability.
+
+[The complete carry helper](CARRY-HELPER.md) connects q3 366 preparation,
+the carry-controlled wait and the final external-byte/Q mask into one checked
+call. Constant-input recurrence and a real zero-reply reset call are verified
+separately from the existing changing-ROM feedback recurrence.

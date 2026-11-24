@@ -639,3 +639,8 @@ consumer is assigned to those values.
 357 across explicit branch policies. They separate an overflow-selected register
 copy, optional captures and Q complement, and three transient return sums
 with identical retained state. Local calls do not imply reset reachability.
+
+[The complete carry helper](CARRY-HELPER.md) connects q3 366 preparation,
+the carry-controlled wait and the final external-byte/Q mask into one checked
+call. Constant-input recurrence and a real zero-reply reset call are verified
+separately from the existing changing-ROM feedback recurrence.

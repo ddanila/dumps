@@ -1401,6 +1401,22 @@
       "evidence": "BRANCH-HELPERS.md",
       "meaning": "Copy R1 to R0 and D359+Q to R4, preserving Q. Selector 5 and preceding OR carry choose a final transient sum of R12 with R2, R3 or R1 without changing retained state.",
       "limitations": "q3 local calls with constant selector 5 and previous ripple logical carry; physical consumers of transient sums unknown. No reset reachability is inferred."
+    },
+    {
+      "name": "carry-gated input chain and return Q mask",
+      "ranges": [
+        [
+          "366",
+          "36F"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "CARRY-HELPER.md",
+      "meaning": "Preparatory R1\u2013R3 writes are overwritten by the three-add loop. Previous middle carry controls repetition. On return, 36F masks the external byte with preserved Q into R0. Constant per-PC reads give immediate return or exact period-three recurrence; the saved ROM zero-reply reset validates a complete call.",
+      "limitations": "q3 previous flags and constant selector 5. Local constant-input recurrence does not apply to general ROM-address feedback. No physical input protocol or output consumer inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

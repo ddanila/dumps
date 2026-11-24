@@ -127,6 +127,27 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_full_carry_helper_return_mask_and_recurrence(self):
+        import random
+        from carry_helper_study import scenario_for,probe,prediction,check,verify_core,inspect_reset
+        from defined_condition_fit import load_trace
+        config=read(HERE/'carry-helper-study.json');base_path=HERE/config['base']
+        mapping,base=read(base_path/'mapping.json'),read(base_path/'scenario.json');rows=decode(mapping)
+        rng=random.Random(366);outcomes=set()
+        with tempfile.TemporaryDirectory() as temporary:
+            for case in range(96):
+                ram=[rng.randrange(256) for _ in range(16)];q=rng.randrange(256)
+                inputs={pc:rng.randrange(256) for pc in range(0x366,0x370)};s5=case%2
+                scenario=scenario_for(base,config,ram,q,inputs,s5)
+                got=probe(rows,scenario,record=True);want=prediction(ram,q,inputs,s5);check(got,want)
+                verify_core(mapping,scenario,got,Path(temporary)/'core');outcomes.add(got['outcome'])
+                self.assertEqual(got['ram'][0],ram[0] if got['outcome']=='repeat' else inputs[0x36f]&q)
+                self.assertEqual(got['period'],3 if got['outcome']=='repeat' else None)
+        self.assertEqual(outcomes,{'return','repeat'})
+        p=HERE/config['reset'];calls=inspect_reset(load_trace(p),read(p/'scenario.json'))
+        self.assertEqual((calls[0]['entry_cycle'],calls[0]['return_cycle']),(79,87))
+        self.assertEqual(calls[0]['prediction']['ram'][:4],[1,255,255,0])
+
     def test_q3_conditional_helpers_arbitrary_inputs_and_returns(self):
         import random
         from branch_helpers_study import scenario_for,probe,prediction,check
