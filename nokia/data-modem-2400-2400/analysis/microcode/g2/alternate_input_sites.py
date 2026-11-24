@@ -105,6 +105,11 @@ def run(out):
                              if row['cycle'] > first and
                              row.get('external_read', {}).get('selected_by_alu') and
                              'address' in row['external_read']]
+                bus_addresses = defaultdict(set)
+                for row in trace:
+                    event = row.get('external_read', {})
+                    if row['cycle'] > first and 'address' in event and not event['selected_by_alu']:
+                        bus_addresses[f'{row["pc"]:03X}'].add(event['address'])
                 adc_cases.append(dict(mapping=name, initial_q=q, site=f'{site:03X}',
                                       order=order, consumed=min(visits, len(values)),
                                       site_visits=visits,
@@ -114,6 +119,8 @@ def run(out):
                                                                      for state in states}),
                                       rom_reads_after_first_site=len(rom_after),
                                       rom_addresses=sorted(set(rom_after)),
+                                      unconsumed_rom_bus_sites={pc: len(addresses)
+                                                                for pc, addresses in sorted(bus_addresses.items())},
                                       final_pc=f"{result['final_state']['pc']:03X}",
                                       trace_digest=result['trace_digest']))
             adc_cases[-1]['same_byte_map_as_forward'] = order_maps[0] == order_maps[1]
@@ -122,6 +129,10 @@ def run(out):
                                      for row in adc_cases if row['order'] == 'reverse'
                                      and row['site'] != '187'):
         raise ValueError('memoryless alternate site changed')
+    q3_a7 = [row for row in adc_cases if row['mapping'] == 'q3' and row['site'] == '3A7']
+    if (len(q3_a7) != 2 or any(row['unconsumed_rom_bus_sites'].get('3B5') != 72
+                                or row['rom_reads_after_first_site'] != 0 for row in q3_a7)):
+        raise ValueError('q3 D3A7 ROM bus-versus-operand distinction changed')
 
     q1_mapping = mapped(MAPPINGS['q1'])
     q1_trigger = []
@@ -169,6 +180,7 @@ def run(out):
                                    note='187 is a PLP/BLT shift loop; order effects under one-new-sample-per-visit are not receiver proof.'),
                   limitations=['Representative Q values cover observed final-PC classes, not every Q/initial-RAM combination.',
                                'D bytes, ROM gate, and all photo-derived routes are scenario hypotheses.',
+                               'An Am27S31 address may be driven on the bus even when the instruction ignores its data; only selected_by_alu reads count as ROM operands.',
                                'Post-site signatures include RAM and Q only; external state and analog sample timing are not modeled.'],
                   source_sha256={str(path.relative_to(HERE.parent)): hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in sources})

@@ -20,6 +20,14 @@ per-case visits, distinct states, ROM reads, addresses and trace digests.
 | q2, Q=0; q4, Q=8 | 12A | All samples consumed; one retained state. q2 repeatedly reads one fixed Am27S31 address, `101`, rather than sample-dependent addresses. |
 | fitted-swapped, Q=1 | 187 | Only 33 forward or 32 reverse samples reach the site before the run reaches 084. The result depends on order, but 187 is inside a PLP/BLT shift loop, so one new ADC sample per visit is a diagnostic timing assumption. |
 
+The q3 Q=4 case has an important bus-versus-operand distinction. D input at
+`3A7` makes the Am27S31 **address bus** visit 72 different addresses at
+`3B5`, one for each distinct test sample code. At `3B5`, however, the modeled
+Am2901 operation does not select the ROM byte as an ALU operand. The updated
+report records those unconsumed bus addresses separately from actual ROM
+operands. Address variation alone is therefore not a receiver lookup, and
+this case still has one retained state and no sample-order history.
+
 The q1 Q=0 path at **127** has a different role in this fixture. A complete
 256-value constant-D sweep shows that **only D=00** leaves its recurring 127
 loop and enters the changing upper-ROM recurrence at 12C; all other values
