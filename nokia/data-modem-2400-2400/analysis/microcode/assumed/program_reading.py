@@ -93,7 +93,11 @@ def build(config):
                     *config['profiles'].values(), *config['reset_examples'].values(),
                     *(n['evidence'] for n in config['annotations'])}
     metadata = dict(configuration=config,
-        source_sha256={p:hashlib.sha256((HERE/p).read_bytes()).hexdigest() for p in sorted(dependencies)},
+        # Code, configuration and data are fingerprinted; evidence documents are
+        # listed by path only, so editing prose does not invalidate the catalog.
+        source_sha256={p:hashlib.sha256((HERE/p).read_bytes()).hexdigest() for p in sorted(dependencies)
+                       if not p.endswith('.md')},
+        evidence_documents=sorted(p for p in dependencies if p.endswith('.md')),
         reset_hypothesis_catalog=witnesses,
         counts=dict(reset_hypothesis_witnesses=witnesses['witness_count'],
                     default_gaps_with_reset_witness=witnesses['target_words'],words=len(rows), used=sum(not r['unused'] for r in rows),

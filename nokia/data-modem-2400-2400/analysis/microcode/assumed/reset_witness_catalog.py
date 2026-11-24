@@ -95,7 +95,9 @@ def build_catalog(manifest_path=HERE/'reset-witnesses.json'):
     if missing:raise ValueError('missing reset witnesses: '+', '.join(missing))
     return dict(configuration=config,baseline_words=len(cfg['reached']),target_words=len(targets),
         witness_count=len(summaries),entries=entries,witnesses=summaries,
-        source_sha256={str(p.relative_to(HERE.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(sources)},
+        source_sha256={str(p.relative_to(HERE.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(sources)
+                       if p.suffix!='.md'},
+        evidence_documents=sorted(str(p.relative_to(HERE.parent)) for p in sources if p.suffix=='.md'),
         interpretation='Every default-graph gap has a replayed clean zero-reset witness under a named mapping and scenario. This is a union of incompatible hypotheses, not single-model coverage, a safe default gate, physical wiring recovery or full-plan completion.')
 
 

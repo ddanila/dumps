@@ -110,8 +110,8 @@ def main():
     finding=acceptance(ordered,sweep,config['minimum_coverage'])
     missing=[dict(entry=e['entry'],callers=e['callers']) for e in catalog['direct_call_entries'] if not e['annotations']]
     historical=read(HERE/'results/suite.json')
-    sources=[Path(__file__),HERE/'plan-validation.json',HERE/'frame_dac_bridge.py',HERE/'frame-dac-bridge.json',HERE/config['interface_report'],HERE.parent/'PLAN.md',HERE/'analyze.py',HERE/'program_reading.py',
-        HERE/'program-reading.json',HERE/'FINAL-REVIEW.md',HERE/'PROGRAM-OVERVIEW.md',HERE/config['catalog'],HERE/config['sequencer_mapping'],HERE/config['sequencer_scenario'],
+    sources=[Path(__file__),HERE/'plan-validation.json',HERE/'frame_dac_bridge.py',HERE/'frame-dac-bridge.json',HERE/config['interface_report'],HERE/'analyze.py',HERE/'program_reading.py',
+        HERE/'program-reading.json',HERE/config['catalog'],HERE/config['sequencer_mapping'],HERE/config['sequencer_scenario'],
         HERE/config['sweep_reference'],HERE/'results/suite.json',HERE/'execute.py',HERE/'external_line.py',HERE/'common.py',
         HERE/'defined_condition_fit.py',HERE.parent/'model.py',*(HERE/p for p in config['input_manifests'])]
     save(args.out/'report.json',dict(configuration=config,preserved_inputs=preserved,analysis_files_reproduced=analysis_files,variants=variants,
