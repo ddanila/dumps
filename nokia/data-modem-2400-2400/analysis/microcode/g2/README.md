@@ -193,6 +193,12 @@ D127 at the phase increments for 1,800 and 2,100 Hz under an imposed 9,600 Hz
 sample cadence. ALU Y peaks at those frequencies, but the bare phase-index
 byte ramp does too; the selected ROM bytes peak at 3,000 Hz. The match is
 therefore a spectral false positive, not evidence of a recovered transmitter.
+The [photo-supported DAC08 B5 check](DAC08-OUTPUT.md#photo-supported-b5-bit-under-the-d127-rom-walk)
+clocks candidate PC129 ALU bytes through a digital LS273 and tests every Y
+bit as the unknown D4 source. B5 responds to hypothetical controller bits
+at D127, but none of the eight source choices peaks at 1,800 Hz under the
+tested direct or four-samples-per-bit timing. One DAC bit and an untraced
+clock cannot establish the line waveform.
 An eight-bit U10 source screen finds that only a hypothetical U10 bit-0 feed
 to U5 D0 sustains ROM reads under a read-valid E2 level, and even that path
 settles to fixed addresses and candidate outputs. The source is untraced.
