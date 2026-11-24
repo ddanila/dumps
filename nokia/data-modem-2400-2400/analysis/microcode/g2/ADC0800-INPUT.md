@@ -29,7 +29,9 @@ reach the microprogram.
 
 Earlier documents called the photographed DED 3558 converter a `DAC0830`.
 The visible sticker instead reads `ADC0800PCD`; a DAC0830 on this board has
-not been identified from this photograph. The existing
+not been identified from this photograph. A separate **DAC08HP** marking is
+visible in the lower analog section of the same board; see the
+[output-converter evidence](DAC08-OUTPUT.md). The existing
 [DAC0830 model](../assumed/DAC-OUTPUT.md) remains a diagnostic output
-hypothesis, not evidence for a physical DAC or line waveform. A transmitter
-demonstration still needs an identified output route and changing line codes.
+hypothesis, not the identified board converter. A transmitter demonstration
+still needs the DAC08 input-byte/strobe route and changing line codes.

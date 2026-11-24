@@ -13,7 +13,10 @@ an analog voltage or physical sample rate.
 **Hardware correction:** The [DED3558 photograph](../../../photos/PXL_20261123_114854803.jpg)
 shows a stickered **ADC0800PCD**, an A/D converter, not a confirmed DAC0830.
 See the [photo and datasheet review](../g2/ADC0800-INPUT.md). No DAC0830 has
-been identified on DED 3558 from this photograph. The model below is an
+been identified on DED 3558 from this photograph. A separate photographed
+[DAC08HP output candidate](../g2/DAC08-OUTPUT.md) has since been identified
+on the same board; it does not use the DAC0830's two-register protocol. The
+model below is an
 explicit *counterfactual output adapter*; it does not establish a route from
 the DSC2847 ALU bus, an intervening latch, byte order or a write signal.
 

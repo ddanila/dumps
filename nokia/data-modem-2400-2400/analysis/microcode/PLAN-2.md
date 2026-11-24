@@ -42,6 +42,7 @@ and the photographs. None of them depends on an unverified microcode mapping.
 | E5 | The DSC2847 has its own **14.400 MHz** oscillator (CK1144AC). 14.4 MHz = 1500 × 9600 = 12000 × 1200 baud = 8000 × 1800 Hz. | Whole-board photo, `board/inventory.json` | Fact; the microcycle divisor is unknown |
 | E6 | Am27S31 bytes 00–13 are a 16-point sine plus 4 wrap entries, which allows sin(i) and cos(i) = table[i+4] without wrapping, i.e. quadrature. 1800/9600 = **3/16**: at a hypothetical 9600 Hz sample rate (8 samples/baud), the 1800 Hz carrier advances exactly 3 entries per sample. 100–140 is a 65-entry quarter sine, i.e. a fine 256-step phase, as needed for carrier tracking (V.26 ter requires ±7 Hz). 68–6F `00 01 02 03 01 00 02 03` looks like a dibit/quadrant map. 141–1CF are smooth signed curves that resemble filter or AGC coefficient tables. | ROM bytes | Shapes are facts; their roles are hypotheses |
 | E7 | DED 3558 visibly carries a stickered **ADC0800PCD**. National Semiconductor specifies an 8-bit A/D converter with internal successive approximation and complementary, latched digital outputs. This is a concrete candidate for receive samples; its bus route and sample timing are untraced. The earlier claim that this photographed device was a DAC0830 was incorrect. | [photo and component evidence](g2/ADC0800-INPUT.md) | High for part marking and component function; physical route unknown |
+| E8 | A separate 16-pin device in DED 3558's lower analog section is marked `DAC 08` / `HP`, consistent with **DAC08HP**, an 8-bit current-output D/A converter. An adjacent 74LS273 is a candidate sample-code latch. This supplies a concrete output-converter candidate, but its eight input nets, latch clock and analog output route are untraced. The earlier DAC0830 two-register sink is a counterfactual, not the observed part. | [photo and DAC08 datasheet review](g2/DAC08-OUTPUT.md) | High for visible marking and DAC08 function; medium for latch role; routing unknown |
 
 **Working conclusion:** the modem is very probably a V.26 ter-class 2400 bit/s
 duplex echo-cancelling modem (1800 Hz carrier, 1200 baud, 4-phase DPSK, 100%
@@ -131,8 +132,8 @@ Listed in order of value per effort:
   - the latches at positions 5/6/29/30 → Am2901 I0–I8, A0–3, B0–3, Cn, D-bus
     source;
   - ADC0800 data outputs, output enable, end-of-conversion and clock on DED
-    3558 to their buffers and DSC 2847 input path; identify the actual
-    transmitter output converter and its strobe separately;
+    3558 to their buffers and DSC 2847 input path; trace the photographed
+    DAC08HP input bits, adjacent 74LS273 clock and current-output route;
   - the 14.4 MHz divider (positions 25/20/21/14) → 8X02 CLK.
 
   This collapses the mapping alternatives.
@@ -154,7 +155,10 @@ Listed in order of value per effort:
   sequences, line-output sample spectra, bit decisions), not as a bit-exact target.
 - **C2 Transmit test.** Drive the surviving mapping(s) with the real
   controller's command frame for "data 2400" plus the synchronous scrambled
-  bitstream from USART 01. Pass criteria:
+  bitstream from USART 01. Capture the byte at the photographed DAC08HP's
+  B1–B8 inputs through an explicit 74LS273 clock/data hypothesis; only a
+  traced or independently constrained route may be called the line-output
+  stream. Pass criteria:
   - the identified line-output sample stream has its spectral peak at 1800 Hz
     × (true sample rate / 9600);
   - the phase steps follow the dibits;

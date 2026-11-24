@@ -9,8 +9,10 @@ identified in the routines.
 The [DED3558 photo and datasheet review](ADC0800-INPUT.md) identifies a
 stickered ADC0800PCD as a candidate source of complementary 8-bit receive
 samples. An earlier description of that photographed converter as a DAC0830
-was incorrect. The output converter and both sample-bus routes remain to be
-identified; existing DAC0830 executions are diagnostic counterfactuals.
+was incorrect. A [separate DAC08HP marking](DAC08-OUTPUT.md) identifies a
+concrete 8-bit output-converter candidate beside a 74LS273. Both DSP sample
+buses, the latch clock and the analog route remain untraced; existing DAC0830
+executions are diagnostic counterfactuals.
 
 The [ADC sample run](ADC-SAMPLE-RUN.md) feeds 256 complementary reference
 line-sample bytes to the recurring D read at 38E under the photo-constrained
