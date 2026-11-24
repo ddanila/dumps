@@ -42,8 +42,22 @@ one plausible continuation: even with this clean restart, the saved q3
 fixture does not pass G2's transmitter check. Other field mappings and input
 or output routes remain open; there is no goal blocker.
 
+## Whole-path output sensitivity
+
+The matched held and changing fixtures execute **exactly the same PC and
+next-PC sequence for all 1,900 cycles**. Comparing ALU Y at every cycle,
+not just the nominated 392 word, finds 54 changed cycles at ten sites:
+075, 077, 262, 2C8, 2C9, 316, 317, 38A, 392 and 3A3. The report saves the
+changed cycle and both Y values at each site. Thus there is no missed
+input-dependent *control path* in this pair of runs, and the observed
+data dependence is confined to these ten ALU sites. This does not exclude
+an unmodeled external latch, another output bus, different stimulus or another
+mapping; it supplies a bounded list of internal sites to test against any
+future photo-derived output connection.
+
 The [report](results/terminal-command-probe.json) records every restart
-cycle, live stack, ROM read, candidate output and source hash. Reproduce it
+cycle, live stack, ROM read, candidate output, whole-path ALU difference and
+source hash. Reproduce it
 with:
 
 ```sh

@@ -91,7 +91,10 @@ of the real-PROM q3 Gray-operand path, but only six candidate output visits.
 A changing D316 fixture yields alternating Y values 10 and 34, with no
 demonstrated phase accumulation or physical output route. The datasheet
 offers no dedicated runtime reset pin; the command override has no traced
-board circuit and remains a diagnostic alternative.
+board circuit and remains a diagnostic alternative. A whole-path ALU scan of
+the matched held/changing fixtures finds identical control flow over 1,900
+cycles and confines input-dependent Y values to ten sites, giving specific
+alternatives to 392 for future output-net checks.
 
 A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
 changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,

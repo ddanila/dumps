@@ -21,6 +21,7 @@ def probe():
     original = json.loads((base / 'scenario.json').read_text())
     original_step = X8X02.step
     cases = []
+    traces = {}
     for name, values in [('held', [119]), ('changing', [119, 120, 121, 122] * 4)]:
         scenario = copy.deepcopy(original)
         scenario['name'] = 'counterfactual AC=RST at 084, ' + name
@@ -43,6 +44,7 @@ def probe():
                                  out=directory, trace_limit=1900)
             trace = [json.loads(line) for line in
                      (Path(directory) / 'trace.jsonl').read_text().splitlines()]
+        traces[name] = trace
         terminal = [row for row in trace if row['pc'] == 0x84]
         reads = [row for row in trace if row['pc'] == 0x317]
         outputs = [row for row in trace if row['pc'] == 0x392]
@@ -69,12 +71,31 @@ def probe():
                                                   y=row['alu']['y']) for row in outputs],
                           clean=result['clean'], stack=result['stack'],
                           trace_digest=result['trace_digest']))
+    held, changing = traces['held'], traces['changing']
+    if len(held) != len(changing) or any(
+            a['pc'] != b['pc'] or a['next_pc'] != b['next_pc']
+            for a, b in zip(held, changing)):
+        raise ValueError('matched input fixtures changed control flow')
+    different_sites = {}
+    for a, b in zip(held, changing):
+        if a['alu']['y'] != b['alu']['y']:
+            site = f"{a['pc']:03X}"
+            different_sites.setdefault(site, dict(held=[], changing=[], cycles=[]))
+            different_sites[site]['held'].append(a['alu']['y'])
+            different_sites[site]['changing'].append(b['alu']['y'])
+            different_sites[site]['cycles'].append(a['cycle'])
+    if set(different_sites) != {'075', '077', '262', '2C8', '2C9',
+                                '316', '317', '38A', '392', '3A3'}:
+        raise ValueError(f'input-sensitive ALU site set changed: {sorted(different_sites)}')
     paths = [Path(__file__), ASSUMED/'execute.py', ASSUMED/'common.py',
              HERE.parent/'model.py', base/'mapping.json', base/'scenario.json']
     return dict(status='diagnostic hypothesis, not recovered board wiring',
                 sequencer_event='replace decoded BRT command at 084 by AC=111 on first 15 arrivals',
                 scope='Two continuous q3 runs of 1900 real-PROM instructions; no PC assignment or stack/data reset',
                 cases=cases,
+                matched_path=dict(cycles=len(held), same_pc_and_next_pc=True,
+                                  differing_y_cycles=sum(len(site['cycles']) for site in different_sites.values()),
+                                  differing_y_sites=different_sites),
                 source_sha256={str(path.relative_to(HERE.parent)): hashlib.sha256(path.read_bytes()).hexdigest()
                                for path in paths})
 
