@@ -70,6 +70,7 @@ into one address listing.
 | 133–13A, 341–344 (q2) | Accumulator carry and threshold gate | Nonzero-Q paths are local fixtures; physical accumulator meaning unresolved |
 | 38E–38F (q2) | Preceding-Y paired-arithmetic dispatch candidate | Site-scoped hypothesis; physical index and output consumer unknown |
 | 389–391 (q2) | Captured-register copy and paired-arithmetic loop | Final-high-byte exit can return with a nonzero low byte; physical output unknown |
+| 28E–295 (q1/q2/q4) | Save R0, optional Q load and byte sum | Select-6 source and physical R15 consumer remain unknown |
 | 248–24E | Three-loop shift wrapper | Does not establish R7; each loop has separate input-dependent termination |
 | 296–29E | Input-dependent biased Q shift | Most constant-input cases with R7=FF repeat under the selected previous-flag policy |
 | 2D0–2D8 | Paired Q drains | Previous-zero policy; transient output meaning unknown |
@@ -87,7 +88,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 328 used words, including overlaps and disconnected
+These annotations cover 336 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -124,7 +125,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 84 functional/assumption tests pass, including checks that
+byte. All 85 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.

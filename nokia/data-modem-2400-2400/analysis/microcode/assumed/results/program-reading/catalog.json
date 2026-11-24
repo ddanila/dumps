@@ -816,6 +816,24 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "AFFINE-TAIL.md",
+        "limitations": "Both select-6 outcomes are explicit local condition stubs; reset witnesses use fixed-false select 6. No physical consumer is identified for the transient or retained R15 result. Other mappings decode these instructions differently.",
+        "meaning": "Save old R0 in R3; select-6 skip optionally suppresses loading Q into R0. Return with R15=(R0+2*R1+1) mod 256, preserving Q and all other RAM. Five q2 reset traces connect the R0 copy to the following XNOR/skip decisions.",
+        "name": "save R0, optional Q load and byte sum",
+        "profiles": [
+          "q1",
+          "q2",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "28E",
+            "295"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -838,7 +856,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 328,
+    "annotated_used_words": 336,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -1320,7 +1338,26 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "AFFINE-TAIL.md",
+          "limitations": "Both select-6 outcomes are explicit local condition stubs; reset witnesses use fixed-false select 6. No physical consumer is identified for the transient or retained R15 result. Other mappings decode these instructions differently.",
+          "meaning": "Save old R0 in R3; select-6 skip optionally suppresses loading Q into R0. Return with R15=(R0+2*R1+1) mod 256, preserving Q and all other RAM. Five q2 reset traces connect the R0 copy to the following XNOR/skip decisions.",
+          "name": "save R0, optional Q load and byte sum",
+          "profiles": [
+            "q1",
+            "q2",
+            "q4"
+          ],
+          "ranges": [
+            [
+              "28E",
+              "295"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "213"
       ],
@@ -3138,6 +3175,7 @@
     ]
   },
   "source_sha256": {
+    "AFFINE-TAIL.md": "393c8bdc499ddbed9b397c077c028c455052c2376d4a8e5160071c158ca45700",
     "ALIAS-RUNTIME.md": "62e8ae91040c104ccbaf35ec7aaada079bbc72587aec3894fc5c69bba80d5dfe",
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
     "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",

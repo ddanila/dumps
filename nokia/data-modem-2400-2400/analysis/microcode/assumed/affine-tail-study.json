@@ -1,0 +1,14 @@
+{
+  "status": "hypothesis",
+  "evidence": "Actual caller 213 invokes 28E under q1/q2/q4. Local nonzero fixtures compare both values of select 6 via an explicit external condition stub; zero-fill and previous-flag/carry policies are retained. Separately replay all five nested q2 reset cases under their original fixed-false select 6. No physical output or condition source is established.",
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q2": "results/independent-study/variant-2.json",
+    "q4": "results/independent-study/variant-4.json"
+  },
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "initial_ram": [19, 37, 53, 71, 89, 107, 127, 149, 167, 181, 199, 211, 227, 239, 251, 13],
+  "witness_pairs": [[1,0], [255,255]],
+  "reset_config": "nested-reset-study.json",
+  "reset_report": "results/nested-reset-study/report.json"
+}

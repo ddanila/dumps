@@ -832,6 +832,24 @@
       "evidence": "NESTED-PREPARE.md",
       "meaning": "Store D+Q in R15 twice, expose differences, then test carry from Q-R0. The 2BC caller prepares R0=Q>>1, forcing the branch to 227 and preserving Q.",
       "limitations": "The forced branch is specific to the prepared calling state; 2B9-2BB are not globally dead. Nested input is constant per fixture. Other profiles and physical output are unresolved."
+    },
+    {
+      "name": "save R0, optional Q load and byte sum",
+      "ranges": [
+        [
+          "28E",
+          "295"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q1",
+        "q2",
+        "q4"
+      ],
+      "evidence": "AFFINE-TAIL.md",
+      "meaning": "Save old R0 in R3; select-6 skip optionally suppresses loading Q into R0. Return with R15=(R0+2*R1+1) mod 256, preserving Q and all other RAM. Five q2 reset traces connect the R0 copy to the following XNOR/skip decisions.",
+      "limitations": "Both select-6 outcomes are explicit local condition stubs; reset witnesses use fixed-false select 6. No physical consumer is identified for the transient or retained R15 result. Other mappings decode these instructions differently."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

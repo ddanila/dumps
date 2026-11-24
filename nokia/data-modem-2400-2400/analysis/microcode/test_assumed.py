@@ -17,6 +17,41 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_affine_helper_skip_and_reset_consumers(self):
+        from affine_tail_study import probe, local_scenario, inspect_reset, selected_registers
+        from defined_condition_fit import load_trace
+        config = read(HERE/'affine-tail-study.json')
+        self.assertEqual(selected_registers(dict(i=(2<<6)|2, a=15, b=0)), {15})
+        base = read(HERE/config['scenario'])
+        for path in config['profiles'].values():
+            mapping = read(HERE/path)
+            rows = decode(mapping)
+            self.assertTrue(all(rows[p]['i'] & 7 not in (5, 6, 7) for p in range(0x28e, 0x296)))
+            for r0, r1, q, skip, final0, final15 in (
+                    (1, 0, 255, False, 255, 0), (1, 0, 255, True, 1, 2),
+                    (7, 255, 0, False, 0, 255), (7, 255, 0, True, 7, 6)):
+                ram = config['initial_ram'][:]
+                ram[0], ram[1] = r0, r1
+                got = probe(rows, base, ram, q, 93, skip)
+                expected = ram[:]
+                expected[0], expected[3], expected[15] = final0, r0, final15
+                self.assertEqual(got['ram'], expected)
+                self.assertEqual(got['q'], q)
+                scenario = local_scenario(base, config, ram, q, 93, skip)
+                run = execute(mapping, scenario, got['cycles'], mode='integrated', trace_limit=0)
+                self.assertTrue(run['clean'])
+                self.assertEqual(run['final_state']['pc'], 0x214)
+                self.assertEqual(run['final_state']['ram'], expected)
+        rows = decode(read(HERE/config['profiles']['q2']))
+        trace = load_trace(HERE/'results/nested-reset-study/seed-0115')
+        helper = inspect_reset(trace, rows)[0]
+        self.assertEqual(helper['entry_q'], 204)
+        self.assertEqual(helper['return_ram'][15], 205)
+        self.assertEqual(helper['results']['0']['first_selected_read']['pc'], 0x216)
+        self.assertIsNone(helper['results']['15']['first_selected_read'])
+        self.assertEqual(helper['results']['15']['first_overwrite']['pc'], 0x099)
+        self.assertEqual([t['next_pc'] for t in helper['tail_tests']], [0x078, 0x079, 0x07a])
+
     def test_nested_reset_reaches_actual_four_frame_call(self):
         from nested_reset_study import scenario_for, inspect
         from defined_condition_fit import load_trace

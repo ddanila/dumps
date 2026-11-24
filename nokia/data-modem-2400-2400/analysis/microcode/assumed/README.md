@@ -517,3 +517,9 @@ call fixtures, not new reset or physical-I/O coverage.
 clean q2 runs with actual ALU flags and seeded dispatch. The real caller
 context permits depth four and a balanced return through 2FF. The fixed
 sweep visits 718 used words; the selected reset example is indexed separately.
+
+[Save/load and byte-sum helper](AFFINE-TAIL.md) interprets 28E–295 under
+q1/q2/q4: save old R0, optionally load Q, and form R0+2*R1+1 in R15.
+393,216 local calls check both skip outcomes; five reset replays connect
+the R0 copy to the following XNOR/skip decisions. R15 has no identified
+physical consumer.
