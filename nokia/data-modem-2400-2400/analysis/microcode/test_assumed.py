@@ -127,6 +127,24 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler6_late_masked_exit_and_terminal_skip(self):
+        import random
+        from handler6_late import scenario_for,inspect,check_exit
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler6-late.json');base=read(HERE/config['handler_configuration']);h=read(HERE/base['handler_config'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0xce)
+        self.assertEqual(check_exit(mapping)['direct_pairs'],6561)
+        cases=[(6,0,'capture',255,255,255),(254,255,'late',0,255,255)]
+        for _ in range(64):
+            cases.append((6+8*rng.randrange(32),rng.randrange(256),rng.choice(('capture','late')),*[rng.randrange(256) for _ in range(3)]))
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for values in cases:
+                scenario=scenario_for(config,*values)
+                result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                want=inspect(load_trace(out),result,*values)
+                if values in cases[:2]:self.assertEqual(want['extra_terminal_step'],1)
+
     def test_q3_handler3_alternate_drains_preserve_paired_component(self):
         import random
         from handler3_drains import scenario_for,inspect

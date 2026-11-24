@@ -1657,6 +1657,26 @@
       "evidence": "HANDLER3-DRAINS.md",
       "meaning": "An explicit two-selector external-line hypothesis admits reset entry at 1EF. Two left-shift constructions leave R5=2*(D1F3-1); calls 238/240, mask shifts and 1E9 drains zero Q/R0 before rejoining 308. R5 survives into paired Y outputs but is cleared by the terminal helpers.",
       "limitations": "q3 previous flags with selector 5 direct external and selector 3 inverted external, fall cycle 43; prior carry-source policy still excludes entry. Fixed early replies and global paired/store index. Prefix equality and negative entry controls verified; no physical line or output consumer inferred."
+    },
+    {
+      "name": "handler-6 late capture and masked terminal selection",
+      "ranges": [
+        [
+          "0CE",
+          "0DF"
+        ],
+        [
+          "0E5",
+          "0E8"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER6-LATE.md",
+      "meaning": "Timed selector-1 rise selects late continuation with or without an input-plus-carry capture at 0E5. 0D4 masks independent inputs; 04C copies the captured R3 into R12 and clears Q. Previous zero from R0 AND R12 selects 079 or 0DF\u21921D3, with distinct retained R3/R4 and an extra-step complement boundary at 079.",
+      "limitations": "q3 previous flags, zero-reset handler 6, explicit scheduled selector-1 source, PLP replies and table index 2. 0E0\u20130E4/0E9 onward excluded, 1DC unreachable under checked state. No physical capture channel or completion signal identified."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

@@ -714,3 +714,8 @@ wait; bypassed 043/044 remain outside the annotation.
 1EF using an explicit two-selector external-line hypothesis, with unchanged
 baseline prefixes and negative entry controls. The constructed R5 component
 survives into paired Y outputs before terminal helpers overwrite it.
+
+[Handler 6's late captured-value exits](HANDLER6-LATE.md) reaches 0CE and
+0DF through timed selector-1 inputs. A captured value and masked input select
+two terminal entries, with checked retained state and an additional complement
+boundary in the terminal skip.

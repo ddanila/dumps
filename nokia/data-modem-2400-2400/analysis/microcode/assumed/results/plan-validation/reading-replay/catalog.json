@@ -1641,6 +1641,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER6-LATE.md",
+        "limitations": "q3 previous flags, zero-reset handler 6, explicit scheduled selector-1 source, PLP replies and table index 2. 0E0\u20130E4/0E9 onward excluded, 1DC unreachable under checked state. No physical capture channel or completion signal identified.",
+        "meaning": "Timed selector-1 rise selects late continuation with or without an input-plus-carry capture at 0E5. 0D4 masks independent inputs; 04C copies the captured R3 into R12 and clears Q. Previous zero from R0 AND R12 selects 079 or 0DF\u21921D3, with distinct retained R3/R4 and an extra-step complement boundary at 079.",
+        "name": "handler-6 late capture and masked terminal selection",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "0CE",
+            "0DF"
+          ],
+          [
+            "0E5",
+            "0E8"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1663,7 +1683,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 895,
+    "annotated_used_words": 916,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5020,6 +5040,7 @@
     "HANDLER3-DRAINS.md": "148103c9b33b7080ab80421e7221eb129b50806b8d5b399412b3a0de61db3fc1",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
+    "HANDLER6-LATE.md": "279151097ab03b12b6db13b069aeab93a8392c5daf26971afc8c56a51321a69b",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
     "HANDLER7.md": "ae555fdf453872ddf317839250f54061397e4d962d627c7513288456ee00a2ec",
     "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",
