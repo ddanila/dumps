@@ -144,13 +144,14 @@ per run in that bit-sensitive q1 path, including every value of the two bytes
 that retained their seeds. All 736 cases still give one fixed lookup and
 candidate output pattern per bit value. This narrows the zero-initial-RAM
 concern for that path without establishing the physical startup state.
-A [new photo fragment](PHOTO-U10-D4.md) suggests U10 PROM bit 4 feeds U5's
-fourth data input. A hypothetical continuation from that latch output to
+A [corrected photo fragment](PHOTO-U10-D4.md) suggests U10 PROM bit 4 reaches
+U5's fourth **Q output**, not its D input. That would be a shared output bus
+with unresolved enable timing. A counterfactual assignment of that bit to
 Am2901 I1 consumes controller bits but gives only fixed or absent post-input
 lookup reads in ten runs. Varying all 137 existing diagnostic ROM-enable
 gates across q1 and fitted-swapped still gives no changing repeated-bit
-lookup or output pattern in 548 runs. The latch output's real destination
-remains open.
+lookup or output pattern in 548 runs. The bus driver and its real destination
+remain open.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the

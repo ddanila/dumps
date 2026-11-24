@@ -20351,33 +20351,35 @@
     ]
   },
   "limitations": [
-    "U5 Q3 to Am2901 I1 is an untraced hypothetical continuation of the photo fragment.",
+    "The photo fragment approaches U5 Q3, an output, not its D3 input. PROM/latch output enables and any route to Am2901 I1 are untraced.",
+    "The I1=10.4/!10.4 substitution does not model bus contention or latch timing.",
     "The 137 ROM gates are diagnostic fits, not a complete set of physical enable circuits.",
     "Other fields, initial states, input paths and DAC capture remain hypothetical."
   ],
   "source_sha256": {
-    "assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
+    "assumed/execute.py": "b9599564a558b9d8400bf813334d5c4cc57d1ccf6534442aae598281e5d788d3",
     "assumed/results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
     "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
     "g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
     "g2/instruction_bit_neighborhood.py": "4d08d0ce862337ad83e8d24dfc11478ff0c22c6c83cd55c13478c9c9b1aed91c",
     "g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
-    "g2/photo_d4_gate_sweep.py": "33bfb52a4b3979d25b63a349ea29ab910663ee89b601b38118197c0065325391",
+    "g2/photo_d4_gate_sweep.py": "bd176af31a8c8c7dd29b2b40a84c899b7a48c4425fb3d8b970a8841fc32ecf45",
     "g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
     "g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
-    "g2/photo_u10_d4_probe.py": "dc14c68bf5ef7518df584df9643071fd689a107fde1af4f32a48208167644993",
+    "g2/photo_u10_d4_probe.py": "c6d5f9056df72c5662b0e7f29927c9b4975ab1f5ef1427cb76e008f7fb041d5f",
     "g2/results/photo-b-constraints/q1-photo-swapped.json": "73d1121385d20a419ab06329004b7d15fec18fb7ee42fee95d11c43685c97cbe"
   },
-  "status": "photo-derived source plus diagnostic gate sweep, not board wiring",
+  "status": "counterfactual I1 source plus diagnostic gate sweep, not board wiring",
   "visible_segment": {
+    "adjacent_pin": "U5 pin 8, fourth D input, is one pad to the right and is not reached by this bright component",
     "bounds": [
       1130,
       1341,
       1152,
       1662
     ],
-    "candidate_destination": "U5 pin 8, fourth D input",
-    "latch_output": "U5 pin 9, fourth Q output; onward net untraced",
+    "candidate_destination": "U5 pin 9, fourth Q output",
+    "electrical_question": "Two output pins may share a bus only under compatible enable timing; the photo does not establish that timing or any driver-to-I1 route.",
     "pixel_count": 1346,
     "seed": [
       1131,

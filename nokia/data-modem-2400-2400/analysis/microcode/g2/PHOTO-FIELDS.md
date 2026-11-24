@@ -134,10 +134,10 @@ There is also a distinct front-side candidate from **U10 pin 17** to **U5 pin
 while the adjacent pin 18 is E4. This suggests one actual data-bit permutation,
 U10 D7 → U5 D1, without making U5's other seven bits identity-wired.
 
-A [separate photo fragment and execution probe](PHOTO-U10-D4.md) now adds
-U10 pin 14 (D4) → U5 pin 8 (D3) as a candidate. U5 pin 9 (Q3) has no
-established destination, so this source assignment does not yet fix an
-Am2901 instruction or register-address bit.
+A [corrected photo fragment and execution probe](PHOTO-U10-D4.md) places
+U10 pin 14 (D4) near **U5 pin 9 (Q3 output)**, not pin 8 (D3 input).
+It may be a shared output bus with enable timing, but does not establish a
+PROM-to-latch data bit or an Am2901 instruction/register-address bit.
 
 ![Candidate U10 D7 to U5 D1 trace](results/photo-i7-probe/candidate-u10-d7-latch.jpg)
 

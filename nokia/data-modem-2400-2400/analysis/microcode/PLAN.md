@@ -89,6 +89,11 @@ unavailable continuity measurements **do not by themselves block progress**.
 Use the photos, component topology, chip behavior, ROM structure and existing
 traces to propose plausible connections, then run them. Physical checks are
 optional ways to discriminate candidates, not prerequisites for continuing.
+Check package pin counts and pin directions before turning a visible track into
+a wiring hypothesis. If a later check changes the interpretation of a photo,
+correct the evidence record and relabel earlier simulations as counterfactual
+tests; keep useful results, but do not treat them as validation of the revised
+connection. Then test the revised route or move to another independent clue.
 
 **Current G2 decision:** the ambiguous PROM-to-latch, latch-to-Am2901 and
 Am2901-to-DAC connections are open hypotheses, **not a goal blocker**. The

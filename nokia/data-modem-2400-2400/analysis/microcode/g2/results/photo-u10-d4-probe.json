@@ -1,5 +1,5 @@
 {
-  "candidate_test": "U5 Q3 assigned to Am2901 I1; no photo trace establishes that output destination",
+  "candidate_test": "The tested I1=10.4/!10.4 substitutions are counterfactual signal assignments. U5 Q3 to Am2901 I1 and the output-enable timing are untraced.",
   "cases": [
     {
       "clean": true,
@@ -247,12 +247,13 @@
     ]
   },
   "limitations": [
-    "The source/destination pad gaps and U5 Q3 continuation are unresolved; this is not a recovered instruction-bit mapping.",
+    "The source/destination pad gaps, output-enable timing and U5 Q3 continuation are unresolved; this is not a recovered instruction-bit mapping.",
+    "The photographed destination is U5 Q3, not its D3 input. These runs do not model PROM-output and latch-output contention.",
     "One PROM bit is tried at one I input. Other pin routes, modes, startup states and ROM gates remain open.",
     "Candidate ALU-Y output sites have no traced connection to the DAC08HP."
   ],
   "source_sha256": {
-    "analysis/microcode/assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
+    "analysis/microcode/assumed/execute.py": "b9599564a558b9d8400bf813334d5c4cc57d1ccf6534442aae598281e5d788d3",
     "analysis/microcode/assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
     "analysis/microcode/board/evidence/manifest.json": "dcd320b8fec34836ae67b50ba99ea4dd7181f8e811d1fa53840e45c58db0f10e",
     "analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
@@ -260,23 +261,24 @@
     "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
     "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
     "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
-    "analysis/microcode/g2/photo_u10_d4_probe.py": "dc14c68bf5ef7518df584df9643071fd689a107fde1af4f32a48208167644993",
+    "analysis/microcode/g2/photo_u10_d4_probe.py": "c6d5f9056df72c5662b0e7f29927c9b4975ab1f5ef1427cb76e008f7fb041d5f",
     "analysis/microcode/g2/results/photo-b-constraints/q1-photo-swapped.json": "73d1121385d20a419ab06329004b7d15fec18fb7ee42fee95d11c43685c97cbe",
     "analysis/microcode/g2/results/photo-b-constraints/q2-photo-swapped.json": "18c85f7921c473054bb73bb8bbca2d99519e9fc710ae06a23809ea59b5ae43b2",
     "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
     "analysis/microcode/g2/results/photo-b-constraints/q4-photo-swapped.json": "1b6b47a1729dd03a77d0baf8c0daf47f8392cee28d474a55e47630899493ac37",
     "photos/PXL_20261123_114926601.jpg": "9f15c0ee40fa352a7c123975e83753a7f073320d7bc8971dc9c282358c06f7b2"
   },
-  "status": "photo candidate plus untraced hypothetical I1 continuation",
+  "status": "photo candidate output-to-output route plus untraced hypothetical I1 assignment",
   "visible_segment": {
+    "adjacent_pin": "U5 pin 8, fourth D input, is one pad to the right and is not reached by this bright component",
     "bounds": [
       1130,
       1341,
       1152,
       1662
     ],
-    "candidate_destination": "U5 pin 8, fourth D input",
-    "latch_output": "U5 pin 9, fourth Q output; onward net untraced",
+    "candidate_destination": "U5 pin 9, fourth Q output",
+    "electrical_question": "Two output pins may share a bus only under compatible enable timing; the photo does not establish that timing or any driver-to-I1 route.",
     "pixel_count": 1346,
     "seed": [
       1131,

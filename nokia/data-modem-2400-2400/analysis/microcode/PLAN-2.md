@@ -16,6 +16,12 @@ microcode should produce the expected line signal.
   receiver or the echo canceller.
 
 The exact criteria are in [§3](#3-acceptance-for-g2).
+Unknown board connections are **active hypotheses, not a G2 blocker**: use
+photo-compatible candidates with recorded pin-direction and timing assumptions,
+run bounded tests, and revise candidates when the evidence changes. Physical
+continuity checks in Phase B can resolve them, but are not required before
+continuing Phases A and C. Follow the [working rules](PLAN.md#uncertainty-is-a-reason-to-experiment-not-a-goal-blocker)
+without relaxing the acceptance criteria.
 
 ## Why a second plan
 

@@ -1,4 +1,4 @@
-"""Check a visible U10 D4-to-U5 D3 candidate and a hypothetical I1 continuation."""
+"""Check a visible U10 D4-to-U5 Q3 candidate and a hypothetical I1 route."""
 import hashlib
 import json
 import sys
@@ -6,7 +6,7 @@ import tempfile
 from collections import deque
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 HERE = Path(__file__).resolve().parent
 ASSUMED = HERE.parent / 'assumed'
@@ -25,7 +25,7 @@ SEED = (1131, 1400)
 EXPECTED_BOUNDS = (1130, 1341, 1152, 1662)
 
 
-def visible_segment():
+def visible_segment(overlay=None):
     view = json.loads(MANIFEST.read_text())['views']['front']
     if hashlib.sha256(FRONT.read_bytes()).hexdigest() != view['source_sha256']:
         raise ValueError('front photograph changed')
@@ -53,16 +53,31 @@ def visible_segment():
               max(x for x, _ in seen), max(y for _, y in seen))
     if bounds != EXPECTED_BOUNDS:
         raise ValueError(f'candidate track bounds changed: {bounds}')
+    if overlay is not None:
+        for x, y in seen:
+            pixels[x, y] = (255, 20, 20)
+        draw = ImageDraw.Draw(frame)
+        for x, y, label, tx, ty in ((1131, 1345, 'U10.14 D4', 1155, 1315),
+                                    (1095, 1665, 'U5.10 GND', 1240, 1550),
+                                    (1131, 1665, 'U5.9 Q3', 1240, 1590),
+                                    (1168, 1665, 'U5.8 D3', 1240, 1630)):
+            draw.ellipse((x-6, y-6, x+6, y+6), outline='yellow', width=3)
+            draw.line((x+7, y, tx-8, ty+5), fill='yellow', width=1)
+            draw.text((tx, ty), label, fill='yellow', stroke_width=1,
+                      stroke_fill='black')
+        overlay.parent.mkdir(parents=True, exist_ok=True)
+        frame.crop((1060, 1290, 1350, 1720)).save(overlay, quality=94)
     return dict(source='U10 pin 14, PROM data bit 4',
-                candidate_destination='U5 pin 8, fourth D input',
-                latch_output='U5 pin 9, fourth Q output; onward net untraced',
+                candidate_destination='U5 pin 9, fourth Q output',
+                adjacent_pin='U5 pin 8, fourth D input, is one pad to the right and is not reached by this bright component',
+                electrical_question='Two output pins may share a bus only under compatible enable timing; the photo does not establish that timing or any driver-to-I1 route.',
                 threshold='G>115, B>115, G>1.05*R; four-neighbor component',
                 seed=list(SEED), bounds=list(bounds), pixel_count=len(seen),
                 status='photo-visible-segment-near-pads, not continuity proof')
 
 
 def run(out):
-    segment = visible_segment()
+    segment = visible_segment(out.parent/'photo-u10-d4-probe'/'corrected-pad.jpg')
     _, scenario = fixture()
     _, bits = controller_stream()
     scenario['initial']['q'] = 5
@@ -93,13 +108,14 @@ def run(out):
                HERE/'photo_controller_path.py', HERE/'photo_mapping_q_sweep.py',
                HERE/'photo_mapping_stream_screen.py', HERE/'controller_bit_dispatch.py',
                ASSUMED/'execute.py', *MAPPINGS.values()]
-    report = dict(status='photo candidate plus untraced hypothetical I1 continuation',
+    report = dict(status='photo candidate output-to-output route plus untraced hypothetical I1 assignment',
                   visible_segment=segment,
-                  candidate_test='U5 Q3 assigned to Am2901 I1; no photo trace establishes that output destination',
+                  candidate_test='The tested I1=10.4/!10.4 substitutions are counterfactual signal assignments. U5 Q3 to Am2901 I1 and the output-enable timing are untraced.',
                   fixture=dict(initial_q=5, initial_ram=[0]*16, cycles=512,
                                controller_bits_offered=len(bits), hypothetical_input_pc='38E'),
                   cases=cases,
-                  limitations=['The source/destination pad gaps and U5 Q3 continuation are unresolved; this is not a recovered instruction-bit mapping.',
+                  limitations=['The source/destination pad gaps, output-enable timing and U5 Q3 continuation are unresolved; this is not a recovered instruction-bit mapping.',
+                               'The photographed destination is U5 Q3, not its D3 input. These runs do not model PROM-output and latch-output contention.',
                                'One PROM bit is tried at one I input. Other pin routes, modes, startup states and ROM gates remain open.',
                                'Candidate ALU-Y output sites have no traced connection to the DAC08HP.'],
                   source_sha256={str(path.resolve().relative_to(HERE.parents[2].resolve())):

@@ -63,7 +63,7 @@ def run(out):
              HERE/'photo_mapping_q_sweep.py', HERE/'photo_mapping_stream_screen.py',
              HERE/'controller_bit_dispatch.py', ASSUMED/'execute.py',
              MAPPINGS['q1'], MAPPINGS['fitted_swapped']]
-    report = dict(status='photo-derived source plus diagnostic gate sweep, not board wiring',
+    report = dict(status='counterfactual I1 source plus diagnostic gate sweep, not board wiring',
                   visible_segment=segment,
                   fixture=dict(initial_q=5, initial_ram=[0]*16,
                                hypothetical_input_pc='38E', controller_bits_offered=len(bits),
@@ -78,7 +78,8 @@ def run(out):
                                             max_output_patterns_per_bit=k[4], cases=v)
                                        for k,v in sorted(classes.items())]),
                   evolving_cases=evolving, cases=cases,
-                  limitations=['U5 Q3 to Am2901 I1 is an untraced hypothetical continuation of the photo fragment.',
+                  limitations=['The photo fragment approaches U5 Q3, an output, not its D3 input. PROM/latch output enables and any route to Am2901 I1 are untraced.',
+                               'The I1=10.4/!10.4 substitution does not model bus contention or latch timing.',
                                'The 137 ROM gates are diagnostic fits, not a complete set of physical enable circuits.',
                                'Other fields, initial states, input paths and DAC capture remain hypothetical.'],
                   source_sha256={str(path.relative_to(HERE.parent)):
