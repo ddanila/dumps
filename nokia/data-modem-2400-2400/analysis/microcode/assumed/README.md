@@ -748,3 +748,8 @@ handler entries and deterministic held-wait recurrence.
 [Outer input leaves](INPUT-LEAVES.md) explain the nested temporary-input call
 at 221 and the comparison-qualified return through 2B9–2BB, with all selecting
 ROM-table indices and explicit caller-state differences.
+
+[Final branch blocks](FINAL-BLOCKS.md) close the remaining word-level annotation
+gaps with an early clear/capture diversion and a current-flag complement exit.
+All used words now have scoped interpretations; program-level synthesis and
+final requirement review remain outstanding.

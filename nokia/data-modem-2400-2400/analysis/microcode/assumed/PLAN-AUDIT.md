@@ -1,9 +1,9 @@
 # Plan acceptance audit
 
 The [plan](../PLAN.md) is **not yet complete**. Its execution requirements now
-have a consolidated check against the current executor. Program interpretation
-still has concrete gaps in branch/case interpretation and modem-function attribution.
-All 37 cataloged direct-call entries now have scoped annotations.
+have a consolidated check against the current executor. Every used word and all 37 cataloged direct-call entries now have scoped
+interpretations. The remaining work is program-level synthesis across those
+contexts and a final requirement-by-requirement review.
 Physical fidelity is not an additional acceptance gate: the plan explicitly
 allows labelled assumptions and makes hardware checks optional.
 
@@ -69,7 +69,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Integrated slices/sequencer with selectable flags and logged external world | `execute.py`, component tests, current q2/q3 traces | Implemented |
 | Datapath-derived dispatch when suggested | Q and preceding-Y index policies; nonzero masked nested reset study | Demonstrated with real caller stack; other sites may remain scenario-driven |
 | Millions of clean integrated instructions and stable inspectable activity | Two million primary integrated instructions plus exact full replays; q3 live ROM feedback | Execution criterion passes |
-| Name subroutines and annotate from traces | 1016 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Direct-call catalog annotated; broader branch/case interpretation remains incomplete** |
+| Name subroutines and annotate from traces | 1021 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Word-level annotations complete; program-level synthesis and final audit pending** |
 | Relate I/O to sine lookup, DAC, sample timing and controller exchange | Replayed actual 8031 build/transmit, completion-qualified frame latch, declared byte routing, actual ROM operand and recurring DAC transfers with explicit relative clock ratio | Implemented as a one-way diagnostic hypothesis; physical routing and signal-processing purpose unresolved |
 | Feed routine evidence back into mapping/execution | Q-independent alternatives, source-register comparisons, carry/flag timing and handler studies | Implemented, ongoing where interpretations disagree |
 | Optional continuity checks | Prioritized in the plan and board worksheets | Optional; not an execution or interpretation blocker |
@@ -83,15 +83,13 @@ still expose a possible stack underflow at 2FF.
 
 ## Remaining work
 
-All 37 cataloged direct-call entries have evidence-linked annotations, including
-2EC's three paths through an actual nested return. This closes the direct-call
-naming queue, not the whole program-reading step. Unannotated branch/case
-bodies remain: 1016/1,021 is an annotation count, not a percentage of understood
-modem functionality. The next reading work must connect these bodies to the
-existing handler contracts and distinguish scoped local evidence from reset
-reachability and physical function. The remaining unannotated listing
-spans are 043–044 (2 words) and 1DC–1DE (3).
-The generated catalog is authoritative for these addresses; these spans are not inferred subroutine boundaries.
+All 1,021 used words and all 37 cataloged direct-call entries have evidence-linked,
+profile-scoped annotations. This closes the word-level naming queue. The union
+of those annotations is not a claim that one physical datapath or condition
+policy has been recovered. The remaining work must synthesize the complete
+startup, handler and helper contracts into an accessible program-level account,
+connect that account to the established I/O evidence, and perform the final
+requirement-by-requirement audit against the original plan.
 
 The [controller-to-DAC bridge](FRAME-DAC-BRIDGE.md) now supplies a coherent
 one-way transaction under the plan's assumption policy. It joins actual
@@ -101,9 +99,9 @@ transactions and four rejected incomplete transfers are replayed by this audit.
 The DAC updates recur every 12 microinstructions with constant held codes;
 there is no claimed autonomous phase advance or controller return protocol.
 Physical routing and clocks remain labelled assumptions, not additional
-completion gates. The remaining reading work must explain broader handler/case
-behavior and its computational role without treating this diagnostic connection
-as recovered modem functionality.
+completion gates. The remaining synthesis must explain the handlers
+and their computational roles without treating this diagnostic connection as
+recovered modem functionality.
 
 ## Reproduce
 
@@ -116,5 +114,5 @@ The runner's execution gate requires clean complete runs, maximum depth at most
 four, no unused words, exact full replays and unchanged saved prefixes, at least
 one million sequencer and two million integrated primary instructions, and at
 least 90% clean random-sweep coverage. Tests reject failed, truncated,
-non-reproducible, over-depth and insufficient-coverage summaries. The 135-test
+non-reproducible, over-depth and insufficient-coverage summaries. The 137-test
 suite passes. No full-plan completion flag is inferred from this execution gate.

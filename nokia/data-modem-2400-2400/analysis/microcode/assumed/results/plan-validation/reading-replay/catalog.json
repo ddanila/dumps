@@ -1817,6 +1817,38 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "FINAL-BLOCKS.md",
+        "limitations": "q3 previous flags, zero reset and declared early inputs; external rise at cycle 26. Original inverted-carry and late-rise controls bypass the block. No physical condition source or transient consumer identified.",
+        "meaning": "An explicit inverted-external selector-3 source admits 043 from the early 032 index-2 path. 043 exposes D-2; 044 calls 04C, clearing Q and copying comparison R3 into R12. The later wait now exits for R3=0 instead of R3=1.",
+        "name": "early input difference and clear-capture diversion",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "043",
+            "044"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "FINAL-BLOCKS.md",
+        "limitations": "q3 current flags, matched BLT-side early replies, timed selector-1 rise at 0C0, independent 0C6/0E5/0D4 inputs. Previous-flag controls still take 0DB. Zero-reset contracts and local predicate plane do not establish physical timing or modem meaning.",
+        "meaning": "Current-flag handler 6 reaches 1DC because 0DA tests its own FF-mask subtraction carry. 1DC exposes Q plus the mask-wrap bit. 1DD tests its own XNOR zero, taking 079 exactly when the mask complements R15; otherwise 1DE joins 1D3. The paths preserve Q but retain distinct R3/R4 and differ by eight cycles.",
+        "name": "current-flag complement-selected handler-6 exit",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "1DC",
+            "1DE"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1839,7 +1871,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 1016,
+    "annotated_used_words": 1021,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5233,6 +5265,7 @@
     "EARLY-ENTRY32.md": "b92e4b1274056303a4ad3a15db0d5c1f30cb443e2eb408c3c99a4d57bce95cc7",
     "EARLY-WAIT.md": "782a235637935008a110fa660cc8bf5dd9a6b31dc659ea424894ff6faad973b3",
     "EXTERNAL-LINE.md": "56d7fa74c06cf3d4b86d911935e54ed031081404d8abba276d8cf3d95ffdcb3d",
+    "FINAL-BLOCKS.md": "20fe8f9f20e78013b120a931f72d22cf629840037931b9d40f131850c7a669df",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
     "GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",

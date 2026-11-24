@@ -48,6 +48,8 @@ into one address listing.
 | 000–012, 054–06E (q3) | Alternative boot entries, fixed-register comparison wait and input-difference tail | Explicit 008 index; longer target bodies and physical completion remain unresolved |
 | 013–021 (q3) | Input capture and call-fed external carry wait | Previous flags and explicit early entry; later Q reload selects a separate fixed-register wait |
 | 022–031 (q3) | Shift selection and carry-controlled execution of BLT | Zero-Q branch verified locally; skipping BLT retains its actual loop frame |
+| 043–044 (q3) | Input difference and clear/capture call before early wait | Alternative selector-3 source; original carry policy bypasses it |
+| 1DC–1DE (q3) | Current-flag complement selection between two terminal entries | Current timing and timed early handler-6 diversion; previous timing excludes entry |
 | 032–042, 045–04B (q3) | Nested choices selecting the retained comparison input | Declared index sources; 043/044 excluded; timing depends on input carry and zero flags |
 | 01C–01F | Call-fed loop entry | Control-flow explanation, not a counted-loop algorithm |
 | 06F–077, 112–116 (q3) | Carry-selected half/difference, Q accumulation and register preparation | Local nonzero planes plus zero-reset calls; external channels unknown |
@@ -120,11 +122,13 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 1016 used words, including overlaps and disconnected
+These annotations cover 1021 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
-Unannotated operations and remaining routine meanings stay open.
+Every used word now has a scoped annotation. Broader program-level synthesis
+and the final plan audit remain open; annotations across profiles are not
+combined into a claim about one recovered physical machine.
 
 ## Coverage stays separated
 
@@ -157,10 +161,11 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 135 functional/assumption tests pass, including checks that
+byte. All 137 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
-incomplete, particularly physical I/O and broader algorithm interpretation.
+incomplete pending program-level synthesis and the final requirement audit.
+Physical I/O routing remains an explicitly labelled hypothesis.
 
 The later [q2 tail-exclusion argument](TAIL-EXCLUSION.md) explains the absence
 of 287–28A under the optional gate and zero-reset scenario. It checks every
@@ -253,8 +258,8 @@ all connections remain labelled hypotheses, and core traces are unchanged.
 
 [The plan acceptance audit](PLAN-AUDIT.md) verifies the current long-run and
 coverage evidence separately from interpretation. All 37 cataloged direct-call
-entries have scoped annotations; broader branch/case interpretation remains
-incomplete. Physical fidelity is not added as a prerequisite
+entries and all used words have scoped annotations; program-level synthesis
+and the final requirement audit remain pending. Physical fidelity is not added as a prerequisite
 beyond the plan’s explicit assumption-based scope.
 
 [Reset preparation helpers](RESET-HELPERS.md) explain q3 06F–077 and
@@ -386,3 +391,8 @@ replies prove period-two recurrence. The second R4 capture replaces the first.
 nineteen selecting input bytes to real calls of 221 or 2B3. They distinguish
 temporary replacement from Q preservation and explain why this caller takes
 2B9–2BB while the earlier nested wrapper takes 227.
+
+[The final two branch blocks](FINAL-BLOCKS.md) connect the early clear/capture
+call and current-flag complement exit to full reset contracts. The listing now
+has scoped annotations for every used word; source and timing exclusions remain
+explicit, and program-level synthesis and final acceptance review remain open.

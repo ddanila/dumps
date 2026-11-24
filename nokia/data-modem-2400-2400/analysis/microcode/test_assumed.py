@@ -127,6 +127,47 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_early_clear_capture_diversion(self):
+        import random
+        from final_blocks import early_scenario,inspect_early
+        from defined_condition_fit import load_trace
+        config=read(HERE/'final-blocks.json');h=read(HERE/config['handler_configuration']);mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x43)
+        cases=[(a,b,255,0,255) for a in (0,1,255) for b in (0,1,2,255)]
+        cases += [tuple(rng.randrange(256) for _ in range(5)) for _ in range(64)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                sc=early_scenario(config,*values);result=execute(mapping,sc,128,mode='integrated',out=out,trace_limit=128)
+                want=inspect_early(load_trace(out),result,sc,*values)
+                if number%8==0:
+                    other=list(values);other[2]^=255;sc=early_scenario(config,*other)
+                    result=execute(mapping,sc,128,mode='integrated',out=out,trace_limit=128)
+                    self.assertEqual(inspect_early(load_trace(out),result,sc,*other),want)
+                    for kind in ('carry','late'):
+                        sc=early_scenario(config,*values)
+                        if kind=='carry':sc['condition']['sources'][3]='carry'
+                        else:sc['inputs']['external']['events']=[[27,1]]
+                        result=execute(mapping,sc,32,mode='integrated',out=out,trace_limit=32)
+                        self.assertTrue(result['clean']);self.assertEqual(next(r for r in load_trace(out) if r['pc']==0x42)['next_pc'],0x45)
+
+    def test_q3_current_flag_complement_exit(self):
+        import random
+        from final_blocks import current_scenario,inspect_current,check_current_exit
+        from defined_condition_fit import load_trace
+        config=read(HERE/'final-blocks.json');h=read(HERE/config['handler_configuration']);mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x1dc)
+        self.assertEqual(check_current_exit(mapping),65536)
+        cases=[(c,d,a,255) for c in (6,126,254) for d in (0,255,(((c+2)&255)>>1)^255) for a in (0,255)]
+        cases += [(6+8*rng.randrange(32),*[rng.randrange(256) for _ in range(3)]) for _ in range(96)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                sc=current_scenario(config,*values);result=execute(mapping,sc,192,mode='integrated',out=out,trace_limit=192)
+                want=inspect_current(load_trace(out),result,*values)
+                if number%8==0:
+                    sc['io']['read']['pc_sequences'].update({str(pc):[rng.randrange(256)] for pc in (0xcf,0xe2,0xe3)})
+                    result=execute(mapping,sc,192,mode='integrated',out=out,trace_limit=192)
+                    self.assertEqual(inspect_current(load_trace(out),result,*values),want)
+
     def test_q3_outer_input_load_and_preserving_return_leaves(self):
         import random
         from input_leaves import scenario_for,inspect,check_guard,LOAD_INDICES,PRESERVE_INDICES

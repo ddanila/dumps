@@ -1,0 +1,7 @@
+{
+  "status": "hypothesis",
+  "evidence": "Two separate q3 reset contexts. Early 032 index 2 uses previous flags and explicitly changes selector 3 from inverted carry to inverted external, rising at 042 cycle 26. Handler 6 uses the existing current-flag option with BLT-side early replies and selector-1 external rise at 0C0; selector 2 remains carry and selector 7 remains zero. Independent input captures stay scenario-owned. Original carry-source/late-rise and previous-flag controls preserve the respective exclusions. No optional BRT gate or injected state; no physical signal assignment.",
+  "handler_configuration": "handler-timing-study.json",
+  "early_configuration": "early-entry32.json",
+  "previous_configuration": "handler6-early.json"
+}

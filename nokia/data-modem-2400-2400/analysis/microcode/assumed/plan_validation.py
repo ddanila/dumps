@@ -118,7 +118,7 @@ def main():
         long_runs=ordered,sweep=sweep,execution_acceptance=finding,interface_evidence=interface_evidence,
         interpretation_audit=dict(annotated_used_words=catalog['counts']['annotated_used_words'],
             used_words=1021,direct_call_entries=len(catalog['direct_call_entries']),unannotated_direct_entries=missing,
-            full_plan_complete=False,reason='Routine and branch/case interpretation remains incomplete. The verified controller-to-DAC transaction is an explicit one-way diagnostic hypothesis, not recovered board function.'),
+            full_plan_complete=False,reason='All used words have scoped interpretations; program-level synthesis and the final requirement audit remain outstanding. The controller-to-DAC transaction remains an explicit one-way diagnostic hypothesis.'),
         historical_suite=dict(acceptance_met=historical['acceptance_met'],coverage=historical['aggregate_sequencer_coverage'],
                               completed_cycles=sum(r['completed_cycles'] for r in historical['runs'].values())),
         source_sha256={str(p.relative_to(HERE.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}))
