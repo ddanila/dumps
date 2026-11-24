@@ -1677,6 +1677,34 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER4-BANK.md",
+        "limitations": "q3 previous flags, handler-4 zero reset and default earlier input selection/captured R7=0, declared global table indices and four independent input sites. No optional BRT gate. 2CF excluded; physical function and transient Y consumers unresolved.",
+        "meaning": "26F indices 7-15 select three reset continuations. 200 routes through a transient R15 decrement; 204 replaces earlier captures using real nested 2EC and 28E calls. 217 loads the same payload while preserving R3/R12/R15. Common half-payload stores overwrite the globally indexed destination; the short path skips 079 only for payload zero.",
+        "name": "handler-4 bank-200 replacement and capture-preserving paths",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "200",
+            "219"
+          ],
+          [
+            "281",
+            "286"
+          ],
+          [
+            "28E",
+            "295"
+          ],
+          [
+            "2CB",
+            "2CE"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1699,7 +1727,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 921,
+    "annotated_used_words": 953,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2500,6 +2528,34 @@
             [
               "28E",
               "295"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER4-BANK.md",
+          "limitations": "q3 previous flags, handler-4 zero reset and default earlier input selection/captured R7=0, declared global table indices and four independent input sites. No optional BRT gate. 2CF excluded; physical function and transient Y consumers unresolved.",
+          "meaning": "26F indices 7-15 select three reset continuations. 200 routes through a transient R15 decrement; 204 replaces earlier captures using real nested 2EC and 28E calls. 217 loads the same payload while preserving R3/R12/R15. Common half-payload stores overwrite the globally indexed destination; the short path skips 079 only for payload zero.",
+          "name": "handler-4 bank-200 replacement and capture-preserving paths",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "200",
+              "219"
+            ],
+            [
+              "281",
+              "286"
+            ],
+            [
+              "28E",
+              "295"
+            ],
+            [
+              "2CB",
+              "2CE"
             ]
           ],
           "status": "hypothesis"
@@ -5054,6 +5110,7 @@
     "HANDLER2-BODY.md": "9e6b8ee75f79b64e6e6e61aa6838a456e9483d8112949bbfe55d29e490615d09",
     "HANDLER2-ROUTES.md": "d21f4e16f835c7907d49512274d5ef368a7e060f83ada9b6083997f90b94050e",
     "HANDLER3-DRAINS.md": "148103c9b33b7080ab80421e7221eb129b50806b8d5b399412b3a0de61db3fc1",
+    "HANDLER4-BANK.md": "13f3d3e805e51e9c059fad741ddd038c6d55314d7af806d551ddf1d41233f20d",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
     "HANDLER6-EARLY.md": "23e85101a2061f91cc39b429fff90c9526f99c95592f723517ff80e0fcac4f4e",

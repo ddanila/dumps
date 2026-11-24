@@ -1693,6 +1693,34 @@
       "evidence": "HANDLER6-EARLY.md",
       "meaning": "Timed selector-1 rise at 0C0 or 0C1 enters with R0=Q=0. 0E1 complements R0 into Q=FF; 0E2/0E3 make temporary masked captures; 0E4 rejoins 0C4. The preserved FF Q changes later 0E5 capture to a-1 and makes 0CE skip 0CF unless the 0C6 capture is FF.",
       "limitations": "q3 previous-flag zero reset, scheduled selector-1 source, PLP replies and fixed table index 2. Captures at 0E2/0E3 are overwritten in this continuation; arbitrary incoming state and physical signal meaning remain unclaimed."
+    },
+    {
+      "name": "handler-4 bank-200 replacement and capture-preserving paths",
+      "ranges": [
+        [
+          "200",
+          "219"
+        ],
+        [
+          "281",
+          "286"
+        ],
+        [
+          "28E",
+          "295"
+        ],
+        [
+          "2CB",
+          "2CE"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER4-BANK.md",
+      "meaning": "26F indices 7-15 select three reset continuations. 200 routes through a transient R15 decrement; 204 replaces earlier captures using real nested 2EC and 28E calls. 217 loads the same payload while preserving R3/R12/R15. Common half-payload stores overwrite the globally indexed destination; the short path skips 079 only for payload zero.",
+      "limitations": "q3 previous flags, handler-4 zero reset and default earlier input selection/captured R7=0, declared global table indices and four independent input sites. No optional BRT gate. 2CF excluded; physical function and transient Y consumers unresolved."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

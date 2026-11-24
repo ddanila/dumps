@@ -10,8 +10,8 @@ separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
 [PLAN-AUDIT.md](PLAN-AUDIT.md) is the current acceptance checklist. The refreshed
-execution check passes, while routine interpretation and a complete external
-transaction remain unfinished. The historical baseline suite still has its
+execution check passes, while broader routine interpretation remains unfinished. A declared one-way
+controller-to-DAC transaction is replayed; its physical routing remains a hypothesis. The historical baseline suite still has its
 original failed coverage result. Run `plan_validation.py` for current evidence.
 
 [PROGRAM-READING.md](PROGRAM-READING.md) is the consolidated entry point for
@@ -724,3 +724,7 @@ boundary in the terminal skip.
 from either earlier selector-1 branch. Q=FF reverses the later capture's bias
 and makes the 0CF input addition conditional on an FF capture at 0C6; complete
 retained-state and timing formulas distinguish this from the late-only entry.
+
+[Handler-4 bank continuations](HANDLER4-BANK.md) follow 200/204/217 through
+nested payload loading, capture replacement or preservation, and terminal
+indexed stores, with complete register and timing contracts from reset.

@@ -127,6 +127,27 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler4_bank_replacement_and_capture_preservation(self):
+        import random
+        from handler4_bank import scenario_for,inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler4-bank.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x200)
+        cases=[(4,i,p,255,255,255) for i in range(7,16) for p in (0,255)]
+        cases += [(4+8*rng.randrange(32),rng.randrange(7,16),*[rng.randrange(256) for _ in range(4)]) for _ in range(96)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                scenario=scenario_for(config,*values)
+                result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                want=inspect(load_trace(out),result,*values)
+                if number%9==0:
+                    # These retained writes are replaced by later reads in this path.
+                    pcs=(0x209,0x20d,0x28f,0x292)
+                    scenario['io']['read']['pc_sequences'].update({str(pc):[rng.randrange(256)] for pc in pcs})
+                    result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                    self.assertEqual(inspect(load_trace(out),result,*values),want)
+
     def test_q3_handler6_early_complement_and_reload_boundary(self):
         import random
         from handler6_early import scenario_for,inspect,check_carry
