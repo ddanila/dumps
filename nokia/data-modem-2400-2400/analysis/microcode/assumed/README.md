@@ -709,3 +709,8 @@ reset entry. Both reset paths join the same fixed-register wait.
 indices to retained R3, the 03F skip and the FF carry boundary through 045.
 Checked formulas distinguish terminal entry from the shared fixed-register
 wait; bypassed 043/044 remain outside the annotation.
+
+[Handler 3's alternate component and drains](HANDLER3-DRAINS.md) reaches
+1EF using an explicit two-selector external-line hypothesis, with unchanged
+baseline prefixes and negative entry controls. The constructed R5 component
+survives into paired Y outputs before terminal helpers overwrite it.

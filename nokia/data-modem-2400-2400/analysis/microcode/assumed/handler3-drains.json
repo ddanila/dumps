@@ -1,0 +1,6 @@
+{
+  "status": "hypothesis",
+  "handler_configuration": "handler-timing-study.json",
+  "cycles": 192,
+  "evidence": "q3 previous-flag zero reset, PLP-side replies. Common scheduled external line starts 1 and falls at cycle 43; selector 5 uses it directly and selector 3 inverted. This is a new explicit mux-source hypothesis, not recovered wiring. Code c=3 mod 8 selects 300; global index i selects the paired row and terminal store destination. Independent reads at 1F0/1F3/1F8/1FC/316/317; other reads one. Controls keep selector 3 on carry or delay the line fall to cycle 44."
+}

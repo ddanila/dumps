@@ -1641,6 +1641,22 @@
       "evidence": "EARLY-ENTRY32.md",
       "meaning": "032 establishes Q=1; 034 captures a carry-adjusted input difference in R3. Four 036 cases either preserve it or reach 03C, replacing R3 with D03C-1. Preceding-Y second dispatch, the 03F skip and z=FF carry propagation select paths/timing before the shared Q/R3 wait and input-difference tail.",
       "limitations": "q3 previous-flag zero reset, preceding-Y early index 6, scenario 036 index and preceding-Y 03C index. Full boundary reset sweep with independent random regressions; 043/044 bypassed and excluded. No physical mode or transient output meaning inferred."
+    },
+    {
+      "name": "handler-3 alternate component construction and Q drains",
+      "ranges": [
+        [
+          "1EF",
+          "1FF"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER3-DRAINS.md",
+      "meaning": "An explicit two-selector external-line hypothesis admits reset entry at 1EF. Two left-shift constructions leave R5=2*(D1F3-1); calls 238/240, mask shifts and 1E9 drains zero Q/R0 before rejoining 308. R5 survives into paired Y outputs but is cleared by the terminal helpers.",
+      "limitations": "q3 previous flags with selector 5 direct external and selector 3 inverted external, fall cycle 43; prior carry-source policy still excludes entry. Fixed early replies and global paired/store index. Prefix equality and negative entry controls verified; no physical line or output consumer inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

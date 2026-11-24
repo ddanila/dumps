@@ -127,6 +127,25 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler3_alternate_drains_preserve_paired_component(self):
+        import random
+        from handler3_drains import scenario_for,inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler3-drains.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x1ef)
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for case in range(48):
+                code=3+8*rng.randrange(32);index=case%4;values=[rng.randrange(256) for _ in range(6)]
+                scenario=scenario_for(config,code,index,*values)
+                result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                want=inspect(load_trace(out),result,index,*values)
+                for k in (0,2,3):values[k]^=255
+                scenario=scenario_for(config,code,index,*values)
+                other=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                changed=inspect(load_trace(out),other,index,*values)
+                self.assertEqual(want,changed)
+
     def test_q3_early_entry32_nested_indices_and_retained_input(self):
         import random
         from early_entry32 import scenario_for,inspect

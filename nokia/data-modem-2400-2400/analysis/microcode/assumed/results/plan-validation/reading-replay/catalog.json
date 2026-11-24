@@ -1625,6 +1625,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER3-DRAINS.md",
+        "limitations": "q3 previous flags with selector 5 direct external and selector 3 inverted external, fall cycle 43; prior carry-source policy still excludes entry. Fixed early replies and global paired/store index. Prefix equality and negative entry controls verified; no physical line or output consumer inferred.",
+        "meaning": "An explicit two-selector external-line hypothesis admits reset entry at 1EF. Two left-shift constructions leave R5=2*(D1F3-1); calls 238/240, mask shifts and 1E9 drains zero Q/R0 before rejoining 308. R5 survives into paired Y outputs but is cleared by the terminal helpers.",
+        "name": "handler-3 alternate component construction and Q drains",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "1EF",
+            "1FF"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1647,7 +1663,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 878,
+    "annotated_used_words": 895,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5001,6 +5017,7 @@
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
     "HANDLER2-BODY.md": "9e6b8ee75f79b64e6e6e61aa6838a456e9483d8112949bbfe55d29e490615d09",
     "HANDLER2-ROUTES.md": "d21f4e16f835c7907d49512274d5ef368a7e060f83ada9b6083997f90b94050e",
+    "HANDLER3-DRAINS.md": "148103c9b33b7080ab80421e7221eb129b50806b8d5b399412b3a0de61db3fc1",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",

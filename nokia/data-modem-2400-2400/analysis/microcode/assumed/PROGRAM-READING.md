@@ -55,6 +55,7 @@ into one address listing.
 | 09E–0CD, 0DE (q3) | Masked capture, conditional increment and two Q drains | Diagnostic handler-6 inputs and previous flags; modem purpose unknown |
 | 11A–130 (q3) | Fixed-register waits and transient arithmetic sequence | Current flags and BLT replies; temporary Q inputs are overwritten; physical timing unknown |
 | 1C3–1CC, 1DA–1DB (q3) | Alternative Q drains and preparation entry | Timed external selector hypotheses; retained-state equivalence does not imply equal output timing |
+| 1EF–1FF (q3) | Alternate component construction and two Q drains | New two-selector external-line hypothesis; transient paired output differs from terminal state |
 | 18B–1C2, 1CD–1D9, 1E7, 3A2–3AA (q3) | Carry-selected comparison, wrapped-sum drain and payload storage | Previous flags, fixed tables and diagnostic replies; bypassed branches excluded |
 | 148–177, 180–186, 2E6–2EB (q3) | Wrapped byte sum with input-dependent shift timing | Handler-1 diagnostic inputs; R14 consumer unknown |
 | 259–264, 26A–26F, 2A0–2B2 (q3) | Sum-carry and comparison-selected inputs | Handler-4 code-4 context and fixed dispatch; physical input meaning unknown |
@@ -111,7 +112,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 878 used words, including overlaps and disconnected
+These annotations cover 895 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -148,7 +149,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 126 functional/assumption tests pass, including checks that
+byte. All 127 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -332,3 +333,8 @@ reset entry. Both reset paths join the same fixed-register wait.
 indices to retained R3, the 03F skip and the FF carry boundary through 045.
 Checked formulas distinguish terminal entry from the shared fixed-register
 wait; bypassed 043/044 remain outside the annotation.
+
+[Handler 3's alternate component and drains](HANDLER3-DRAINS.md) reaches
+1EF using an explicit two-selector external-line hypothesis, with unchanged
+baseline prefixes and negative entry controls. The constructed R5 component
+survives into paired Y outputs before terminal helpers overwrite it.
