@@ -1,0 +1,152 @@
+{
+  "cases": [
+    {
+      "a1": 0,
+      "candidate_alu_y": {
+        "392": {
+          "values": [
+            11
+          ],
+          "visits": 57
+        }
+      },
+      "e2_read_phase": 0,
+      "e4": 1,
+      "i0": 0,
+      "input_bits": 128,
+      "photo_shared_route_consistent": true,
+      "recurring_rom": {},
+      "trace_digest": "67a4fd5399e32f50db7864bc3d5d25b8baa44cd9d2f04b64b5aa79327210e140",
+      "visits_392": 57
+    },
+    {
+      "a1": 1,
+      "candidate_alu_y": {
+        "392": {
+          "values": [
+            11
+          ],
+          "visits": 57
+        }
+      },
+      "e2_read_phase": 0,
+      "e4": 1,
+      "i0": 0,
+      "input_bits": 128,
+      "photo_shared_route_consistent": false,
+      "recurring_rom": {},
+      "trace_digest": "1a04a069784396e87b02b20477e59072b8afd5a349c35709acd36ed2df3e1f94",
+      "visits_392": 57
+    },
+    {
+      "a1": 0,
+      "candidate_alu_y": {
+        "392": {
+          "values": [
+            16,
+            26
+          ],
+          "visits": 71
+        },
+        "396": {
+          "values": [
+            248
+          ],
+          "visits": 57
+        }
+      },
+      "e2_read_phase": 0,
+      "e4": 1,
+      "i0": 1,
+      "input_bits": 128,
+      "photo_shared_route_consistent": false,
+      "recurring_rom": {
+        "389": {
+          "values": [
+            256
+          ],
+          "visits": 127
+        },
+        "38A": {
+          "values": [
+            259
+          ],
+          "visits": 127
+        },
+        "38C": {
+          "values": [
+            260
+          ],
+          "visits": 127
+        }
+      },
+      "trace_digest": "3dde4820f8235666d3e779b45025702a2111ec5d5ad6609fbf26316c422983f9",
+      "visits_392": 71
+    },
+    {
+      "a1": 1,
+      "candidate_alu_y": {
+        "392": {
+          "values": [
+            6,
+            25
+          ],
+          "visits": 71
+        },
+        "396": {
+          "values": [
+            254
+          ],
+          "visits": 57
+        }
+      },
+      "e2_read_phase": 0,
+      "e4": 1,
+      "i0": 1,
+      "input_bits": 128,
+      "photo_shared_route_consistent": false,
+      "recurring_rom": {
+        "389": {
+          "values": [
+            256
+          ],
+          "visits": 127
+        },
+        "38A": {
+          "values": [
+            257
+          ],
+          "visits": 127
+        },
+        "38C": {
+          "values": [
+            258
+          ],
+          "visits": 127
+        }
+      },
+      "trace_digest": "48205d748bca4fd284a7ddf6c7d5c808da9ee97d96cf4b74e768ddf7d0ccae70",
+      "visits_392": 71
+    }
+  ],
+  "controller_bits": 128,
+  "initial_q": 5,
+  "limitations": [
+    "Only I0=0, A1=0 preserves the photo-inferred shared E2 route in one read-valid phase.",
+    "The I0=1 cases require a different pin connection or explicitly modeled latch timing and held PROM data.",
+    "ROM gating, D38E controller input and physical output route remain assumptions."
+  ],
+  "source_sha256": {
+    "assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
+    "g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "g2/photo-a-input-constraint.json": "5a1f87a0de6a788a8083aec1fa78a43a7773bee01328116f28137f51063f9028",
+    "g2/photo-i7-constraint.json": "eaf9325535d6f3df28a1247041cb8b461f6f0f56cf3509d9a3f20effa2bf4651",
+    "g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "g2/photo_e2_split.py": "5e445bce38cc9d631036976b9953b279e03b6bdbc144f35d8fca363118903b94",
+    "g2/photo_enable_timing.py": "c4ca6fae75ad6c003b044414de3fb270c1c07442325fca13b1f26824d1688286",
+    "g2/results/swapped-sine-loop/phase-20-mapping.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "g2/results/swapped-sine-loop/phase-20-scenario.json": "255ad276e7a808de4e17af7cac089be6fe82e52fb36e7b880e145dd2e5837b5e",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "status": "diagnostic pin sensitivity, not recovered wiring"
+}

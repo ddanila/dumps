@@ -105,6 +105,9 @@ or changing candidate output in the controller-bit run. An E2-high diagnostic
 opens recurring reads only by assuming U10 data remains available while the
 PROM is disabled. This points to an explicit latch-hold or phase model for
 the next experiment; the present counterfactual is not a recovered board path.
+A follow-up split test shows that I0 high opens those reads, while A1 high
+alone does not. This narrows the wiring or timing hypothesis to I0 without
+turning the conflicting same-phase fixture into evidence of a transmitter.
 
 A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
 changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,

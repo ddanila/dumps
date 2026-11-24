@@ -36,3 +36,27 @@ allow it; also continue testing other field mappings, controller interfaces
 and output sites. Q=5, ROM gating, the D38E bit route and the physical output
 connection remain assumptions. A clean run or a visit to 392 alone does not
 meet the G2 transmitter or receiver acceptance criteria.
+
+## Which E2-derived pin matters?
+
+[A second executable screen](photo_e2_split.py) holds the PROM read phase at
+E2=0/E4=1 and independently sets Am2901 I0 and A1 to 0 or 1. This deliberately
+breaks the photo-inferred shared E2 route in three of four cases; it identifies
+what the *model* is sensitive to, not a valid new board connection. Each case
+consumes the same 128 controller-derived bits at 38E. The
+[saved report](results/photo-e2-split.json) has source hashes and trace digests.
+
+| I0 | A1 | Repeated reads after first bit | 392 ALU Y values | Photo shared route? |
+| ---: | ---: | --- | --- | --- |
+| 0 | 0 | None | 11 | Yes |
+| 0 | 1 | None | 11 | No |
+| 1 | 0 | 389→100, 38A→103, 38C→104 | 16, 26 | No |
+| 1 | 1 | 389→100, 38A→101, 38C→102 | 6, 25 | No |
+
+The addresses in this table are hexadecimal. I0 high, rather than A1 high,
+opens the recurring ROM path in the tested fixture. A1 changes the ROM
+addresses and ALU values once that path is open. The resulting reads and
+values still settle; there is no demonstrated evolving carrier. The next
+photo/timing hypothesis should therefore explain how I0 could be high while
+valid U10 data is available, or try an alternative I0 route. Merely changing
+A1 cannot rescue this Q=5 controller path.
