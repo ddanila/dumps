@@ -22,6 +22,11 @@ An [initial-RAM screen](DAC08-OUTPUT.md#explicit-latch-hypothesis-and-replay)
 further shows that only RAM13 affects this q3 candidate code under one-byte
 startup changes: 254 of its 256 values yield a held offset code, and two
 values exit the path before capture.
+The photo also shows a neighboring 74LS373 and 74LS244 buffers. A
+[two-stage timing candidate](DAC08-OUTPUT.md#explicit-latch-hypothesis-and-replay)
+holds the controller-dependent byte at 38E through that hypothetical latch
+and transfers it at 392 or 39E. It captures every controller bit, but yields
+only codes 251 and 252, still without a carrier.
 
 The [ADC sample run](ADC-SAMPLE-RUN.md) feeds 256 complementary reference
 line-sample bytes to the recurring D read at 38E under the photo-constrained

@@ -19,6 +19,13 @@ photo a 74LS273 register sits next to its digital-input side, and visible
 front-side traces run between their pad regions. That makes the 74LS273 a
 candidate sample-code latch. Individual data bits, the latch clock, DAC08
 reference and current-output route still need tracing or explicit hypotheses.
+The same photo also shows a **74LS373** on the side of the 74LS273 away from
+the DAC08,
+with a group of front-side traces between their pad regions, and 74LS244
+buffers nearby. The [TI SN74LS373 datasheet](https://www.ti.com/lit/ds/symlink/sn74ls373.pdf)
+identifies it as an octal transparent latch with three-state outputs. This
+suggests another possible data-hold stage, but the photo alone does not show
+which device drives which bus or establish either latch's control signal.
 
 This changes the emulator target. A useful transmitter test should capture
 the eight bytes presented to that external latch under a proposed strobe,
@@ -64,3 +71,12 @@ controller input once, capture no code at 392 and reach 084. The
 per-seed outcomes. This rules out a changing 392 output from any *single*
 initial RAM-byte change in this fixture; simultaneous state changes, other
 clock sites and other input routes remain open.
+
+The probe also tests a separate **two-stage timing hypothesis** suggested by
+the nearby 74LS373. It makes the 74LS373 transparent only at 38E, holds that
+ALU byte, and clocks the 74LS273 at whichever branch output, 392 or 39E,
+follows. All 128 controller-derived bits produce one capture each, with code
+251 for bit 0 and 252 for bit 1. Thus an upstream hold can preserve the bit
+through the dispatch, but this candidate gives only two bit-dependent levels,
+with no demonstrated carrier or pulse shaping. Its data route, latch enable
+and two-site clock decode are hypotheses, not recovered board connections.

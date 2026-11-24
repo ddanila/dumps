@@ -38,6 +38,21 @@ class LS273DAC08:
         return self.q
 
 
+class LS373:
+    """Digital latch: transparent while LE is high, held while LE is low."""
+    def __init__(self):
+        self.q = None
+
+    def drive(self, data, le):
+        if data is not None and (type(data) is not int or not 0 <= data <= 255):
+            raise ValueError('LS373 input must be a byte or unknown')
+        if le not in (0, 1):
+            raise ValueError('LS373 LE must be binary')
+        if le:
+            self.q = data
+        return self.q
+
+
 def capture(trace, pc):
     latch = LS273DAC08()
     codes = []
@@ -50,6 +65,25 @@ def capture(trace, pc):
         else:
             latch.drive(data, 0)
     return codes
+
+
+def staged_capture(trace):
+    """Hypothetical 38E→LS373 hold→LS273 edge at 392 or 39E."""
+    upstream = LS373()
+    output = LS273DAC08()
+    captures = []
+    bit = None
+    for row in trace:
+        if row['pc'] == 0x38E:
+            bit = row['external_read']['value']
+            upstream.drive(row['alu']['y'], 1)
+            upstream.drive(None, 0)
+        if row['pc'] in (0x392, 0x39E):
+            code = output.drive(upstream.q, 1)
+            captures.append(dict(cycle=row['cycle'], pc=f"{row['pc']:03X}",
+                                 controller_bit=bit, latch_q=code))
+            output.drive(upstream.q, 0)
+    return captures
 
 
 def execute_trace(mapping, scenario, cycles):
@@ -71,6 +105,10 @@ def run(out):
     assert latch_check.drive(0x78, 0) == 0x34
     assert latch_check.drive(0x9A, 1) == 0x9A
     assert latch_check.drive(0xBC, 1, clear_n=0) == 0
+    stage_check = LS373()
+    assert stage_check.drive(0x12, 0) is None
+    assert stage_check.drive(0x34, 1) == 0x34
+    assert stage_check.drive(0x56, 0) == 0x34
 
     q1_result, q1_trace = execute_trace(read(Q1_MAPPING), read(Q1_SCENARIO), 2048)
     q1_codes = capture(q1_trace, 0x12C)
@@ -87,6 +125,13 @@ def run(out):
     q3_codes = capture(q3_trace, 0x392)
     if len(q3_codes) != 57 or set(row['latch_q'] for row in q3_codes) != {11}:
         raise ValueError('q3 output candidate changed')
+    q3_staged = staged_capture(q3_trace)
+    if (len(q3_staged) != len(bits) or
+            [row['controller_bit'] for row in q3_staged] != bits or
+            {bit: {row['latch_q'] for row in q3_staged
+                   if row['controller_bit'] == bit} for bit in (0, 1)}
+            != {0: {251}, 1: {252}}):
+        raise ValueError('q3 staged latch result changed')
 
     fitted_mapping = read(FITTED_MAPPING)
     fitted_mapping['fields']['a']['bits'][2:] = ['10.7', '10.6']
@@ -120,7 +165,17 @@ def run(out):
                                  for path in paths},
                   model='LS273 holds unknown until a positive edge; sampled byte becomes candidate DAC08 B1–B8 identity code.',
                   cases=cases,
+                  staged_q3=dict(hypothesis='ALU Y at 38E passes through transparent LS373, then is held until LS273 clock at branch output 392 or 39E',
+                                 captures=len(q3_staged),
+                                 controller_bits_consumed=len(bits),
+                                 code_by_bit={str(bit): sorted({row['latch_q'] for row in q3_staged
+                                                                if row['controller_bit'] == bit})
+                                              for bit in (0, 1)},
+                                 clock_sites={site: sum(row['pc'] == site for row in q3_staged)
+                                              for site in ('392', '39E')},
+                                 first_24_codes=[row['latch_q'] for row in q3_staged[:24]]),
                   limitations=['Clock-at-PC and LS273 Q1..Q8 to DAC08 B1..B8 identity are explicit untraced hypotheses.',
+                               'The LS373 staging, its input/enable, and the two-site LS273 clock decode are untraced hypotheses.',
                                'q1 has a changing 20-code loop but no controller bits, phase increment or demonstrated output route.',
                                'The two controller-driven paths produce held codes and cannot demonstrate a carrier.',
                                'No analog current, filter, sample rate or line connection is modeled.'])
