@@ -22,6 +22,7 @@ BASE_MAPPING = HERE / 'results/swapped-sine-loop/phase-20-mapping.json'
 BASE_SCENARIO = HERE / 'results/swapped-sine-loop/phase-20-scenario.json'
 PHOTO_RECORD = HERE / 'photo-i7-constraint.json'
 PHOTO_A_RECORD = HERE / 'photo-a-input-constraint.json'
+GATE_FITS = ASSUMED / 'results/rom-gate-study/report.json'
 INPUT_PC = 0x38E
 DISPATCH_PC = 0x38F
 SEED_CYCLES = 512
@@ -81,13 +82,21 @@ def run(out):
                 trace = [json.loads(line) for line in
                          (path / 'trace.jsonl').read_text().splitlines()]
                 groups = groups_for(trace)
+                first_dispatch = next(row['cycle'] for row in trace
+                                      if row['pc'] == DISPATCH_PC)
+                rom_reads = [row for row in trace if row.get('external_read', {}).get(
+                    'selected_by_alu') and 'address' in row['external_read']]
                 seed_outputs.append(dict(q=q, bit=bit, clean=result['clean'],
                                          group_count=len(groups),
                                          distinct_groups=sorted({tuple(group['bytes'])
                                                                  for group in groups}),
                                          dispatch_indices=sorted({group['index']
                                                                   for group in groups}),
-                                         final_q=result['final_state']['q']))
+                                         final_q=result['final_state']['q'],
+                                         rom_reads=len(rom_reads),
+                                         rom_reads_after_first_dispatch=sum(
+                                             row['cycle'] > first_dispatch
+                                             for row in rom_reads)))
     if any(not row['clean'] or row['group_count'] < 2 for row in seed_outputs):
         raise ValueError('active startup seed lacks a repeated group')
     index_rule_holds = all(row['dispatch_indices'] == [(row['bit'] - row['q']) & 255]
@@ -154,8 +163,37 @@ def run(out):
     byte_state_repeats = all(byte_states[i] == byte_states[511-i]
                              for i in range(256))
 
+    gate_cases = []
+    gate_scenario = copy.deepcopy(scenario)
+    gate_scenario['io']['read']['pc_sequences'].pop(str(INPUT_PC), None)
+    with tempfile.TemporaryDirectory() as temporary:
+        path = Path(temporary)
+        for gate in read(GATE_FITS)['fits']:
+            gate_scenario['io']['read']['address']['pcs'] = gate['pcs']
+            gate_result = execute(mapping, gate_scenario, SEED_CYCLES,
+                                  mode='integrated', out=path,
+                                  trace_limit=SEED_CYCLES)
+            gate_trace = [json.loads(line) for line in
+                          (path / 'trace.jsonl').read_text().splitlines()]
+            gate_groups = groups_for(gate_trace)
+            first_dispatch = next(row['cycle'] for row in gate_trace
+                                  if row['pc'] == DISPATCH_PC)
+            gate_rom_reads = [row for row in gate_trace if
+                              row.get('external_read', {}).get('selected_by_alu')
+                              and 'address' in row['external_read']]
+            gate_cases.append(dict(terms=gate['terms'], clean=gate_result['clean'],
+                                   groups=len(gate_groups),
+                                   distinct_groups=len({tuple(group['bytes'])
+                                                        for group in gate_groups}),
+                                   rom_reads_after_first_dispatch=sum(
+                                       row['cycle'] > first_dispatch
+                                       for row in gate_rom_reads),
+                                   trace_digest=gate_result['trace_digest']))
+    if len(gate_cases) != 137 or any(not case['clean'] for case in gate_cases):
+        raise ValueError('diagnostic ROM gate screen incomplete')
+
     source_paths = [Path(__file__), BASE_MAPPING, BASE_SCENARIO, PHOTO_RECORD,
-                    PHOTO_A_RECORD,
+                    PHOTO_A_RECORD, GATE_FITS,
                     HERE / 'controller_bit_dispatch.py', ASSUMED / 'execute.py']
     report = dict(status='photo-informed-diagnostic-not-transmitter-proof',
                   seed_sweep=dict(cycles=SEED_CYCLES, initial_ram=[0]*16,
@@ -168,7 +206,10 @@ def run(out):
                                   rows=sweep, shift_input_cases=shift_inputs,
                                   repeated_bit_output_cases=seed_outputs,
                                   index_is_bit_minus_initial_q_mod_256=index_rule_holds,
-                                  each_seed_bit_has_fixed_output_and_q=constant_per_seed_bit),
+                                  each_seed_bit_has_fixed_output_and_q=constant_per_seed_bit,
+                                  no_repeated_rom_read_after_first_dispatch=all(
+                                      row['rom_reads_after_first_dispatch'] == 0
+                                      for row in seed_outputs)),
                   controller_stream=dict(bits=len(bits), zero_bits=bits.count(0),
                                          one_bits=bits.count(1), seed_q=5,
                                          hypothetical_input_pc=f'{INPUT_PC:03X}',
@@ -202,6 +243,16 @@ def run(out):
                                       json.dumps(state, sort_keys=True)
                                       for state in byte_states}),
                                   trace_digest=byte_result['trace_digest']),
+                  diagnostic_rom_gates=dict(count=len(gate_cases),
+                      cycle_limit=SEED_CYCLES, initial_q=5,
+                      all_reach_repeated_dispatch=all(case['groups'] > 1
+                                                      for case in gate_cases),
+                      none_reads_rom_after_first_dispatch=all(
+                          case['rom_reads_after_first_dispatch'] == 0
+                          for case in gate_cases),
+                      none_has_changing_output_group=all(
+                          case['distinct_groups'] == 1 for case in gate_cases),
+                      cases=gate_cases),
                   source_sha256={str(path.relative_to(HERE.parent)):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in source_paths},

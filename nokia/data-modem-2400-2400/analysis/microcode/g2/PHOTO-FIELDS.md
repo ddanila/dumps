@@ -225,6 +225,12 @@ only one four-word ALU Y group throughout its run; Q also stays at its initial
 value. The dispatch index follows `(bit - initial_Q) mod 256` in all 64 cases.
 The fixed output therefore depends on the starting Q and current bit, but
 none of these active seeds reveals a running phase in this candidate path.
+Each of these 64 seed/bit runs has three hypothesized Am27S31 reads during
+startup and **none after the first 38F dispatch**. An independent screen of
+all 137 previously fitted diagnostic ROM-enable gates at Q=5 likewise finds
+39 complete dispatch groups but no post-dispatch ROM read or changing output
+group in any 512-cycle run. These results narrow this mapping and gate family;
+the physical ROM-enable wiring is still untraced.
 At 38E the candidate instruction produces and stores `(D - Q) mod 256` in
 RAM14, and 38F uses that preceding ALU result for a four-way dispatch.
 This makes the path look more like a difference-driven table selection under

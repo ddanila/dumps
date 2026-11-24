@@ -61,6 +61,37 @@ produce one. The next experiment should supply a controller-derived sequence
 of dibits and examine whether a decoded phase state changes across symbol
 boundaries, while keeping photo-based connection alternatives explicit.
 
+## New photo-constrained q1 loop: an exact 20-value ROM recurrence
+
+The [later photo constraints](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
+put U2 A2/A3 tentatively on U10 D7/D6 and U2 I7/I0/A0/A1 on two possible
+enable-side signals. Applying those choices to the q1 and q2 photo-swapped
+variants changes the behavior of the 127/12C loops. The
+[reproducible gate sweep](photo_variant_rom_loop.py) executes the real PROMs
+for 2,048 microinstructions under every one of the **16 diagnostic gates**
+that select Am27S31 data at 127, starting with Q and RAM zero.
+
+In **q1**, every gate visits 127 once, then reads the Am27S31 at 12C **500
+times**. After the first read at `1FF→0B`, each address is exactly
+`0x100 + ((previous ALU Y + 1) mod 256)`. The run has eight transient reads,
+then repeats the same **20-value** ALU Y cycle under all 16 gates:
+
+`23, 71, 29, 85, 19, 60, 127, 9, 31, 90, 17, 54, 124, 7, 25, 76, 24, 73, 26, 78`.
+
+The [witness trace and report](results/photo-variant-rom-loop/report.json)
+preserve the mapping, scenario, gate, every address and the full execution.
+This is the first sustained, changing ROM-fed loop under the photo-level
+assumptions. Its values are produced by iterating a lookup-table function;
+the ROM address does not advance by a constant phase step, and no physical
+DAC output, sample rate or controller-driven symbol change is established.
+Therefore the 20-cycle repetition is **not** a demonstrated line carrier.
+
+In **q2**, eight gates remain in the 127 loop, where ALU Y settles to 3 or
+34. The other eight enter 12C: five settle to 3 and three alternate 49/40.
+Those small fixed points and two-cycles also fail to show a phase-advanced
+sine carrier. All of these conclusions are conditional on the photo routes,
+ROM-enable fits and q3-derived diagnostic scenario.
+
 ## Fitted mapping: changing ROM addresses lead through a finite drain
 
 The photo-compatible `fitted_swapped` mapping has another reopened ROM-fed
@@ -81,6 +112,7 @@ each gate, read sequence, full trace digest and input assumptions.
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/swapped_sine_loop.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/swapped_q2_rom_loop.py
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_variant_rom_loop.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/fitted_rom_drain.py
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2 -p 'test_swapped_rom_loops.py' -v
 ```

@@ -32,6 +32,14 @@ The photo-compatible fitted mapping has a separate ROM-fed path at 299: all
 addresses, but [the executed sweep](SWAPPED-ROM-LOOPS.md#fitted-mapping-changing-rom-addresses-lead-through-a-finite-drain)
 reaches no candidate output word under its D=FF startup fixture.
 
+A newer [q1 photo-constrained run](SWAPPED-ROM-LOOPS.md#new-photo-constrained-q1-loop-an-exact-20-value-rom-recurrence)
+does sustain changing ROM data at 12C. It iterates the previous ALU result
+through the upper Am27S31 bank and enters an exact 20-value cycle after eight
+reads under all 16 tested ROM gates. This is a computed recurrence in the
+declared emulator fixture, but it has no demonstrated phase increment,
+controller-symbol dependence or DAC connection. The matched q2 cases instead
+settle to fixed points or a two-value alternation.
+
 The [controller-bit dispatch experiment](CONTROLLER-BIT-DISPATCH.md) takes
 128 scrambled bits computed by the unchanged 8031 ROM and supplies them, under
 an explicit candidate connection, to the recurring D-consuming word 38E in
@@ -40,6 +48,17 @@ but its 0 and 1 entries yield equal output quartets in all 65 tested
 quarter-sine phase fixtures. Its retained state after each group is likewise
 identical across the 128-bit run. This exercises a controller-derived input stream
 without establishing a modulated line signal or the physical input route.
+
+A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
+changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,
+it consumes the same 128 controller bits and gives distinct but fixed ALU
+quartets for 0 and 1. All 32 startup Q values that reach this dispatch were
+tested with repeated bits; none develops changing output. A full byte sweep
+shows that 38E stores `D−Q` and 38F selects one of four groups from it, with
+no earlier-value dependence in the observed post-group state. None of the
+137 diagnostic ROM gates adds a repeated Am27S31 read to this path. These
+executions sharpen the path's behavior but still do not identify the real D
+source, DAC connection or modem function.
 
 ## First independent ROM constraint
 
