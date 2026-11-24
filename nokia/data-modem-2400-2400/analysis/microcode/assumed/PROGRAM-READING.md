@@ -92,7 +92,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 366 used words, including overlaps and disconnected
+These annotations cover 372 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -129,7 +129,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 98 functional/assumption tests pass, including checks that
+byte. All 99 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -192,3 +192,8 @@ fallthrough. All 4,096 subsets of twelve witnessed relaxations are checked;
 requires an incoming caller frame. The underflow survives fixed constant
 selectors, and q3’s difference guard supplies a concrete condition for selecting
 the tail. Clean and failed full-reset examples are both replayed.
+
+[Masked nested dispatch](MASKED-NESTED-DISPATCH.md) drives both nested call
+indices from nonzero q3 input masks. Real reset reads select 2BC and its inner
+leaf, preserve or replace Q as predicted, and return through the existing
+four-entry stack without injected state.

@@ -589,3 +589,8 @@ fallthrough. All 4,096 subsets of twelve witnessed relaxations are checked;
 requires an incoming caller frame. The underflow survives fixed constant
 selectors, and q3’s difference guard supplies a concrete condition for selecting
 the tail. Clean and failed full-reset examples are both replayed.
+
+[Masked nested dispatch](MASKED-NESTED-DISPATCH.md) drives both nested call
+indices from nonzero q3 input masks. Real reset reads select 2BC and its inner
+leaf, preserve or replace Q as predicted, and return through the existing
+four-entry stack without injected state.

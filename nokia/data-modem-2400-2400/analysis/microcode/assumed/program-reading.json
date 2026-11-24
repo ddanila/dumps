@@ -1069,6 +1069,38 @@
       "evidence": "TAIL-STACK-CONTRACT.md",
       "meaning": "3BB writes R5=old_R5-R0-1 modulo 256. With conditional previous-zero 3BC, unequal old_R5 and R0+1 selects the return wrapper at 2FD; equality falls through.",
       "limitations": "Requires 3BC to be conditional under the scenario gate. A branch into 2FD is not safe with an empty caller stack after a normal 21A return. Physical condition gating remains unresolved."
+    },
+    {
+      "name": "Q-exposing nested-dispatch preparation",
+      "ranges": [
+        [
+          "21A",
+          "220"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "MASKED-NESTED-DISPATCH.md",
+      "meaning": "Increment R4, copy R1 into R2, expose Q at 21E, call a ROM-backed table at 21F, and return. Input masks 51/A3/F5 from actual reset reads select 2BC through Q; previous Y has the same value while current Y is zero.",
+      "limitations": "q3 input schedule and retained 82-entry lookup hypothesis. Earlier dispatches remain seeded scenario choices; this does not recover the physical index source."
+    },
+    {
+      "name": "nonzero masked-input nested preparation",
+      "ranges": [
+        [
+          "2BC",
+          "2C5"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "MASKED-NESTED-DISPATCH.md",
+      "meaning": "In the verified nonzero-mask reset context, preserve Q=m, prepare R0=m>>1 and R4=((CC+m)&FF)>>1, and overwrite temporary R2 with R5=0. Q or preceding Y selects the inner ROM call, reaching 22B or 225 with real depth-four stack use.",
+      "limitations": "Three nested mask cases from a 256-mask reset sweep. q3 differs from q2 at 2C2; formulas are scoped to the documented input and register context. Physical protocol and table wiring remain hypotheses."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

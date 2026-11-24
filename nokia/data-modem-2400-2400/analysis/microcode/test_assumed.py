@@ -938,6 +938,28 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_masked_datapath_nested_dispatch_from_reset(self):
+        from masked_nested_dispatch import scenario_for, inspect, check_mask
+        from defined_condition_fit import load_trace
+        config=read(HERE/'masked-nested-dispatch.json')
+        mapping=read(HERE/config['mapping']);rows=decode(mapping)
+        self.assertEqual(check_mask(rows,0xf3,0x55),0x51)
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)
+            for mask in (81,163,245):
+                for outer,inner in (('q','q'),('previous_y','q'),('y','q'),('q','y')):
+                    scenario=scenario_for(config,mask,255,outer,inner)
+                    result=execute(mapping,scenario,512,seed=115,mode='integrated',out=out,trace_limit=512)
+                    self.assertTrue(result['clean'])
+                    events=inspect(load_trace(out),scenario,mask)
+                    nested=[e for e in events if e['pc']==0x2bc]
+                    self.assertEqual(bool(nested),outer!='y')
+                    if nested:
+                        self.assertEqual(nested[0]['before']['q'],mask)
+                        self.assertEqual(result['stack']['max_depth'],4)
+                        call=next(e for e in events if e['pc']==0x2c4)
+                        self.assertEqual(call['next_pc'],0x2b3 if inner=='y' else 0x22b if mask==81 else 0x225)
+
     def test_tail_call_stack_contract_and_q3_difference_guard(self):
         from tail_stack_contract import guard, constant_tests, replay
         config=read(HERE/'tail-stack-contract.json')

@@ -1053,6 +1053,38 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-NESTED-DISPATCH.md",
+        "limitations": "q3 input schedule and retained 82-entry lookup hypothesis. Earlier dispatches remain seeded scenario choices; this does not recover the physical index source.",
+        "meaning": "Increment R4, copy R1 into R2, expose Q at 21E, call a ROM-backed table at 21F, and return. Input masks 51/A3/F5 from actual reset reads select 2BC through Q; previous Y has the same value while current Y is zero.",
+        "name": "Q-exposing nested-dispatch preparation",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "21A",
+            "220"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-NESTED-DISPATCH.md",
+        "limitations": "Three nested mask cases from a 256-mask reset sweep. q3 differs from q2 at 2C2; formulas are scoped to the documented input and register context. Physical protocol and table wiring remain hypotheses.",
+        "meaning": "In the verified nonzero-mask reset context, preserve Q=m, prepare R0=m>>1 and R4=((CC+m)&FF)>>1, and overwrite temporary R2 with R5=0. Q or preceding Y selects the inner ROM call, reaching 22B or 225 with real depth-four stack use.",
+        "name": "nonzero masked-input nested preparation",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "2BC",
+            "2C5"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1075,7 +1107,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 366,
+    "annotated_used_words": 372,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -1474,7 +1506,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "MASKED-NESTED-DISPATCH.md",
+          "limitations": "q3 input schedule and retained 82-entry lookup hypothesis. Earlier dispatches remain seeded scenario choices; this does not recover the physical index source.",
+          "meaning": "Increment R4, copy R1 into R2, expose Q at 21E, call a ROM-backed table at 21F, and return. Input masks 51/A3/F5 from actual reset reads select 2BC through Q; previous Y has the same value while current Y is zero.",
+          "name": "Q-exposing nested-dispatch preparation",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "21A",
+              "220"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "217",
         "2FE"
@@ -3982,6 +4031,7 @@
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
     "MASKED-DRAIN.md": "853158590c53ad6fa4485c3f82b5ba6322c08870a695a22b1ac83ce122aa3bbc",
+    "MASKED-NESTED-DISPATCH.md": "e06bfa78d539d793a7102e5d5f59be8ff216fdf4bdae63eb48c697e2868921dc",
     "NESTED-PREPARE.md": "715e379e086f8c8a8c76fa06a285392786987d8e24164bf93695a9f4957bafe0",
     "NESTED-RESET.md": "2e2acb562eee036b5c25e57e235c90adbb36263eb6cc3f0ec6faa266abc0b5ce",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
