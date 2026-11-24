@@ -205,6 +205,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     slice_instruction = inputs.get('slice_instruction')
     if slice_instruction is not None and mode != 'integrated':
         raise ValueError('split-slice instruction model requires integrated mode')
+    if 'i_high' in mapping['fields'] and slice_instruction is None:
+        raise ValueError('independent high instruction requires split-slice model')
     if mode=='sequencer' and (cond['mode']=='flags' or dispatch['source']!='scenario' or scenario['indirect_branch']['source'] in ('y','q')):
         raise ValueError('datapath source requires integrated mode')
     all_tables=[*dispatch['tables'].values(),*scenario.get('branch_tables',{}).values()]
@@ -267,6 +269,10 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             for bit, value in instruction_overrides.items():
                 instruction=(instruction & ~(1 << bit)) | (value << bit)
                 assumptions[f'instruction I{bit} scenario constant {value}']+=1
+            high_instruction = (cpu.high_instruction(instruction, r.get('i_high'))
+                                if slice_instruction is not None else instruction)
+            selects_d = ((instruction & 7) in (5, 6, 7) or
+                         (high_instruction & 7) in (5, 6, 7))
             register_address={'a': r['a'], 'b': r['b']}
             for field, bits in address_overrides.items():
                 for bit, value in bits.items():
@@ -278,14 +284,14 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 bank=read_policy.get('bank_by_pc',{}).get(str(pc),read_policy['bank'])
                 address=bank+previous.get('y',read_policy['initial_y'])
                 d=table[address];assumptions['table external read']+=1
-                consumed=(instruction&7) in (5,6,7)
+                consumed=selects_d
                 selected_reads+=consumed;read_counts[address]+=1
                 read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
             elif source_read['mode']=='constant': d=source_read['value'];assumptions['constant external read']+=1
             elif source_read['mode']=='pc_table':
                 d=source_read['pc_values'].get(str(pc),source_read['value'])
                 assumptions['PC-keyed external read']+=1
-                read_event=dict(value=d,source='scenario_pc',selected_by_alu=(instruction&7) in (5,6,7),status=source_read['status'])
+                read_event=dict(value=d,source='scenario_pc',selected_by_alu=selects_d,status=source_read['status'])
             elif source_read['mode']=='pc_sequence':
                 sequence=source_read['pc_sequences'].get(str(pc))
                 visit=index=None;held=False
@@ -296,16 +302,20 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                     d=sequence[index];sequence_visits[pc]+=1
                 assumptions['PC-keyed external sequence read']+=1
                 read_event=dict(value=d,source='scenario_pc_sequence',visit=visit,sequence_index=index,
-                    held_last=held,selected_by_alu=(instruction&7) in (5,6,7),status=source_read['status'])
+                    held_last=held,selected_by_alu=selects_d,status=source_read['status'])
             elif source_read['mode'] in ('table','am27s31'):
                 address=(read_policy['bank']+previous.get('y',read_policy['initial_y'])) if read_policy is not None else d%len(table)
                 d=table[address]; assumptions['table external read']+=1
                 if read_policy is not None:
-                    consumed=(instruction&7) in (5,6,7)
+                    consumed=selects_d
                     selected_reads+=consumed;read_counts[address]+=1
                     read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
             carry=carry_input.resolve(r)
-            result=cpu.step(instruction,register_address['a'],register_address['b'],d,carry,inputs['ram_in'],inputs['q_in'])
+            if slice_instruction is None:
+                result=cpu.step(instruction,register_address['a'],register_address['b'],d,carry,inputs['ram_in'],inputs['q_in'])
+            else:
+                result=cpu.step(instruction,register_address['a'],register_address['b'],d,carry,inputs['ram_in'],inputs['q_in'],
+                                high_instruction=r.get('i_high'))
             if slice_instruction is not None:
                 assumptions['split-slice candidate instruction']+=1
             carry_input.observe(result)
@@ -373,7 +383,6 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if len(events)<32: events.append(dict(cycle=cycle,pc=pc,event='stack depth violation',depth=depth))
         h.update(bytes((pc&255,pc>>8,seq.pc&255,seq.pc>>8,test,cpu.q)))
         if slice_instruction is not None:
-            high_instruction=cpu.high_instruction(instruction)
             h.update(bytes((high_instruction&255,high_instruction>>8)))
         if result: h.update(bytes(cpu.ram))
         if track_previous_y or read_policy is not None:h.update(bytes((result['y'],)))
@@ -392,7 +401,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if mode=='integrated' and (instruction_overrides or slice_instruction is not None):
                 record['instruction_i']=instruction
             if mode=='integrated' and slice_instruction is not None:
-                record['instruction_i_high']=cpu.high_instruction(instruction)
+                record['instruction_i_high']=high_instruction
             if mode=='integrated' and address_overrides:
                 record['register_address_a']=register_address['a']
                 record['register_address_b']=register_address['b']

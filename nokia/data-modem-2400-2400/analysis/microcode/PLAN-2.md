@@ -173,6 +173,14 @@ phases B–C turn "what" into "how".
   under the plan's `14.4 MHz / k`, `k=1…4`, timing hypothesis. Test a decoded
   or divided clock, or a different repeated output path; the actual latch
   clock and microcycle divisor are untraced.
+  A [separate-slice instruction screen](g2/INDEPENDENT-SLICE-FIELDS.md) now
+  lets U8 decode an independent nine-bit PROM field under the candidate
+  U8↔U2 control links. Two hypothesized U10/U11-lower and U17/U18-upper
+  layouts consume 128 controller bits and select a ROM operand 127 times
+  after input begins, versus zero in the shared-field fixture. Both still
+  read one fixed ROM address and hold `0B` at reached `39E`/`39F` sites;
+  use the architecture change to search for a history-dependent path, not
+  as a transmitter claim.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

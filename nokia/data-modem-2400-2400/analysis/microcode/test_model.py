@@ -120,6 +120,18 @@ class DatapathTests(unittest.TestCase):
         self.assertEqual(split.q,0xC5)
         self.assertEqual(result['y'],0xA5)
 
+    def test_split_accepts_independent_high_instruction_before_links(self):
+        low_instruction=op(7,3,0)  # D|0, load Q.
+        high_instruction=op(2,3,0)  # 0|Q, load Q.
+        split=SplitAm2901(q=0xC0)
+        result=split.step(low_instruction,0,0,d=0xA5,
+                          high_instruction=high_instruction)
+        self.assertEqual(result['y'],0xC5)
+        self.assertEqual(split.q,0xC5)
+        linked=SplitAm2901(high_from_low={4:1})
+        self.assertEqual(linked.high_instruction(low_instruction,high_instruction),
+                         high_instruction | (1<<4))
+
     def test_split_asymmetric_shift_uses_explicit_undriven_level(self):
         instruction=op(0,3,4)  # Low Q shifts right; high I8 is cleared.
         zero=SplitAm2901(q=0x81,high_from_low={8:0},undriven_shift=0)

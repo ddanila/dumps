@@ -84,14 +84,15 @@ class SplitAm2901:
     undriven_shift: int = 0
     undriven_shift_reads: int = 0
 
-    def high_instruction(self, low_instruction):
-        high = low_instruction
+    def high_instruction(self, low_instruction, proposed_high=None):
+        high = low_instruction if proposed_high is None else proposed_high
         for high_bit, low_bit in self.high_from_low.items():
             high = (high & ~(1 << high_bit)) | (((low_instruction >> low_bit) & 1) << high_bit)
         return high
 
-    def step(self, instruction, a, b, d=0, carry=0, ram_in=0, q_in=0):
-        high_instruction = self.high_instruction(instruction)
+    def step(self, instruction, a, b, d=0, carry=0, ram_in=0, q_in=0,
+             high_instruction=None):
+        high_instruction = self.high_instruction(instruction, high_instruction)
         low = Am2901(width=4, ram=[v & 15 for v in self.ram], q=self.q & 15,
                      logic_flags=True)
         high = Am2901(width=4, ram=[v >> 4 for v in self.ram], q=self.q >> 4,

@@ -750,3 +750,10 @@ raw PROM data bits at the same internal consumers. Six have rising edges at
 every `140`/`146` visit, but each also rises hundreds of times elsewhere;
 none directly matches the hypothesized 9,600 Hz sample cadence. A decoder,
 divider or different repeated path remains to be tested.
+The [independent-slice instruction screen](INDEPENDENT-SLICE-FIELDS.md)
+extends the executor so U8 can decode its own PROM field under the candidate
+crosslinks. Two photo-inspired lane layouts select ROM D on 127 recurring
+controller-fed cycles, where the shared-field model selected none. The ROM
+address and reached output codes remain fixed under real and constant-bit
+stimuli, so this reopens an architectural path without demonstrating a modem
+function.
