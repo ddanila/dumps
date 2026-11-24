@@ -127,6 +127,26 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_plan_execution_acceptance_keeps_failure_gates(self):
+        from plan_validation import acceptance
+        def run(mode,cycles):
+            return dict(summary=dict(mode=mode,clean=True,completed_cycles=cycles,requested_cycles=cycles,
+                        unused_word_executions=0,stack=dict(max_depth=4)),
+                        replay_equal=True,saved_prefix_equal=True)
+        runs=[run('sequencer',1000000),run('integrated',2000000)]
+        sweep=dict(visited=list(range(941)),all_clean=True)
+        self.assertTrue(acceptance(runs,sweep,.9)['execution_acceptance_met'])
+        self.assertFalse(acceptance(runs,dict(sweep,visited=list(range(294))),.9)['execution_acceptance_met'])
+        for mutate in ('clean','replay','stack','short','prefix'):
+            broken=copy.deepcopy(runs)
+            if mutate=='clean':broken[0]['summary']['clean']=False
+            elif mutate=='replay':broken[0]['replay_equal']=False
+            elif mutate=='stack':broken[0]['summary']['stack']['max_depth']=5
+            elif mutate=='short':broken[1]['summary']['completed_cycles']=1999999
+            else:broken[0]['saved_prefix_equal']=False
+            self.assertFalse(acceptance(broken,sweep,.9)['execution_acceptance_met'])
+        self.assertFalse(acceptance([],sweep,.9)['execution_acceptance_met'])
+
     def test_dac0830_level_buffers_and_unknown_startup(self):
         from dac0830 import DAC0830
         pins=dict(ile=1,cs_n=0,wr1_n=1,wr2_n=1,xfer_n=0)

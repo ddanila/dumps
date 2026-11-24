@@ -1,0 +1,41 @@
+{
+  "status": "hypothesis",
+  "evidence": "Consolidate current-executor acceptance evidence without merging incompatible mappings into a single hardware claim. Preserve historical failed coverage acceptance. Long jobs use existing saved scenarios unchanged; interpretation and external-interface requirements are audited separately.",
+  "sequencer_mapping": "sequencer.json",
+  "sequencer_scenario": "results/third-case-study/scenario-all_cases.json",
+  "sweep_reference": "results/third-case-study/all_cases.json",
+  "sweep_seeds": 128,
+  "sweep_cycles": 1000,
+  "minimum_coverage": 0.9,
+  "catalog": "results/program-reading/catalog.json",
+  "long_runs": [
+    {
+      "name": "sequencer",
+      "mapping": "sequencer.json",
+      "scenario": "results/third-case-study/scenario-all_cases.json",
+      "mode": "sequencer",
+      "seed": 0,
+      "cycles": 1000000
+    },
+    {
+      "name": "q2-nested",
+      "base": "results/nested-reset-study/seed-0115",
+      "mode": "integrated",
+      "seed": 115,
+      "cycles": 1000000
+    },
+    {
+      "name": "q3-rom-feedback",
+      "base": "results/rom-carry-replies/reply-f9",
+      "mode": "integrated",
+      "seed": 0,
+      "cycles": 1000000
+    }
+  ],
+  "input_manifests": [
+    "../../../photos/manifest.json",
+    "../../../../unknown-modem-810237c/manifest.json",
+    "../../../../unknown-modem-am27s31dc/manifest.json",
+    "../../../../unknown-modem-other-board-2764/manifest.json"
+  ]
+}

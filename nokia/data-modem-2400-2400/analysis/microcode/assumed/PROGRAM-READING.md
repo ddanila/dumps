@@ -132,7 +132,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 105 functional/assumption tests pass, including checks that
+byte. All 106 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -225,3 +225,8 @@ reset replays checking all intermediate and final state.
 bytes through a datasheet-based DAC0830 digital buffer model. Candidate byte
 routes and transfer policies produce distinct retained codes and update times;
 all connections remain labelled hypotheses, and core traces are unchanged.
+
+[The plan acceptance audit](PLAN-AUDIT.md) verifies the current long-run and
+coverage evidence separately from interpretation. Fourteen cataloged direct-call
+entries still lack annotations; physical fidelity is not added as a prerequisite
+beyond the plan’s explicit assumption-based scope.

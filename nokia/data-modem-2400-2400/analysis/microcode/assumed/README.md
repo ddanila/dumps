@@ -9,6 +9,11 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
+[PLAN-AUDIT.md](PLAN-AUDIT.md) is the current acceptance checklist. The refreshed
+execution check passes, while routine interpretation and a complete external
+transaction remain unfinished. The historical baseline suite still has its
+original failed coverage result. Run `plan_validation.py` for current evidence.
+
 [PROGRAM-READING.md](PROGRAM-READING.md) is the consolidated entry point for
 reading the microprogram: a 1,024-word annotated listing, six separate datapath
 profiles, evidence-linked routine names, and explicitly unresolved entries.

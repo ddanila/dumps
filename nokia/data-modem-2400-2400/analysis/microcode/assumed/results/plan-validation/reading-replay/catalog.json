@@ -1,0 +1,4298 @@
+{
+  "configuration": {
+    "annotations": [
+      {
+        "evidence": "RESULTS.md",
+        "limitations": "Control-flow interpretation; not a counted-loop algorithm identification.",
+        "meaning": "01C pushes 01D; BLT at 01E consumes that entry.",
+        "name": "call-fed loop entry",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "01C",
+            "01F"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TERMINAL-TAIL.md",
+        "limitations": "No physical completion or restart protocol identified.",
+        "meaning": "Helper calls and computed dispatch lead to the unconditional self-branch at 084.",
+        "name": "terminal tail",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "078",
+            "084"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TERMINAL-TAIL.md",
+        "limitations": "Register identities depend on A/B roles; not proven serial output.",
+        "meaning": "Four RAM right-shift destinations followed by return; Q is not shifted.",
+        "name": "register right-shift helper",
+        "profiles": [
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "085",
+            "089"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-INDEPENDENT.md",
+        "limitations": "Local current-flag fixtures take at most eight shifts. The fitted previous-flag policy can take nine; not a proven multiplier.",
+        "meaning": "Right-shift Q and store shifted value; loop exit can test zero.",
+        "name": "conditional Q drain",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "1E9",
+            "1EB"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PREPARATION-DECODE.md",
+        "limitations": "External D selection and destination registers remain hypotheses; caller effects depend on the mapping.",
+        "meaning": "Candidate D,Q operations write R0 repeatedly or R10-R13 with swapped roles.",
+        "name": "preparation with disputed register roles",
+        "profiles": [
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "341",
+            "344"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-INDEPENDENT.md",
+        "limitations": "Output grouping is virtual; no physical write enable or DAC destination identified. Identities were search constraints.",
+        "meaning": "Four-entry tables combine paired 16-bit operands using sums/differences and permutation.",
+        "name": "paired add/subtract and permute",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "379",
+            "388"
+          ],
+          [
+            "392",
+            "3A1"
+          ],
+          [
+            "3AB",
+            "3BA"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-INDEPENDENT.md",
+        "limitations": "Tested with local nonzero operands; reset-call source pairs in earlier studies were zero. Identities were search constraints.",
+        "meaning": "Four entries produce (X,Y),(-Y,X),(-X,-Y),(Y,-X) modulo 65536.",
+        "name": "paired quarter-turn transform",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "3C5",
+            "3D4"
+          ],
+          [
+            "3DA",
+            "3E9"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIRED-ARITHMETIC.md",
+        "limitations": "Do not extend the independent transform formula to this table; source aliasing changes later reads.",
+        "meaning": "Writes overlap source Y; independent quarter-turn interpretation fails.",
+        "name": "source-overlapping transform",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "3EF",
+            "3FE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "ROM-TAIL.md",
+        "limitations": "Reachability requires site-scoped ROM-table hypotheses; unrestricted nesting overflows.",
+        "meaning": "Wrapper reaches computed call 2C4 and returns at 2C5.",
+        "name": "nested computed-call wrapper",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "2BC",
+            "2C5"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "FRAGMENTS.md",
+        "limitations": "Disconnected from reset in the current graph; condition select 2 meaning unknown.",
+        "meaning": "Selects the 2D9 or 2DC adjustment tail.",
+        "name": "conditional adjustment selector",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "256",
+            "257"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-CONVERGENCE.md",
+        "limitations": "Local probes only. No first-Y consumer identified; wrapper paths differ by one cycle.",
+        "meaning": "The two tails differ by one in first Y and converge to equal modeled state at 07B.",
+        "name": "transient one-unit adjustment",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "2D9",
+            "2DE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "ROM-DISPATCH.md",
+        "limitations": "Site, bank, range and index source remain hypotheses; see current table provenance in the listing.",
+        "meaning": "Scenario supplies targets from lookup-ROM bytes plus explicit banks.",
+        "name": "ROM-backed dispatch candidate",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4",
+          "fitted_original",
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "008",
+            "008"
+          ],
+          [
+            "26F",
+            "26F"
+          ],
+          [
+            "21F",
+            "21F"
+          ],
+          [
+            "2C4",
+            "2C4"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "POLL-CALLER.md",
+        "limitations": "Requires the tested previous-flag reset path, zero Q at 18D and zero carry at both writes; physical input source unknown.",
+        "meaning": "In the tested reset path, 18D loads external X into R3 and 19C stores its complement in R4 for the later poll.",
+        "name": "successor-byte wait preparation",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "18D",
+            "18D"
+          ],
+          [
+            "19C",
+            "19C"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "POLL-CALLER.md",
+        "limitations": "Flag timing is hypothetical; physical input channel and protocol unknown. Current-flag control tests a different value.",
+        "meaning": "Under previous-zero loop control, wait until D+R4 is zero modulo 256, then return. The tested caller makes this a successor-byte wait.",
+        "name": "external-byte equality poll",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "1EC",
+            "1EE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "DOUBLE-DRAIN.md",
+        "limitations": "Previous-zero condition, zero shift fill and original register roles; transient ALU outputs may matter externally. Not an established multiply/divide or physical delay.",
+        "meaning": "Load and drain shifted S+C and S from R4; preserves R1-R15 and clears Q/R0 in tested local fixtures.",
+        "name": "paired Q drains",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "2D0",
+            "2D8"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "BIASED-DRAIN.md",
+        "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown.",
+        "meaning": "Shift Q and emit biased R0 values; termination depends on external D and R7 under the previous-flag policy.",
+        "name": "input-dependent biased Q shift",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "296",
+            "29E"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "DRAIN-RESET.md",
+        "limitations": "Original-role previous-flag and zero-fill assumptions. Seeded reset dispatch reaches the wrapper with R7=FF and Q=D; physical dispatch and external-input behavior remain unresolved.",
+        "meaning": "Calls two right-shift loops and one left-shift loop without initializing R7; constant-D fixtures often repeat.",
+        "name": "three-loop shift wrapper",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "248",
+            "24E"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "DRAIN-RESET.md",
+        "limitations": "Original-role previous-flag and zero-fill assumptions. Seeded reset dispatch reaches the wrapper with R7=FF and Q=D; physical dispatch and external-input behavior remain unresolved.",
+        "meaning": "Left-shift Q until previous F=D+Q is zero; after return clear Q and write D+1 to R0.",
+        "name": "input-matched left shift",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "187",
+            "18A"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "DISPATCH109.md",
+        "limitations": "Current-Y indexing is an alternative scenario; default index remains scenario-supplied. Physical D and address source unknown; no claim for every later visit.",
+        "meaning": "At first tested reset entry current Y=(D+1) mod 256; optional current-Y indexing selects one of eight following branch words.",
+        "name": "input-code dispatch candidate",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "109",
+            "109"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "CARRY-CHAIN.md",
+        "limitations": "External operands and output consumers unknown. Current flag timing selects last carry instead; defaults unchanged. Constant reset inputs in the tested dispatch path repeat.",
+        "meaning": "Chain three byte additions into R1/R2/R3 while outputting old A values; previous-flag BLT repeats on middle carry.",
+        "name": "carry-controlled three-add loop",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "36C",
+            "36E"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASK-LOOP.md",
+        "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs.",
+        "meaning": "Mask Q with R0 and test containment under previous flags; 126 adds R10 before and after its loop. Failed tests repeat without selecting external D.",
+        "name": "idempotent Q-mask tests",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "126",
+            "130"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASK-VARIANTS.md",
+        "limitations": "Shared previous-flag and defined logical-carry policy. Modeled reset reaches a zero target with explicit external replies; physical D and nonzero target provenance unknown.",
+        "meaning": "Under q2 and previous-zero loop control, mask Q with R0 then wait until external D equals the masked value.",
+        "name": "masked external-byte equality poll",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "12C",
+            "130"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-CALLER.md",
+        "limitations": "Shared previous-flag policy and diagnostic external replies; physical source and protocol unresolved.",
+        "meaning": "Under q2 and previous-carry control, repeat while R0+D carries; tested reset R0=FF makes this a wait for D=0.",
+        "name": "carry-qualified external wait",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "106",
+            "107"
+          ],
+          [
+            "117",
+            "118"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIRED-CAPTURE.md",
+        "limitations": "Previous flags, top-level index 5, preceding-Y dispatch at 38F and diagnostic per-site reads. First pair is zero and second operands are equal in these reset runs. Physical output and dispatch wiring remain unresolved.",
+        "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat while its final high-byte result is nonzero. Independent reset-captured low/high bytes in R6/R7 reach R10/R11; addition may return with a nonzero low-byte result.",
+        "name": "captured-register copy and paired-arithmetic loop",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "389",
+            "391"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-DISPATCH.md",
+        "limitations": "Site-scoped preceding-Y hypothesis with fixed top-level dispatch 5 and early input replies; physical index wiring and output consumer remain unresolved.",
+        "meaning": "q2 computes D\u2212R14 immediately before a paired-arithmetic call. Optional preceding-Y indexing selects its add/subtract combinations; current Y and Q are zero in tested reset paths.",
+        "name": "preceding-Y paired-arithmetic dispatch candidate",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "38E",
+            "38F"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-ACCUMULATOR.md",
+        "limitations": "Shared previous-flag policy. Nonzero-Q carry paths are local fixtures; tested reset executions skip every transform call. Repeated Q-to-R0 writes at 341\u2013344 remain a candidate-specific decode.",
+        "meaning": "Under q2, snapshot old Q in R0/R5, preserve R3 in R2, complement R1 into R3, and add D to Q. Addition carry gates transform calls; old Q versus R7 selects the call sequence.",
+        "name": "accumulator carry and threshold gate",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "133",
+            "13A"
+          ],
+          [
+            "341",
+            "344"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-TRANSFORM-LOOP.md",
+        "limitations": "Constant dispatch index and shared previous-flag policy. Failed conditions repeat rather than converge; nonzero source/caller cases are local fixtures, with physical loop condition and output meaning unresolved.",
+        "meaning": "Under q2, copy R0 to R1 and repeatedly transform R10\u2013R13 into R4\u2013R7. Previous-zero control returns when the second result high byte is zero; sources and Q remain unchanged.",
+        "name": "fixed-source transform high-byte loop",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "3C0",
+            "3C4"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q2-OVERWRITE.md",
+        "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved.",
+        "meaning": "Under q2, 3D5 overwrites X with the second transform result; 3EA overwrites Y with its first result. Real previous-zero loop control yields one/two-pass returns or exact 8/16-instruction cycles.",
+        "name": "source-overwriting transform loops",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "3D5",
+            "3D9"
+          ],
+          [
+            "3EA",
+            "3EE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-DRAIN.md",
+        "limitations": "Original register roles, previous-zero control and zero shift fill. Input effects disappear from final internal state; physical transient consumers and reset caller operands remain unresolved.",
+        "meaning": "q1\u2013q4 clear Q after loading D+Q, store shifted (R0+1) in R5, and return with R0/Q zero after one loop iteration.",
+        "name": "cleared-Q single-iteration shift helper",
+        "profiles": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "30B",
+            "310"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-DRAIN.md",
+        "limitations": "Previous-zero policy and zero shift fill; one to five iterations in local fixtures. Physical operation and reset caller operands remain unresolved; swapped register roles are not covered.",
+        "meaning": "fitted_original masks Q with R0, stores shifted (R0+masked Q+1) in R5, and drains Q two bits per iteration. Previous-zero timing requires a final zero-entry iteration.",
+        "name": "masked-Q two-bit drain helper",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "30B",
+            "310"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "DRAIN-PREFIX.md",
+        "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified.",
+        "meaning": "Two drain calls clear R0/Q and overwrite first R5 before any selected consumer. Two 311 calls retain the second external byte in R12; final preparation copies R10/R11 under q2 or external bytes under fitted_original.",
+        "name": "double drain and input preparation prefix",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "304",
+            "308"
+          ],
+          [
+            "311",
+            "318"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "REGISTER-SCAN.md",
+        "limitations": "Shared select-5/select-6 stubs and previous-flag policy. Reset index 3 exercises the scan, including fitted_original D=FF repetition; physical output consumers and condition wiring remain unknown.",
+        "meaning": "Expose selected register differences against R0 without changing RAM/Q. With shared constant-zero select 6, the first two loops run once; previous-carry control repeats the last loop iff R15>=R0.",
+        "name": "register-difference scan and carry wait",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "319",
+            "334"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "GATE-RUNTIME.md",
+        "limitations": "Requires the optional address-bit gate and combined dispatch tables; not enabled by default. Physical gate wiring and transient output consumers remain unknown.",
+        "meaning": "With the optional composed BRT gate, a set previous-zero flag at 2D8 selects fallthrough into 2D9\u20132DB. Reset index 2 reaches this tail under both tested mappings.",
+        "name": "conditional entry into adjustment tail",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "2D8",
+            "2DB"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "GATE-RUNTIME.md",
+        "limitations": "Witness uses dispatch index 3 and D=FF; R0/R2 are both zero at the copy. Default entry remains unresolved, and no physical gate or nonzero copy use is established.",
+        "meaning": "Under fitted_original and the optional composed gate, previous zero at 0F9 can enter 0FA, which copies R0 to R2 before the 0FC branch to 078. One reset fixture reaches this path.",
+        "name": "conditional register-copy tail entry",
+        "profiles": [
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "0F9",
+            "0FC"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "DISPATCH-RANGE.md",
+        "limitations": "Exhaustive local R0/Q pairs assume previous zero at entry to 3BC. Reset entry demonstrated only under q2 with D=01 and indices 12 modulo 16. Optional gate and output consumer remain unverified.",
+        "meaning": "Preserve RAM/Q while exposing Q-R0, optionally Q-R0-1 when Q complements R0. Under the optional gate, branch to 287 for nonzero preceding difference, otherwise fall through to 3C0.",
+        "name": "conditional difference tail",
+        "profiles": [
+          "q2",
+          "fitted_original"
+        ],
+        "ranges": [
+          [
+            "3BC",
+            "3BF"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q-DISPATCH.md",
+        "limitations": "Reset entry uses optional BRT gate, constant dispatch index 12 and diagnostic zero read at 2A8. Q-driven dispatch instead routes Q=0 elsewhere in the tested scenario. Physical input, output consumer and gate wiring remain unidentified.",
+        "meaning": "Under q2 reset states with R0=FF, expose Q-1/Q and branch at gated 2CE according to the previous Q zero flag. Q=0 falls through into 2CF, exposing D+Q+carry without storing it.",
+        "name": "Q-zero conditional tail",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "2CB",
+            "2CF"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-VARIANTS.md",
+        "limitations": "Local rule assumes previous zero at 3BC. Reset index 12, D=01 reaches 287 with R0=FF/Q=00 under the optional gate; hardware decode and output consumer remain unknown.",
+        "meaning": "Under q3, expose Q and optionally Q-1 when Q complements R0; gated 3BF branches to 287 for a nonzero preceding result. RAM/Q are preserved.",
+        "name": "conditional Q decrement tail",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "3BC",
+            "3BF"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-VARIANTS.md",
+        "limitations": "Reset entry depends on q3, the optional BRT gate and index-12 D=01 diagnostic scenario. Physical output consumer is unidentified; default entry labels remain unresolved.",
+        "meaning": "Under q3, expose Q-1, Q, R2-R0 and R12-R0-1 in sequence without changing RAM/Q, then continue to 28B.",
+        "name": "transient Q and register differences",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "287",
+            "28A"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "THREE-BIT-GATES.md",
+        "limitations": "Matched reset sweep uses Q-indexed 26F and diagnostic reads at 2A8/235/251. The three-bit gate is a branch-address correlation, not recovered wiring. Output consumer and default entry remain unresolved.",
+        "meaning": "Under q2, load R0=D+Q and R3=~R1; expose R0 at 254. An extended optional gate admits 256 when R0=0. Previous logical carry from XNOR(0,Q) selects 2DC for Q=FF and 2D9 otherwise.",
+        "name": "zero-sum entry and carry-selected adjustment",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "251",
+            "257"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "GATE-ALIASES.md",
+        "limitations": "Requires the optional four-bit clause and diagnostic input scenario. The external output consumer remains unknown; default reachability stays unresolved.",
+        "meaning": "Under q2, expose Q-R0 without storing it, then re-enter the preparation call at 259. The four-bit gate extension supplies a reset witness with Q=FF, R0=0 and an empty live stack.",
+        "name": "transient difference before preparation re-entry",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "258",
+            "258"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "ALIAS-RUNTIME.md",
+        "limitations": "Requires diagnostic relaxation of the entire 0FC identical-word class and fixed-false select 6. Clean index-3 reset witnesses do not eliminate the conservative underflow paths at other aliases. Output consumer and physical wiring remain unknown.",
+        "meaning": "Under fitted_swapped, copy R2 to R0, then test Q through the previous zero flag. Nonzero Q branches to 078; Q=0 exposes ~R15&R0 and R0 before the 0FF branch to 07B. Q and other RAM are preserved.",
+        "name": "register copy and Q-zero continuation",
+        "profiles": [
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "0FA",
+            "0FF"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "LAST-ENTRY.md",
+        "limitations": "Requires the diagnostic alias gate, previous flags and fixed-false select 1. Clean zero-reset entry is shown at FF; other input bytes in the same sweep underflow at 2FF. No physical input protocol or globally safe gate is established.",
+        "meaning": "Under q3/q4, expose R4-R0/R4 respectively, then load Q from the AND of two external reads. Preserve RAM and continue at 2E6 iff Q equals R0-1 modulo 256, otherwise branch to 2FD.",
+        "name": "masked-input continuation test",
+        "profiles": [
+          "q3",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "2DF",
+            "2E5"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "NESTED-RESET.md",
+        "limitations": "Nonzero states use local actual-call fixtures; five zero-reset witnesses enter with Q=R5=0. Scoped ROM table, zero-fill shifts and previous flags remain hypotheses. Physical index and output consumer unknown.",
+        "meaning": "Preserve Q; prepare R0=Q>>1, R2=D_2C2+Q and R4=((D_2C0+Q) mod 256)>>1. Expose R5+Q immediately before the nested call; expose current Q-1 at the outer return.",
+        "name": "shifted-Q preparation and nested dispatch",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "2BC",
+            "2C5"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "NESTED-PREPARE.md",
+        "limitations": "Validated as nested leaves of the q2 2BC wrapper with explicit nonzero local fixtures. Arithmetic outputs have no identified physical consumer; no integrated reset coverage claim.",
+        "meaning": "Entry 224 exposes R15 before 225 loads Q from D and exposes R0 AND R3 and Q. Entries 229/22B/22C/22D preserve Q and RAM while exposing Q and/or Q-1 before returning.",
+        "name": "nested input-load and Q-exposure leaves",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "224",
+            "227"
+          ],
+          [
+            "229",
+            "22F"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "NESTED-PREPARE.md",
+        "limitations": "The forced branch is specific to the prepared calling state; 2B9-2BB are not globally dead. Nested input is constant per fixture. Other profiles and physical output are unresolved.",
+        "meaning": "Store D+Q in R15 twice, expose differences, then test carry from Q-R0. The 2BC caller prepares R0=Q>>1, forcing the branch to 227 and preserving Q.",
+        "name": "nested input-sum capture and carry-qualified return",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "2B3",
+            "2B8"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "AFFINE-TAIL.md",
+        "limitations": "Both select-6 outcomes are explicit local condition stubs; reset witnesses use fixed-false select 6. No physical consumer is identified for the transient or retained R15 result. Other mappings decode these instructions differently.",
+        "meaning": "Save old R0 in R3; select-6 skip optionally suppresses loading Q into R0. Return with R15=(R0+2*R1+1) mod 256, preserving Q and all other RAM. Five q2 reset traces connect the R0 copy to the following XNOR/skip decisions.",
+        "name": "save R0, optional Q load and byte sum",
+        "profiles": [
+          "q1",
+          "q2",
+          "q4"
+        ],
+        "ranges": [
+          [
+            "28E",
+            "295"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "REGISTER-CONTRACT.md",
+        "limitations": "A constructed input contract exhausts all Q bytes/destination pairs from a verified reset checkpoint. The index source and PC-keyed inputs remain hypotheses, not a recovered board protocol or physical output.",
+        "meaning": "Copy R1 into R2, prepare Q>>1 twice, and store it into two selected RAM registers. Under preceding-Y indexing, a first store into R6 changes the base for the second address. The second helper overwrites a first R5 store; a second R5 store restores the value.",
+        "name": "two indexed register stores",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "07C",
+            "081"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "INDEXED-TAIL.md",
+        "limitations": "Constant D per local fixture; zero-fill and carry policy remain hypotheses. Repeated shifts do not shift Q, and no serial-output role is established.",
+        "meaning": "Preserve Q; write R0=Q>>1 and R5=((D-Q-1) mod 256)>>1 under zero-fill shifts. Expose D-R6 on Y at the return, providing a candidate index for the next computed call.",
+        "name": "half-Q and input-difference preparation",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "085",
+            "089"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "INDEXED-TAIL.md",
+        "limitations": "The inferred table is exercised by scenario/current-Y/Q/preceding-Y candidates. Register writes do not establish a physical DAC transfer or index wiring.",
+        "meaning": "Sixteen one-word POP entries copy R0 into R0 through R15 respectively. The q2 terminal caller supplies Q>>1 as the stored byte.",
+        "name": "indexed R0 copy and return",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "08A",
+            "099"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SELECTOR-PREFIX.md",
+        "limitations": "Input reads are explicit stubs. Independent-input reset prefixes are verified under q1/q3 only; other mappings do not share this input dependence. Physical input timing and source remain unknown.",
+        "meaning": "Each word adds its external D byte into Q with carry zero. From zero reset, the two reads produce Q=(D_002+D_076) mod 256 before the first 109 dispatch.",
+        "name": "reset input accumulation in Q",
+        "profiles": [
+          "q1",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "002",
+            "002"
+          ],
+          [
+            "076",
+            "076"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SELECTOR-PREFIX.md",
+        "limitations": "Index source remains an explicit candidate. Equal input bytes create a parity restriction that independent reads remove. Handler entry is verified, not complete handler behavior or a physical command protocol.",
+        "meaning": "Q-indexed first dispatch selects entry (D_002+D_076) mod 8. Current Y equals Q under q1 and Q+1 under q3 in the tested reset prefix; preceding Y also reflects the input schedule.",
+        "name": "Q-based input-sum dispatch candidate",
+        "profiles": [
+          "q1",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "109",
+            "109"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "SELECTOR-PREFIX.md",
+        "limitations": "Uses the default unconditional-transfer policy, not optional BRT gates. No physical opcode assignment or full handler algorithm is established.",
+        "meaning": "The eight branch words select handlers 11A, 148, 18B, 300, 259, 345, 09E and 133. Independent q1/q3 input sums reach each through the actual 109 dispatch.",
+        "name": "eight-way handler branch table",
+        "profiles": [
+          "q1",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "10A",
+            "111"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER-REPLY.md",
+        "limitations": "Diagnostic input schedule, fixed other dispatch indices and previous-zero condition. Physical byte channel and protocol remain unknown.",
+        "meaning": "Previous flags wait for D=-R4 modulo 256. With input-sum handler-2 reset entry, q1 R4=s-2 and q3 R4=FE; a matching reply returns and reaches 084.",
+        "name": "handler-2 external-byte comparison",
+        "profiles": [
+          "q1",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "1EC",
+            "1EE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER-REPLY.md",
+        "limitations": "Scoped to the four decoded table entries and current-zero policy. Previous flags test a different value; not an unconditional claim about hardware execution.",
+        "meaning": "Current-zero loop control repeats iff R0 & Q is nonzero. Wrapper and all four candidate table entries preserve R0 and Q. Handler-2 reset entry gives R0=Q=s != 0, so later D replies or table choices cannot release it.",
+        "name": "preserved-R0/Q transform-loop predicate",
+        "profiles": [
+          "q1",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "3EA",
+            "3EE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIRED-COMPONENTS.md",
+        "limitations": "Previous-flag diagnostic reset schedule with Q=5. Physical meaning of D and any transient external consumers remain unknown.",
+        "meaning": "314/316 write D+Q to R13; 315/317 write D+Q to R4. In handler-5 zero-reset runs, the final 317 input supplies an independent first arithmetic component; earlier R4 loads are overwritten.",
+        "name": "input-sum preparation with overwrite",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "314",
+            "318"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "PAIRED-COMPONENTS.md",
+        "limitations": "Operands within each pair are equal after the wrapper copies; first component high byte is zero on entry. Diagnostic inputs, previous-Y dispatch and virtual output captures do not recover physical ports.",
+        "meaning": "Copy R4-R7 to R8-R11 and call paired arithmetic. Previous-zero exit observes only the last high byte. q3 reset inputs supply independent U byte and V word; both output results, including the first high byte, may be nonzero on return. q1 matched inputs retain a zero first component.",
+        "name": "paired-component copy and final-high-byte loop",
+        "profiles": [
+          "q1",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "389",
+            "391"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "ROM-CARRY-REPLIES.md",
+        "limitations": "Scoped to bank-256 previous-Y ROM reads at gate-selected words and default D=1 outside 36D. Not a recovered handshake protocol or signal-processing algorithm.",
+        "meaning": "With the two-bit ROM-read gate, R0=FF and previous carry timing, the next lookup address is R2 exposed on Y at 36E. A finite recurrence explains constant-reply exits and cycles: 215 bytes return and 41 cycle from the demonstrated reset state.",
+        "name": "ROM-address/carry feedback loop",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "36C",
+            "36E"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-STACK-CONTRACT.md",
+        "limitations": "Calling-convention interpretation. No incoming frame causes underflow after a normal callee return; two or more can overflow on nested choices. Local graph safety does not prove all-input termination.",
+        "meaning": "2FD exposes an ALU result, 2FE calls 21A, and 2FF returns to the pre-existing caller. Under the retained dispatch tables, exactly one incoming frame supports all nested alternatives within the four-entry stack.",
+        "name": "computed-call return wrapper",
+        "profiles": [
+          "q2",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "2FD",
+            "2FF"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-STACK-CONTRACT.md",
+        "limitations": "Requires 3BC to be conditional under the scenario gate. A branch into 2FD is not safe with an empty caller stack after a normal 21A return. Physical condition gating remains unresolved.",
+        "meaning": "3BB writes R5=old_R5-R0-1 modulo 256. With conditional previous-zero 3BC, unequal old_R5 and R0+1 selects the return wrapper at 2FD; equality falls through.",
+        "name": "difference-based tail-call guard",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "3BB",
+            "3BC"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-NESTED-DISPATCH.md",
+        "limitations": "q3 input schedule and retained 82-entry lookup hypothesis. Earlier dispatches remain seeded scenario choices; this does not recover the physical index source.",
+        "meaning": "Increment R4, copy R1 into R2, expose Q at 21E, call a ROM-backed table at 21F, and return. Input masks 51/A3/F5 from actual reset reads select 2BC through Q; previous Y has the same value while current Y is zero.",
+        "name": "Q-exposing nested-dispatch preparation",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "21A",
+            "220"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "MASKED-NESTED-DISPATCH.md",
+        "limitations": "Three nested mask cases from a 256-mask reset sweep. q3 differs from q2 at 2C2; formulas are scoped to the documented input and register context. Physical protocol and table wiring remain hypotheses.",
+        "meaning": "In the verified nonzero-mask reset context, preserve Q=m, prepare R0=m>>1 and R4=((CC+m)&FF)>>1, and overwrite temporary R2 with R5=0. Q or preceding Y selects the inner ROM call, reaching 22B or 225 with real depth-four stack use.",
+        "name": "nonzero masked-input nested preparation",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "2BC",
+            "2C5"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "Q3-REGISTER-CONTRACT.md",
+        "limitations": "Verified after the A3 masked nested reset prefix with diagnostic PC-keyed input bytes. Physical destination wiring and output consumer remain unknown.",
+        "meaning": "Prepare Q>>1 and store it twice through the 08A register-copy table. Under preceding-Y dispatch, 089 exposes the external destination byte unchanged. First R6 does not alter the second address; first R5 is overwritten by the second helper.",
+        "name": "direct-byte indexed half-Q stores",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "07C",
+            "081"
+          ],
+          [
+            "085",
+            "099"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER6.md",
+        "limitations": "q3 previous flags, zero reset, fixed later dispatch index 2 and documented input schedule. FF mask wraps to zero. Alternate selector-1 paths and physical modem purpose remain unresolved.",
+        "meaning": "Handler 6 forms m=R7&(code+1), increments m iff nonzero using logical carry, retains t and t>>1 in R13 and R12/R15, and clears Q through two drains. Complete zero-reset code/captured-byte sweep predicts every final register and terminal cycle.",
+        "name": "masked capture and double Q drain",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "09E",
+            "0CD"
+          ],
+          [
+            "0DE",
+            "0DE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER1.md",
+        "limitations": "q3 previous flags, zero reset, default D=1 outside declared inputs and constant later dispatch index 2. Alternative 178\u201317F path and physical signal-processing meaning remain unresolved.",
+        "meaning": "Handler 1 retains ((D167+D16A)&FF)>>1 in R14, clears Q through shifts and drains, and retains input-code values in R4/R15. Reset-driven intermediate and final states and input-dependent instruction counts match the documented contract.",
+        "name": "wrapped byte-sum handler",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "148",
+            "177"
+          ],
+          [
+            "180",
+            "186"
+          ],
+          [
+            "2E6",
+            "2EB"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER1.md",
+        "limitations": "Scoped to q3 reset R7=0 and default D=1. Other captured masks or external input schedules may change termination.",
+        "meaning": "24F loads Q=R12+R0. In handler-1 reset context with R7=0, 248 performs two short right shifts followed by a left drain, returning Q=0 and R0=1. First input is 2*code modulo 256; second is FE.",
+        "name": "sum-fed three-shift wrapper",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "248",
+            "250"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER4.md",
+        "limitations": "q3 previous flags, default D=1 outside stated reads and fixed later dispatch index 2. Two captured R7 values and all A/B continuations tested; physical I/O and alternate 265\u2013269 path remain unresolved.",
+        "meaning": "Handler-4 code-4 reset path preserves A on overflow of A+B; otherwise compares A+1 and may reload Q. Previous XOR carry distinguishes captured R7=00/FF at the later increment skip. Q and the wrapped sum reach terminal internal state through a difference-only dispatch tail.",
+        "name": "carry-qualified input selection",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "259",
+            "264"
+          ],
+          [
+            "26A",
+            "26F"
+          ],
+          [
+            "2A0",
+            "2B2"
+          ],
+          [
+            "2C6",
+            "2CA"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER4.md",
+        "limitations": "Reset evidence is scoped to handler 4, code 4, fixed table entry 2 and q3 previous flags. Transient paired results are not identified physical output writes.",
+        "meaning": "Copy R4\u2013R7 to R12\u2013R15, invoke paired arithmetic and repeat according to the final high-byte result under previous-zero timing. Tested entry 2 subtracts each copied operand from itself and returns after one pass for captured R7=00/FF.",
+        "name": "copy-and-subtract paired wrapper",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "3A2",
+            "3AA"
+          ]
+        ],
+        "status": "hypothesis"
+      }
+    ],
+    "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
+    "profiles": {
+      "fitted_original": "results/selector-completion/original-marked/mapping.json",
+      "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json",
+      "q1": "results/independent-study/variant-1.json",
+      "q2": "results/independent-study/variant-2.json",
+      "q3": "results/independent-study/variant-3.json",
+      "q4": "results/independent-study/variant-4.json"
+    },
+    "reset_examples": {
+      "original": "results/selector-completion/original-marked/summary.json",
+      "q2_nested": "results/nested-reset-study/seed-0115/summary.json",
+      "swapped": "results/selector-completion/swapped-marked/summary.json"
+    },
+    "reset_witness_manifest": "reset-witnesses.json",
+    "scenario": "results/third-case-study/scenario-all_cases.json",
+    "sequencer_sweep": "results/third-case-study/all_cases.json",
+    "status": "hypothesis"
+  },
+  "counts": {
+    "annotated_used_words": 534,
+    "default_gaps_with_reset_witness": 22,
+    "reset_examples": {
+      "original": 187,
+      "q2_nested": 187,
+      "swapped": 186
+    },
+    "reset_hypothesis_witnesses": 5,
+    "sequencer_sweep_visited": 941,
+    "static_reachable": 999,
+    "used": 1021,
+    "words": 1024
+  },
+  "direct_call_entries": [
+    {
+      "annotations": [
+        {
+          "evidence": "RESULTS.md",
+          "limitations": "Control-flow interpretation; not a counted-loop algorithm identification.",
+          "meaning": "01C pushes 01D; BLT at 01E consumes that entry.",
+          "name": "call-fed loop entry",
+          "profiles": [
+            "q1",
+            "q2",
+            "q3",
+            "q4",
+            "fitted_original",
+            "fitted_swapped"
+          ],
+          "ranges": [
+            [
+              "01C",
+              "01F"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "01C"
+      ],
+      "entry": "01E",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": false,
+        "end": 30,
+        "reason": "BLT consumes entry stack"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "044",
+        "0DD"
+      ],
+      "entry": "04C",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 83,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "004",
+        "101"
+      ],
+      "entry": "06F",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 119,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "TERMINAL-TAIL.md",
+          "limitations": "Register identities depend on A/B roles; not proven serial output.",
+          "meaning": "Four RAM right-shift destinations followed by return; Q is not shifted.",
+          "name": "register right-shift helper",
+          "profiles": [
+            "fitted_original",
+            "fitted_swapped"
+          ],
+          "ranges": [
+            [
+              "085",
+              "089"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "INDEXED-TAIL.md",
+          "limitations": "Constant D per local fixture; zero-fill and carry policy remain hypotheses. Repeated shifts do not shift Q, and no serial-output role is established.",
+          "meaning": "Preserve Q; write R0=Q>>1 and R5=((D-Q-1) mod 256)>>1 under zero-fill shifts. Expose D-R6 on Y at the return, providing a candidate index for the next computed call.",
+          "name": "half-Q and input-difference preparation",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "085",
+              "089"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "Q3-REGISTER-CONTRACT.md",
+          "limitations": "Verified after the A3 masked nested reset prefix with diagnostic PC-keyed input bytes. Physical destination wiring and output consumer remain unknown.",
+          "meaning": "Prepare Q>>1 and store it twice through the 08A register-copy table. Under preceding-Y dispatch, 089 exposes the external destination byte unchanged. First R6 does not alter the second address; first R5 is overwritten by the second helper.",
+          "name": "direct-byte indexed half-Q stores",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "07C",
+              "081"
+            ],
+            [
+              "085",
+              "099"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "07D",
+        "080"
+      ],
+      "entry": "085",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 137,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "11C",
+        "11E"
+      ],
+      "entry": "09A",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 157,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "102",
+        "104"
+      ],
+      "entry": "112",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 278,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "Q2-CALLER.md",
+          "limitations": "Shared previous-flag policy and diagnostic external replies; physical source and protocol unresolved.",
+          "meaning": "Under q2 and previous-carry control, repeat while R0+D carries; tested reset R0=FF makes this a wait for D=0.",
+          "name": "carry-qualified external wait",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "106",
+              "107"
+            ],
+            [
+              "117",
+              "118"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "103"
+      ],
+      "entry": "117",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 281,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "MASK-LOOP.md",
+          "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs.",
+          "meaning": "Mask Q with R0 and test containment under previous flags; 126 adds R10 before and after its loop. Failed tests repeat without selecting external D.",
+          "name": "idempotent Q-mask tests",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "126",
+              "130"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "11B"
+      ],
+      "entry": "126",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 299,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "MASK-LOOP.md",
+          "limitations": "Defined logical carry and previous-flag policy. Current timing tests a different predicate; reset-derived non-return cases constrain the hypothesis rather than prove hardware hangs.",
+          "meaning": "Mask Q with R0 and test containment under previous flags; 126 adds R10 before and after its loop. Failed tests repeat without selecting external D.",
+          "name": "idempotent Q-mask tests",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "126",
+              "130"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "MASK-VARIANTS.md",
+          "limitations": "Shared previous-flag and defined logical-carry policy. Modeled reset reaches a zero target with explicit external replies; physical D and nonzero target provenance unknown.",
+          "meaning": "Under q2 and previous-zero loop control, mask Q with R0 then wait until external D equals the masked value.",
+          "name": "masked external-byte equality poll",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "12C",
+              "130"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "11D"
+      ],
+      "entry": "12C",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 304,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "122",
+        "124"
+      ],
+      "entry": "131",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 306,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "DRAIN-RESET.md",
+          "limitations": "Original-role previous-flag and zero-fill assumptions. Seeded reset dispatch reaches the wrapper with R7=FF and Q=D; physical dispatch and external-input behavior remain unresolved.",
+          "meaning": "Left-shift Q until previous F=D+Q is zero; after return clear Q and write D+1 to R0.",
+          "name": "input-matched left shift",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "187",
+              "18A"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "24D"
+      ],
+      "entry": "187",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 394,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "Q-INDEPENDENT.md",
+          "limitations": "Local current-flag fixtures take at most eight shifts. The fitted previous-flag policy can take nine; not a proven multiplier.",
+          "meaning": "Right-shift Q and store shifted value; loop exit can test zero.",
+          "name": "conditional Q drain",
+          "profiles": [
+            "q1",
+            "q2",
+            "q3",
+            "q4"
+          ],
+          "ranges": [
+            [
+              "1E9",
+              "1EB"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "0B1",
+        "0B6",
+        "16B",
+        "170",
+        "1A3",
+        "1A6",
+        "1C7",
+        "1CC",
+        "1F9",
+        "1FD",
+        "2D2",
+        "2D7"
+      ],
+      "entry": "1E9",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 491,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "POLL-CALLER.md",
+          "limitations": "Flag timing is hypothetical; physical input channel and protocol unknown. Current-flag control tests a different value.",
+          "meaning": "Under previous-zero loop control, wait until D+R4 is zero modulo 256, then return. The tested caller makes this a successor-byte wait.",
+          "name": "external-byte equality poll",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "1EC",
+              "1EE"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER-REPLY.md",
+          "limitations": "Diagnostic input schedule, fixed other dispatch indices and previous-zero condition. Physical byte channel and protocol remain unknown.",
+          "meaning": "Previous flags wait for D=-R4 modulo 256. With input-sum handler-2 reset entry, q1 R4=s-2 and q3 R4=FE; a matching reply returns and reaches 084.",
+          "name": "handler-2 external-byte comparison",
+          "profiles": [
+            "q1",
+            "q3"
+          ],
+          "ranges": [
+            [
+              "1EC",
+              "1EE"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "1D2"
+      ],
+      "entry": "1EC",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 494,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "MASKED-NESTED-DISPATCH.md",
+          "limitations": "q3 input schedule and retained 82-entry lookup hypothesis. Earlier dispatches remain seeded scenario choices; this does not recover the physical index source.",
+          "meaning": "Increment R4, copy R1 into R2, expose Q at 21E, call a ROM-backed table at 21F, and return. Input masks 51/A3/F5 from actual reset reads select 2BC through Q; previous Y has the same value while current Y is zero.",
+          "name": "Q-exposing nested-dispatch preparation",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "21A",
+              "220"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "217",
+        "2FE"
+      ],
+      "entry": "21A",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 544,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "223"
+      ],
+      "entry": "228",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 554,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "121",
+        "18F",
+        "1F7"
+      ],
+      "entry": "238",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 575,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "123",
+        "192",
+        "1FB"
+      ],
+      "entry": "240",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 583,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "DRAIN-RESET.md",
+          "limitations": "Original-role previous-flag and zero-fill assumptions. Seeded reset dispatch reaches the wrapper with R7=FF and Q=D; physical dispatch and external-input behavior remain unresolved.",
+          "meaning": "Calls two right-shift loops and one left-shift loop without initializing R7; constant-D fixtures often repeat.",
+          "name": "three-loop shift wrapper",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "248",
+              "24E"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER1.md",
+          "limitations": "Scoped to q3 reset R7=0 and default D=1. Other captured masks or external input schedules may change termination.",
+          "meaning": "24F loads Q=R12+R0. In handler-1 reset context with R7=0, 248 performs two short right shifts followed by a left drain, returning Q=0 and R0=1. First input is 2*code modulo 256; second is FE.",
+          "name": "sum-fed three-shift wrapper",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "248",
+              "250"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "150",
+        "157"
+      ],
+      "entry": "248",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 590,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "HANDLER1.md",
+          "limitations": "Scoped to q3 reset R7=0 and default D=1. Other captured masks or external input schedules may change termination.",
+          "meaning": "24F loads Q=R12+R0. In handler-1 reset context with R7=0, 248 performs two short right shifts followed by a left drain, returning Q=0 and R0=1. First input is 2*code modulo 256; second is FE.",
+          "name": "sum-fed three-shift wrapper",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "248",
+              "250"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "14F",
+        "156"
+      ],
+      "entry": "24F",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 592,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "120",
+        "18E"
+      ],
+      "entry": "270",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 639,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "AFFINE-TAIL.md",
+          "limitations": "Both select-6 outcomes are explicit local condition stubs; reset witnesses use fixed-false select 6. No physical consumer is identified for the transient or retained R15 result. Other mappings decode these instructions differently.",
+          "meaning": "Save old R0 in R3; select-6 skip optionally suppresses loading Q into R0. Return with R15=(R0+2*R1+1) mod 256, preserving Q and all other RAM. Five q2 reset traces connect the R0 copy to the following XNOR/skip decisions.",
+          "name": "save R0, optional Q load and byte sum",
+          "profiles": [
+            "q1",
+            "q2",
+            "q4"
+          ],
+          "ranges": [
+            [
+              "28E",
+              "295"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "213"
+      ],
+      "entry": "28E",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 661,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "BIASED-DRAIN.md",
+          "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown.",
+          "meaning": "Shift Q and emit biased R0 values; termination depends on external D and R7 under the previous-flag policy.",
+          "name": "input-dependent biased Q shift",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "296",
+              "29E"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "249"
+      ],
+      "entry": "296",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 670,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "BIASED-DRAIN.md",
+          "limitations": "Local caller-249 fixtures only. R7=FF gives exact repeated states for most constant-D/Q combinations; actual caller preconditions and external channel unknown.",
+          "meaning": "Shift Q and emit biased R0 values; termination depends on external D and R7 under the previous-flag policy.",
+          "name": "input-dependent biased Q shift",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "296",
+              "29E"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "24B"
+      ],
+      "entry": "298",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 670,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "212"
+      ],
+      "entry": "2EC",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 767,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "MASKED-DRAIN.md",
+          "limitations": "Original register roles, previous-zero control and zero shift fill. Input effects disappear from final internal state; physical transient consumers and reset caller operands remain unresolved.",
+          "meaning": "q1\u2013q4 clear Q after loading D+Q, store shifted (R0+1) in R5, and return with R0/Q zero after one loop iteration.",
+          "name": "cleared-Q single-iteration shift helper",
+          "profiles": [
+            "q1",
+            "q2",
+            "q3",
+            "q4"
+          ],
+          "ranges": [
+            [
+              "30B",
+              "310"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "MASKED-DRAIN.md",
+          "limitations": "Previous-zero policy and zero shift fill; one to five iterations in local fixtures. Physical operation and reset caller operands remain unresolved; swapped register roles are not covered.",
+          "meaning": "fitted_original masks Q with R0, stores shifted (R0+masked Q+1) in R5, and drains Q two bits per iteration. Previous-zero timing requires a final zero-entry iteration.",
+          "name": "masked-Q two-bit drain helper",
+          "profiles": [
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "30B",
+              "310"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "304",
+        "306"
+      ],
+      "entry": "30B",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 784,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "DRAIN-PREFIX.md",
+          "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified.",
+          "meaning": "Two drain calls clear R0/Q and overwrite first R5 before any selected consumer. Two 311 calls retain the second external byte in R12; final preparation copies R10/R11 under q2 or external bytes under fitted_original.",
+          "name": "double drain and input preparation prefix",
+          "profiles": [
+            "q2",
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "304",
+              "308"
+            ],
+            [
+              "311",
+              "318"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "1FA",
+        "1FE",
+        "305",
+        "307"
+      ],
+      "entry": "311",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 787,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "DRAIN-PREFIX.md",
+          "limitations": "Local 304 entry: the shared select-5 stub at 302 bypasses this path from 300. Stops at 309 before the next wrapper; external consumers of transient values remain unidentified.",
+          "meaning": "Two drain calls clear R0/Q and overwrite first R5 before any selected consumer. Two 311 calls retain the second external byte in R12; final preparation copies R10/R11 under q2 or external bytes under fitted_original.",
+          "name": "double drain and input preparation prefix",
+          "profiles": [
+            "q2",
+            "fitted_original"
+          ],
+          "ranges": [
+            [
+              "304",
+              "308"
+            ],
+            [
+              "311",
+              "318"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "PAIRED-COMPONENTS.md",
+          "limitations": "Previous-flag diagnostic reset schedule with Q=5. Physical meaning of D and any transient external consumers remain unknown.",
+          "meaning": "314/316 write D+Q to R13; 315/317 write D+Q to R4. In handler-5 zero-reset runs, the final 317 input supplies an independent first arithmetic component; earlier R4 loads are overwritten.",
+          "name": "input-sum preparation with overwrite",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "314",
+              "318"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "259",
+        "308",
+        "345"
+      ],
+      "entry": "314",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 792,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "350",
+        "364"
+      ],
+      "entry": "335",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 831,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "PREPARATION-DECODE.md",
+          "limitations": "External D selection and destination registers remain hypotheses; caller effects depend on the mapping.",
+          "meaning": "Candidate D,Q operations write R0 repeatedly or R10-R13 with swapped roles.",
+          "name": "preparation with disputed register roles",
+          "profiles": [
+            "fitted_original",
+            "fitted_swapped"
+          ],
+          "ranges": [
+            [
+              "341",
+              "344"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "Q2-ACCUMULATOR.md",
+          "limitations": "Shared previous-flag policy. Nonzero-Q carry paths are local fixtures; tested reset executions skip every transform call. Repeated Q-to-R0 writes at 341\u2013344 remain a candidate-specific decode.",
+          "meaning": "Under q2, snapshot old Q in R0/R5, preserve R3 in R2, complement R1 into R3, and add D to Q. Addition carry gates transform calls; old Q versus R7 selects the call sequence.",
+          "name": "accumulator carry and threshold gate",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "133",
+              "13A"
+            ],
+            [
+              "341",
+              "344"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "133",
+        "18B",
+        "1DA"
+      ],
+      "entry": "341",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 836,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "355",
+        "362"
+      ],
+      "entry": "357",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 862,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "351",
+        "353",
+        "361"
+      ],
+      "entry": "366",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 879,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [],
+      "callers": [
+        "309"
+      ],
+      "entry": "370",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 888,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "PAIRED-CAPTURE.md",
+          "limitations": "Previous flags, top-level index 5, preceding-Y dispatch at 38F and diagnostic per-site reads. First pair is zero and second operands are equal in these reset runs. Physical output and dispatch wiring remain unresolved.",
+          "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat while its final high-byte result is nonzero. Independent reset-captured low/high bytes in R6/R7 reach R10/R11; addition may return with a nonzero low-byte result.",
+          "name": "captured-register copy and paired-arithmetic loop",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "389",
+              "391"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "PAIRED-COMPONENTS.md",
+          "limitations": "Operands within each pair are equal after the wrapper copies; first component high byte is zero on entry. Diagnostic inputs, previous-Y dispatch and virtual output captures do not recover physical ports.",
+          "meaning": "Copy R4-R7 to R8-R11 and call paired arithmetic. Previous-zero exit observes only the last high byte. q3 reset inputs supply independent U byte and V word; both output results, including the first high byte, may be nonzero on return. q1 matched inputs retain a zero first component.",
+          "name": "paired-component copy and final-high-byte loop",
+          "profiles": [
+            "q1",
+            "q3"
+          ],
+          "ranges": [
+            [
+              "389",
+              "391"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "346"
+      ],
+      "entry": "389",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 913,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "HANDLER4.md",
+          "limitations": "Reset evidence is scoped to handler 4, code 4, fixed table entry 2 and q3 previous flags. Transient paired results are not identified physical output writes.",
+          "meaning": "Copy R4\u2013R7 to R12\u2013R15, invoke paired arithmetic and repeat according to the final high-byte result under previous-zero timing. Tested entry 2 subtracts each copied operand from itself and returns after one pass for captured R7=00/FF.",
+          "name": "copy-and-subtract paired wrapper",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "3A2",
+              "3AA"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "1CF",
+        "25A"
+      ],
+      "entry": "3A2",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 938,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "Q2-TRANSFORM-LOOP.md",
+          "limitations": "Constant dispatch index and shared previous-flag policy. Failed conditions repeat rather than converge; nonzero source/caller cases are local fixtures, with physical loop condition and output meaning unresolved.",
+          "meaning": "Under q2, copy R0 to R1 and repeatedly transform R10\u2013R13 into R4\u2013R7. Previous-zero control returns when the second result high byte is zero; sources and Q remain unchanged.",
+          "name": "fixed-source transform high-byte loop",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "3C0",
+              "3C4"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "13D"
+      ],
+      "entry": "3C0",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 964,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "Q2-OVERWRITE.md",
+          "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved.",
+          "meaning": "Under q2, 3D5 overwrites X with the second transform result; 3EA overwrites Y with its first result. Real previous-zero loop control yields one/two-pass returns or exact 8/16-instruction cycles.",
+          "name": "source-overwriting transform loops",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "3D5",
+              "3D9"
+            ],
+            [
+              "3EA",
+              "3EE"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "13C"
+      ],
+      "entry": "3D5",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 985,
+        "reason": "POP"
+      }
+    },
+    {
+      "annotations": [
+        {
+          "evidence": "Q2-OVERWRITE.md",
+          "limitations": "Constant dispatch and shared previous-flag policy; nonzero states are local fixtures. 3EA sequential aliasing changes its formulas; physical output meaning and reset reachability remain unresolved.",
+          "meaning": "Under q2, 3D5 overwrites X with the second transform result; 3EA overwrites Y with its first result. Real previous-zero loop control yields one/two-pass returns or exact 8/16-instruction cycles.",
+          "name": "source-overwriting transform loops",
+          "profiles": [
+            "q2"
+          ],
+          "ranges": [
+            [
+              "3D5",
+              "3D9"
+            ],
+            [
+              "3EA",
+              "3EE"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER-REPLY.md",
+          "limitations": "Scoped to the four decoded table entries and current-zero policy. Previous flags test a different value; not an unconditional claim about hardware execution.",
+          "meaning": "Current-zero loop control repeats iff R0 & Q is nonzero. Wrapper and all four candidate table entries preserve R0 and Q. Handler-2 reset entry gives R0=Q=s != 0, so later D replies or table choices cannot release it.",
+          "name": "preserved-R0/Q transform-loop predicate",
+          "profiles": [
+            "q1",
+            "q3"
+          ],
+          "ranges": [
+            [
+              "3EA",
+              "3EE"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
+      "callers": [
+        "13B",
+        "18C"
+      ],
+      "entry": "3EA",
+      "limitation": "Linear walk is a boundary hint, not a complete control-flow or algorithm description.",
+      "linear_walk_hint": {
+        "balanced": true,
+        "end": 1006,
+        "reason": "POP"
+      }
+    }
+  ],
+  "dispatches": [
+    {
+      "pc": "008",
+      "targets": [
+        "009",
+        "00F",
+        "00B",
+        "013",
+        "022",
+        "00D",
+        "032",
+        "054"
+      ]
+    },
+    {
+      "pc": "036",
+      "targets": [
+        "037",
+        "038",
+        "039",
+        "03A"
+      ]
+    },
+    {
+      "pc": "03C",
+      "targets": [
+        "03D",
+        "03E",
+        "03F"
+      ]
+    },
+    {
+      "pc": "07E",
+      "targets": [
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "090",
+        "091",
+        "092",
+        "093",
+        "094",
+        "095",
+        "096",
+        "097",
+        "098",
+        "099"
+      ]
+    },
+    {
+      "pc": "081",
+      "targets": [
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "090",
+        "091",
+        "092",
+        "093",
+        "094",
+        "095",
+        "096",
+        "097",
+        "098",
+        "099"
+      ]
+    },
+    {
+      "pc": "109",
+      "targets": [
+        "10A",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "110",
+        "111"
+      ]
+    },
+    {
+      "pc": "1A2",
+      "targets": [
+        "1E5",
+        "1E6",
+        "1E7",
+        "1E8"
+      ]
+    },
+    {
+      "pc": "21F",
+      "targets": [
+        "221",
+        "224",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22D",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22B",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "229",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22C",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "2BC"
+      ]
+    },
+    {
+      "pc": "26F",
+      "targets": [
+        "2C6",
+        "2C6",
+        "2C6",
+        "230",
+        "280",
+        "280",
+        "230",
+        "200",
+        "200",
+        "200",
+        "200",
+        "217",
+        "2CB",
+        "200",
+        "200",
+        "200"
+      ]
+    },
+    {
+      "pc": "2C4",
+      "targets": [
+        "2B3",
+        "22D",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22B",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "229",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "2B3",
+        "22C",
+        "224",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225",
+        "225"
+      ]
+    },
+    {
+      "pc": "34C",
+      "targets": [
+        "34D",
+        "34E",
+        "34F"
+      ]
+    },
+    {
+      "pc": "376",
+      "targets": [
+        "379",
+        "37D",
+        "381",
+        "385"
+      ]
+    },
+    {
+      "pc": "38F",
+      "targets": [
+        "392",
+        "396",
+        "39A",
+        "39E"
+      ]
+    },
+    {
+      "pc": "3A8",
+      "targets": [
+        "3AB",
+        "3AF",
+        "3B3",
+        "3B7"
+      ]
+    },
+    {
+      "pc": "3C2",
+      "targets": [
+        "3C5",
+        "3C9",
+        "3CD",
+        "3D1"
+      ]
+    },
+    {
+      "pc": "3D7",
+      "targets": [
+        "3DA",
+        "3DE",
+        "3E2",
+        "3E6"
+      ]
+    },
+    {
+      "pc": "3EC",
+      "targets": [
+        "3EF",
+        "3F3",
+        "3F7",
+        "3FB"
+      ]
+    }
+  ],
+  "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
+  "reset_hypothesis_catalog": {
+    "baseline_words": 999,
+    "configuration": {
+      "baseline_scenario": "results/third-case-study/scenario-all_cases.json",
+      "evidence": "Curate a replay-verified cover of the default graph gaps without merging mapping or scenario claims.",
+      "profiles": {
+        "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json",
+        "q2": "results/independent-study/variant-2.json",
+        "q3": "results/independent-study/variant-3.json"
+      },
+      "status": "hypothesis",
+      "witnesses": [
+        {
+          "evidence": "LAST-ENTRY.md",
+          "id": "q3-masked-ff",
+          "limitations": "Six-clause diagnostic gate; many other input bytes fail at 2FF. This FF trace is clean.",
+          "path": "results/last-entry-study/q3-extended-ff",
+          "profile": "q3",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "ALIAS-RUNTIME.md",
+          "id": "swapped-qzero-ff",
+          "limitations": "Diagnostic identical-word gate has conservative underflow paths; index-3 FF execution is clean.",
+          "path": "results/alias-runtime-study/fitted_swapped-extended-ff",
+          "profile": "fitted_swapped",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "GATE-ALIASES.md",
+          "id": "q2-reentry-fc",
+          "limitations": "Four-bit gate extension and PC-keyed input bytes provide preparation re-entry; output consumer is unknown.",
+          "path": "results/gate-reentry-study/extended-fc",
+          "profile": "q2",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "TAIL-VARIANTS.md",
+          "id": "q3-differences-01",
+          "limitations": "q3 arithmetic differs from q2; optional gate and index-12 D=01 inputs are hypotheses.",
+          "path": "results/tail-variant-study/q3-01",
+          "profile": "q3",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "Q-DISPATCH.md",
+          "id": "q2-zero-q",
+          "limitations": "Constant dispatch index 12 and zero read at 2A8; Q-indexed dispatch does not establish the same entry.",
+          "path": "results/q-dispatch-study/scenario-00",
+          "profile": "q2",
+          "status": "hypothesis"
+        }
+      ]
+    },
+    "entries": {
+      "0FA": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 117,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "0FA",
+                "cycle": 116,
+                "default_target": "28B",
+                "pc": "0F9"
+              }
+            ],
+            "path": [
+              "0F9",
+              "0FA"
+            ],
+            "root_cycle": 116,
+            "root_pc": "0F9"
+          },
+          "next_pc": "0FB",
+          "profile": "fitted_swapped",
+          "test": 0,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "0FD": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 120,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "0FD",
+                "cycle": 119,
+                "default_target": "078",
+                "pc": "0FC"
+              }
+            ],
+            "path": [
+              "0FC",
+              "0FD"
+            ],
+            "root_cycle": 119,
+            "root_pc": "0FC"
+          },
+          "next_pc": "0FE",
+          "profile": "fitted_swapped",
+          "test": 0,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "0FE": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 121,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "0FD",
+                "cycle": 119,
+                "default_target": "078",
+                "pc": "0FC"
+              }
+            ],
+            "path": [
+              "0FC",
+              "0FD",
+              "0FE"
+            ],
+            "root_cycle": 119,
+            "root_pc": "0FC"
+          },
+          "next_pc": "0FF",
+          "profile": "fitted_swapped",
+          "test": 0,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "0FF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 122,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "0FD",
+                "cycle": 119,
+                "default_target": "078",
+                "pc": "0FC"
+              }
+            ],
+            "path": [
+              "0FC",
+              "0FD",
+              "0FE",
+              "0FF"
+            ],
+            "root_cycle": 119,
+            "root_pc": "0FC"
+          },
+          "next_pc": "07B",
+          "profile": "fitted_swapped",
+          "test": 1,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "256": [
+        {
+          "before": {
+            "q": 255,
+            "ram": [
+              0,
+              0,
+              4,
+              255,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 106,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "256",
+                "cycle": 105,
+                "default_target": "0EB",
+                "pc": "255"
+              }
+            ],
+            "path": [
+              "255",
+              "256"
+            ],
+            "root_cycle": 105,
+            "root_pc": "255"
+          },
+          "next_pc": "257",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-reentry-fc"
+        }
+      ],
+      "257": [
+        {
+          "before": {
+            "q": 255,
+            "ram": [
+              0,
+              0,
+              4,
+              255,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 107,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "256",
+                "cycle": 105,
+                "default_target": "0EB",
+                "pc": "255"
+              }
+            ],
+            "path": [
+              "255",
+              "256",
+              "257"
+            ],
+            "root_cycle": 105,
+            "root_pc": "255"
+          },
+          "next_pc": "258",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-reentry-fc"
+        }
+      ],
+      "258": [
+        {
+          "before": {
+            "q": 255,
+            "ram": [
+              0,
+              0,
+              4,
+              255,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 108,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "256",
+                "cycle": 105,
+                "default_target": "0EB",
+                "pc": "255"
+              },
+              {
+                "actual_target": "258",
+                "cycle": 107,
+                "default_target": "2DC",
+                "pc": "257"
+              }
+            ],
+            "path": [
+              "255",
+              "256",
+              "257",
+              "258"
+            ],
+            "root_cycle": 105,
+            "root_pc": "255"
+          },
+          "next_pc": "259",
+          "profile": "q2",
+          "test": 1,
+          "witness": "q2-reentry-fc"
+        }
+      ],
+      "287": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 128,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "3BD",
+                "cycle": 124,
+                "default_target": "2FD",
+                "pc": "3BC"
+              }
+            ],
+            "path": [
+              "3BC",
+              "3BD",
+              "3BE",
+              "3BF",
+              "287"
+            ],
+            "root_cycle": 124,
+            "root_pc": "3BC"
+          },
+          "next_pc": "288",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "288": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 129,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "3BD",
+                "cycle": 124,
+                "default_target": "2FD",
+                "pc": "3BC"
+              }
+            ],
+            "path": [
+              "3BC",
+              "3BD",
+              "3BE",
+              "3BF",
+              "287",
+              "288"
+            ],
+            "root_cycle": 124,
+            "root_pc": "3BC"
+          },
+          "next_pc": "289",
+          "profile": "q3",
+          "test": 1,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "289": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 130,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "3BD",
+                "cycle": 124,
+                "default_target": "2FD",
+                "pc": "3BC"
+              }
+            ],
+            "path": [
+              "3BC",
+              "3BD",
+              "3BE",
+              "3BF",
+              "287",
+              "288",
+              "289"
+            ],
+            "root_cycle": 124,
+            "root_pc": "3BC"
+          },
+          "next_pc": "28A",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "28A": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 131,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "3BD",
+                "cycle": 124,
+                "default_target": "2FD",
+                "pc": "3BC"
+              }
+            ],
+            "path": [
+              "3BC",
+              "3BD",
+              "3BE",
+              "3BF",
+              "287",
+              "288",
+              "289",
+              "28A"
+            ],
+            "root_cycle": 124,
+            "root_pc": "3BC"
+          },
+          "next_pc": "28B",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "2CF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 97,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2CF",
+                "cycle": 96,
+                "default_target": "204",
+                "pc": "2CE"
+              }
+            ],
+            "path": [
+              "2CE",
+              "2CF"
+            ],
+            "root_cycle": 96,
+            "root_pc": "2CE"
+          },
+          "next_pc": "2D0",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2D9": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 190,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 189,
+                "default_target": "1CD",
+                "pc": "2D8"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9"
+            ],
+            "root_cycle": 189,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DA",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        },
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 113,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 112,
+                "default_target": "1CD",
+                "pc": "2D8"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9"
+            ],
+            "root_cycle": 112,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DA",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2DA": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 191,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 189,
+                "default_target": "1CD",
+                "pc": "2D8"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA"
+            ],
+            "root_cycle": 189,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DB",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        },
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 114,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 112,
+                "default_target": "1CD",
+                "pc": "2D8"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA"
+            ],
+            "root_cycle": 112,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DB",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2DB": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 192,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 189,
+                "default_target": "1CD",
+                "pc": "2D8"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA",
+              "2DB"
+            ],
+            "root_cycle": 189,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DC",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        },
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 115,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 112,
+                "default_target": "1CD",
+                "pc": "2D8"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA",
+              "2DB"
+            ],
+            "root_cycle": 112,
+            "root_pc": "2D8"
+          },
+          "next_pc": "07B",
+          "profile": "q2",
+          "test": 1,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2DC": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 193,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 189,
+                "default_target": "1CD",
+                "pc": "2D8"
+              },
+              {
+                "actual_target": "2DC",
+                "cycle": 192,
+                "default_target": "07B",
+                "pc": "2DB"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA",
+              "2DB",
+              "2DC"
+            ],
+            "root_cycle": 189,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DD",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "2DD": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 194,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 189,
+                "default_target": "1CD",
+                "pc": "2D8"
+              },
+              {
+                "actual_target": "2DC",
+                "cycle": 192,
+                "default_target": "07B",
+                "pc": "2DB"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA",
+              "2DB",
+              "2DC",
+              "2DD"
+            ],
+            "root_cycle": 189,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DE",
+          "profile": "q3",
+          "test": 1,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "2DE": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 195,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 189,
+                "default_target": "1CD",
+                "pc": "2D8"
+              },
+              {
+                "actual_target": "2DC",
+                "cycle": 192,
+                "default_target": "07B",
+                "pc": "2DB"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA",
+              "2DB",
+              "2DC",
+              "2DD",
+              "2DE"
+            ],
+            "root_cycle": 189,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2DF",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "2DF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 196,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "2D9",
+                "cycle": 189,
+                "default_target": "1CD",
+                "pc": "2D8"
+              },
+              {
+                "actual_target": "2DC",
+                "cycle": 192,
+                "default_target": "07B",
+                "pc": "2DB"
+              },
+              {
+                "actual_target": "2DF",
+                "cycle": 195,
+                "default_target": "07B",
+                "pc": "2DE"
+              }
+            ],
+            "path": [
+              "2D8",
+              "2D9",
+              "2DA",
+              "2DB",
+              "2DC",
+              "2DD",
+              "2DE",
+              "2DF"
+            ],
+            "root_cycle": 189,
+            "root_pc": "2D8"
+          },
+          "next_pc": "2E0",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "3BD": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 125,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "3BD",
+                "cycle": 124,
+                "default_target": "2FD",
+                "pc": "3BC"
+              }
+            ],
+            "path": [
+              "3BC",
+              "3BD"
+            ],
+            "root_cycle": 124,
+            "root_pc": "3BC"
+          },
+          "next_pc": "3BE",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "3BE": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 126,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "3BD",
+                "cycle": 124,
+                "default_target": "2FD",
+                "pc": "3BC"
+              }
+            ],
+            "path": [
+              "3BC",
+              "3BD",
+              "3BE"
+            ],
+            "root_cycle": 124,
+            "root_pc": "3BC"
+          },
+          "next_pc": "3BF",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "3BF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 127,
+          "entry_policy": {
+            "forced_jump_fallthroughs": [
+              {
+                "actual_target": "3BD",
+                "cycle": 124,
+                "default_target": "2FD",
+                "pc": "3BC"
+              }
+            ],
+            "path": [
+              "3BC",
+              "3BD",
+              "3BE",
+              "3BF"
+            ],
+            "root_cycle": 124,
+            "root_pc": "3BC"
+          },
+          "next_pc": "287",
+          "profile": "q3",
+          "test": 1,
+          "witness": "q3-differences-01"
+        }
+      ]
+    },
+    "interpretation": "Every default-graph gap has a replayed clean zero-reset witness under a named mapping and scenario. This is a union of incompatible hypotheses, not single-model coverage, a safe default gate, physical wiring recovery or full-plan completion.",
+    "source_sha256": {
+      "assumed/ALIAS-RUNTIME.md": "62e8ae91040c104ccbaf35ec7aaada079bbc72587aec3894fc5c69bba80d5dfe",
+      "assumed/GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
+      "assumed/LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
+      "assumed/Q-DISPATCH.md": "bf46fab50deda66a8a7e15756e568b53c0c4bb642674e42356b598ff9b37867a",
+      "assumed/TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",
+      "assumed/analyze.py": "23e9f59f4c35a3301efd989afe578af1496dd2b75bea7629d8efb1674b8039f2",
+      "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+      "assumed/execute.py": "8b2ecbf5fb90f52e593afc89d0c3d6ffff41666e725038f19443ee4bb58f71d5",
+      "assumed/reset-witnesses.json": "d02dcba8c47ed26d3bca3dfcb01ff659354ac2655a9ee225bdae7937c6cfa90e",
+      "assumed/reset_witness_catalog.py": "19be326d3ea653f3c7a99b68193c27f19e46d4418271b0b32570358079fc1a4a",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/io.jsonl": "93eabe279366d66a7820d9a092494aaad9026db40899652f5fcf3c3415654c26",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/scenario.json": "958e0bd0163cef6f08512de8211230bbe8d0d5d6bc1158bf654594c433706c17",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/summary.json": "8b87ce4708119da44a9a256cb9bfa9b9c84967e9a235216ffb10428ba40f41af",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/trace.jsonl": "7af23155a65630ffe9fb825ea8c64b1e6075d725a303e90d62c1d5b6831219ff",
+      "assumed/results/gate-reentry-study/extended-fc/io.jsonl": "1770f14c882d415302fa9069d6a885053d252f70a7bb993d1ffe7d228220f08c",
+      "assumed/results/gate-reentry-study/extended-fc/mapping.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+      "assumed/results/gate-reentry-study/extended-fc/scenario.json": "edb8ae34b7d472f84a09719fe8b0890a939ba83966461465b2229f90d597ff4d",
+      "assumed/results/gate-reentry-study/extended-fc/summary.json": "de9dedc1980af2d6cffd0a3755fd64152fb246cc548a339ca6108a6146bb3006",
+      "assumed/results/gate-reentry-study/extended-fc/trace.jsonl": "5772bc5a96934a6cb3d45f72230bde021cd278b0a75ba87d716bc5f3bfacd12f",
+      "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+      "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+      "assumed/results/last-entry-study/q3-extended-ff/io.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "assumed/results/last-entry-study/q3-extended-ff/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+      "assumed/results/last-entry-study/q3-extended-ff/scenario.json": "77e59da063ddcd2871fa862aaf8b91108c6a2748d58a08f6427ce36e76687e74",
+      "assumed/results/last-entry-study/q3-extended-ff/summary.json": "81da8fc840a8ccfc74c9393b0c6b3a384a87aef5ad26a455de409c2f29ea02c9",
+      "assumed/results/last-entry-study/q3-extended-ff/trace.jsonl": "d6c83fd84cd7da31b0f408b207d1c6ed2f11d9911830ac945c6d3c548be2df99",
+      "assumed/results/q-dispatch-study/scenario-00/io.jsonl": "6fc7ae04415adcff9c41114740aaa050997ca882f336098a4a147a08b181e53a",
+      "assumed/results/q-dispatch-study/scenario-00/mapping.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+      "assumed/results/q-dispatch-study/scenario-00/scenario.json": "3a6208aa90f906a65636482683c3604d103cc416c2d2f13a0ba6f4cbd78a9694",
+      "assumed/results/q-dispatch-study/scenario-00/summary.json": "d220ab95f9f6bede7121d911f99c0b62d3f00961dac05649422d9f0f5dae0d5a",
+      "assumed/results/q-dispatch-study/scenario-00/trace.jsonl": "2b0e6c817389826de25a60e2c69d0a2d16408e1962f7b921b67eebc68e3d515c",
+      "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+      "assumed/results/tail-variant-study/q3-01/io.jsonl": "725bed684d847f50684ca1599feb3010c8721796aae966851a913d011be73dca",
+      "assumed/results/tail-variant-study/q3-01/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+      "assumed/results/tail-variant-study/q3-01/scenario.json": "4b389e7bd79ce27e65a94e821e3b306a225187228b1053b758fd965bdc50eafe",
+      "assumed/results/tail-variant-study/q3-01/summary.json": "321b106960ff23c8e2fc6cb1333a0e980bdf884d546cd9a4ee0c5f57233e4e44",
+      "assumed/results/tail-variant-study/q3-01/trace.jsonl": "a1e9e2f32d48aa25e899a5af6b6f89a379aa192f285744e32c66c31c79be8603",
+      "assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+      "assumed/sequencer.json": "b2e12bd569e614540a9e0db78ba2cf0888c41961077e221940fd8b69d1dfa99b",
+      "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+    },
+    "target_words": 22,
+    "witness_count": 5,
+    "witnesses": [
+      {
+        "conservative_graph_exceptions": [
+          "1e9: possible stack overflow",
+          "21f: possible stack overflow",
+          "220: possible stack underflow",
+          "223: possible stack overflow",
+          "295: possible stack underflow",
+          "298: possible stack overflow",
+          "2c4: possible stack overflow",
+          "2ff: possible stack underflow",
+          "310: possible stack underflow",
+          "33f: possible stack underflow",
+          "340: possible stack underflow",
+          "35e: possible stack underflow",
+          "35f: possible stack underflow",
+          "360: possible stack underflow",
+          "376: possible stack overflow",
+          "38f: possible stack overflow",
+          "3a8: possible stack overflow",
+          "3c2: possible stack overflow",
+          "3c4: possible stack underflow",
+          "3ec: possible stack overflow"
+        ],
+        "conservative_graph_words": 1021,
+        "cycles": 512,
+        "evidence": "LAST-ENTRY.md",
+        "final_pc": "084",
+        "first_084_cycle": 283,
+        "id": "q3-masked-ff",
+        "limitations": "Six-clause diagnostic gate; many other input bytes fail at 2FF. This FF trace is clean.",
+        "mapping_digest": "0165f633f943f674809ade9df94b2fabe7f150763c3d72301a232abc660ac96d",
+        "max_stack_depth": 3,
+        "path": "results/last-entry-study/q3-extended-ff",
+        "profile": "q3",
+        "scenario_digest": "a98920d6d1edf948baa6891f85cffb039b5232fd0caa029685eacaaf250f9037",
+        "status": "hypothesis",
+        "targets": [
+          "2D9",
+          "2DA",
+          "2DB",
+          "2DC",
+          "2DD",
+          "2DE",
+          "2DF"
+        ],
+        "trace_digest": "aa3d4fdab4cb9211ab6aa382fbfd5ce8ef183ba573e8c8d1711c8eebcefec777"
+      },
+      {
+        "conservative_graph_exceptions": [
+          "220: possible stack underflow",
+          "295: possible stack underflow"
+        ],
+        "conservative_graph_words": 1020,
+        "cycles": 256,
+        "evidence": "ALIAS-RUNTIME.md",
+        "final_pc": "084",
+        "first_084_cycle": 144,
+        "id": "swapped-qzero-ff",
+        "limitations": "Diagnostic identical-word gate has conservative underflow paths; index-3 FF execution is clean.",
+        "mapping_digest": "5259afe4c0c15feaf2c56ddf84d50ed688281a04c20ed6a99f99f473394a53ea",
+        "max_stack_depth": 3,
+        "path": "results/alias-runtime-study/fitted_swapped-extended-ff",
+        "profile": "fitted_swapped",
+        "scenario_digest": "4b4b05f77fa00a6af4442b42fe32ab45195acf0bdff0c5a503442922a7e2ddb2",
+        "status": "hypothesis",
+        "targets": [
+          "0FA",
+          "0FD",
+          "0FE",
+          "0FF"
+        ],
+        "trace_digest": "2a869457423cb082d38748a992a9adecc5ded10661d689df9ed946da0d7a363e"
+      },
+      {
+        "conservative_graph_exceptions": [],
+        "conservative_graph_words": 1017,
+        "cycles": 256,
+        "evidence": "GATE-ALIASES.md",
+        "final_pc": "084",
+        "first_084_cycle": 187,
+        "id": "q2-reentry-fc",
+        "limitations": "Four-bit gate extension and PC-keyed input bytes provide preparation re-entry; output consumer is unknown.",
+        "mapping_digest": "499d607cf63fcce243a0a3a6457d61ea2f11f2029101756a022f5bf370c72fed",
+        "max_stack_depth": 3,
+        "path": "results/gate-reentry-study/extended-fc",
+        "profile": "q2",
+        "scenario_digest": "359b21c07484a65b61f1f6e4e3b51fd188a32401be3889aab3c151787ee66842",
+        "status": "hypothesis",
+        "targets": [
+          "256",
+          "257",
+          "258"
+        ],
+        "trace_digest": "4c47401f0db0c37e6dd34f21713c814686c12c6e31ed1e5b6c6830d04b82de00"
+      },
+      {
+        "conservative_graph_exceptions": [],
+        "conservative_graph_words": 1011,
+        "cycles": 256,
+        "evidence": "TAIL-VARIANTS.md",
+        "final_pc": "084",
+        "first_084_cycle": 158,
+        "id": "q3-differences-01",
+        "limitations": "q3 arithmetic differs from q2; optional gate and index-12 D=01 inputs are hypotheses.",
+        "mapping_digest": "0165f633f943f674809ade9df94b2fabe7f150763c3d72301a232abc660ac96d",
+        "max_stack_depth": 3,
+        "path": "results/tail-variant-study/q3-01",
+        "profile": "q3",
+        "scenario_digest": "3edab5f1a75fa99d7bf741420f52336d74de67cce198ea65a441ab1fb4d02edb",
+        "status": "hypothesis",
+        "targets": [
+          "287",
+          "288",
+          "289",
+          "28A",
+          "3BD",
+          "3BE",
+          "3BF"
+        ],
+        "trace_digest": "ba631a4575d9fb1e3e8be8b23989a92b0b41c4f4b4b68a3eb91154bf27973fa0"
+      },
+      {
+        "conservative_graph_exceptions": [],
+        "conservative_graph_words": 1011,
+        "cycles": 256,
+        "evidence": "Q-DISPATCH.md",
+        "final_pc": "084",
+        "first_084_cycle": 137,
+        "id": "q2-zero-q",
+        "limitations": "Constant dispatch index 12 and zero read at 2A8; Q-indexed dispatch does not establish the same entry.",
+        "mapping_digest": "499d607cf63fcce243a0a3a6457d61ea2f11f2029101756a022f5bf370c72fed",
+        "max_stack_depth": 3,
+        "path": "results/q-dispatch-study/scenario-00",
+        "profile": "q2",
+        "scenario_digest": "790b01908baec0a27de804500708d413174b69824e000f6530676f2d7af98056",
+        "status": "hypothesis",
+        "targets": [
+          "2CF",
+          "2D9",
+          "2DA",
+          "2DB"
+        ],
+        "trace_digest": "7f4ade69ff28ffd107ba77247c013bc401456df71189d54cc58e00f5372f1a0c"
+      }
+    ]
+  },
+  "source_sha256": {
+    "AFFINE-TAIL.md": "393c8bdc499ddbed9b397c077c028c455052c2376d4a8e5160071c158ca45700",
+    "ALIAS-RUNTIME.md": "62e8ae91040c104ccbaf35ec7aaada079bbc72587aec3894fc5c69bba80d5dfe",
+    "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
+    "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",
+    "DISPATCH-RANGE.md": "090b900eb0dfbedd879791ebf549a2f7c2504bc08e9797c5ccea12efe627914d",
+    "DISPATCH109.md": "c1bacc10b862be013766e19dcbdd234fad53848ea066e53152afd561b9f92403",
+    "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
+    "DRAIN-PREFIX.md": "78015a54cfbeb1ef74a8bff7fe9d1a40bb3396c44f5849901d938f185e606796",
+    "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
+    "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",
+    "GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
+    "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
+    "HANDLER-REPLY.md": "4d19202b5d554ae76b201bb4d709a4d52cb3e31031aecac2ee99d3ae0970f76d",
+    "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
+    "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
+    "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
+    "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",
+    "LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
+    "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
+    "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
+    "MASKED-DRAIN.md": "853158590c53ad6fa4485c3f82b5ba6322c08870a695a22b1ac83ce122aa3bbc",
+    "MASKED-NESTED-DISPATCH.md": "e06bfa78d539d793a7102e5d5f59be8ff216fdf4bdae63eb48c697e2868921dc",
+    "NESTED-PREPARE.md": "715e379e086f8c8a8c76fa06a285392786987d8e24164bf93695a9f4957bafe0",
+    "NESTED-RESET.md": "2e2acb562eee036b5c25e57e235c90adbb36263eb6cc3f0ec6faa266abc0b5ce",
+    "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
+    "PAIRED-CAPTURE.md": "ef09bcfa192c97b1fdc004e5b09a858fef6777d6179ff7b2e23cb7d50a62962a",
+    "PAIRED-COMPONENTS.md": "d8789444a8c12c7e16c3c9cdd0125519ce9e3db824e2e16ec10f3207e5037bf3",
+    "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
+    "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
+    "Q-DISPATCH.md": "bf46fab50deda66a8a7e15756e568b53c0c4bb642674e42356b598ff9b37867a",
+    "Q-INDEPENDENT.md": "e9db7896f01411aca4558ec872ebded36cb53e2ec3161ff3204eb66d077c7329",
+    "Q2-ACCUMULATOR.md": "b9d74d2a5e83b0abf816937d06fcae2c2823bc43f59dec395da4d779857a001e",
+    "Q2-CALLER.md": "37e8a096aebb72e83bf10649f783254c111ffaf8ee6a46c1a8bb365493cc0119",
+    "Q2-DISPATCH.md": "ec2c3d05187ef9a86c48cfe0a85399d0de4482041a8799daa7cb540506ecf47f",
+    "Q2-OVERWRITE.md": "9c943cafa9a4a9da2f5c19d4da5cd005e26e5c4488af7ab0f5b9983be42dd3ad",
+    "Q2-TRANSFORM-LOOP.md": "975f3af99162e38c5a4bc0040536ebc2072068ec1a3b0a6cbe53a977643e2b63",
+    "Q3-REGISTER-CONTRACT.md": "ddfca52767abfea4c7aec717f52f0bc0e9445b16216f62514e9b4b4cd6c49021",
+    "REGISTER-CONTRACT.md": "b0769c1d90f1cc3e8f6fc8d780f723e57bfe6666583f3d87ae505e7ffd193cf9",
+    "REGISTER-SCAN.md": "715ef8a8a1ada20eb4852f3be42828f18424dbad4fbffbcbe4ab031c00ec1683",
+    "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
+    "ROM-CARRY-REPLIES.md": "a5674d5d938effce4f3465af7bb6753ed09bddda735e75b34286f824f996f625",
+    "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",
+    "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
+    "SELECTOR-PREFIX.md": "e5802528379b05c901803d6d20e9c554b586ec0650060a0e5a2282132824bedf",
+    "TAIL-CONVERGENCE.md": "b1e6b58589106a25d44bfb1ae08829cd83dc52121a75e52b838f448a2a5d087a",
+    "TAIL-STACK-CONTRACT.md": "3b37fcb577ff52bf92b5f24d977538e433386248b9313d0338adb9dbd0b02a90",
+    "TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",
+    "TERMINAL-TAIL.md": "cecf5637f41d6e5645425389710c113900a9319140c49d28e4a2b4cf752222da",
+    "THREE-BIT-GATES.md": "8d8abff5bb8a79a9af953c9c048f556e42149384307ff052e8ce2b746bf000da",
+    "reset-witnesses.json": "d02dcba8c47ed26d3bca3dfcb01ff659354ac2655a9ee225bdae7937c6cfa90e",
+    "reset_witness_catalog.py": "19be326d3ea653f3c7a99b68193c27f19e46d4418271b0b32570358079fc1a4a",
+    "results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
+    "results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "results/independent-study/variant-4.json": "0ec561af24f767f8d43c327c1308244d684aaf37eca5057538395c189ae118e9",
+    "results/nested-reset-study/seed-0115/summary.json": "c260c5ccca516af322ca498bd3a301f65a0204850e5916e6f36f36534f61329d",
+    "results/selector-completion/original-marked/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
+    "results/selector-completion/original-marked/summary.json": "e6211e7090896b145a8f5b7c3de2674f6caed178cae51eb5446bc8344b7571d4",
+    "results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+    "results/selector-completion/swapped-marked/summary.json": "7119404516749f5395c615fc97cd7d106c0d35f358e0c69009000a74d56ba1c4",
+    "results/third-case-study/all_cases.json": "8ca7ee6496f18e00cfa3a64f0a16a34e91159c3665b65a11097951b11c36be31",
+    "results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "sequencer.json": "b2e12bd569e614540a9e0db78ba2cf0888c41961077e221940fd8b69d1dfa99b"
+  },
+  "unresolved": [
+    "0FA",
+    "0FD",
+    "0FE",
+    "0FF",
+    "256",
+    "257",
+    "258",
+    "287",
+    "288",
+    "289",
+    "28A",
+    "2CF",
+    "2D9",
+    "2DA",
+    "2DB",
+    "2DC",
+    "2DD",
+    "2DE",
+    "2DF",
+    "3BD",
+    "3BE",
+    "3BF"
+  ]
+}
