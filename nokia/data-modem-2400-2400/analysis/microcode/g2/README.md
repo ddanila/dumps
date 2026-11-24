@@ -188,6 +188,11 @@ shows the exact address rule `0x100 + ((3 + cumulative D127) mod 256)`; the
 earlier ascending walk came from the fixture's constant-one D stub. Feeding
 controller bits at D127 changes the walk but does not demonstrate a carrier,
 DAC output or physical input route.
+An explicit [tone check](PHOTO-I0-HOLD.md#fixed-increment-tone-check) holds
+D127 at the phase increments for 1,800 and 2,100 Hz under an imposed 9,600 Hz
+sample cadence. ALU Y peaks at those frequencies, but the bare phase-index
+byte ramp does too; the selected ROM bytes peak at 3,000 Hz. The match is
+therefore a spectral false positive, not evidence of a recovered transmitter.
 An eight-bit U10 source screen finds that only a hypothetical U10 bit-0 feed
 to U5 D0 sustains ROM reads under a read-valid E2 level, and even that path
 settles to fixed addresses and candidate outputs. The source is untraced.

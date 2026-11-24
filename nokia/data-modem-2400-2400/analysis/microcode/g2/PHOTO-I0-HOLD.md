@@ -58,9 +58,35 @@ The loop may be useful for a table walk, but its physical D source, output
 route, sample timing and role in the modem are unresolved. It does not meet
 G2's transmitter or receiver checks.
 
+## Fixed-increment tone check
+
+For a 256-position phase index, increments 48 and 56 would correspond to
+1,800 and 2,100 Hz **if** each PC129 visit were one 9,600 Hz output sample.
+[`photo_127_tone_probe.py`](photo_127_tone_probe.py) runs the real PROMs for
+640 PC129 visits at each held D127 value. The visits are four microinstructions
+apart. At PC129 the executed ALU result is exactly `(address low byte − selected
+ROM byte) mod 256`. The comparison below uses 15 Hz DFT bins and reports the
+fraction of each sequence's variance explained by its proposed tone's sine
+and cosine components:
+
+| Held D127 | Proposed tone | Phase-index ramp R² | Real ROM byte R² | ALU Y R² | ALU Y peak |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 48 | 1,800 Hz | 0.618 | 0.051 | 0.626 | 1,800 Hz |
+| 56 | 2,100 Hz | 0.610 | 0.155 | 0.346 | 2,100 Hz |
+
+The apparent tone peak is **not evidence of a recovered carrier**: the
+phase-index byte ramp alone peaks at each proposed frequency with comparable
+or greater sinusoidal content. The selected ROM bytes peak at 3,000 Hz in both
+cases, rather than providing a full-cycle sine lookup. The hypothetical
+9,600 Hz output cadence would also require the 14.4 MHz oscillator to be
+divided by 375 to obtain the four-instruction PC129 loop rate; that clock
+divider and any PC129-to-DAC latch are untraced. The [tone report](results/photo-127-tone-probe.json)
+retains the exact samples, spectra, ALU identity, and source hashes.
+
 Reproduce with:
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i0_hold_screen.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_127_rom_walk.py
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_127_tone_probe.py
 ```
