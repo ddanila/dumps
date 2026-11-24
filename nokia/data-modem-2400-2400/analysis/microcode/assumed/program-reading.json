@@ -1777,6 +1777,22 @@
       "evidence": "HANDLER1-BRANCHES.md",
       "meaning": "D164 supplies R3=1-d; later mask with R15=1 leaves Q=(1-d)&1. Timed selector-5 fall reaches 178; a rise at 17A selects 17F, whose wrapped input half is transient. Its previous-OR zero flag skips 180 iff Q=1. Both routes expose comparisons and join 0E9/0EA to 07B with the same final RAM/Q, differing by three or four cycles on the rise route.",
       "limitations": "q3 previous flags, handler-1 zero reset, established replies and table index 2; independent D164/D17F and D167/D16A, explicit selector-5 schedule, selector 6 false. Full reset and exhaustive local parity/shift checks; no physical signal or modem function assigned."
+    },
+    {
+      "name": "handler-2 alternate carry preparation and computed return leaves",
+      "ranges": [
+        [
+          "1E0",
+          "1E8"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER2-ALTERNATE.md",
+      "meaning": "With an explicitly alternative selector-7 external source, 195 reaches 1E0. The c+D1E1 carry controls restoring R0=c; the following addition selects retained FE/FF comparison at 19C. D1A1 drives preceding-Y dispatch into four one-word POP leaves, whose carry-adjusted R3 results are overwritten by the shared body before payload stores.",
+      "limitations": "q3 previous-flag zero-reset handler 2, selector 7 external rise at cycle 92, explicit 1A2 previous-Y source, other tables index 2 and diagnostic replies. Original zero-source and late-rise negative controls still exclude 1E0. No physical connection or modem function inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

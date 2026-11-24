@@ -1761,6 +1761,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER2-ALTERNATE.md",
+        "limitations": "q3 previous-flag zero-reset handler 2, selector 7 external rise at cycle 92, explicit 1A2 previous-Y source, other tables index 2 and diagnostic replies. Original zero-source and late-rise negative controls still exclude 1E0. No physical connection or modem function inferred.",
+        "meaning": "With an explicitly alternative selector-7 external source, 195 reaches 1E0. The c+D1E1 carry controls restoring R0=c; the following addition selects retained FE/FF comparison at 19C. D1A1 drives preceding-Y dispatch into four one-word POP leaves, whose carry-adjusted R3 results are overwritten by the shared body before payload stores.",
+        "name": "handler-2 alternate carry preparation and computed return leaves",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "1E0",
+            "1E8"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1783,7 +1799,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 994,
+    "annotated_used_words": 1002,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5164,6 +5180,7 @@
     "HANDLER0.md": "6820336aafb949943d7c5d08681850a2c7c8434c50442fc067726b7d677f2598",
     "HANDLER1-BRANCHES.md": "940a5e00ee1e5430afbca4703452269128b39a9834773e690d1fa3ef2b992123",
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
+    "HANDLER2-ALTERNATE.md": "bd9a24306e7d9ac17548b368b98f17d4e335c3342c105ff7dfc158d22f20cc96",
     "HANDLER2-BODY.md": "9e6b8ee75f79b64e6e6e61aa6838a456e9483d8112949bbfe55d29e490615d09",
     "HANDLER2-ROUTES.md": "d21f4e16f835c7907d49512274d5ef368a7e060f83ada9b6083997f90b94050e",
     "HANDLER3-DRAINS.md": "148103c9b33b7080ab80421e7221eb129b50806b8d5b399412b3a0de61db3fc1",

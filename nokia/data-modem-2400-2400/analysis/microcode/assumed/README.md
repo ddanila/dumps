@@ -736,3 +736,7 @@ including complete terminal state, store overlaps and negative timing controls.
 [Handler-1 branch continuations](HANDLER1-BRANCHES.md) explain how an earlier
 input's parity controls the 17F skip, while scheduled external-line changes
 select equal-result paths with different microinstruction counts.
+
+[Handler-2 alternate preparation](HANDLER2-ALTERNATE.md) explains 1E0–1E4
+under an explicit external-source hypothesis and all four 1E5–1E8 return
+leaves under preceding-Y dispatch, preserving negative entry controls.

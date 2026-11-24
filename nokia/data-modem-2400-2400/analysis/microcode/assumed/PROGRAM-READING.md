@@ -58,6 +58,7 @@ into one address listing.
 | 11A–130 (q3) | Fixed-register waits and transient arithmetic sequence | Current flags and BLT replies; temporary Q inputs are overwritten; physical timing unknown |
 | 1C3–1CC, 1DA–1DB (q3) | Alternative Q drains and preparation entry | Timed external selector hypotheses; retained-state equivalence does not imply equal output timing |
 | 1EF–1FF (q3) | Alternate component construction and two Q drains | New two-selector external-line hypothesis; transient paired output differs from terminal state |
+| 1E0–1E8 (q3) | Alternate carry-selected comparison and four computed return leaves | New selector-7 external-source hypothesis; original zero source excludes entry |
 | 18B–1C2, 1CD–1D9, 1E7, 3A2–3AA (q3) | Carry-selected comparison, wrapped-sum drain and payload storage | Previous flags, fixed tables and diagnostic replies; bypassed branches excluded |
 | 178–17F, 0E9–0EA (q3) | Timed handler-1 continuations and input-parity skip | Previous flags, declared external-line schedule and fixed terminal destination R2 |
 | 148–177, 180–186, 2E6–2EB (q3) | Wrapped byte sum with input-dependent shift timing | Handler-1 diagnostic inputs; R14 consumer unknown |
@@ -117,7 +118,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 994 used words, including overlaps and disconnected
+These annotations cover 1002 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -154,7 +155,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 132 functional/assumption tests pass, including checks that
+byte. All 133 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -368,3 +369,8 @@ four terminal destinations. The 230/0ED path performs two wrapped additions;
 D164 parity to Q, the previous-OR skip at 17F, and final R5=0/127. Different
 external-line schedules have equal final state with a checked timing difference;
 late-transition controls distinguish the two branch sampling cycles.
+
+[Handler 2's alternate preparation and return leaves](HANDLER2-ALTERNATE.md)
+separate the original entry exclusion from a declared external-line hypothesis.
+The carry-selected comparison survives in R12; four preceding-Y-selected POP
+leaves expose distinct temporary R3 values but share the final payload result.

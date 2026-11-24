@@ -127,6 +127,42 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler2_alternate_carry_and_all_return_leaves(self):
+        import random
+        from handler2_alternate import scenario_for,inspect,check_arithmetic
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler2-alternate.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x1e0)
+        self.assertEqual(check_arithmetic(mapping),dict(preparation_pairs=8192,leaf_cases=32768))
+        cases=[(c,e,256-c,1,i,2) for c in (2,122,130,250) for e in (255-c,256-c) for i in range(4)]
+        cases += [(2+8*rng.randrange(32),*[rng.randrange(256) for _ in range(3)],rng.randrange(4),rng.randrange(5)) for _ in range(96)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                scenario=scenario_for(config,*values)
+                result=execute(mapping,scenario,256,mode='integrated',out=out,trace_limit=256)
+                want=inspect(load_trace(out),result,*values)
+                if number%8==0:
+                    # Bypassed 197 and the zero-operand instruction 1E2 cannot change the result.
+                    scenario['io']['read']['pc_sequences'].update({str(pc):[rng.randrange(256)] for pc in (0x197,0x1e2)})
+                    result=execute(mapping,scenario,256,mode='integrated',out=out,trace_limit=256)
+                    self.assertEqual(inspect(load_trace(out),result,*values),want)
+                if number%11==0:
+                    other=list(values);other[4]=(other[4]+1)%4
+                    scenario=scenario_for(config,*other)
+                    result=execute(mapping,scenario,256,mode='integrated',out=out,trace_limit=256)
+                    got=inspect(load_trace(out),result,*other)
+                    self.assertEqual((got['ram'],got['q'],got['first_terminal']),(want['ram'],want['q'],want['first_terminal']))
+
+                if number%13==0:
+                    for kind in ('zero','late'):
+                        scenario=scenario_for(config,*values)
+                        if kind=='zero':scenario['condition']['sources'][7]='zero'
+                        else:scenario['inputs']['external']['events']=[[93,1]]
+                        result=execute(mapping,scenario,100,mode='integrated',out=out,trace_limit=100)
+                        self.assertTrue(result['clean'])
+                        self.assertEqual(next(r for r in load_trace(out) if r['pc']==0x195)['next_pc'],0x196)
+
     def test_q3_handler1_parity_and_timed_continuations(self):
         import random
         from handler1_branches import scenario_for,inspect,check_parity
