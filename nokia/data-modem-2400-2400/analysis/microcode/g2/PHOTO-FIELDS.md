@@ -90,9 +90,36 @@ signal processing. The goal remains the controller-driven transmitter plus
 receiver or echo canceller; neither a photo-compatible mapping nor these
 bounded executions satisfy G2.
 
+## I7 instruction input is a new conditional constraint
+
+The [AMD Am2901 package diagram](https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/AMD/2900%20Family/amd-2901b-c.pdf)
+confirms that U2 pin 7 is **I7** (and that pins 18–20 are B1–B3 as used
+above). In the rectified back photograph, a bright track from U2 pin 7
+reaches a via near `(713, 1602)`; the corresponding front-side segment appears
+to connect that via to **U6 pin 2, Q0**. This is a photo interpretation, not a
+continuity measurement. The [coordinate and source record](photo-i7-constraint.json)
+keeps the route separate from its additional PROM-bit assumption.
+
+If U11 supplies U6 with **identity bit order**, the route makes I7 = `11.0`.
+All current q1–q4 and fitted mappings instead use `11.6`. The
+[`photo_i7_probe.py`](photo_i7_probe.py) experiment changes only I7 in the
+q3 photo-swapped mapping, retaining the real PROMs and the phase-32 diagnostic
+fixture. Over 512 instructions, the `11.6` baseline visits 38E and 38F 39
+times and executes 156 words in the candidate 392–39F output table. With
+either `11.0` or `!11.0`, it reaches 084 and visits none of those sites.
+Both altered runs are clean; the change is in control flow, not a model error.
+The [saved report](results/photo-i7-probe/report.json) records the exact source
+hashes, counts and trace digests.
+
+This challenges the q3 loop interpretation **if** the U11→U6 identity-bit
+assumption holds. The PROM-to-register permutation is still untraced, so the
+physical route alone cannot reject `11.6` or prove `11.0`. It does identify
+I7 and that permutation as higher-value targets for the next mapping search.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_b_constraints.py --render
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/all_rom_gate_cycles.py
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i7_probe.py
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2 -v
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/board -v
 ```

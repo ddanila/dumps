@@ -1,0 +1,63 @@
+{
+  "cases": [
+    {
+      "candidate_output_word_visits": 156,
+      "clean": true,
+      "dispatch_38f_visits": 39,
+      "final_pc": "389",
+      "first_output_y": [
+        0,
+        0,
+        190,
+        64
+      ],
+      "i7": "11.6",
+      "input_38e_visits": 39,
+      "label": "baseline",
+      "trace_digest": "a461cea51498d8184df4d7d092c34e595d915b45d4a181550d7d259c8aaf3380",
+      "visited_addresses": 51
+    },
+    {
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "dispatch_38f_visits": 0,
+      "final_pc": "084",
+      "first_output_y": [],
+      "i7": "11.0",
+      "input_38e_visits": 0,
+      "label": "identity",
+      "trace_digest": "3f477cfc5b118d44b0a3a3de676de677479eea4854f82432beb61fec1210adf6",
+      "visited_addresses": 134
+    },
+    {
+      "candidate_output_word_visits": 0,
+      "clean": true,
+      "dispatch_38f_visits": 0,
+      "final_pc": "084",
+      "first_output_y": [],
+      "i7": "!11.0",
+      "input_38e_visits": 0,
+      "label": "inverted_identity",
+      "trace_digest": "827ae43524ac8f99cadf1dbaacd25ed54091b3023c49eaec7c71ae4438933ea6",
+      "visited_addresses": 106
+    }
+  ],
+  "cycle_limit": 512,
+  "hypothesis": "U2 I7 comes from U6 Q0; I7=11.0 additionally assumes U11->U6 identity bit order.",
+  "limitations": [
+    "The photo route is not a continuity measurement.",
+    "U11-to-U6 bit order and the q3 instruction mapping remain hypotheses.",
+    "The phase-32 input and ROM gate are diagnostic fixtures.",
+    "Absence of candidate output in this fixture does not exclude the real transmitter."
+  ],
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/execute.py": "240e84ad8c31a9d5d595e69c38bd2d3e7a22c48b6dc5305bfdba5a2985df051f",
+    "g2/photo-i7-constraint.json": "d579c27e569f1575ce3ad53cff343a5c3d9047a2a75e81d4b92f08beb4e95acb",
+    "g2/photo_i7_probe.py": "8eaca5f9949a3c1cace2568d8207d7f7cb89d24b1fe551603945e8365013348d",
+    "g2/results/swapped-sine-loop/phase-20-mapping.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "g2/results/swapped-sine-loop/phase-20-scenario.json": "255ad276e7a808de4e17af7cac089be6fe82e52fb36e7b880e145dd2e5837b5e",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "status": "conditional-photo-i7-mapping-sensitivity"
+}

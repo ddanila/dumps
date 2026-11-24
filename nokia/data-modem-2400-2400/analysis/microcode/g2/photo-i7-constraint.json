@@ -1,0 +1,25 @@
+{
+  "status": "photo-traced-candidate-not-continuity-measurement",
+  "back_photo": "../../../photos/PXL_20261123_114932814.jpg",
+  "back_sha256": "1b526e960598b86ee18bb2f336fe47a15f9c8535dc10700c7a24c78a9ada8840",
+  "front_photo": "../../../photos/PXL_20261123_114926601.jpg",
+  "front_sha256": "9f15c0ee40fa352a7c123975e83753a7f073320d7bc8971dc9c282358c06f7b2",
+  "back_rectified_size": [4000, 2000],
+  "candidate_route": {
+    "start": "U2.7 (Am2901 I7)",
+    "start_pad_back_rectified": [3284, 1578],
+    "end": "U6.2 (74LS374 Q0), through a front-side via",
+    "back_track_end_rectified": [713, 1602],
+    "front_via_approx_rectified": [713, 1602],
+    "status": "candidate-visible-route"
+  },
+  "conditional_bit_assignment": {
+    "if_U11_to_U6_bundle_and_identity_bit_order": "I7 = PROM 11 bit 0",
+    "existing_q3_bit": "PROM 11 bit 6",
+    "limitation": "The PROM-to-U6 data bit permutation is untraced; the physical I7 route alone does not identify a PROM bit."
+  },
+  "pin_references": [
+    "https://deramp.com/downloads/mfe_archive/050-Component%20Specifications/AMD/2900%20Family/amd-2901b-c.pdf (01656B, page 5-3, P-40/D-40 top-view package diagram)",
+    "https://www.ti.com/lit/ds/symlink/sn74ls374.pdf (SDLS165B, page 1)"
+  ]
+}
