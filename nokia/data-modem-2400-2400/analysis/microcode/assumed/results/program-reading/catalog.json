@@ -1777,6 +1777,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "STARTUP-CONTRACT.md",
+        "limitations": "q3 previous-flag zero reset, selector-5 true, declared PC input sequences and Q-indexed 109. Complete startup prefixes stop before handler execution; held inputs prove period-two recurrence. No physical reset, handshake, channel or clock assignment inferred.",
+        "meaning": "100-105 compose 06F, two 112 captures and the called 117 wait before entering the standalone 106 wait. Previous PLP carry repeats iff its reply is nonzero; independent BLT bytes leave R6=r-1/R7=s-1. 119 returns the real caller and exposes first R4. Second R4 capture survives; transient Y108 does not alter Q-indexed handler selection.",
+        "name": "startup preparation, independent wait captures and Q dispatch",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "100",
+            "109"
+          ],
+          [
+            "117",
+            "119"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1799,7 +1819,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 1002,
+    "annotated_used_words": 1010,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2074,6 +2094,26 @@
             [
               "117",
               "118"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "STARTUP-CONTRACT.md",
+          "limitations": "q3 previous-flag zero reset, selector-5 true, declared PC input sequences and Q-indexed 109. Complete startup prefixes stop before handler execution; held inputs prove period-two recurrence. No physical reset, handshake, channel or clock assignment inferred.",
+          "meaning": "100-105 compose 06F, two 112 captures and the called 117 wait before entering the standalone 106 wait. Previous PLP carry repeats iff its reply is nonzero; independent BLT bytes leave R6=r-1/R7=s-1. 119 returns the real caller and exposes first R4. Second R4 capture survives; transient Y108 does not alter Q-indexed handler selection.",
+          "name": "startup preparation, independent wait captures and Q dispatch",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "100",
+              "109"
+            ],
+            [
+              "117",
+              "119"
             ]
           ],
           "status": "hypothesis"
@@ -5224,6 +5264,7 @@
     "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
     "SELECTOR-PREFIX.md": "e5802528379b05c901803d6d20e9c554b586ec0650060a0e5a2282132824bedf",
     "SHORT-HELPERS.md": "a2e0108de96deb4829c5a2802e2e7e0c39bd998cb86d84bb159014bf8d83b270",
+    "STARTUP-CONTRACT.md": "3b9d9060272dc6f2fcb79e2a2f134d44085a82aa72d3779bad40f736bb5f7de5",
     "TAIL-CONVERGENCE.md": "b1e6b58589106a25d44bfb1ae08829cd83dc52121a75e52b838f448a2a5d087a",
     "TAIL-STACK-CONTRACT.md": "3b37fcb577ff52bf92b5f24d977538e433386248b9313d0338adb9dbd0b02a90",
     "TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",

@@ -1793,6 +1793,26 @@
       "evidence": "HANDLER2-ALTERNATE.md",
       "meaning": "With an explicitly alternative selector-7 external source, 195 reaches 1E0. The c+D1E1 carry controls restoring R0=c; the following addition selects retained FE/FF comparison at 19C. D1A1 drives preceding-Y dispatch into four one-word POP leaves, whose carry-adjusted R3 results are overwritten by the shared body before payload stores.",
       "limitations": "q3 previous-flag zero-reset handler 2, selector 7 external rise at cycle 92, explicit 1A2 previous-Y source, other tables index 2 and diagnostic replies. Original zero-source and late-rise negative controls still exclude 1E0. No physical connection or modem function inferred."
+    },
+    {
+      "name": "startup preparation, independent wait captures and Q dispatch",
+      "ranges": [
+        [
+          "100",
+          "109"
+        ],
+        [
+          "117",
+          "119"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "STARTUP-CONTRACT.md",
+      "meaning": "100-105 compose 06F, two 112 captures and the called 117 wait before entering the standalone 106 wait. Previous PLP carry repeats iff its reply is nonzero; independent BLT bytes leave R6=r-1/R7=s-1. 119 returns the real caller and exposes first R4. Second R4 capture survives; transient Y108 does not alter Q-indexed handler selection.",
+      "limitations": "q3 previous-flag zero reset, selector-5 true, declared PC input sequences and Q-indexed 109. Complete startup prefixes stop before handler execution; held inputs prove period-two recurrence. No physical reset, handshake, channel or clock assignment inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

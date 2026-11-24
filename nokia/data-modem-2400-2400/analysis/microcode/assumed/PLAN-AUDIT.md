@@ -69,7 +69,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Integrated slices/sequencer with selectable flags and logged external world | `execute.py`, component tests, current q2/q3 traces | Implemented |
 | Datapath-derived dispatch when suggested | Q and preceding-Y index policies; nonzero masked nested reset study | Demonstrated with real caller stack; other sites may remain scenario-driven |
 | Millions of clean integrated instructions and stable inspectable activity | Two million primary integrated instructions plus exact full replays; q3 live ROM feedback | Execution criterion passes |
-| Name subroutines and annotate from traces | 1002 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Direct-call catalog annotated; broader branch/case interpretation remains incomplete** |
+| Name subroutines and annotate from traces | 1010 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Direct-call catalog annotated; broader branch/case interpretation remains incomplete** |
 | Relate I/O to sine lookup, DAC, sample timing and controller exchange | Replayed actual 8031 build/transmit, completion-qualified frame latch, declared byte routing, actual ROM operand and recurring DAC transfers with explicit relative clock ratio | Implemented as a one-way diagnostic hypothesis; physical routing and signal-processing purpose unresolved |
 | Feed routine evidence back into mapping/execution | Q-independent alternatives, source-register comparisons, carry/flag timing and handler studies | Implemented, ongoing where interpretations disagree |
 | Optional continuity checks | Prioritized in the plan and board worksheets | Optional; not an execution or interpretation blocker |
@@ -86,12 +86,12 @@ still expose a possible stack underflow at 2FF.
 All 37 cataloged direct-call entries have evidence-linked annotations, including
 2EC's three paths through an actual nested return. This closes the direct-call
 naming queue, not the whole program-reading step. Unannotated branch/case
-bodies remain: 1002/1,021 is an annotation count, not a percentage of understood
+bodies remain: 1010/1,021 is an annotation count, not a percentage of understood
 modem functionality. The next reading work must connect these bodies to the
 existing handler contracts and distinguish scoped local evidence from reset
-reachability and physical function. The largest currently unannotated listing
-spans are 100–105 (6 words), 1DC–1DE (3), 221–223 (3), and 2B9–2BB (3). The generated catalog is authoritative for
-the remaining individual addresses; these spans are not inferred subroutine boundaries.
+reachability and physical function. The remaining unannotated listing
+spans are 043–044 (2 words), 1DC–1DE (3), 221–223 (3), and 2B9–2BB (3).
+The generated catalog is authoritative for these addresses; these spans are not inferred subroutine boundaries.
 
 The [controller-to-DAC bridge](FRAME-DAC-BRIDGE.md) now supplies a coherent
 one-way transaction under the plan's assumption policy. It joins actual
@@ -116,5 +116,5 @@ The runner's execution gate requires clean complete runs, maximum depth at most
 four, no unused words, exact full replays and unchanged saved prefixes, at least
 one million sequencer and two million integrated primary instructions, and at
 least 90% clean random-sweep coverage. Tests reject failed, truncated,
-non-reproducible, over-depth and insufficient-coverage summaries. The 133-test
+non-reproducible, over-depth and insufficient-coverage summaries. The 134-test
 suite passes. No full-plan completion flag is inferred from this execution gate.

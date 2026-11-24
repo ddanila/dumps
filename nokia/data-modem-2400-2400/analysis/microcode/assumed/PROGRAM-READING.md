@@ -94,6 +94,7 @@ into one address listing.
 | 345–365 (q3) | Three input-selecting continuations | Zero captured second component; fixed paired/branch indices and separate terminal R2 selection |
 | 366–36F (q3) | Overwritten preparation, carry-gated input chain and return Q mask | Constant local reads; one complete ROM zero-reply reset call |
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
+| 100–109, 117–119 (q3) | Startup calls, independent wait/capture bytes and Q-selected handlers | Zero reset, previous flags and declared input schedules; prefixes end before handler execution |
 | 109 | Input-code dispatch candidates | Mapping and input schedule change current/previous-Y and Q selectors |
 | 002, 076, 109–111 (q1/q3) | Input accumulation, Q-based selector and eight-way handler table | Independent-input prefixes verified; physical command protocol unknown |
 | 133–147, 341–344 (q3) | Input-carry and capture-selected transforms | Zero-reset source words and fixed table entry 2; other transform states unresolved |
@@ -118,7 +119,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 1002 used words, including overlaps and disconnected
+These annotations cover 1010 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -155,7 +156,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 133 functional/assumption tests pass, including checks that
+byte. All 134 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -374,3 +375,8 @@ late-transition controls distinguish the two branch sampling cycles.
 separate the original entry exclusion from a declared external-line hypothesis.
 The carry-selected comparison survives in R12; four preceding-Y-selected POP
 leaves expose distinct temporary R3 values but share the final payload result.
+
+[The complete startup contract](STARTUP-CONTRACT.md) connects preparation
+calls, two external waits and Q-selected dispatch for all byte codes. Independent
+capture reads determine R6/R7 while PLP-side replies control release; held
+replies prove period-two recurrence. The second R4 capture replaces the first.

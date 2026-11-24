@@ -127,6 +127,36 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_startup_wait_captures_and_handler_dispatch(self):
+        import random
+        from startup_contract import scenario_for,inspect,prediction,check_waits
+        from defined_condition_fit import load_trace
+        from handler_timing_study import classify
+        config=read(HERE/'startup-contract.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x100)
+        self.assertEqual(check_waits(mapping),131072)
+        cases=[(code,0,0,r,s,255,0,255) for code in (0,1,254,255) for r,s in ((0,255),(255,0))]
+        cases += [(rng.randrange(256),rng.randrange(6),rng.randrange(6),*[rng.randrange(256) for _ in range(5)]) for _ in range(96)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                sc=scenario_for(config,*values,fail1=rng.randrange(1,256),fail2=rng.randrange(1,256));cycles=prediction(*values)['cycles']
+                result=execute(mapping,sc,cycles,mode='integrated',out=out,trace_limit=cycles)
+                want=inspect(load_trace(out),result,*values)
+                if number%10==0:
+                    other=list(values);other[5]^=255;other[7]^=255
+                    sc=scenario_for(config,*other);split=rng.randrange(256)
+                    sc['io']['read']['pc_sequences'].update({'2':[split],str(0x76):[(values[0]-split)&255]})
+                    result=execute(mapping,sc,cycles,mode='integrated',out=out,trace_limit=cycles)
+                    got=inspect(load_trace(out),result,*other)
+                    self.assertEqual((got['ram'],got['q'],got['handler'],got['cycles']),(want['ram'],want['q'],want['handler'],want['cycles']))
+            for pc in (0x117,0x106):
+                sc=scenario_for(config,255,0,0,128,0,1,255,1);sc['io']['read']['pc_sequences'][str(pc)]=[255]
+                result=execute(mapping,sc,96,mode='integrated',out=out,trace_limit=96)
+                trace=load_trace(out);finding=classify(trace,sc)
+                self.assertTrue(result['clean']);self.assertEqual(finding['outcome'],'repeat');self.assertEqual(finding['repeat']['period'],2)
+                self.assertIsNone(finding['dispatch']);self.assertFalse(any(row['pc']==pc+2 for row in trace))
+
     def test_q3_handler2_alternate_carry_and_all_return_leaves(self):
         import random
         from handler2_alternate import scenario_for,inspect,check_arithmetic

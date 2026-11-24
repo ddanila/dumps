@@ -740,3 +740,7 @@ select equal-result paths with different microinstruction counts.
 [Handler-2 alternate preparation](HANDLER2-ALTERNATE.md) explains 1E0–1E4
 under an explicit external-source hypothesis and all four 1E5–1E8 return
 leaves under preceding-Y dispatch, preserving negative entry controls.
+
+[Startup contract](STARTUP-CONTRACT.md) explains the shared entry sequence,
+its two independently controlled capture waits, complete state at all eight
+handler entries and deterministic held-wait recurrence.
