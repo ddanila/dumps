@@ -179,6 +179,15 @@ The board-engine capture-edge check finds that a simple U10→U5 route cannot
 latch E2 high together with valid U10 data on one edge; it explicitly yields
 high-impedance data bits instead. A different I0 route or a real hold circuit
 would be needed to turn that diagnostic path into a board candidate.
+The [held-I0 timing screen](PHOTO-I0-HOLD.md) tests that possibility as an
+explicit hypothesis across five mappings and every startup Q byte. At Q=5,
+all five consume the controller's 128 bits and make repeated ROM reads, but
+each selected read site uses one fixed address. A separate Q=0 q3/q4 path
+does walk through changing ROM addresses. Executing it with varied D127 bytes
+shows the exact address rule `0x100 + ((3 + cumulative D127) mod 256)`; the
+earlier ascending walk came from the fixture's constant-one D stub. Feeding
+controller bits at D127 changes the walk but does not demonstrate a carrier,
+DAC output or physical input route.
 An eight-bit U10 source screen finds that only a hypothetical U10 bit-0 feed
 to U5 D0 sustains ROM reads under a read-valid E2 level, and even that path
 settles to fixed addresses and candidate outputs. The source is untraced.

@@ -60,6 +60,9 @@ values still settle; there is no demonstrated evolving carrier. The next
 photo/timing hypothesis should therefore explain how I0 could be high while
 valid U10 data is available, or try an alternative I0 route. Merely changing
 A1 cannot rescue this Q=5 controller path.
+The [held-I0 cross-mapping screen](PHOTO-I0-HOLD.md) now tests that timing
+hypothesis explicitly; its repeated Q=5 ROM reads remain fixed-address, while
+a separate Q=0 ROM walk is driven by the fixture's D127 byte.
 
 ## Capture-edge check
 
