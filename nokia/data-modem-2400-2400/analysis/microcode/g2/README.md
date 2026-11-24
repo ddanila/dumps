@@ -716,3 +716,7 @@ The [D349 source-update candidate](PHOTO-TABLE-SOURCE-UPDATE.md) uses four
 other branch scenarios and finds an input-sensitive R5 write before later
 sign-table calls under q3. Its 56 runs show a conditional path from external
 D to table output, while the source and output wiring remain untraced.
+The [real-controller-byte continuation](PHOTO-TABLE-CONTROLLER-SOURCE.md)
+offers USART-01 bytes at D349. In q3 they change the later table source under
+the candidate route, but the only reached output candidate, `39E`, stays at
+ALU code `00` and no continuous stream develops.

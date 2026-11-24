@@ -132,6 +132,11 @@ phases B–C turn "what" into "how".
   saved branch scenarios. This is a new input-route lead, not yet an advancing
   controller/ROM-driven source or a DAC sample stream. Test changing input
   candidates and output timing without waiting for a complete pin trace.
+  A [controller-byte replay](g2/PHOTO-TABLE-CONTROLLER-SOURCE.md) confirms
+  that actual USART-01 bytes can affect the q3 source under this candidate
+  route, while the reached output word `39E` remains zero. The remaining
+  transmitter task is a sustained input schedule and a changing DAC-bound
+  output after the table calls.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

@@ -34,6 +34,9 @@ phase accumulation, Am27S31 read at this site, or DAC08 output strobe. The
 next useful experiment is to test candidate ROM, ADC and controller routes
 that can change D at `349` over time and to look for a reached output latch.
 No new photo or continuity measurement is required to run those candidates.
+A [controller-byte replay](PHOTO-TABLE-CONTROLLER-SOURCE.md) uses actual
+USART-01 output bytes at this candidate site. It changes the q3 table source
+but still finds no changing code at the reached output candidate `39E`.
 
 The [report](results/photo-table-source-update.json) records each input byte,
 R5 write, call source/output, restart count, trace digest and source hashes.
