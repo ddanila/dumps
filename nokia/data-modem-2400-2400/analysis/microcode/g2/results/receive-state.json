@@ -1,0 +1,1557 @@
+{
+  "controller_rom_sha256": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+  "interpretation": "The fifth received payload byte is stored at RAM2E. Its bit 6 selects A3 on A2 expiry, or B8 when clear.",
+  "limitations": [
+    "The physical source and meaning of the received frame remain unknown.",
+    "The handoff to the state routine is a local harness step, not a continuous controller call.",
+    "No DSC2847 microcode or line output is executed in this probe."
+  ],
+  "preconditions": "Synthetic USART receive completions at 8 core ticks; discarded lead byte A5; all other payload bytes zero; after 0800 returns, A2 is selected with qualification set and expired timer; no interrupts.",
+  "rows": [
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "00",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "01",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "02",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "03",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "04",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "05",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "06",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "07",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "08",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "09",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "0A",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "0B",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "0C",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "0D",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "0E",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "0F",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "10",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "11",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "12",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "13",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "14",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "15",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "16",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "17",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "18",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "19",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "1A",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "1B",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "1C",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "1D",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "1E",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "1F",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "20",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "21",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "22",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "23",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "24",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "25",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "26",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "27",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "28",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "29",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "2A",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "2B",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "2C",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "2D",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "2E",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "2F",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "30",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "31",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "32",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "33",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "34",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "35",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "36",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "37",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "38",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "39",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "3A",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "3B",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "3C",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "3D",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "3E",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "3F",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "40",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "41",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "42",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "43",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "44",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "45",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "46",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "47",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "48",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "49",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "4A",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "4B",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "4C",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "4D",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "4E",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "4F",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "50",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "51",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "52",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "53",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "54",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "55",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "56",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "57",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "58",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "59",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "5A",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "5B",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "5C",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "5D",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "5E",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "5F",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "60",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "61",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "62",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "63",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "64",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "65",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "66",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "67",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "68",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "69",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "6A",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "6B",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "6C",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "6D",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "6E",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "6F",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "70",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "71",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "72",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "73",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "74",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "75",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "76",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "77",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "78",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "79",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "7A",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "7B",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "7C",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "7D",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "7E",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "7F",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "80",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "81",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "82",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "83",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "84",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "85",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "86",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "87",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "88",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "89",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "8A",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "8B",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "8C",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "8D",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "8E",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "8F",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "90",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "91",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "92",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "93",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "94",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "95",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "96",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "97",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "98",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "99",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "9A",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "9B",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "9C",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "9D",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "9E",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "9F",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A0",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A1",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A2",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A3",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A4",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A5",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A6",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A7",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A8",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "A9",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "AA",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "AB",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "AC",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "AD",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "AE",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "AF",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B0",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B1",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B2",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B3",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B4",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B5",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B6",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B7",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B8",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "B9",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "BA",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "BB",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "BC",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "BD",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "BE",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "B8",
+      "receive_count": 7,
+      "received_fifth_payload": "BF",
+      "state_cycles": 58
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C0",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C1",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C2",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C3",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C4",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C5",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C6",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C7",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C8",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "C9",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "CA",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "CB",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "CC",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "CD",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "CE",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "CF",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D0",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D1",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D2",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D3",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D4",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D5",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D6",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D7",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D8",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "D9",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "DA",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "DB",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "DC",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "DD",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "DE",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "DF",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E0",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E1",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E2",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E3",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E4",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E5",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E6",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E7",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E8",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "E9",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "EA",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "EB",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "EC",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "ED",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "EE",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "EF",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F0",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F1",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F2",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F3",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F4",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F5",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F6",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F7",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F8",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "F9",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "FA",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "FB",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "FC",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "FD",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "FE",
+      "state_cycles": 55
+    },
+    {
+      "next_state": "A3",
+      "receive_count": 7,
+      "received_fifth_payload": "FF",
+      "state_cycles": 55
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/interface_probe.c": "9dcda6531bb853652c89c253ad557ee85c6f2855c2d77379b706a48f9becdd2b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receive_state_probe.c": "46582532483e53c857ae73fe8bc05b38e0e095fe7ee7761ab1b3b8232fdfac17",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "256 composed controller ROM executions pass"
+}
