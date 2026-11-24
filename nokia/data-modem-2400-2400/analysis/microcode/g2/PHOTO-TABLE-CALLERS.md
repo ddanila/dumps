@@ -33,6 +33,18 @@ output `(0000,0001)` before the table. Its four words leave output
 `(0000,FFFF)`. This is a reached-state result, unlike a locally injected
 source-pair fixture.
 
+Only **8 of 64 runs** per mapping/E4 case reach either table: the four D
+values with scenario seeds 11 or 14. Every observed table call occurs by
+cycle 218. All **640 runs end at `084`** by cycle 1,000. Under the saved
+sequencer decode, `084` is a direct, unconditional branch back to `084`;
+changing later external-D bytes cannot release that loop. The source values
+in one q3, D=`01`, seed-11 call were last written by `115` (R4) and `138`
+(R8), both candidate D-consuming instructions. Feeding controller bytes at
+those sites would test only this finite reset prefix under the present branch
+scenario, not a running transmitter. A different, evidence-supported control
+path or sequencer timing hypothesis is needed before interpreting these calls
+as steady modem processing.
+
 The reached results do not establish a simple sign selection or quarter-turn.
 Among calls with nonzero sources and E4 high, the exact sign-selection formula
 from the uncoupled local diagnostic matches only 4/25, 9/25, 4/25, 0/21 and

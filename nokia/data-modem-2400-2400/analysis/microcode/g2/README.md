@@ -665,4 +665,6 @@ E4 latch high, 21–25 of 28 reached calls per mapping have nonzero source
 pairs, and 16–20 change the candidate output pair. Holding E4 low leaves
 those source pairs zero and makes no output writes. These are results under
 saved branch/dispatch scenarios and constant external-D stubs, not a
-controller-driven transmitter or DAC sample stream.
+controller-driven transmitter or DAC sample stream. Only seeds 11 and 14
+reach the tables, and all 640 runs settle at the unconditional `084` self-loop;
+this candidate path does not demonstrate steady signal processing.

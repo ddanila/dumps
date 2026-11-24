@@ -67,10 +67,18 @@ def reached_calls(trace, scenario):
                 actual_pcs != expected_pcs):
             raise ValueError('reached call does not execute a four-word table entry')
         before = sample['ram_at_entry']
+        last_writes = {}
+        for index in (4, 5, 8, 9):
+            writer = next((row for row in reversed(trace[:sample['cycle']])
+                           if str(index) in row['registers']), None)
+            last_writes[str(index)] = None if writer is None else dict(
+                cycle=writer['cycle'], pc=f'{writer["pc"]:03X}',
+                value=writer['registers'][str(index)])
         calls.append(dict(cycle=sample['cycle'], site=f'{sample["site"]:03X}',
                           entry=sample['entry'], target=f'{sample["target"]:03X}',
                           q=sample['q_at_entry'],
                           source=[word(before, 4), word(before, 8)],
+                          source_last_writes=last_writes,
                           output_before=[word(before, 10), word(before, 12)],
                           output_after=[word(after, 10), word(after, 12)]))
     return calls
@@ -85,6 +93,8 @@ def run(out=HERE / 'results/photo-table-callers.json'):
             for e4 in (0, 1):
                 observations = []
                 clean_runs = 0
+                end_pcs = Counter()
+                runs_with_calls = set()
                 for value in VALUES:
                     scenario = scenario_for(e4, value)
                     for seed in SEEDS:
@@ -94,11 +104,17 @@ def run(out=HERE / 'results/photo-table-callers.json'):
                         if not result['clean']:
                             raise ValueError(f'{name} E4={e4} D={value:02X} seed={seed} stopped')
                         clean_runs += 1
+                        end_pcs[f'{result["final_state"]["pc"]:03X}'] += 1
                         trace = [json.loads(line) for line in
                                  (temporary / 'trace.jsonl').read_text().splitlines()]
+                        calls = reached_calls(trace, scenario)
+                        if calls:
+                            runs_with_calls.add((value, seed))
                         observations.extend(dict(d=value, seed=seed, **call)
-                                            for call in reached_calls(trace, scenario))
+                                            for call in calls)
                 cases.append(dict(mapping=name, e4=e4, e2=0, runs=clean_runs,
+                                  runs_with_calls=len(runs_with_calls),
+                                  end_pc_counts=dict(sorted(end_pcs.items())),
                                   calls=len(observations),
                                   calls_by_site=dict(Counter(x['site'] for x in observations)),
                                   selected_entries=sorted({x['entry'] for x in observations}),
