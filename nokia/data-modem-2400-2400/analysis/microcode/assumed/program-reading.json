@@ -1020,6 +1020,22 @@
       "meaning": "Copy R4-R7 to R8-R11 and call paired arithmetic. Previous-zero exit observes only the last high byte. q3 reset inputs supply independent U byte and V word; both output results, including the first high byte, may be nonzero on return. q1 matched inputs retain a zero first component.",
       "evidence": "PAIRED-COMPONENTS.md",
       "limitations": "Operands within each pair are equal after the wrapper copies; first component high byte is zero on entry. Diagnostic inputs, previous-Y dispatch and virtual output captures do not recover physical ports."
+    },
+    {
+      "name": "ROM-address/carry feedback loop",
+      "ranges": [
+        [
+          "36C",
+          "36E"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "ROM-CARRY-REPLIES.md",
+      "meaning": "With the two-bit ROM-read gate, R0=FF and previous carry timing, the next lookup address is R2 exposed on Y at 36E. A finite recurrence explains constant-reply exits and cycles: 215 bytes return and 41 cycle from the demonstrated reset state.",
+      "limitations": "Scoped to bank-256 previous-Y ROM reads at gate-selected words and default D=1 outside 36D. Not a recovered handshake protocol or signal-processing algorithm."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

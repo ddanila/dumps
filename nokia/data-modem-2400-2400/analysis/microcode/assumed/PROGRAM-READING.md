@@ -127,7 +127,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 95 functional/assumption tests pass, including checks that
+byte. All 96 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -175,3 +175,8 @@ classes among the 137 fitted predicates. The two-bit gate creates a three-cycle
 ROM/carry wait in handler 5; a zero external reply releases it. Other gates
 change handler 2’s comparison value, showing why termination alone is not
 evidence of the physical read-selection signal.
+
+[ROM/carry reply recurrence](ROM-CARRY-REPLIES.md) derives the complete
+256-state feedback transition for each reply byte. All 65,536 local transitions
+match the ALU model; actual reset runs distinguish 215 returning replies from
+41 persistent cycles, including a 45-instruction cycle.

@@ -1,0 +1,22 @@
+{
+  "status": "hypothesis",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "tables": "results/third-case-study/scenario-all_cases.json",
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q3": "results/independent-study/variant-3.json"
+  },
+  "cycles": 512,
+  "evidence": "Exhaust constant replies at 36D for q3 handler 5 under the two-bit ROM-read predicate. Preserve zero reset, Q=5 dispatch, early PLP replies and D=1 elsewhere. The derived recurrence assumes R0=FF, preceding-Y ROM address in bank 256, and previous carry loop control; all are verified against decoded operations and reset traces. Not a recovered acknowledgement protocol.",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+  "gates": "results/rom-gate-study/report.json",
+  "witness_replies": [
+    0,
+    1,
+    2,
+    119,
+    249,
+    251,
+    255
+  ]
+}

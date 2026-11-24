@@ -938,6 +938,32 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_rom_carry_reply_recurrence_and_y_dependency(self):
+        from rom_carry_replies import transition, predict, check_step
+        from rom_gate_handlers import scenario_for_gate, outcome
+        from rom_study import load_rom
+        from defined_condition_fit import load_trace
+        config=read(HERE/'rom-carry-replies.json');table=load_rom(config)[256:]
+        mapping=read(HERE/config['profiles']['q3']);rows=decode(mapping)
+        pcs=read(HERE/config['gates'])['fits'][0]['pcs']
+        scenario=scenario_for_gate(config,5,pcs)
+        for d,n in ((0,1),(2,2),(251,13)):
+            self.assertEqual(predict(table,d)['iterations'],n)
+        for d,period in ((1,1),(249,15),(255,11)):
+            self.assertEqual(predict(table,d)['period'],period)
+        for x in (0,1,64,127,255):
+            for d in (0,1,2,119,249,251,255):check_step(rows,scenario,table,x,d)
+        corrupted=copy.deepcopy(rows);corrupted[0x36e]['i']+=64
+        with self.assertRaises(AssertionError):check_step(corrupted,scenario,table,0,1)
+        with tempfile.TemporaryDirectory() as temporary:
+            for d in (249,251):
+                scenario['io']['read']['pc_sequences'][str(0x36d)]=[d]
+                result=execute(mapping,scenario,512,mode='integrated',out=Path(temporary),trace_limit=512)
+                finding=outcome(load_trace(Path(temporary)),result,scenario)
+                self.assertTrue(finding['clean'])
+                if d==249:self.assertEqual(finding['repeat']['period'],45)
+                else:self.assertEqual(finding['first_terminal'],146)
+
     def test_rom_gate_handler_transfer_and_delayed_release(self):
         from rom_gate_handlers import scenario_for_gate, outcome
         from defined_condition_fit import load_trace

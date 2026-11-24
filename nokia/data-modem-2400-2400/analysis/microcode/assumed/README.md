@@ -574,3 +574,8 @@ classes among the 137 fitted predicates. The two-bit gate creates a three-cycle
 ROM/carry wait in handler 5; a zero external reply releases it. Other gates
 change handler 2’s comparison value, showing why termination alone is not
 evidence of the physical read-selection signal.
+
+[ROM/carry reply recurrence](ROM-CARRY-REPLIES.md) derives the complete
+256-state feedback transition for each reply byte. All 65,536 local transitions
+match the ALU model; actual reset runs distinguish 215 returning replies from
+41 persistent cycles, including a 45-instruction cycle.

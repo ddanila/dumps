@@ -1004,6 +1004,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "ROM-CARRY-REPLIES.md",
+        "limitations": "Scoped to bank-256 previous-Y ROM reads at gate-selected words and default D=1 outside 36D. Not a recovered handshake protocol or signal-processing algorithm.",
+        "meaning": "With the two-bit ROM-read gate, R0=FF and previous carry timing, the next lookup address is R2 exposed on Y at 36E. A finite recurrence explains constant-reply exits and cycles: 215 bytes return and 41 cycle from the demonstrated reset state.",
+        "name": "ROM-address/carry feedback loop",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "36C",
+            "36E"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -3463,6 +3479,7 @@
     "REGISTER-CONTRACT.md": "b0769c1d90f1cc3e8f6fc8d780f723e57bfe6666583f3d87ae505e7ffd193cf9",
     "REGISTER-SCAN.md": "715ef8a8a1ada20eb4852f3be42828f18424dbad4fbffbcbe4ab031c00ec1683",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",
+    "ROM-CARRY-REPLIES.md": "a5674d5d938effce4f3465af7bb6753ed09bddda735e75b34286f824f996f625",
     "ROM-DISPATCH.md": "d52325ef603a7fdd022a6526c702c5d1319e7f3121e87330654437b052e52d65",
     "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
     "SELECTOR-PREFIX.md": "e5802528379b05c901803d6d20e9c554b586ec0650060a0e5a2282132824bedf",
