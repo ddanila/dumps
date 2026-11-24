@@ -1,5 +1,10 @@
 # DSC2847 bit-slice execution experiment
 
+**Next:** [PLAN-2.md](PLAN-2.md) re-plans the work top-down. New evidence points to a
+V.26 ter-class modem: the scrambler polynomials match exactly, USART 01/05 is a
+synchronous line-side port, the controller loads V.25 timing constants, and the
+board has a 14.4 MHz clock. Plan 2 uses that standard to constrain the microcode.
+
 **Current experiment:** [the assumption-driven workflow](assumed/README.md)
 implements analysis and execution tooling from [PLAN.md](PLAN.md). Independent
 [Am27S31 bytes now constrain dispatch targets](assumed/ROM-DISPATCH.md), with
