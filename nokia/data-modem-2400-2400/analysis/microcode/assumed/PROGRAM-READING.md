@@ -67,7 +67,7 @@ into one address listing.
 | 109 | Input-code dispatch candidate | Optional current-Y index; physical source and later-entry preconditions unknown |
 | 133–13A, 341–344 (q2) | Accumulator carry and threshold gate | Nonzero-Q paths are local fixtures; physical accumulator meaning unresolved |
 | 38E–38F (q2) | Preceding-Y paired-arithmetic dispatch candidate | Site-scoped hypothesis; physical index and output consumer unknown |
-| 389–391 (q2) | Captured-register copy and paired-arithmetic loop | Nonzero R10 does not reach a masked poll in the tested reset paths |
+| 389–391 (q2) | Captured-register copy and paired-arithmetic loop | Final-high-byte exit can return with a nonzero low byte; physical output unknown |
 | 248–24E | Three-loop shift wrapper | Does not establish R7; each loop has separate input-dependent termination |
 | 296–29E | Input-dependent biased Q shift | Most constant-input cases with R7=FF repeat under the selected previous-flag policy |
 | 2D0–2D8 | Paired Q drains | Previous-zero policy; transient output meaning unknown |
@@ -121,7 +121,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 81 functional/assumption tests pass, including checks that
+byte. All 82 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.

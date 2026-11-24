@@ -1,0 +1,9 @@
+{
+  "status": "hypothesis",
+  "evidence": "Independent-byte reset experiment under q2 and preceding-Y indexing at 38F. Early waits receive 1 then 0, captures at 118/107 receive low+1/high+1, 38E supplies a separate selector, and 36D receives zero to release the later carry loop. All reads are diagnostic PC-keyed stubs; no physical channel or timing is identified.",
+  "mapping": "results/independent-study/variant-2.json",
+  "scenario": "results/q2-dispatch-study/previous_y-d02/scenario.json",
+  "high_bytes": [0, 1, 128, 255],
+  "cycles": 192,
+  "witnesses": [[1,0,0], [127,0,1], [128,0,0], [0,128,0], [1,128,0], [255,255,2], [255,255,3]]
+}

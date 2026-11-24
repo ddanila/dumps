@@ -442,9 +442,9 @@
         "status": "hypothesis"
       },
       {
-        "evidence": "Q2-TARGETS.md",
-        "limitations": "Shared previous-flag policy and global dispatch index 5; nonzero R10 is not delivered to a masked poll in the tested reset paths. Physical output and dispatch source unresolved.",
-        "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat according to its last zero flag. Reset index 5 copies captured R6 into R10.",
+        "evidence": "PAIRED-CAPTURE.md",
+        "limitations": "Previous flags, top-level index 5, preceding-Y dispatch at 38F and diagnostic per-site reads. First pair is zero and second operands are equal in these reset runs. Physical output and dispatch wiring remain unresolved.",
+        "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat while its final high-byte result is nonzero. Independent reset-captured low/high bytes in R6/R7 reach R10/R11; addition may return with a nonzero low-byte result.",
         "name": "captured-register copy and paired-arithmetic loop",
         "profiles": [
           "q2"
@@ -1588,9 +1588,9 @@
     {
       "annotations": [
         {
-          "evidence": "Q2-TARGETS.md",
-          "limitations": "Shared previous-flag policy and global dispatch index 5; nonzero R10 is not delivered to a masked poll in the tested reset paths. Physical output and dispatch source unresolved.",
-          "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat according to its last zero flag. Reset index 5 copies captured R6 into R10.",
+          "evidence": "PAIRED-CAPTURE.md",
+          "limitations": "Previous flags, top-level index 5, preceding-Y dispatch at 38F and diagnostic per-site reads. First pair is zero and second operands are equal in these reset runs. Physical output and dispatch wiring remain unresolved.",
+          "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat while its final high-byte result is nonzero. Independent reset-captured low/high bytes in R6/R7 reach R10/R11; addition may return with a nonzero low-byte result.",
           "name": "captured-register copy and paired-arithmetic loop",
           "profiles": [
             "q2"
@@ -3100,6 +3100,7 @@
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
     "MASKED-DRAIN.md": "853158590c53ad6fa4485c3f82b5ba6322c08870a695a22b1ac83ce122aa3bbc",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
+    "PAIRED-CAPTURE.md": "ef09bcfa192c97b1fdc004e5b09a858fef6777d6179ff7b2e23cb7d50a62962a",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
     "PREPARATION-DECODE.md": "a667fabcfed71c69bd067719a236688f1cabe4b1ca2071ba3e86e604c43940ca",
     "Q-DISPATCH.md": "bf46fab50deda66a8a7e15756e568b53c0c4bb642674e42356b598ff9b37867a",
@@ -3108,7 +3109,6 @@
     "Q2-CALLER.md": "37e8a096aebb72e83bf10649f783254c111ffaf8ee6a46c1a8bb365493cc0119",
     "Q2-DISPATCH.md": "ec2c3d05187ef9a86c48cfe0a85399d0de4482041a8799daa7cb540506ecf47f",
     "Q2-OVERWRITE.md": "9c943cafa9a4a9da2f5c19d4da5cd005e26e5c4488af7ab0f5b9983be42dd3ad",
-    "Q2-TARGETS.md": "14c5697abb35e08c6f2c07d4ef2f9d0eb69d243d378bdfba66be25b92e00a701",
     "Q2-TRANSFORM-LOOP.md": "975f3af99162e38c5a4bc0040536ebc2072068ec1a3b0a6cbe53a977643e2b63",
     "REGISTER-SCAN.md": "715ef8a8a1ada20eb4852f3be42828f18424dbad4fbffbcbe4ab031c00ec1683",
     "RESULTS.md": "b94831f7ae772edf4fb5abd14de84887d618f4375c0c29698673ad894271f93d",

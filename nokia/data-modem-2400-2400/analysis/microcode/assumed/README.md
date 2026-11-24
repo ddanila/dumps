@@ -501,3 +501,8 @@ when R0=0; the broader gate remains diagnostic rather than globally validated.
 gaps to five complete runs. The listing generator replays their mappings,
 scenarios, traces and I/O logs byte for byte, while retaining profile scopes,
 conservative graph failures and default unresolved-entry labels.
+
+[Independent captured bytes](PAIRED-CAPTURE.md) follow a low/high pair from
+zero reset into paired arithmetic. Among 4,096 clean runs, 508 return despite
+a nonzero low-byte result: the loop observes only the final high byte.
+Physical output and the input protocol remain unresolved.

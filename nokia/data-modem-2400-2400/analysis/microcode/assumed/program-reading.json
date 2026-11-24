@@ -465,12 +465,12 @@
         ]
       ],
       "status": "hypothesis",
-      "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat according to its last zero flag. Reset index 5 copies captured R6 into R10.",
-      "evidence": "Q2-TARGETS.md",
+      "meaning": "Under q2, copy R4\u2013R7 into R8\u2013R11, call the paired-arithmetic table, and repeat while its final high-byte result is nonzero. Independent reset-captured low/high bytes in R6/R7 reach R10/R11; addition may return with a nonzero low-byte result.",
+      "evidence": "PAIRED-CAPTURE.md",
       "profiles": [
         "q2"
       ],
-      "limitations": "Shared previous-flag policy and global dispatch index 5; nonzero R10 is not delivered to a masked poll in the tested reset paths. Physical output and dispatch source unresolved."
+      "limitations": "Previous flags, top-level index 5, preceding-Y dispatch at 38F and diagnostic per-site reads. First pair is zero and second operands are equal in these reset runs. Physical output and dispatch wiring remain unresolved."
     },
     {
       "name": "preceding-Y paired-arithmetic dispatch candidate",

@@ -17,6 +17,31 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_independent_capture_high_byte_exit(self):
+        from paired_capture_study import scenario_for, inspect
+        from defined_condition_fit import load_trace
+        config = read(HERE/'paired-capture-study.json')
+        mapping = read(HERE/config['mapping'])
+        base = read(HERE/config['scenario'])
+        with tempfile.TemporaryDirectory() as temporary:
+            for low, high, entry, expected, releases in (
+                    (1, 0, 0, 2, True), (128, 0, 0, 256, False),
+                    (1, 128, 1, 2, True), (255, 255, 2, 0, True)):
+                scenario = scenario_for(base, config, low, high, entry)
+                result = execute(mapping, scenario, config['cycles'], mode='integrated',
+                                 out=Path(temporary), trace_limit=config['cycles'])
+                self.assertTrue(result['clean'])
+                trace = load_trace(Path(temporary))
+                observed = inspect(trace, low, high, entry)
+                self.assertEqual(observed['expected_pair'], expected)
+                self.assertEqual(observed['releases'], releases)
+                # Detect a trace that silently replaces the real low-byte output.
+                changed = copy.deepcopy(trace)
+                output = next(t for t in changed if t['pc'] == 0x394+4*entry)
+                output['alu']['f'] ^= 1
+                with self.assertRaises(AssertionError):
+                    inspect(changed, low, high, entry)
+
     def test_fixed_condition_graph_and_replay(self):
         from constant_condition_study import fixed_tests
         from context_branch_study import witness
