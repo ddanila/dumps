@@ -31,6 +31,14 @@ The photo-compatible fitted mapping has a separate ROM-fed path at 299: all
 addresses, but [the executed sweep](SWAPPED-ROM-LOOPS.md#fitted-mapping-changing-rom-addresses-lead-through-a-finite-drain)
 reaches no candidate output word under its D=FF startup fixture.
 
+The [controller-bit dispatch experiment](CONTROLLER-BIT-DISPATCH.md) takes
+128 scrambled bits computed by the unchanged 8031 ROM and supplies them, under
+an explicit candidate connection, to the recurring D-consuming word 38E in
+one continuous DSC2847 run. The following dispatch at 38F follows every bit,
+but its 0 and 1 entries yield equal output quartets in all 65 tested
+quarter-sine phase fixtures. This exercises a controller-derived input stream
+without establishing a modulated line signal or the physical input route.
+
 ## First independent ROM constraint
 
 [ITU-T V.26 ter (11/88), §2.5.2.1, Table 1](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I!!PDF-E&lang=e&type=items)
