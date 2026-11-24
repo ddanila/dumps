@@ -359,6 +359,11 @@ executes four consecutive expiry/send pairs on one controller image. Across
 all 256 injected RAM2E values it has four distinct chains, selected by bits
 6 and 0; this confirms the A2 branch and outgoing frame dependence after
 earlier output routines have modified the same RAM.
+The [uninterrupted main-loop probe](MAIN-LOOP-CHAIN.md) goes further: eight
+complete polling iterations receive and decode bytes, update state, send a
+frame and follow the ROM's loop back to 1ED3 without PC handoffs. Across all
+256 values of the received selector it produces six state/frame chains. Its
+explicit timer and serial stubs still leave physical command meaning open.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/controller_frames.py \
@@ -391,8 +396,9 @@ local steps do not establish the timer's physical tick or name the stages
 
 Under the fixed controller-frame fixture above, A0 and A2 transmit the same
 four bytes despite their different timer loads. The state trajectory therefore
-carries information that a single frame cannot supply. A continuous call
-simulation and the line-side/DSP connection are still required for A1/A2.
+carries information that a single frame cannot supply. The later continuous
+polling-loop probe tests that interaction under synthetic peripheral events;
+the line-side/DSP connection is still required for A1/A2.
 
 The [composed receive/state/output probe](receive_state.py) executes the unchanged
 8031 input routine at 0800 with seven synthetic USART receive completions,
