@@ -54,7 +54,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Plan requirement | Current evidence | Audit result |
 | --- | --- | --- |
 | Explicit mapping/scenario assumptions and provenance | Named-field validation; unchanged saved scenarios; provenance on ROM/DAC/dispatch policies | Implemented for the audited models and scenarios |
-| Unknown inputs become logged parameters | `execute.py` read policies, flag fallback accounting, external-read trace records and captured writes | Implemented; stubs remain labelled |
+| Unknown inputs become logged parameters | `execute.py` read policies, timed external condition line, flag fallback accounting, external-read trace records and captured writes | Implemented; stubs remain labelled |
 | Raw dumps and photographs untouched | All 22 photos and six ROM binaries match their acquisition manifests | Verified |
 | Reproducible histogram, must-target set, window search, subroutine walk and condition table | `analyze.py`; exact replay of `analysis.json`, ranking, graph and listings | Verified |
 | Recovered-field mapping with status | `sequencer.json` plus named datapath variants | Verified as data-derived fields and hypotheses, not traced wiring |
@@ -69,7 +69,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Integrated slices/sequencer with selectable flags and logged external world | `execute.py`, component tests, current q2/q3 traces | Implemented |
 | Datapath-derived dispatch when suggested | Q and preceding-Y index policies; nonzero masked nested reset study | Demonstrated with real caller stack; other sites may remain scenario-driven |
 | Millions of clean integrated instructions and stable inspectable activity | Two million primary integrated instructions plus exact full replays; q3 live ROM feedback | Execution criterion passes |
-| Name subroutines and annotate from traces | 649 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Direct-call catalog annotated; broader branch/case interpretation remains incomplete** |
+| Name subroutines and annotate from traces | 655 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Direct-call catalog annotated; broader branch/case interpretation remains incomplete** |
 | Relate I/O to sine lookup, DAC, sample timing and controller exchange | Live sine input; hypothetical DAC sink; measured instruction counts; separately verified 8031 frame/handshake routines | **Partial: no complete controller/microcode or recurring sample transaction yet** |
 | Feed routine evidence back into mapping/execution | Q-independent alternatives, source-register comparisons, carry/flag timing and handler studies | Implemented, ongoing where interpretations disagree |
 | Optional continuity checks | Prioritized in the plan and board worksheets | Optional; not an execution or interpretation blocker |
@@ -86,7 +86,7 @@ still expose a possible stack underflow at 2FF.
 All 37 cataloged direct-call entries have evidence-linked annotations, including
 2EC's three paths through an actual nested return. This closes the direct-call
 naming queue, not the whole program-reading step. Unannotated branch/case
-bodies remain: 649/1,021 is an annotation count, not a percentage of understood
+bodies remain: 655/1,021 is an annotation count, not a percentage of understood
 modem functionality. The next reading work must connect these bodies to the
 existing handler contracts and distinguish scoped local evidence from reset
 reachability and physical function. The largest currently unannotated listing
@@ -114,5 +114,5 @@ The runner's execution gate requires clean complete runs, maximum depth at most
 four, no unused words, exact full replays and unchanged saved prefixes, at least
 one million sequencer and two million integrated primary instructions, and at
 least 90% clean random-sweep coverage. Tests reject failed, truncated,
-non-reproducible, over-depth and insufficient-coverage summaries. The 112-test
+non-reproducible, over-depth and insufficient-coverage summaries. The 115-test
 suite passes. No full-plan completion flag is inferred from this execution gate.

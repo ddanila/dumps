@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 from common import HERE, read, save
 from execute import execute
+from external_line import external_line_phase
 from defined_condition_fit import load_trace
 from selector_prefix_study import scenario_for
 
@@ -52,6 +53,8 @@ def classify(trace, scenario):
         key = (row['next_pc'], tuple(ram), row['q'], tuple(sorted(row['alu'].items())),
                stack['sp'], stack['depth'], tuple(stack['values']),
                tuple((pc, min(visits[pc], len(values)-1)) for pc, values in sorted(sequences.items())))
+        if isinstance(scenario['inputs']['external'],dict):
+            key += (external_line_phase(scenario['inputs']['external'],row['cycle']+1),)
         if key in seen and repeat is None:
             repeat = dict(first_after_cycle=seen[key], after_cycle=row['cycle'],
                           period=row['cycle']-seen[key], next_pc=row['next_pc'])

@@ -98,7 +98,7 @@ def main():
     historical=read(HERE/'results/suite.json')
     sources=[Path(__file__),HERE/'plan-validation.json',HERE.parent/'PLAN.md',HERE/'analyze.py',HERE/'program_reading.py',
         HERE/'program-reading.json',HERE/config['catalog'],HERE/config['sequencer_mapping'],HERE/config['sequencer_scenario'],
-        HERE/config['sweep_reference'],HERE/'results/suite.json',HERE/'execute.py',HERE/'common.py',
+        HERE/config['sweep_reference'],HERE/'results/suite.json',HERE/'execute.py',HERE/'external_line.py',HERE/'common.py',
         HERE/'defined_condition_fit.py',HERE.parent/'model.py',*(HERE/p for p in config['input_manifests'])]
     save(args.out/'report.json',dict(configuration=config,preserved_inputs=preserved,analysis_files_reproduced=analysis_files,variants=variants,
         long_runs=ordered,sweep=sweep,execution_acceptance=finding,

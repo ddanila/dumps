@@ -8,6 +8,7 @@ from collections import Counter
 from pathlib import Path
 from common import HERE, decode, digest, load, read, save, unconditional_transfer, table_targets, validate_brt_gate
 from model import Am2901, X8X02, UnknownStack
+from external_line import validate_external_line, external_line_value
 
 
 class CarryInput:
@@ -131,7 +132,8 @@ def validate_scenario(s):
         if carry['mode']!='mapped-or-previous' or carry['initial'] not in (0,1) or carry['unknown'] not in (0,1) or carry['status'] not in ('hypothesis','stub','recovered-from-data') or not carry.get('evidence'):
             raise ValueError('invalid carry policy')
     elif carry not in (0,1):raise ValueError('invalid carry input')
-    for key in ('ram_in','q_in','external'):
+    validate_external_line(s['inputs']['external'])
+    for key in ('ram_in','q_in'):
         if s['inputs'][key] not in (0,1): raise ValueError('invalid input bit')
 
 
@@ -238,6 +240,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             carry_input.observe(result)
             flags=result
             register_changes+=sum(a!=b for a,b in zip(old_ram,cpu.ram))+(old_q!=cpu.q)
+        external_condition=None
         always=unconditional_transfer(r,scenario)
         if always:
             test=1;assumptions['unconditional direct transfer' if r['direct'] else 'unconditional computed transfer']+=1
@@ -248,7 +251,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             source=cond['sources'][select]
             if source=='random': test=rng.getrandbits(1)
             elif source=='constant': test=cond['value']
-            elif source=='external': test=inputs['external'];assumptions['external condition']+=1
+            elif source=='external':
+                test,external_condition=external_line_value(inputs['external'],cycle)
+                assumptions['external condition']+=1
             else: test=(flags if cond['flag_timing']=='current' else previous)[source]
             if test is None:
                 test=cond['unknown'];assumptions['unknown '+source]+=1
@@ -311,6 +316,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 registers={str(i):v for i,v in enumerate(cpu.ram) if mode=='integrated' and old_ram[i]!=v},q=cpu.q,alu=result)
             if isinstance(inputs['carry'],dict):record['carry_in']=carry
             if read_event is not None:record['external_read']=read_event
+            if external_condition is not None:record['external_condition']=external_condition
             if trace_index:record.update(dispatch_input=index,dispatch_source=index_source)
             if pc in routine_entries and pc not in routine_samples: routine_samples[pc]=record
             if trace_count<trace_limit:

@@ -653,3 +653,9 @@ and the distinction between preceding-Y input selection and current-Y zero.
 through its real nested return. Three paths differ in intermediate Q and timing,
 but the declared 224 leaf reloads Q and gives a common final-state contract.
 This completes the direct-call naming queue; broader program reading remains.
+
+[Timed external line and handler-3 continuation](EXTERNAL-LINE.md) introduces
+a provenance-labelled cycle schedule without PC branch overrides. It preserves
+boot while reaching the double-preparation and paired-wait path from reset,
+and explains why these contexts still exclude 1EF. Recurrence checks account
+for future scheduled input changes.

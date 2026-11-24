@@ -74,6 +74,7 @@ into one address listing.
 | 12C–130 (q2) | Masked external-byte equality poll | Local previous-flag hypothesis; physical input and caller target unknown |
 | 126–130 | Idempotent Q-mask tests | No D operand inside helpers; previous/current timing selects different predicates |
 | 319–334 | Register-difference scan and carry wait | Shared condition stubs; transient ALU output consumers unknown |
+| 300–30A (q3) | Externally gated double preparation and paired wait | Timed diagnostic line; matched reset replies; 1EF excluded only in these contexts |
 | 304–308, 311–318 | Double drain and input preparation prefix | Local entry; shared select-5 stub bypasses this path from 300 |
 | 30B–310 | Cleared-Q helper (q1–q4) or masked-Q drain (fitted_original) | Different retained R5 values; shared previous-zero and zero-fill hypotheses |
 | 366–36F (q3) | Overwritten preparation, carry-gated input chain and return Q mask | Constant local reads; one complete ROM zero-reply reset call |
@@ -101,7 +102,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 649 used words, including overlaps and disconnected
+These annotations cover 655 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -138,7 +139,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 112 functional/assumption tests pass, including checks that
+byte. All 115 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -266,3 +267,9 @@ and the distinction between preceding-Y input selection and current-Y zero.
 through its real nested return. Three paths differ in intermediate Q and timing,
 but the declared 224 leaf reloads Q and gives a common final-state contract.
 This completes the direct-call naming queue; broader program reading remains.
+
+[Timed external line and handler-3 continuation](EXTERNAL-LINE.md) introduces
+a provenance-labelled cycle schedule without PC branch overrides. It preserves
+boot while reaching the double-preparation and paired-wait path from reset,
+and explains why these contexts still exclude 1EF. Recurrence checks account
+for future scheduled input changes.

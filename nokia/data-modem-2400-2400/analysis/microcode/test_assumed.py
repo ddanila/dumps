@@ -127,6 +127,52 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_external_line_event_validation_and_boundaries(self):
+        from external_line import validate_external_line,external_line_value
+        policy=dict(mode='cycle-events',initial=1,events=[[3,0],[7,1]],status='stub',evidence='test clocked input')
+        validate_external_line(policy)
+        self.assertEqual([external_line_value(policy,n)[0] for n in (0,2,3,6,7,100)],[1,1,0,0,1,1])
+        self.assertEqual(external_line_value(policy,3)[1]['event_index'],0)
+        for events in ([[3,0],[3,1]],[[4,0],[2,1]],[[-1,0]],[[True,0]],[[2,7]],[[2]]):
+            with self.assertRaises(ValueError):validate_external_line(dict(policy,events=events))
+        with self.assertRaises(ValueError):validate_external_line(dict(policy,evidence=''))
+        with self.assertRaises(ValueError):validate_external_line(dict(policy,initial=2))
+
+    def test_external_line_delayed_loop_release_and_recurrence_guard(self):
+        from defined_condition_fit import load_trace
+        from handler_timing_study import classify
+        p=HERE/'results/handler-timing-study/q3-previous-plp-03'
+        mapping,scenario=read(p/'mapping.json'),read(p/'scenario.json')
+        scenario['initial']=dict(pc=0x1f9,ram=[0]*16,q=0)
+        scenario['condition']['sources'][0]='external'
+        scenario['inputs']['external']=dict(mode='cycle-events',initial=0,events=[[10,1]],status='stub',evidence='release at cycle 10')
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)
+            result=execute(mapping,scenario,12,mode='integrated',out=out,trace_limit=12)
+            self.assertTrue(result['clean']);self.assertEqual(result['final_state']['pc'],0x1fa)
+            self.assertEqual(result['stack']['final_depth'],0)
+            trace=load_trace(out)
+            self.assertEqual([row['cycle'] for row in trace if row['pc']==0x1ea],[2,4,6,8,10])
+            self.assertEqual([row['test'] for row in trace if row['pc']==0x1ea],[1,1,1,1,0])
+            with self.assertRaisesRegex(AssertionError,'bound did not establish'):
+                classify(trace[:8],scenario)
+            held=copy.deepcopy(scenario);held['inputs']['external']=0
+            result=execute(mapping,held,12,mode='integrated',out=out/'held',trace_limit=12)
+            self.assertEqual(result['final_state']['pc'],0x1ea)
+            self.assertEqual(classify(load_trace(out/'held'),held)['repeat']['period'],2)
+
+    def test_external_line_handler3_boot_and_branch_boundaries(self):
+        from external_line_study import scenario_for,inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'external-line-study.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3'])
+        with tempfile.TemporaryDirectory() as temporary:
+            for timing in ('previous','current'):
+                for edge in (3,4,43,44):
+                    scenario=scenario_for(config,timing,251,edge);out=Path(temporary)/f'{timing}-{edge}'
+                    summary=execute(mapping,scenario,512,mode='integrated',out=out,trace_limit=512)
+                    self.assertTrue(summary['clean']);inspect(load_trace(out),scenario,edge,timing)
+
     def test_q3_input_tail_three_routes_and_full_return(self):
         import random
         from input_tail_study import scenario_for,probe,prediction,check,verify_core
