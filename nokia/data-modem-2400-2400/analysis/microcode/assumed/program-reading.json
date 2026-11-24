@@ -1489,6 +1489,22 @@
       "evidence": "HANDLER7.md",
       "meaning": "For reset code c=7 mod 8, set R0=c, form R3=A-c-1 and Q=c+B+(A>c). Sum overflow and comparison c<x select zero, one or three transform calls. Fixed entry 2 and zero source words make those calls return once, selectively replacing R1/R2/R3 before terminal 083.",
       "limitations": "q3 previous flags, early PLP replies, D107=x+1 and default D=1 outside A/B. Declared later table index 2; full reset boundary sweep plus local byte-pair gate checks. Does not generalize transform termination to arbitrary state or physical filter function."
+    },
+    {
+      "name": "three input-selecting handler-5 continuations",
+      "ranges": [
+        [
+          "345",
+          "365"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER5-BRANCHES.md",
+      "meaning": "From reset code c=5 mod 8, initial zero second component permits paired return. Three 34C cases compose 366/357/335 to retain Q=0,c,FF and select v,v+c,u in R4. Entry 07B preserves R3=3 and bypasses earlier terminal preparation; two preceding-Y stores target R2.",
+      "limitations": "q3 previous flags, PLP replies, sampled u/v/m inputs and zero initial RAM. Global table index 0/1/2, separate D089=2 terminal index. Nonzero captured components can instead repeat before 34C; no physical mode/output assignment inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

@@ -77,6 +77,7 @@ into one address listing.
 | 300–30A (q3) | Externally gated double preparation and paired wait | Timed diagnostic line; matched reset replies; 1EF excluded only in these contexts |
 | 304–308, 311–318 | Double drain and input preparation prefix | Local entry; shared select-5 stub bypasses this path from 300 |
 | 30B–310 | Cleared-Q helper (q1–q4) or masked-Q drain (fitted_original) | Different retained R5 values; shared previous-zero and zero-fill hypotheses |
+| 345–365 (q3) | Three input-selecting continuations | Zero captured second component; fixed paired/branch indices and separate terminal R2 selection |
 | 366–36F (q3) | Overwritten preparation, carry-gated input chain and return Q mask | Constant local reads; one complete ROM zero-reply reset call |
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
 | 109 | Input-code dispatch candidates | Mapping and input schedule change current/previous-Y and Q selectors |
@@ -103,7 +104,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 668 used words, including overlaps and disconnected
+These annotations cover 691 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -140,7 +141,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 118 functional/assumption tests pass, including checks that
+byte. All 119 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -285,3 +286,7 @@ are constant and no autonomous phase advance or return protocol is inferred.
 bytes and captured R7 to zero, one or three transform calls from actual reset.
 The resulting R1–R3 differences survive terminal entry, with checked cycle
 counts and zero-source termination under the declared table entry.
+
+[Handler 5 continuation composition](HANDLER5-BRANCHES.md) connects all three
+34C cases to actual reset and terminal R2 stores. It distinguishes Q=0/c/FF,
+which input survives in R4, and the retained R3=3 caused by entry at 07B.

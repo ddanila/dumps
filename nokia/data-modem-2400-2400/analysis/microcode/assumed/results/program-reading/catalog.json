@@ -1473,6 +1473,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER5-BRANCHES.md",
+        "limitations": "q3 previous flags, PLP replies, sampled u/v/m inputs and zero initial RAM. Global table index 0/1/2, separate D089=2 terminal index. Nonzero captured components can instead repeat before 34C; no physical mode/output assignment inferred.",
+        "meaning": "From reset code c=5 mod 8, initial zero second component permits paired return. Three 34C cases compose 366/357/335 to retain Q=0,c,FF and select v,v+c,u in R4. Entry 07B preserves R3=3 and bypasses earlier terminal preparation; two preceding-Y stores target R2.",
+        "name": "three input-selecting handler-5 continuations",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "345",
+            "365"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1495,7 +1511,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 668,
+    "annotated_used_words": 691,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2617,6 +2633,22 @@
             [
               "357",
               "360"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER5-BRANCHES.md",
+          "limitations": "q3 previous flags, PLP replies, sampled u/v/m inputs and zero initial RAM. Global table index 0/1/2, separate D089=2 terminal index. Nonzero captured components can instead repeat before 34C; no physical mode/output assignment inferred.",
+          "meaning": "From reset code c=5 mod 8, initial zero second component permits paired return. Three 34C cases compose 366/357/335 to retain Q=0,c,FF and select v,v+c,u in R4. Entry 07B preserves R3=3 and bypasses earlier terminal preparation; two preceding-Y stores target R2.",
+          "name": "three input-selecting handler-5 continuations",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "345",
+              "365"
             ]
           ],
           "status": "hypothesis"
@@ -4751,6 +4783,7 @@
     "HANDLER-REPLY.md": "4d19202b5d554ae76b201bb4d709a4d52cb3e31031aecac2ee99d3ae0970f76d",
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
+    "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
     "HANDLER7.md": "ae555fdf453872ddf317839250f54061397e4d962d627c7513288456ee00a2ec",
     "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",

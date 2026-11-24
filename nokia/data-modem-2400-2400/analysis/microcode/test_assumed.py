@@ -127,6 +127,26 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler5_continuations_preserve_entry_07b_state(self):
+        import random
+        from handler5_branches import scenario_for,prediction,inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler5-branches.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(345)
+        with tempfile.TemporaryDirectory() as temporary:
+            for case in range(48):
+                code=5+8*rng.randrange(32);entry=case%3
+                u,v,mask=[rng.randrange(256) for _ in range(3)]
+                scenario=scenario_for(config,code,entry,u,v,mask);out=Path(temporary)
+                summary=execute(mapping,scenario,160,mode='integrated',out=out,trace_limit=160)
+                want=inspect(load_trace(out),summary,code,entry,u,v,mask)
+                other=scenario_for(config,code,entry,u,v,mask^255)
+                alternative=execute(mapping,other,160,mode='integrated',trace_limit=0)
+                self.assertEqual(alternative['final_state']['ram'],want['ram'])
+                self.assertEqual(alternative['final_state']['q'],want['q'])
+                self.assertEqual(want['ram'][3],3)
+                self.assertEqual((want['ram'][12],want['ram'][15]),(0,0))
+
     def test_q3_handler7_overflow_and_captured_comparison(self):
         from handler7_study import scenario_for,prediction,inspect,check_gate
         from defined_condition_fit import load_trace

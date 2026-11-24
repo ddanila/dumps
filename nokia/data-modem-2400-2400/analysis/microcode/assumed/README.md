@@ -670,3 +670,7 @@ are constant and no autonomous phase advance or return protocol is inferred.
 bytes and captured R7 to zero, one or three transform calls from actual reset.
 The resulting R1–R3 differences survive terminal entry, with checked cycle
 counts and zero-source termination under the declared table entry.
+
+[Handler 5 continuation composition](HANDLER5-BRANCHES.md) connects all three
+34C cases to actual reset and terminal R2 stores. It distinguishes Q=0/c/FF,
+which input survives in R4, and the retained R3=3 caused by entry at 07B.
