@@ -296,13 +296,13 @@ alone represent the entire controller.
 From the repository root, with Python 3:
 
 ```sh
-python3 landis-gyr/pru-ac-20260924/analysis/analyze.py
+python3 landis-gyr/unigyr-pru-ac/analysis/analyze.py
 ```
 
 To regenerate the disassembly artifacts as well:
 
 ```sh
-python3 landis-gyr/pru-ac-20260924/analysis/analyze.py --unidasm /path/to/unidasm
+python3 landis-gyr/unigyr-pru-ac/analysis/analyze.py --unidasm /path/to/unidasm
 ```
 
 The checked artifacts use MAME tools package `0.285+dfsg1-1`; the executable

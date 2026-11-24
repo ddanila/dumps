@@ -35,10 +35,10 @@ acquisition details, checksums and open questions.
 
 ### PC BIOS and expansion-card ROMs
 
-- [ASUS GMIO-470 VGA BIOS v1.1](asus/vid004-gmio470-v11/)
-- [Hercules Stingray VL BIOS 1.04.A](hercules/vid003-stingray-vl-104a/)
-- [Phoenix S3 86C801/805 GENDAC BIOS 2.13.063F03](s3/vid002-phoenix-213063f03/)
-  and [2.13.065](s3/vid001-phoenix-213065/)
+- [ASUS GMIO-470 VGA BIOS v1.1](asus/gmio470-v11/)
+- [Hercules Stingray VL BIOS 1.04.A](hercules/stingray-vl-104a/)
+- [Phoenix S3 86C801/805 GENDAC BIOS 2.13.063F03](s3/phoenix-gendac-213063f03/)
+  and [2.13.065](s3/phoenix-gendac-213065/)
 - [GW-VGA Chips 451 BIOS v2.1.0](chips/gw-vga-451-v210/)
 - [Edimax ISA-16 boot ROM V3.2](edimax/isa16-v32/): Novell NetWare V2.10 loader
 - [EFA IES16 Novell RPL boot ROM](efa/ies16-rpl-v100/): RPL v1.00 with
@@ -65,9 +65,9 @@ acquisition details, checksums and open questions.
 - [Perkin-Elmer TAC7/DX](perkin-elmer/tac7dx/): 6809 firmware with
   [analysis and execution](perkin-elmer/tac7dx/analysis/), covering checksums,
   boot and 64 command cases.
-- [Landis & Gyr UNIGYR PRU_AC](landis-gyr/pru-ac-20260924/): 68HC11 program
+- [Landis & Gyr UNIGYR PRU_AC](landis-gyr/unigyr-pru-ac/): 68HC11 program
   card firmware dated 1993-11-04, with Estonian/Finnish configuration EEPROMs
-  and [deep analysis](landis-gyr/pru-ac-20260924/analysis/).
+  and [deep analysis](landis-gyr/unigyr-pru-ac/analysis/).
 - [Diversa Aquarius 2000 Q-meter](diversa/aquarius-2000/)
 - [Norma Systems VMD-4 v1.1](norma-systems/vmd-4/27c512/): firmware 1.01.
 
@@ -80,7 +80,7 @@ acquisition details, checksums and open questions.
   XT-plus BIOS 2.01B.
 - [Award VENUS-VIA 1993-04-14](unknown/award-venus-via-19930414/): Award 4.20
   BIOS with Cirrus VGA.
-- [U2716C35](unknown/u2716c35-20261110/): Z80 keyboard-handling code, possibly
+- [U2716C35](unknown/u2716c35-z80-keyboard/): Z80 keyboard-handling code, possibly
   Robotron.
 - [K573RF5 set 41-44](unknown/k573rf5-set-41-44/): 8080-compatible
   instrumentation firmware with a GPIB-style interface.
@@ -99,16 +99,16 @@ trustworthy firmware.
 - [MBI XT / Phoenix 2.27 BIOS](unknown/mbi-xt-phoenix-227/): suspect zero byte
   in the BIOS banner. A separate one-byte correction passes 86Box POST, DOS boot
   and BIOS service checks; the raw image is preserved.
-- [RF5 recheck and CPU survey](unknown/rf5-plastic-20260920-recheck/): identity
+- [RF5 recheck and CPU survey](unknown/rf5-plastic-recheck/): identity
   unresolved.
 - [Programmer-output echo model](analysis/20260919-programmer-echo/) and
   [27256 CE-state audit](analysis/20260920-27256-ce-audit/): tell reader
   artefacts apart from chip contents and document the reader fix.
-- [Third 27256](unknown/27256-20260920-chip03/): FF/F7-only capture; validity
+- [Third 27256](unknown/27256-chip03/): FF/F7-only capture; validity
   unresolved.
 - [Blank 27256 read records](analysis/20260921-27256-blank-records/): metadata
   only; all-FF binaries are excluded.
-- [Probable Beckman DU-7 HS](unknown/beckman-du7-hs-20261107/): inventory and
+- [Probable Beckman DU-7 HS](unknown/beckman-du7-hs/): inventory and
   analysis of eight ROMs from an 8088 board. The binaries stay in local
   sessions until one suspicious chip is re-verified.
 - [Norma Systems VMD-4 AT29C512](norma-systems/vmd-4/at29c512/): anomalous first

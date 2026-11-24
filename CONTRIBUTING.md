@@ -72,4 +72,4 @@ There is no strict schema yet, but `tools/check.py` relies on these rules:
 From the root README: exact matches of firmware already in public collections
 (including after padding or layout conversion) and all-FF captures stay in
 local sessions. Unverified captures can be recorded in a manifest without
-their binaries, as in `unknown/beckman-du7-hs-20261107/`.
+their binaries, as in `unknown/beckman-du7-hs/`.

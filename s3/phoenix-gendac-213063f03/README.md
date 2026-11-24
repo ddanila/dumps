@@ -24,7 +24,7 @@ Adjacent date strings at offset 0x184 are `09/16/93` and `06/07/94`; their
 individual meanings have not been established. The image contains Phoenix
 1987–1992 and S3 1992–1993 copyright messages.
 
-This is distinct from [VID001's version 2.13.065](../vid001-phoenix-213065/).
+This is distinct from [VID001's version 2.13.065](../phoenix-gendac-213065/).
 No exact match or contiguous embedded copy was found in 1,113 local
 [86Box ROM collection](https://github.com/86Box/roms) files sized 32–256 KiB,
 at revision `52264223de5f3df1b51861481ee116eed47eca3e`. Limited searches by
