@@ -55,7 +55,9 @@ into one address listing.
 | 3C0–3C4 (q2) | Fixed-source transform high-byte loop | Constant dispatch; failed tests repeat without changing source data |
 | 3C5–3D4, 3DA–3E9 | Paired quarter-turn transform | Identities were search constraints; nonzero evidence is local |
 | 3EF–3FE | Source-overlapping transform | Cannot reuse the independent quarter-turn formula |
-| 2BC–2C5 | Nested computed-call wrapper | Needs site-scoped dispatch assumptions |
+| 2BC–2C5 | Nested computed-call wrapper; shifted-Q preparation under q2 | Local call fixtures; needs site-scoped dispatch assumptions |
+| 224–227, 229–22F (q2) | Nested input-load and Q-exposure leaves | Local 2BC calling context; physical output unknown |
+| 2B3–2B8 (q2) | Input-sum capture and carry-qualified return | Prepared R0=Q>>1 forces return; not a global branch constraint |
 | 187–18A | Input-matched left shift | Constant nonzero D can prevent return after Q reaches zero |
 | 106–107 / 117–118 (q2) | Carry-qualified external waits | Reset R0=FF; zero replies are diagnostic stubs |
 | 12C–130 (q2) | Masked external-byte equality poll | Local previous-flag hypothesis; physical input and caller target unknown |
@@ -85,7 +87,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 311 used words, including overlaps and disconnected
+These annotations cover 328 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -121,7 +123,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 82 functional/assumption tests pass, including checks that
+byte. All 83 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.

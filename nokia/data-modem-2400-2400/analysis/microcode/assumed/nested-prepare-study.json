@@ -1,0 +1,33 @@
+{
+  "status": "hypothesis",
+  "evidence": "Local q2 call at 21F with explicit initial RAM/Q and external input fixtures. Outer index 81 selects real ROM byte D1=BC with bank 200; inner call retains scoped ROM 090-0CF. Compare scenario 81, current Y, Q and previous Y at 2C4 with real call/return frames. This is not a reset witness or physical I/O recovery.",
+  "mapping": "results/independent-study/variant-2.json",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "tables": "results/third-case-study/scenario-all_cases.json",
+  "outer_index": 81,
+  "sources": [
+    "scenario",
+    "y",
+    "q",
+    "previous_y"
+  ],
+  "initial_ram": [
+    19,
+    37,
+    53,
+    71,
+    89,
+    107,
+    127,
+    149,
+    167,
+    181,
+    199,
+    211,
+    227,
+    239,
+    251,
+    13
+  ],
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58"
+}

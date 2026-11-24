@@ -506,3 +506,9 @@ conservative graph failures and default unresolved-entry labels.
 zero reset into paired arithmetic. Among 4,096 clean runs, 508 return despite
 a nonzero low-byte result: the loop observes only the final high byte.
 Physical output and the input protocol remain unresolved.
+
+[Nested preparation and ROM leaves](NESTED-PREPARE.md) explain the q2
+2BC wrapper and its seven nested targets. Across 262,144 local calls, the
+prefix preserves Q while preparing shifted/summed registers; selected leaves
+then preserve Q, replace it from D, or capture D+Q in R15. These are local
+call fixtures, not new reset or physical-I/O coverage.

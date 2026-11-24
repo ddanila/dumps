@@ -1,0 +1,5240 @@
+{
+  "configuration": {
+    "evidence": "Local q2 call at 21F with explicit initial RAM/Q and external input fixtures. Outer index 81 selects real ROM byte D1=BC with bank 200; inner call retains scoped ROM 090-0CF. Compare scenario 81, current Y, Q and previous Y at 2C4 with real call/return frames. This is not a reset witness or physical I/O recovery.",
+    "initial_ram": [
+      19,
+      37,
+      53,
+      71,
+      89,
+      107,
+      127,
+      149,
+      167,
+      181,
+      199,
+      211,
+      227,
+      239,
+      251,
+      13
+    ],
+    "mapping": "results/independent-study/variant-2.json",
+    "outer_index": 81,
+    "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "scenario": "results/polling-study/immediate-one/scenario.json",
+    "sources": [
+      "scenario",
+      "y",
+      "q",
+      "previous_y"
+    ],
+    "status": "hypothesis",
+    "tables": "results/third-case-study/scenario-all_cases.json"
+  },
+  "counts": {
+    "previous_y:224": 4096,
+    "previous_y:225": 53248,
+    "previous_y:229": 1024,
+    "previous_y:22b": 1024,
+    "previous_y:22c": 1024,
+    "previous_y:22d": 1024,
+    "previous_y:2b3": 4096,
+    "q:224": 4096,
+    "q:225": 53248,
+    "q:229": 1024,
+    "q:22b": 1024,
+    "q:22c": 1024,
+    "q:22d": 1024,
+    "q:2b3": 4096,
+    "scenario:22b": 65536,
+    "y:2b3": 65536
+  },
+  "cycle_counts": {
+    "12": 69632,
+    "13": 2048,
+    "14": 108544,
+    "15": 8192,
+    "18": 73728
+  },
+  "execution_sha256": "953da97c4f12d72697271ad6eb57678282fed2480590ab63f711aac94b74d199",
+  "interpretation": "Local entry at actual call 21F with explicit nonzero fixtures, not zero-reset reachability. q2 prepares shifted Q and external sums, then selects a scoped ROM leaf. Q or preceding Y covers all seven targets; current Y selects 2B3 only. No hardware index, output consumer or physical protocol is identified.",
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "assumed/execute.py": "5a92df72447522918fbb3db64610f5bb9e65db5609e76a95627e4a264786a0de",
+    "assumed/nested-prepare-study.json": "d1327c5a3e6735b5cebbe236652d47d0e3470e6dd86b39ed6e53b89c698c987f",
+    "assumed/nested_prepare_study.py": "404882a022d768c2979972538c8204bfe7ef5d26528b883c8745f0d72bdc5f23",
+    "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/polling-study/immediate-one/scenario.json": "94f0ae04e678e90f8fa1d58e5cc0b26ef437c28911d1deebc1e1b40693a13fb8",
+    "assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "assumed/rom_study.py": "3cae3e862f0c51fe575011b117d8235e8e6feeb673ff8d06703a0fc5473cb054",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": [
+    {
+      "default_d": 0,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 12,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 91,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            2,
+            71,
+            0,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 91,
+              "overflow": 0,
+              "sign": 0,
+              "y": 91,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 81,
+            "next_pc": 555,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 555,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "scenario-22b",
+      "prediction": {
+        "dispatch_input": 81,
+        "prepared": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 555
+      },
+      "reads": {
+        "701": 1,
+        "704": 0,
+        "706": 1
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 161,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 43,
+          "status": "hypothesis",
+          "target": 555
+        }
+      ],
+      "source": "scenario",
+      "trace_digest": "7c970bd5ecfd2f90b075416cf7ed403f5166e7ab4503e7e0232f91203b8318a6"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 18,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 91,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            2,
+            71,
+            0,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          1
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 91,
+              "overflow": 0,
+              "sign": 0,
+              "y": 91,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 0,
+            "next_pc": 691,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 692,
+            "pc": 691,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 693,
+            "pc": 692,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 694,
+            "pc": 693,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 695,
+            "pc": 694,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 696,
+            "pc": 695,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 149,
+              "overflow": 1,
+              "sign": 1,
+              "y": 149,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 551,
+            "pc": 696,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 551,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "y-2b3",
+      "prediction": {
+        "dispatch_input": 0,
+        "prepared": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          1
+        ],
+        "target": 691
+      },
+      "reads": {
+        "701": 1,
+        "704": 0,
+        "706": 1
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 144,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 179,
+          "status": "hypothesis",
+          "target": 691
+        }
+      ],
+      "source": "y",
+      "trace_digest": "317ac4e3a853e03106afae054494ce1e3513906c14c4878a6461911798f8783e"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 14,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 91,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            2,
+            71,
+            0,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 91,
+              "overflow": 0,
+              "sign": 0,
+              "y": 91,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 1,
+            "next_pc": 557,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 558,
+            "pc": 557,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 559,
+            "pc": 558,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 559,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 0
+          }
+        ]
+      },
+      "path": "q-22d",
+      "prediction": {
+        "dispatch_input": 1,
+        "prepared": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 557
+      },
+      "reads": {
+        "701": 1,
+        "704": 0,
+        "706": 1
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 145,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 45,
+          "status": "hypothesis",
+          "target": 557
+        }
+      ],
+      "source": "q",
+      "trace_digest": "e6a573afdc1f836e9a0ff31172a4838884edabfcd06e03e51826e4e22c4cbba3"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 2,
+      "observed": {
+        "cycles": 15,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 92,
+          "q": 2,
+          "ram": [
+            1,
+            37,
+            4,
+            71,
+            1,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 0,
+        "ram": [
+          1,
+          37,
+          4,
+          71,
+          1,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 4,
+              "overflow": 0,
+              "sign": 0,
+              "y": 4,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 4,
+              "overflow": 0,
+              "sign": 0,
+              "y": 4,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 92,
+              "overflow": 0,
+              "sign": 0,
+              "y": 92,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 2,
+            "next_pc": 548,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 13,
+              "overflow": 0,
+              "sign": 0,
+              "y": 13,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 549,
+            "pc": 548,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 550,
+            "pc": 549,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 1,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 551,
+            "pc": 550,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 551,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 0
+          }
+        ]
+      },
+      "path": "q-224",
+      "prediction": {
+        "dispatch_input": 2,
+        "prepared": [
+          1,
+          37,
+          4,
+          71,
+          1,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 0,
+        "ram": [
+          1,
+          37,
+          4,
+          71,
+          1,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 548
+      },
+      "reads": {
+        "701": 2,
+        "704": 0,
+        "706": 2
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 146,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 36,
+          "status": "hypothesis",
+          "target": 548
+        }
+      ],
+      "source": "q",
+      "trace_digest": "71fa57ecea5cdfea0b546eae40875a9a46f10b467e245760c67d662a1ee6155d"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 3,
+      "observed": {
+        "cycles": 14,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 93,
+          "q": 3,
+          "ram": [
+            1,
+            37,
+            6,
+            71,
+            1,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 0,
+        "ram": [
+          1,
+          37,
+          6,
+          71,
+          1,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 6,
+              "overflow": 0,
+              "sign": 0,
+              "y": 6,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 3,
+              "overflow": 0,
+              "sign": 0,
+              "y": 3,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 3,
+              "overflow": 0,
+              "sign": 0,
+              "y": 3,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 3,
+              "overflow": 0,
+              "sign": 0,
+              "y": 3,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 6,
+              "overflow": 0,
+              "sign": 0,
+              "y": 6,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 93,
+              "overflow": 0,
+              "sign": 0,
+              "y": 93,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 3,
+            "next_pc": 549,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 550,
+            "pc": 549,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 1,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 551,
+            "pc": 550,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 551,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 0
+          }
+        ]
+      },
+      "path": "q-225",
+      "prediction": {
+        "dispatch_input": 3,
+        "prepared": [
+          1,
+          37,
+          6,
+          71,
+          1,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 0,
+        "ram": [
+          1,
+          37,
+          6,
+          71,
+          1,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 549
+      },
+      "reads": {
+        "701": 3,
+        "704": 0,
+        "706": 3
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 147,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 37,
+          "status": "hypothesis",
+          "target": 549
+        }
+      ],
+      "source": "q",
+      "trace_digest": "3c5a6a0434c72916a2d4ba0aba1b56f0bb4f24e192863c043353955a2606c854"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 16,
+      "observed": {
+        "cycles": 18,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 106,
+          "q": 16,
+          "ram": [
+            8,
+            37,
+            32,
+            71,
+            8,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 16,
+        "ram": [
+          8,
+          37,
+          32,
+          71,
+          8,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          16
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 32,
+              "overflow": 0,
+              "sign": 0,
+              "y": 32,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 32,
+              "overflow": 0,
+              "sign": 0,
+              "y": 32,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 106,
+              "overflow": 0,
+              "sign": 0,
+              "y": 106,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 16,
+            "next_pc": 691,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 692,
+            "pc": 691,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 693,
+            "pc": 692,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 694,
+            "pc": 693,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 695,
+            "pc": 694,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 8,
+              "overflow": 0,
+              "sign": 0,
+              "y": 8,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 696,
+            "pc": 695,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 157,
+              "overflow": 1,
+              "sign": 1,
+              "y": 157,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 551,
+            "pc": 696,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 551,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 15,
+              "overflow": 0,
+              "sign": 0,
+              "y": 15,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "q-2b3",
+      "prediction": {
+        "dispatch_input": 16,
+        "prepared": [
+          8,
+          37,
+          32,
+          71,
+          8,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 16,
+        "ram": [
+          8,
+          37,
+          32,
+          71,
+          8,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          16
+        ],
+        "target": 691
+      },
+      "reads": {
+        "701": 16,
+        "704": 0,
+        "706": 16
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 160,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 179,
+          "status": "hypothesis",
+          "target": 691
+        }
+      ],
+      "source": "q",
+      "trace_digest": "5816c9f92f039a35d3cd198a66eafbfa45a3a6d61afdf543cfedfc9882393a70"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 17,
+      "observed": {
+        "cycles": 12,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 107,
+          "q": 17,
+          "ram": [
+            8,
+            37,
+            34,
+            71,
+            8,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 17,
+        "ram": [
+          8,
+          37,
+          34,
+          71,
+          8,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 34,
+              "overflow": 0,
+              "sign": 0,
+              "y": 34,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 17,
+              "overflow": 0,
+              "sign": 0,
+              "y": 17,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 17,
+              "overflow": 0,
+              "sign": 0,
+              "y": 17,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 17,
+              "overflow": 0,
+              "sign": 0,
+              "y": 17,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 34,
+              "overflow": 0,
+              "sign": 0,
+              "y": 34,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 107,
+              "overflow": 0,
+              "sign": 0,
+              "y": 107,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 17,
+            "next_pc": 555,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 17,
+              "overflow": 0,
+              "sign": 0,
+              "y": 17,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 555,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 16,
+              "overflow": 0,
+              "sign": 0,
+              "y": 16,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "q-22b",
+      "prediction": {
+        "dispatch_input": 17,
+        "prepared": [
+          8,
+          37,
+          34,
+          71,
+          8,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 17,
+        "ram": [
+          8,
+          37,
+          34,
+          71,
+          8,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 555
+      },
+      "reads": {
+        "701": 17,
+        "704": 0,
+        "706": 17
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 161,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 43,
+          "status": "hypothesis",
+          "target": 555
+        }
+      ],
+      "source": "q",
+      "trace_digest": "19c2f907168ee6fbf08cbbbec402f953e90e07aec4f8d297d4c95debfd654c4e"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 33,
+      "observed": {
+        "cycles": 13,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 123,
+          "q": 33,
+          "ram": [
+            16,
+            37,
+            66,
+            71,
+            16,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 33,
+        "ram": [
+          16,
+          37,
+          66,
+          71,
+          16,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 66,
+              "overflow": 0,
+              "sign": 0,
+              "y": 66,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 33,
+              "overflow": 0,
+              "sign": 0,
+              "y": 33,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 33,
+              "overflow": 0,
+              "sign": 0,
+              "y": 33,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 33,
+              "overflow": 0,
+              "sign": 0,
+              "y": 33,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 66,
+              "overflow": 0,
+              "sign": 0,
+              "y": 66,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 123,
+              "overflow": 0,
+              "sign": 0,
+              "y": 123,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 33,
+            "next_pc": 553,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 33,
+              "overflow": 0,
+              "sign": 0,
+              "y": 33,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 554,
+            "pc": 553,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 32,
+              "overflow": 0,
+              "sign": 0,
+              "y": 32,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 554,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 32,
+              "overflow": 0,
+              "sign": 0,
+              "y": 32,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "q-229",
+      "prediction": {
+        "dispatch_input": 33,
+        "prepared": [
+          16,
+          37,
+          66,
+          71,
+          16,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 33,
+        "ram": [
+          16,
+          37,
+          66,
+          71,
+          16,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 553
+      },
+      "reads": {
+        "701": 33,
+        "704": 0,
+        "706": 33
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 177,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 41,
+          "status": "hypothesis",
+          "target": 553
+        }
+      ],
+      "source": "q",
+      "trace_digest": "9c74c60aa020953fc18b9a6288d02949dbed2dbbf7cd08321e05946a63a28753"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 49,
+      "observed": {
+        "cycles": 12,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 139,
+          "q": 49,
+          "ram": [
+            24,
+            37,
+            98,
+            71,
+            24,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 49,
+        "ram": [
+          24,
+          37,
+          98,
+          71,
+          24,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 98,
+              "overflow": 0,
+              "sign": 0,
+              "y": 98,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 49,
+              "overflow": 0,
+              "sign": 0,
+              "y": 49,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 49,
+              "overflow": 0,
+              "sign": 0,
+              "y": 49,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 49,
+              "overflow": 0,
+              "sign": 0,
+              "y": 49,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 98,
+              "overflow": 0,
+              "sign": 0,
+              "y": 98,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 139,
+              "overflow": 1,
+              "sign": 1,
+              "y": 139,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 49,
+            "next_pc": 556,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 49,
+              "overflow": 0,
+              "sign": 0,
+              "y": 49,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 556,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 48,
+              "overflow": 0,
+              "sign": 0,
+              "y": 48,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "q-22c",
+      "prediction": {
+        "dispatch_input": 49,
+        "prepared": [
+          24,
+          37,
+          98,
+          71,
+          24,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 49,
+        "ram": [
+          24,
+          37,
+          98,
+          71,
+          24,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 556
+      },
+      "reads": {
+        "701": 49,
+        "704": 0,
+        "706": 49
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 193,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 44,
+          "status": "hypothesis",
+          "target": 556
+        }
+      ],
+      "source": "q",
+      "trace_digest": "a3c11a6236555f87ed7edcb5621f72a15b42a8501952efe3471d6e379d6c5fcb"
+    },
+    {
+      "default_d": 0,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 14,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 91,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            2,
+            71,
+            0,
+            90,
+            127,
+            149,
+            167,
+            255,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 0,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 2,
+              "overflow": 0,
+              "sign": 0,
+              "y": 2,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 91,
+              "overflow": 0,
+              "sign": 0,
+              "y": 91,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 91,
+            "next_pc": 549,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 550,
+            "pc": 549,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 551,
+            "pc": 550,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 551,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 0
+          }
+        ]
+      },
+      "path": "previous_y-225",
+      "prediction": {
+        "dispatch_input": 91,
+        "prepared": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 0,
+        "ram": [
+          0,
+          37,
+          2,
+          71,
+          0,
+          90,
+          127,
+          149,
+          167,
+          255,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 549
+      },
+      "reads": {
+        "701": 1,
+        "704": 0,
+        "706": 1
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 171,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 37,
+          "status": "hypothesis",
+          "target": 549
+        }
+      ],
+      "source": "previous_y",
+      "trace_digest": "733029de7f164ccc2529f8911c9fa7393af4f45c24ed3e30e0f8bc20c64a4958"
+    },
+    {
+      "default_d": 5,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 18,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 96,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            111,
+            71,
+            3,
+            95,
+            127,
+            149,
+            167,
+            250,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          111,
+          71,
+          3,
+          95,
+          127,
+          149,
+          167,
+          250,
+          199,
+          211,
+          227,
+          239,
+          251,
+          6
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 5,
+              "overflow": 0,
+              "sign": 0,
+              "y": 5,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 6,
+              "overflow": 0,
+              "sign": 0,
+              "y": 6,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 10,
+              "overflow": 0,
+              "sign": 0,
+              "y": 10,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 111,
+              "overflow": 0,
+              "sign": 0,
+              "y": 111,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 96,
+              "overflow": 0,
+              "sign": 0,
+              "y": 96,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 96,
+            "next_pc": 691,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 6,
+              "overflow": 0,
+              "sign": 0,
+              "y": 6,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 692,
+            "pc": 691,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 6,
+              "overflow": 0,
+              "sign": 0,
+              "y": 6,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 693,
+            "pc": 692,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 252,
+              "overflow": 0,
+              "sign": 1,
+              "y": 252,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 694,
+            "pc": 693,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 251,
+              "overflow": 0,
+              "sign": 1,
+              "y": 251,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 695,
+            "pc": 694,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 696,
+            "pc": 695,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 149,
+              "overflow": 1,
+              "sign": 1,
+              "y": 149,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 551,
+            "pc": 696,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 551,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "previous_y-2b3",
+      "prediction": {
+        "dispatch_input": 96,
+        "prepared": [
+          0,
+          37,
+          111,
+          71,
+          3,
+          95,
+          127,
+          149,
+          167,
+          250,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          111,
+          71,
+          3,
+          95,
+          127,
+          149,
+          167,
+          250,
+          199,
+          211,
+          227,
+          239,
+          251,
+          6
+        ],
+        "target": 691
+      },
+      "reads": {
+        "701": 4,
+        "704": 5,
+        "706": 110
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 176,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 179,
+          "status": "hypothesis",
+          "target": 691
+        }
+      ],
+      "source": "previous_y",
+      "trace_digest": "66f6526d9eae31be85c7547e3c9d7f1295e8539575ee19dad480cb909537ff66"
+    },
+    {
+      "default_d": 10,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 12,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 81,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            220,
+            71,
+            5,
+            80,
+            127,
+            149,
+            167,
+            245,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          220,
+          71,
+          5,
+          80,
+          127,
+          149,
+          167,
+          245,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 12,
+              "overflow": 0,
+              "sign": 0,
+              "y": 12,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 11,
+              "overflow": 0,
+              "sign": 0,
+              "y": 11,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 20,
+              "overflow": 0,
+              "sign": 0,
+              "y": 20,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 220,
+              "overflow": 0,
+              "sign": 1,
+              "y": 220,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 81,
+              "overflow": 0,
+              "sign": 0,
+              "y": 81,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 81,
+            "next_pc": 555,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 555,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "previous_y-22b",
+      "prediction": {
+        "dispatch_input": 81,
+        "prepared": [
+          0,
+          37,
+          220,
+          71,
+          5,
+          80,
+          127,
+          149,
+          167,
+          245,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          220,
+          71,
+          5,
+          80,
+          127,
+          149,
+          167,
+          245,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 555
+      },
+      "reads": {
+        "701": 11,
+        "704": 10,
+        "706": 219
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 161,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 43,
+          "status": "hypothesis",
+          "target": 555
+        }
+      ],
+      "source": "previous_y",
+      "trace_digest": "5b93c37d10c7fba2ed8ed646e23f5a0c983d35b767184be774c3a693db3fa41c"
+    },
+    {
+      "default_d": 11,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 15,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 82,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            37,
+            71,
+            6,
+            81,
+            127,
+            149,
+            167,
+            244,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 11,
+        "ram": [
+          0,
+          37,
+          37,
+          71,
+          6,
+          81,
+          127,
+          149,
+          167,
+          244,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 11,
+              "overflow": 0,
+              "sign": 0,
+              "y": 11,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 12,
+              "overflow": 0,
+              "sign": 0,
+              "y": 12,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 22,
+              "overflow": 0,
+              "sign": 0,
+              "y": 22,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 37,
+              "overflow": 0,
+              "sign": 0,
+              "y": 37,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 82,
+              "overflow": 0,
+              "sign": 0,
+              "y": 82,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 82,
+            "next_pc": 548,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 13,
+              "overflow": 0,
+              "sign": 0,
+              "y": 13,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 549,
+            "pc": 548,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 11,
+              "overflow": 0,
+              "sign": 0,
+              "y": 11,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 550,
+            "pc": 549,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 551,
+            "pc": 550,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 11,
+              "overflow": 0,
+              "sign": 0,
+              "y": 11,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 551,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 10,
+              "overflow": 0,
+              "sign": 0,
+              "y": 10,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "previous_y-224",
+      "prediction": {
+        "dispatch_input": 82,
+        "prepared": [
+          0,
+          37,
+          37,
+          71,
+          6,
+          81,
+          127,
+          149,
+          167,
+          244,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 11,
+        "ram": [
+          0,
+          37,
+          37,
+          71,
+          6,
+          81,
+          127,
+          149,
+          167,
+          244,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 548
+      },
+      "reads": {
+        "701": 10,
+        "704": 11,
+        "706": 36
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 162,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 36,
+          "status": "hypothesis",
+          "target": 548
+        }
+      ],
+      "source": "previous_y",
+      "trace_digest": "d55e9839bcd6ae9e1745d1d83fbe463d8201a7348a66d41fc2710cff32032225"
+    },
+    {
+      "default_d": 26,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 14,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 65,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            108,
+            71,
+            13,
+            64,
+            127,
+            149,
+            167,
+            229,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          108,
+          71,
+          13,
+          64,
+          127,
+          149,
+          167,
+          229,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 28,
+              "overflow": 0,
+              "sign": 0,
+              "y": 28,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 27,
+              "overflow": 0,
+              "sign": 0,
+              "y": 27,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 52,
+              "overflow": 0,
+              "sign": 0,
+              "y": 52,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 108,
+              "overflow": 0,
+              "sign": 0,
+              "y": 108,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 65,
+              "overflow": 0,
+              "sign": 0,
+              "y": 65,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 65,
+            "next_pc": 557,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 558,
+            "pc": 557,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 559,
+            "pc": 558,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 559,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 0
+          }
+        ]
+      },
+      "path": "previous_y-22d",
+      "prediction": {
+        "dispatch_input": 65,
+        "prepared": [
+          0,
+          37,
+          108,
+          71,
+          13,
+          64,
+          127,
+          149,
+          167,
+          229,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          108,
+          71,
+          13,
+          64,
+          127,
+          149,
+          167,
+          229,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 557
+      },
+      "reads": {
+        "701": 27,
+        "704": 26,
+        "706": 107
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 145,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 45,
+          "status": "hypothesis",
+          "target": 557
+        }
+      ],
+      "source": "previous_y",
+      "trace_digest": "5269d44890c8ae9aaf24f864f7f28d351db83f76bd01e7129a9bfa1c6a82fe03"
+    },
+    {
+      "default_d": 42,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 12,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 113,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            252,
+            71,
+            21,
+            112,
+            127,
+            149,
+            167,
+            213,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          252,
+          71,
+          21,
+          112,
+          127,
+          149,
+          167,
+          213,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 44,
+              "overflow": 0,
+              "sign": 0,
+              "y": 44,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 43,
+              "overflow": 0,
+              "sign": 0,
+              "y": 43,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 84,
+              "overflow": 0,
+              "sign": 0,
+              "y": 84,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 252,
+              "overflow": 0,
+              "sign": 1,
+              "y": 252,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 113,
+              "overflow": 0,
+              "sign": 0,
+              "y": 113,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 113,
+            "next_pc": 556,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 556,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 1
+          }
+        ]
+      },
+      "path": "previous_y-22c",
+      "prediction": {
+        "dispatch_input": 113,
+        "prepared": [
+          0,
+          37,
+          252,
+          71,
+          21,
+          112,
+          127,
+          149,
+          167,
+          213,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          252,
+          71,
+          21,
+          112,
+          127,
+          149,
+          167,
+          213,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 556
+      },
+      "reads": {
+        "701": 43,
+        "704": 42,
+        "706": 251
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 193,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 44,
+          "status": "hypothesis",
+          "target": 556
+        }
+      ],
+      "source": "previous_y",
+      "trace_digest": "4d2855efb23a5bf5d33ee4e0212782256746adede93f8be0ac7f8fef224b5eaa"
+    },
+    {
+      "default_d": 58,
+      "initial_q": 1,
+      "observed": {
+        "cycles": 13,
+        "max_depth": 2,
+        "pc": 544,
+        "prepared": {
+          "previous_y": 97,
+          "q": 1,
+          "ram": [
+            0,
+            37,
+            140,
+            71,
+            29,
+            96,
+            127,
+            149,
+            167,
+            197,
+            199,
+            211,
+            227,
+            239,
+            251,
+            13
+          ]
+        },
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          140,
+          71,
+          29,
+          96,
+          127,
+          149,
+          167,
+          197,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "trace": [
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 700,
+            "pc": 543,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 255,
+              "overflow": 0,
+              "sign": 1,
+              "y": 255,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 701,
+            "pc": 700,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 60,
+              "overflow": 0,
+              "sign": 0,
+              "y": 60,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 702,
+            "pc": 701,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 703,
+            "pc": 702,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 704,
+            "pc": 703,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 59,
+              "overflow": 0,
+              "sign": 0,
+              "y": 59,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 705,
+            "pc": 704,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 116,
+              "overflow": 0,
+              "sign": 0,
+              "y": 116,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 706,
+            "pc": 705,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 140,
+              "overflow": 0,
+              "sign": 1,
+              "y": 140,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 707,
+            "pc": 706,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 97,
+              "overflow": 0,
+              "sign": 0,
+              "y": 97,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 708,
+            "pc": 707,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 0,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": 97,
+            "next_pc": 553,
+            "pc": 708,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 1,
+              "overflow": 0,
+              "sign": 0,
+              "y": 1,
+              "zero": 0
+            },
+            "dispatch_input": null,
+            "next_pc": 554,
+            "pc": 553,
+            "test": 0
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 709,
+            "pc": 554,
+            "test": 1
+          },
+          {
+            "alu": {
+              "carry": 1,
+              "f": 0,
+              "overflow": 0,
+              "sign": 0,
+              "y": 0,
+              "zero": 1
+            },
+            "dispatch_input": null,
+            "next_pc": 544,
+            "pc": 709,
+            "test": 0
+          }
+        ]
+      },
+      "path": "previous_y-229",
+      "prediction": {
+        "dispatch_input": 97,
+        "prepared": [
+          0,
+          37,
+          140,
+          71,
+          29,
+          96,
+          127,
+          149,
+          167,
+          197,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "q": 1,
+        "ram": [
+          0,
+          37,
+          140,
+          71,
+          29,
+          96,
+          127,
+          149,
+          167,
+          197,
+          199,
+          211,
+          227,
+          239,
+          251,
+          13
+        ],
+        "target": 553
+      },
+      "reads": {
+        "701": 59,
+        "704": 58,
+        "706": 139
+      },
+      "reconstructed_lookups": [
+        {
+          "bank": 512,
+          "cycle": 0,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 543,
+          "rom_address": 209,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 188,
+          "status": "hypothesis",
+          "target": 700
+        },
+        {
+          "bank": 512,
+          "cycle": 9,
+          "interpretation": "Reconstructed candidate dispatch lookup; physical bus transfer not established",
+          "pc": 708,
+          "rom_address": 177,
+          "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+          "rom_value": 41,
+          "status": "hypothesis",
+          "target": 553
+        }
+      ],
+      "source": "previous_y",
+      "trace_digest": "f87673b0669365375adb6a75fe7dee3dd0ac2c7df6285f7d13cff37f8705266e"
+    }
+  ]
+}

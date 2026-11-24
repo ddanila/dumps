@@ -17,6 +17,37 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_nested_prepare_preserves_or_replaces_q_by_leaf(self):
+        from nested_prepare_study import fixture, prediction, probe, scenario_for
+        from common import table_targets
+        config = read(HERE/'nested-prepare-study.json')
+        mapping = read(HERE/config['mapping'])
+        rows = decode(mapping)
+        base = read(HERE/config['scenario'])
+        tables = read(HERE/config['tables'])['dispatch']['tables']
+        for pc in (0x21f, 0x2c4):
+            base['dispatch']['tables'][str(pc)] = tables[str(pc)]
+        targets = table_targets(tables[str(0x2c4)])
+        for source, q, d, target, final_q in (
+                ('y', 255, 255, 0x2b3, 255),
+                ('q', 1, 255, 0x22d, 1),
+                ('q', 2, 255, 0x224, 255),
+                ('q', 3, 255, 0x225, 255),
+                ('previous_y', 1, 74, 0x22b, 1)):
+            ram, reads = fixture(config, q, d)
+            want = prediction(ram, q, d, reads, targets, source, config['outer_index'])
+            self.assertEqual(want['target'], target)
+            self.assertEqual(want['q'], final_q)
+            got = probe(rows, base, ram, q, d, reads, source, config['outer_index'], targets)
+            self.assertEqual((got['pc'], got['ram'], got['q'], got['max_depth']),
+                             (0x220, want['ram'], final_q, 2))
+            scenario = scenario_for(base, config, ram, q, d, reads, source)
+            result = execute(mapping, scenario, got['cycles'], mode='integrated', trace_limit=0)
+            self.assertTrue(result['clean'])
+            self.assertEqual(result['final_state']['ram'], want['ram'])
+            self.assertEqual(result['final_state']['q'], final_q)
+            self.assertEqual(result['stack']['final_depth'], 0)
+
     def test_independent_capture_high_byte_exit(self):
         from paired_capture_study import scenario_for, inspect
         from defined_condition_fit import load_trace

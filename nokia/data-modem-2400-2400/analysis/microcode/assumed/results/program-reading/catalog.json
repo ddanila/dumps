@@ -764,6 +764,58 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "NESTED-PREPARE.md",
+        "limitations": "Local actual-call fixtures at 21F, not reset entry. Scoped ROM table, zero-fill shifts and previous flags remain hypotheses. Physical index and output consumer unknown.",
+        "meaning": "Preserve Q; prepare R0=Q>>1, R2=D_2C2+Q and R4=((D_2C0+Q) mod 256)>>1. Expose R5+Q immediately before the nested call; expose current Q-1 at the outer return.",
+        "name": "shifted-Q preparation and nested dispatch",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "2BC",
+            "2C5"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "NESTED-PREPARE.md",
+        "limitations": "Validated as nested leaves of the q2 2BC wrapper with explicit nonzero local fixtures. Arithmetic outputs have no identified physical consumer; no integrated reset coverage claim.",
+        "meaning": "Entry 224 exposes R15 before 225 loads Q from D and exposes R0 AND R3 and Q. Entries 229/22B/22C/22D preserve Q and RAM while exposing Q and/or Q-1 before returning.",
+        "name": "nested input-load and Q-exposure leaves",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "224",
+            "227"
+          ],
+          [
+            "229",
+            "22F"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "NESTED-PREPARE.md",
+        "limitations": "The forced branch is specific to the prepared calling state; 2B9-2BB are not globally dead. Nested input is constant per fixture. Other profiles and physical output are unresolved.",
+        "meaning": "Store D+Q in R15 twice, expose differences, then test carry from Q-R0. The 2BC caller prepares R0=Q>>1, forcing the branch to 227 and preserving Q.",
+        "name": "nested input-sum capture and carry-qualified return",
+        "profiles": [
+          "q2"
+        ],
+        "ranges": [
+          [
+            "2B3",
+            "2B8"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -785,7 +837,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 311,
+    "annotated_used_words": 328,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -3099,6 +3151,7 @@
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
     "MASKED-DRAIN.md": "853158590c53ad6fa4485c3f82b5ba6322c08870a695a22b1ac83ce122aa3bbc",
+    "NESTED-PREPARE.md": "cd581bd210f0d73401bdaa31cb59a3f99b6102b989cda60ebd74222de5c99b29",
     "PAIRED-ARITHMETIC.md": "e64642b2336f235c6e3406a7ee0f92d01b9ebd64d4931bdbddbe29fda1ea0e85",
     "PAIRED-CAPTURE.md": "ef09bcfa192c97b1fdc004e5b09a858fef6777d6179ff7b2e23cb7d50a62962a",
     "POLL-CALLER.md": "8412772fd81ea53a0619824932128a57085291313530e5e8e75e14d929bd0de9",
