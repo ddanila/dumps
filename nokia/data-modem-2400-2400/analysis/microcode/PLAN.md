@@ -116,11 +116,24 @@ continuation separately, encode competing continuations when they affect the
 result, and run the microcode under each. Do not wait for new photographs or
 continuity measurements before trying those candidates.
 
+Apply the same rule to the current execution dead ends. A run that parks in a
+wait loop or misses the transmit path under one assumed latch route, dispatch
+source, clock phase, input level or initial register/RAM state characterises
+**that fixture**, not the whole reconstruction. First check the reachable
+alternatives suggested by the photos and the ROM, vary disputed inputs and
+starting states in a bounded sweep, and feed in the real controller commands
+and bitstream where the proposed interface permits it. Keep the exact mapping,
+stimulus, trace and negative result so a later physical check can distinguish
+the candidates.
+Continue with independent program and signal analysis while any connection is
+unresolved.
+
 Reserve a goal blocker for an indispensable dependency that cannot be supplied
 or usefully approximated and leaves no meaningful independent work. Before
 declaring one, identify that dependency, explain why candidate assumptions
 cannot support further useful experiments, and account for the remaining work.
-Lack of verified wiring or confidence in a hypothesis is not sufficient.
+Missing confidence in the true wiring does not meet this test while explicit
+photo-informed scenarios can still be run and compared.
 
 This policy changes how we make progress, not the acceptance criteria. Keep
 G2's transmitter and receiver/echo-canceller checks: completing a candidate run
