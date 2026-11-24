@@ -40,6 +40,11 @@ source/output pairs, downstream register reads, output-candidate values,
 trace digests and source hashes. A next candidate should replace the PC-based
 E2 schedule with a plausible U5 clock/hold rule and test whether the consumed
 value can reach a changing DAC-bound code.
+A [U10-data-bit candidate](PHOTO-TABLE-PROMBIT-CONSUMER.md) replaces the
+address-assigned level with inverted real PROM bit 5 while holding U10 E2
+low. It reproduces the table/consumer chain and admits all four table
+entries under controller dibits, but its inverter and capture clock are
+untraced.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_table_phase_consumer.py

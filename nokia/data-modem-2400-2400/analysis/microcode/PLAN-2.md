@@ -146,6 +146,13 @@ phases B–C turn "what" into "how".
   schedule is address-assigned, not a traced U5 clock; output candidate `39E`
   remains zero. Replace it with a plausible latch timing rule and continue
   toward a changing DAC-bound sample stream.
+  A [real-PROM bit candidate](g2/PHOTO-TABLE-PROMBIT-CONSUMER.md) uses inverted
+  U10 data bit 5 while keeping U10 enabled: it is low at all table words and
+  high at four reached consumers. With real controller bytes and candidate
+  dibit scheduling, q3 selects all four entries and carries a changing
+  table result to instruction `140`. The inverter, U5 clock and both input
+  routes remain untraced; `39E` still outputs zero. Test a physically timed
+  latch and a continuing DAC path next.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

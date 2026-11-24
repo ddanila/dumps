@@ -727,3 +727,8 @@ pin only during the sign tables and raises it elsewhere. Across 16 diagnostic
 runs, real controller bytes then pass through the table into internal
 consumer `140`; the observed output candidate `39E` remains zero and the
 phase schedule is not physically traced.
+An [inverted U10 bit-5 candidate](PHOTO-TABLE-PROMBIT-CONSUMER.md) holds U10
+enabled and supplies the low-in-table/high-at-consumer pattern from real PROM
+data. Combined with candidate controller byte and dibit routes, it reaches
+all four table entries and changing internal consumers in 16 runs. The U5
+inverter/clock and DSP input timing remain hypotheses, and `39E` stays zero.
