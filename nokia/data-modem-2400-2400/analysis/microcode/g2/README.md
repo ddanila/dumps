@@ -144,6 +144,10 @@ per run in that bit-sensitive q1 path, including every value of the two bytes
 that retained their seeds. All 736 cases still give one fixed lookup and
 candidate output pattern per bit value. This narrows the zero-initial-RAM
 concern for that path without establishing the physical startup state.
+A [new photo fragment](PHOTO-U10-D4.md) suggests U10 PROM bit 4 feeds U5's
+fourth data input. A hypothetical continuation from that latch output to
+Am2901 I1 consumes controller bits but gives only fixed or absent post-input
+lookup reads in ten runs. The latch output's real destination remains open.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the
