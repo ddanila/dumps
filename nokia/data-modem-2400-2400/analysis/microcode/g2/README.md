@@ -98,6 +98,14 @@ the matched held/changing fixtures finds identical control flow over 1,900
 cycles and confines input-dependent Y values to ten sites, giving specific
 alternatives to 392 for future output-net checks.
 
+The [PROM-enable timing sweep](PHOTO-ENABLE-TIMING.md) tests candidate U10 E2
+and U11 E4 latch levels across all initial Q bytes. The only same-phase valid
+read combination reaches 38E from 32 seeds but gives no recurring ROM reads
+or changing candidate output in the controller-bit run. An E2-high diagnostic
+opens recurring reads only by assuming U10 data remains available while the
+PROM is disabled. This points to an explicit latch-hold or phase model for
+the next experiment; the present counterfactual is not a recovered board path.
+
 A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
 changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,
 it consumes the same 128 controller bits and gives distinct but fixed ALU

@@ -135,6 +135,17 @@ the candidates.
 Continue with independent program and signal analysis while any connection is
 unresolved.
 
+When a photo-derived route involves a PROM enable or latch, test *when* each
+value is sampled as well as which pins connect. Keep a same-phase case that
+obeys the component's read conditions, and label other enable-level runs as
+diagnostics unless an explicit hold or two-phase circuit can supply their
+PROM data. For the candidate U10 E2→U5 and U11 E4→U6 routes, sweep plausible
+latched levels and startup states, then test any surviving paths with the real
+controller stream and ROM. A path that opens only while U10 is disabled is a
+lead for a timing model, not evidence that the board uses that impossible
+same-phase combination. If a case settles to fixed output, record the scope
+and pursue a different phase, mapping, input route or state source.
+
 Reserve a goal blocker for an indispensable dependency that cannot be supplied
 or usefully approximated and leaves no meaningful independent work. Before
 declaring one, identify that dependency, explain why candidate assumptions
