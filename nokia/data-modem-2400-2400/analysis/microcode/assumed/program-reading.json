@@ -1141,6 +1141,46 @@
       "evidence": "HANDLER6.md",
       "meaning": "Handler 6 forms m=R7&(code+1), increments m iff nonzero using logical carry, retains t and t>>1 in R13 and R12/R15, and clears Q through two drains. Complete zero-reset code/captured-byte sweep predicts every final register and terminal cycle.",
       "limitations": "q3 previous flags, zero reset, fixed later dispatch index 2 and documented input schedule. FF mask wraps to zero. Alternate selector-1 paths and physical modem purpose remain unresolved."
+    },
+    {
+      "name": "wrapped byte-sum handler",
+      "ranges": [
+        [
+          "148",
+          "177"
+        ],
+        [
+          "180",
+          "186"
+        ],
+        [
+          "2E6",
+          "2EB"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER1.md",
+      "meaning": "Handler 1 retains ((D167+D16A)&FF)>>1 in R14, clears Q through shifts and drains, and retains input-code values in R4/R15. Reset-driven intermediate and final states and input-dependent instruction counts match the documented contract.",
+      "limitations": "q3 previous flags, zero reset, default D=1 outside declared inputs and constant later dispatch index 2. Alternative 178\u201317F path and physical signal-processing meaning remain unresolved."
+    },
+    {
+      "name": "sum-fed three-shift wrapper",
+      "ranges": [
+        [
+          "248",
+          "250"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER1.md",
+      "meaning": "24F loads Q=R12+R0. In handler-1 reset context with R7=0, 248 performs two short right shifts followed by a left drain, returning Q=0 and R0=1. First input is 2*code modulo 256; second is FE.",
+      "limitations": "Scoped to q3 reset R7=0 and default D=1. Other captured masks or external input schedules may change termination."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

@@ -127,6 +127,27 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_handler1_wrapped_sum_and_timing(self):
+        from handler1_study import scenario_for, prediction, check_sum, inspect
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler1-study.json')
+        mapping=read(HERE/config['mapping']);rows=decode(mapping)
+        for u,v,half in ((0,0,0),(255,1,0),(128,128,0),(255,255,127),(128,127,127)):
+            self.assertEqual(check_sum(rows,u,v),half)
+        with tempfile.TemporaryDirectory() as temporary:
+            out=Path(temporary)/'run'
+            for code,u,v in config['witnesses']:
+                scenario=scenario_for(config,code,u,v)
+                result=execute(mapping,scenario,256,mode='integrated',out=out,trace_limit=256)
+                self.assertTrue(result['clean'])
+                inspect(load_trace(out),scenario,code,u,v)
+                self.assertEqual(result['final_state']['ram'],prediction(code,u,v)['ram'])
+            trace=load_trace(out)
+            next(t for t in trace if t['pc']==0x16a)['registers']['14']=99
+            with self.assertRaises(AssertionError):inspect(trace,scenario,code,u,v)
+        self.assertEqual(prediction(1,1,1)['first_terminal'],197)
+        self.assertEqual(prediction(249,255,128)['first_terminal'],223)
+
     def test_handler6_masked_capture_and_drain(self):
         from handler6_study import scenario_for, prediction, inspect
         from defined_condition_fit import load_trace

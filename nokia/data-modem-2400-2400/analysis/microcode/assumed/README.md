@@ -604,3 +604,8 @@ second address, while first R5 is still overwritten by the second helper.
 q3: a captured byte is masked by the input code, conditionally incremented
 using logical carry, and halved into surviving registers. Two Q drains account
 for input-dependent timing; the FF mask wraps to zero before halving.
+
+[Handler 1 wrapped byte sum](HANDLER1.md) follows independent input bytes
+into R14 through an eight-bit sum and right shift under q3. A complete final
+register formula and instruction-count formula explain the tested reset paths;
+all 65,536 local byte pairs distinguish wrapping from ordinary averaging.
