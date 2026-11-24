@@ -236,6 +236,11 @@ executed countdowns, expiry successors and transmitted frames side by side.
 A0 and A2 both send `80 02 88 7A` in the fixed frame fixture despite
 different countdowns and successors. The state-step and frame runs have
 different initial RAM fixtures and do not constitute one continuous call.
+The newer [preserved-RAM chain](STATE-FRAME-CROSSCHECK.md#preserved-ram-chain)
+executes four consecutive expiry/send pairs on one controller image. Across
+all 256 injected RAM2E values it has four distinct chains, selected by bits
+6 and 0; this confirms the A2 branch and outgoing frame dependence after
+earlier output routines have modified the same RAM.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/controller_frames.py \

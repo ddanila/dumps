@@ -32,3 +32,26 @@ shows that received payload and flags can affect both the next state and
 outgoing bytes. A controller-to-DSP emulator must therefore carry those
 variables through a continuous call before assigning a command meaning to a
 frame. The physical recipient of the frame still needs to be traced.
+
+## Preserved-RAM chain
+
+The [chain probe](chain_frames.py) now keeps one 8031 RAM/SFR image across
+four successive state steps and four actual sends. It starts at A0 and
+directly sets RAM2E to each of 256 possible values. The harness forces timer
+expiry and directs PC to the state and send entry points at each step; these
+handoffs are not a natural uninterrupted call. All 256 executions finish
+without emulator errors and form exactly four state/frame chains:
+
+| RAM2E bits 6,0 | State chain after each expiry | Frames after A0, A1, A2, fourth step |
+| --- | --- | --- |
+| 0,0 | A1 → A2 → B8 → B4 | `80 02 81 7A`; `80 02 88 7A`; `D0 42 81 22`; `D0 42 81 EA` |
+| 0,1 | A1 → A2 → B8 → B4 | same first two; `C0 42 81 22`; `C0 42 81 EA` |
+| 1,0 | A1 → A2 → A3 → A4 | same first two; `D0 42 81 BA`; `D0 42 81 BA` |
+| 1,1 | A1 → A2 → A3 → A4 | same first two; `C0 42 81 BA`; `C0 42 81 BA` |
+
+This is stronger than combining separate fixed fixtures: the output routine
+can modify RAM before the next state step. It shows that the branch and frame
+differences survive that interaction. It still does not identify the physical
+DSP command semantics, since RAM2E is directly injected and the timer and PC
+handoffs are synthetic. The [full report](results/chain-frames.json) retains all 256 chains
+and source hashes.
