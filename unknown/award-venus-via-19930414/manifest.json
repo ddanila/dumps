@@ -1,0 +1,22 @@
+{
+  "acquisition_date": "2026-11-22",
+  "source": "unidentified 486 motherboard, per owner; 32-pin 27-series EPROM labelled AWARD 486DX BIOS",
+  "device": "27C010-class EPROM inferred, not confirmed",
+  "identification": "Award Modular BIOS v4.20, ID 04/14/93-VENUS-VIA; Cirrus CL-GD540X/542X VGA BIOS 1.00d",
+  "reads": [
+    {
+      "file": "evidence/read-1m-1.bin",
+      "profile": "AT27C080",
+      "size": 1048576,
+      "note": "eight identical 128 KiB blocks"
+    },
+    {
+      "file": "evidence/read-128k.bin",
+      "profile": "AT27C010",
+      "size": 131072,
+      "note": "matches one block exactly"
+    }
+  ],
+  "analysis": "evidence/analysis.json",
+  "public_comparison": "evidence/86box-comparison.json"
+}

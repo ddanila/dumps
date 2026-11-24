@@ -15,7 +15,7 @@ not a newly observed factory marking. Two independent reads match exactly;
 contact checks passed and both operations reported successful pin-driver reset.
 Only the explicit 5 V read path was used. The ~11 V ADC VPP reading in the logs
 is the internal generator, which was not routed to the chip; no programming
-pulses were issued. Tool revision, hashes and exact commands are in session.json.
+pulses were issued. Tool revision, hashes and exact commands are in [evidence/session.json](evidence/session.json).
 
 The image differs in 256 bytes from retrocmp's 81-146 and in 236 bytes from
 its 81-146A (the latter matches MAME's 81-146.u43 SHA-1). These differences also

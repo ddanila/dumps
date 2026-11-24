@@ -1,7 +1,7 @@
 # Puritan Bennett 7200 MEGACPU EPROMs
 
 Owner reports nine EPROM positions numbered 0 through 8, with chip 7
-missing. All eight available chips (0–6 and 8) have now been read twice and preserved.
+missing. All eight available chips (0–6 and 8) are preserved.
 The ROM set remains incomplete because chip 7 is missing.
 Board reference: owner photo `133870106.jpg` (not in the repository).
 Chip 0's socket designation and full sticker text are not yet confirmed.

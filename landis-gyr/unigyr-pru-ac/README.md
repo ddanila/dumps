@@ -16,11 +16,12 @@ memories. Chips 3–4 contain Estonian and Finnish building-control labels.
 
 The owner numbered six chips from one PCB: chips 1–4 are 28C64 (8 KiB each),
 and chips 5–6 are M27C1001 (128 KiB each). All six are included unchanged.
-Acquisition (chip 5 read twice, identically; the others once) spanned 2026-09-24 through just after midnight on 2026-09-25 in Europe/Tallinn;
-the directory retains its start date. Other package markings and sticker text
-have not been established. See the analysis for manufacturer attribution sources.
+Other package markings and sticker text have not been established. See the analysis for manufacturer attribution sources.
 
 ## Acquisition and verification
+
+Acquisition spanned 2026-09-24 through just after midnight on 2026-09-25 in
+Europe/Tallinn. Chip 5 was read twice, identically; the others once.
 
 Both chip-5 reads used the Willem PCB5.0E, Pocket8086 LPT378, DIP634, Normal
 routing and full 32-pin placement. Programming VPP remained off.

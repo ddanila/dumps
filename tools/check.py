@@ -33,7 +33,7 @@ HOME_PATH = re.compile(r'/(?:home|Users)/[^/\s`"<]+/')
 LINK = re.compile(r'\]\(([^)\s]+)\)')
 ACQUISITION_WORDING = re.compile(
     r'\b(?:two|three|four|\d+)\s+(?:matching|identical|independent)\b[^.]*?\breads?\b'
-    r'|\brepeat-read\b|\bT48\s+reads?\b|\bmatching\s+reads?\b',
+    r'|\brepeat-read\b|\bT48\s+reads?\b|\bmatching\s+reads?\b|\bread\s+(?:twice|three times)\b',
     re.IGNORECASE)
 
 
