@@ -25,6 +25,9 @@ class MainLoopDspBridge(unittest.TestCase):
                              {'0': 1, '1': 1})
             self.assertEqual(case['later_rom_reads'], 0)
             self.assertEqual(case['final_q'], 5)
+            self.assertEqual(case['varying_alu_y_sites'], ['38E'])
+            self.assertEqual(case['recurring_alu_y_by_pc']['38E']['values'], [251, 252])
+            self.assertEqual(len(case['recurring_alu_y_by_pc']), 16)
         self.assertEqual(report['cases'][-1]['candidate_output_word_392'], 117)
 
 

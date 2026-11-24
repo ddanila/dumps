@@ -32,6 +32,15 @@ reconstructed post-group RAM, Q, flags and stack have **one state** across
 every visit, including the concatenated run. Q stays 5. There is no
 Am27S31 read after the first dispatch and no advancing phase in this path.
 
+A whole-loop output scan now checks **every** ALU Y after the first dispatch,
+not only the selected four-word group. The 224-bit combined run visits 16
+recurring PCs. Only 38E has more than one Y value (`FB` and `FC`, the current
+bit minus Q=5); every other recurring PC has one fixed Y value across its
+visits. The same one-site result holds in each of the four separate controller
+streams. This leaves no hidden changing ALU-Y sample in this modeled loop.
+The branch addresses themselves still select different fixed table entries,
+and no physical output latch or analog path has been traced.
+
 This is a stronger controller-derived negative result than the local
 scrambler fixture: the controller stream and its state-dependent mode changes
 are executed, then the same microcode path is exercised continuously. It
@@ -40,7 +49,8 @@ demonstrated DPSK transmitter. The ALU Y groups have no traced connection to
 the physical line-output converter; other paths and mappings remain open.
 
 The [report](results/main-loop-dsp-bridge/report.json) records every byte,
-bit count, dispatch count, group and state diversity, and source hashes. The
+bit count, dispatch count, group and state diversity, every recurring PC's Y
+values, and source hashes. The
 combined [witness trace](results/main-loop-dsp-bridge/witness-trace.jsonl),
 [scenario](results/main-loop-dsp-bridge/witness-scenario.json) and
 [mapping](results/main-loop-dsp-bridge/witness-mapping.json) specify the full

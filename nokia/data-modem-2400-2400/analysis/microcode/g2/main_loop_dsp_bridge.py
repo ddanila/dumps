@@ -62,6 +62,16 @@ def run(out):
             later_rom_reads = [row for row in trace if row['cycle'] > first_dispatch
                                and row.get('external_read', {}).get('selected_by_alu')
                                and 'address' in row['external_read']]
+            recurring = defaultdict(list)
+            for row in trace:
+                if row['cycle'] >= first_dispatch:
+                    recurring[row['pc']].append(row['alu']['y'])
+            alu_y_by_pc = {f'{pc:03X}': dict(visits=len(samples), values=sorted(set(samples)))
+                           for pc, samples in sorted(recurring.items())}
+            varying_y_sites = [pc for pc, samples in alu_y_by_pc.items()
+                               if len(samples['values']) > 1]
+            if varying_y_sites != [f'{INPUT_PC:03X}']:
+                raise ValueError(f'unexpected recurring ALU Y variation: {name}: {varying_y_sites}')
             by_bit = defaultdict(lambda: dict(groups=set(), states=set()))
             for bit, group, state in zip(bits, groups, states):
                 by_bit[bit]['groups'].add(tuple(group['bytes']))
@@ -75,6 +85,8 @@ def run(out):
                               distinct_post_group_states_by_bit={str(bit): len(by_bit[bit]['states'])
                                                                  for bit in (0, 1)},
                               later_rom_reads=len(later_rom_reads),
+                              recurring_alu_y_by_pc=alu_y_by_pc,
+                              varying_alu_y_sites=varying_y_sites,
                               candidate_output_word_392=result['address_counts'].get(0x392, 0),
                               final_q=result['final_state']['q'],
                               final_pc=f"{result['final_state']['pc']:03X}",

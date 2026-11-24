@@ -82,7 +82,9 @@ scrambler stimulus with four real 8031 main-loop USART byte streams and their
 concatenation. Under the photo-constrained D38E hypothesis, all 448 bit
 presentations are consumed, but the candidate ALU group and post-group state still
 depend only on the current bit. No ROM read follows the recurring dispatch.
-This narrows the same candidate path without establishing a transmitter.
+A whole-loop scan finds only the D38E input arithmetic varying in ALU Y;
+the other 15 recurring PCs each emit one fixed Y value. This narrows the
+same candidate path without establishing a transmitter.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the
