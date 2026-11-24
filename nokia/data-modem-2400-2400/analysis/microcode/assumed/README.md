@@ -1,5 +1,10 @@
 # Assumption-driven DSC2847 experiment
 
+[What the program does](PROGRAM-OVERVIEW.md) connects startup, all eight
+handlers, shared arithmetic, terminal behavior and the controller-to-DAC
+experiment. This synthesis is available for the final acceptance review;
+the plan remains open until that review is complete.
+
 This implements the software workflow in [the plan](../PLAN.md): reproducible
 field analysis, sequencer execution, a bounded datapath-layout search,
 integrated execution, and a routine catalog. Results are **runs under declared

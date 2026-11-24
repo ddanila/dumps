@@ -1,5 +1,9 @@
 # Read the program by address
 
+Start with [the program overview](PROGRAM-OVERVIEW.md) for the combined
+startup, handler, helper and I/O account. The tables below provide the
+address-level evidence and the limitations of each interpretation.
+
 The [annotated listing](results/program-reading/listing.csv) consolidates the
 current control-flow graph, six candidate datapath decodes, and evidence-linked
 routine interpretations for all 1,024 words. The [catalog](results/program-reading/catalog.json)

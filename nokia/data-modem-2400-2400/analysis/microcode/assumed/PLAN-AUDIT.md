@@ -83,6 +83,12 @@ still expose a possible stack underflow at 2FF.
 
 ## Remaining work
 
+A [program-level synthesis](PROGRAM-OVERVIEW.md) now connects startup, all
+eight handlers, shared arithmetic and the I/O experiment. It is ready for the
+final acceptance review. The execution report predates this document and
+retains its conservative incomplete result; no completion flag has been
+changed based on the addition of prose alone.
+
 All 1,021 used words and all 37 cataloged direct-call entries have evidence-linked,
 profile-scoped annotations. This closes the word-level naming queue. The union
 of those annotations is not a claim that one physical datapath or condition
