@@ -745,3 +745,8 @@ The [U10 D0-source screen](PHOTO-U10-Q0-SOURCE-SCREEN.md) ranks all eight
 PROM data bits and polarities for this table/consumer path. Only inverted
 bit 5 passes both the exact table and nonzero-consumer checks in four
 diagnostic branch fixtures; the inversion and physical route remain open.
+The [PROM clock-edge screen](PHOTO-OUTPUT-CLOCK-BIT-SCREEN.md) checks all 32
+raw PROM data bits at the same internal consumers. Six have rising edges at
+every `140`/`146` visit, but each also rises hundreds of times elsewhere;
+none directly matches the hypothesized 9,600 Hz sample cadence. A decoder,
+divider or different repeated path remains to be tested.

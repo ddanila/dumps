@@ -167,6 +167,12 @@ phases B–C turn "what" into "how".
   preserves all 33 tested sign-table calls and nonzero downstream reads;
   the inverter and U5 connection are untraced. Use this as a targeted
   hypothesis, not proof of the physical mapping.
+  A [raw-PROM clock-edge screen](g2/PHOTO-OUTPUT-CLOCK-BIT-SCREEN.md) finds
+  six rising bits at every `140`/`146` consumer visit, but each also rises
+  164–411 times in 2,500 microcycles. None is a direct 9,600 Hz sample clock
+  under the plan's `14.4 MHz / k`, `k=1…4`, timing hypothesis. Test a decoded
+  or divided clock, or a different repeated output path; the actual latch
+  clock and microcycle divisor are untraced.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are
