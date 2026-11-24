@@ -139,6 +139,11 @@ bit-sensitive I1 hypothesis and changes one more instruction input across
 960 runs. Five hundred thirty-nine sustain both input visits and ROM reads;
 none changes a lookup or candidate output pattern between repeated equal
 bits. This points away from further local edits to the same 38E/Q=5 path.
+The [startup-RAM follow-up](STARTUP-RAM-BIT-SENSITIVE.md) varies one RAM byte
+per run in that bit-sensitive q1 path, including every value of the two bytes
+that retained their seeds. All 736 cases still give one fixed lookup and
+candidate output pattern per bit value. This narrows the zero-initial-RAM
+concern for that path without establishing the physical startup state.
 
 The [084 command probe](TERMINAL-COMMAND.md) tests a separate continuation:
 an explicitly hypothetical AC=RST pulse on the 8X02 command pins at the
