@@ -428,8 +428,14 @@ between symbols. This probe rules out only the declared q3 reset scenario.
 The [executed octet-classifier study](PATTERN-CLASSIFIER.md) identifies a
 state-dependent detector reached from controller states 83 and A6. On local
 entry it marks 40 of 256 received-octet candidates in state 83 and 16 in A6,
-including single-one and adjacent-pair patterns. Its relationship to the
-V.26 ter rate-pattern rules is not yet established.
+including single-one and adjacent-pair patterns. The local classifier alone
+did not establish its relationship to the V.26 ter rate-pattern rules.
+The subsequent [standard comparison and preserved-RAM run](PATTERN-CLASSIFIER.md#comparison-with-v26-ter-rate-patterns)
+find an exact match to rotations of V.26 ter's first five rate-pattern
+octets in state 83 and its first two in A6. Four consecutive accepted equal
+octets advance state 83 to 84; three, an interrupted sequence and an unmarked
+octet do not. This strengthens controller-protocol identification, while the
+DSP input route and microcode function remain open.
 
 [The controller frame sweep](controller_frames.py) executes the unchanged 8031
 ROM from 1EE2 through actual output construction and four-byte transmission

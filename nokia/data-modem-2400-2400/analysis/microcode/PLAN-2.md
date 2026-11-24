@@ -43,6 +43,7 @@ and the photographs. None of them depends on an unverified microcode mapping.
 | E6 | Am27S31 bytes 00–13 are a 16-point sine plus 4 wrap entries, which allows sin(i) and cos(i) = table[i+4] without wrapping, i.e. quadrature. 1800/9600 = **3/16**: at a hypothetical 9600 Hz sample rate (8 samples/baud), the 1800 Hz carrier advances exactly 3 entries per sample. 100–140 is a 65-entry quarter sine, i.e. a fine 256-step phase, as needed for carrier tracking (V.26 ter requires ±7 Hz). 68–6F `00 01 02 03 01 00 02 03` looks like a dibit/quadrant map. 141–1CF are smooth signed curves that resemble filter or AGC coefficient tables. | ROM bytes | Shapes are facts; their roles are hypotheses |
 | E7 | DED 3558 visibly carries a stickered **ADC0800PCD**. National Semiconductor specifies an 8-bit A/D converter with internal successive approximation and complementary, latched digital outputs. This is a concrete candidate for receive samples; its bus route and sample timing are untraced. The earlier claim that this photographed device was a DAC0830 was incorrect. | [photo and component evidence](g2/ADC0800-INPUT.md) | High for part marking and component function; physical route unknown |
 | E8 | A separate 16-pin device in DED 3558's lower analog section is marked `DAC 08` / `HP`, consistent with **DAC08HP**, an 8-bit current-output D/A converter. Adjacent 74LS273 and 74LS373 devices are candidate sample-code and hold latches. This supplies a concrete output-converter candidate, but the bus direction, input nets, latch controls and analog output route are untraced. The earlier DAC0830 two-register sink is a counterfactual, not the observed part. | [photo and component datasheet review](g2/DAC08-OUTPUT.md) | High for visible markings and component functions; medium for latch roles; routing unknown |
+| E9 | Executing controller routine 1C07 over all octets shows that state 83 marks exactly the rotations of V.26 ter's first five rate-pattern representatives (`01 03 05 07 09`), and state A6 marks exactly the first two. In a preserved-RAM probe, four identical marked octets advance state 83 to 84; three or an interrupted sequence do not. This independently matches the standard's four-consecutive-octet detection rule, but the probe directs the PC between routines and does not establish the physical receive path. | [executed comparison](g2/PATTERN-CLASSIFIER.md#comparison-with-v26-ter-rate-patterns), ITU-T V.26 ter §6.1.3 and §6.3.1.2 | High for executed set and state transition; protocol role strongly supported but still conditional |
 
 **Working conclusion:** the modem is very probably a V.26 ter-class 2400 bit/s
 duplex echo-cancelling modem (1800 Hz carrier, 1200 baud, 4-phase DPSK, 100%
@@ -51,7 +52,9 @@ the V.25/V.26 ter handshake and the front panel. That leaves the Am2901 board
 with the sample-rate work: **DPSK modulation with pulse shaping, demodulation
 (AGC, carrier/timing recovery, differential decision), and adaptive echo
 cancellation**. The four MCM93422 RAMs on DSC 3557 (256×4 each) fit an
-echo-canceller delay line and tap store. I'd put this conclusion at about 75%.
+echo-canceller delay line and tap store. The initial estimate was about 75%;
+E9 strengthens the controller's V.26 ter identification, but it does not yet
+demonstrate that the Am2901 executes the inferred signal-processing job.
 Phase A below is designed to push it past 80% from desk work alone, and
 phases B–C turn "what" into "how".
 

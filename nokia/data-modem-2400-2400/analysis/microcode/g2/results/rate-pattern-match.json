@@ -1,0 +1,309 @@
+{
+  "by_base": {
+    "01": {
+      "83": {
+        "04": 8,
+        "08": 0,
+        "0C": 0
+      },
+      "A6": {
+        "04": 8,
+        "08": 0
+      }
+    },
+    "03": {
+      "83": {
+        "04": 0,
+        "08": 8,
+        "0C": 0
+      },
+      "A6": {
+        "04": 0,
+        "08": 8
+      }
+    },
+    "05": {
+      "83": {
+        "04": 0,
+        "08": 8,
+        "0C": 0
+      },
+      "A6": {
+        "04": 0,
+        "08": 0
+      }
+    },
+    "07": {
+      "83": {
+        "04": 0,
+        "08": 0,
+        "0C": 8
+      },
+      "A6": {
+        "04": 0,
+        "08": 0
+      }
+    },
+    "09": {
+      "83": {
+        "04": 0,
+        "08": 8,
+        "0C": 0
+      },
+      "A6": {
+        "04": 0,
+        "08": 0
+      }
+    }
+  },
+  "controller_fixture": "Local routine entry 1C07, RAM3A=octet, RAM34=83 or A6, RAM21.4 set, other RAM zero, synthetic RET sentinel; no prior-octet history or surrounding calls.",
+  "distinct_legal_rotations": 254,
+  "exact_match": {
+    "83": "rotations of 01,03,05,07,09",
+    "A6": "rotations of 01,03"
+  },
+  "interpretation": "The executed classifier accepts exactly the first five V.26 ter rate-pattern rotation classes in state 83 and the first two in state A6. The full standard list covers 254 nonconstant bytes, so this is a selective match.",
+  "limitations": [
+    "The local routine runs do not prove that RAM3A contains a rate-pattern octet in operation.",
+    "The four-octet chains preserve RAM between classifier calls but direct the PC to each entry point; they are not an uninterrupted controller call.",
+    "Earlier receive processing and the physical source of the octet are not exercised in these chains.",
+    "No DSC2847 microcode or line signal is executed."
+  ],
+  "observed_marked": {
+    "83": 40,
+    "A6": 16
+  },
+  "preserved_ram_chains": {
+    "four_03": {
+      "equal_count": 4,
+      "errors": 0,
+      "octets": [
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 1,
+          "prior": 3
+        },
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 2,
+          "prior": 3
+        },
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 3,
+          "prior": 3
+        },
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 4,
+          "prior": 3
+        }
+      ],
+      "state_after": 132
+    },
+    "four_05": {
+      "equal_count": 4,
+      "errors": 0,
+      "octets": [
+        {
+          "byte": 5,
+          "class": 8,
+          "equal_count": 1,
+          "prior": 5
+        },
+        {
+          "byte": 5,
+          "class": 8,
+          "equal_count": 2,
+          "prior": 5
+        },
+        {
+          "byte": 5,
+          "class": 8,
+          "equal_count": 3,
+          "prior": 5
+        },
+        {
+          "byte": 5,
+          "class": 8,
+          "equal_count": 4,
+          "prior": 5
+        }
+      ],
+      "state_after": 132
+    },
+    "four_rotated_03": {
+      "equal_count": 4,
+      "errors": 0,
+      "octets": [
+        {
+          "byte": 6,
+          "class": 8,
+          "equal_count": 1,
+          "prior": 6
+        },
+        {
+          "byte": 6,
+          "class": 8,
+          "equal_count": 2,
+          "prior": 6
+        },
+        {
+          "byte": 6,
+          "class": 8,
+          "equal_count": 3,
+          "prior": 6
+        },
+        {
+          "byte": 6,
+          "class": 8,
+          "equal_count": 4,
+          "prior": 6
+        }
+      ],
+      "state_after": 132
+    },
+    "four_unmarked_11": {
+      "equal_count": 0,
+      "errors": 0,
+      "octets": [
+        {
+          "byte": 17,
+          "class": 0,
+          "equal_count": 0,
+          "prior": 17
+        },
+        {
+          "byte": 17,
+          "class": 0,
+          "equal_count": 0,
+          "prior": 17
+        },
+        {
+          "byte": 17,
+          "class": 0,
+          "equal_count": 0,
+          "prior": 17
+        },
+        {
+          "byte": 17,
+          "class": 0,
+          "equal_count": 0,
+          "prior": 17
+        }
+      ],
+      "state_after": 131
+    },
+    "interrupted_03": {
+      "equal_count": 1,
+      "errors": 0,
+      "octets": [
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 1,
+          "prior": 3
+        },
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 2,
+          "prior": 3
+        },
+        {
+          "byte": 1,
+          "class": 4,
+          "equal_count": 1,
+          "prior": 1
+        },
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 1,
+          "prior": 3
+        }
+      ],
+      "state_after": 131
+    },
+    "three_03": {
+      "equal_count": 3,
+      "errors": 0,
+      "octets": [
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 1,
+          "prior": 3
+        },
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 2,
+          "prior": 3
+        },
+        {
+          "byte": 3,
+          "class": 8,
+          "equal_count": 3,
+          "prior": 3
+        }
+      ],
+      "state_after": 131
+    }
+  },
+  "rate_octets": [
+    "01",
+    "03",
+    "05",
+    "07",
+    "09",
+    "0B",
+    "0D",
+    "0F",
+    "11",
+    "13",
+    "15",
+    "17",
+    "19",
+    "1B",
+    "1D",
+    "1F",
+    "25",
+    "27",
+    "2B",
+    "2D",
+    "2F",
+    "33",
+    "35",
+    "37",
+    "3B",
+    "3D",
+    "3F",
+    "55",
+    "57",
+    "5B",
+    "5F",
+    "6F",
+    "77",
+    "7F"
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/interface_probe.c": "9dcda6531bb853652c89c253ad557ee85c6f2855c2d77379b706a48f9becdd2b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/pattern_classes.py": "3c4052d8d3f60eb717144ec99b9fd6e8470add5b3346884a42d5b51beb8525e0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/pattern_probe.c": "a26c2aa47239dc107faa6fbaf71df448bd66080c5ee5b9652ea43a3d94cb7466",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/rate_pattern_chain_probe.c": "e7b744dbeb50ec5121fcd614f26c0cae9dc509a44d545d9cf8c010b5476eb81a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/rate_pattern_match.py": "23630dcf95af2a638dbad59abef57ea343fb986975dbf93a4cbf2cbc51aa2511",
+    "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "standard": "https://search.itu.int/history/HistoryDigitalCollectionDocLibrary/4.259.43.en.1036.pdf",
+  "standard_section": "ITU-T V.26 ter (11/88) 6.1.3",
+  "status": "exact octet-set match; controller detector purpose is unproven"
+}
