@@ -46,6 +46,10 @@ fixtures. A zero at q1's 127 triggers the changing 12C ROM recurrence but
 then stops consuming D127; fitted-swapped 187 is an input-sensitive PLP/BLT
 shift loop that exits early on the test waveform. Neither is yet a sustained
 controller-driven transmitter or receiver.
+The [ADC hold check](ADC0800-INPUT.md) uses one latched converter byte through
+that 187 loop. All 255 nonzero values end in it after 512 cycles in both
+tested Q classes; only zero reaches 084. This weakens the per-visit ADC stimulus as
+a receiver interpretation and keeps the buffer/control route open for tracing.
 
 The [photo-informed board experiment](../board/PHOTO-HYPOTHESES.md) revisits
 the physical-wiring blocker: missing proven nets do not prevent explicit

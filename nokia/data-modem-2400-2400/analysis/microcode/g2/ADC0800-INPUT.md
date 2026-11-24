@@ -27,6 +27,27 @@ reference range, sample timing, bus buffer, output-enable route and DSC 2847
 D-input connection are still unknown, so no ADC sample is yet claimed to
 reach the microprogram.
 
+In the same photograph, two **SN74LS244** buffers sit immediately beside the
+ADC0800, with front-side traces running from the converter's pad region toward
+their pad regions. The [TI SN74LS244 datasheet](https://www.ti.com/lit/ds/symlink/sn74ls244.pdf)
+identifies these as noninverting octal buffers with three-state outputs and
+separate output enables. An ADC→buffer→board-bus path is therefore a concrete
+photo-supported candidate, but the individual bit connections, enable pins
+and receiving connector pins have not been identified. The ADC's own latched
+outputs also mean that a candidate microcode loop should normally see a held
+conversion byte until a new conversion completes, rather than a new sample
+on every microinstruction.
+
+The [held-byte 187 probe](adc_hold_187.py) tests that timing alternative in
+the fitted-swapped mapping. Across both Q=1 and Q=129, all 256 byte values
+run cleanly for 512 cycles. Only byte `00` exits the 187/188 PLP/BLT loop to
+084; every nonzero byte ends in that loop, although some briefly take other
+PCs and reenter. Representative nonzero values end there after 4,096 cycles.
+This makes the earlier per-visit
+sample-order effect at 187 a poor receiver lead under a plausible ADC hold.
+The [saved result](results/adc-hold-187.json) is still a wiring hypothesis,
+not an observed ADC-to-DSC connection.
+
 Earlier documents called the photographed DED 3558 converter a `DAC0830`.
 The visible sticker instead reads `ADC0800PCD`; a DAC0830 on this board has
 not been identified from this photograph. A separate **DAC08HP** marking is

@@ -37,6 +37,12 @@ needs the actual ADC clock/data latch and the processor's D source at that
 loop; the current route candidates do not yet show demodulation or recovered
 USART bits.
 
+A [held-byte follow-up](ADC0800-INPUT.md) models the ADC0800's latched output
+more plausibly. In complete 256-byte sweeps at Q=1 and Q=129, only zero reaches
+084 within 512 cycles; nonzero values end back in the 187/188 loop. Thus the
+per-visit stimulus above should be treated as a timing diagnostic, not as a
+candidate continuous sample schedule.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/alternate_input_sites.py
 ```
