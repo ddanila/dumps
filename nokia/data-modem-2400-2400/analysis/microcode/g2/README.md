@@ -252,6 +252,14 @@ them. A diagnostic direct entry makes 05E and 061 read the same Q-indexed ROM
 byte repeatedly while Q stays fixed, under either bank. This narrows that
 local loop without ruling out a caller that changes Q or another mapping.
 
+The [reset-driven ROM shift-wrapper run](ROM-SHIFT-WRAPPER.md) tests the
+fitted-original 299 and 187 candidates with real Am27S31 bytes. Under one
+diagnostic read gate, all 1,024 combinations of D byte, ROM bank and two
+dispatch seeds return through the wrapper, then wait at 084. Q drains to zero
+and the ROM base byte is zero; this explains the loop exit without revealing
+a retained phase, line output or receiver function. Two of 12 broader gate
+fits divert sampled inputs earlier, so the enable route still matters.
+
 The screen therefore does not identify a transmitter. The next discriminating
 search must combine a *reached* D-add instruction with independently supported
 ROM selection, dibit-derived address and retained phase across symbol periods.
