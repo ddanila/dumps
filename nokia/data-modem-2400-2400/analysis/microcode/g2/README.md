@@ -116,6 +116,18 @@ both outcomes of conditional transfers but only its declared dispatch tables.
 It excludes a *single-word* D-driven phase-add loop under that scenario, not a
 multiword phase update or a different hardware control-flow decode.
 
+The [ROM-cycle screen](rom_cycle_screen.py) intersects the same stack-aware q3
+graph with the previously fitted two-bit ROM-read gate. Only three distinct
+cyclic shapes contain a word selected to receive ROM data on D: 02B–02E,
+1EC–1ED and 36C–36E. At 02C the D addition does not load a register (though
+its flags could affect later words); 1EC overwrites R3 from R4 and D before a
+two-word poll; the 36C–36E address/carry recurrence is characterized above.
+The [saved screen](results/rom-cycle-screen.json) includes all decoded
+operations and source hashes. **The gate is a diagnostic fit, not physical
+wiring.** This rules out a demonstrated modulator only in this gate/mapping/
+dispatch combination; it does not eliminate other ROM-read policies or
+multiword phase logic.
+
 The screen therefore does not identify a transmitter. The next discriminating
 search must combine a *reached* D-add instruction with independently supported
 ROM selection, dibit-derived address and retained phase across symbol periods.

@@ -1,0 +1,122 @@
+{
+  "cyclic_component_count": 45,
+  "gate_status": "diagnostic fit, not physical read-enable",
+  "gate_terms": [
+    [
+      "11.4",
+      0
+    ],
+    [
+      "18.5",
+      0
+    ]
+  ],
+  "interpretation": "Only three distinct q3 cycle shapes contain a D-selected word under the two-bit gate. 02C does not load state; 1EC\u20131ED is a two-word poll; 36C\u201336E is the separately checked ROM-address/carry recurrence. None is a demonstrated transmit phase loop.",
+  "limitations": [
+    "The two-bit gate is fitted to diagnostic labels and is not traced physical wiring.",
+    "The graph includes both branch outcomes but only the declared dispatch targets and stack policy.",
+    "Other gates, mappings, entries or multiword dataflow outside these cycles may implement modulation.",
+    "This is static control-flow analysis, not a new running transmitter."
+  ],
+  "rom_d_cycle_shapes": [
+    {
+      "component_count": 1,
+      "cyclic_pcs": [
+        "02B",
+        "02C",
+        "02D",
+        "02E"
+      ],
+      "operations": [
+        {
+          "a": 8,
+          "b": 4,
+          "operation": "R,S=D,Q; F=R+S+C; no load",
+          "pc": "02B"
+        },
+        {
+          "a": 4,
+          "b": 12,
+          "operation": "R,S=D,Q; F=R+S+C; no load",
+          "pc": "02C"
+        },
+        {
+          "a": 0,
+          "b": 0,
+          "operation": "R,S=0,B; F=R+S+C; RAM[B]=F>>1",
+          "pc": "02D"
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "operation": "R,S=A,Q; F=R+S+C; RAM[B]=F",
+          "pc": "02E"
+        }
+      ],
+      "rom_d_pcs": [
+        "02C"
+      ]
+    },
+    {
+      "component_count": 3,
+      "cyclic_pcs": [
+        "36C",
+        "36D",
+        "36E"
+      ],
+      "operations": [
+        {
+          "a": 0,
+          "b": 1,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36C"
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36D"
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "36E"
+        }
+      ],
+      "rom_d_pcs": [
+        "36C"
+      ]
+    },
+    {
+      "component_count": 1,
+      "cyclic_pcs": [
+        "1EC",
+        "1ED"
+      ],
+      "operations": [
+        {
+          "a": 4,
+          "b": 3,
+          "operation": "R,S=D,A; F=R+S+C; RAM[B]=F; Y=A",
+          "pc": "1EC"
+        },
+        {
+          "a": 0,
+          "b": 0,
+          "operation": "R,S=A,Q; F=R&S; no load",
+          "pc": "1ED"
+        }
+      ],
+      "rom_d_pcs": [
+        "1EC"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
+    "results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e"
+  },
+  "status": "candidate ROM-D cyclic screen under q3 declared control graph"
+}
