@@ -20,6 +20,13 @@ bug in the ROM-read screen, reopening loop candidates that were previously
 excluded. The new variants and corrected screen remain hypotheses to test
 against the full transmitter/receiver requirements.
 
+The [photo-swapped ROM-loop runs](SWAPPED-ROM-LOOPS.md) exercise two of those
+reopened paths. In q3, real quarter-sine bytes affect the recurring 392–395
+output quartet, but each reset fixture repeats one constant quartet. In q2,
+eight diagnostic ROM gates sustain a D-fed loop at 127, yet its value settles
+after the first transition. These results narrow the tested assumptions; they
+do not demonstrate a phase accumulator or a controller-driven waveform.
+
 ## First independent ROM constraint
 
 [ITU-T V.26 ter (11/88), §2.5.2.1, Table 1](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I!!PDF-E&lang=e&type=items)

@@ -1,0 +1,3468 @@
+{
+  "changing_output_phases": [],
+  "cycle_limit": 1024,
+  "gate_terms": [
+    [
+      "11.4",
+      0
+    ],
+    [
+      "18.5",
+      0
+    ]
+  ],
+  "interpretation": "The global diagnostic ROM gate plus photo-compatible q3 A/B swap can feed a quarter-sine byte into the paired-output routine. The study tests whether that output evolves during a single run rather than only between different reset fixtures.",
+  "limitations": [
+    "The gate was fitted to diagnostic labels, not physical enable pins.",
+    "The scenario supplies phase at 316; phase variation across separate runs is external stimulus.",
+    "The branch, condition, D routing and clock schedule are still hypotheses.",
+    "ALU Y at 392-395 is a candidate output quartet, not a traced DAC bus.",
+    "There is no controller-driven bitstream or receive/echo path in this test."
+  ],
+  "outcomes": [
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 1,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "084",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        10,
+        0
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [],
+      "phase": 0,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "100",
+          "cycle": 41,
+          "pc": "317",
+          "value": 0
+        },
+        {
+          "address": "100",
+          "cycle": 80,
+          "pc": "36C",
+          "value": 0
+        }
+      ],
+      "scenario_digest": "95fdbefb3a46ae0108addb2662e61e7e72c5b3902bc58d87e033acf45dd95ed6",
+      "trace_digest": "cecc916096bb5b136ffdaa67561f635d3b8ff3083cbb5e2d6b553f4dd97de1b5"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        16,
+        2
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 1,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "101",
+          "cycle": 41,
+          "pc": "317",
+          "value": 3
+        }
+      ],
+      "scenario_digest": "a46ecb52375c14ad0bcead627387547ae42f2e4d08b78606f381c35c89437b51",
+      "trace_digest": "3e46bee53b4c6e50fb009e0f9ce4f5bf3411eb45e5023a7b9ac60f7484e6a8d7"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        22,
+        4
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 2,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "102",
+          "cycle": 41,
+          "pc": "317",
+          "value": 6
+        }
+      ],
+      "scenario_digest": "0caebf7a9b3839fe3eca1278ae12a6aecc45e8d7399d5e6bc74cb5f68cad978c",
+      "trace_digest": "d84898663e90629a0d4d24b4cb6977ec60aa8d73d2c5ad43b2c54ffe3fa3efd7"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        28,
+        6
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 3,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "103",
+          "cycle": 41,
+          "pc": "317",
+          "value": 9
+        }
+      ],
+      "scenario_digest": "00b65ca4f71ac5aeadb2a1e514aad9d1b9e8677c4caf91cd5835ff52db68acad",
+      "trace_digest": "a23ac58c0398ecb66eea0749ad95d3f4303575a29de7a7f1268699781fa99ab3"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        34,
+        8
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 4,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "104",
+          "cycle": 41,
+          "pc": "317",
+          "value": 12
+        }
+      ],
+      "scenario_digest": "65fc31bf3ce97293cce4da2e93c898f6cf07352440d7a68edbdfb4300b762770",
+      "trace_digest": "dd7726cf876204baca8b9b3248b8982ad1a980248e6f4d41f460c963a3468193"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        42,
+        10
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 5,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "105",
+          "cycle": 41,
+          "pc": "317",
+          "value": 16
+        }
+      ],
+      "scenario_digest": "d002b5d82928a467e52cff0cf7264341259f91eaa4b1d6ea9f83d30087b4ff54",
+      "trace_digest": "6ba79a132ef07a427d848d49305dcb3a2ab9f1653df84dfaa22db0a94b058ba5"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        48,
+        12
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 6,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "106",
+          "cycle": 41,
+          "pc": "317",
+          "value": 19
+        }
+      ],
+      "scenario_digest": "fe5401dd52f74a9152955c0e0d5520362b7ba845e040406c85c9da9a05c55e3a",
+      "trace_digest": "f8b304c74bda16484ff50bacd18476c1d3451284ba6bec720cc9c2263f106824"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        54,
+        14
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 7,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "107",
+          "cycle": 41,
+          "pc": "317",
+          "value": 22
+        }
+      ],
+      "scenario_digest": "75f7e0e164c6665f0b2b9e1d85a444525a11f8f5a3f93b3f02a09424ea1b8000",
+      "trace_digest": "fdec26dbb455fddd997f405ff5f4ac7a5119e479a2b7fb3e76c1d786460981fa"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        60,
+        16
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 8,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "108",
+          "cycle": 41,
+          "pc": "317",
+          "value": 25
+        }
+      ],
+      "scenario_digest": "4111800120770cb28c5ae3305e1702976b6e3695c5be9c0328ebc83280233dd6",
+      "trace_digest": "77511ce1f7d0ea54cf3186e603c12bda2dafe95546b7534379fe7ce4abfc3c85"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        66,
+        18
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 9,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "109",
+          "cycle": 41,
+          "pc": "317",
+          "value": 28
+        }
+      ],
+      "scenario_digest": "659d85f198f08e78dc0c85202e40dc41318dc116089b656d37338fcfbd38d9cf",
+      "trace_digest": "e4bc4e830e2b5a7c8ae2eed0d9806968939ee573f9cdc250bda4fae8931dd26f"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        72,
+        20
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 10,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "10A",
+          "cycle": 41,
+          "pc": "317",
+          "value": 31
+        }
+      ],
+      "scenario_digest": "2a3241cb8bd2204a1e66ef521194f4de93d1784308e027719a3fc04fa565b48e",
+      "trace_digest": "db14f1c929a0039641eb2716246dc05761611413679afd6d4806c3852b11be0e"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        78,
+        22
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 11,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "10B",
+          "cycle": 41,
+          "pc": "317",
+          "value": 34
+        }
+      ],
+      "scenario_digest": "4795f5003e307966400a330f9279f09161bd1bb794e45886a83f25cd32d5f086",
+      "trace_digest": "5bbe39243bfdee90b9ef9e1095cfa894251af2b0eee017ce9fc01680b81ec5c5"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        84,
+        24
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 12,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "10C",
+          "cycle": 41,
+          "pc": "317",
+          "value": 37
+        }
+      ],
+      "scenario_digest": "8351a972b2009c0260155befff1375070ed594d1266a0fbbf8cbd55a3c187342",
+      "trace_digest": "ab03c008fdad516488720e7b0f12b8dfb4f205ec4393aa182c4f9bbdd2c8e1cd"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        90,
+        26
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 13,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "10D",
+          "cycle": 41,
+          "pc": "317",
+          "value": 40
+        }
+      ],
+      "scenario_digest": "3b18f900e539065413cb6b259336f75134785da9a69e789ef3f86f159261deec",
+      "trace_digest": "4a5a30d7ec5efcdc76163e90b215db027b158ada3393dfea5f4c364a05dbba31"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        96,
+        28
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 14,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "10E",
+          "cycle": 41,
+          "pc": "317",
+          "value": 43
+        }
+      ],
+      "scenario_digest": "02f6e46b03910917bf43ccefb2e2e53859244ca15087f3a52e1222f33a8974b8",
+      "trace_digest": "3de8eac4960225b8984c745d4654fadfe3e6ea446e86bd14739aee0f956a58d8"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        102,
+        30
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 15,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "10F",
+          "cycle": 41,
+          "pc": "317",
+          "value": 46
+        }
+      ],
+      "scenario_digest": "52ed68ffac0cdca91381e7a1dfd6576b0c5405ee63e66c2dc8766e64c93e0c5a",
+      "trace_digest": "7711b7878cf0c21a6a91b460356906ca8594fa897ccff3474a0086ad553e7d1a"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        108,
+        32
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 16,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "110",
+          "cycle": 41,
+          "pc": "317",
+          "value": 49
+        }
+      ],
+      "scenario_digest": "4fd05ae58731aa54567e3936f259f66f2d8aec2990aa917b390508512b5bb03c",
+      "trace_digest": "c4313e10ea065294cdeb82ca713646d2473dc5b772af4ff2ed968ea9d9a4cb76"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        112,
+        34
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 17,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "111",
+          "cycle": 41,
+          "pc": "317",
+          "value": 51
+        }
+      ],
+      "scenario_digest": "a80594a64247a413ec944f7943ce6d7fa6e8f9a498e8b841a8afc11e304bae59",
+      "trace_digest": "5d2cfd2886946c5da99dbf973546aecf5407c7252ddda9900ddeea3a9785ab6f"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        118,
+        36
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 18,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "112",
+          "cycle": 41,
+          "pc": "317",
+          "value": 54
+        }
+      ],
+      "scenario_digest": "fc1be7397ae54185b639ba2c99d9060929665ec35d50e85985692dcd3e456c26",
+      "trace_digest": "c5ffd8e2b53d7321075e4d9708a7de5ca90a2c9c00828d66de50e4e35170c57e"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        124,
+        38
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 19,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "113",
+          "cycle": 41,
+          "pc": "317",
+          "value": 57
+        }
+      ],
+      "scenario_digest": "1b439cbbfd90c0f21fa6dd6c30e53e805e2799448f21fc86acc374dea386cdfa",
+      "trace_digest": "8dbbc0ee2c7219c08e90c3b67338fb9269bce563ec0b315949923184b6d43c2d"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        130,
+        40
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 20,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "114",
+          "cycle": 41,
+          "pc": "317",
+          "value": 60
+        }
+      ],
+      "scenario_digest": "4d0a155686c90c3a435a49d975454025de54289875e70602827b6711eb3d8b9d",
+      "trace_digest": "a6c29d095cd37f7e165e33f846f2028a2d69ce0108f02a837e728b759205cb6d"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        136,
+        42
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 21,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "115",
+          "cycle": 41,
+          "pc": "317",
+          "value": 63
+        }
+      ],
+      "scenario_digest": "ac62cf2dc786ecd3cce6ba0cc8f0fb7a3382b03b4fb9630de5c6226a130d94af",
+      "trace_digest": "403b58406fa22c1215142572ad23c1700e7a9afb746cbb6652e2b11793a336c3"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        140,
+        44
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 22,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "116",
+          "cycle": 41,
+          "pc": "317",
+          "value": 65
+        }
+      ],
+      "scenario_digest": "da344a76ed77d02badc26ec57dd87ba29e8558238504e07fc3a154259708faa7",
+      "trace_digest": "733680d4f4c13b2b157716bafb8b6ea61ad13892676b1dc0136f7c2ad30c9bb0"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        146,
+        46
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 23,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "117",
+          "cycle": 41,
+          "pc": "317",
+          "value": 68
+        }
+      ],
+      "scenario_digest": "f78a9295c83915ec4b660bab76b94b1ecd1343fe909d4a8051afefc4d5b2cfa8",
+      "trace_digest": "e03c509a6756d7b1ca288918a827359132e2ba402edef459d660b4a88da41dff"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        152,
+        48
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 24,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "118",
+          "cycle": 41,
+          "pc": "317",
+          "value": 71
+        }
+      ],
+      "scenario_digest": "ac12ef66ded6ba46953de22c80125b59194c9f65ec6b45b069a76e60b3c9db1e",
+      "trace_digest": "dc43df0a5dfa4d9f9ae11523d27b7f62a569267c846ace1038e0c16dc238693c"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        156,
+        50
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 25,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "119",
+          "cycle": 41,
+          "pc": "317",
+          "value": 73
+        }
+      ],
+      "scenario_digest": "e6c8990bfaff44a8ec8ca29cc55d2347362f17cdfbc3b75761d1f3630fef4ea1",
+      "trace_digest": "e3b3eddfe896fb2a37b9c3762ac54add7c8d293d67dbda7ad16fbdb47d15c4f4"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        162,
+        52
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 26,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "11A",
+          "cycle": 41,
+          "pc": "317",
+          "value": 76
+        }
+      ],
+      "scenario_digest": "857b9b6689355947d3eb69fe3051b0fde016b3c0bd5f771aa16b392b5ccd2161",
+      "trace_digest": "b3ad6cf919502966db865903febe107dc0469ca177a7bb5def9d1d5f185237e9"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        166,
+        54
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 27,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "11B",
+          "cycle": 41,
+          "pc": "317",
+          "value": 78
+        }
+      ],
+      "scenario_digest": "79e8b250cd09e6eae17bfeb0302f6cac437845d301bdcc9e48bebfc418b544b0",
+      "trace_digest": "52befbf27c8e9039abe3ac5ca4247d57176e49572ae28079efcb59b7b020be74"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        172,
+        56
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 28,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "11C",
+          "cycle": 41,
+          "pc": "317",
+          "value": 81
+        }
+      ],
+      "scenario_digest": "5635f86ed0d83e9e09ffc3b0cf7b97bcd01ba2a2e15db67a96be82162802f19a",
+      "trace_digest": "a3178bfe2a3f482e15fa8074008821879246b10204417d5faa7212bea35291a5"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        176,
+        58
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 29,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "11D",
+          "cycle": 41,
+          "pc": "317",
+          "value": 83
+        }
+      ],
+      "scenario_digest": "dd4265e9ad26e6b0eb1976a3dc83e11ebfbf90ab3706a9f29ac5c103af574b2e",
+      "trace_digest": "84d9ebe97b53866b9e693e7fe144c76d8f9bf462990ddcce68c206f31c69b807"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        180,
+        60
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 30,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "11E",
+          "cycle": 41,
+          "pc": "317",
+          "value": 85
+        }
+      ],
+      "scenario_digest": "3e019c6f173a4205cebdb09b2cbe709cd0bee36174cd2a5e97f71d116d8ac1ba",
+      "trace_digest": "f0e140843db989d4f2785f406f92647718505e40fa364652ed96fcdb7b91c42c"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        186,
+        62
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 31,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "11F",
+          "cycle": 41,
+          "pc": "317",
+          "value": 88
+        }
+      ],
+      "scenario_digest": "a32fee3d465468cf49bacc4b4436f17ceba66fa8cb20a264e7a65902dca6ad02",
+      "trace_digest": "489fa430d142d7b7db1734ca769cae4565a55442a7f05cbf3de61b13ac51f2e2"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        190,
+        64
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 32,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "120",
+          "cycle": 41,
+          "pc": "317",
+          "value": 90
+        }
+      ],
+      "scenario_digest": "351d7cd1f4125b1c221284417239fec2e37dd03bf263854fa707d613f06075b5",
+      "trace_digest": "af5d9075b39b11df4607549a3540bc43d559e7ad02cb3c62f15fc87cc7a3f905"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        194,
+        66
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 33,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "121",
+          "cycle": 41,
+          "pc": "317",
+          "value": 92
+        }
+      ],
+      "scenario_digest": "f4484ca1551ceed7781b208002d928990ce2dc4c0c7c8e34c1b486ff4c2f9587",
+      "trace_digest": "9c44b6d524077c8d4f71f9914840c21e941c7ef4c5b6b918bb817b1e7d7322fd"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        198,
+        68
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 34,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "122",
+          "cycle": 41,
+          "pc": "317",
+          "value": 94
+        }
+      ],
+      "scenario_digest": "9c6e1a4323818f867f3401dec10f74fd151010a0aa7b2ea620a2415f8624e8bb",
+      "trace_digest": "19060f6980e3bcf35bbb7f49096fae1e2e70da1ba622b5e1478ce67b79c409d5"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        202,
+        70
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 35,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "123",
+          "cycle": 41,
+          "pc": "317",
+          "value": 96
+        }
+      ],
+      "scenario_digest": "47b17585deca787debe49c951518dbcaa04920166bbbd6e88d0bf91467347019",
+      "trace_digest": "21d5a4ce2d6a09594df9851183cd992aa0c88bcf36af82896778cd23348b4b14"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        206,
+        72
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 36,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "124",
+          "cycle": 41,
+          "pc": "317",
+          "value": 98
+        }
+      ],
+      "scenario_digest": "980f6ccd003034b583b946aba4300ab76cd6c5a69e481099a05744247339b60a",
+      "trace_digest": "f74ff35a68f11aef3b249cbb9d64ea32025f2f3ca915fd34e0f5413ea74edc81"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        210,
+        74
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 37,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "125",
+          "cycle": 41,
+          "pc": "317",
+          "value": 100
+        }
+      ],
+      "scenario_digest": "86ee53259af3da020b3405e888527196ecc318e5fa214ab2fae600ef8f5e6b66",
+      "trace_digest": "ab3d5c3b5ef36f043af8e8960256b186340a288cd066658d2cbce31cba797b88"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        214,
+        76
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 38,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "126",
+          "cycle": 41,
+          "pc": "317",
+          "value": 102
+        }
+      ],
+      "scenario_digest": "0096ef50bcf71008bfd808c509d396ea003c640b1b406c192f4c846de843c86d",
+      "trace_digest": "c4fc06c2b3b9026a9f7d2820ce8013b56e5eaaa736a2ba6778b2a4dff030e420"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        218,
+        78
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 39,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "127",
+          "cycle": 41,
+          "pc": "317",
+          "value": 104
+        }
+      ],
+      "scenario_digest": "4a6da6ed1cd46d0111024d9711a1440ecefa3e35b490d0a8caedcfe3759fef64",
+      "trace_digest": "e510894ad02278d2f9d817c48a0c29315ad09a631e9b9d13ad0f53bc2c8dc127"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        222,
+        80
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 40,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "128",
+          "cycle": 41,
+          "pc": "317",
+          "value": 106
+        }
+      ],
+      "scenario_digest": "141e31324714b88647f90fb43947d07a3bb61ce74a7eee8e79293eb67d08fe78",
+      "trace_digest": "02a761c162c63909823221c872c2e030d76ac1f3dfda83368d510ab6d393b80c"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        224,
+        82
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 41,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "129",
+          "cycle": 41,
+          "pc": "317",
+          "value": 107
+        }
+      ],
+      "scenario_digest": "8417fca981e0543a8cb8c9e3a268e26e1727569d733802dadf2283eb2ba8f0e0",
+      "trace_digest": "881f3bfbc9d9d44dfc36df91dc3818acb4aeec1d7521abe7d13be4775db7619c"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        228,
+        84
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 42,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "12A",
+          "cycle": 41,
+          "pc": "317",
+          "value": 109
+        }
+      ],
+      "scenario_digest": "bae83cd2e57fde696cd0f5f0b6901a3b0b67c31426788ba40dadfed51086ada4",
+      "trace_digest": "3c97b5d145c70565b7cf72eb9f894145e4e14d5c2029bae209a648e651afc2dd"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        232,
+        86
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 43,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "12B",
+          "cycle": 41,
+          "pc": "317",
+          "value": 111
+        }
+      ],
+      "scenario_digest": "0a78dbeffb1e6813af10c22e25fac1ce3675cf4cf215724f8e2bd3da7dd94fb5",
+      "trace_digest": "ec2e63bbe4b6fa4dc26afa05aa2ec7593c814348279d4e39564f604020076add"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        234,
+        88
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 44,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "12C",
+          "cycle": 41,
+          "pc": "317",
+          "value": 112
+        }
+      ],
+      "scenario_digest": "6fd056dc078359143c2776ee19280dc5920dbc1bce78a461b1cac0266773237f",
+      "trace_digest": "3ded9800e23d2018777454581bc9cc6ea0038abbf43d11d834b5afbb99c47a77"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        236,
+        90
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 45,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "12D",
+          "cycle": 41,
+          "pc": "317",
+          "value": 113
+        }
+      ],
+      "scenario_digest": "f40953eb6eca13b421099224c241bec3bd16fea68bee2e1e8afe5431424a2a6c",
+      "trace_digest": "28ba401ec23aa247f61f706184819b24672a32d14d1a3a564adacf4878f413a9"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        240,
+        92
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 46,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "12E",
+          "cycle": 41,
+          "pc": "317",
+          "value": 115
+        }
+      ],
+      "scenario_digest": "70e8f6a8b11e05e184cfb25f95d2a669c9572b4caeb4f68f63203132143f5502",
+      "trace_digest": "a805e9c65dbe0f1668a8db3cf4513dd643eb99fb1ef0dd4cb87219e7bded1b11"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        242,
+        94
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 47,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "12F",
+          "cycle": 41,
+          "pc": "317",
+          "value": 116
+        }
+      ],
+      "scenario_digest": "aa2447a3d3939a8bfddccdc2487802ff3af8c152960186d1bd96295a85eee27f",
+      "trace_digest": "ea33e3f22606d4c66d8db8261c198afcc2fb141e67e70ec4811d826f805f2443"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        244,
+        96
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 48,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "130",
+          "cycle": 41,
+          "pc": "317",
+          "value": 117
+        }
+      ],
+      "scenario_digest": "5955795e85948595b11f66729a971a3b70b489b260f2454b645b3cab04529bd4",
+      "trace_digest": "be2355e52ace343d67573bb0a7ddbcfeebceb9097adf98ac23af046112e366ce"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        246,
+        98
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 49,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "131",
+          "cycle": 41,
+          "pc": "317",
+          "value": 118
+        }
+      ],
+      "scenario_digest": "d8c163310502621140c5d2ca6fd27bc218e9b503d08ff81290e6a595ee58f19a",
+      "trace_digest": "1b58363d3aecc4293b4bf054a381fcd270bf689985633b2b61a77f82fc5189e3"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        250,
+        100
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 50,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "132",
+          "cycle": 41,
+          "pc": "317",
+          "value": 120
+        }
+      ],
+      "scenario_digest": "04ad002bbc8fdcd4d6dd2014ef1b11d9a28ab854376985f80ed27b626b9350c0",
+      "trace_digest": "d0d9b877d24d80ad51df12589986d1883e2fe607c5ac840da55acfa79c4dcea4"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        252,
+        102
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 51,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "133",
+          "cycle": 41,
+          "pc": "317",
+          "value": 121
+        }
+      ],
+      "scenario_digest": "58c48b7f35b54253b338ab0ddfd3ca2b08ff743849f726c189719f80be5afd6e",
+      "trace_digest": "1775a6652d1510fc0c0e3fdf27c244164389089dda919899f8bb5e18beaf9f10"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        254,
+        104
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 52,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "134",
+          "cycle": 41,
+          "pc": "317",
+          "value": 122
+        }
+      ],
+      "scenario_digest": "e34313ba661c2006ed8cf3fa856326396c86e0324e99cbe5cb3ca089bd40c3d5",
+      "trace_digest": "2d7e42f4cb4a83013ff9c5c121db8be7dae7a1742c682584d1e5cca20133c5f1"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        254,
+        106
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 53,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "135",
+          "cycle": 41,
+          "pc": "317",
+          "value": 122
+        }
+      ],
+      "scenario_digest": "abdd78f6a81e386b66c4614bf5b72485fa8410fc43a1913e0bcab5d6fbc77da0",
+      "trace_digest": "c7cd08e8670c4f171c7280198445617fbeb988e771d06fd0c9ac38b2645cea33"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        0,
+        109
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 54,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "136",
+          "cycle": 41,
+          "pc": "317",
+          "value": 123
+        }
+      ],
+      "scenario_digest": "0e5ca3a603a18da945bea4b493406f40d05b9764b6519978e45df35c0d74e1e3",
+      "trace_digest": "d33ffeaf35f978142c4b30b551106a6f9d4bb977db292e1e5e7333beb513e0a4"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        2,
+        111
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 55,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "137",
+          "cycle": 41,
+          "pc": "317",
+          "value": 124
+        }
+      ],
+      "scenario_digest": "a62827fb86291dbe316ee6664fddc720b42bdb706c3e79924318addaf6156fd6",
+      "trace_digest": "fa2855eb97825abd632fd4d06c4706615ae91a6b3aca14ea0a8621dffe973c5f"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        4,
+        113
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 56,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "138",
+          "cycle": 41,
+          "pc": "317",
+          "value": 125
+        }
+      ],
+      "scenario_digest": "9c38f4ac2813d5c4ec961609ce4baa0eb80f1a5274a12f0a5a936eabf5e4c9d0",
+      "trace_digest": "1ffef7bcebd87b71cb42a5e3134dff5a6e71a363fbaf8cf0a2eec6cdc01093e4"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        4,
+        115
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 57,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "139",
+          "cycle": 41,
+          "pc": "317",
+          "value": 125
+        }
+      ],
+      "scenario_digest": "9c1f4d72718ce52a476ad9e87aa47519a74557f9c3f5422c4c3b441ad6d7c5f9",
+      "trace_digest": "53cb0359798b266449a6fdd95f55f4472c07858506ddfade23117d8792851f4e"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        6,
+        117
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 58,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "13A",
+          "cycle": 41,
+          "pc": "317",
+          "value": 126
+        }
+      ],
+      "scenario_digest": "667a9c4f36beac7d9eeb8876a839e793c6ec86c3fc65846572c2d99069f14a18",
+      "trace_digest": "1f2f518c23f9e1dc60b9eb9dea1d71c6b3c937ed015df8bb6b3e45398c38a7fa"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        6,
+        119
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 59,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "13B",
+          "cycle": 41,
+          "pc": "317",
+          "value": 126
+        }
+      ],
+      "scenario_digest": "ccc8f4445e616e4730e8d57e4b0adb8fea9dfbbea8e4a5c3792d0f985da5f65d",
+      "trace_digest": "268c58d54dfa728801b6fd7c851f9bbcda0ee5e82747d238dcda9b19c942965a"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        6,
+        121
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 60,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "13C",
+          "cycle": 41,
+          "pc": "317",
+          "value": 126
+        }
+      ],
+      "scenario_digest": "68570f961140ec1996560d2d9881f48f43f77dbe9856659c6f99a2428ce36c04",
+      "trace_digest": "0d33ddb93bc789a477271df50e3530c5b6ab4ed8d238b064bf6ad96abd2249d8"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        8,
+        123
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 61,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "13D",
+          "cycle": 41,
+          "pc": "317",
+          "value": 127
+        }
+      ],
+      "scenario_digest": "e192b412e115771710ab9090cbad4140ac40c5297f646686349cb70589edb3ae",
+      "trace_digest": "7b9b5f54e8fb6a7784ba018ff809d249b76148a172d7ebce749c53ee1c6fcd37"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        8,
+        125
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 62,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "13E",
+          "cycle": 41,
+          "pc": "317",
+          "value": 127
+        }
+      ],
+      "scenario_digest": "2736ac4abb8b6482471467707dc67996f8562815a6ba9df91de4bb9e3d68434c",
+      "trace_digest": "b9f64c07cc6831fe83be1f03976c5eb8fdea692e922db4732b04cdcfc5f95247"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        8,
+        127
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 63,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "13F",
+          "cycle": 41,
+          "pc": "317",
+          "value": 127
+        }
+      ],
+      "scenario_digest": "d4f0f2c160f3ab9cd8bb141f91b95e001222aab1916cc13ac9b27bb1b60ad4fc",
+      "trace_digest": "34f600a2504d30537fb086463f33d49752748e865d53954143acb7a466822e07"
+    },
+    {
+      "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+      "clean": true,
+      "complete_output_groups": 81,
+      "completed_cycles": 1024,
+      "distinct_output_groups": 1,
+      "distinct_q_at_output": 1,
+      "final_pc": "393",
+      "first_output_cycle": 51,
+      "first_output_group": [
+        0,
+        0,
+        8,
+        129
+      ],
+      "first_q": 5,
+      "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+      "output_group_periods": [
+        12
+      ],
+      "phase": 64,
+      "rom_hashes": {
+        "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+        "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+        "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+        "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+      },
+      "rom_reads": [
+        {
+          "address": "106",
+          "cycle": 19,
+          "pc": "115",
+          "value": 19
+        },
+        {
+          "address": "108",
+          "cycle": 29,
+          "pc": "115",
+          "value": 25
+        },
+        {
+          "address": "140",
+          "cycle": 41,
+          "pc": "317",
+          "value": 127
+        }
+      ],
+      "scenario_digest": "d104e7156d81463f575e8c0617e8f08b9159f9cdde21ed4e35ce5c9021b0b4ec",
+      "trace_digest": "0bb1a065d3b50e0d0fdb44abac4e5c0afb9f9dd98f634a1ccebd504eec7c3407"
+    }
+  ],
+  "repeated_phases": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+  ],
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/execute.py": "240e84ad8c31a9d5d595e69c38bd2d3e7a22c48b6dc5305bfdba5a2985df051f",
+    "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
+    "assumed/sine-operand-study.json": "f6b912fe2125885586c2add7e9b9aa70221b1cb1068a3e4a5b772a5f5e4cf59c",
+    "assumed/sine_operand_study.py": "85bcb70777bd7d0b5f7913965effaf9b95e8b077daf02cdad66186f29cb7df24",
+    "g2/photo-b-constraints.json": "201a99119d67a3f1ad1f1e7f91639d0cd41b16b33183efba9dee44d7a239666c",
+    "g2/photo_b_constraints.py": "4656f02179d847040061bb66c13bcc78158af8fa14c0ce71e47bf3dff26a39ff",
+    "g2/swapped_sine_loop.py": "ed25c24a8e6de1859547e23a57a187549ade4e477ac0b297c4e96ce5a0e269d6",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "status": "candidate-loop-execution-not-G2-C2",
+  "tested_phases": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+  ],
+  "zero_317_control": {
+    "am27s31_hash": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "clean": true,
+    "complete_output_groups": 81,
+    "completed_cycles": 1024,
+    "distinct_output_groups": 1,
+    "distinct_q_at_output": 1,
+    "final_pc": "393",
+    "first_output_cycle": 51,
+    "first_output_group": [
+      0,
+      0,
+      10,
+      64
+    ],
+    "first_q": 5,
+    "mapping_digest": "73f82547bf83f3282f5fc60062c35b50c7102e71dd6e842e4bb737516764392c",
+    "output_group_periods": [
+      12
+    ],
+    "phase": 32,
+    "rom_hashes": {
+      "10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+      "11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+      "17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+      "18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+    },
+    "rom_reads": [
+      {
+        "address": "106",
+        "cycle": 19,
+        "pc": "115",
+        "value": 19
+      },
+      {
+        "address": "108",
+        "cycle": 29,
+        "pc": "115",
+        "value": 25
+      }
+    ],
+    "scenario_digest": "07c2e0cef433f031bdec61a3c83f4c92eebdcb8802c27a68b7180e264f4a0ed7",
+    "trace_digest": "3403913c6488f79043808a179220a940d8aa7ae56b784670f289326e84ca72ab"
+  }
+}
