@@ -94,3 +94,32 @@ python3 nokia/data-modem-2400-2400/analysis/microcode/g2/gray_operand_probe.py \
 The next mapping search should require repeated ROM accesses whose address
 comes from actual controller dibits and whose retained state carries phase
 between symbols. This probe rules out only the declared q3 reset scenario.
+
+## Controller state-to-frame constraint
+
+[The controller frame sweep](controller_frames.py) executes the unchanged 8031
+ROM from 1EE2 through actual output construction and four-byte transmission
+for every one of the 256 possible RAM34 state values. A single fixed diagnostic
+fixture holds the flags, received payload, prior outputs and counters constant.
+Every run completes all four transfers and the later P1.2 latch; transmitted
+bytes match the independently checked `output_build` reference.
+
+Only **38 distinct wire frames** result from the 256 states in this fixture.
+For example, A0 and A2 both send `80 02 88 7A`; C2 and C3 both send
+`D8 42 81 A2`. States 40–7F all send `80 02 00 FA`. The upper five bits of
+the fourth byte come from the ROM state-code tables for 80–BF, a constant for
+C0–FF, and zero for 00–7F. Thus the fourth byte is a compressed state code
+plus flags, not an invertible copy of RAM34. The other three bytes also depend
+on state, flags, payload and prior values; a frame cannot be interpreted from
+RAM34 alone.
+
+This is a controlled sensitivity test, not a mapping from controller states to
+V.26 ter roles. It narrows A2: the command interface needs state transitions
+and the changing firmware variables, as well as the four-byte output. The
+[full 256-state report](results/controller-frames.json) retains every frame,
+source classification, collisions, execution checks and source hashes.
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/controller_frames.py \
+  --out /tmp/nokia-g2-controller-frames.json
+```
