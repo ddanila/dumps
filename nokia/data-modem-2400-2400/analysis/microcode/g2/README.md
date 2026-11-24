@@ -108,6 +108,10 @@ the next experiment; the present counterfactual is not a recovered board path.
 A follow-up split test shows that I0 high opens those reads, while A1 high
 alone does not. This narrows the wiring or timing hypothesis to I0 without
 turning the conflicting same-phase fixture into evidence of a transmitter.
+The board-engine capture-edge check finds that a simple U10→U5 route cannot
+latch E2 high together with valid U10 data on one edge; it explicitly yields
+high-impedance data bits instead. A different I0 route or a real hold circuit
+would be needed to turn that diagnostic path into a board candidate.
 
 A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
 changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,

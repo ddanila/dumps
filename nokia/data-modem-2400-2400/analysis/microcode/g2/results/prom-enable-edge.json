@@ -1,0 +1,66 @@
+{
+  "assumptions": [
+    "Other U10 enables are asserted.",
+    "U5 D1..D7 are generously modeled as direct U10 data bits; their actual permutation is unresolved.",
+    "REG374 samples its D pins on a rising edge; no extra bus hold or second latch is modeled."
+  ],
+  "cases": {
+    "disable_then_latch": [
+      {
+        "event": "E2 high before edge",
+        "latch": "XXXXXXXX",
+        "latch_bit0": "X",
+        "prom": "ZZZZZZZZ"
+      },
+      {
+        "event": "latch edge while E2 high",
+        "latch": "ZZZZZZZ1",
+        "latch_bit0": 1,
+        "prom": "ZZZZZZZZ"
+      }
+    ],
+    "latch_then_disable": [
+      {
+        "event": "latch edge while E2 low",
+        "latch": "11101100",
+        "latch_bit0": 0,
+        "prom": "11101100"
+      },
+      {
+        "event": "E2 high after edge",
+        "latch": "11101100",
+        "latch_bit0": 0,
+        "prom": "ZZZZZZZZ"
+      }
+    ],
+    "read_then_latch": [
+      {
+        "event": "latch edge while E2 low",
+        "latch": "11101100",
+        "latch_bit0": 0,
+        "prom": "11101100"
+      }
+    ],
+    "simultaneous_change": [
+      {
+        "event": "E2 and latch clock change in one event",
+        "latch": "11101100",
+        "latch_bit0": 0,
+        "prom": "ZZZZZZZZ"
+      }
+    ]
+  },
+  "finding": "With this simple route, a capture of E2=1 also captures high-impedance U10 data; a valid data capture stores E2=0. A separate holding circuit or different I0 route is required for I0=1 with valid U10 fields.",
+  "limitations": [
+    "No propagation delays or analog capacitance are represented.",
+    "The E2-to-U5 route and other U10-to-U5 bits are photo candidates, not continuity measurements.",
+    "This does not run the full DSP program or identify its line output."
+  ],
+  "source_sha256": {
+    "board/dsc2847.json": "d6f1e0fc111dbe2e296dc241a67239228f44336c98ff4dbc31a33b41d60cdcd7",
+    "board/engine.py": "e273bc26faa8f45957c0635e9e55b3480a2988e344875481698cf9a7c0feade4",
+    "board/logic.py": "e94a586b7129217973eaefb067e20ccf95a3a5d3009fada895829656263837c7",
+    "g2/prom_enable_edge.py": "10e03d1bb3cd2d3d5826be9214e2582948a9786dfe7469d6d9abbe9666a24227"
+  },
+  "status": "minimal edge-model diagnostic, not complete board timing"
+}

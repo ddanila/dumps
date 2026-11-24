@@ -60,3 +60,29 @@ values still settle; there is no demonstrated evolving carrier. The next
 photo/timing hypothesis should therefore explain how I0 could be high while
 valid U10 data is available, or try an alternative I0 route. Merely changing
 A1 cannot rescue this Q=5 controller path.
+
+## Capture-edge check
+
+[A minimal four-state edge experiment](prom_enable_edge.py) uses the actual
+U10 dump in the board engine, with its active-low E2 gate and an LS374-style
+U5 capture edge. It gives the other U10 enables their asserted levels and,
+generously, connects U10 D1–D7 directly to U5 D1–D7. The actual data-bit
+permutation and E2-to-D0 route remain unverified. At address 004, U10's real
+data byte is EC. The
+[saved edge result](results/prom-enable-edge.json) is:
+
+| Event order | U5 Q7–Q0 after event |
+| --- | --- |
+| Capture while E2 low | `11101100` |
+| Raise E2, then capture | `ZZZZZZZ1` |
+| Capture while E2 low, then raise E2 | `11101100` |
+| Raise E2 and capture in one modeled event | `11101100` |
+
+Here `Z` is a high-impedance data bit, not zero or a retained value. In the
+last case the edge samples the old D inputs; the model has no propagation
+delay or analog race behavior. Under this *simple* photo route, U5 cannot
+capture both E2=1 at D0 and valid U10 data at D1–D7 on one edge. That makes
+the earlier E2-high ROM path a stronger prompt to test a different I0 route
+or a separately specified holding circuit, not a valid execution under the
+current board topology. This edge check does not run the whole microprogram
+or establish the physical output connection.
