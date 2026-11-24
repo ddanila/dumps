@@ -34,6 +34,11 @@ q3 mapping. All samples are consumed, but the observed post-dispatch state
 depends only on the current byte, even when sample order is reversed. This
 rules out that **scoped path alone** as the demonstrated differential receiver;
 other input routes and state locations remain open.
+The [five-mapping input screen](PHOTO-INPUT-ROUTE.md) repeats that sample-order
+test for q1–q4 and fitted-swapped, and separately feeds four real-controller
+frame streams into D38E. All 30 runs consume their bytes, but each group has
+one signature per current byte and no ROM read after the first input. This
+deprioritizes D38E as the shared command/sample route under the tested fixture.
 
 The [photo-informed board experiment](../board/PHOTO-HYPOTHESES.md) revisits
 the physical-wiring blocker: missing proven nets do not prevent explicit
