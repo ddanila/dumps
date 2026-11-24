@@ -28,6 +28,8 @@ hardware model or a claim that the full program has been understood.
   clean reset trace by witness ID, mapping profile and first cycle. The
   [witness catalog](RESET-WITNESSES.md) preserves all scenario limitations;
   these entries do not merge incompatible mappings into one coverage claim.
+- `entry_policy_explanations` records each gap’s witnessed path and the default
+  forced jumps that suppress it; the mapping and witness remain explicit.
 - `explanation_status` distinguishes reachable code, unresolved entry paths,
   and the three all-FF unused words. A local arithmetic interpretation does
   not change an unresolved entry into an explained exception.
@@ -127,7 +129,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 96 functional/assumption tests pass, including checks that
+byte. All 97 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -180,3 +182,8 @@ evidence of the physical read-selection signal.
 256-state feedback transition for each reply byte. All 65,536 local transitions
 match the ALU model; actual reset runs distinguish 215 returning replies from
 41 persistent cycles, including a 45-instruction cycle.
+
+[Entry-policy audit](ENTRY-POLICY-AUDIT.md) adds causal explanations for every
+default gap: exact witness paths identify the forced jumps that must permit
+fallthrough. All 4,096 subsets of twelve witnessed relaxations are checked;
+32 reach every used word, and all retain a possible 2FF stack underflow.

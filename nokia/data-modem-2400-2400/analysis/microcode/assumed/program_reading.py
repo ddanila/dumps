@@ -72,6 +72,8 @@ def build(config):
                     direct_callers=' '.join(f'{p:03X}' for p in callers.get(pc, [])),
                     reset_hypothesis_witnesses=json.dumps([{k:v[k] for k in ('witness','profile','cycle')}
                         for v in witnesses['entries'].get(f'{pc:03X}',[])],sort_keys=True),
+                    entry_policy_explanations=json.dumps([dict(witness=v['witness'],profile=v['profile'],**v['entry_policy'])
+                        for v in witnesses['entries'].get(f'{pc:03X}',[])],sort_keys=True),
                     annotations=json.dumps(notes[pc], sort_keys=True),
                     dispatch=json.dumps(table, sort_keys=True) if table is not None else '')
         for name, example in examples.items():

@@ -579,3 +579,8 @@ evidence of the physical read-selection signal.
 256-state feedback transition for each reply byte. All 65,536 local transitions
 match the ALU model; actual reset runs distinguish 215 returning replies from
 41 persistent cycles, including a 45-instruction cycle.
+
+[Entry-policy audit](ENTRY-POLICY-AUDIT.md) adds causal explanations for every
+default gap: exact witness paths identify the forced jumps that must permit
+fallthrough. All 4,096 subsets of twelve witnessed relaxations are checked;
+32 reach every used word, and all retain a possible 2FF stack underflow.

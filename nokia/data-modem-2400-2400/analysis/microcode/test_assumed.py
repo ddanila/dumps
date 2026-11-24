@@ -938,6 +938,30 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_default_gap_policy_explanations_and_unsafe_complete_graph(self):
+        from reset_witness_catalog import build_catalog
+        from entry_policy_audit import relaxed_graph
+        catalog=build_catalog()
+        self.assertEqual(len(catalog['entries']),22)
+        for visits in catalog['entries'].values():
+            for visit in visits:
+                explanation=visit['entry_policy']
+                self.assertTrue(explanation['forced_jump_fallthroughs'])
+                self.assertEqual(explanation['path'][0],explanation['root_pc'])
+                for branch in explanation['forced_jump_fallthroughs']:
+                    self.assertEqual(int(branch['actual_target'],16),int(branch['pc'],16)+1)
+        explanation=catalog['entries']['2DF'][0]['entry_policy']
+        self.assertEqual(explanation['root_pc'],'2D8')
+        self.assertEqual([b['pc'] for b in explanation['forced_jump_fallthroughs']],['2D8','2DB','2DE'])
+        rows=decode(read(HERE/'sequencer.json'))
+        scenario=read(HERE/catalog['configuration']['baseline_scenario'])
+        sites={0x0f9,0x0fc,0x255,0x257,0x2ce,0x2de,0x3bc}
+        relaxed=relaxed_graph(rows,scenario,sites)
+        self.assertEqual(len(relaxed['reached']),1021)
+        self.assertIn('2ff: possible stack underflow',relaxed['exceptions'])
+        for pc in sites:self.assertLess(len(relaxed_graph(rows,scenario,sites-{pc})['reached']),1021)
+        self.assertEqual(len(graph(rows,scenario)['reached']),999)
+
     def test_rom_carry_reply_recurrence_and_y_dependency(self):
         from rom_carry_replies import transition, predict, check_step
         from rom_gate_handlers import scenario_for_gate, outcome

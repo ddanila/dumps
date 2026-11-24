@@ -4,7 +4,7 @@ import hashlib
 import json
 import tempfile
 from pathlib import Path
-from common import HERE, decode, digest, read, save
+from common import HERE, decode, digest, read, save, unconditional_transfer
 from analyze import graph
 from execute import execute
 
@@ -53,16 +53,31 @@ def build_catalog(manifest_path=HERE/'reset-witnesses.json'):
     for entry in config['witnesses']:
         if entry['id'] in ids:raise ValueError('duplicate witness id')
         ids.add(entry['id']);summary,trace=verify_witness(entry,config['profiles'])
-        ram=[0]*16;q=0;first={}
+        ram=[0]*16;q=0;first={};entry_path=[];previous=None
+        baseline=read(HERE/config['baseline_scenario'])
+        witness_rows=decode(read(HERE/entry['path']/'mapping.json'))
         for t in trace:
             pc=t['pc']
+            if pc in targets:
+                if previous is None:raise ValueError('gap entry has no predecessor')
+                if previous['pc'] not in targets:entry_path=[previous]
+                else:entry_path.append(previous)
+            else:entry_path=[]
             if pc in targets and pc not in first:
                 first[pc]=dict(witness=entry['id'],profile=entry['profile'],cycle=t['cycle'],
                     before=dict(ram=ram[:],q=q,stack_depth=t['stack_before']['depth']),
-                    next_pc=f"{t['next_pc']:03X}",test=t['test'])
+                    next_pc=f"{t['next_pc']:03X}",test=t['test'],
+                    entry_policy=dict(root_pc=f"{entry_path[0]['pc']:03X}",root_cycle=entry_path[0]['cycle'],
+                        path=[f"{step['pc']:03X}" for step in entry_path]+[f'{pc:03X}'],
+                        forced_jump_fallthroughs=[dict(pc=f"{step['pc']:03X}",cycle=step['cycle'],
+                            default_target=f"{witness_rows[step['pc']]['branch']:03X}",actual_target=f"{step['next_pc']:03X}")
+                            for step in entry_path if step['command']==6 and step['test']==0
+                            and unconditional_transfer(witness_rows[step['pc']],baseline)]))
+                if not first[pc]['entry_policy']['forced_jump_fallthroughs']:
+                    raise ValueError('gap witness has no default forced-jump explanation')
                 entries[f'{pc:03X}'].append(first[pc])
             for k,v in t['registers'].items():ram[int(k)]=v
-            q=t['q']
+            q=t['q'];previous=t
         if not first:raise ValueError('witness covers no target words')
         if ram!=summary['final_state']['ram'] or q!=summary['final_state']['q']:
             raise ValueError('trace state reconstruction disagrees with summary')

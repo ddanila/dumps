@@ -81,3 +81,8 @@ flags. The standalone and embedded catalogs reproduce exactly. This makes
 the reset-entry evidence reviewable in the plan's main listing; broader
 algorithm interpretation, physical I/O and general model validity remain
 open, so the full plan is not complete.
+
+[Entry-policy audit](ENTRY-POLICY-AUDIT.md) adds causal explanations for every
+default gap: exact witness paths identify the forced jumps that must permit
+fallthrough. All 4,096 subsets of twelve witnessed relaxations are checked;
+32 reach every used word, and all retain a possible 2FF stack underflow.
