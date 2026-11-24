@@ -32,10 +32,11 @@ scenario. It also explains why the earlier full-word sign-selection check
 matched only a small fraction: it expected the low source bytes to survive.
 
 The result identifies a four-way sign selection in the **held E4=I7=A0=1,
-E2=I0=A1=0 model**. It is compatible with quadrant selection as an arithmetic
-role, but does not prove DPSK modulation: no controller dibit has been tied to
-the table entry, no continuing phase or carrier is shown, and RAM[10:13] has
-no traced DAC route. The pin continuations, latch phase and shared Am2901
+E2=I0=A1=0 model**. A [subsequent candidate route](PHOTO-TABLE-DIBITS.md)
+feeds real controller dibits through predecessor ALU Y into those entries
+under q1/q3, but this does not prove DPSK modulation: no continuing phase or
+carrier is shown, and RAM[10:13] has no traced DAC route. The pin
+continuations, latch phase and shared Am2901
 instruction controls remain hypotheses. The [split-slice candidate](PHOTO-SPLIT-CALLERS.md)
 already changes reached table operands, so this exact formula is specific to
 the shared-control mapping tested here.

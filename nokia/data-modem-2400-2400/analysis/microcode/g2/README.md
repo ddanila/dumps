@@ -703,3 +703,8 @@ words through the same diagnostic external address bus. All push return
 address `085`; 75 later stop at the `089` POP because this artificial caller
 has no further return address. Two return to `084`, and none reaches the old
 q3 output-site candidates.
+The [controller-dibit table run](PHOTO-TABLE-DIBITS.md) sends actual 8031
+USART-output dibits to the two predecessor words under a candidate D route.
+With previous ALU Y selecting the computed entry, q1/q3 follow all four
+dibit choices across 28 calls each; q2/q4/fitted-swapped always choose entry
+3. The 40 short runs return to `084` and do not establish a DAC waveform.

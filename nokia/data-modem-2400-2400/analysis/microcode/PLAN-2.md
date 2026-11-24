@@ -118,9 +118,12 @@ phases B–C turn "what" into "how".
   A conditional A4 result is now available: under the held E4/I7/A0 photo-pin
   candidate, both 3C5 and 3DA tables [select the signs of duplicated source
   high bytes](g2/PHOTO-TABLE-EXACT.md). The rule matches all 140 reset-reached
-  calls in that fixture. The next discriminating check is whether a real
-  controller dibit selects those entries and whether their values reach an
-  advancing sample path. The arithmetic identity alone is not a transmitter.
+  calls in that fixture. A [controller-dibit candidate run](g2/PHOTO-TABLE-DIBITS.md)
+  then routes real 8031 line-side dibits through predecessor Y: q1/q3 select
+  all four entries, while q2/q4/fitted-swapped stay at entry 3. The next
+  discriminating check is whether the physical branch bus and input timing
+  support that route and whether the values reach an advancing sample path.
+  Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
