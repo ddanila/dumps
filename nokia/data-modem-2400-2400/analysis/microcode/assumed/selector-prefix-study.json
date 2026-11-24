@@ -1,0 +1,16 @@
+{
+  "status": "hypothesis",
+  "evidence": "Matched zero-reset prefixes with actual previous ALU flags and the default unconditional-transfer policy. Select only the index source at 109; other dispatch choices remain constant 2. Scalar inputs use D then zero at 117/106, with D elsewhere. Independent q1/q3 inputs override only reads 002 and 076; all other inputs use D=1 and the same early replies. No physical command protocol or index wiring is recovered.",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "tables": "results/third-case-study/scenario-all_cases.json",
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q2": "results/independent-study/variant-2.json",
+    "q3": "results/independent-study/variant-3.json",
+    "q4": "results/independent-study/variant-4.json",
+    "fitted_original": "results/selector-completion/original-marked/mapping.json",
+    "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json"
+  },
+  "sources": ["scenario", "y", "q", "previous_y"],
+  "handlers": [282, 328, 395, 768, 601, 837, 158, 307]
+}

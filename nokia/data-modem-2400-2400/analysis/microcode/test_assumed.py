@@ -17,6 +17,33 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_selector_prefix_mapping_and_independent_inputs(self):
+        from selector_prefix_study import scenario_for, run_prefix, verify
+        config = read(HERE/'selector-prefix-study.json')
+        base, tables = (read(HERE/config[k]) for k in ('scenario','tables'))
+        expected = dict(q1=(2,2,4), q2=(0,1,1), q3=(2,3,4), q4=(0,1,1),
+                        fitted_original=(0,2,0), fitted_swapped=(0,0,0))
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for profile,path in config['profiles'].items():
+                mapping = read(HERE/path)
+                rows = decode(mapping)
+                scenario = scenario_for(base,tables,config,'previous_y',1)
+                got = run_prefix(rows,scenario)
+                event = got['event']
+                self.assertEqual((event['q'],event['current_y'],event['previous_y']),expected[profile])
+                verify(mapping,scenario,got,root/profile)
+            for profile in ('q1','q3'):
+                mapping = read(HERE/config['profiles'][profile])
+                rows = decode(mapping)
+                scenario = scenario_for(base,tables,config,'q',1,[165,94])
+                got = run_prefix(rows,scenario)
+                event = got['event']
+                self.assertEqual((event['q'],event['entry'],event['handler']),(3,3,0x300))
+                self.assertEqual([(w['pc'],w['after']) for w in event['q_writes']],[(2,165),(0x76,3)])
+                self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
+                verify(mapping,scenario,got,root/f'split-{profile}')
+
     def test_register_contract_restores_real_reset_stack(self):
         from register_contract_study import capture, scenario_for, resume, verify_full
         from model import UnknownStack
@@ -1264,6 +1291,8 @@ class AssumedTests(unittest.TestCase):
         self.assertTrue(listing[0x2bc]['reset_q2_nested_visited'])
         self.assertTrue(listing[0x2ff]['reset_q2_nested_visited'])
         self.assertFalse(listing[0x1df]['reset_q2_nested_visited'])
+        self.assertIn('input accumulation',listing[0x002]['q1_labels'])
+        self.assertNotIn('input accumulation',listing[0x002]['q2_labels'])
         self.assertIn('equality poll',listing[0x1ec]['fitted_original_labels'])
         self.assertNotIn('equality poll',listing[0x1ec]['fitted_swapped_labels'])
         self.assertIn('quarter-turn',listing[0x3c5]['q2_labels'])

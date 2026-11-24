@@ -898,6 +898,61 @@
       "evidence": "INDEXED-TAIL.md",
       "meaning": "Sixteen one-word POP entries copy R0 into R0 through R15 respectively. The q2 terminal caller supplies Q>>1 as the stored byte.",
       "limitations": "The inferred table is exercised by scenario/current-Y/Q/preceding-Y candidates. Register writes do not establish a physical DAC transfer or index wiring."
+    },
+    {
+      "name": "reset input accumulation in Q",
+      "ranges": [
+        [
+          "002",
+          "002"
+        ],
+        [
+          "076",
+          "076"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q1",
+        "q3"
+      ],
+      "evidence": "SELECTOR-PREFIX.md",
+      "meaning": "Each word adds its external D byte into Q with carry zero. From zero reset, the two reads produce Q=(D_002+D_076) mod 256 before the first 109 dispatch.",
+      "limitations": "Input reads are explicit stubs. Independent-input reset prefixes are verified under q1/q3 only; other mappings do not share this input dependence. Physical input timing and source remain unknown."
+    },
+    {
+      "name": "Q-based input-sum dispatch candidate",
+      "ranges": [
+        [
+          "109",
+          "109"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q1",
+        "q3"
+      ],
+      "evidence": "SELECTOR-PREFIX.md",
+      "meaning": "Q-indexed first dispatch selects entry (D_002+D_076) mod 8. Current Y equals Q under q1 and Q+1 under q3 in the tested reset prefix; preceding Y also reflects the input schedule.",
+      "limitations": "Index source remains an explicit candidate. Equal input bytes create a parity restriction that independent reads remove. Handler entry is verified, not complete handler behavior or a physical command protocol."
+    },
+    {
+      "name": "eight-way handler branch table",
+      "ranges": [
+        [
+          "10A",
+          "111"
+        ]
+      ],
+      "status": "hypothesis",
+      "profiles": [
+        "q1",
+        "q3"
+      ],
+      "evidence": "SELECTOR-PREFIX.md",
+      "meaning": "The eight branch words select handlers 11A, 148, 18B, 300, 259, 345, 09E and 133. Independent q1/q3 input sums reach each through the actual 109 dispatch.",
+      "limitations": "Uses the default unconditional-transfer policy, not optional BRT gates. No physical opcode assignment or full handler algorithm is established."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

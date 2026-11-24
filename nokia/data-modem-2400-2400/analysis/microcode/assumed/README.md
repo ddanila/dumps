@@ -535,3 +535,9 @@ nested Q load to independently selected terminal register stores. It checks
 65,536 continuations of an actual reset checkpoint and nine complete core
 replays, retaining the R5 overwrite and the need to adjust the second index
 when the first destination is R6. The physical protocol remains unknown.
+
+[First-dispatch mapping comparison](SELECTOR-PREFIX.md) distinguishes the
+current-Y/Q/previous-Y selectors across all six layouts. Independent reads
+at 002 and 076 remove the constant-input parity restriction for q1/q3 and
+reach all eight handlers through Q indexing. The q2/q4 current-Y limitation
+remains explicit; no physical source or default layout is selected.
