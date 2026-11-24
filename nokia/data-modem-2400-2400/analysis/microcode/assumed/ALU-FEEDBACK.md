@@ -83,3 +83,8 @@ and observations. Full million-cycle replays check this feedback run and the
 previous index-source experiment; the 128-run comparison is regenerated
 independently. The full plan remains incomplete, particularly routine
 identification and the relationship between computation and physical I/O.
+
+The later [selected-read experiment](SINE-OPERAND.md) combines actual ROM
+feedback at 317 with external handshake stubs at other instructions. It reaches
+nonzero operands under q3 and records their effect through terminal execution;
+the read qualification remains a scenario hypothesis.

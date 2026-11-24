@@ -938,6 +938,49 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_rom_feedback_at_selected_pcs_preserves_external_sequences(self):
+        from defined_condition_fit import load_trace
+        mapping=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,i=7|(1<<6),a=0,b=0,d=0).items():
+            mapping['fields'][name]=dict(bits=bits,status='stub',evidence='mixed read fixture')
+        scenario=copy.deepcopy(self.scenario)
+        scenario['io']['read'].update(mode='pc_sequence',pc_sequences={'0':[1],'2':[17]},
+            sequence_end='hold-last',status='stub',evidence='mixed read fixture',
+            expected_sha256=read(HERE/'feedback-search.json')['rom_sha256'],
+            address=dict(source='previous_y',bank=0,initial_y=0,pcs=[1],status='hypothesis',evidence='fixture'))
+        with tempfile.TemporaryDirectory() as temporary:
+            result=execute(mapping,scenario,3,mode='integrated',out=Path(temporary),trace_limit=3)
+            trace=load_trace(Path(temporary))
+        self.assertEqual([r['alu']['y'] for r in trace],[1,49,17])
+        self.assertEqual(result['rom_reads']['address_counts'],{1:1})
+        self.assertEqual(result['rom_reads']['selected_by_alu'],1)
+        self.assertEqual(result['read_sequence_visits'],{0:1,2:1})
+        self.assertNotIn('address',trace[0]['external_read'])
+        self.assertEqual(trace[1]['external_read']['address'],1)
+        self.assertNotIn('address',trace[2]['external_read'])
+        for pcs in ([],[1,1],[True],[-1],[1024],[0]):
+            bad=copy.deepcopy(scenario);bad['io']['read']['address']['pcs']=pcs
+            with self.assertRaisesRegex(ValueError,'ROM read sites'):validate_scenario(bad)
+        bad=copy.deepcopy(scenario);bad['io']['read']['expected_sha256']='0'*64
+        with self.assertRaisesRegex(ValueError,'hash mismatch'):execute(mapping,bad,3,mode='integrated')
+        with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,3)
+
+    def test_sine_rom_operand_reaches_nonzero_arithmetic_from_reset(self):
+        from sine_operand_study import scenario_for_phase, inspect_phase
+        from rom_study import load_rom
+        from defined_condition_fit import load_trace
+        config=read(HERE/'sine-operand-study.json');rom=load_rom(config)
+        with tempfile.TemporaryDirectory() as temporary:
+            for profile in ('q1','q3'):
+                for phase in (0,32,64):
+                    scenario=scenario_for_phase(config,profile,phase)
+                    result=execute(read(HERE/config['profiles'][profile]),scenario,160,
+                        mode='integrated',out=Path(temporary),trace_limit=160)
+                    self.assertTrue(result['clean'])
+                    finding=inspect_phase(load_trace(Path(temporary)),scenario,profile,phase,rom)
+                    self.assertEqual(finding['expected_pairs'][0],2*(5+rom[256+phase]) if profile=='q3' else 0)
+                    self.assertEqual(finding['first_terminal'],110)
+
     def test_alu_rom_feedback_reads_prior_output_and_records_consumption(self):
         import json
         mapping=copy.deepcopy(self.mapping)

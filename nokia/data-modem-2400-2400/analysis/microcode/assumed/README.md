@@ -557,3 +557,9 @@ values or choices among its four candidate table entries.
 reset. The first high-byte result may be nonzero on return; only the final
 high-byte result controls the loop. Matched q1 inputs expose the source-field
 difference, and earlier-load controls verify the surviving input provenance.
+
+[Selected sine-ROM operand](SINE-OPERAND.md) follows actual quarter-sine dump
+bytes through q3 arithmetic to a surviving result, using an explicit ROM read
+only at 317 and external replies elsewhere. Address setup and read-to-result
+latency are logged in microinstructions; physical strobes and sample timing
+remain unresolved.

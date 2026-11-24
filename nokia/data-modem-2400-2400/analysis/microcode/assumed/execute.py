@@ -96,8 +96,15 @@ def validate_scenario(s):
             raise ValueError('PC-keyed sequences require provenance')
     read_policy=s['io']['read'].get('address')
     if read_policy is not None:
-        if s['io']['read']['mode']!='am27s31' or read_policy.get('source')!='previous_y':
+        if source_read['mode'] not in ('am27s31','pc_sequence') or read_policy.get('source')!='previous_y':
             raise ValueError('address feedback requires Am27S31 previous_y policy')
+        if source_read['mode']=='pc_sequence':
+            pcs=read_policy.get('pcs')
+            if (not isinstance(pcs,list) or not pcs or any(type(pc) is not int or not 0<=pc<1024 for pc in pcs)
+                    or len(set(pcs))!=len(pcs) or any(str(pc) in source_read['pc_sequences'] for pc in pcs)):
+                raise ValueError('ROM read sites must be unique PCs without sequence overrides')
+        elif 'pcs' in read_policy:
+            raise ValueError('ROM read sites require pc_sequence mode')
         if read_policy.get('bank') not in (0,256) or type(read_policy.get('initial_y')) is not int or not 0<=read_policy['initial_y']<=255:
             raise ValueError('invalid ROM bank/initial address')
         if read_policy.get('status') not in ('hypothesis','stub','recovered-from-data') or not read_policy.get('evidence'):
@@ -174,7 +181,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     visited=Counter();edges=Counter();assumptions=Counter();events=[];depth=maximum=0
     stack_reads=stack_writes=underflows=overflows=unused=0
     source_read=scenario['io']['read'];table=source_read['table'];rom_hash=None
-    if source_read['mode']=='am27s31':
+    if source_read['mode']=='am27s31' or read_policy is not None:
         p=HERE.parents[3]/'unknown-modem-am27s31dc'/'nokia-modem-am27s31dc.bin'
         table=list(p.read_bytes());rom_hash=hashlib.sha256(bytes(table)).hexdigest()
         if not table: raise ValueError('empty Am27S31 dump')
@@ -197,7 +204,13 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
         if mode=='integrated':
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
-            if source_read['mode']=='constant': d=source_read['value'];assumptions['constant external read']+=1
+            if source_read['mode']=='pc_sequence' and read_policy is not None and pc in read_policy['pcs']:
+                address=read_policy['bank']+previous.get('y',read_policy['initial_y'])
+                d=table[address];assumptions['table external read']+=1
+                consumed=(r['i']&7) in (5,6,7)
+                selected_reads+=consumed;read_counts[address]+=1
+                read_event=dict(address=address,value=d,selected_by_alu=consumed,status=read_policy['status'])
+            elif source_read['mode']=='constant': d=source_read['value'];assumptions['constant external read']+=1
             elif source_read['mode']=='pc_table':
                 d=source_read['pc_values'].get(str(pc),source_read['value'])
                 assumptions['PC-keyed external read']+=1

@@ -1,0 +1,12 @@
+{
+  "status": "hypothesis",
+  "scenario": "results/polling-study/immediate-one/scenario.json",
+  "tables": "results/third-case-study/scenario-all_cases.json",
+  "profiles": {
+    "q1": "results/independent-study/variant-1.json",
+    "q3": "results/independent-study/variant-3.json"
+  },
+  "cycles": 160,
+  "evidence": "Hypothesized PC-qualified ROM read only at 317, upper bank addressed by preceding Y. Under q3, diagnostic D at 316 sets the phase while Q=5; actual ROM byte at 317 adds to Q to form the first paired component. Retain external handshake and capture stubs elsewhere. No physical ROM enable, address latch, DAC port or sample clock is recovered.",
+  "rom_sha256": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58"
+}
