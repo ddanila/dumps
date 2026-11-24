@@ -48,8 +48,26 @@ produce one. The next experiment should supply a controller-derived sequence
 of dibits and examine whether a decoded phase state changes across symbol
 boundaries, while keeping photo-based connection alternatives explicit.
 
+## Fitted mapping: changing ROM addresses lead through a finite drain
+
+The photo-compatible `fitted_swapped` mapping has another reopened ROM-fed
+site at 299. [`fitted_rom_drain.py`](fitted_rom_drain.py) runs all **48**
+diagnostic gate fits that select that site. Its reset fixture uses dispatch
+index 1 and the existing D=FF early-reply schedule; these are diagnostic
+inputs, not decoded controller commands. All 48 runs read the real ROM at 299,
+with two to five visits each, and none visits candidate output word 392 in
+2,048 instructions. In the smallest-gate witness, successive reads use
+addresses **1FE, 17F, 13F** and return **0A, 08, 7F**. Q at those reads is
+**FE, 7F, 3F**. The trace shows Q shifting at 29D between visits; changing
+ROM addresses here are therefore a finite drain path, not evidence of a
+running carrier phase. Some gates also select ROM at other words and take
+different routes, but all 48 miss the candidate output in this fixture.
+The [saved sweep and witness](results/fitted-rom-drain/report.json) preserve
+each gate, read sequence, full trace digest and input assumptions.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/swapped_sine_loop.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/swapped_q2_rom_loop.py
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/fitted_rom_drain.py
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2 -p 'test_swapped_rom_loops.py' -v
 ```

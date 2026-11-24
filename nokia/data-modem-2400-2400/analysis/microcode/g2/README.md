@@ -26,6 +26,10 @@ output quartet, but each reset fixture repeats one constant quartet. In q2,
 eight diagnostic ROM gates sustain a D-fed loop at 127, yet its value settles
 after the first transition. These results narrow the tested assumptions; they
 do not demonstrate a phase accumulator or a controller-driven waveform.
+The photo-compatible fitted mapping has a separate ROM-fed path at 299: all
+48 diagnostic ROM gates that select it make two to five reads with changing
+addresses, but [the executed sweep](SWAPPED-ROM-LOOPS.md#fitted-mapping-changing-rom-addresses-lead-through-a-finite-drain)
+reaches no candidate output word under its D=FF startup fixture.
 
 ## First independent ROM constraint
 
