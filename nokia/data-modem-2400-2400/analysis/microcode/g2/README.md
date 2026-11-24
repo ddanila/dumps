@@ -57,6 +57,27 @@ python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode/g2
 
 ## Next evidence and acceptance status
 
+### Independent signal reference for phase C
+
+The [reference modem](reference_modem.py) generates diagnostic expectations
+without executing DSC2847 microcode. It differentially encodes dibits using
+the independently identified 00/04/0C/08 phase steps, shapes symbols with a
+100% raised-cosine pulse at eight samples/baud, and quantizes the 1800 Hz
+carrier to signed 8-bit PCM. Its 80-symbol steady carrier peaks at exactly
+1800 Hz in a 15 Hz DFT bin; a separate answer-tone fixture peaks at 2100 Hz.
+Thirty-two repeated `11` dibits alternate the 16-step phase between 8 and 0.
+
+A known-carrier matched-filter receiver recovers an 80-symbol randomized
+diagnostic stream with zero dibit errors. An integer Q15 normalized-LMS
+reference reduces a synthetic two-delay echo's residual RMS from 5.15 to
+1.64 in the sampled training windows; its coefficients freeze after training.
+The [saved signatures](results/reference-modem.json) and tests provide concrete
+comparisons for future C2–C4 microcode runs. The pulse coefficients and
+receiver are floating-point diagnostics around 8-bit PCM, so this is **partial
+C1**, not a bit-exact fixed-point hardware model. No board mapping, actual
+sample rate, DAC waveform, recovered USART bits or echo-canceller routine is
+established by this reference.
+
 ### Additive-instruction screen
 
 Across the six existing datapath profiles, 62–82 used words per profile decode
