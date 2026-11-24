@@ -181,6 +181,12 @@ phases B–C turn "what" into "how".
   read one fixed ROM address and hold `0B` at reached `39E`/`39F` sites;
   use the architecture change to search for a history-dependent path, not
   as a transmitter claim.
+  A [D38C receive-input perturbation](g2/INDEPENDENT-SLICE-D38C.md) locates
+  those repeated reads in the lower slice and substitutes reference ADC-like
+  bytes at that site. The bytes change R6 at `38C`, but `3A0` overwrites it:
+  all 128 complete loop-boundary states match the constant-byte control in
+  both separated layouts. Look for a different retained input path rather
+  than treating the restored ROM-read count as receiver evidence.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

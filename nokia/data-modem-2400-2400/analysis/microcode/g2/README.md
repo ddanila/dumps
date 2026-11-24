@@ -757,3 +757,8 @@ controller-fed cycles, where the shared-field model selected none. The ROM
 address and reached output codes remain fixed under real and constant-bit
 stimuli, so this reopens an architectural path without demonstrating a modem
 function.
+The [D38C input perturbation](INDEPENDENT-SLICE-D38C.md) identifies those
+reads as lower-slice D selections and replaces the fixed ROM byte with
+reference ADC-like samples. They change R6 at `38C`, but `3A0` restores one
+fixed R6 value and all 128 subsequent loop-boundary states match the
+constant-byte control. This scoped path does not retain receive history.

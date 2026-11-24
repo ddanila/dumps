@@ -40,6 +40,10 @@ per Q=5 run use one address, and the two reached candidate output words hold
 `0B` for the real, all-zero and all-one streams. The upper-pair-only layout
 does not reach the recurring controller input from Q=5. Q=2 in the separated
 layouts has many ROM reads but no controller-input visit in the tested run.
+The repeated read is specifically **lower-slice D selection at `38C`** from
+Am27S31 address `106`; the [varying-D follow-up](INDEPENDENT-SLICE-D38C.md)
+shows that it changes R6 locally but is overwritten before the next loop
+boundary. It does not establish an upper-slice D read or a receive filter.
 
 The [report](results/independent-slice-fields.json) records the exact bit
 fields, seed counts, ROM addresses, output values, trace digests and source
