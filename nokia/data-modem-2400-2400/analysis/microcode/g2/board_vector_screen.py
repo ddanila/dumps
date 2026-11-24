@@ -49,7 +49,8 @@ def at_wait(board, fixture, initial_ram_q=None):
     raise ValueError('baseline did not reach 084 within 128 cycles')
 
 
-def screen_one(wait_engine, fixture, vector, expected_target, stimulus=None):
+def screen_one(wait_engine, fixture, vector, expected_target, stimulus=None,
+               stack_action='unchanged'):
     engine = deepcopy(wait_engine)
     event = dict(fetch_pc=f'{vector:03X}', target=f'{expected_target:03X}')
     pcs = []
@@ -72,13 +73,23 @@ def screen_one(wait_engine, fixture, vector, expected_target, stimulus=None):
         event['stack_unchanged'] = (
             engine.state['U9']['sp'] == before_stack[0] and
             engine.state['U9']['stack'] == before_stack[1])
+        if stack_action == 'call':
+            new_sp = (before_stack[0] + 1) & 3
+            event['call_stack_ok'] = (
+                engine.state['U9']['sp'] == new_sp and
+                engine.state['U9']['stack'][new_sp].integer() == 0x085 and
+                all(engine.state['U9']['stack'][index] == before_stack[1][index]
+                    for index in range(4) if index != new_sp))
+        elif stack_action != 'unchanged':
+            raise ValueError(f'unknown stack action: {stack_action}')
         engine.step({'drive': 0})
         engine.step({'takeover': 0})
         event['released_address'] = engine.inputs('U10')['A'].integer()
         if (event['floating_bus'] != 'Z'*10 or event['driven_address'] != vector or
                 event['internal_pc_after'] != expected_target or
                 event['released_address'] != expected_target or
-                not event['stack_unchanged']):
+                not (event['call_stack_ok'] if stack_action == 'call' else
+                     event['stack_unchanged'])):
             raise ValueError(f'vector {vector:03X}: handoff or BRT contract changed')
         for cycle in range(MAX_AFTER_VECTOR):
             pc = engine.state['U9']['pc'].integer()

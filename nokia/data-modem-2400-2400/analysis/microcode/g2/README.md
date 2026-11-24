@@ -692,3 +692,8 @@ The [candidate-byte follow-up](BOARD-VECTOR-INPUT.md) finds that real 8031
 frame-byte values change the modeled Am2901 state when RAM/Q startup bits are
 explicitly seeded, while the path still returns to `084` without visiting the
 candidate output sites. The frame-to-DSP route remains a hypothesis.
+The [call-vector screen](BOARD-CALL-VECTOR-SCREEN.md) fetches 77 direct BSR
+words through the same diagnostic external address bus. All push return
+address `085`; 75 later stop at the `089` POP because this artificial caller
+has no further return address. Two return to `084`, and none reaches the old
+q3 output-site candidates.
