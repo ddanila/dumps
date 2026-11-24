@@ -668,3 +668,10 @@ saved branch/dispatch scenarios and constant external-D stubs, not a
 controller-driven transmitter or DAC sample stream. Only seeds 11 and 14
 reach the tables, and all 640 runs settle at the unconditional `084` self-loop;
 this candidate path does not demonstrate steady signal processing.
+
+The [split-slice follow-up](PHOTO-SPLIT-CALLERS.md) repeats the reached calls
+with the photo-candidate U8 instruction links. It changes the source operands
+and table outputs without changing which calls occur. All 28 calls per mapping
+then have nonzero source pairs, but none satisfies the simple sign-selection
+or quarter-turn formula. This narrows the arithmetic interpretation while
+leaving the controller and DAC routes unresolved.
