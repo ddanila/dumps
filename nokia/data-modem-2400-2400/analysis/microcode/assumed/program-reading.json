@@ -1181,6 +1181,50 @@
       "evidence": "HANDLER1.md",
       "meaning": "24F loads Q=R12+R0. In handler-1 reset context with R7=0, 248 performs two short right shifts followed by a left drain, returning Q=0 and R0=1. First input is 2*code modulo 256; second is FE.",
       "limitations": "Scoped to q3 reset R7=0 and default D=1. Other captured masks or external input schedules may change termination."
+    },
+    {
+      "name": "carry-qualified input selection",
+      "ranges": [
+        [
+          "259",
+          "264"
+        ],
+        [
+          "26A",
+          "26F"
+        ],
+        [
+          "2A0",
+          "2B2"
+        ],
+        [
+          "2C6",
+          "2CA"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER4.md",
+      "meaning": "Handler-4 code-4 reset path preserves A on overflow of A+B; otherwise compares A+1 and may reload Q. Previous XOR carry distinguishes captured R7=00/FF at the later increment skip. Q and the wrapped sum reach terminal internal state through a difference-only dispatch tail.",
+      "limitations": "q3 previous flags, default D=1 outside stated reads and fixed later dispatch index 2. Two captured R7 values and all A/B continuations tested; physical I/O and alternate 265\u2013269 path remain unresolved."
+    },
+    {
+      "name": "copy-and-subtract paired wrapper",
+      "ranges": [
+        [
+          "3A2",
+          "3AA"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER4.md",
+      "meaning": "Copy R4\u2013R7 to R12\u2013R15, invoke paired arithmetic and repeat according to the final high-byte result under previous-zero timing. Tested entry 2 subtracts each copied operand from itself and returns after one pass for captured R7=00/FF.",
+      "limitations": "Reset evidence is scoped to handler 4, code 4, fixed table entry 2 and q3 previous flags. Transient paired results are not identified physical output writes."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

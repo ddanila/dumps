@@ -127,6 +127,29 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_handler4_sum_carry_and_xor_skip(self):
+        from handler4_study import scenario_for, capture, prediction, probe, verify_full
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler4-study.json')
+        mapping=read(HERE/config['mapping']);rows=decode(mapping)
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            for captured in (0,255):
+                scenario=scenario_for(config,0,0,captured)
+                prefix_path=root/f'prefix-{captured}'
+                snapshot=capture(mapping,scenario,prefix_path)
+                prefix=load_trace(prefix_path)
+                for a,b,r7 in config['witnesses']:
+                    if r7!=captured:continue
+                    got=probe(rows,scenario,snapshot,a,b);want=prediction(snapshot,a,b)
+                    self.assertEqual((got['ram'],got['q'],got['cycles']),
+                                     (want['ram'],want['q'],want['cycles']))
+                    verify_full(mapping,scenario_for(config,a,b,captured),snapshot,got,want,
+                                root/f'case-{captured}-{a}-{b}',prefix)
+                self.assertEqual(probe(rows,scenario,snapshot,1,0)['q'],1+int(captured==255))
+                self.assertEqual(probe(rows,scenario,snapshot,255,0)['q'],0)
+                self.assertEqual(probe(rows,scenario,snapshot,255,1)['q'],255)
+
     def test_handler1_wrapped_sum_and_timing(self):
         from handler1_study import scenario_for, prediction, check_sum, inspect
         from defined_condition_fit import load_trace

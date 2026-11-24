@@ -609,3 +609,8 @@ for input-dependent timing; the FF mask wraps to zero before halving.
 into R14 through an eight-bit sum and right shift under q3. A complete final
 register formula and instruction-count formula explain the tested reset paths;
 all 65,536 local byte pairs distinguish wrapping from ordinary averaging.
+
+[Handler 4 input selection](HANDLER4.md) connects a sum-carry exit, a byte
+comparison and a logical-XOR skip to retained Q and terminal register stores.
+Exhaustive A/B continuations distinguish captured R7=00/FF, with complete
+reset replays checking all intermediate and final state.

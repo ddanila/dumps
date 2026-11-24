@@ -1165,6 +1165,50 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER4.md",
+        "limitations": "q3 previous flags, default D=1 outside stated reads and fixed later dispatch index 2. Two captured R7 values and all A/B continuations tested; physical I/O and alternate 265\u2013269 path remain unresolved.",
+        "meaning": "Handler-4 code-4 reset path preserves A on overflow of A+B; otherwise compares A+1 and may reload Q. Previous XOR carry distinguishes captured R7=00/FF at the later increment skip. Q and the wrapped sum reach terminal internal state through a difference-only dispatch tail.",
+        "name": "carry-qualified input selection",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "259",
+            "264"
+          ],
+          [
+            "26A",
+            "26F"
+          ],
+          [
+            "2A0",
+            "2B2"
+          ],
+          [
+            "2C6",
+            "2CA"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER4.md",
+        "limitations": "Reset evidence is scoped to handler 4, code 4, fixed table entry 2 and q3 previous flags. Transient paired results are not identified physical output writes.",
+        "meaning": "Copy R4\u2013R7 to R12\u2013R15, invoke paired arithmetic and repeat according to the final high-byte result under previous-zero timing. Tested entry 2 subtracts each copied operand from itself and returns after one pass for captured R7=00/FF.",
+        "name": "copy-and-subtract paired wrapper",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "3A2",
+            "3AA"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1187,7 +1231,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 484,
+    "annotated_used_words": 534,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2174,7 +2218,24 @@
       }
     },
     {
-      "annotations": [],
+      "annotations": [
+        {
+          "evidence": "HANDLER4.md",
+          "limitations": "Reset evidence is scoped to handler 4, code 4, fixed table entry 2 and q3 previous flags. Transient paired results are not identified physical output writes.",
+          "meaning": "Copy R4\u2013R7 to R12\u2013R15, invoke paired arithmetic and repeat according to the final high-byte result under previous-zero timing. Tested entry 2 subtracts each copied operand from itself and returns after one pass for captured R7=00/FF.",
+          "name": "copy-and-subtract paired wrapper",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "3A2",
+              "3AA"
+            ]
+          ],
+          "status": "hypothesis"
+        }
+      ],
       "callers": [
         "1CF",
         "25A"
@@ -4160,6 +4221,7 @@
     "GATE-RUNTIME.md": "11e44df1ddc0507e8a9ad3feea22dde8779b8732806f4c0d458a103ea2adc09e",
     "HANDLER-REPLY.md": "4d19202b5d554ae76b201bb4d709a4d52cb3e31031aecac2ee99d3ae0970f76d",
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
+    "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
     "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",
     "LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
