@@ -17,6 +17,36 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_handler_timing_recurrence_and_reply_phase(self):
+        from handler_timing_study import scenario_for_case, classify
+        from defined_condition_fit import load_trace
+        config = read(HERE/'handler-timing-study.json')
+        with tempfile.TemporaryDirectory() as temporary:
+            for profile in ('q1','q3'):
+                mapping = read(HERE/config['profiles'][profile])
+                for timing,replies in (('previous','plp'),('current','blt'),('previous','blt'),('current','plp')):
+                    for q in (0,2,255):
+                        scenario = scenario_for_case(config,profile,timing,replies,q)
+                        result = execute(mapping,scenario,512,mode='integrated',out=Path(temporary),trace_limit=512)
+                        self.assertTrue(result['clean'])
+                        trace = load_trace(Path(temporary))
+                        got = classify(trace,scenario)
+                        matched = (timing=='previous') == (replies=='plp')
+                        self.assertEqual(got['dispatch'] is not None,matched)
+                        if matched:
+                            expected = 'terminal' if q==255 or q==0 and timing=='current' else 'repeat'
+                            self.assertEqual(got['outcome'],expected)
+                        else:
+                            self.assertEqual(got['outcome'],'repeat')
+                            self.assertEqual(got['repeat']['period'],2)
+                        # An unconsumed input transition prevents a recurrence
+                        # proof even when CPU/stack states repeat.
+                        delayed = copy.deepcopy(scenario)
+                        delayed['io']['read']['pc_sequences'][str(0x084)] = [1]*1024+[0]
+                        if got['outcome']=='terminal':
+                            with self.assertRaisesRegex(AssertionError,'repeated state'):
+                                classify(trace,delayed)
+
     def test_selector_prefix_mapping_and_independent_inputs(self):
         from selector_prefix_study import scenario_for, run_prefix, verify
         config = read(HERE/'selector-prefix-study.json')

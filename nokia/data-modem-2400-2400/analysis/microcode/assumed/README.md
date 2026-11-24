@@ -541,3 +541,8 @@ current-Y/Q/previous-Y selectors across all six layouts. Independent reads
 at 002 and 076 remove the constant-input parity restriction for q1/q3 and
 reach all eight handlers through Q indexing. The q2/q4 current-Y limitation
 remains explicit; no physical source or default layout is selected.
+
+[Handler timing comparison](HANDLER-TIMING.md) follows all 256 input sums
+through q1/q3 handlers under both flag timings and both early reply schedules.
+Full-state recurrence distinguishes persistent loops from bounded traces;
+changing timing trades successful handlers rather than resolving all waits.

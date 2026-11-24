@@ -127,7 +127,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 88 functional/assumption tests pass, including checks that
+byte. All 89 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -142,3 +142,8 @@ The [diagnostic register-store contract](REGISTER-CONTRACT.md) connects the
 nested Q load to the terminal stores using explicitly constructed input bytes.
 It exhausts destination pairs from a verified reset checkpoint, preserves
 register side effects, and does not identify a physical controller protocol.
+
+[Handler timing comparison](HANDLER-TIMING.md) follows all 256 input sums
+through q1/q3 handlers under both flag timings and both early reply schedules.
+Full-state recurrence distinguishes persistent loops from bounded traces;
+changing timing trades successful handlers rather than resolving all waits.
