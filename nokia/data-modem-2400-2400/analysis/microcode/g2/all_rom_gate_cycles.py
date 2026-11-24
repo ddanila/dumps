@@ -1,4 +1,4 @@
-"""Score all 137 diagnostic ROM gates against q3 cyclic D-consuming words."""
+"""Score all 137 diagnostic ROM gates against cyclic words in six mappings."""
 import argparse
 from collections import Counter
 import hashlib
@@ -16,7 +16,8 @@ from phase_add_screen import cyclic_components  # noqa: E402
 
 def run():
     catalog=read(ASSUMED/'program-reading.json')
-    mapping_path=ASSUMED/catalog['profiles']['q3']
+    mapping_paths={name:ASSUMED/rel for name,rel in catalog['profiles'].items()}
+    mapping_path=mapping_paths['q3']
     scenario_path=ASSUMED/catalog['scenario']
     gate_path=ASSUMED/'results/rom-gate-study/report.json'
     rows=decode(read(mapping_path))
@@ -38,19 +39,37 @@ def run():
                                   cyclic_d_pcs=[f'{pc:03X}' for pc in cyclic],
                                   paired_output_d_pcs=[f'{pc:03X}' for pc in output_loop]))
     assert empty==73 and paired==0
-    retained={pc for pc in hit_counts if (rows[pc]['i']>>6)&7 not in (1,)}
-    assert retained=={0x1ec,0x36c,0x36e}
+    by_mapping={}
+    for name,path in mapping_paths.items():
+        mapped=decode(read(path))
+        mapped_flow=graph(mapped,read(scenario_path),include_states=True)
+        assert not mapped_flow['exceptions']
+        mapped_cyclic={state[0] for component in cyclic_components(mapped_flow['state_edges'])
+                       for state in component}
+        counts=Counter()
+        for fit in fits:
+            for pc in set(fit['d_selected_pcs'])&mapped_cyclic:
+                instruction=mapped[pc].get('i')
+                if instruction is not None and (instruction>>6)&7 not in (1,4,5):
+                    counts[pc]+=1
+        by_mapping[name]=dict(cyclic_d_register_writes={f'{pc:03X}':count
+                            for pc,count in sorted(counts.items())},
+                              cyclic_pc_count=len(mapped_cyclic))
+    expected={'1EC':18,'36C':25,'36E':10}
+    assert all(row['cyclic_d_register_writes']==expected for row in by_mapping.values())
+    retained={int(pc,16) for pc in expected}
     return dict(status='family-wide diagnostic gate/cycle screen',
         gate_fit_count=len(fits),fits_without_cyclic_d=empty,
         fits_with_d_in_paired_output_loop=paired,
         cyclic_d_site_counts={f'{pc:03X}':count for pc,count in sorted(hit_counts.items())},
         cyclic_d_sites_with_register_write=[f'{pc:03X}' for pc in sorted(retained)],
+        by_mapping=by_mapping,
         fits=fit_summaries,
         source_sha256={str(path.relative_to(ASSUMED)):hashlib.sha256(path.read_bytes()).hexdigest()
-                       for path in (mapping_path,scenario_path,gate_path)},
-        interpretation='None of the 137 diagnostic gate fits selects a D operand in q3 paired-output loop 38C–3A1. Seventy-three select no D-consuming word in any declared cyclic component. Cyclic D-driven register writes occur only at 1EC, 36C and 36E among the remaining fits.',
+                       for path in (*mapping_paths.values(),scenario_path,gate_path)},
+        interpretation='Across all six retained mappings, cyclic D-driven register writes selected by the 137 diagnostic gate fits occur only at 1EC, 36C and 36E. None of the fits selects D in paired-output loop 38C–3A1. In q3, 73 gates select no D-consuming word in a declared cyclic component.',
         limitations=['All 137 gates were fitted to assumed diagnostic labels, not physical ROM read-enable measurements.',
-                     'The q3 graph follows one declared stack/dispatch policy and overapproximates conditional branch feasibility.',
+                     'The graph follows one declared stack/dispatch policy and overapproximates conditional branch feasibility.',
                      'A ROM value could be captured before a loop, or an untested gate/mapping could select other words.',
                      'This screen does not identify a transmitter or prove the actual board lacks one.'])
 

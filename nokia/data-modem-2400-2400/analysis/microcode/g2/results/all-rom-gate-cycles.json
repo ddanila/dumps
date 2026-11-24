@@ -1,4 +1,54 @@
 {
+  "by_mapping": {
+    "fitted_original": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "cyclic_pc_count": 193
+    },
+    "fitted_swapped": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "cyclic_pc_count": 193
+    },
+    "q1": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "cyclic_pc_count": 193
+    },
+    "q2": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "cyclic_pc_count": 193
+    },
+    "q3": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "cyclic_pc_count": 193
+    },
+    "q4": {
+      "cyclic_d_register_writes": {
+        "1EC": 18,
+        "36C": 25,
+        "36E": 10
+      },
+      "cyclic_pc_count": 193
+    }
+  },
   "cyclic_d_site_counts": {
     "02B": 15,
     "02C": 29,
@@ -2812,16 +2862,21 @@
   "fits_with_d_in_paired_output_loop": 0,
   "fits_without_cyclic_d": 73,
   "gate_fit_count": 137,
-  "interpretation": "None of the 137 diagnostic gate fits selects a D operand in q3 paired-output loop 38C\u20133A1. Seventy-three select no D-consuming word in any declared cyclic component. Cyclic D-driven register writes occur only at 1EC, 36C and 36E among the remaining fits.",
+  "interpretation": "Across all six retained mappings, cyclic D-driven register writes selected by the 137 diagnostic gate fits occur only at 1EC, 36C and 36E. None of the fits selects D in paired-output loop 38C\u20133A1. In q3, 73 gates select no D-consuming word in a declared cyclic component.",
   "limitations": [
     "All 137 gates were fitted to assumed diagnostic labels, not physical ROM read-enable measurements.",
-    "The q3 graph follows one declared stack/dispatch policy and overapproximates conditional branch feasibility.",
+    "The graph follows one declared stack/dispatch policy and overapproximates conditional branch feasibility.",
     "A ROM value could be captured before a loop, or an untested gate/mapping could select other words.",
     "This screen does not identify a transmitter or prove the actual board lacks one."
   ],
   "source_sha256": {
+    "results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
+    "results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
     "results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "results/independent-study/variant-4.json": "0ec561af24f767f8d43c327c1308244d684aaf37eca5057538395c189ae118e9",
     "results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
+    "results/selector-completion/original-marked/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
+    "results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
     "results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e"
   },
   "status": "family-wide diagnostic gate/cycle screen"

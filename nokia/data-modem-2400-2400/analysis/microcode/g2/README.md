@@ -143,7 +143,9 @@ The [family-wide screen](all_rom_gate_cycles.py) repeats the intersection for
 select no D-consuming word in any cyclic q3 component. None selects a D
 operand in the recurring paired-output loop 38C–3A1. Across the other gates,
 only 1EC, 36C and 36E combine a cyclic D read with a register write; those
-sites are the poll and carry recurrence above. The [full result](results/all-rom-gate-cycles.json)
+sites are the poll and carry recurrence above. The same three cyclic write
+sites and gate counts hold in **all six retained datapath mappings** under
+the shared control-flow policy. The [full result](results/all-rom-gate-cycles.json)
 keeps every gate's terms and cyclic sites. This makes further transmitter
 claims from this *fitted-gate family* unlikely without new wiring or a
 different mapping. A ROM operand may be captured before a loop, so the screen
