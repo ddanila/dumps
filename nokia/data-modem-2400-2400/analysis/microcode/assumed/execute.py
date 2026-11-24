@@ -184,7 +184,7 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     stack_reads=stack_writes=underflows=overflows=unused=0
     source_read=scenario['io']['read'];table=source_read['table'];rom_hash=None
     if source_read['mode']=='am27s31' or read_policy is not None:
-        p=HERE.parents[3]/'unknown-modem-am27s31dc'/'nokia-modem-am27s31dc.bin'
+        p=HERE.parents[3]/'data-modem-2400-2400'/'am27s31dc-prom'/'nokia-modem-am27s31dc.bin'
         table=list(p.read_bytes());rom_hash=hashlib.sha256(bytes(table)).hexdigest()
         if not table: raise ValueError('empty Am27S31 dump')
         if read_policy is not None and (len(table)!=512 or rom_hash!=source_read['expected_sha256']):

@@ -17,14 +17,12 @@ than the firmware collection. Keep all-FF captures local as well.
 - [Diversa Aquarius 2000 Q-meter](diversa/aquarius-2000/) — two matching
   32 KiB 27256 reads; embedded Diversa Ltd. and AQ 2000 banners.
 
-- [Nokia external modem Am27S31DC PROM](nokia/unknown-modem-am27s31dc/) —
-  two matching 512-byte reads from the last board; role unconfirmed.
-
-- [Nokia external modem, second board 2764](nokia/unknown-modem-other-board-2764/) —
-  two matching 8 KiB reads; preliminary 8051-family code identification.
-
-- [Nokia external modem 810237C PROM set](nokia/unknown-modem-810237c/) — all four
-  MMI 6381 PROMs acquired, two matching 1 KiB reads each; modem model unknown.
+- [Nokia Data Modem 2400/2400](nokia/data-modem-2400-2400/): all six
+  programmable devices found so far, two matching reads each. These are the
+  8031 controller 2764 (810244E), four MMI 6381 bit-slice microcode PROMs
+  (810237C–810240C) and an Am27S31DC sine/lookup PROM. The
+  [investigation](nokia/data-modem-2400-2400/analysis/) points to a V.26 ter-class
+  duplex modem.
 
 - [Award VENUS-VIA 1993-04-14](unknown/award-venus-via-19930414/) —
   unidentified-board 128 KiB Award 4.20 BIOS with Cirrus VGA; matching large

@@ -2,7 +2,7 @@
 
 The owner identifies the source as an old Nokia external modem; later photos identify **Nokia Data Modem 2400/2400**,
 board **DSC 2847 / 1177201**. Four socketed PROMs are visible in the supplied
-[board photo](photos/PXL_20261123_112138062.jpg). No inventory tag has been supplied.
+[board photo](../photos/PXL_20261123_112138062.jpg). No inventory tag has been supplied.
 
 | Board position | Sticker | Acquisition |
 | --- | --- | --- |
@@ -114,10 +114,10 @@ and operational validity remain unconfirmed.
 
 ## Related board
 
-The owner subsequently supplied a [2764 EPROM from another board in the same modem](../unknown-modem-other-board-2764/). It is preserved separately; no logical
+The owner subsequently supplied a [2764 EPROM from another board in the same modem](../controller-810244e/). It is preserved separately; no logical
 combination with these four PROMs is assumed.
 
-The same modem also supplied an [Am27S31DC PROM from its last board](../unknown-modem-am27s31dc/), preserved as a separate 512-byte image.
+The same modem also supplied an [Am27S31DC PROM from its last board](../am27s31dc-prom/), preserved as a separate 512-byte image.
 
-[Subsequent hardware and firmware investigation](../data-modem-2400-2400/) includes the full DSC2847 photo confirming chip 11’s sticker and the Am2901
+[Subsequent hardware and firmware investigation](../) includes the full DSC2847 photo confirming chip 11’s sticker and the Am2901
 bit-slice hardware. Earlier uncertainty notes above describe the original cropped photo.

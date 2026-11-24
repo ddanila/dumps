@@ -11,7 +11,7 @@ from execute import execute
 
 
 def load_rom(config):
-    data=(HERE.parents[3]/'unknown-modem-am27s31dc/nokia-modem-am27s31dc.bin').read_bytes()
+    data=(HERE.parents[3]/'data-modem-2400-2400/am27s31dc-prom/nokia-modem-am27s31dc.bin').read_bytes()
     if len(data)!=512 or hashlib.sha256(data).hexdigest()!=config['rom_sha256']:
         raise ValueError('Am27S31 dump size/hash mismatch')
     return data

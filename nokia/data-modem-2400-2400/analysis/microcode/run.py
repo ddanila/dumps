@@ -19,7 +19,7 @@ ROMS = {
 def load():
     lanes = {}
     for chip, (label, sha) in ROMS.items():
-        data = (NOKIA / 'unknown-modem-810237c' / f'chip{chip}-{label}.bin').read_bytes()
+        data = (NOKIA / 'data-modem-2400-2400/microcode-810237c-810240c' / f'chip{chip}-{label}.bin').read_bytes()
         if len(data) != 1024 or hashlib.sha256(data).hexdigest() != sha:
             raise ValueError(f'chip {chip}: ROM size or SHA-256 mismatch')
         lanes[chip] = data

@@ -1,4 +1,24 @@
-# Nokia Data Modem 2400/2400 — hardware and firmware investigation
+# Nokia Data Modem 2400/2400: hardware and firmware investigation
+
+## At a glance
+
+| Folder | Contents |
+| --- | --- |
+| [controller-810244e/](controller-810244e/) | 8 KiB 2764 from DSU 3556: the 8031 controller program |
+| [microcode-810237c-810240c/](microcode-810237c-810240c/) | 4 × 1 KiB MMI 6381 PROMs from DSC 2847: the Am2901/8X02 control store |
+| [am27s31dc-prom/](am27s31dc-prom/) | 512 B Am27S31DC: sine and lookup tables, probably 810241 on DSC 3557 |
+| [photos/](photos/) | All 22 owner photographs, unchanged, with hashes |
+| [analysis/](analysis/) | 8031 harness and controller studies; [microcode/](analysis/microcode/) holds the bit-slice work |
+
+**Current status (2026-11-24):**
+
+- **Controller.** The 8031 firmware runs and is understood in detail. Its
+  scrambler polynomials, synchronous line-side USART and V.25 timing constants
+  point to a V.26 ter-class 2400 bit/s duplex echo-cancelling modem.
+- **Bit-slice board.** It is very probably the modem's signal processor:
+  modulator, demodulator and echo canceller. Its microcode runs under assumed
+  field mappings, but the algorithm is not yet identified.
+- **Next steps:** [analysis/microcode/PLAN-2.md](analysis/microcode/PLAN-2.md).
 
 The controller ROM **810244E executes unchanged** in a bounded 8031 harness.
 With explicitly synthetic serial-shift input, serial status and a retained-RAM
@@ -39,9 +59,9 @@ SHA-256 values are in [photos/manifest.json](photos/manifest.json).
 
 | Image | Size | Interpretation |
 | --- | --- | --- |
-| [810244E / 2764](../unknown-modem-other-board-2764/) | 8 KiB | 8031 controller program, physical association owner-confirmed |
-| [810237C–810240C](../unknown-modem-810237c/) | 4 × 1 KiB | Candidate parallel microcode lanes for the Am2901 datapath, not an 8051 program |
-| [Am27S31DC](../unknown-modem-am27s31dc/) | 512 B | Lookup/control data; contains an exact signed sine table at its beginning |
+| [810244E / 2764](controller-810244e/) | 8 KiB | 8031 controller program, physical association owner-confirmed |
+| [810237C–810240C](microcode-810237c-810240c/) | 4 × 1 KiB | Candidate parallel microcode lanes for the Am2901 datapath, not an 8051 program |
+| [Am27S31DC](am27s31dc-prom/) | 512 B | Lookup/control data; contains an exact signed sine table at its beginning |
 
 The four MMI PROMs and four nearby octal latches suggest **1024 × 32 bits of
 control store**. The two 4-bit Am2901 slices suggest an 8-bit datapath. These are

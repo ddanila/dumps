@@ -8,7 +8,7 @@ from pathlib import Path
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 CORE=ROOT/'unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051'
-ROM=ROOT/'nokia/unknown-modem-other-board-2764/nokia-modem-other-board-2764.bin'
+ROM=ROOT/'nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin'
 SHA='daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038'
 
 

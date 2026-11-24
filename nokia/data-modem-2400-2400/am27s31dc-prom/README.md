@@ -1,8 +1,8 @@
 # Nokia external modem — Am27S31DC PROM
 
 Owner identifies this as the last chip on the last board of the same old Nokia
-external modem previously supplying the [four MMI PROMs](../unknown-modem-810237c/)
-and [2764 EPROM](../unknown-modem-other-board-2764/). Exact modem model,
+external modem previously supplying the [four MMI PROMs](../microcode-810237c-810240c/)
+and [2764 EPROM](../controller-810244e/). Exact modem model,
 board identity, socket position and sticker are unknown. No shared address
 space or concatenation with those images is assumed.
 
@@ -35,6 +35,6 @@ A web search for the CRC32 found no public match; uniqueness is not established.
 
 [Manifest](manifest.json) · [Read logs and acquisition metadata](evidence/)
 
-[Subsequent investigation](../data-modem-2400-2400/) identifies the case as Nokia Data Modem 2400/2400 and confirms that the first 16 bytes exactly match a
+[Subsequent investigation](../) identifies the case as Nokia Data Modem 2400/2400 and confirms that the first 16 bytes exactly match a
 rounded signed sine table. Association with sticker 810241 on DSC3557 remains
 provisional.
