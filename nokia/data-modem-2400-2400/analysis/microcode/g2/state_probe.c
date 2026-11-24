@@ -4,9 +4,9 @@
 #undef main
 
 int main(int argc, char **argv) {
-    if (argc != 8) return 2;
-    unsigned values[6];
-    for (int i=0;i<6;i++) {
+    if (argc != 8 && argc != 9) return 2;
+    unsigned values[7]={0};
+    for (int i=0;i<argc-2;i++) {
         char *end;
         unsigned long v=strtoul(argv[i+2],&end,0);
         if (*end || v>255) return 2;
@@ -33,6 +33,7 @@ int main(int argc, char **argv) {
     c.mLowerData[0x17]=values[3]; /* timer high */
     c.mLowerData[0x15]=values[4]; /* gate tested before state dispatch */
     c.mLowerData[0x22]=values[5]; /* reset/qualification flags */
+    c.mLowerData[0x2e]=values[6]; /* bit address 76h maps to RAM2E.6 */
     c.mLowerData[0x14]=0;
     c.mSFR[REG_IE]=0; /* no synthetic interrupts during this one step */
     for (cycle=0;cycle<200 && c.mPC!=0x1755;cycle++) tick(&c);

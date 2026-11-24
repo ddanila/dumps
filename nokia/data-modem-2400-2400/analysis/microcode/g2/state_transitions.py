@@ -47,6 +47,14 @@ def run():
                     input_timer17=f'{timer17:02X}',next_state=f'{result["state"]:02X}',
                     timer=f'{actual_timer:04X}',cycles=result['cycles'],
                     visited=[f'{pc:04X}' for pc in result['visited']]))
+            if state==0xa2:
+                cmd=[str(exe),str(ROM),str(state),'0','0','128','0','16','64']
+                branch=json.loads(subprocess.run(cmd,text=True,capture_output=True,check=True).stdout)
+                assert branch['reached_stop'] and branch['errors']==0 and branch['state']==0xa3
+                assert branch['timer16']==0 and branch['timer17']==0x80
+                cases.append(dict(entry='A2',condition='expired; RAM2E.6 set',ram24='00',
+                    input_timer17='80',next_state='A3',timer='8000',cycles=branch['cycles'],
+                    visited=[f'{pc:04X}' for pc in branch['visited']]))
             cmd=[str(exe),str(ROM),str(state),'32','0','0','0','0']
             control=json.loads(subprocess.run(cmd,text=True,capture_output=True,check=True).stdout)
             assert control['reached_stop'] and control['errors']==0
@@ -56,8 +64,8 @@ def run():
                 visited=[f'{pc:04X}' for pc in control['visited']]))
     return dict(status='local controller ROM state-step execution; no modem stage names inferred',
         controller_rom_sha256=ROM_SHA,entry_pc='1000',stop_pc='1755',
-        preconditions='RAM22.4=1 except negative controls; RAM15=0; interrupts disabled; remaining RAM zero',
-        cases=cases,interpretation='RAM24.5 (changed-input flag) reloads the state-specific countdown; when clear, RAM17 high bit selects the expiry transition.',
+        preconditions='RAM22.4=1 except negative controls; RAM15=0; interrupts disabled; RAM2E.6=1 only in the A2 alternate-expiry case; remaining RAM zero',
+        cases=cases,interpretation='RAM24.5 (changed-input flag) reloads the state-specific countdown; when clear, RAM17 high bit selects the expiry transition. On A2 expiry, RAM2E.6 chooses A3 when set or B8 when clear.',
         limitations=['The event/timer source that sets RAM24.5 and RAM17 is not part of this local step.',
             'These state transitions have not yet been connected to a continuous controller call or DSP response.',
             'The timing values are firmware counts, not measured milliseconds or named V.26 ter stages.'],

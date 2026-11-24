@@ -151,13 +151,15 @@ state (`RAM22.4=1`), a controlled changed-input flag (`RAM24.5`) and timer high 
 | --- | ---: | --- |
 | A0 | 070D = 1805 | A1 |
 | A1 | 0A2D = 2605 | A2 |
-| A2 | 003C = 60 | B8, for the tested branch inputs |
+| A2 | 003C = 60 | B8 if RAM2E.6=0; A3 if RAM2E.6=1 |
 
 When neither timer condition holds, each state remains unchanged. If the
 qualification bit is absent, the code resets all three entry states to 00
 before their state-specific branch; those negative controls are included.
-The 12 executions in the [report](results/state-transitions.json) preserve
+The 13 executions in the [report](results/state-transitions.json) preserve
 visited instruction addresses and each resulting timer/state value. The
+extra A2 case executes the bit-76h branch in the actual ROM (`RAM2E.6`),
+which selects A3 on expiry; the zero-bit control selects B8. The
 counts 1805 and 2605 fit the timing windows proposed in PLAN-2, but these
 local steps do not establish the timer's physical tick or name the stages
 “silence” and “2100 Hz tone.”
