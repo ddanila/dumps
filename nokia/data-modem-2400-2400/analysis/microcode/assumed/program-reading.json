@@ -1036,6 +1036,39 @@
       "evidence": "ROM-CARRY-REPLIES.md",
       "meaning": "With the two-bit ROM-read gate, R0=FF and previous carry timing, the next lookup address is R2 exposed on Y at 36E. A finite recurrence explains constant-reply exits and cycles: 215 bytes return and 41 cycle from the demonstrated reset state.",
       "limitations": "Scoped to bank-256 previous-Y ROM reads at gate-selected words and default D=1 outside 36D. Not a recovered handshake protocol or signal-processing algorithm."
+    },
+    {
+      "name": "computed-call return wrapper",
+      "ranges": [
+        [
+          "2FD",
+          "2FF"
+        ]
+      ],
+      "profiles": [
+        "q2",
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "TAIL-STACK-CONTRACT.md",
+      "meaning": "2FD exposes an ALU result, 2FE calls 21A, and 2FF returns to the pre-existing caller. Under the retained dispatch tables, exactly one incoming frame supports all nested alternatives within the four-entry stack.",
+      "limitations": "Calling-convention interpretation. No incoming frame causes underflow after a normal callee return; two or more can overflow on nested choices. Local graph safety does not prove all-input termination."
+    },
+    {
+      "name": "difference-based tail-call guard",
+      "ranges": [
+        [
+          "3BB",
+          "3BC"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "TAIL-STACK-CONTRACT.md",
+      "meaning": "3BB writes R5=old_R5-R0-1 modulo 256. With conditional previous-zero 3BC, unequal old_R5 and R0+1 selects the return wrapper at 2FD; equality falls through.",
+      "limitations": "Requires 3BC to be conditional under the scenario gate. A branch into 2FD is not safe with an empty caller stack after a normal 21A return. Physical condition gating remains unresolved."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

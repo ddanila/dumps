@@ -938,6 +938,24 @@ class AssumedTests(unittest.TestCase):
         scenario['dispatch']['initial_y']=0
         with self.assertRaisesRegex(ValueError,'integrated mode'):execute(mapping,scenario,1)
 
+    def test_tail_call_stack_contract_and_q3_difference_guard(self):
+        from tail_stack_contract import guard, constant_tests, replay
+        config=read(HERE/'tail-stack-contract.json')
+        rows=decode(read(HERE/config['mapping']));scenario=read(HERE/config['scenario'])
+        for depth in range(5):
+            result=graph(rows,scenario,start=0x2fd,initial_stack=(1024,)*depth,return_sentinel=1024)
+            self.assertEqual(not result['exceptions'],depth==1)
+        for r0 in range(256):
+            self.assertEqual(guard(rows,r0,(r0+1)&255),0)
+            self.assertEqual(guard(rows,r0,r0),1)
+        bad=copy.deepcopy(rows);bad[0x3bb]['carry']=1
+        with self.assertRaises(AssertionError):guard(bad,0,1)
+        condition=read(HERE/config['condition_scenario'])['condition']
+        self.assertEqual(constant_tests(condition)(rows[0x2e3],scenario),[0])
+        failed=replay(HERE/config['witnesses']['empty_entry'])
+        self.assertFalse(failed['clean'])
+        self.assertEqual(failed['stop'],'unknown stack at PC 2ff')
+
     def test_default_gap_policy_explanations_and_unsafe_complete_graph(self):
         from reset_witness_catalog import build_catalog
         from entry_policy_audit import relaxed_graph

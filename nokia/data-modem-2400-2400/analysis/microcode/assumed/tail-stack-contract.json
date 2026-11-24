@@ -1,0 +1,12 @@
+{
+  "status": "hypothesis",
+  "evidence": "Analyze the 2FD tail-call contract under the retained dispatch tables; distinguish free carry/zero conditions from known constant selectors. Graph sentinels are analysis-only stack parameters, never runtime repairs. Arithmetic guard applies to q3 previous-zero timing. Replay existing clean q2 and failing q3 reset witnesses separately without combining their mappings.",
+  "mapping": "results/independent-study/variant-3.json",
+  "scenario": "results/third-case-study/scenario-all_cases.json",
+  "condition_scenario": "results/polling-study/immediate-one/scenario.json",
+  "relaxed_sites": ["0F9", "0FC", "255", "257", "2CE", "2DE", "3BC"],
+  "witnesses": {
+    "empty_entry": "results/last-entry-study/q3-extended-00",
+    "called_entry": "results/nested-reset-study/seed-0115"
+  }
+}

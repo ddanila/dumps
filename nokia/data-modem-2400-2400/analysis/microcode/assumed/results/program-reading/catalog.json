@@ -1020,6 +1020,39 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-STACK-CONTRACT.md",
+        "limitations": "Calling-convention interpretation. No incoming frame causes underflow after a normal callee return; two or more can overflow on nested choices. Local graph safety does not prove all-input termination.",
+        "meaning": "2FD exposes an ALU result, 2FE calls 21A, and 2FF returns to the pre-existing caller. Under the retained dispatch tables, exactly one incoming frame supports all nested alternatives within the four-entry stack.",
+        "name": "computed-call return wrapper",
+        "profiles": [
+          "q2",
+          "q3"
+        ],
+        "ranges": [
+          [
+            "2FD",
+            "2FF"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "TAIL-STACK-CONTRACT.md",
+        "limitations": "Requires 3BC to be conditional under the scenario gate. A branch into 2FD is not safe with an empty caller stack after a normal 21A return. Physical condition gating remains unresolved.",
+        "meaning": "3BB writes R5=old_R5-R0-1 modulo 256. With conditional previous-zero 3BC, unequal old_R5 and R0+1 selects the return wrapper at 2FD; equality falls through.",
+        "name": "difference-based tail-call guard",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "3BB",
+            "3BC"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1042,7 +1075,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 362,
+    "annotated_used_words": 366,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -3971,6 +4004,7 @@
     "ROM-TAIL.md": "9186f41dd7ad8cef4d8671b8fc959cdf68eaf2dbba7f145c923fdbadfc9a544d",
     "SELECTOR-PREFIX.md": "e5802528379b05c901803d6d20e9c554b586ec0650060a0e5a2282132824bedf",
     "TAIL-CONVERGENCE.md": "b1e6b58589106a25d44bfb1ae08829cd83dc52121a75e52b838f448a2a5d087a",
+    "TAIL-STACK-CONTRACT.md": "3b37fcb577ff52bf92b5f24d977538e433386248b9313d0338adb9dbd0b02a90",
     "TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",
     "TERMINAL-TAIL.md": "cecf5637f41d6e5645425389710c113900a9319140c49d28e4a2b4cf752222da",
     "THREE-BIT-GATES.md": "8d8abff5bb8a79a9af953c9c048f556e42149384307ff052e8ce2b746bf000da",

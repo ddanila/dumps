@@ -1,0 +1,1415 @@
+{
+  "configuration": {
+    "condition_scenario": "results/polling-study/immediate-one/scenario.json",
+    "evidence": "Analyze the 2FD tail-call contract under the retained dispatch tables; distinguish free carry/zero conditions from known constant selectors. Graph sentinels are analysis-only stack parameters, never runtime repairs. Arithmetic guard applies to q3 previous-zero timing. Replay existing clean q2 and failing q3 reset witnesses separately without combining their mappings.",
+    "mapping": "results/independent-study/variant-3.json",
+    "relaxed_sites": [
+      "0F9",
+      "0FC",
+      "255",
+      "257",
+      "2CE",
+      "2DE",
+      "3BC"
+    ],
+    "scenario": "results/third-case-study/scenario-all_cases.json",
+    "status": "hypothesis",
+    "witnesses": {
+      "called_entry": "results/nested-reset-study/seed-0115",
+      "empty_entry": "results/last-entry-study/q3-extended-00"
+    }
+  },
+  "constant_constrained_graph": {
+    "exceptions": [
+      "2ff: possible stack underflow"
+    ],
+    "reached": 805
+  },
+  "guard_checks": 65536,
+  "guard_fallthrough_pairs": 256,
+  "local_stack_contracts": [
+    {
+      "can_return_to_sentinel": false,
+      "entry_depth": 0,
+      "exceptions": [
+        "2ff: possible stack underflow"
+      ],
+      "maximum_depth": 3,
+      "reached_words": 44
+    },
+    {
+      "can_return_to_sentinel": true,
+      "entry_depth": 1,
+      "exceptions": [],
+      "maximum_depth": 4,
+      "reached_words": 44
+    },
+    {
+      "can_return_to_sentinel": true,
+      "entry_depth": 2,
+      "exceptions": [
+        "223: possible stack overflow",
+        "2c4: possible stack overflow"
+      ],
+      "maximum_depth": 4,
+      "reached_words": 42
+    },
+    {
+      "can_return_to_sentinel": false,
+      "entry_depth": 3,
+      "exceptions": [
+        "21f: possible stack overflow"
+      ],
+      "maximum_depth": 4,
+      "reached_words": 8
+    },
+    {
+      "can_return_to_sentinel": false,
+      "entry_depth": 4,
+      "exceptions": [
+        "2fe: possible stack overflow"
+      ],
+      "maximum_depth": 4,
+      "reached_words": 2
+    }
+  ],
+  "shortest_constrained_underflow_path": [
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 1,
+      "pc": 0,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 384,
+      "command": 1,
+      "next_pc": 2,
+      "pc": 1,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 3,
+      "pc": 2,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 256,
+      "command": 6,
+      "next_pc": 256,
+      "pc": 3,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 257,
+      "pc": 256,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 111,
+      "command": 4,
+      "next_pc": 111,
+      "pc": 257,
+      "stack": [],
+      "stack_after": [
+        258
+      ],
+      "test": true
+    },
+    {
+      "branch": 336,
+      "command": 1,
+      "next_pc": 112,
+      "pc": 111,
+      "stack": [
+        258
+      ],
+      "stack_after": [
+        258
+      ],
+      "test": false
+    },
+    {
+      "branch": 784,
+      "command": 1,
+      "next_pc": 113,
+      "pc": 112,
+      "stack": [
+        258
+      ],
+      "stack_after": [
+        258
+      ],
+      "test": false
+    },
+    {
+      "branch": 89,
+      "command": 1,
+      "next_pc": 114,
+      "pc": 113,
+      "stack": [
+        258
+      ],
+      "stack_after": [
+        258
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 115,
+      "pc": 114,
+      "stack": [
+        258
+      ],
+      "stack_after": [
+        258
+      ],
+      "test": false
+    },
+    {
+      "branch": 544,
+      "command": 0,
+      "next_pc": 117,
+      "pc": 115,
+      "stack": [
+        258
+      ],
+      "stack_after": [
+        258
+      ],
+      "test": true
+    },
+    {
+      "branch": 258,
+      "command": 1,
+      "next_pc": 118,
+      "pc": 117,
+      "stack": [
+        258
+      ],
+      "stack_after": [
+        258
+      ],
+      "test": false
+    },
+    {
+      "branch": 392,
+      "command": 1,
+      "next_pc": 119,
+      "pc": 118,
+      "stack": [
+        258
+      ],
+      "stack_after": [
+        258
+      ],
+      "test": false
+    },
+    {
+      "branch": 512,
+      "command": 3,
+      "next_pc": 258,
+      "pc": 119,
+      "stack": [
+        258
+      ],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 274,
+      "command": 4,
+      "next_pc": 274,
+      "pc": 258,
+      "stack": [],
+      "stack_after": [
+        259
+      ],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 275,
+      "pc": 274,
+      "stack": [
+        259
+      ],
+      "stack_after": [
+        259
+      ],
+      "test": false
+    },
+    {
+      "branch": 351,
+      "command": 1,
+      "next_pc": 276,
+      "pc": 275,
+      "stack": [
+        259
+      ],
+      "stack_after": [
+        259
+      ],
+      "test": false
+    },
+    {
+      "branch": 271,
+      "command": 1,
+      "next_pc": 277,
+      "pc": 276,
+      "stack": [
+        259
+      ],
+      "stack_after": [
+        259
+      ],
+      "test": false
+    },
+    {
+      "branch": 264,
+      "command": 1,
+      "next_pc": 278,
+      "pc": 277,
+      "stack": [
+        259
+      ],
+      "stack_after": [
+        259
+      ],
+      "test": false
+    },
+    {
+      "branch": 816,
+      "command": 3,
+      "next_pc": 259,
+      "pc": 278,
+      "stack": [
+        259
+      ],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 279,
+      "command": 4,
+      "next_pc": 279,
+      "pc": 259,
+      "stack": [],
+      "stack_after": [
+        260
+      ],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 5,
+      "next_pc": 280,
+      "pc": 279,
+      "stack": [
+        260
+      ],
+      "stack_after": [
+        260,
+        279
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 2,
+      "next_pc": 281,
+      "pc": 280,
+      "stack": [
+        260,
+        279
+      ],
+      "stack_after": [
+        260
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 3,
+      "next_pc": 260,
+      "pc": 281,
+      "stack": [
+        260
+      ],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 274,
+      "command": 4,
+      "next_pc": 274,
+      "pc": 260,
+      "stack": [],
+      "stack_after": [
+        261
+      ],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 275,
+      "pc": 274,
+      "stack": [
+        261
+      ],
+      "stack_after": [
+        261
+      ],
+      "test": false
+    },
+    {
+      "branch": 351,
+      "command": 1,
+      "next_pc": 276,
+      "pc": 275,
+      "stack": [
+        261
+      ],
+      "stack_after": [
+        261
+      ],
+      "test": false
+    },
+    {
+      "branch": 271,
+      "command": 1,
+      "next_pc": 277,
+      "pc": 276,
+      "stack": [
+        261
+      ],
+      "stack_after": [
+        261
+      ],
+      "test": false
+    },
+    {
+      "branch": 264,
+      "command": 1,
+      "next_pc": 278,
+      "pc": 277,
+      "stack": [
+        261
+      ],
+      "stack_after": [
+        261
+      ],
+      "test": false
+    },
+    {
+      "branch": 816,
+      "command": 3,
+      "next_pc": 261,
+      "pc": 278,
+      "stack": [
+        261
+      ],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 262,
+      "command": 6,
+      "next_pc": 262,
+      "pc": 261,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 5,
+      "next_pc": 263,
+      "pc": 262,
+      "stack": [],
+      "stack_after": [
+        262
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 2,
+      "next_pc": 264,
+      "pc": 263,
+      "stack": [
+        262
+      ],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 265,
+      "command": 1,
+      "next_pc": 265,
+      "pc": 264,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 270,
+      "command": 6,
+      "next_pc": 270,
+      "pc": 265,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 601,
+      "command": 6,
+      "next_pc": 601,
+      "pc": 270,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 788,
+      "command": 4,
+      "next_pc": 788,
+      "pc": 601,
+      "stack": [],
+      "stack_after": [
+        602
+      ],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 789,
+      "pc": 788,
+      "stack": [
+        602
+      ],
+      "stack_after": [
+        602
+      ],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 790,
+      "pc": 789,
+      "stack": [
+        602
+      ],
+      "stack_after": [
+        602
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 791,
+      "pc": 790,
+      "stack": [
+        602
+      ],
+      "stack_after": [
+        602
+      ],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 792,
+      "pc": 791,
+      "stack": [
+        602
+      ],
+      "stack_after": [
+        602
+      ],
+      "test": false
+    },
+    {
+      "branch": 320,
+      "command": 3,
+      "next_pc": 602,
+      "pc": 792,
+      "stack": [
+        602
+      ],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 930,
+      "command": 4,
+      "next_pc": 930,
+      "pc": 602,
+      "stack": [],
+      "stack_after": [
+        603
+      ],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 5,
+      "next_pc": 931,
+      "pc": 930,
+      "stack": [
+        603
+      ],
+      "stack_after": [
+        603,
+        930
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 932,
+      "pc": 931,
+      "stack": [
+        603,
+        930
+      ],
+      "stack_after": [
+        603,
+        930
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 933,
+      "pc": 932,
+      "stack": [
+        603,
+        930
+      ],
+      "stack_after": [
+        603,
+        930
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 934,
+      "pc": 933,
+      "stack": [
+        603,
+        930
+      ],
+      "stack_after": [
+        603,
+        930
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 935,
+      "pc": 934,
+      "stack": [
+        603,
+        930
+      ],
+      "stack_after": [
+        603,
+        930
+      ],
+      "test": false
+    },
+    {
+      "branch": 304,
+      "command": 1,
+      "next_pc": 936,
+      "pc": 935,
+      "stack": [
+        603,
+        930
+      ],
+      "stack_after": [
+        603,
+        930
+      ],
+      "test": true
+    },
+    {
+      "branch": 939,
+      "command": 4,
+      "next_pc": 939,
+      "pc": 936,
+      "stack": [
+        603,
+        930
+      ],
+      "stack_after": [
+        603,
+        930,
+        937
+      ],
+      "test": true
+    },
+    {
+      "branch": 258,
+      "command": 1,
+      "next_pc": 940,
+      "pc": 939,
+      "stack": [
+        603,
+        930,
+        937
+      ],
+      "stack_after": [
+        603,
+        930,
+        937
+      ],
+      "test": false
+    },
+    {
+      "branch": 403,
+      "command": 1,
+      "next_pc": 941,
+      "pc": 940,
+      "stack": [
+        603,
+        930,
+        937
+      ],
+      "stack_after": [
+        603,
+        930,
+        937
+      ],
+      "test": false
+    },
+    {
+      "branch": 266,
+      "command": 1,
+      "next_pc": 942,
+      "pc": 941,
+      "stack": [
+        603,
+        930,
+        937
+      ],
+      "stack_after": [
+        603,
+        930,
+        937
+      ],
+      "test": false
+    },
+    {
+      "branch": 411,
+      "command": 3,
+      "next_pc": 937,
+      "pc": 942,
+      "stack": [
+        603,
+        930,
+        937
+      ],
+      "stack_after": [
+        603,
+        930
+      ],
+      "test": false
+    },
+    {
+      "branch": 0,
+      "command": 2,
+      "next_pc": 938,
+      "pc": 937,
+      "stack": [
+        603,
+        930
+      ],
+      "stack_after": [
+        603
+      ],
+      "test": false
+    },
+    {
+      "branch": 0,
+      "command": 3,
+      "next_pc": 603,
+      "pc": 938,
+      "stack": [
+        603
+      ],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 336,
+      "command": 1,
+      "next_pc": 604,
+      "pc": 603,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 605,
+      "pc": 604,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 399,
+      "command": 1,
+      "next_pc": 606,
+      "pc": 605,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 800,
+      "command": 1,
+      "next_pc": 607,
+      "pc": 606,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 608,
+      "pc": 607,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 800,
+      "command": 1,
+      "next_pc": 609,
+      "pc": 608,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 386,
+      "command": 1,
+      "next_pc": 610,
+      "pc": 609,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 800,
+      "command": 1,
+      "next_pc": 611,
+      "pc": 610,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 612,
+      "pc": 611,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 672,
+      "command": 6,
+      "next_pc": 672,
+      "pc": 612,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 673,
+      "pc": 672,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 576,
+      "command": 1,
+      "next_pc": 674,
+      "pc": 673,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 675,
+      "pc": 674,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 689,
+      "command": 6,
+      "next_pc": 689,
+      "pc": 675,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 512,
+      "command": 1,
+      "next_pc": 690,
+      "pc": 689,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 618,
+      "command": 6,
+      "next_pc": 618,
+      "pc": 690,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 399,
+      "command": 1,
+      "next_pc": 619,
+      "pc": 618,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 319,
+      "command": 1,
+      "next_pc": 620,
+      "pc": 619,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 621,
+      "pc": 620,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 622,
+      "pc": 621,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 623,
+      "pc": 622,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 560,
+      "command": 6,
+      "next_pc": 560,
+      "pc": 623,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 336,
+      "command": 1,
+      "next_pc": 561,
+      "pc": 560,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 336,
+      "command": 1,
+      "next_pc": 562,
+      "pc": 561,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 320,
+      "command": 1,
+      "next_pc": 563,
+      "pc": 562,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 336,
+      "command": 1,
+      "next_pc": 564,
+      "pc": 563,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 320,
+      "command": 1,
+      "next_pc": 565,
+      "pc": 564,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 566,
+      "pc": 565,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 512,
+      "command": 1,
+      "next_pc": 567,
+      "pc": 566,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 593,
+      "command": 6,
+      "next_pc": 593,
+      "pc": 567,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 594,
+      "pc": 593,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 384,
+      "command": 1,
+      "next_pc": 595,
+      "pc": 594,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 800,
+      "command": 1,
+      "next_pc": 596,
+      "pc": 595,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 384,
+      "command": 1,
+      "next_pc": 597,
+      "pc": 596,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 235,
+      "command": 6,
+      "next_pc": 598,
+      "pc": 597,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 729,
+      "command": 6,
+      "next_pc": 599,
+      "pc": 598,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 732,
+      "command": 6,
+      "next_pc": 732,
+      "pc": 599,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 336,
+      "command": 1,
+      "next_pc": 733,
+      "pc": 732,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 734,
+      "pc": 733,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 123,
+      "command": 6,
+      "next_pc": 735,
+      "pc": 734,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 336,
+      "command": 1,
+      "next_pc": 736,
+      "pc": 735,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 737,
+      "pc": 736,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 512,
+      "command": 1,
+      "next_pc": 738,
+      "pc": 737,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 739,
+      "pc": 738,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 0,
+      "command": 0,
+      "next_pc": 740,
+      "pc": 739,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 955,
+      "command": 6,
+      "next_pc": 955,
+      "pc": 740,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 320,
+      "command": 1,
+      "next_pc": 956,
+      "pc": 955,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 765,
+      "command": 6,
+      "next_pc": 765,
+      "pc": 956,
+      "stack": [],
+      "stack_after": [],
+      "test": true
+    },
+    {
+      "branch": 416,
+      "command": 1,
+      "next_pc": 766,
+      "pc": 765,
+      "stack": [],
+      "stack_after": [],
+      "test": false
+    },
+    {
+      "branch": 538,
+      "command": 4,
+      "next_pc": 538,
+      "pc": 766,
+      "stack": [],
+      "stack_after": [
+        767
+      ],
+      "test": true
+    },
+    {
+      "branch": 784,
+      "command": 1,
+      "next_pc": 539,
+      "pc": 538,
+      "stack": [
+        767
+      ],
+      "stack_after": [
+        767
+      ],
+      "test": false
+    },
+    {
+      "branch": 292,
+      "command": 1,
+      "next_pc": 540,
+      "pc": 539,
+      "stack": [
+        767
+      ],
+      "stack_after": [
+        767
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 541,
+      "pc": 540,
+      "stack": [
+        767
+      ],
+      "stack_after": [
+        767
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 542,
+      "pc": 541,
+      "stack": [
+        767
+      ],
+      "stack_after": [
+        767
+      ],
+      "test": false
+    },
+    {
+      "branch": 768,
+      "command": 1,
+      "next_pc": 543,
+      "pc": 542,
+      "stack": [
+        767
+      ],
+      "stack_after": [
+        767
+      ],
+      "test": false
+    },
+    {
+      "branch": 555,
+      "command": 4,
+      "next_pc": 555,
+      "pc": 543,
+      "stack": [
+        767
+      ],
+      "stack_after": [
+        767,
+        544
+      ],
+      "test": true
+    },
+    {
+      "branch": 336,
+      "command": 3,
+      "next_pc": 544,
+      "pc": 555,
+      "stack": [
+        767,
+        544
+      ],
+      "stack_after": [
+        767
+      ],
+      "test": false
+    },
+    {
+      "branch": 0,
+      "command": 3,
+      "next_pc": 767,
+      "pc": 544,
+      "stack": [
+        767
+      ],
+      "stack_after": [],
+      "test": false
+    }
+  ],
+  "source_sha256": {
+    "assumed/analyze.py": "23e9f59f4c35a3301efd989afe578af1496dd2b75bea7629d8efb1674b8039f2",
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/context_branch_study.py": "a2a3f93801dfca1b22e4ceac8e7f56758f2ed200154fbdf9743867d97aa66b32",
+    "assumed/defined_condition_fit.py": "9f30050f0cae4d04c446b5dfb71d63a807b8be2c035fe1b13f47a371fd2444c3",
+    "assumed/execute.py": "8b2ecbf5fb90f52e593afc89d0c3d6ffff41666e725038f19443ee4bb58f71d5",
+    "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/last-entry-study/q3-extended-00/io.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "assumed/results/last-entry-study/q3-extended-00/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+    "assumed/results/last-entry-study/q3-extended-00/scenario.json": "1613f338af5475e823aa948e148ae4f1f9900db26bbc12a76f5dce4c83996a7d",
+    "assumed/results/last-entry-study/q3-extended-00/summary.json": "9b67760424fdbfedc5a8ede7837751588afd8c84176f6659be753e33292214ca",
+    "assumed/results/last-entry-study/q3-extended-00/trace.jsonl": "ccec7ea33f7655a67e77690ec65f541403e7a609ab0a8b915d883c89c6dabc0e",
+    "assumed/results/nested-reset-study/seed-0115/io.jsonl": "2dc4a158026fb5ee99a17be94c0389902b7600cd996eedeabd360cf54adf1758",
+    "assumed/results/nested-reset-study/seed-0115/mapping.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+    "assumed/results/nested-reset-study/seed-0115/scenario.json": "0d23fb1226220ffe34623d29a89bbff133d9495e6b96ba9a5d03824befe34569",
+    "assumed/results/nested-reset-study/seed-0115/summary.json": "c260c5ccca516af322ca498bd3a301f65a0204850e5916e6f36f36534f61329d",
+    "assumed/results/nested-reset-study/seed-0115/trace.jsonl": "f01a847419ccc57764e5355c0ee769cc8785ff753c0f990f5b29e2bd4fe8cc4e",
+    "assumed/results/polling-study/immediate-one/scenario.json": "94f0ae04e678e90f8fa1d58e5cc0b26ef437c28911d1deebc1e1b40693a13fb8",
+    "assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "assumed/tail-stack-contract.json": "4711e53723ad73c4c09fe362a10000ad50ab399d581b00b7ee8e827af2112b90",
+    "assumed/tail_stack_contract.py": "154902f149e71727b42067ebb50c6dd161258e39bd6179ed75fda26bb7f3bc94",
+    "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+  },
+  "witnesses": {
+    "called_entry": {
+      "boundaries": [
+        {
+          "cycle": 169,
+          "depth": 1,
+          "next_pc": 766,
+          "pc": 765
+        },
+        {
+          "cycle": 170,
+          "depth": 1,
+          "next_pc": 538,
+          "pc": 766
+        },
+        {
+          "cycle": 190,
+          "depth": 2,
+          "next_pc": 767,
+          "pc": 544
+        },
+        {
+          "cycle": 191,
+          "depth": 1,
+          "next_pc": 531,
+          "pc": 767
+        }
+      ],
+      "clean": true,
+      "final_pc": 132,
+      "final_stack_depth": 0,
+      "stop": "cycle limit",
+      "trace_digest": "78176c78674143e54f6237df9c109708b3f047e1f22047290cb7dcbefde4a5f4"
+    },
+    "empty_entry": {
+      "boundaries": [
+        {
+          "cycle": 168,
+          "depth": 0,
+          "next_pc": 766,
+          "pc": 765
+        },
+        {
+          "cycle": 169,
+          "depth": 0,
+          "next_pc": 538,
+          "pc": 766
+        },
+        {
+          "cycle": 180,
+          "depth": 1,
+          "next_pc": 767,
+          "pc": 544
+        }
+      ],
+      "clean": false,
+      "final_pc": 767,
+      "final_stack_depth": -1,
+      "stop": "unknown stack at PC 2ff",
+      "trace_digest": "4a40fa4d6a59e322e1207eba3d28326ed17976b3b570ba69890d3e7e458b3d64"
+    }
+  }
+}

@@ -584,3 +584,8 @@ match the ALU model; actual reset runs distinguish 215 returning replies from
 default gap: exact witness paths identify the forced jumps that must permit
 fallthrough. All 4,096 subsets of twelve witnessed relaxations are checked;
 32 reach every used word, and all retain a possible 2FF stack underflow.
+
+[Return-wrapper stack contract](TAIL-STACK-CONTRACT.md) explains why 2FF
+requires an incoming caller frame. The underflow survives fixed constant
+selectors, and q3’s difference guard supplies a concrete condition for selecting
+the tail. Clean and failed full-reset examples are both replayed.
