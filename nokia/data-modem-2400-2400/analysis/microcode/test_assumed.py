@@ -1004,6 +1004,45 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(low['states'][2],high['states'][2])
                 self.assertEqual(low['states'][2]['pc'],0x07b)
 
+    def test_reset_witness_rejects_actual_failed_run(self):
+        from reset_witness_catalog import verify_witness
+        config=read(HERE/'reset-witnesses.json')
+        entry=copy.deepcopy(config['witnesses'][0])
+        entry['path']='results/last-entry-study/q3-extended-00'
+        with self.assertRaisesRegex(ValueError,'clean integrated'):
+            verify_witness(entry,config['profiles'])
+
+    def test_reset_witness_rejects_truncation_and_tampering(self):
+        import json
+        import shutil
+        from reset_witness_catalog import ARTIFACTS, verify_witness
+        config=read(HERE/'reset-witnesses.json');entry=copy.deepcopy(config['witnesses'][0])
+        with tempfile.TemporaryDirectory() as temporary:
+            directory=Path(temporary)
+            for name in ARTIFACTS:shutil.copyfile(HERE/entry['path']/name,directory/name)
+            entry['path']=temporary
+            original=(directory/'trace.jsonl').read_text();lines=original.splitlines(keepends=True)
+            (directory/'trace.jsonl').write_text(''.join(lines[:-1]))
+            with self.assertRaisesRegex(ValueError,'incomplete witness trace'):
+                verify_witness(entry,config['profiles'])
+            record=json.loads(lines[0]);record['q']^=1
+            (directory/'trace.jsonl').write_text(json.dumps(record,sort_keys=True)+'\n'+''.join(lines[1:]))
+            with self.assertRaisesRegex(ValueError,'replay mismatch: trace.jsonl'):
+                verify_witness(entry,config['profiles'])
+            (directory/'trace.jsonl').write_text(original)
+            entry['profile']='q2'
+            with self.assertRaisesRegex(ValueError,'named profile'):
+                verify_witness(entry,config['profiles'])
+
+    def test_reset_witness_catalog_requires_complete_gap_coverage(self):
+        from reset_witness_catalog import build_catalog
+        from common import save
+        config=read(HERE/'reset-witnesses.json');config['witnesses']=config['witnesses'][:-1]
+        with tempfile.TemporaryDirectory() as temporary:
+            path=Path(temporary)/'missing.json';save(path,config)
+            with self.assertRaisesRegex(ValueError,'missing reset witnesses: 2CF'):
+                build_catalog(path)
+
     def test_program_listing_preserves_profile_scope_and_unresolved_entries(self):
         from program_reading import build, annotations_by_pc
         config=read(HERE/'program-reading.json')
@@ -1012,6 +1051,19 @@ class AssumedTests(unittest.TestCase):
         self.assertEqual(sum(r['used'] for r in listing),1021)
         self.assertEqual(catalog['counts']['static_reachable'],999)
         self.assertEqual(catalog['counts']['sequencer_sweep_visited'],941)
+        self.assertEqual(catalog['counts']['reset_hypothesis_witnesses'],5)
+        self.assertEqual(catalog['counts']['default_gaps_with_reset_witness'],22)
+        witnesses=catalog['reset_hypothesis_catalog']['witnesses']
+        self.assertEqual({w['profile'] for w in witnesses},{'q2','q3','fitted_swapped'})
+        self.assertTrue(next(w['conservative_graph_exceptions'] for w in witnesses if w['id']=='q3-masked-ff'))
+        import json
+        for pc in catalog['unresolved']:
+            row=listing[int(pc,16)]
+            self.assertEqual(row['explanation_status'],'unresolved entry')
+            self.assertFalse(row['static_reachable'])
+            self.assertTrue(json.loads(row['reset_hypothesis_witnesses']))
+        self.assertEqual(json.loads(listing[0x84]['reset_hypothesis_witnesses']),[])
+
         self.assertEqual(catalog['counts']['reset_examples'],dict(original=187,swapped=186))
         self.assertIn('equality poll',listing[0x1ec]['fitted_original_labels'])
         self.assertNotIn('equality poll',listing[0x1ec]['fitted_swapped_labels'])

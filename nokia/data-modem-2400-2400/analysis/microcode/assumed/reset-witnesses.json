@@ -1,0 +1,52 @@
+{
+  "status": "hypothesis",
+  "evidence": "Curate a replay-verified cover of the default graph gaps without merging mapping or scenario claims.",
+  "baseline_scenario": "results/third-case-study/scenario-all_cases.json",
+  "profiles": {
+    "q2": "results/independent-study/variant-2.json",
+    "q3": "results/independent-study/variant-3.json",
+    "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json"
+  },
+  "witnesses": [
+    {
+      "id": "q3-masked-ff",
+      "profile": "q3",
+      "path": "results/last-entry-study/q3-extended-ff",
+      "evidence": "LAST-ENTRY.md",
+      "status": "hypothesis",
+      "limitations": "Six-clause diagnostic gate; many other input bytes fail at 2FF. This FF trace is clean."
+    },
+    {
+      "id": "swapped-qzero-ff",
+      "profile": "fitted_swapped",
+      "path": "results/alias-runtime-study/fitted_swapped-extended-ff",
+      "evidence": "ALIAS-RUNTIME.md",
+      "status": "hypothesis",
+      "limitations": "Diagnostic identical-word gate has conservative underflow paths; index-3 FF execution is clean."
+    },
+    {
+      "id": "q2-reentry-fc",
+      "profile": "q2",
+      "path": "results/gate-reentry-study/extended-fc",
+      "evidence": "GATE-ALIASES.md",
+      "status": "hypothesis",
+      "limitations": "Four-bit gate extension and PC-keyed input bytes provide preparation re-entry; output consumer is unknown."
+    },
+    {
+      "id": "q3-differences-01",
+      "profile": "q3",
+      "path": "results/tail-variant-study/q3-01",
+      "evidence": "TAIL-VARIANTS.md",
+      "status": "hypothesis",
+      "limitations": "q3 arithmetic differs from q2; optional gate and index-12 D=01 inputs are hypotheses."
+    },
+    {
+      "id": "q2-zero-q",
+      "profile": "q2",
+      "path": "results/q-dispatch-study/scenario-00",
+      "evidence": "Q-DISPATCH.md",
+      "status": "hypothesis",
+      "limitations": "Constant dispatch index 12 and zero read at 2A8; Q-indexed dispatch does not establish the same entry."
+    }
+  ]
+}

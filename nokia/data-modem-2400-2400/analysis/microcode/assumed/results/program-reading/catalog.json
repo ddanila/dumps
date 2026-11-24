@@ -779,16 +779,19 @@
       "original": "results/selector-completion/original-marked/summary.json",
       "swapped": "results/selector-completion/swapped-marked/summary.json"
     },
+    "reset_witness_manifest": "reset-witnesses.json",
     "scenario": "results/third-case-study/scenario-all_cases.json",
     "sequencer_sweep": "results/third-case-study/all_cases.json",
     "status": "hypothesis"
   },
   "counts": {
     "annotated_used_words": 311,
+    "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
       "swapped": 186
     },
+    "reset_hypothesis_witnesses": 5,
     "sequencer_sweep_visited": 941,
     "static_reachable": 999,
     "used": 1021,
@@ -2062,6 +2065,1024 @@
     }
   ],
   "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
+  "reset_hypothesis_catalog": {
+    "baseline_words": 999,
+    "configuration": {
+      "baseline_scenario": "results/third-case-study/scenario-all_cases.json",
+      "evidence": "Curate a replay-verified cover of the default graph gaps without merging mapping or scenario claims.",
+      "profiles": {
+        "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json",
+        "q2": "results/independent-study/variant-2.json",
+        "q3": "results/independent-study/variant-3.json"
+      },
+      "status": "hypothesis",
+      "witnesses": [
+        {
+          "evidence": "LAST-ENTRY.md",
+          "id": "q3-masked-ff",
+          "limitations": "Six-clause diagnostic gate; many other input bytes fail at 2FF. This FF trace is clean.",
+          "path": "results/last-entry-study/q3-extended-ff",
+          "profile": "q3",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "ALIAS-RUNTIME.md",
+          "id": "swapped-qzero-ff",
+          "limitations": "Diagnostic identical-word gate has conservative underflow paths; index-3 FF execution is clean.",
+          "path": "results/alias-runtime-study/fitted_swapped-extended-ff",
+          "profile": "fitted_swapped",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "GATE-ALIASES.md",
+          "id": "q2-reentry-fc",
+          "limitations": "Four-bit gate extension and PC-keyed input bytes provide preparation re-entry; output consumer is unknown.",
+          "path": "results/gate-reentry-study/extended-fc",
+          "profile": "q2",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "TAIL-VARIANTS.md",
+          "id": "q3-differences-01",
+          "limitations": "q3 arithmetic differs from q2; optional gate and index-12 D=01 inputs are hypotheses.",
+          "path": "results/tail-variant-study/q3-01",
+          "profile": "q3",
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "Q-DISPATCH.md",
+          "id": "q2-zero-q",
+          "limitations": "Constant dispatch index 12 and zero read at 2A8; Q-indexed dispatch does not establish the same entry.",
+          "path": "results/q-dispatch-study/scenario-00",
+          "profile": "q2",
+          "status": "hypothesis"
+        }
+      ]
+    },
+    "entries": {
+      "0FA": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 117,
+          "next_pc": "0FB",
+          "profile": "fitted_swapped",
+          "test": 0,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "0FD": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 120,
+          "next_pc": "0FE",
+          "profile": "fitted_swapped",
+          "test": 0,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "0FE": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 121,
+          "next_pc": "0FF",
+          "profile": "fitted_swapped",
+          "test": 0,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "0FF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0,
+              0,
+              255,
+              255,
+              255,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 122,
+          "next_pc": "07B",
+          "profile": "fitted_swapped",
+          "test": 1,
+          "witness": "swapped-qzero-ff"
+        }
+      ],
+      "256": [
+        {
+          "before": {
+            "q": 255,
+            "ram": [
+              0,
+              0,
+              4,
+              255,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 106,
+          "next_pc": "257",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-reentry-fc"
+        }
+      ],
+      "257": [
+        {
+          "before": {
+            "q": 255,
+            "ram": [
+              0,
+              0,
+              4,
+              255,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 107,
+          "next_pc": "258",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-reentry-fc"
+        }
+      ],
+      "258": [
+        {
+          "before": {
+            "q": 255,
+            "ram": [
+              0,
+              0,
+              4,
+              255,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 108,
+          "next_pc": "259",
+          "profile": "q2",
+          "test": 1,
+          "witness": "q2-reentry-fc"
+        }
+      ],
+      "287": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 128,
+          "next_pc": "288",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "288": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 129,
+          "next_pc": "289",
+          "profile": "q3",
+          "test": 1,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "289": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 130,
+          "next_pc": "28A",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "28A": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 131,
+          "next_pc": "28B",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "2CF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 97,
+          "next_pc": "2D0",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2D9": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 190,
+          "next_pc": "2DA",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        },
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 113,
+          "next_pc": "2DA",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2DA": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 191,
+          "next_pc": "2DB",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        },
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 114,
+          "next_pc": "2DB",
+          "profile": "q2",
+          "test": 0,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2DB": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 192,
+          "next_pc": "2DC",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        },
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              1,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              255
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 115,
+          "next_pc": "07B",
+          "profile": "q2",
+          "test": 1,
+          "witness": "q2-zero-q"
+        }
+      ],
+      "2DC": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 193,
+          "next_pc": "2DD",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "2DD": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 194,
+          "next_pc": "2DE",
+          "profile": "q3",
+          "test": 1,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "2DE": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 195,
+          "next_pc": "2DF",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "2DF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              0,
+              0,
+              0,
+              0,
+              254,
+              0,
+              254,
+              254,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "stack_depth": 0
+          },
+          "cycle": 196,
+          "next_pc": "2E0",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-masked-ff"
+        }
+      ],
+      "3BD": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 125,
+          "next_pc": "3BE",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "3BE": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 126,
+          "next_pc": "3BF",
+          "profile": "q3",
+          "test": 0,
+          "witness": "q3-differences-01"
+        }
+      ],
+      "3BF": [
+        {
+          "before": {
+            "q": 0,
+            "ram": [
+              255,
+              0,
+              0,
+              255,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              3
+            ],
+            "stack_depth": 1
+          },
+          "cycle": 127,
+          "next_pc": "287",
+          "profile": "q3",
+          "test": 1,
+          "witness": "q3-differences-01"
+        }
+      ]
+    },
+    "interpretation": "Every default-graph gap has a replayed clean zero-reset witness under a named mapping and scenario. This is a union of incompatible hypotheses, not single-model coverage, a safe default gate, physical wiring recovery or full-plan completion.",
+    "source_sha256": {
+      "assumed/ALIAS-RUNTIME.md": "62e8ae91040c104ccbaf35ec7aaada079bbc72587aec3894fc5c69bba80d5dfe",
+      "assumed/GATE-ALIASES.md": "16adf6ac3bab5fca67b089c5d651e86c5877cb34c4abd4b01f6905ff0d6df46d",
+      "assumed/LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
+      "assumed/Q-DISPATCH.md": "bf46fab50deda66a8a7e15756e568b53c0c4bb642674e42356b598ff9b37867a",
+      "assumed/TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",
+      "assumed/analyze.py": "23e9f59f4c35a3301efd989afe578af1496dd2b75bea7629d8efb1674b8039f2",
+      "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+      "assumed/execute.py": "5a92df72447522918fbb3db64610f5bb9e65db5609e76a95627e4a264786a0de",
+      "assumed/reset-witnesses.json": "d02dcba8c47ed26d3bca3dfcb01ff659354ac2655a9ee225bdae7937c6cfa90e",
+      "assumed/reset_witness_catalog.py": "f7d38d2403f8420fec934cbbac5fd6c4d832b8beaca57c78b1f1a78119de4bdc",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/io.jsonl": "93eabe279366d66a7820d9a092494aaad9026db40899652f5fcf3c3415654c26",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/scenario.json": "958e0bd0163cef6f08512de8211230bbe8d0d5d6bc1158bf654594c433706c17",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/summary.json": "8b87ce4708119da44a9a256cb9bfa9b9c84967e9a235216ffb10428ba40f41af",
+      "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/trace.jsonl": "7af23155a65630ffe9fb825ea8c64b1e6075d725a303e90d62c1d5b6831219ff",
+      "assumed/results/gate-reentry-study/extended-fc/io.jsonl": "1770f14c882d415302fa9069d6a885053d252f70a7bb993d1ffe7d228220f08c",
+      "assumed/results/gate-reentry-study/extended-fc/mapping.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+      "assumed/results/gate-reentry-study/extended-fc/scenario.json": "edb8ae34b7d472f84a09719fe8b0890a939ba83966461465b2229f90d597ff4d",
+      "assumed/results/gate-reentry-study/extended-fc/summary.json": "de9dedc1980af2d6cffd0a3755fd64152fb246cc548a339ca6108a6146bb3006",
+      "assumed/results/gate-reentry-study/extended-fc/trace.jsonl": "5772bc5a96934a6cb3d45f72230bde021cd278b0a75ba87d716bc5f3bfacd12f",
+      "assumed/results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+      "assumed/results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+      "assumed/results/last-entry-study/q3-extended-ff/io.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "assumed/results/last-entry-study/q3-extended-ff/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+      "assumed/results/last-entry-study/q3-extended-ff/scenario.json": "77e59da063ddcd2871fa862aaf8b91108c6a2748d58a08f6427ce36e76687e74",
+      "assumed/results/last-entry-study/q3-extended-ff/summary.json": "81da8fc840a8ccfc74c9393b0c6b3a384a87aef5ad26a455de409c2f29ea02c9",
+      "assumed/results/last-entry-study/q3-extended-ff/trace.jsonl": "d6c83fd84cd7da31b0f408b207d1c6ed2f11d9911830ac945c6d3c548be2df99",
+      "assumed/results/q-dispatch-study/scenario-00/io.jsonl": "6fc7ae04415adcff9c41114740aaa050997ca882f336098a4a147a08b181e53a",
+      "assumed/results/q-dispatch-study/scenario-00/mapping.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
+      "assumed/results/q-dispatch-study/scenario-00/scenario.json": "3a6208aa90f906a65636482683c3604d103cc416c2d2f13a0ba6f4cbd78a9694",
+      "assumed/results/q-dispatch-study/scenario-00/summary.json": "d220ab95f9f6bede7121d911f99c0b62d3f00961dac05649422d9f0f5dae0d5a",
+      "assumed/results/q-dispatch-study/scenario-00/trace.jsonl": "2b0e6c817389826de25a60e2c69d0a2d16408e1962f7b921b67eebc68e3d515c",
+      "assumed/results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",
+      "assumed/results/tail-variant-study/q3-01/io.jsonl": "725bed684d847f50684ca1599feb3010c8721796aae966851a913d011be73dca",
+      "assumed/results/tail-variant-study/q3-01/mapping.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
+      "assumed/results/tail-variant-study/q3-01/scenario.json": "4b389e7bd79ce27e65a94e821e3b306a225187228b1053b758fd965bdc50eafe",
+      "assumed/results/tail-variant-study/q3-01/summary.json": "321b106960ff23c8e2fc6cb1333a0e980bdf884d546cd9a4ee0c5f57233e4e44",
+      "assumed/results/tail-variant-study/q3-01/trace.jsonl": "a1e9e2f32d48aa25e899a5af6b6f89a379aa192f285744e32c66c31c79be8603",
+      "assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+      "assumed/sequencer.json": "b2e12bd569e614540a9e0db78ba2cf0888c41961077e221940fd8b69d1dfa99b",
+      "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+    },
+    "target_words": 22,
+    "witness_count": 5,
+    "witnesses": [
+      {
+        "conservative_graph_exceptions": [
+          "1e9: possible stack overflow",
+          "21f: possible stack overflow",
+          "220: possible stack underflow",
+          "223: possible stack overflow",
+          "295: possible stack underflow",
+          "298: possible stack overflow",
+          "2c4: possible stack overflow",
+          "2ff: possible stack underflow",
+          "310: possible stack underflow",
+          "33f: possible stack underflow",
+          "340: possible stack underflow",
+          "35e: possible stack underflow",
+          "35f: possible stack underflow",
+          "360: possible stack underflow",
+          "376: possible stack overflow",
+          "38f: possible stack overflow",
+          "3a8: possible stack overflow",
+          "3c2: possible stack overflow",
+          "3c4: possible stack underflow",
+          "3ec: possible stack overflow"
+        ],
+        "conservative_graph_words": 1021,
+        "cycles": 512,
+        "evidence": "LAST-ENTRY.md",
+        "final_pc": "084",
+        "first_084_cycle": 283,
+        "id": "q3-masked-ff",
+        "limitations": "Six-clause diagnostic gate; many other input bytes fail at 2FF. This FF trace is clean.",
+        "mapping_digest": "0165f633f943f674809ade9df94b2fabe7f150763c3d72301a232abc660ac96d",
+        "max_stack_depth": 3,
+        "path": "results/last-entry-study/q3-extended-ff",
+        "profile": "q3",
+        "scenario_digest": "a98920d6d1edf948baa6891f85cffb039b5232fd0caa029685eacaaf250f9037",
+        "status": "hypothesis",
+        "targets": [
+          "2D9",
+          "2DA",
+          "2DB",
+          "2DC",
+          "2DD",
+          "2DE",
+          "2DF"
+        ],
+        "trace_digest": "aa3d4fdab4cb9211ab6aa382fbfd5ce8ef183ba573e8c8d1711c8eebcefec777"
+      },
+      {
+        "conservative_graph_exceptions": [
+          "220: possible stack underflow",
+          "295: possible stack underflow"
+        ],
+        "conservative_graph_words": 1020,
+        "cycles": 256,
+        "evidence": "ALIAS-RUNTIME.md",
+        "final_pc": "084",
+        "first_084_cycle": 144,
+        "id": "swapped-qzero-ff",
+        "limitations": "Diagnostic identical-word gate has conservative underflow paths; index-3 FF execution is clean.",
+        "mapping_digest": "5259afe4c0c15feaf2c56ddf84d50ed688281a04c20ed6a99f99f473394a53ea",
+        "max_stack_depth": 3,
+        "path": "results/alias-runtime-study/fitted_swapped-extended-ff",
+        "profile": "fitted_swapped",
+        "scenario_digest": "4b4b05f77fa00a6af4442b42fe32ab45195acf0bdff0c5a503442922a7e2ddb2",
+        "status": "hypothesis",
+        "targets": [
+          "0FA",
+          "0FD",
+          "0FE",
+          "0FF"
+        ],
+        "trace_digest": "2a869457423cb082d38748a992a9adecc5ded10661d689df9ed946da0d7a363e"
+      },
+      {
+        "conservative_graph_exceptions": [],
+        "conservative_graph_words": 1017,
+        "cycles": 256,
+        "evidence": "GATE-ALIASES.md",
+        "final_pc": "084",
+        "first_084_cycle": 187,
+        "id": "q2-reentry-fc",
+        "limitations": "Four-bit gate extension and PC-keyed input bytes provide preparation re-entry; output consumer is unknown.",
+        "mapping_digest": "499d607cf63fcce243a0a3a6457d61ea2f11f2029101756a022f5bf370c72fed",
+        "max_stack_depth": 3,
+        "path": "results/gate-reentry-study/extended-fc",
+        "profile": "q2",
+        "scenario_digest": "359b21c07484a65b61f1f6e4e3b51fd188a32401be3889aab3c151787ee66842",
+        "status": "hypothesis",
+        "targets": [
+          "256",
+          "257",
+          "258"
+        ],
+        "trace_digest": "4c47401f0db0c37e6dd34f21713c814686c12c6e31ed1e5b6c6830d04b82de00"
+      },
+      {
+        "conservative_graph_exceptions": [],
+        "conservative_graph_words": 1011,
+        "cycles": 256,
+        "evidence": "TAIL-VARIANTS.md",
+        "final_pc": "084",
+        "first_084_cycle": 158,
+        "id": "q3-differences-01",
+        "limitations": "q3 arithmetic differs from q2; optional gate and index-12 D=01 inputs are hypotheses.",
+        "mapping_digest": "0165f633f943f674809ade9df94b2fabe7f150763c3d72301a232abc660ac96d",
+        "max_stack_depth": 3,
+        "path": "results/tail-variant-study/q3-01",
+        "profile": "q3",
+        "scenario_digest": "3edab5f1a75fa99d7bf741420f52336d74de67cce198ea65a441ab1fb4d02edb",
+        "status": "hypothesis",
+        "targets": [
+          "287",
+          "288",
+          "289",
+          "28A",
+          "3BD",
+          "3BE",
+          "3BF"
+        ],
+        "trace_digest": "ba631a4575d9fb1e3e8be8b23989a92b0b41c4f4b4b68a3eb91154bf27973fa0"
+      },
+      {
+        "conservative_graph_exceptions": [],
+        "conservative_graph_words": 1011,
+        "cycles": 256,
+        "evidence": "Q-DISPATCH.md",
+        "final_pc": "084",
+        "first_084_cycle": 137,
+        "id": "q2-zero-q",
+        "limitations": "Constant dispatch index 12 and zero read at 2A8; Q-indexed dispatch does not establish the same entry.",
+        "mapping_digest": "499d607cf63fcce243a0a3a6457d61ea2f11f2029101756a022f5bf370c72fed",
+        "max_stack_depth": 3,
+        "path": "results/q-dispatch-study/scenario-00",
+        "profile": "q2",
+        "scenario_digest": "790b01908baec0a27de804500708d413174b69824e000f6530676f2d7af98056",
+        "status": "hypothesis",
+        "targets": [
+          "2CF",
+          "2D9",
+          "2DA",
+          "2DB"
+        ],
+        "trace_digest": "7f4ade69ff28ffd107ba77247c013bc401456df71189d54cc58e00f5372f1a0c"
+      }
+    ]
+  },
   "source_sha256": {
     "ALIAS-RUNTIME.md": "62e8ae91040c104ccbaf35ec7aaada079bbc72587aec3894fc5c69bba80d5dfe",
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
@@ -2097,6 +3118,8 @@
     "TAIL-VARIANTS.md": "02447edc4643b36940d073106391f8f4edc6d5d172cb477144f0f14b76f68d88",
     "TERMINAL-TAIL.md": "cecf5637f41d6e5645425389710c113900a9319140c49d28e4a2b4cf752222da",
     "THREE-BIT-GATES.md": "8d8abff5bb8a79a9af953c9c048f556e42149384307ff052e8ce2b746bf000da",
+    "reset-witnesses.json": "d02dcba8c47ed26d3bca3dfcb01ff659354ac2655a9ee225bdae7937c6cfa90e",
+    "reset_witness_catalog.py": "f7d38d2403f8420fec934cbbac5fd6c4d832b8beaca57c78b1f1a78119de4bdc",
     "results/independent-study/variant-1.json": "a3b33ca12af82cd0c1e847e9493aa6b477bb67686deb19f3afadf79257d4795b",
     "results/independent-study/variant-2.json": "3fb6f7cc564f5b6919de9f8c7df8282387e9b4da593140708b06f24d14a242a2",
     "results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",

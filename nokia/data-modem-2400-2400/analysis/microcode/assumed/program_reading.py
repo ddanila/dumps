@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from common import HERE, decode, read, save, table_targets
 from analyze import graph, walk
+from reset_witness_catalog import build_catalog
 
 
 def annotations_by_pc(config):
@@ -45,6 +46,14 @@ def build(config):
     for name, profile in profiles.items():
         if any(any(a[k] != b[k] for k in ('raw','command','branch','select','direct')) for a,b in zip(rows,profile)):
             raise ValueError(f'{name}: control decode differs; cannot share this listing')
+    witnesses=build_catalog(HERE/config['reset_witness_manifest'])
+    if read(HERE/witnesses['configuration']['baseline_scenario'])!=scenario:
+        raise ValueError('witness baseline differs from listing scenario')
+    if set(witnesses['entries'])!={f"{r['pc']:03X}" for r in cfg['unreachable']}:
+        raise ValueError('witness targets differ from listing gaps')
+    for name,path in witnesses['configuration']['profiles'].items():
+        if name not in config['profiles'] or read(HERE/path)!=read(HERE/config['profiles'][name]):
+            raise ValueError('witness/listing profile mismatch')
     callers = {}
     for r in rows:
         if r['command'] == 4 and r['direct'] and str(r['pc']) not in scenario['dispatch']['tables']:
@@ -61,6 +70,8 @@ def build(config):
                     explanation_status='unused all-FF word' if r['unused'] else
                         'unresolved entry' if pc not in reached else 'reachable under scenario',
                     direct_callers=' '.join(f'{p:03X}' for p in callers.get(pc, [])),
+                    reset_hypothesis_witnesses=json.dumps([{k:v[k] for k in ('witness','profile','cycle')}
+                        for v in witnesses['entries'].get(f'{pc:03X}',[])],sort_keys=True),
                     annotations=json.dumps(notes[pc], sort_keys=True),
                     dispatch=json.dumps(table, sort_keys=True) if table is not None else '')
         for name, example in examples.items():
@@ -76,11 +87,14 @@ def build(config):
                        limitation='Linear walk is a boundary hint, not a complete control-flow or algorithm description.')
                   for pc,sites in sorted(callers.items())]
     dependencies = {'sequencer.json', config['scenario'], config['sequencer_sweep'],
+                    config['reset_witness_manifest'], 'reset_witness_catalog.py',
                     *config['profiles'].values(), *config['reset_examples'].values(),
                     *(n['evidence'] for n in config['annotations'])}
     metadata = dict(configuration=config,
         source_sha256={p:hashlib.sha256((HERE/p).read_bytes()).hexdigest() for p in sorted(dependencies)},
-        counts=dict(words=len(rows), used=sum(not r['unused'] for r in rows),
+        reset_hypothesis_catalog=witnesses,
+        counts=dict(reset_hypothesis_witnesses=witnesses['witness_count'],
+                    default_gaps_with_reset_witness=witnesses['target_words'],words=len(rows), used=sum(not r['unused'] for r in rows),
                     static_reachable=len(reached), sequencer_sweep_visited=len(dynamic),
                     annotated_used_words=sum(bool(notes[r['pc']]) for r in rows if not r['unused']),
                     reset_examples={name:len(r['visited']) for name,r in examples.items()}),

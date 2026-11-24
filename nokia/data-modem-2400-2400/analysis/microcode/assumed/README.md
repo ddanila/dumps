@@ -496,3 +496,8 @@ The continuation copies R2 to R0 and branches according to whether Q is zero.
 witnesses for the last disconnected word, while retaining 1,279 failing
 extended-gate runs. The following masked-input test requires both bytes FF
 when R0=0; the broader gate remains diagnostic rather than globally validated.
+
+[Verified reset-witness catalog](RESET-WITNESSES.md) ties all 22 default graph
+gaps to five complete runs. The listing generator replays their mappings,
+scenarios, traces and I/O logs byte for byte, while retaining profile scopes,
+conservative graph failures and default unresolved-entry labels.

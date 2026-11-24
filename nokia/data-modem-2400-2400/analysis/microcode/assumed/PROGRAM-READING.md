@@ -24,6 +24,10 @@ hardware model or a claim that the full program has been understood.
   supported by its annotation. `annotations` contains the full meanings,
   profile scopes, limitations, and evidence-document paths relative to this
   directory. Blank labels mean no curated interpretation is supplied.
+- `reset_hypothesis_witnesses` links each default-gap word to a replayed
+  clean reset trace by witness ID, mapping profile and first cycle. The
+  [witness catalog](RESET-WITNESSES.md) preserves all scenario limitations;
+  these entries do not merge incompatible mappings into one coverage claim.
 - `explanation_status` distinguishes reachable code, unresolved entry paths,
   and the three all-FF unused words. A local arithmetic interpretation does
   not change an unresolved entry into an explained exception.
@@ -98,9 +102,11 @@ Unannotated operations and remaining routine meanings stay open.
 
 The two reset examples use different datapath/condition hypotheses from the
 sequencer sweep. These columns are not merged into a single execution claim.
-For example, 2D9 has a tested local interpretation but remains statically
-unreachable in the selected reset graph. All 22 disconnected words remain
-explicit in the catalog.
+For example, 2D9 has both a local interpretation and a clean reset witness
+under an optional gate, but remains outside the default graph. All 22 default
+gaps now have replay-verified witnesses in five runs across three mappings.
+Their states, artifact paths and conservative graph exceptions are embedded
+in the catalog; default reachability and interpretation labels stay separate.
 
 ## Reproduce
 
@@ -113,9 +119,11 @@ python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode -p
 [Annotation manifest](program-reading.json) owns every curated label and its
 scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
-computed graph. Both output files reproduce byte for byte. All 61
-functional/assumption tests pass, including checks that interpretation labels
-do not leak across profiles or hide unresolved entries. The full plan remains
+computed graph. It also replays the five gap witnesses and rejects missing,
+failed, truncated or altered evidence. Both output files reproduce byte for
+byte. All 81 functional/assumption tests pass, including checks that
+interpretation labels do not leak across profiles or hide default unresolved
+entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
 
 The later [q2 tail-exclusion argument](TAIL-EXCLUSION.md) explains the absence
