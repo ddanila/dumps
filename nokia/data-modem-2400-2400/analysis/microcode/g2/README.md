@@ -13,6 +13,11 @@ was incorrect. A [separate DAC08HP marking](DAC08-OUTPUT.md) identifies a
 concrete 8-bit output-converter candidate beside a 74LS273. Both DSP sample
 buses, the latch clock and the analog route remain untraced; existing DAC0830
 executions are diagnostic counterfactuals.
+An [explicit DAC08 latch replay](DAC08-OUTPUT.md#explicit-latch-hypothesis-and-replay)
+now clocks candidate ALU bytes through a digital 74LS273 model. The changing
+q1 loop lacks controller input; both tested controller-fed paths hold one code.
+These are scoped results under untraced clock and data hypotheses, so G2 stays
+active.
 
 The [ADC sample run](ADC-SAMPLE-RUN.md) feeds 256 complementary reference
 line-sample bytes to the recurring D read at 38E under the photo-constrained

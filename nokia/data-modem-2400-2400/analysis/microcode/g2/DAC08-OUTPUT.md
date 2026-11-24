@@ -28,3 +28,25 @@ the photographed chip does not support its two-stage input/DAC-register
 timing. The candidate DAC08 narrows the output hardware, but it does not by
 itself connect any particular Am2901 Y word to the latch, establish sample
 rate, or demonstrate a carrier.
+
+## Explicit latch hypothesis and replay
+
+The [SN74LS273 datasheet](https://www.ti.com/lit/ds/symlink/sn74ls273.pdf)
+specifies eight rising-edge D flip-flops with active-low clear. The
+[digital-only probe](dac08_latch_probe.py) tests one candidate: the Am2901
+ALU Y byte drives the latch D pins, a rising clock occurs at the selected
+microcode word, and Q1–Q8 map in order to DAC08 B1–B8. Neither that clock
+nor the individual bus connections have been traced on the board. Its saved
+[result](results/dac08-latch-probe.json) is a proposed *DAC input code*, not
+a measured line-output waveform.
+
+In 2,048 real-PROM cycles, a clock at 12C captures 500 q1 bytes, eventually
+repeating a 20-code sequence. This fixture consumes no controller bits.
+Clocking the q3 path at 392 captures 57 copies of code 11 after it consumes
+128 real-controller scrambler bits. The fitted path clocks at 396 and captures
+128 copies of code 1 from the same 128-bit stimulus. These two controller-fed
+paths cannot yield a modulated signal under this latch hypothesis. The q1
+sequence is changing, but without controller-symbol dependence or a traced
+clock/output route it is not a demonstrated transmitter. Next experiments
+should vary the latch data source and clock phase, then test any surviving
+path against the transmitter checks in [PLAN-2.md](../PLAN-2.md#3-acceptance-for-g2).

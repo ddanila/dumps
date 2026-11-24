@@ -116,6 +116,16 @@ continuation separately, encode competing continuations when they affect the
 result, and run the microcode under each. Do not wait for new photographs or
 continuity measurements before trying those candidates.
 
+Apply this directly to the output path on DED 3558. The photographed DAC08HP
+and nearby 74LS273 identify a plausible byte latch and converter, while the
+data-bit order, latch clock and route to the line remain uncertain. Start with
+the pin-compatible connection and clock hypotheses that the photos support;
+capture their candidate DAC input bytes during real-PROM, controller-driven
+runs, then vary the disputed routes and sample phases. If none yields the
+expected changing, command-dependent samples, investigate another mapping or
+state source. Do not pause G2 for a complete pin trace, and do not call a
+candidate byte stream the physical line output without independent support.
+
 The Am27S31 A8 bank select is a current example: the photos do not establish
 its source, but the lower- and upper-bank runs at 12C behave differently
 ([comparison](g2/SWAPPED-ROM-LOOPS.md)). Test fixed and, where the modeled
