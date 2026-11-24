@@ -90,6 +90,16 @@ Use the photos, component topology, chip behavior, ROM structure and existing
 traces to propose plausible connections, then run them. Physical checks are
 optional ways to discriminate candidates, not prerequisites for continuing.
 
+**Current G2 decision:** the ambiguous PROM-to-latch, latch-to-Am2901 and
+Am2901-to-DAC connections are open hypotheses, **not a goal blocker**. The
+photographs may justify a candidate even when they do not prove its endpoint.
+For each candidate, record the visible segment separately from the assumed
+continuation, exercise it with the real PROMs and controller inputs, and keep
+the negative result tied to that exact wiring and state fixture. If a sweep
+only yields fixed output or a wait loop, change the connection, timing or input
+fixture, or move to an independent controller, ROM or analog-path constraint.
+Do not wait for new photos or continuity measurements to make that next move.
+
 For each unresolved dependency:
 
 1. Record what is observed, what is inferred and what must be assumed. Keep
@@ -166,15 +176,12 @@ same-phase combination. If a case settles to fixed output, record the scope
 and pursue a different phase, mapping, input route or state source.
 
 Reserve a goal blocker for an indispensable dependency that cannot be supplied
-or usefully approximated and leaves no meaningful independent work. Before
-declaring one, identify that dependency, explain why candidate assumptions
-cannot support further useful experiments, and account for the remaining work.
-Missing confidence in the true wiring does not meet this test while explicit
-photo-informed scenarios can still be run and compared.
-Keep G2 active after a candidate wiring or fixture fails: record the failed
-assumptions, choose the next discriminating experiment, and continue the
-independent controller, ROM and signal analyses. Do not mark missing or
-ambiguous photo-derived connections as a goal blocker.
+or usefully approximated **and** leaves no meaningful independent experiment.
+Before declaring one, identify that dependency, explain why photo-informed
+candidate assumptions cannot advance the work, and account for the remaining
+controller, ROM and signal analyses. A failed wiring candidate or an unknown
+physical net alone does not meet this test; keep G2 active and choose the next
+discriminating experiment.
 
 This policy changes how we make progress, not the acceptance criteria. Keep
 G2's transmitter and receiver/echo-canceller checks: completing a candidate run
