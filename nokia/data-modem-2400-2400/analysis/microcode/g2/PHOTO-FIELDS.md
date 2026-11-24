@@ -37,6 +37,12 @@ the connection remains conditional. If confirmed, it challenges more of the
 current field layout.
 Neither U8's matching inputs nor B0 has been traced here.
 
+A separate [U8-to-U2 facing-pad candidate](PHOTO-SLICE-LINK.md) may join
+U8 I4 to U2 I1. Its visible segment has unresolved pad gaps. If confirmed,
+it conflicts with the current shared-instruction interpretation of all five
+photo-constrained mappings and calls for a split-slice instruction model or
+different field assignments; it does not by itself identify the modem routine.
+
 ## Executable alternatives
 
 [The runner](photo_b_constraints.py) screens all six existing mappings and
