@@ -39,6 +39,15 @@ class PhotoVariantRomLoopTest(unittest.TestCase):
                           report['lower_bank_probe']['first_rom_value'],
                           report['lower_bank_probe']['first_blt_next_pc']),
                          (255, 0, '130'))
+        mixed = report['mixed_bank_probes']
+        self.assertEqual(len(mixed), 4)
+        self.assertTrue(all(case['clean'] for case in mixed))
+        for case in mixed:
+            self.assertEqual(case['first_reads']['127']['address'],case['bank_127'])
+            self.assertEqual(case['first_reads']['12C']['address'],case['bank_12c']+255)
+            self.assertEqual(case['first_blt_next_pc'],
+                             '130' if case['bank_12c']==0 else '12C')
+            self.assertEqual(case['visits_130'],1 if case['bank_12c']==0 else 0)
 
 
 if __name__ == '__main__':

@@ -168,6 +168,42 @@ def run(out):
         visits_130=sum(row['pc'] == 0x130 for row in lower_trace),
         final_pc=f'{lower_result["final_state"]["pc"]:03X}',
         trace_digest=lower_result['trace_digest'])
+    mixed_bank_probes = []
+    with tempfile.TemporaryDirectory() as temporary:
+        path = Path(temporary)
+        for bank_127 in (0, 256):
+            for bank_12c in (0, 256):
+                scenario = copy.deepcopy(base)
+                scenario['name'] += f'; A8 site candidates 127={bank_127} 12C={bank_12c}'
+                address = scenario['io']['read']['address']
+                address['pcs'] = gates[0]['pcs']
+                address['bank'] = 256
+                address['bank_by_pc'] = {str(0x127): bank_127,
+                                         str(0x12C): bank_12c}
+                address['evidence'] += ('; per-PC A8 choices are diagnostic '
+                                        'candidates, not traced board wiring')
+                result = execute(q1_mapping, scenario, 128, mode='integrated',
+                                 out=path, trace_limit=128)
+                trace = [json.loads(line) for line in
+                         (path / 'trace.jsonl').read_text().splitlines()]
+                reads = {pc: [row for row in trace if row['pc'] == pc and
+                              row.get('external_read', {}).get('selected_by_alu')]
+                         for pc in (0x127, 0x12C)}
+                blt = next(row for row in trace if row['pc'] == 0x12F)
+                mixed_bank_probes.append(dict(bank_127=bank_127, bank_12c=bank_12c,
+                    clean=result['clean'],
+                    first_reads={f'{pc:03X}': dict(address=reads[pc][0]['external_read']['address'],
+                                                  value=reads[pc][0]['external_read']['value'])
+                                 for pc in reads},
+                    visits_12c=len(reads[0x12C]),
+                    first_blt_next_pc=f'{blt["next_pc"]:03X}',
+                    visits_130=sum(row['pc'] == 0x130 for row in trace),
+                    final_pc=f'{result["final_state"]["pc"]:03X}',
+                    trace_digest=result['trace_digest']))
+                if bank_127 == 256 and bank_12c == 0:
+                    for filename in ('trace.jsonl', 'scenario.json'):
+                        (out / f'q1-mixed-bank-{filename}').write_bytes(
+                            (path / filename).read_bytes())
     source_paths = [Path(__file__), HERE / 'photo_controller_path.py',
                     GATE_FITS, PHOTO_A_RECORD, PHOTO_RECORD,
                     ROM, *MAPPINGS.values(), ASSUMED / 'execute.py']
@@ -176,6 +212,7 @@ def run(out):
                   gate_count=len(gates), cases=cases,
                   rom_feedback_basins=basins, zero_exit_probe=zero_exit,
                   lower_bank_probe=lower_bank_probe,
+                  mixed_bank_probes=mixed_bank_probes,
                   source_sha256={str(path.relative_to(HERE.parents[2])):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in source_paths},

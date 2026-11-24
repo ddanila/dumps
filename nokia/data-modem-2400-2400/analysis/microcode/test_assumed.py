@@ -1954,6 +1954,33 @@ class AssumedTests(unittest.TestCase):
                     self.assertEqual(finding['expected_pairs'][0],2*(5+rom[256+phase]) if profile=='q3' else 0)
                     self.assertEqual(finding['first_terminal'],110)
 
+    def test_rom_feedback_can_select_a_bank_at_each_read_site(self):
+        from defined_condition_fit import load_trace
+        mapping=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,i=7|(1<<6),a=0,b=0,d=0).items():
+            mapping['fields'][name]=dict(bits=bits,status='stub',evidence='bank fixture')
+        scenario=copy.deepcopy(self.scenario)
+        scenario['io']['read'].update(mode='pc_sequence',pc_sequences={'0':[1]},
+            sequence_end='hold-last',status='stub',evidence='bank fixture',
+            expected_sha256=read(HERE/'feedback-search.json')['rom_sha256'],
+            address=dict(source='previous_y',bank=0,bank_by_pc={'2':256},
+                         initial_y=0,pcs=[1,2],status='hypothesis',
+                         evidence='alternative A8 selection at PC 2'))
+        with tempfile.TemporaryDirectory() as temporary:
+            result=execute(mapping,scenario,3,mode='integrated',out=Path(temporary),trace_limit=3)
+            trace=load_trace(Path(temporary))
+        rom=(HERE.parents[2]/'am27s31dc-prom/nokia-modem-am27s31dc.bin').read_bytes()
+        self.assertEqual([r['external_read']['address'] for r in trace[1:]],
+                         [1,256+rom[1]])
+        self.assertEqual([r['external_read']['value'] for r in trace[1:]],
+                         [rom[1],rom[256+rom[1]]])
+        self.assertEqual(result['rom_reads']['selected_by_alu'],2)
+        for overrides in ({'0':256},{'2':1},{'2':True},{'bad':0}):
+            bad=copy.deepcopy(scenario)
+            bad['io']['read']['address']['bank_by_pc']=overrides
+            with self.assertRaisesRegex(ValueError,'ROM bank overrides'):
+                validate_scenario(bad)
+
     def test_alu_rom_feedback_reads_prior_output_and_records_consumption(self):
         import json
         mapping=copy.deepcopy(self.mapping)

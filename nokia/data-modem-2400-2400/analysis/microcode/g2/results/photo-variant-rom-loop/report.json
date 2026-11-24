@@ -3100,6 +3100,88 @@
     "trace_digest": "6a93220f3e209ec1be90419168f48f9806e37c7ce0f2641e7db57a8e607bb03f",
     "visits_130": 1
   },
+  "mixed_bank_probes": [
+    {
+      "bank_127": 0,
+      "bank_12c": 0,
+      "clean": true,
+      "final_pc": "084",
+      "first_blt_next_pc": "130",
+      "first_reads": {
+        "127": {
+          "address": 0,
+          "value": 0
+        },
+        "12C": {
+          "address": 255,
+          "value": 0
+        }
+      },
+      "trace_digest": "9bea840c5c0972174ad06bfcda496e31a355f254e11318f789d7d0190dc83c3c",
+      "visits_12c": 1,
+      "visits_130": 1
+    },
+    {
+      "bank_127": 0,
+      "bank_12c": 256,
+      "clean": true,
+      "final_pc": "12D",
+      "first_blt_next_pc": "12C",
+      "first_reads": {
+        "127": {
+          "address": 0,
+          "value": 0
+        },
+        "12C": {
+          "address": 511,
+          "value": 11
+        }
+      },
+      "trace_digest": "cf4029ceefb2f7b7ba90e7bf0fefdb5617fd0235f41bb959ca74dbaf7e88cade",
+      "visits_12c": 20,
+      "visits_130": 0
+    },
+    {
+      "bank_127": 256,
+      "bank_12c": 0,
+      "clean": true,
+      "final_pc": "084",
+      "first_blt_next_pc": "130",
+      "first_reads": {
+        "127": {
+          "address": 256,
+          "value": 0
+        },
+        "12C": {
+          "address": 255,
+          "value": 0
+        }
+      },
+      "trace_digest": "9bea840c5c0972174ad06bfcda496e31a355f254e11318f789d7d0190dc83c3c",
+      "visits_12c": 1,
+      "visits_130": 1
+    },
+    {
+      "bank_127": 256,
+      "bank_12c": 256,
+      "clean": true,
+      "final_pc": "12D",
+      "first_blt_next_pc": "12C",
+      "first_reads": {
+        "127": {
+          "address": 256,
+          "value": 0
+        },
+        "12C": {
+          "address": 511,
+          "value": 11
+        }
+      },
+      "trace_digest": "cf4029ceefb2f7b7ba90e7bf0fefdb5617fd0235f41bb959ca74dbaf7e88cade",
+      "visits_12c": 20,
+      "visits_130": 0
+    }
+  ],
   "rom_feedback_basins": {
     "0": [
       {
@@ -3753,12 +3835,12 @@
   },
   "source_sha256": {
     "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
-    "analysis/microcode/assumed/execute.py": "473cd639ba2b34892e58e1cd2a919416d0f062ad49180c312eeb41bab808be7e",
+    "analysis/microcode/assumed/execute.py": "01af8e4311efd558d7a855e6052e775019afded499ab1278028ad4728a350624",
     "analysis/microcode/assumed/results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
     "analysis/microcode/g2/photo-a-input-constraint.json": "5a1f87a0de6a788a8083aec1fa78a43a7773bee01328116f28137f51063f9028",
     "analysis/microcode/g2/photo-i7-constraint.json": "eaf9325535d6f3df28a1247041cb8b461f6f0f56cf3509d9a3f20effa2bf4651",
     "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
-    "analysis/microcode/g2/photo_variant_rom_loop.py": "93b28ce5388f0dabf4f5d243df50e02abbd611e1761aefe4c9d06028e84baadb",
+    "analysis/microcode/g2/photo_variant_rom_loop.py": "2a276ba4e218e77b9bcd0840cf558b900be5f70a3b29610f0c64d4850d23a0c3",
     "analysis/microcode/g2/results/photo-b-constraints/q1-photo-swapped.json": "73d1121385d20a419ab06329004b7d15fec18fb7ee42fee95d11c43685c97cbe",
     "analysis/microcode/g2/results/photo-b-constraints/q2-photo-swapped.json": "18c85f7921c473054bb73bb8bbca2d99519e9fc710ae06a23809ea59b5ae43b2"
   },

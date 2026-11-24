@@ -47,6 +47,9 @@ The alternative lower-ROM-bank fixture reads zero at 12C and exits at once;
 all 256 possible lower-bank feedback states reach zero within ten steps. The
 bank-select wiring is unknown, so this comparison identifies a useful
 terminating candidate rather than the board's actual mode.
+A site-specific four-case test shows that the 12C bank alone determines the
+immediate exit in this fixture; changing the 127 bank has no effect because
+both candidate bytes there are zero. The exit path later parks at 084.
 
 The [controller-bit dispatch experiment](CONTROLLER-BIT-DISPATCH.md) takes
 128 scrambled bits computed by the unchanged 8031 ROM and supplies them, under

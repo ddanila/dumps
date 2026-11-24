@@ -109,6 +109,15 @@ useful candidate for a terminating routine in this fixture, but this comparison
 does not establish how the board drives Am27S31 A8 or whether this routine is
 entered in the real modem.
 
+A four-case [site-specific bank probe](results/photo-variant-rom-loop/report.json)
+now sets A8 independently at 127 and 12C in the q1 gate fixture. Both banks
+return zero at the first 127 read (`000` or `100`), so changing that site's
+bank has no effect on this run. At 12C, the lower bank reads `0FF→00` and
+exits through 130; the upper bank reads `1FF→0B` and repeats. This isolates
+the fixture's immediate loop decision to the 12C bank choice, without tracing
+A8 or identifying what controls it. The lower-bank run later parks at 084,
+so the exit still does not demonstrate a transmitter.
+
 In **q2**, eight gates remain in the 127 loop, where ALU Y settles to 3 or
 34. The other eight enter 12C: five settle to 3 and three alternate 49/40.
 Those small fixed points and two-cycles also fail to show a phase-advanced

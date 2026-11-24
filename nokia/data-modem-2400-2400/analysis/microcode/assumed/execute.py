@@ -128,6 +128,13 @@ def validate_scenario(s):
             raise ValueError('ROM read sites require pc_sequence mode')
         if read_policy.get('bank') not in (0,256) or type(read_policy.get('initial_y')) is not int or not 0<=read_policy['initial_y']<=255:
             raise ValueError('invalid ROM bank/initial address')
+        bank_by_pc=read_policy.get('bank_by_pc',{})
+        if (not isinstance(bank_by_pc,dict) or
+                any(not isinstance(pc,str) or not pc.isdecimal() or str(int(pc))!=pc
+                    or not 0<=int(pc)<1024 or type(bank) is not int or bank not in (0,256)
+                    or source_read['mode']!='pc_sequence' or int(pc) not in read_policy['pcs']
+                    for pc,bank in bank_by_pc.items())):
+            raise ValueError('ROM bank overrides must name selected PCs and banks 0 or 256')
         if read_policy.get('status') not in ('hypothesis','stub','recovered-from-data') or not read_policy.get('evidence'):
             raise ValueError('ROM address policy requires provenance')
         expected=s['io']['read'].get('expected_sha256','')
@@ -240,7 +247,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
             if source_read['mode']=='pc_sequence' and read_policy is not None and pc in read_policy['pcs']:
-                address=read_policy['bank']+previous.get('y',read_policy['initial_y'])
+                bank=read_policy.get('bank_by_pc',{}).get(str(pc),read_policy['bank'])
+                address=bank+previous.get('y',read_policy['initial_y'])
                 d=table[address];assumptions['table external read']+=1
                 consumed=(instruction&7) in (5,6,7)
                 selected_reads+=consumed;read_counts[address]+=1
