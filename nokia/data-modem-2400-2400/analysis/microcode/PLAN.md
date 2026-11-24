@@ -104,6 +104,11 @@ the negative result tied to that exact wiring and state fixture. If a sweep
 only yields fixed output or a wait loop, change the connection, timing or input
 fixture, or move to an independent controller, ROM or analog-path constraint.
 Do not wait for new photos or continuity measurements to make that next move.
+The [D349 source-update experiment](g2/PHOTO-TABLE-SOURCE-UPDATE.md) is a
+concrete example: after two restart fixtures gave fixed table sources, four
+other photo-compatible scenarios found an input-sensitive R5 write before
+later table calls. That conditional path is a lead to test with changing
+inputs, not a claim about the board's untraced wiring.
 
 For each unresolved dependency:
 

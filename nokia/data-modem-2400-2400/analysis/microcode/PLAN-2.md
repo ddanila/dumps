@@ -127,6 +127,11 @@ phases B–C turn "what" into "how".
   controller-fed calls but leaves their source pair fixed, so the arithmetic
   path still needs a real ROM/data-driven source update before a transmitter
   interpretation is warranted.
+  A [follow-up D349 candidate](g2/PHOTO-TABLE-SOURCE-UPDATE.md) demonstrates
+  a conditional input-to-R5-to-table-output update in q3 under four other
+  saved branch scenarios. This is a new input-route lead, not yet an advancing
+  controller/ROM-driven source or a DAC sample stream. Test changing input
+  candidates and output timing without waiting for a complete pin trace.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

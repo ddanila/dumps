@@ -712,3 +712,7 @@ The [diagnostic restart follow-up](PHOTO-TABLE-RESTART.md) preserves RAM/Q
 across 15 AC=RST pulses at `084` while feeding controller dibits. Its 16 runs
 make 112 table calls but retain one fixed source pair each, so that
 counterfactual continuation does not reveal an advancing carrier.
+The [D349 source-update candidate](PHOTO-TABLE-SOURCE-UPDATE.md) uses four
+other branch scenarios and finds an input-sensitive R5 write before later
+sign-table calls under q3. Its 56 runs show a conditional path from external
+D to table output, while the source and output wiring remain untraced.

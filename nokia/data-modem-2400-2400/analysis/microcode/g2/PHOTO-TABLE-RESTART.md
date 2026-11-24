@@ -40,6 +40,12 @@ The fixture has no Am27S31 read policy or identified DAC08 sample strobe. A
 useful next candidate must update the source pair or phase from real ROM/data
 before repeated sign selection and show those values reaching a sample path.
 
+A [follow-up candidate](PHOTO-TABLE-SOURCE-UPDATE.md) finds four other saved
+branch scenarios in which the D-consuming word `349` writes source register
+R5 before later table calls. Under q3, changing D at that word changes the
+source high byte and exact sign-table output. This narrows the next input-route
+test without identifying the physical source or a waveform.
+
 The [report](results/photo-table-restart-dibits.json) records all controller
 dibits, restart cycles, table calls, source and output pairs, trace digests
 and source hashes.
