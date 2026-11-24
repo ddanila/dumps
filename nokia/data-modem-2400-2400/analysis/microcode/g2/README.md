@@ -123,3 +123,35 @@ source classification, collisions, execution checks and source hashes.
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/controller_frames.py \
   --out /tmp/nokia-g2-controller-frames.json
 ```
+
+## A0–A2 controller state steps
+
+[The local state-step probe](state_transitions.py) executes the unchanged
+controller ROM from 1000 to the common exit at 1755. It starts with a qualified
+state (`RAM22.4=1`), a controlled changed-input flag (`RAM24.5`) and timer high byte
+(`RAM17`). It does not skip the dispatch code or write a result state itself.
+
+| Entry state | With `RAM24.5=1`: countdown reloaded | With `RAM24.5=0` and `RAM17.7=1`: next state |
+| --- | ---: | --- |
+| A0 | 070D = 1805 | A1 |
+| A1 | 0A2D = 2605 | A2 |
+| A2 | 003C = 60 | B8, for the tested branch inputs |
+
+When neither timer condition holds, each state remains unchanged. If the
+qualification bit is absent, the code resets all three entry states to 00
+before their state-specific branch; those negative controls are included.
+The 12 executions in the [report](results/state-transitions.json) preserve
+visited instruction addresses and each resulting timer/state value. The
+counts 1805 and 2605 fit the timing windows proposed in PLAN-2, but these
+local steps do not establish the timer's physical tick or name the stages
+“silence” and “2100 Hz tone.”
+
+Under the fixed controller-frame fixture above, A0 and A2 transmit the same
+four bytes despite their different timer loads. The state trajectory therefore
+carries information that a single frame cannot supply. A continuous call
+simulation and the line-side/DSP connection are still required for A1/A2.
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/state_transitions.py \
+  --out /tmp/nokia-g2-state-transitions.json
+```
