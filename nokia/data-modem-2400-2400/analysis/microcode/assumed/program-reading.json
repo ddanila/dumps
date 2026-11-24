@@ -1677,6 +1677,22 @@
       "evidence": "HANDLER6-LATE.md",
       "meaning": "Timed selector-1 rise selects late continuation with or without an input-plus-carry capture at 0E5. 0D4 masks independent inputs; 04C copies the captured R3 into R12 and clears Q. Previous zero from R0 AND R12 selects 079 or 0DF\u21921D3, with distinct retained R3/R4 and an extra-step complement boundary at 079.",
       "limitations": "q3 previous flags, zero-reset handler 6, explicit scheduled selector-1 source, PLP replies and table index 2. 0E0\u20130E4/0E9 onward excluded, 1DC unreachable under checked state. No physical capture channel or completion signal identified."
+    },
+    {
+      "name": "handler-6 early complement and temporary captures",
+      "ranges": [
+        [
+          "0E0",
+          "0E4"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER6-EARLY.md",
+      "meaning": "Timed selector-1 rise at 0C0 or 0C1 enters with R0=Q=0. 0E1 complements R0 into Q=FF; 0E2/0E3 make temporary masked captures; 0E4 rejoins 0C4. The preserved FF Q changes later 0E5 capture to a-1 and makes 0CE skip 0CF unless the 0C6 capture is FF.",
+      "limitations": "q3 previous-flag zero reset, scheduled selector-1 source, PLP replies and fixed table index 2. Captures at 0E2/0E3 are overwritten in this continuation; arbitrary incoming state and physical signal meaning remain unclaimed."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

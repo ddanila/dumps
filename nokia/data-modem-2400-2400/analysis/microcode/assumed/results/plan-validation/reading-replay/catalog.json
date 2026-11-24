@@ -1661,6 +1661,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER6-EARLY.md",
+        "limitations": "q3 previous-flag zero reset, scheduled selector-1 source, PLP replies and fixed table index 2. Captures at 0E2/0E3 are overwritten in this continuation; arbitrary incoming state and physical signal meaning remain unclaimed.",
+        "meaning": "Timed selector-1 rise at 0C0 or 0C1 enters with R0=Q=0. 0E1 complements R0 into Q=FF; 0E2/0E3 make temporary masked captures; 0E4 rejoins 0C4. The preserved FF Q changes later 0E5 capture to a-1 and makes 0CE skip 0CF unless the 0C6 capture is FF.",
+        "name": "handler-6 early complement and temporary captures",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "0E0",
+            "0E4"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1683,7 +1699,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 916,
+    "annotated_used_words": 921,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5040,6 +5056,7 @@
     "HANDLER3-DRAINS.md": "148103c9b33b7080ab80421e7221eb129b50806b8d5b399412b3a0de61db3fc1",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER5-BRANCHES.md": "a896dcf35a6d2d87a6a69c1c105cd882c7da515c830a2654f8a9d6910e7454be",
+    "HANDLER6-EARLY.md": "23e85101a2061f91cc39b429fff90c9526f99c95592f723517ff80e0fcac4f4e",
     "HANDLER6-LATE.md": "279151097ab03b12b6db13b069aeab93a8392c5daf26971afc8c56a51321a69b",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
     "HANDLER7.md": "ae555fdf453872ddf317839250f54061397e4d962d627c7513288456ee00a2ec",

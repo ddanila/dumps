@@ -719,3 +719,8 @@ survives into paired Y outputs before terminal helpers overwrite it.
 0DF through timed selector-1 inputs. A captured value and masked input select
 two terminal entries, with checked retained state and an additional complement
 boundary in the terminal skip.
+
+[Handler 6's early complement diversion](HANDLER6-EARLY.md) reaches 0E0
+from either earlier selector-1 branch. Q=FF reverses the later capture's bias
+and makes the 0CF input addition conditional on an FF capture at 0C6; complete
+retained-state and timing formulas distinguish this from the late-only entry.

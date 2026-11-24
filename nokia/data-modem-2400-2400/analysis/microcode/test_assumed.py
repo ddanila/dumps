@@ -127,6 +127,30 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler6_early_complement_and_reload_boundary(self):
+        import random
+        from handler6_early import scenario_for,inspect,check_carry
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler6-early.json');base=read(HERE/config['handler_configuration']);h=read(HERE/base['handler_config'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0xe0)
+        self.assertEqual(check_carry(mapping),65536)
+        cases=[(6,0,0xc0,255,1,0,255,0,255),(254,255,0xc1,255,1,0,255,255,0)]
+        for _ in range(64):
+            cases.append((6+8*rng.randrange(32),rng.randrange(256),rng.choice((0xc0,0xc1)),*[rng.randrange(256) for _ in range(6)]))
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for case,values in enumerate(cases):
+                scenario=scenario_for(config,*values)
+                result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                want=inspect(load_trace(out),result,*values[:7])
+                if case<2:self.assertEqual(want['extra_terminal_step'],1)
+                if case%6==0:
+                    other=list(values);other[7]^=255;other[8]^=255
+                    if values[3]!=255:other[5]^=255
+                    scenario=scenario_for(config,*other)
+                    result=execute(mapping,scenario,192,mode='integrated',out=out,trace_limit=192)
+                    self.assertEqual(inspect(load_trace(out),result,*other[:7]),want)
+
     def test_q3_handler6_late_masked_exit_and_terminal_skip(self):
         import random
         from handler6_late import scenario_for,inspect,check_exit
