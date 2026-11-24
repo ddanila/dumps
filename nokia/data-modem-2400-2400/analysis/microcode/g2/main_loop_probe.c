@@ -5,10 +5,24 @@
 #include <string.h>
 
 static unsigned char code[65536];
-static unsigned cycle, pc, errors, tx_due, tx_count, write_count;
-static unsigned char tx[16], writes[32];
+static unsigned cycle, pc, errors, tx_due, tx_count, write_count, status_value;
+static unsigned char tx[16], writes[32], write_addresses[32], write_sources[32];
+static unsigned scramble_count, scramble_input[16], scramble_history[16], scramble_delay[16];
 
-void sat_trace(struct em8051 *c) { pc=c->mPC; if(pc>=8192) errors++; }
+void sat_trace(struct em8051 *c) {
+    pc=c->mPC;
+    if(pc>=8192) errors++;
+    if(pc==0x053e) {
+        if(scramble_count<16) {
+            scramble_input[scramble_count]=c->mLowerData[0x37];
+            scramble_history[scramble_count]=((unsigned)c->mLowerData[0x3f]&0x7f)<<16
+                | ((unsigned)c->mLowerData[0x40]<<8)
+                | c->mLowerData[0x41];
+            scramble_delay[scramble_count]=(c->mLowerData[0x24]&1)?5:18;
+            scramble_count++;
+        } else errors++;
+    }
+}
 static void exception(struct em8051 *c,int kind) { (void)c;(void)kind;errors++; }
 static void sfr_write(struct em8051 *c,uint8_t address) {
     if(address==0x99) {
@@ -19,22 +33,29 @@ static void sfr_write(struct em8051 *c,uint8_t address) {
 }
 static unsigned char xread(struct em8051 *c,uint16_t address) {
     (void)c;(void)address;
-    if(pc==0x08e5 || pc==0x0539 || pc==0x1d9d || pc==0x1dbd) return 0;
+    if(pc==0x08e5) return 0;
+    if(pc==0x0539 || pc==0x1d9d || pc==0x1dbd) return (unsigned char)status_value;
+    if(pc==0x1dc6) return 0;
     fprintf(stderr,"unexpected read pc=%04X address=%04X\n",pc,address);
     errors++;return 0;
 }
 static void xwrite(struct em8051 *c,uint16_t address,uint8_t value) {
     (void)c;
     if(address==1 || address==2 || address==5 || address==6) {
-        if(write_count<32) writes[write_count++]=value;
+        if(write_count<32) {
+            write_addresses[write_count]=(unsigned char)address;
+            write_sources[write_count]=c->mLowerData[0x37];
+            writes[write_count++]=value;
+        }
         else errors++;
     } else {fprintf(stderr,"unexpected write pc=%04X address=%04X value=%02X\n",pc,address,value);errors++;}
 }
 
 int main(int argc,char **argv) {
-    if(argc!=4) return 2;
+    if(argc!=4 && argc!=5) return 2;
     unsigned selector=strtoul(argv[2],0,0), wanted=strtoul(argv[3],0,0);
-    if(selector>255 || wanted<1 || wanted>12) return 2;
+    status_value=argc==5?strtoul(argv[4],0,0):0;
+    if(selector>255 || wanted<1 || wanted>12 || status_value>3) return 2;
     FILE *rom=fopen(argv[1],"rb"); if(!rom) return 2;
     memset(code,255,sizeof code);
     if(fread(code,1,8192,rom)!=8192 || fgetc(rom)!=EOF) return 2;
@@ -50,7 +71,7 @@ int main(int argc,char **argv) {
     c.mPC=0x1ed3;
     unsigned char input[]={0,7,0,0,0,(unsigned char)selector,0};
     unsigned rx=0, completed=0, last_pc=0;
-    printf("{\"selector\":%u,\"iterations\":[",selector);
+    printf("{\"selector\":%u,\"status\":%u,\"iterations\":[",selector,status_value);
     for(cycle=0;cycle<200000 && !errors && completed<wanted;cycle++) {
         unsigned pre=c.mPC;
         if(cycle && pre==0x1ed3 && last_pc!=0x1ed3) {
@@ -60,9 +81,17 @@ int main(int argc,char **argv) {
             for(unsigned j=0;j<tx_count;j++) printf("%s%u",j?",":"",tx[j]);
             printf("],\"writes\":[");
             for(unsigned j=0;j<write_count;j++) printf("%s%u",j?",":"",writes[j]);
+            printf("],\"write_addresses\":[");
+            for(unsigned j=0;j<write_count;j++) printf("%s%u",j?",":"",write_addresses[j]);
+            printf("],\"write_sources\":[");
+            for(unsigned j=0;j<write_count;j++) printf("%s%u",j?",":"",write_sources[j]);
+            printf("],\"scramble\":[");
+            for(unsigned j=0;j<scramble_count;j++)
+                printf("%s{\"input\":%u,\"history\":%u,\"delay\":%u}",
+                       j?",":"",scramble_input[j],scramble_history[j],scramble_delay[j]);
             printf("]}");
             completed++;
-            tx_count=write_count=rx=0;
+            tx_count=write_count=scramble_count=rx=0;
             c.mLowerData[0x17]=0x80; /* externally supplied timer-underflow condition */
             if(completed==wanted) break;
         }

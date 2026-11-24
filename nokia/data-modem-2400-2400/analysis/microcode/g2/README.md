@@ -364,6 +364,13 @@ complete polling iterations receive and decode bytes, update state, send a
 frame and follow the ROM's loop back to 1ED3 without PC handoffs. Across all
 256 values of the received selector it produces six state/frame chains. Its
 explicit timer and serial stubs still leave physical command meaning open.
+With transmit-ready status supplied, the [continuous serial probe](MAIN-LOOP-SERIAL.md)
+also records the controller's external port-01 bytes over 12 iterations for
+every selector. All bytes match an independent bit-serial scrambler using the
+recorded RAM37 input and history. Four distinct line-byte streams result;
+selector bit 6 changes the state/source sequence, while bits 5 and 4 select
+the 18- or 5-bit scrambler tap. These are usable controller-derived stimuli
+for a DSC2847 connection hypothesis, not a recovered physical link.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/controller_frames.py \
