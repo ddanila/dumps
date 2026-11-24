@@ -486,3 +486,8 @@ an optional structural hypothesis, with five words still disconnected.
 and a 1,017-word optional graph. The four remaining words cannot be admitted
 by raw-only gate relaxation without free-flag stack-underflow paths; actual
 flag correlations and alternative entry models remain open investigations.
+
+[Actual flags at the 0FC alias class](ALIAS-RUNTIME.md) reach 0FD–0FF in 255
+fitted_swapped reset cases. All 3,072 matched runs terminate cleanly, while
+the conservative graph still exposes underflows at untested alias paths.
+The continuation copies R2 to R0 and branches according to whether Q is zero.

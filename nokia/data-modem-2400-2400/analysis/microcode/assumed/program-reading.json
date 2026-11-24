@@ -746,6 +746,22 @@
         "q2"
       ],
       "limitations": "Requires the optional four-bit clause and diagnostic input scenario. The external output consumer remains unknown; default reachability stays unresolved."
+    },
+    {
+      "name": "register copy and Q-zero continuation",
+      "ranges": [
+        [
+          "0FA",
+          "0FF"
+        ]
+      ],
+      "status": "hypothesis",
+      "meaning": "Under fitted_swapped, copy R2 to R0, then test Q through the previous zero flag. Nonzero Q branches to 078; Q=0 exposes ~R15&R0 and R0 before the 0FF branch to 07B. Q and other RAM are preserved.",
+      "evidence": "ALIAS-RUNTIME.md",
+      "profiles": [
+        "fitted_swapped"
+      ],
+      "limitations": "Requires diagnostic relaxation of the entire 0FC identical-word class and fixed-false select 6. Clean index-3 reset witnesses do not eliminate the conservative underflow paths at other aliases. Output consumer and physical wiring remain unknown."
     }
   ]
 }

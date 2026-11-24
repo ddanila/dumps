@@ -731,6 +731,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "ALIAS-RUNTIME.md",
+        "limitations": "Requires diagnostic relaxation of the entire 0FC identical-word class and fixed-false select 6. Clean index-3 reset witnesses do not eliminate the conservative underflow paths at other aliases. Output consumer and physical wiring remain unknown.",
+        "meaning": "Under fitted_swapped, copy R2 to R0, then test Q through the previous zero flag. Nonzero Q branches to 078; Q=0 exposes ~R15&R0 and R0 before the 0FF branch to 07B. Q and other RAM are preserved.",
+        "name": "register copy and Q-zero continuation",
+        "profiles": [
+          "fitted_swapped"
+        ],
+        "ranges": [
+          [
+            "0FA",
+            "0FF"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -751,7 +767,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 301,
+    "annotated_used_words": 304,
     "reset_examples": {
       "original": 187,
       "swapped": 186
@@ -2030,6 +2046,7 @@
   ],
   "interpretation": "Evidence index, not a new execution or hardware decode. Profile scopes and scenario coverage remain separate; annotations are not a percentage of understood modem functionality.",
   "source_sha256": {
+    "ALIAS-RUNTIME.md": "62e8ae91040c104ccbaf35ec7aaada079bbc72587aec3894fc5c69bba80d5dfe",
     "BIASED-DRAIN.md": "2d7d81fce40824c2fd03350944876778d4ac0a772d843f11316752b0ff8fecf1",
     "CARRY-CHAIN.md": "7d360688b4f6f685d69cf4d7fa9135ca8105aebda35fabd1b33a2162b5ecaafd",
     "DISPATCH-RANGE.md": "090b900eb0dfbedd879791ebf549a2f7c2504bc08e9797c5ccea12efe627914d",

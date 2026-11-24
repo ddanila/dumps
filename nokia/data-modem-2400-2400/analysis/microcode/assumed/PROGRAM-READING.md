@@ -75,11 +75,12 @@ into one address listing.
 | 287–28A (q3) | Transient Q and register differences | Reset entry demonstrated under q3; output consumer unknown |
 | 251–257 (q2) | Zero-sum entry and carry-selected adjustment | Additional three-bit gate; diagnostic input bytes |
 | 258 (q2) | Transient difference before preparation re-entry | Optional four-bit gate; output consumer unknown |
+| 0FA–0FF (fitted_swapped) | Register copy and Q-zero continuation | Diagnostic alias gate; other graph paths can underflow |
 | 256–257 | Conditional adjustment selector | Entry from reset and condition meaning unknown |
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 301 used words, including overlaps and disconnected
+These annotations cover 304 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
