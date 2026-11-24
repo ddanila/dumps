@@ -359,11 +359,21 @@
       }
     ]
   },
-  "interpretation": "The four named q3 traces visit only startup direct D-to-Q add candidates, each once. No direct D-driven accumulator candidate repeats in those traces.",
+  "control_flow": {
+    "cyclic_component_count": 45,
+    "cyclic_pc_count": 193,
+    "direct_accumulators_in_cycles": [],
+    "scenario": "results/third-case-study/scenario-all_cases.json",
+    "scenario_sha256": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
+    "state_count": 1395,
+    "state_edge_count": 1643
+  },
+  "interpretation": "The four named q3 traces visit only startup direct D-to-Q add candidates, each once. The declared q3 stack-aware control-flow graph has no cyclic component containing a one-word direct D-driven accumulator.",
   "limitations": [
     "A one-word direct accumulator is not necessary; multiword or other-source phase updates remain possible.",
     "D is an emulator input and its physical source is unknown.",
     "Candidate field maps are alternatives; this is not one recovered hardware decode.",
+    "The graph covers only the declared dispatch and branch scenario and overapproximates run-time branch feasibility.",
     "The trace screen covers only the four named q3 runs."
   ],
   "mapping_sha256": {

@@ -1,5 +1,6 @@
 """Screen direct D-driven accumulators and their visits in saved q3 runs."""
 import argparse
+from collections import defaultdict
 import hashlib
 import json
 import sys
@@ -9,6 +10,7 @@ HERE=Path(__file__).resolve().parent
 ASSUMED=HERE.parent/'assumed'
 sys.path.insert(0,str(ASSUMED))
 from common import decode, read  # noqa: E402
+from analyze import graph  # noqa: E402
 
 TRACES={
     'q3-rom-feedback':'plan-validation/q3-rom-feedback/trace.jsonl',
@@ -16,6 +18,33 @@ TRACES={
     'q3-frame-05':'frame-dac-bridge/frame-05/trace.jsonl',
     'q3-frame-85':'frame-dac-bridge/frame-85/trace.jsonl',
 }
+
+
+def cyclic_components(edges):
+    """Tarjan SCCs over (PC, return-stack) states, retaining actual cycles."""
+    adjacent=defaultdict(set)
+    for before,after in edges:
+        adjacent[(before[0],tuple(before[1]))].add((after[0],tuple(after[1])))
+    sys.setrecursionlimit(max(10000,2*len(adjacent)+100))
+    index=0;indices={};low={};stack=[];on_stack=set();cycles=[]
+    def visit(node):
+        nonlocal index
+        indices[node]=low[node]=index;index+=1
+        stack.append(node);on_stack.add(node)
+        for target in adjacent[node]:
+            if target not in indices:
+                visit(target);low[node]=min(low[node],low[target])
+            elif target in on_stack:
+                low[node]=min(low[node],indices[target])
+        if low[node]==indices[node]:
+            component=[]
+            while True:
+                member=stack.pop();on_stack.remove(member);component.append(member)
+                if member==node:break
+            if len(component)>1 or node in adjacent[node]:cycles.append(component)
+    for node in list(adjacent):
+        if node not in indices:visit(node)
+    return cycles
 
 
 def run():
@@ -35,24 +64,39 @@ def run():
                 direct.append(dict(pc=f'{row["pc"]:03X}',kind=kind))
         candidates[name]=direct
     q3_pcs={int(row['pc'],16) for row in candidates['q3']}
+    scenario_path=ASSUMED/read(ASSUMED/'program-reading.json')['scenario']
+    scenario=read(scenario_path)
+    flow=graph(decode(read(ASSUMED/profiles['q3'])),scenario,include_states=True)
+    assert not flow['exceptions'],flow['exceptions']
+    cycles=cyclic_components(flow['state_edges'])
+    cyclic_pcs={state[0] for component in cycles for state in component}
+    assert not cyclic_pcs&q3_pcs
     trace_results={};source_sha={}
     for name,rel in TRACES.items():
         path=ASSUMED/'results'/rel
         source_sha[name]=hashlib.sha256(path.read_bytes()).hexdigest()
         visits={}
-        for line in path.open():
-            row=json.loads(line);pc=row['pc']
-            if pc in q3_pcs:
-                key=f'{pc:03X}'
-                visits.setdefault(key,[]).append(dict(cycle=row['cycle'],q=row['q']))
+        with path.open() as stream:
+            for line in stream:
+                row=json.loads(line);pc=row['pc']
+                if pc in q3_pcs:
+                    key=f'{pc:03X}'
+                    visits.setdefault(key,[]).append(dict(cycle=row['cycle'],q=row['q']))
         trace_results[name]=visits
     return dict(status='static capability and scoped dynamic visit screen',
         candidates=candidates,traces=trace_results,trace_sha256=source_sha,
         mapping_sha256=mapping_sha,
-        interpretation='The four named q3 traces visit only startup direct D-to-Q add candidates, each once. No direct D-driven accumulator candidate repeats in those traces.',
+        control_flow=dict(scenario=str(scenario_path.relative_to(ASSUMED)),
+                          scenario_sha256=hashlib.sha256(scenario_path.read_bytes()).hexdigest(),
+                          state_count=flow['states'],state_edge_count=len(flow['state_edges']),
+                          cyclic_component_count=len(cycles),
+                          cyclic_pc_count=len(cyclic_pcs),
+                          direct_accumulators_in_cycles=sorted(f'{pc:03X}' for pc in cyclic_pcs&q3_pcs)),
+        interpretation='The four named q3 traces visit only startup direct D-to-Q add candidates, each once. The declared q3 stack-aware control-flow graph has no cyclic component containing a one-word direct D-driven accumulator.',
         limitations=['A one-word direct accumulator is not necessary; multiword or other-source phase updates remain possible.',
                      'D is an emulator input and its physical source is unknown.',
                      'Candidate field maps are alternatives; this is not one recovered hardware decode.',
+                     'The graph covers only the declared dispatch and branch scenario and overapproximates run-time branch feasibility.',
                      'The trace screen covers only the four named q3 runs.'])
 
 

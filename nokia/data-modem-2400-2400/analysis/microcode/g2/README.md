@@ -67,6 +67,11 @@ including the long ROM/carry feedback run and both controller-frame bridge
 traces, only 002 and 076 among these candidates are reached, once each during
 startup. No direct candidate repeats in those particular runs. The [report](results/phase-add-screen.json)
 records every candidate, visit, and mapping/trace digest.
+The declared q3 stack-aware control-flow graph has 1,395 states and 45 cyclic
+components; none contains one of those 21 direct candidates. This graph includes
+both outcomes of conditional transfers but only its declared dispatch tables.
+It excludes a *single-word* D-driven phase-add loop under that scenario, not a
+multiword phase update or a different hardware control-flow decode.
 
 The screen therefore does not identify a transmitter. The next discriminating
 search must combine a *reached* D-add instruction with independently supported
