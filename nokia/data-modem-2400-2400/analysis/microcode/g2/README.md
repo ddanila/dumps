@@ -284,6 +284,20 @@ between software counter decrements also includes interrupt and reload
 latency. Plan 2 now states “approximately 1 ms” rather than treating the
 countdown values as exact milliseconds.
 
+The [timing alignment](sequence_alignment.py) compares seven executed reload
+counts with the windows in [ITU-T V.26 ter (11/88), §§6.3.1.1–6.3.1.3](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I!!PDF-E&lang=e&type=items).
+At a nominal 1 ms software tick, all seven selected counts fit their candidate
+windows: A0=1805 for 2.15±0.35 s silence, A1=2605 for 3.3±0.7 s tone,
+A2=60 and B8=70 for 75±20 ms silences, A7=250 for 250±5 ms silence,
+AA=580 for a *combined* 500±50 ms tone plus 75±20 ms silence, and AB=25
+for 25±3 ms silence. A6=2000 also resembles the specified 2 s rate-pattern
+timeout but is unscored because the standard gives no tolerance window.
+Using only the hardware reload-to-overflow period puts A0 and A1 just below
+their lower bounds (1791.6 and 2585.7 ms); actual interrupt overhead is
+unmeasured. These are selected timing matches, **not stage identifications**.
+The [report](results/sequence-alignment.json) records both clock calculations,
+standard windows and local expiry successors.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/state_matrix.py \
   --out /tmp/nokia-g2-state-matrix.json
