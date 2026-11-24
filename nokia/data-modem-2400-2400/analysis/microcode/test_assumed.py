@@ -127,6 +127,30 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_early_entry13_call_fed_carry_wait(self):
+        import random
+        from early_entry13 import scenario_for,inspect,check_threshold
+        from defined_condition_fit import load_trace
+        config=read(HERE/'early-entry13.json');early=read(HERE/config['early_configuration']);h=read(HERE/early['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x13)
+        self.assertEqual(check_threshold(mapping)['return_pairs'],32896)
+        with tempfile.TemporaryDirectory() as temp:
+            for case in range(54):
+                values=[rng.randrange(256) for _ in range(8)]
+                if case<6:values[0]=0
+                if case%3==0:values[5]=0
+                delay=None if case%3==1 else rng.randrange(8)
+                scenario=scenario_for(config,*values,delay);out=Path(temp)
+                result=execute(mapping,scenario,256,mode='integrated',out=out,trace_limit=256)
+                inspect(load_trace(out),result,scenario,*values,delay)
+                if case%6==0:
+                    values[3]^=255
+                    scenario=scenario_for(config,*values,delay)
+                    other=execute(mapping,scenario,256,mode='integrated',out=out,trace_limit=256)
+                    inspect(load_trace(out),other,scenario,*values,delay)
+                    self.assertEqual(result['final_state']['ram'],other['final_state']['ram'])
+                    self.assertEqual(result['final_state']['q'],other['final_state']['q'])
+
     def test_q3_early_wait_predicates_and_completing_entry(self):
         import random
         from early_wait import scenario_for,inspect,loop_pass,check_loop

@@ -1573,6 +1573,22 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "EARLY-ENTRY13.md",
+        "limitations": "q3 previous flags, zero reset and explicit early entry 3; other setup inputs fixed as declared. u=0 cannot hold the carry wait. Later Q reload may enter a separate fixed-register wait. No physical input or acknowledgment mapping inferred.",
+        "meaning": "013 captures a complemented input difference in R14, 014 captures R0=u, and 01A forms Q=u+b. 01C supplies a real return frame and carry one for initial BLT entry. Later 01E repeats on D01D+u carry, independently of D01E; release reaches a discarded Q difference and a new Q load at 059.",
+        "name": "early input capture and call-fed carry wait",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "013",
+            "021"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1595,7 +1611,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 827,
+    "annotated_used_words": 838,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -1628,6 +1644,22 @@
             [
               "01C",
               "01F"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "EARLY-ENTRY13.md",
+          "limitations": "q3 previous flags, zero reset and explicit early entry 3; other setup inputs fixed as declared. u=0 cannot hold the carry wait. Later Q reload may enter a separate fixed-register wait. No physical input or acknowledgment mapping inferred.",
+          "meaning": "013 captures a complemented input difference in R14, 014 captures R0=u, and 01A forms Q=u+b. 01C supplies a real return frame and carry one for initial BLT entry. Later 01E repeats on D01D+u carry, independently of D01E; release reaches a discarded Q difference and a new Q load at 059.",
+          "name": "early input capture and call-fed carry wait",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "013",
+              "021"
             ]
           ],
           "status": "hypothesis"
@@ -4920,6 +4952,7 @@
     "DOUBLE-DRAIN.md": "2dd70a18736b72653dd7f9d0dd42d4d87c158d89b688655437b067e2b07abd36",
     "DRAIN-PREFIX.md": "78015a54cfbeb1ef74a8bff7fe9d1a40bb3396c44f5849901d938f185e606796",
     "DRAIN-RESET.md": "94367a3509a800c3cc0573e3ddad77ff5434a3e3bce3d583396d15932522f11f",
+    "EARLY-ENTRY13.md": "af319c0cdb62da0e5c340cff2d864a14e8676164e3cef44f45e2bcfb00a01a90",
     "EARLY-WAIT.md": "782a235637935008a110fa660cc8bf5dd9a6b31dc659ea424894ff6faad973b3",
     "EXTERNAL-LINE.md": "56d7fa74c06cf3d4b86d911935e54ed031081404d8abba276d8cf3d95ffdcb3d",
     "FRAGMENTS.md": "7b3f7a9c7b2693ccface902686a2fcf1b9a71a0a0b023d1519944960d53eddc9",

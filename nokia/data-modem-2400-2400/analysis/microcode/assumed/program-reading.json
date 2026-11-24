@@ -1589,6 +1589,22 @@
       "evidence": "EARLY-WAIT.md",
       "meaning": "Selector-5-false reset calls 06F then overwrites Q with R0=FF at 008. Declared table entry 5 reaches 00D, clears Q and exits the 05D wait into the D064-minus-one tail. Other tested short entries preserve nonmatching Q. 05D copies Q+1/R3 and tests fixed Q=R3 under previous flags, or Q+R3=0 under current flags.",
       "limitations": "q3 zero reset, explicit scenario index at ROM-associated 008 table, other reads default one except declared inputs. Full reset formulas do not interpret all branches of longer target bodies. Local predicates cover all Q/R3 bytes; no external poll or physical completion meaning claimed."
+    },
+    {
+      "name": "early input capture and call-fed carry wait",
+      "ranges": [
+        [
+          "013",
+          "021"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "EARLY-ENTRY13.md",
+      "meaning": "013 captures a complemented input difference in R14, 014 captures R0=u, and 01A forms Q=u+b. 01C supplies a real return frame and carry one for initial BLT entry. Later 01E repeats on D01D+u carry, independently of D01E; release reaches a discarded Q difference and a new Q load at 059.",
+      "limitations": "q3 previous flags, zero reset and explicit early entry 3; other setup inputs fixed as declared. u=0 cannot hold the carry wait. Later Q reload may enter a separate fixed-register wait. No physical input or acknowledgment mapping inferred."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"
