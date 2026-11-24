@@ -116,6 +116,13 @@ continuation separately, encode competing continuations when they affect the
 result, and run the microcode under each. Do not wait for new photographs or
 continuity measurements before trying those candidates.
 
+The Am27S31 A8 bank select is a current example: the photos do not establish
+its source, but the lower- and upper-bank runs at 12C behave differently
+([comparison](g2/SWAPPED-ROM-LOOPS.md)). Test fixed and, where the modeled
+interface permits it, changing bank choices as labelled scenarios. Use the
+resulting control flow and ROM addresses to narrow the candidates; do not
+promote a useful bank choice to a traced connection.
+
 Apply the same rule to the current execution dead ends. A run that parks in a
 wait loop or misses the transmit path under one assumed latch route, dispatch
 source, clock phase, input level or initial register/RAM state characterises
