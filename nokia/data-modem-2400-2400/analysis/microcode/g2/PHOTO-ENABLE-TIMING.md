@@ -86,3 +86,27 @@ the earlier E2-high ROM path a stronger prompt to test a different I0 route
 or a separately specified holding circuit, not a valid execution under the
 current board topology. This edge check does not run the whole microprogram
 or establish the physical output connection.
+
+## Alternative U5 D0 data-bit sources
+
+The E2-to-U5 D0 photo segment ends near a dim pad, so a distinct source is
+still possible. [A read-valid source screen](photo_i0_data_screen.py) replaces
+only that proposed source with each of U10's eight data bits, retaining the
+candidate U5 Q0 fan-out to both I0 and A1. These are **untraced source
+alternatives**, not eight photo-confirmed wires. E2 remains low during the
+read. Every case runs the real PROMs with Q=5 and the same 128
+controller-derived bits offered at 38E. The [report](results/photo-i0-data-screen.json)
+records the exact source token, trace digest, ROM sites and candidate ALU Y.
+
+| U5 D0 candidate | Controller bits consumed | Recurring ROM reads after input | Candidate Y after second bit |
+| --- | ---: | --- | --- |
+| U10 bit 0 | 128 | 389, 38A, 38C at fixed addresses 101, 104, 102 | 392=15; 396=245 |
+| U10 bits 1 or 7 | 1 each | None | No 392/396 visits |
+| U10 bits 2, 3, 4, 5 or 6 | 128 each | None | Fixed values at visited sites |
+
+Only U10 bit 0 sustains ROM reads in this screen, and its addresses and
+candidate output values settle after startup. The experiment therefore
+narrows what an alternative I0 source would need to accomplish without
+claiming that bit 0 is physically connected or that this path modulates a
+line signal. The D38E input route, ROM gate, initial Q and output strobe
+remain hypothetical.

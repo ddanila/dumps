@@ -112,6 +112,9 @@ The board-engine capture-edge check finds that a simple U10→U5 route cannot
 latch E2 high together with valid U10 data on one edge; it explicitly yields
 high-impedance data bits instead. A different I0 route or a real hold circuit
 would be needed to turn that diagnostic path into a board candidate.
+An eight-bit U10 source screen finds that only a hypothetical U10 bit-0 feed
+to U5 D0 sustains ROM reads under a read-valid E2 level, and even that path
+settles to fixed addresses and candidate outputs. The source is untraced.
 
 A later [photo-constrained candidate](PHOTO-FIELDS.md#photo-constrained-startup-and-controller-bit-run)
 changes A2/A3 and fixes two possible latch-enable inputs. With initial Q=5,
