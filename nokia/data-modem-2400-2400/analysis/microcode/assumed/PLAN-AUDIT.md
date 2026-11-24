@@ -1,9 +1,9 @@
 # Plan acceptance audit
 
-The [plan](../PLAN.md) is **not yet complete**. Its execution requirements now
-have a consolidated check against the current executor. Every used word and all 37 cataloged direct-call entries now have scoped
-interpretations. The remaining work is program-level synthesis across those
-contexts and a final requirement-by-requirement review.
+The [plan](../PLAN.md) is **implemented under its declared assumption policy**.
+The [final review](FINAL-REVIEW.md) checks steps 1–5 against the implementation,
+traces and regression evidence. All 1,021 used words and 37 cataloged direct-call
+entries have scoped interpretations, joined in the [overview](PROGRAM-OVERVIEW.md).
 Physical fidelity is not an additional acceptance gate: the plan explicitly
 allows labelled assumptions and makes hardware checks optional.
 
@@ -69,7 +69,7 @@ both outcomes rather than relabelling the historical suite as accepted.
 | Integrated slices/sequencer with selectable flags and logged external world | `execute.py`, component tests, current q2/q3 traces | Implemented |
 | Datapath-derived dispatch when suggested | Q and preceding-Y index policies; nonzero masked nested reset study | Demonstrated with real caller stack; other sites may remain scenario-driven |
 | Millions of clean integrated instructions and stable inspectable activity | Two million primary integrated instructions plus exact full replays; q3 live ROM feedback | Execution criterion passes |
-| Name subroutines and annotate from traces | 1021 used words annotated; 37 of 37 cataloged direct-call entries have annotations | **Word-level annotations complete; program-level synthesis and final audit pending** |
+| Name subroutines and annotate from traces | 1021 used words annotated; 37 of 37 cataloged direct-call entries have annotations | Reviewed with the program overview and final requirement audit |
 | Relate I/O to sine lookup, DAC, sample timing and controller exchange | Replayed actual 8031 build/transmit, completion-qualified frame latch, declared byte routing, actual ROM operand and recurring DAC transfers with explicit relative clock ratio | Implemented as a one-way diagnostic hypothesis; physical routing and signal-processing purpose unresolved |
 | Feed routine evidence back into mapping/execution | Q-independent alternatives, source-register comparisons, carry/flag timing and handler studies | Implemented, ongoing where interpretations disagree |
 | Optional continuity checks | Prioritized in the plan and board worksheets | Optional; not an execution or interpretation blocker |
@@ -81,33 +81,22 @@ compatible with explaining an exception; it is not a claim that one globally
 safe hardware decode has been recovered. The union-reaching relaxed graphs
 still expose a possible stack underflow at 2FF.
 
-## Remaining work
+## Acceptance and remaining hardware uncertainty
 
-A [program-level synthesis](PROGRAM-OVERVIEW.md) now connects startup, all
-eight handlers, shared arithmetic and the I/O experiment. It is ready for the
-final acceptance review. The execution report predates this document and
-retains its conservative incomplete result; no completion flag has been
-changed based on the addition of prose alone.
+The [final review](FINAL-REVIEW.md) records the source inspection and evidence
+supporting every required step. The program overview connects the complete
+startup, handler and helper contracts with the I/O evidence. This completes
+the assumption-driven implementation; it does not identify one physical
+mapping or the modem's original modulation/demodulation algorithm.
 
-All 1,021 used words and all 37 cataloged direct-call entries have evidence-linked,
-profile-scoped annotations. This closes the word-level naming queue. The union
-of those annotations is not a claim that one physical datapath or condition
-policy has been recovered. The remaining work must synthesize the complete
-startup, handler and helper contracts into an accessible program-level account,
-connect that account to the established I/O evidence, and perform the final
-requirement-by-requirement audit against the original plan.
-
-The [controller-to-DAC bridge](FRAME-DAC-BRIDGE.md) now supplies a coherent
-one-way transaction under the plan's assumption policy. It joins actual
-controller construction/transmission, completion and latch ordering, microcode
-input consumption, ROM lookup and recurring DAC load/transfer. Six complete
-transactions and four rejected incomplete transfers are replayed by this audit.
-The DAC updates recur every 12 microinstructions with constant held codes;
-there is no claimed autonomous phase advance or controller return protocol.
-Physical routing and clocks remain labelled assumptions, not additional
-completion gates. The remaining synthesis must explain the handlers
-and their computational roles without treating this diagnostic connection as
-recovered modem functionality.
+The [controller-to-DAC bridge](FRAME-DAC-BRIDGE.md) supplies a coherent one-way
+transaction: actual controller construction/transmission, completion and latch
+ordering, declared microcode input routing, actual ROM lookup and recurring
+DAC load/transfer. Six complete transactions and four rejected incomplete
+transfers are replayed. The DAC updates recur every 12 microinstructions with
+constant held codes; no autonomous phase advance or return protocol is claimed.
+Physical routing and clocks remain explicit assumptions. The 2FF caller-frame
+constraint and incompatible mapping alternatives remain visible in the evidence.
 
 ## Reproduce
 

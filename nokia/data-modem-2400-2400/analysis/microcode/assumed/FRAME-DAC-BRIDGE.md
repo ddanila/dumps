@@ -139,8 +139,8 @@ all saved artifacts byte for byte, in addition to its existing long-run checks.
 
 This supplies a coherent one-way transaction under the plan's explicit
 assumption policy. It does not resolve physical routing, identify modem
-modulation/demodulation, or turn the remaining unannotated branch/case bodies
-into understood code. A return protocol and autonomous waveform generation
+modulation/demodulation. The [program overview](PROGRAM-OVERVIEW.md) connects
+this experiment with the separately interpreted handler and helper bodies. A return protocol and autonomous waveform generation
 remain unclaimed, rather than silently supplied by the harness.
 
 [Configuration](frame-dac-bridge.json), [runner](frame_dac_bridge.py), and

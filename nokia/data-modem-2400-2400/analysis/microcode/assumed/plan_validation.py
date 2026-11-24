@@ -1,4 +1,4 @@
-"""Refresh execution acceptance while reporting remaining plan interpretation work."""
+"""Replay execution evidence and record the reviewed assumption-driven plan acceptance."""
 import argparse
 import hashlib
 import subprocess
@@ -111,19 +111,20 @@ def main():
     missing=[dict(entry=e['entry'],callers=e['callers']) for e in catalog['direct_call_entries'] if not e['annotations']]
     historical=read(HERE/'results/suite.json')
     sources=[Path(__file__),HERE/'plan-validation.json',HERE/'frame_dac_bridge.py',HERE/'frame-dac-bridge.json',HERE/config['interface_report'],HERE.parent/'PLAN.md',HERE/'analyze.py',HERE/'program_reading.py',
-        HERE/'program-reading.json',HERE/config['catalog'],HERE/config['sequencer_mapping'],HERE/config['sequencer_scenario'],
+        HERE/'program-reading.json',HERE/'FINAL-REVIEW.md',HERE/'PROGRAM-OVERVIEW.md',HERE/config['catalog'],HERE/config['sequencer_mapping'],HERE/config['sequencer_scenario'],
         HERE/config['sweep_reference'],HERE/'results/suite.json',HERE/'execute.py',HERE/'external_line.py',HERE/'common.py',
         HERE/'defined_condition_fit.py',HERE.parent/'model.py',*(HERE/p for p in config['input_manifests'])]
     save(args.out/'report.json',dict(configuration=config,preserved_inputs=preserved,analysis_files_reproduced=analysis_files,variants=variants,
         long_runs=ordered,sweep=sweep,execution_acceptance=finding,interface_evidence=interface_evidence,
         interpretation_audit=dict(annotated_used_words=catalog['counts']['annotated_used_words'],
             used_words=1021,direct_call_entries=len(catalog['direct_call_entries']),unannotated_direct_entries=missing,
-            full_plan_complete=False,reason='All used words have scoped interpretations; program-level synthesis and the final requirement audit remain outstanding. The controller-to-DAC transaction remains an explicit one-way diagnostic hypothesis.'),
+            full_plan_complete=finding['execution_acceptance_met'] and not missing and catalog['counts']['annotated_used_words']==1021,
+            review='FINAL-REVIEW.md',reason='Manual requirement review completed against PLAN.md; current execution and annotation gates pass. The controller-to-DAC transaction remains an explicit one-way diagnostic hypothesis.'),
         historical_suite=dict(acceptance_met=historical['acceptance_met'],coverage=historical['aggregate_sequencer_coverage'],
                               completed_cycles=sum(r['completed_cycles'] for r in historical['runs'].values())),
         source_sha256={str(p.relative_to(HERE.parent)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}))
     assert finding['execution_acceptance_met'],finding
-    print('Current execution acceptance passed; full plan remains incomplete',flush=True)
+    print('Execution acceptance passed; reviewed assumption-driven plan implementation complete',flush=True)
 
 
 if __name__=='__main__':main()

@@ -2,8 +2,8 @@
 
 [What the program does](PROGRAM-OVERVIEW.md) connects startup, all eight
 handlers, shared arithmetic, terminal behavior and the controller-to-DAC
-experiment. This synthesis is available for the final acceptance review;
-the plan remains open until that review is complete.
+experiment. The [final review](FINAL-REVIEW.md) records acceptance against the
+original plan, with hardware uncertainties retained.
 
 This implements the software workflow in [the plan](../PLAN.md): reproducible
 field analysis, sequencer execution, a bounded datapath-layout search,
@@ -14,10 +14,12 @@ The existing illustrative runner and strict photo-based board model remain
 separate. This runner uses their functional `Am2901` and `X8X02` components and
 the original hash-checked PROM loader. No raw dumps or photographs are modified.
 
-[PLAN-AUDIT.md](PLAN-AUDIT.md) is the current acceptance checklist. The refreshed
-execution check passes, while broader routine interpretation remains unfinished. A declared one-way
-controller-to-DAC transaction is replayed; its physical routing remains a hypothesis. The historical baseline suite still has its
-original failed coverage result. Run `plan_validation.py` for current evidence.
+[PLAN-AUDIT.md](PLAN-AUDIT.md) is the current acceptance checklist. The execution
+and interpretation requirements pass under the plan's explicit assumption
+policy. A declared one-way controller-to-DAC transaction is replayed; its
+physical routing remains a hypothesis. The historical baseline suite still
+has its original failed coverage result. Run `plan_validation.py` for current
+evidence.
 
 [PROGRAM-READING.md](PROGRAM-READING.md) is the consolidated entry point for
 reading the microprogram: a 1,024-word annotated listing, six separate datapath
@@ -756,5 +758,5 @@ ROM-table indices and explicit caller-state differences.
 
 [Final branch blocks](FINAL-BLOCKS.md) close the remaining word-level annotation
 gaps with an early clear/capture diversion and a current-flag complement exit.
-All used words now have scoped interpretations; program-level synthesis and
-final requirement review remain outstanding.
+All used words now have scoped interpretations. The program overview and final
+review complete the assumption-driven reading and acceptance work.

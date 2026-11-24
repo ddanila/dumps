@@ -130,9 +130,9 @@ These annotations cover 1021 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
-Every used word now has a scoped annotation. Broader program-level synthesis
-and the final plan audit remain open; annotations across profiles are not
-combined into a claim about one recovered physical machine.
+Every used word now has a scoped annotation. The [overview](PROGRAM-OVERVIEW.md)
+and [final review](FINAL-REVIEW.md) complete the program reading and acceptance
+audit; annotations across profiles are not combined into a physical-machine claim.
 
 ## Coverage stays separated
 
@@ -167,8 +167,8 @@ computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
 byte. All 137 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
-entries. The full plan remains
-incomplete pending program-level synthesis and the final requirement audit.
+entries. The [final review](FINAL-REVIEW.md) records completion within the plan's
+assumption-driven scope.
 Physical I/O routing remains an explicitly labelled hypothesis.
 
 The later [q2 tail-exclusion argument](TAIL-EXCLUSION.md) explains the absence
@@ -262,8 +262,8 @@ all connections remain labelled hypotheses, and core traces are unchanged.
 
 [The plan acceptance audit](PLAN-AUDIT.md) verifies the current long-run and
 coverage evidence separately from interpretation. All 37 cataloged direct-call
-entries and all used words have scoped annotations; program-level synthesis
-and the final requirement audit remain pending. Physical fidelity is not added as a prerequisite
+entries and all used words have scoped annotations; the program overview and
+final requirement review complete the interpretation work. Physical fidelity is not added as a prerequisite
 beyond the plan’s explicit assumption-based scope.
 
 [Reset preparation helpers](RESET-HELPERS.md) explain q3 06F–077 and
@@ -399,4 +399,4 @@ temporary replacement from Q preservation and explain why this caller takes
 [The final two branch blocks](FINAL-BLOCKS.md) connect the early clear/capture
 call and current-flag complement exit to full reset contracts. The listing now
 has scoped annotations for every used word; source and timing exclusions remain
-explicit, and program-level synthesis and final acceptance review remain open.
+explicit; the program overview and final acceptance review complete the plan.
