@@ -127,6 +127,24 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_handler7_overflow_and_captured_comparison(self):
+        from handler7_study import scenario_for,prediction,inspect,check_gate
+        from defined_condition_fit import load_trace
+        config=read(HERE/'handler7-study.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rows=decode(mapping)
+        cases=[(7,7,248,0),(7,8,248,0),(7,8,248,7),(7,8,248,8),(255,255,0,255),(255,255,1,255)]
+        with tempfile.TemporaryDirectory() as temporary:
+            for values in cases:
+                scenario=scenario_for(config,*values);out=Path(temporary)
+                summary=execute(mapping,scenario,128,mode='integrated',out=out,trace_limit=128)
+                want=inspect(load_trace(out),summary,*values)
+                steps,gate=check_gate(rows,scenario['inputs']['carry'],*values)
+                self.assertEqual(want,gate)
+        self.assertEqual(prediction(7,7,248,0)['route'],'direct')
+        self.assertEqual(prediction(7,8,248,7)['route'],'all-transforms')
+        self.assertEqual(prediction(7,8,248,8)['route'],'final-transform')
+        self.assertEqual(prediction(255,255,1,255)['q'],0)
+
     def test_controller_frame_bridge_requires_completion_and_latch(self):
         from frame_dac_bridge import latched_frame
         report=read(HERE/'results/frame-dac-bridge/report.json')

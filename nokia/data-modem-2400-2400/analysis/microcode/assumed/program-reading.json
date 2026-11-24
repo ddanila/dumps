@@ -1469,6 +1469,26 @@
       "evidence": "EXTERNAL-LINE.md",
       "meaning": "A timed selector-5 line preserves boot and permits the 302 fallthrough. The 303 carry test excludes 1EF in the verified zero-reset code-3 contexts. Calls 304\u2013309 execute double preparation, capture and paired self-subtraction, then take the terminal tail.",
       "limitations": "q3 matched previous/PLP or current/BLT early replies, high-to-low external line after cycle 3 and by 43, constant later table index 2. No physical external pin, sample period, DAC transfer or general 1EF unreachability inferred."
+    },
+    {
+      "name": "input-carry and capture-selected transform handler",
+      "ranges": [
+        [
+          "133",
+          "147"
+        ],
+        [
+          "341",
+          "344"
+        ]
+      ],
+      "profiles": [
+        "q3"
+      ],
+      "status": "hypothesis",
+      "evidence": "HANDLER7.md",
+      "meaning": "For reset code c=7 mod 8, set R0=c, form R3=A-c-1 and Q=c+B+(A>c). Sum overflow and comparison c<x select zero, one or three transform calls. Fixed entry 2 and zero source words make those calls return once, selectively replacing R1/R2/R3 before terminal 083.",
+      "limitations": "q3 previous flags, early PLP replies, D107=x+1 and default D=1 outside A/B. Declared later table index 2; full reset boundary sweep plus local byte-pair gate checks. Does not generalize transform termination to arbitrary state or physical filter function."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

@@ -1453,6 +1453,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "HANDLER7.md",
+        "limitations": "q3 previous flags, early PLP replies, D107=x+1 and default D=1 outside A/B. Declared later table index 2; full reset boundary sweep plus local byte-pair gate checks. Does not generalize transform termination to arbitrary state or physical filter function.",
+        "meaning": "For reset code c=7 mod 8, set R0=c, form R3=A-c-1 and Q=c+B+(A>c). Sum overflow and comparison c<x select zero, one or three transform calls. Fixed entry 2 and zero source words make those calls return once, selectively replacing R1/R2/R3 before terminal 083.",
+        "name": "input-carry and capture-selected transform handler",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "133",
+            "147"
+          ],
+          [
+            "341",
+            "344"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1475,7 +1495,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 655,
+    "annotated_used_words": 668,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -2541,6 +2561,26 @@
             [
               "133",
               "13A"
+            ],
+            [
+              "341",
+              "344"
+            ]
+          ],
+          "status": "hypothesis"
+        },
+        {
+          "evidence": "HANDLER7.md",
+          "limitations": "q3 previous flags, early PLP replies, D107=x+1 and default D=1 outside A/B. Declared later table index 2; full reset boundary sweep plus local byte-pair gate checks. Does not generalize transform termination to arbitrary state or physical filter function.",
+          "meaning": "For reset code c=7 mod 8, set R0=c, form R3=A-c-1 and Q=c+B+(A>c). Sum overflow and comparison c<x select zero, one or three transform calls. Fixed entry 2 and zero source words make those calls return once, selectively replacing R1/R2/R3 before terminal 083.",
+          "name": "input-carry and capture-selected transform handler",
+          "profiles": [
+            "q3"
+          ],
+          "ranges": [
+            [
+              "133",
+              "147"
             ],
             [
               "341",
@@ -4712,6 +4752,7 @@
     "HANDLER1.md": "08f4c77f61e8e7e54550b832875fabd0c1c982fa2ef9ee9616ffe5e2bbbb4658",
     "HANDLER4.md": "eb1a82bb8ca6962bcf926b1e0ad4d713cedca46e1a61561f1dfc3890b63e9f9b",
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
+    "HANDLER7.md": "ae555fdf453872ddf317839250f54061397e4d962d627c7513288456ee00a2ec",
     "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",
     "INPUT-TAIL.md": "d232f921a1c9e338074030856b781066e4830019df96fe28b854f84ff3bfd466",
     "LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",

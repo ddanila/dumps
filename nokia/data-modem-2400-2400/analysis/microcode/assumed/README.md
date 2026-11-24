@@ -665,3 +665,8 @@ the actual controller builder/transmitter, gates startup on full frame completio
 and latch, routes bytes into a zero-reset microcode run, and drives recurring DAC
 transfers. The connection and time ratio are explicit hypotheses; the held codes
 are constant and no autonomous phase advance or return protocol is inferred.
+
+[Handler 7 carry-selected transforms](HANDLER7.md) connects independent input
+bytes and captured R7 to zero, one or three transform calls from actual reset.
+The resulting R1–R3 differences survive terminal entry, with checked cycle
+counts and zero-source termination under the declared table entry.

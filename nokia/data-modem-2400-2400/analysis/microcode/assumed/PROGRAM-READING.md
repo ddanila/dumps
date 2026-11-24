@@ -81,6 +81,7 @@ into one address listing.
 | 36C–36E | Carry-controlled three-add loop | Middle versus last carry depends on flag timing; external operands unknown |
 | 109 | Input-code dispatch candidates | Mapping and input schedule change current/previous-Y and Q selectors |
 | 002, 076, 109–111 (q1/q3) | Input accumulation, Q-based selector and eight-way handler table | Independent-input prefixes verified; physical command protocol unknown |
+| 133–147, 341–344 (q3) | Input-carry and capture-selected transforms | Zero-reset source words and fixed table entry 2; other transform states unresolved |
 | 133–13A, 341–344 (q2) | Accumulator carry and threshold gate | Nonzero-Q paths are local fixtures; physical accumulator meaning unresolved |
 | 38E–38F (q2) | Preceding-Y paired-arithmetic dispatch candidate | Site-scoped hypothesis; physical index and output consumer unknown |
 | 389–391 (q2) | Captured-register copy and paired-arithmetic loop | Final-high-byte exit can return with a nonzero low byte; physical output unknown |
@@ -102,7 +103,7 @@ into one address listing.
 | 2D9–2DE | Transient one-unit adjustment | No surviving internal effect or identified output consumer |
 | 008, 26F, 21F, 2C4 | ROM-backed dispatch candidates | Site/bank/range/index associations remain hypotheses |
 
-These annotations cover 655 used words, including overlaps and disconnected
+These annotations cover 668 used words, including overlaps and disconnected
 local probes. That count is not a measure of understood modem functionality.
 The catalog additionally lists direct-call entry points with linear-walk
 boundary hints; a linear walk is not a complete routine control-flow analysis.
@@ -139,7 +140,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 117 functional/assumption tests pass, including checks that
+byte. All 118 functional/assumption tests pass, including checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The full plan remains
 incomplete, particularly physical I/O and broader algorithm interpretation.
@@ -279,3 +280,8 @@ the actual controller builder/transmitter, gates startup on full frame completio
 and latch, routes bytes into a zero-reset microcode run, and drives recurring DAC
 transfers. The connection and time ratio are explicit hypotheses; the held codes
 are constant and no autonomous phase advance or return protocol is inferred.
+
+[Handler 7 carry-selected transforms](HANDLER7.md) connects independent input
+bytes and captured R7 to zero, one or three transform calls from actual reset.
+The resulting R1–R3 differences survive terminal entry, with checked cycle
+counts and zero-source termination under the declared table entry.
