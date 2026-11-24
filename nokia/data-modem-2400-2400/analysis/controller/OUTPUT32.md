@@ -5,9 +5,9 @@ RAM 49, 4A, and 65. The serial routine sends RAM 32 without an XOR mask. This
 completes local reference descriptions of all four output-byte builders, but
 not their full polling-loop integration or physical interpretation.
 
-The reference is `output32` in [controller_output.py](../../controller_output.py).
+The reference is `output32` in [controller_output.py](../controller_output.py).
 It uses state S=RAM 34, decoded flags at 22–24, received C=RAM 2C, and raw state
-code K from the [preceding lookup](CONTROLLER-OUTPUT.md). Local entry supplies
+code K from the [preceding lookup](OUTPUT.md). Local entry supplies
 R3=S and R2=K, as established by that preceding section.
 
 ## Output fields
@@ -67,7 +67,7 @@ need further interpretation before assigning a physical status meaning.
 
 ## Verification
 
-[Configuration](../../controller-output32-scenario.json) declares local entry
+[Configuration](../controller-output32-scenario.json) declares local entry
 012F, stop 0266, bank zero, disabled interrupts, and supplied register/code
 values. The 103,424 cases include:
 
@@ -87,8 +87,8 @@ is exhaustive over the stated subproblems, not the entire joint state space.
 python3 nokia/data-modem-2400-2400/analysis/controller_output32_study.py
 ```
 
-[Report](../../results/controller-output32-study/report.json) includes source
+[Report](../results/controller-output32-study/report.json) includes source
 and ROM hashes, execution/fixture digests, coverage, and 32 complete witnesses.
-The [continuous construction study](CONTROLLER-OUTPUT-BUILD.md) now checks all
+The [continuous construction study](OUTPUT-BUILD.md) now checks all
 four builders together and the immediate RAM30/P1 override. The rest of the
 006E routine and its composition with serial transfer remain to be verified.

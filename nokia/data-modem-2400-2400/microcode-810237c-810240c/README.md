@@ -1,23 +1,22 @@
-# Nokia external modem — 810237C PROM set
+# Nokia Data Modem 2400/2400: DSC 2847 microcode PROMs (810237C–810240C)
 
-The owner identifies the source as an old Nokia external modem; later photos identify **Nokia Data Modem 2400/2400**,
-board **DSC 2847 / 1177201**. Four socketed PROMs are visible in the supplied
-[board photo](../photos/PXL_20261123_112138062.jpg). No inventory tag has been supplied.
+Four MMI 6381 (1K × 8) bipolar PROMs from the bit-slice board **DSC 2847 /
+1177201** of the [Nokia Data Modem 2400/2400](../). They most likely form the
+1024 × 32-bit control store of the Am2901/8X02 signal processor. Their bit
+order and field layout are not confirmed, so each chip is preserved separately.
+See the [board photo](../photos/PXL_20261123_114926601.jpg) and the
+[microcode investigation](../analysis/microcode/).
 
-| Board position | Sticker | Acquisition |
+| Board position | Sticker | Image |
 | --- | --- | --- |
-| 10 | 810237C | Two matching 1,024-byte reads |
-| 11 (confirmed in full board photo) | 810238C | Two matching 1,024-byte reads |
-| 17 | 810239C | Two matching 1,024-byte reads |
-| 18 | 810240C | Two matching 1,024-byte reads |
+| 10 | 810237C | [chip10-810237c.bin](chip10-810237c.bin) |
+| 11 | 810238C | [chip11-810238c.bin](chip11-810238c.bin) |
+| 17 | 810239C | [chip17-810239c.bin](chip17-810239c.bin) |
+| 18 | 810240C | [chip18-810240c.bin](chip18-810240c.bin) |
 
 The owner identifies chip 10 as **MMI 6381, 24-pin DIP**, with no further
-readable suffix. Neighboring chips show partially exposed MMI 6381 markings;
-their exact variants are not asserted from this photograph.
-
-All four photographed PROMs have now been acquired: **4 × 1,024 bytes**,
-with two matching reads per chip. All four images differ. Their logical
-arrangement is unconfirmed, so the raw chips are preserved separately.
+readable suffix. Neighbouring chips show partly exposed MMI 6381 markings,
+but this README does not claim their exact variants.
 
 ## Chip 10 acquisition — 2026-11-23
 

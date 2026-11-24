@@ -42,7 +42,7 @@ physical timing, independent key-legend validation, full original `rt1715lc`
 machine operation and a bit-perfect match to a reference ROM remain unverified.
 
 A second, identically labelled S642 from a
-[QWERTY/ЯВЕРТЫ keyboard](../pc1715-keyboard-s642-qwerty/) differs only in the
+[QWERTY/ЯВЕРТЫ keyboard](../keyboard-s642-qwerty/) differs only in the
 keycode tables (154 bytes); it has separate acquisition and test records.
 
 ## Acquisition

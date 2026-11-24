@@ -15,7 +15,7 @@ phase progression is inferred.
 ## Controller execution and completion gate
 
 Two fixtures are taken from the verified
-[output-through-transmission study](CONTROLLER-OUTPUT-SEND.md). Both use state
+[output-through-transmission study](../../controller/OUTPUT-SEND.md). Both use state
 A0 with different saved application flags and data. The unchanged 8031 ROM
 runs from 1EE2 through its actual calls to 006E and 0899, stopping at 1EE8.
 There is no intermediate PC or RAM injection between building and transmitting.

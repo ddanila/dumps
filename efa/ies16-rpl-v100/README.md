@@ -1,8 +1,12 @@
 # EFA IES16-series Novell RPL boot ROM
 
-Read on 2026-11-14 from an orphan chip reported by the owner as a 2764.
-Two independent 8192-byte reads match exactly. Exact chip manufacturer/suffix,
-label and originating card are unknown. Identification below is from ROM text.
+An 8 KiB Novell RPL boot ROM for an EFA IES16-series network card,
+identified from text in the ROM. It comes from an orphan chip (a 2764, per the
+owner); the chip manufacturer, label and originating card are unknown.
+
+## Acquisition
+
+Read on 2026-11-14. Two independent 8192-byte reads match exactly.
 
 - SHA-256: `8948a241119cc8fe3fa5849d5dfffc024aaaad21d1cef53b748a978f285f3beb`
 - SHA-1: `17bcb6a56bf7f5742a6a1ed1c48e50550c60fa64`

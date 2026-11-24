@@ -16,8 +16,7 @@ memories. Chips 3–4 contain Estonian and Finnish building-control labels.
 
 The owner numbered six chips from one PCB: chips 1–4 are 28C64 (8 KiB each),
 and chips 5–6 are M27C1001 (128 KiB each). All six are included unchanged.
-Chip 5 has two identical physical reads; the others have one each. Acquisition
-spanned 2026-09-24 through just after midnight on 2026-09-25 in Europe/Tallinn;
+Acquisition (chip 5 read twice, identically; the others once) spanned 2026-09-24 through just after midnight on 2026-09-25 in Europe/Tallinn;
 the directory retains its start date. Other package markings and sticker text
 have not been established. See the analysis for manufacturer attribution sources.
 

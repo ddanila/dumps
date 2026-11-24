@@ -1,11 +1,10 @@
-# Nokia external modem — another board, 2764 EPROM
+# Nokia Data Modem 2400/2400: controller EPROM 810244E
 
-Owner identifies this as a **2764 from another board of the same old Nokia
-external modem** as the [810237C–810240C PROM set](../microcode-810237c-810240c/).
-Subsequent photos identify **Nokia Data Modem 2400/2400**, controller board
-**DSU 3556 / 1177954** with an Intel P8031. The owner confirmed the EPROM
-sticker **810244E**. Socket position remains unrecorded.
-The photograph in the PROM set depicts that other board, not this EPROM's board.
+The 2764 EPROM holding the 8031 controller program. It comes from board
+**DSU 3556 / 1177954** of the [Nokia Data Modem 2400/2400](../), which carries
+an Intel P8031 and two 8251A USARTs. The owner confirmed the sticker
+**810244E**; the socket position is unrecorded.
+[Board photo](../photos/PXL_20261123_114723348.jpg).
 
 ## Acquisition — 2026-11-23
 

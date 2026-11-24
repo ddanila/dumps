@@ -5,14 +5,14 @@ stops at 1EE8 before the next main-loop helper. There is no PC redirection,
 intermediate state injection, or modified ROM. This joins the output builders,
 subsequent setup operations, and four-byte shift-chain transmission.
 
-The [study](../../controller_output_send_study.py) composes the previously
+The [study](../controller_output_send_study.py) composes the previously
 verified output and peripheral-programming references. In all 32,768 cases:
 
 - RAM30–33 retain the values from the construction/override reference.
 - The transmitted bytes are RAM30, RAM31 XOR 03, RAM32, RAM33 XOR F8.
 - Counters 49/4A/65 and patterns 3D/3E retain the reference updates.
 - Mode byte RAM35 follows the received RAM2D selection documented in
-  [peripheral programming](CONTROLLER-PROGRAM.md).
+  [peripheral programming](PROGRAM.md).
 - A changed RAM35 programs control port 06. If RAM35 is unchanged, state
   RAM34 is zero, and flag RAM24.5 is set, control port 05 is programmed first,
   then port 06. Otherwise no programming occurs. The changed-mode branch
@@ -28,7 +28,7 @@ identified as a verified DSP input channel.
 
 ## Local assumptions and coverage
 
-The [scenario](../../controller-output-send-scenario.json) keeps global
+The [scenario](../controller-output-send-scenario.json) keeps global
 interrupts disabled, bank zero at entry, and supplies a completion event eight
 emulator ticks after each SBUF write. All unseeded RAM starts at zero. P2
 retains its reset value FF, so the logged addresses are **FF05/FF06**, not
@@ -38,7 +38,7 @@ There are 128 seeded fixtures for every state byte. Half start with RAM35
 already equal to the selected mode; the other half use a random prior mode.
 Flags, payload, four prior outputs, three counters, and both pattern bytes
 vary independently. The sweep visits 602 instruction starts and stores 85
-witnesses in the [report](../../results/controller-output-send-study/report.json).
+witnesses in the [report](../results/controller-output-send-study/report.json).
 All 397 reachable instructions in the previously checked construction prefix
 are covered, as are both programming decisions and all setup helpers called
 in these cases.

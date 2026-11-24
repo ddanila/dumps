@@ -9,7 +9,7 @@ marking and physical ROM label have not been recorded.
 ## Identification and verification
 
 Two independent 2,048-byte reads match exactly. The image is byte-identical
-to [MB001 A25.3](../pc1715-mb001/s502.a25.3) and identifies as the known
+to [MB001 A25.3](../mb001/s502.a25.3) and identifies as the known
 **S502 boot ROM**, not a new variant. CRC32 `7b6302e1` and SHA-1
 `e8f61763ff8841078a1939aa5e85a17f2af42163` match
 [MAME's PC1715 reference](https://github.com/mamedev/mame/blob/master/src/mame/robotron/rt1715.cpp).
@@ -47,7 +47,7 @@ was performed. Raw logs and session metadata are retained unchanged.
 Owner-identified **white К573-series RF2, not КС**, acquired from PC002
 socket A25.1 on 2026-11-22. The complete chip marking and physical ROM
 label have not been recorded. Two independent 2,048-byte reads match
-exactly and are byte-identical to [MB001 A25.1](../pc1715-mb001/s605.a25.1).
+exactly and are byte-identical to [MB001 A25.1](../mb001/s605.a25.1).
 Contents identify as the known **S605** character ROM.
 
 [ROM](s605.a25.1) · [Acquisition evidence](evidence/a25.1-20261122/)

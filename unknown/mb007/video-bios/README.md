@@ -2,7 +2,7 @@
 
 Source: MB007, a 286 mainboard with integrated video, per owner. Full physical
 video chipset and EPROM markings remain unrecorded. This is separate from the
-[system BIOS pair](../mb007-286-bios/).
+[system BIOS pair](../system-bios/).
 
 ## Acquisition — 2026-11-17
 

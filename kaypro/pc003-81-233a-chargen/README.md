@@ -1,8 +1,13 @@
 # PC003 Kaypro 2 character ROM, label 81-233A
 
-Read from the owner's installed T48 on 2026-11-13. The chip's factory marking
-is hidden; the sticker was left intact. The previously recorded handwritten
-label is 81-233A. The owner identifies this as PC003's character ROM.
+The character ROM of the owner's Kaypro 2 (unit PC003), handwritten label
+81-233A. It contains accented Latin alternate glyphs and differs from the
+public 81-146 and 81-146A images. The chip's factory marking is hidden; the
+sticker was left intact.
+
+## Acquisition
+
+Read with the owner's T48 on 2026-11-13.
 
 The 81-241 CRT schematic (sheet 2C, technical manual 1484-E page 6-15)
 specifies U43 as a standard 2716. That is the basis for the 2 KiB read profile,

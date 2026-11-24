@@ -3,7 +3,7 @@
 Controller code 0266–0430 rebuilds outgoing RAM 30 and 31. It preserves exactly
 RAM 30.2 and 31.4 from the previous bytes while assigning their other bits from
 state byte 34, received inputs, and decoded flags. These are the two bits set
-by the [event qualifier](CONTROLLER-EVENT.md), so their preservation through
+by the [event qualifier](EVENT.md), so their preservation through
 this part of the output builder is now tested directly.
 
 The second byte partly mirrors the newly computed first byte. It is not an
@@ -12,7 +12,7 @@ bits remain unknown.
 
 ## Reference and input notation
 
-[The reference function](../../controller_output.py), `output01`, expresses all
+[The reference function](../controller_output.py), `output01`, expresses all
 assignments without executing 8051 instructions. It uses S for RAM 34, A–F for
 received RAM 2A–2F, and flags from RAM 22–24. In the tables below, `23.4`, for
 example, means internal-RAM bit 23.4, not a physical pin.
@@ -74,7 +74,7 @@ bits are inverted. This does not identify their electrical functions.
 
 ## Verification and boundary
 
-[Configuration](../../controller-output-pair-scenario.json) selects local entry
+[Configuration](../controller-output-pair-scenario.json) selects local entry
 0266 and stop 0433, immediately after both writes. R3 is seeded with S, as
 established by the preceding builder at 006E. Register bank zero and disabled
 interrupts remain explicit local assumptions.
@@ -97,8 +97,8 @@ physical pins unchanged.
 python3 nokia/data-modem-2400-2400/analysis/controller_output_pair_study.py
 ```
 
-[Report](../../results/controller-output-pair-study/report.json) contains source
+[Report](../results/controller-output-pair-study/report.json) contains source
 and ROM hashes, fixture/execution digests, coverage, and 48 complete witnesses.
-The existing [fourth-byte builder](CONTROLLER-OUTPUT.md) remains separately
+The existing [fourth-byte builder](OUTPUT.md) remains separately
 verified. Neither this reference nor the other controller references replaces
 unchanged-ROM execution in the harness.

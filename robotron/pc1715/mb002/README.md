@@ -11,8 +11,8 @@ These board IDs describe acquisition and owner-reported history, not factory pro
 ## Result
 
 Two independent 2,048-byte reads match exactly. Contents are **S502**,
-byte-identical to the boot ROMs acquired from [MB001](../pc1715-mb001/)
-and [PC002](../pc1715-pc002/). CRC32 `7b6302e1` and SHA-1
+byte-identical to the boot ROMs acquired from [MB001](../mb001/)
+and [PC002](../pc002/). CRC32 `7b6302e1` and SHA-1
 `e8f61763ff8841078a1939aa5e85a17f2af42163` match
 [MAME's known S502 reference](https://github.com/mamedev/mame/blob/master/src/mame/robotron/rt1715.cpp).
 

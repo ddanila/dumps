@@ -6,7 +6,7 @@ the fourth byte uses the **old** RAM30, the third consumes the raw state code
 left in R2, and the first two are built afterward. No register values are
 injected between sections and no instructions are skipped.
 
-The [reference](../../controller_output.py) function `output_build` composes
+The [reference](../controller_output.py) function `output_build` composes
 those local references, then models the immediate tail:
 
 - When newly built RAM30 bit 3 is set, rotate RAM3D left once and put the
@@ -25,7 +25,7 @@ unless another writer changes it.
 
 ## Verification and limits
 
-The [scenario](../../controller-output-build-scenario.json) supplies state,
+The [scenario](../controller-output-build-scenario.json) supplies state,
 flags, six normalized input bytes, all four prior outputs, three counters,
 and both pattern bytes. Register bank zero and disabled interrupts are explicit
 local assumptions. The seeded sweep uses 128 combinations for each of all 256
@@ -35,7 +35,7 @@ P1, PSW.F0, unchanged stack pointer, and stop PC, with no emulator exceptions.
 All 397 reachable instruction starts in this prefix are visited. The two ROM
 tables are excluded as data; 00F5 is excluded because the earlier E8-group
 branch makes it unreachable, as documented in the fourth-byte study. The
-[report](../../results/controller-output-build-study/report.json) stores 24
+[report](../results/controller-output-build-study/report.json) stores 24
 witnesses, coverage, fixture/execution digests, ROM hash and source hashes.
 
 ```sh
@@ -48,7 +48,7 @@ writes via 1D05, then calls 1933, 0C5B and 077C before returning at 04F9.
 Those accesses and subsequent effects need their own reference and logged
 external assumptions before combining this prefix with serial transmission.
 
-The subsequent [output-through-transmission study](CONTROLLER-OUTPUT-SEND.md)
+The subsequent [output-through-transmission study](OUTPUT-SEND.md)
 now executes that remainder and the actual call to 0899, checking selected
 application state and complete emitted byte sequences under explicit local
 assumptions. Full internal timer/initialization semantics remain unverified.

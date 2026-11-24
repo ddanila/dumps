@@ -27,7 +27,7 @@ not retained in this byte, although later code still has the full K in R2.
 The two 32-byte ROM tables are data, not instructions; the linear disassembly
 at those addresses is not an executable routine.
 
-[State-code table](../../results/controller-output-study/state-codes.csv)
+[State-code table](../results/controller-output-study/state-codes.csv)
 records all 256 state values, raw K, and the upper bits before and after serial
 normalization. It does not attach speculative modem-state names to the codes.
 
@@ -45,7 +45,7 @@ matching condition below; bit numbers refer to internal RAM, not physical pins.
 | Otherwise | 00 |
 
 The RAM 23/24 flags are among those produced by the earlier
-[input decoder](CONTROLLER-DECODE.md). RAM 30.5 is the value already present
+[input decoder](DECODE.md). RAM 30.5 is the value already present
 when this builder runs; it must not be replaced with a later rewritten byte.
 
 The code initially ORs the old low three bits of RAM 33 into scratch RAM 20,
@@ -54,8 +54,8 @@ why the result is independent of the previous output byte.
 
 ## Exhaustive local check
 
-[Reference](../../controller_output.py) describes the lookup and flag rules.
-[Configuration](../../controller-output-scenario.json) fixes register bank zero,
+[Reference](../controller_output.py) describes the lookup and flag rules.
+[Configuration](../controller-output-scenario.json) fixes register bank zero,
 disabled interrupts, and a local entry at 006E. The probe stops at 012F,
 immediately after the RAM 33 write, without executing the remaining builders.
 
@@ -76,7 +76,7 @@ than counting embedded data as uncovered executable code.
 python3 nokia/data-modem-2400-2400/analysis/controller_output_study.py
 ```
 
-[Report](../../results/controller-output-study/report.json) contains source/ROM
+[Report](../results/controller-output-study/report.json) contains source/ROM
 hashes, fixture and execution digests, coverage, and 26 complete witnesses.
 Probe output is checked as a stream to keep memory bounded during the exhaustive
 sweep. The independently tested serial-output routine supplies the F8 transform;

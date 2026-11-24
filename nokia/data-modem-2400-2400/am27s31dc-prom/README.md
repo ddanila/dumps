@@ -1,10 +1,10 @@
-# Nokia external modem — Am27S31DC PROM
+# Nokia Data Modem 2400/2400: Am27S31DC lookup PROM
 
-Owner identifies this as the last chip on the last board of the same old Nokia
-external modem previously supplying the [four MMI PROMs](../microcode-810237c-810240c/)
-and [2764 EPROM](../controller-810244e/). Exact modem model,
-board identity, socket position and sticker are unknown. No shared address
-space or concatenation with those images is assumed.
+A 512 × 8 bipolar PROM from the [Nokia Data Modem 2400/2400](../). It holds
+sine tables and other lookup data used by the bit-slice signal processor. The
+owner reports it as the last chip on the last board; photos suggest it is
+**810241 on DSC 3557**, but that has not been confirmed. No shared address
+space with the other images is assumed.
 
 ## Acquisition — 2026-11-23
 

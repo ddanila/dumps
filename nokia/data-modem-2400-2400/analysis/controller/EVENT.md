@@ -4,7 +4,7 @@ The controller has a concrete path from external-interrupt-1 events to RAM
 30.2 and 31.4, two bits in the outgoing four-byte buffer. The interrupt handler
 updates byte 6E from a countdown; polling routine 1790 interprets that byte,
 sets or clears those output bits, and controls event re-enabling. Byte 6E also
-feeds the [input decoder](CONTROLLER-DECODE.md).
+feeds the [input decoder](DECODE.md).
 
 This identifies firmware behavior, not the physical event source. A carrier or
 frequency qualification role is plausible, but the input signal and clock rate
@@ -69,8 +69,8 @@ reconstructed.
 
 ## Validation
 
-[Reference functions](../../controller_event.py) describe the accumulator and
-polling transition. [Configuration](../../controller-event-scenario.json)
+[Reference functions](../controller_event.py) describe the accumulator and
+polling transition. [Configuration](../controller-event-scenario.json)
 provides the local states. The probe enters the real interrupt vector at 0013
 or the real polling routine at 1790, with a return frame and global interrupts
 disabled. It supplies countdown values directly; it does not synthesize a
@@ -96,7 +96,7 @@ possible simultaneous input states or hardware timing.
 python3 nokia/data-modem-2400-2400/analysis/controller_event_study.py
 ```
 
-[Report](../../results/controller-event-study/report.json) preserves source and
+[Report](../results/controller-event-study/report.json) preserves source and
 ROM hashes, fixture/execution digests, instruction coverage, and 38 complete
 state witnesses. Raw ROM and the CPU core are unchanged. The physical input
 and output identities remain open requirements of the microcode plan.

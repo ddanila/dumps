@@ -1,8 +1,13 @@
 # D-Link NE2000 BootROM Driver V2.40 / Novell NetWare loader
 
-Two identical 8192-byte reads of an orphan chip identified by its owner as a
-2764, acquired 2026-11-14. Board, manufacturer/suffix and sticker text are unknown.
-D-Link attribution comes from the firmware, not a photograph of the chip.
+An 8 KiB PC option ROM with 16-bit x86 network-bootstrap code: D-Link's
+NE2000 boot driver and a Novell NetWare remote DOS loader. It comes from an
+orphan chip (a 2764, per the owner); the board, manufacturer and sticker text
+are unknown. The D-Link attribution comes from the firmware, not from the chip.
+
+## Acquisition
+
+Read on 2026-11-14. Two independent 8192-byte reads match exactly.
 
 - SHA-256: `0de28d3a3c23fcba5fa679305ccad17604fd281c37fc4507425210cf562a2997`
 - SHA-1: `7095143756fb3c13b3205063ea12a8ccc9ec1491`
@@ -11,9 +16,9 @@ D-Link attribution comes from the firmware, not a photograph of the chip.
 - Byte sum modulo 256: **00**, a valid PC option-ROM checksum.
 - No identical 128/256/512/1024/2048/4096-byte repeating period.
 
-This contains coherent 16-bit PC x86 network-bootstrap code. Matching reads and
-an independently valid checksum provide confidence in the capture, not a complete
-electrical test or confirmation of the exact physical chip type.
+Matching reads and an independently valid checksum give confidence in the
+capture. They are not a full electrical test and do not confirm the exact chip
+type.
 
 ## Acquisition
 

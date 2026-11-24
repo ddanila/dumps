@@ -55,9 +55,9 @@ the DSP remain separate questions.
 
 ## Verification
 
-The [bit-serial reference](../../controller_scrambler.py) is independent of
+The [bit-serial reference](../controller_scrambler.py) is independent of
 the ROM's byte-parallel implementation. The
-[study](../../controller_scrambler_study.py) executes both local routines with
+[study](../controller_scrambler_study.py) executes both local routines with
 bank zero and interrupts disabled, comparing all 128 internal-RAM bytes,
 return PC/SP, absence of exceptions, and absence of peripheral events.
 
@@ -75,8 +75,8 @@ fourth byte onward. A single corrupted scrambled bit affects decoded positions
 stream checks compose the reference models; they are not separate long-running
 ROM executions.
 
-[Configuration](../../controller-scrambler-scenario.json) records assumptions
-and fixture sizes. The [report](../../results/controller-scrambler-study/report.json)
+[Configuration](../controller-scrambler-scenario.json) records assumptions
+and fixture sizes. The [report](../results/controller-scrambler-study/report.json)
 contains 24 witnesses, coverage, source/ROM hashes and execution/fixture digests.
 
 ```sh

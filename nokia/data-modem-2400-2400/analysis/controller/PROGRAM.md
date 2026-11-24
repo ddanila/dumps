@@ -40,9 +40,9 @@ interfaces.
 
 ## Verification
 
-[Configuration](../../controller-program-scenario.json) records local entry,
+[Configuration](../controller-program-scenario.json) records local entry,
 bank-zero/disabled-interrupt assumptions and test inputs. The
-[study](../../controller_program_study.py) compares the complete ordered bus
+[study](../controller_program_study.py) compares the complete ordered bus
 write sequence, all internal RAM, return PC/SP, ACC, P1, and P2 against its
 independent reference. All **7,168 cases** pass with no emulator exceptions.
 
@@ -50,7 +50,7 @@ The fixtures cover all 256 R3 values against eight R2 values at each of the
 control addresses 05 and 06, plus all 256 P2 values with six representative
 modes at both addresses. All 36 instruction starts are visited. This is not an
 exhaustive cross product of every register input. The
-[report](../../results/controller-program-study/report.json) stores 12 witnesses,
+[report](../results/controller-program-study/report.json) stores 12 witnesses,
 coverage, source/ROM hashes, and deterministic execution/fixture digests.
 
 ```sh
@@ -60,6 +60,6 @@ python3 nokia/data-modem-2400-2400/analysis/controller_program_study.py
 The remainder of output construction, interrupt effects, peripheral device
 responses, and end-to-end polling/transmission integration remain unverified.
 
-The [output-through-transmission study](CONTROLLER-OUTPUT-SEND.md) now checks
+The [output-through-transmission study](OUTPUT-SEND.md) now checks
 the main-loop caller decisions and resulting programming sequences in continuous
 execution. It retains explicit limitations on interrupts and device responses.

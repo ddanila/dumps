@@ -2,7 +2,7 @@
 
 2 KiB firmware from a second owner-identified РФ2 (2716-equivalent) EPROM
 labelled **S642**. The owner reports QWERTY/ЯВЕРТЫ key legends, unlike the
-[previous S642 keyboard](../pc1715-keyboard-s642/) with ЙЦУКЕН/JCUKEN legends.
+[previous S642 keyboard](../keyboard-s642-jcuken/) with ЙЦУКЕН/JCUKEN legends.
 The chips and labels look identical; the ROM images differ.
 
 [ROM](s642-qwerty.bin) · [Submission ZIP](s642-qwerty-dump.zip) · [Manifest](manifest.json)
@@ -76,7 +76,7 @@ traces are preserved; the runners regenerate uncompressed traces.
 Run `python3 verify-language-switch.py` from `emulation/end-to-end/` to check
 the saved full-system evidence (requires Pillow). The Lua test is included;
 use the same host ROMs and original TOS/M disk as in the
-[first acquisition's reproduction instructions](../pc1715-keyboard-s642/emulation/end-to-end/README.md),
+[first acquisition's reproduction instructions](../keyboard-s642-jcuken/emulation/end-to-end/README.md),
 substituting this ROM for `roms/rt1715w/s600.ic8`. That filename produces an
 expected S600 checksum warning. OS and host ROMs are not duplicated here.
 

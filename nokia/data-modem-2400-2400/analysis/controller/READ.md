@@ -81,10 +81,10 @@ python3 nokia/data-modem-2400-2400/analysis/interface_study.py \
   --out /tmp/nokia-controller-interface
 ```
 
-[Configuration](../../controller-read-scenario.json) and the
-[report](../../results/controller-read-study/report.json) preserve the observed
+[Configuration](../controller-read-scenario.json) and the
+[report](../results/controller-read-study/report.json) preserve the observed
 callers, polling back edge, local assumptions, source hashes, execution digest
-and 12 event/state witnesses. The shared [C probe](../../interface_probe.c)
+and 12 event/state witnesses. The shared [C probe](../interface_probe.c)
 is extended without changing its earlier input/output-frame behavior: all
 4,362 prior interface fixtures pass with identical execution digest and
 witnesses. Both reports reproduce byte for byte, and all 61 microcode tests

@@ -87,11 +87,11 @@ is needed before assigning it a sample-processing role.
 [OUTPUT-CONTROL.md](OUTPUT-CONTROL.md) tests raw-bit output-enable predicates.
 Forty-three different predicates fit the assumed example groups; their broad,
 different predictions prevent identifying a strobe from these patterns alone.
-[CONTROLLER-INTERFACE.md](CONTROLLER-INTERFACE.md) independently verifies the
+[controller/INTERFACE.md](../../controller/INTERFACE.md) independently verifies the
 8031 six-byte input/four-byte output protocol, normalization masks and P1
 handshake ordering in 4,362 local ROM executions. Its physical link to the
 microprogram remains unassigned.
-[CONTROLLER-READ.md](CONTROLLER-READ.md) shows that the three observed callers
+[controller/READ.md](../../controller/READ.md) shows that the three observed callers
 of the repeated 8004 read overwrite its returned byte. Any external side effect
 of the bus cycle remains unknown; it is not an identified sample/status input.
 
@@ -346,40 +346,40 @@ with substantial coverage loss elsewhere.
 The [raw-bit branch mux search](BRANCH-MUX.md) tests 8,192 gate/source choices.
 None improves baseline coverage; its new path to 0FA loses 85 other words.
 
-The [controller input decoder](CONTROLLER-DECODE.md) translates routine 0620
+The [controller input decoder](../../controller/DECODE.md) translates routine 0620
 into explicit bit-field rules, checked against 10,144 unchanged-ROM executions.
 Physical signal names remain unresolved.
 
-The [controller event study](CONTROLLER-EVENT.md) follows a countdown-weighted
+The [controller event study](../../controller/EVENT.md) follows a countdown-weighted
 external interrupt into byte 6E and two outgoing buffer bits, checked against
 30,436 ROM executions.
 
-The [fourth output-byte study](CONTROLLER-OUTPUT.md) identifies its five-bit
+The [fourth output-byte study](../../controller/OUTPUT.md) identifies its five-bit
 state code and three flags, verified over all 65,536 state/flag assignments.
 
-The [first two output-byte builders](CONTROLLER-OUTPUT-PAIR.md) preserve the
+The [first two output-byte builders](../../controller/OUTPUT-PAIR.md) preserve the
 event-qualified bits and derive the remaining fields from state and selectors;
 35,328 local ROM comparisons cover every instruction in that section.
 
-The [third output-byte builder](CONTROLLER-OUTPUT32.md) combines state-code
+The [third output-byte builder](../../controller/OUTPUT32.md) combines state-code
 bits with counter-controlled fields, verified in 103,424 local ROM executions.
 All four byte builders now have local references; their full composition remains
 to be checked.
 
-[Continuous output construction](CONTROLLER-OUTPUT-BUILD.md) verifies all four
+[Continuous output construction](../../controller/OUTPUT-BUILD.md) verifies all four
 builders together and the immediate rotating-pattern/P1 and RAM30 override:
 32,768 cases match uninterrupted ROM execution through 046A.
 
-[Peripheral programming](CONTROLLER-PROGRAM.md) verifies the complete write
+[Peripheral programming](../../controller/PROGRAM.md) verifies the complete write
 sequence of helper 1D05 at both USART control addresses: 7,168 cases, including
 all mode bytes and all P2 address-page values in the stated fixture families.
 
-[Output through transmission](CONTROLLER-OUTPUT-SEND.md) executes the actual
+[Output through transmission](../../controller/OUTPUT-SEND.md) executes the actual
 main-loop calls to 006E and 0899 continuously. All 32,768 cases match output,
 mode programming, counters/patterns, and serial bytes; timer/interrupt state
 and complete internal initialization semantics remain outside the comparison.
 
-[Controller scrambling](CONTROLLER-SCRAMBLER.md) identifies and verifies the
+[Controller scrambling](../../controller/SCRAMBLER.md) identifies and verifies the
 23-bit scramble/descramble pair, with selectable delays (5,23) or (18,23).
 An independent bit-serial reference matches 43,008 ROM cases and all 134
 instructions in the local byte-processing routines.

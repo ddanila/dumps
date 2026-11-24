@@ -18,7 +18,7 @@ with tempfile.TemporaryDirectory(prefix='s642-bios-') as tmp:
     r.mkdir(parents=True)
     for name, size in [('s502.a25.3', 2048), ('s643.a25.2', 2048), ('s605.a25.1', 2048), ('068.a8.2', 1024), ('069.a8.1', 1024)]:
         (r / name).write_bytes(bytes([0x76 if name.startswith('s502') else 0]) * size)
-    for name, source in [('s642.ic8', BASE.parent.parent / 'pc1715-keyboard-s642/s642.ic8'), ('s642-qwerty.bin', BASE.parent / 's642-qwerty.bin')]:
+    for name, source in [('s642.ic8', BASE.parent.parent / 'keyboard-s642-jcuken/s642.ic8'), ('s642-qwerty.bin', BASE.parent / 's642-qwerty.bin')]:
         (r / name).write_bytes(source.read_bytes())
     (p / 'probe.lua').write_text("local f=assert(io.open('loaded.bin','wb'));local s=manager.machine.devices[':keyboard'].spaces.program;for i=0,2047 do f:write(string.char(s:read_u8(i))) end;f:close();manager.machine:exit()\n")
     for option, name in [('jcuken', 's642.ic8'), ('qwerty', 's642-qwerty.bin'), ('default', 's642.ic8')]:

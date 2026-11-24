@@ -3,7 +3,7 @@
 The 8031 main loop calls input routine 0800 at 1ED6, then calls 0620 at 1ED9.
 The latter interprets normalized input bytes at RAM 2A–2F as selectors and flags,
 updates state at 22–24, and can rewrite the received bytes themselves. A
-[reference implementation](../../controller_decode.py) now reproduces this
+[reference implementation](../controller_decode.py) now reproduces this
 routine's internal-RAM effects against the unchanged ROM.
 
 This is controller-side program reading. Physical switch/status names and the
@@ -13,7 +13,7 @@ as six numerical DSP samples.
 ## Input convention and override
 
 Use A–F for the six normalized bytes at 2A–2F. A is the first payload byte XOR
-07; B–F are unchanged by the [serial receive routine](CONTROLLER-INTERFACE.md).
+07; B–F are unchanged by the [serial receive routine](INTERFACE.md).
 The discarded preliminary transfer is not part of A–F.
 
 At 0622–063E, the predicate
@@ -62,7 +62,7 @@ updates to RAM 22.4/22.5: set bit 4 and preserve bit 5; set both; set bit 4 and
 clear bit 5; or clear both. Some paths also set received bit F2. The reference
 keeps those actions distinct, especially the state-preserving case. The purpose
 of RAM 6E is not established by this local study; the later
-[event study](CONTROLLER-EVENT.md) identifies its countdown-weighted accumulation
+[event study](EVENT.md) identifies its countdown-weighted accumulation
 and polling behavior.
 
 Finally, 072F–077B derives RAM 23.1–23.3 from E selector bits and A5/B4/B5/C5.
@@ -72,7 +72,7 @@ apart from scratch bit 20.0 and the explicitly described writes.
 
 ## ROM execution checks
 
-[Configuration](../../controller-decode-scenario.json) supplies normalized input,
+[Configuration](../controller-decode-scenario.json) supplies normalized input,
 previous RAM 22–27, and byte 6E. Each local execution begins at 0620 with a real
 return frame and interrupts disabled. It checks return PC, stack pointer, no
 emulator exceptions, and all 128 internal-RAM bytes against the reference.
@@ -98,7 +98,7 @@ inferred from the tables.
 python3 nokia/data-modem-2400-2400/analysis/controller_decode_study.py
 ```
 
-[Report](../../results/controller-decode-study/report.json) includes assumptions,
+[Report](../results/controller-decode-study/report.json) includes assumptions,
 source and ROM hashes, fixture/execution digests, and witnesses. The shared C
 probe adds an explicit `decode` mode without changing earlier mode behavior:
 all 4,362 interface fixtures and 2,048 external-read probes retain identical

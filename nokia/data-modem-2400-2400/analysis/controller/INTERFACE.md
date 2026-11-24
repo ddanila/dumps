@@ -79,14 +79,14 @@ is inferred merely from these frame lengths.
 
 ## Implementation and verification
 
-The new [probe](../../interface_probe.c) uses the existing vendored emu8051 core
+The new [probe](../interface_probe.c) uses the existing vendored emu8051 core
 and hash-checked 8-KiB controller ROM. It starts locally at 0800 or 0899 with
 an explicit caller frame; RET reaches an out-of-ROM sentinel that is never
 executed. No ROM, CPU-core code, or existing controller harness is modified.
 All synthetic inputs and completion assumptions are declared in
-[interface-scenario.json](../../interface-scenario.json).
+[interface-scenario.json](../interface-scenario.json).
 
-The [study script](../../interface_study.py) runs 4,362 fixtures:
+The [study script](../interface_study.py) runs 4,362 fixtures:
 
 - 3,072 input cases: six positions × 256 values × matching/differing prior RAM.
 - 256 discarded-byte cases.
@@ -95,7 +95,7 @@ The [study script](../../interface_study.py) runs 4,362 fixtures:
 
 All checks pass without CPU exceptions or unexpected MOVX accesses. Incomplete
 transfers remain at their expected waits after the 10,000-tick limit. The
-[report](../../results/interface-study/report.json) retains 18 event witnesses,
+[report](../results/interface-study/report.json) retains 18 event witnesses,
 all-fixture/all-execution digests, ROM/source hashes, and assumptions. It
 reproduces byte for byte. The existing 61 microcode tests also pass.
 

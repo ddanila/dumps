@@ -6,14 +6,18 @@ The physical ROM label has not been recorded. Contents identify as the known
 
 [ROM](s502.a25.3) · [Manifest](manifest.json) · [Acquisition evidence](evidence/a25.3-20261122/)
 
-Two independent 2,048-byte reads match exactly. CRC32 `7b6302e1` and SHA-1
+## Identification
+
+CRC32 `7b6302e1` and SHA-1
 `e8f61763ff8841078a1939aa5e85a17f2af42163` match
 [MAME's rt1715 S502 reference](https://github.com/mamedev/mame/blob/master/src/mame/robotron/rt1715.cpp).
 SHA-256 also matches the reference used by our DAC PC1715 emulator checks.
 This establishes reference-identical contents; no new execution or retention
 qualification was performed during this acquisition.
 
-Read using T48 and the explicit RF2 backend at revision
+## Acquisition
+
+Two independent 2,048-byte reads match exactly. Read using T48 and the explicit RF2 backend at revision
 `3e89e0fac87c9da21ab912cce2787aa3eaee8d07`, with A9 rail routing and
 requested VCC 5.18 V. Both contact preflights passed and both runs reported
 pin-driver reset. Raw logs and session metadata are preserved unchanged.
@@ -62,6 +66,6 @@ none of these acquisitions is an unknown variant.
 
 The owner subsequently reported a ROM swap between MB001 and MB002, after
 which MB001 began booting. The U2716C35 A25.3 originally from MB001 is now
-recorded under [MB002](../pc1715-mb002/); its contents match this collection's
+recorded under [MB002](../mb002/); its contents match this collection's
 RF2 S502 exactly. This collection records the chips associated with MB001 at
 acquisition, not necessarily its original factory-installed ROMs.

@@ -127,13 +127,13 @@ Afterwards the program clears RAM, sets SP=6F, initializes hardware and enters:
 | MOVX 0002 / 0006 | Second USART data / control-status, same evidence |
 | MOVX 8004 | Repeated hardware read selected with P2.7; purpose unconfirmed |
 
-A [local interface study](analysis/microcode/assumed/CONTROLLER-INTERFACE.md)
+A [local interface study](analysis/controller/INTERFACE.md)
 verifies byte order, XOR masks, input changed-state detection and P1 handshake
 ordering with 4,362 varying-byte and completion-delay fixtures. In particular,
 P1.2 is not pulsed until the fourth transmitted byte completes. These tests
 do not identify the physical destination of the serial chains.
 
-The [external-read study](analysis/microcode/assumed/CONTROLLER-READ.md) finds
+The [external-read study](analysis/controller/READ.md) finds
 that the three observed callers of 08DD overwrite the byte returned from the
 8004 read before using it. The main loop still executes that bus cycle on each
 iteration; an external side effect remains possible and unidentified.
@@ -211,6 +211,6 @@ identifying the additional labelled devices on DSC3557. Front/back photos are
 useful evidence but do not uniquely reveal every net or programmable-device
 function. A full telephone-line demonstration remains outstanding.
 
-The [input-decoder study](analysis/microcode/assumed/CONTROLLER-DECODE.md)
+The [input-decoder study](analysis/controller/DECODE.md)
 checks routine 0620 against a reference over 10,144 cases, covering every
 instruction in the routine. Physical switch/status labels remain unidentified.
