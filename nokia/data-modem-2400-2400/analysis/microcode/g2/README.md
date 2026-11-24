@@ -681,3 +681,6 @@ description and real PROM words to distinguish a floating address bus from
 a one-cycle external control-store address. EN alone does not release `084`;
 an externally supplied PROM address could fetch a branch word and change the
 internal PC, but no such Nokia connection has been established.
+The four-PROM board replay in the same note verifies a staged address-bus
+handoff through the control latches and sequencer clock: it reaches `300`
+without a stack repair, then returns to `084` under the tested fixture.

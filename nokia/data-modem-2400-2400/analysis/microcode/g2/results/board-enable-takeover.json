@@ -1,0 +1,124 @@
+{
+  "baseline": {
+    "cycles": 128,
+    "event": null,
+    "final_internal_pc": "084",
+    "first_084_cycle": 42,
+    "most_common_pcs": [
+      [
+        "084",
+        86
+      ],
+      [
+        "000",
+        1
+      ],
+      [
+        "001",
+        1
+      ],
+      [
+        "002",
+        1
+      ],
+      [
+        "003",
+        1
+      ]
+    ],
+    "table_calls": {
+      "3C2": 0,
+      "3D7": 0
+    },
+    "unique_internal_pcs": 43,
+    "visits_300_3ff": 0
+  },
+  "board_address_hypothesis": "Hypothetical ten-bit driver on all four PROM address buses, with independent staged controls: disable U9 address outputs, then enable external driver; reverse the sequence to release. No Nokia net identified.",
+  "fixture": {
+    "address_handoff": "U9 EN high, then external drive high; reverse after one complete fetch/execute cycle",
+    "branch_source": "literal",
+    "cycles": 128,
+    "external_data": 0,
+    "external_test": 0,
+    "profile": "q3",
+    "sequence_source": "registered",
+    "vector_fetch_pc": "036"
+  },
+  "limitations": [
+    "No physical U9 EN or ten-bit address-driver path has been traced.",
+    "The base board uses the original q3 field mapping, not the later photo-constrained Am2901 pin assignments.",
+    "The staged controls avoid modeled bus contention; physical gate delays are not simulated.",
+    "A diagnostic word 036 is fetched, not a recovered controller command or vector.",
+    "The board model retains unknown RAM/Q and incomplete arithmetic flag logic.",
+    "No DAC/ADC or controller stream participates, so this is not a modem-function result."
+  ],
+  "prom_sha256": {
+    "U10": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "U11": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "U17": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "U18": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "source_sha256": {
+    "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
+    "assumed/sequencer.json": "b2e12bd569e614540a9e0db78ba2cf0888c41961077e221940fd8b69d1dfa99b",
+    "board/engine.py": "e273bc26faa8f45957c0635e9e55b3480a2988e344875481698cf9a7c0feade4",
+    "board/logic.py": "e94a586b7129217973eaefb067e20ccf95a3a5d3009fada895829656263837c7",
+    "board/photo_hypotheses.py": "2bb1ecc55df8acc5bdf2e6a375bd329082d881e1361b7a38ba8b58faaa5e471b",
+    "g2/board_enable_takeover.py": "e67ec4cbb59dcb5f025db39446fc4d8253b7d9e76c277dcc46e9326fec20dc34"
+  },
+  "status": "board-model diagnostic, not recovered Nokia wiring",
+  "takeover": {
+    "cycles": 128,
+    "event": {
+      "cycle": 42,
+      "driven_fetch_pc": "036",
+      "floating_bus": "ZZZZZZZZZZ",
+      "internal_pc_after": "300",
+      "internal_pc_before": "084",
+      "latched_controls": {
+        "U29": 131,
+        "U30": 252,
+        "U5": 1,
+        "U6": 220
+      },
+      "ordinary_address_after_release": "300",
+      "raw_prom_bytes": [
+        1,
+        220,
+        131,
+        252
+      ],
+      "stack_unchanged": true
+    },
+    "final_internal_pc": "084",
+    "first_084_cycle": 42,
+    "most_common_pcs": [
+      [
+        "084",
+        24
+      ],
+      [
+        "30B",
+        2
+      ],
+      [
+        "30C",
+        2
+      ],
+      [
+        "30D",
+        2
+      ],
+      [
+        "30E",
+        2
+      ]
+    ],
+    "table_calls": {
+      "3C2": 0,
+      "3D7": 0
+    },
+    "unique_internal_pcs": 91,
+    "visits_300_3ff": 43
+  }
+}

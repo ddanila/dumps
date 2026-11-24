@@ -47,3 +47,37 @@ python3 nokia/data-modem-2400-2400/analysis/microcode/g2/enable_takeover_probe.p
 
 The [saved report](results/enable-takeover-probe.json) records the fetched raw
 PROM words, next addresses, stack check, vector list and source hashes.
+
+## Four-PROM board replay
+
+The [board-level follow-up](board_enable_takeover.py) builds on the existing
+board model with the original q3 field mapping. It does not yet include the
+later photo-constrained Am2901 pin assignments. It adds **two hypothetical
+eight-bit buffer primitives** to supply a ten-bit address; they are a
+diagnostic adapter, not
+an attribution to U4. U9 EN and the adapter drive have separate controls.
+The event first disables U9's address outputs, then enables the external
+driver, avoiding a period with two active address drivers. After one normal
+register-fetch and sequencer/ALU clock cycle, it disables the external driver
+and re-enables U9. The four real PROMs and four LS374 control registers
+participate; RAM/Q retain the board model's unknown power-on state.
+
+In a matched 128-cycle TEST=0 run, the baseline first reaches internal `084`
+at cycle 42 and stays there. The candidate handoff at that same cycle makes
+the PROM bus float for one event, then reads address `036` as raw bytes
+`01 DC 83 FC`. U5/U6/U29/U30 latch those exact bytes; U9 clocks to internal
+`300` with its stack unchanged. After release, the ordinary PROM address is
+`300`. The candidate spends 43 cycles at addresses in the `300`–`3FF`
+region, but returns to `084` before cycle 128. It makes no call at `3C2` or
+`3D7`. The takeover is executable in the full board timing model. This
+particular vector and TEST fixture do not establish recurring signal
+processing.
+
+The [board report](results/board-enable-takeover.json) retains the event
+witness, matched coverage counts, PROM hashes and exact candidate wiring
+description. The external address and EN signals remain **untraced**; no
+controller, ADC or DAC is connected in this replay.
+
+```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/board_enable_takeover.py
+```
