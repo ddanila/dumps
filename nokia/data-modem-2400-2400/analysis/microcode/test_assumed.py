@@ -127,6 +127,34 @@ class AssumedTests(unittest.TestCase):
                 self.assertEqual(event['current_y'],3 if profile=='q1' else 4)
                 verify(mapping,scenario,got,root/f'split-{profile}')
 
+    def test_q3_outer_input_load_and_preserving_return_leaves(self):
+        import random
+        from input_leaves import scenario_for,inspect,check_guard,LOAD_INDICES,PRESERVE_INDICES
+        from defined_condition_fit import load_trace
+        config=read(HERE/'input-leaves.json');h=read(HERE/config['handler_configuration'])
+        mapping=read(HERE/h['profiles']['q3']);rng=random.Random(0x221)
+        self.assertEqual(check_guard(mapping),dict(guard_pairs=65536,fallthrough_pairs=32640))
+        cases=[(4,d,u,p) for d in LOAD_INDICES+PRESERVE_INDICES for u,p in ((0,0),(255,255))]
+        cases += [(4+8*rng.randrange(32),rng.choice(LOAD_INDICES+PRESERVE_INDICES),rng.randrange(256),rng.randrange(256)) for _ in range(96)]
+        with tempfile.TemporaryDirectory() as temp:
+            out=Path(temp)
+            for number,values in enumerate(cases):
+                sc=scenario_for(config,*values);result=execute(mapping,sc,160,mode='integrated',out=out,trace_limit=160)
+                want=inspect(load_trace(out),result,*values)
+                if number%9==0:
+                    other=list(values);other[2]^=255
+                    if not want['load']:other[3]^=255
+                    sc=scenario_for(config,*other)
+                    sc['io']['read']['pc_sequences'].update({str(pc):[rng.randrange(256)] for pc in (0x2b5,0x2b6)})
+                    result=execute(mapping,sc,160,mode='integrated',out=out,trace_limit=160)
+                    self.assertEqual(inspect(load_trace(out),result,*other),want)
+                if number%11==0:
+                    for source in ('q','y'):
+                        sc=scenario_for(config,*values,source);result=execute(mapping,sc,160,mode='integrated',out=out,trace_limit=160)
+                        got=inspect(load_trace(out),result,*values,source)
+                        if source=='q':self.assertEqual(got,want)
+                        else:self.assertTrue(got['load'])
+
     def test_q3_startup_wait_captures_and_handler_dispatch(self):
         import random
         from startup_contract import scenario_for,inspect,prediction,check_waits

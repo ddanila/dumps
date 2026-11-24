@@ -1797,6 +1797,26 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "INPUT-LEAVES.md",
+        "limitations": "q3 previous-flag zero-reset handler 4, timed selector-5 fall, global index 11 and site-specific 21F previous-Y source. All selecting byte values and Q/current-Y controls checked against the inherited ROM table. General guard checked locally; physical wiring and transient output meaning unresolved.",
+        "meaning": "Outer previous-Y indices select 221 or 2B3 from handler-4 alternate preparation. 221 loads a temporary byte and calls 228 before 225 replaces Q. 2B3 copies R10/R11 into R15; 2B7 tests Q>=R0. In this direct caller R0=FF and Q<FF, so 2B9-2BB expose R2 three times and return with Q preserved.",
+        "name": "outer temporary input and comparison-qualified return leaves",
+        "profiles": [
+          "q3"
+        ],
+        "ranges": [
+          [
+            "221",
+            "223"
+          ],
+          [
+            "2B3",
+            "2BB"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
@@ -1819,7 +1839,7 @@
     "status": "hypothesis"
   },
   "counts": {
-    "annotated_used_words": 1010,
+    "annotated_used_words": 1016,
     "default_gaps_with_reset_witness": 22,
     "reset_examples": {
       "original": 187,
@@ -5233,12 +5253,13 @@
     "HANDLER6.md": "5360b31f72144b5773d802a634362c2f639384464b9aee422eb03e6c8981f83e",
     "HANDLER7.md": "ae555fdf453872ddf317839250f54061397e4d962d627c7513288456ee00a2ec",
     "INDEXED-TAIL.md": "8cc0bd0d7c8489a76bd4011ed1094ec84bbd6b432935384d065c63a23affb7af",
+    "INPUT-LEAVES.md": "dda4aeb1e163d73089b34a8941bd4d83c6b96186c32e408295d0deaa6826f342",
     "INPUT-TAIL.md": "d232f921a1c9e338074030856b781066e4830019df96fe28b854f84ff3bfd466",
     "LAST-ENTRY.md": "5628a543c1364a33b721aa35d6f5c465e3506637627d84339b10066c5f8d860a",
     "MASK-LOOP.md": "e2be908cfc99d3ee8939a02556428b33c44ad3239ec4329ceec21d93981707ba",
     "MASK-VARIANTS.md": "e79f50d01afd0798f1018a7d7987b59024a93c5b61986eaf5d1c6829852ac6c5",
     "MASKED-DRAIN.md": "853158590c53ad6fa4485c3f82b5ba6322c08870a695a22b1ac83ce122aa3bbc",
-    "MASKED-NESTED-DISPATCH.md": "e06bfa78d539d793a7102e5d5f59be8ff216fdf4bdae63eb48c697e2868921dc",
+    "MASKED-NESTED-DISPATCH.md": "fe9bbc56fa818d4aecf3beeaa590bff147fb5020d7dfba71d1f22ff7b74a2736",
     "NESTED-PREPARE.md": "715e379e086f8c8a8c76fa06a285392786987d8e24164bf93695a9f4957bafe0",
     "NESTED-RESET.md": "2e2acb562eee036b5c25e57e235c90adbb36263eb6cc3f0ec6faa266abc0b5ce",
     "PAIR-WAIT.md": "23e0bd19a66d2fdd63f0d57db95a83cbec044218fea86f109720211cd0f4d2fb",

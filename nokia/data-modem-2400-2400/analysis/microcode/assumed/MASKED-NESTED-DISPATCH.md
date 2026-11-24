@@ -72,8 +72,10 @@ Twelve matched controls change one index source at a time for these masks:
 
 - Previous Y at either call selects the same index as Q and gives the same
   observed return path. This experiment cannot distinguish those two sources.
-- Current Y at 21F is zero and selects 2B3 directly, bypassing 2BC.
-- Current Y at 2C4 selects inner index zero, also targeting 2B3. These nested
+- Current Y at 21F is zero and selects 221 directly, bypassing 2BC. Its
+  temporary load and nested 228 call precede the 225 reload; these controls
+  reach 084 at cycle 227.
+- Current Y at 2C4 selects inner index zero, targeting 2B3. These nested
   cases preserve the incoming mask and reach 084 at cycle 234 instead.
 
 All controls remain clean. Successful execution alone does not identify the
