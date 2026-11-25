@@ -355,6 +355,16 @@ phases B–C turn "what" into "how".
   connection, virtual captures and DAC route remain untraced, and the quartet
   does not establish carrier samples. Test a photo-compatible DAC latch and
   timing continuation or another state/input mapping before claiming C2.
+  A [direct-clock screen](g2/LOWER-I-LATE-DAC-CLOCK.md) now replays the
+  photographed DAC08 B5←LS273 Q4 candidate with all eight untraced Y-bit
+  sources and every fixed clock subset of `3B3–3B6`. Both constant-symbol
+  controls repeat a pattern of at most four captured codes, so none of these
+  direct clocks can supply an 1800 Hz carrier at the hypothesised 9600 Hz
+  sample rate. All 137 complete PC/Y blocks of the enclosing 12-word loop
+  also repeat under each constant control, extending that exclusion to any
+  fixed set of direct clock sites within the loop at this cadence. A
+  held-data stage, another path or sample rate remains open; the photo does
+  not trace the LS273 clock or full DAC byte wiring.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
