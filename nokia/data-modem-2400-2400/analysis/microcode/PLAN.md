@@ -436,6 +436,14 @@ leaves before the first `3F8` visit. This rejects the direct full-byte
 wrapper hold under that mapping, not a separately gated ADC route. Vary
 the enable/bit lanes and inspect an executed decision or output site.
 
+The [3EB nibble truth screen](g2/RECEIVER-3EB-NIBBLE-TRUTH.md) resolves that
+lane question under the current joint map. All 256 first-wrapper D bytes
+collapse to 16 high-nibble classes; low-nibble-only feeds at either or both
+wrapper visits leave the entire 32-sample trace unchanged. Full-byte feeds
+at either visit still exit early. Thus a low-nibble gate is a no-op here,
+not a receive advance. Change the high-slice timing/condition, dispatch or
+output hypothesis next instead of widening that inert lane test.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing

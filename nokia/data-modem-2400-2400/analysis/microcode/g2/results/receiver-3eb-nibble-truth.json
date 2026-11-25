@@ -1,0 +1,179 @@
+{
+  "by_high_nibble": [
+    {
+      "high_nibble": "0",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "10"
+    },
+    {
+      "high_nibble": "1",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "20"
+    },
+    {
+      "high_nibble": "2",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "30"
+    },
+    {
+      "high_nibble": "3",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "40"
+    },
+    {
+      "high_nibble": "4",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "50"
+    },
+    {
+      "high_nibble": "5",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "60"
+    },
+    {
+      "high_nibble": "6",
+      "next_pc_3ed": "3EE",
+      "test_3ed": 0,
+      "y_3eb": "70"
+    },
+    {
+      "high_nibble": "7",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "80"
+    },
+    {
+      "high_nibble": "8",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "90"
+    },
+    {
+      "high_nibble": "9",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "A0"
+    },
+    {
+      "high_nibble": "A",
+      "next_pc_3ed": "3EE",
+      "test_3ed": 0,
+      "y_3eb": "B0"
+    },
+    {
+      "high_nibble": "B",
+      "next_pc_3ed": "3EE",
+      "test_3ed": 0,
+      "y_3eb": "C0"
+    },
+    {
+      "high_nibble": "C",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "D0"
+    },
+    {
+      "high_nibble": "D",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "E0"
+    },
+    {
+      "high_nibble": "E",
+      "next_pc_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": "F0"
+    },
+    {
+      "high_nibble": "F",
+      "next_pc_3ed": "3EE",
+      "test_3ed": 0,
+      "y_3eb": "00"
+    }
+  ],
+  "experiment": "first 3EB transfer for every D byte and ADC lane control",
+  "fixture": {
+    "condition": "inverted previous sign",
+    "cycles_per_waveform": 48047,
+    "dispatch": "scenario [0,2] at 3EC",
+    "initial_q": 5,
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mapping": "joint upper-source mask 08",
+    "waveform": "32 complementary samples of 0,1,3,2 pattern"
+  },
+  "source_sha256": "622a12de91dac65eac5c63faae3927f376eacff9fe8fb8099416282d564859f6",
+  "waveform": [
+    {
+      "final_pc": "3F0",
+      "name": "default 3EB",
+      "trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d",
+      "visits_3eb": 6001,
+      "visits_3f8": 3000
+    },
+    {
+      "final_pc": "084",
+      "name": "both full",
+      "trace_digest": "7140c1b0740dc71e01bbbc2296b0561c0b97e7c01509d6c24c94a56c463a441e",
+      "visits_3eb": 565,
+      "visits_3f8": 282
+    },
+    {
+      "final_pc": "3F0",
+      "name": "both low nibble",
+      "trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d",
+      "visits_3eb": 6001,
+      "visits_3f8": 3000
+    },
+    {
+      "final_pc": "3F0",
+      "name": "first row low nibble",
+      "trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d",
+      "visits_3eb": 6001,
+      "visits_3f8": 3000
+    },
+    {
+      "final_pc": "3F0",
+      "name": "second row low nibble",
+      "trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d",
+      "visits_3eb": 6001,
+      "visits_3f8": 3000
+    },
+    {
+      "final_pc": "084",
+      "name": "first row full",
+      "trace_digest": "06bc8f8859cb9ef64cc3a0c49d9cf4dccaf9f5b19f73ee3548ccffeadf35bedd",
+      "visits_3eb": 565,
+      "visits_3f8": 282
+    },
+    {
+      "final_pc": "084",
+      "name": "second row full",
+      "trace_digest": "43a753dabd78c534ba69e12b17b80f8eb16fb392e05ef0c243d09931de8c3bfd",
+      "visits_3eb": 566,
+      "visits_3f8": 283
+    }
+  ]
+}
