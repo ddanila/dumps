@@ -341,8 +341,11 @@ phases B–C turn "what" into "how".
   with Q=0 and no selected D read or virtual output capture. Under current-flag
   timing, the loop exits after two D3F8 visits even with constant input;
   controller-lane traces match the constant control exactly. Treat these as
-  timing-specific results and try another plausible input/timing route rather
-  than treating the missing physical trace as a blocker.
+  timing-specific results. `3ED` and `1EA` are the same raw microword and
+  condition select, so a fixed condition circuit cannot assign them different
+  flag timings based on the word alone. Try another plausible mapping,
+  initial state or input route rather than treating the missing physical
+  trace as a blocker.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,

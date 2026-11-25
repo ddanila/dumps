@@ -7,7 +7,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE.parent/'assumed'), str(HERE)]
 
-from common import save
+from common import decode, load, save
 from controller_bit_dispatch import controller_stream
 from lower_i_d3f8_input import run_trace
 from lower_i_prom_data_route import mapping_for
@@ -58,6 +58,11 @@ def summarize(result, virtual_write_pcs):
 def run(out=HERE/'results/lower-i-exit-path.json'):
     _, base = fixture()
     mapping = mapping_for('!10.6', '11.2')
+    rows = decode(mapping, load())
+    shared_test = (rows[0x3ED], rows[0x1EA])
+    if (shared_test[0]['raw'] != shared_test[1]['raw'] or
+            shared_test[0]['select'] != shared_test[1]['select']):
+        raise ValueError('3ED and 1EA no longer share the same test word')
     _, bits = controller_stream()
     writes = {entry['pc'] for entry in base['io']['writes']}
     cases = {}
@@ -108,13 +113,16 @@ def run(out=HERE/'results/lower-i-exit-path.json'):
 
     paths = [Path(__file__), HERE/'lower_i_d3f8_input.py',
              HERE/'lower_i_prom_data_route.py', HERE/'controller_bit_dispatch.py',
-             HERE/'photo_controller_path.py', HERE.parent/'assumed/execute.py']
+             HERE/'photo_controller_path.py', HERE.parent/'assumed/execute.py',
+             HERE.parent/'assumed/common.py']
     report = dict(status='conditional 3EE exit and downstream timing comparison',
                   fixture=dict(mapping='I7/A0=!10.6, I0/A1=11.2, lower I6=11.0',
                                initial_q=5, d3f8_base_byte=1, pulse_visit=20,
                                controller_bits=len(bits), cycles=1580,
                                flag_timing=['previous', 'current'],
                                virtual_output_sites=sorted(f'{pc:03X}' for pc in writes)),
+                  shared_test_word=dict(pcs=['3ED', '1EA'], raw=shared_test[0]['raw'],
+                                        condition_select=shared_test[0]['select']),
                   cases=cases,
                   limitations=[
                       'PROM-to-Am2901 and D3F8 physical routes and both flag timings remain hypotheses.',

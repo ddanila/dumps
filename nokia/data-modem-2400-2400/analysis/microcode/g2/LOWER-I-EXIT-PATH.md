@@ -31,6 +31,14 @@ not reached the D3F8 site. Four virtual output captures occur on this path,
 but they provide no D3F8-dependent sample stream and are not identified
 DAC08 input writes.
 
+`3ED` and `1EA` are the **same raw PROM word** (`00 80 0A 20`) with the same
+condition select 0. A fixed condition circuit cannot choose previous flags at
+one word and current flags at the other merely from the instruction. In this
+fixture, previous timing permits input-sensitive dwell at `3ED` but repeats
+at `1EA` after Q=0; current timing releases `1EA` but leaves `3ED` before
+the offered bitstream arrives. This is a constraint on the present mapping,
+state and timing combination, not proof that the board uses either route.
+
 The [machine report](results/lower-i-exit-path.json) records the exit producer,
 branch test, return target, downstream PCs, tail state, virtual captures,
 trace digests and source hashes. The comparison identifies a conditional
