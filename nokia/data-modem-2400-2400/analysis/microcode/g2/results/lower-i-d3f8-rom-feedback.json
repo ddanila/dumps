@@ -1,0 +1,51 @@
+{
+  "fixture": {
+    "adc_byte": 89,
+    "altered_3f9_visit": 20,
+    "condition_select_0": "inverted previous sign",
+    "cycles": 4143,
+    "d3f8_visits": 512,
+    "upper_instruction": "FD via assumed U17 bit 6 to U8 I0"
+  },
+  "limitation": "ROM replay is a diagnostic intervention under untraced ADC, instruction, condition and output routes; no receive bit is identified.",
+  "real_rom_trace_digest": "77d21429f12120be5bb7e2fd799960975c750d76946c91b30dfd6f6ae884653b",
+  "replay_matches_real_trace": true,
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/lower_i_d3f8_input.py": "ec229ee4b12a5de53f12bec92a7bb7b97199c4c78b96f4b54c56e30c91fe4764",
+    "analysis/microcode/g2/lower_i_d3f8_rom_feedback.py": "8742e4f7fe3ee38d6575cc09d048a23b3b681bdc2fd3a43af03743ec7acd5cb1",
+    "analysis/microcode/g2/lower_i_d3f8_sign_adc.py": "fba55f4f61909d3da20ff54a70b924bd03d50c3ee7d383ef723c560f261d3c86",
+    "analysis/microcode/g2/lower_i_d3f8_upper_d_route.py": "e46262e47466866738baa43d382693f1580a5c79f15db70bdcb67ef4e98ab36b",
+    "analysis/microcode/g2/lower_i_prom_data_route.py": "5af8dad5ed34c54fa4bf976af99e859585e3b5efe54bcb191200d4823641f3e7",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "conditional 3F9 table-byte transfer and feedback",
+  "trials": {
+    "rom_d0": {
+      "d3f8_visits": 512,
+      "different_3f7_rom_addresses": 492,
+      "different_selected_rom_addresses": 492,
+      "different_state_boundaries": 491,
+      "first_state_difference_cycle": 208,
+      "original_byte": 11,
+      "replayed_byte": 10,
+      "same_pc_path": true,
+      "trace_digest": "590bd5eb03d99a576a66f2bc078c3c78d71b23d057aa1dfb5422a3d29fcec514"
+    },
+    "rom_d4": {
+      "d3f8_visits": 512,
+      "different_3f7_rom_addresses": 0,
+      "different_selected_rom_addresses": 0,
+      "different_state_boundaries": 0,
+      "first_state_difference_cycle": null,
+      "original_byte": 11,
+      "replayed_byte": 27,
+      "same_pc_path": true,
+      "trace_digest": "77d21429f12120be5bb7e2fd799960975c750d76946c91b30dfd6f6ae884653b"
+    }
+  },
+  "verified_rule": "3F9 low 15: Q_low=(PROM_low+~pre-RAM[A_low]_low+carry_in)&15; high ED: RAM[B_high]_high=(~PROM_high)&pre-RAM[A_high]_high"
+}

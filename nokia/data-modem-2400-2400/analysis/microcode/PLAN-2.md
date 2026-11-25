@@ -577,6 +577,14 @@ phases B–C turn "what" into "how".
   324/512 next ROM addresses with `FD`, versus none with baseline `FC`.
   Follow the table byte through the rest of the loop and test a constrained
   decision on independent streams; this is still conditional dataflow, not C3.
+  A [3F9 ROM-byte replay](g2/LOWER-I-D3F8-ROM-FEEDBACK.md) then verifies on
+  512 real-PROM visits that lower instruction `15` writes the table-derived
+  low nibble into Q and upper `ED` computes a masked high-nibble RAM write.
+  Replaying all fetched bytes reproduces the trace; toggling one ROM D0 bit
+  at visit 20 changes 491 subsequent state boundaries and 492 `3F7` lookup
+  addresses without changing the PC path. A ROM D4 toggle at that visit is
+  masked by the current high-slice state. This shows conditional lookup
+  feedback, while receive-bit identification and USART routing remain open.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
