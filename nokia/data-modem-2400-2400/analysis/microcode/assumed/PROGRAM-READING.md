@@ -66,6 +66,11 @@ The separate [cubic transition constraint](../g2/RECEIVER-MASK04-CUBIC-TRANSITIO
 uses two executed `3F8` visits per symbol and reduces the independent
 13-angle readout to one unknown decision in 611, with no wrong decisions.
 Its external Boolean relation and USART connection remain unverified.
+The [dual-feature consensus](../g2/RECEIVER-MASK04-DUAL-FEATURE-CONSENSUS.md)
+combines the two four-bit executed `3F8` captures and recovers all 611
+measurable dibits in the held-out 13-angle real-PROM run. The selector,
+previous-symbol storage and serial path remain external hypotheses rather
+than named microcode instructions.
 
 ## Earlier provisional names
 

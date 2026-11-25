@@ -135,6 +135,15 @@ unknowns in three new-seed PROM runs at 0°/75°/165° (0 errors, 0 unknown /
 logic and USART route stay open. Test another executed feature or visit
 and a complete serial handoff; do not promote this conditional readout to
 C3 or pause for missing continuity.
+The [dual-feature consensus](g2/RECEIVER-MASK04-DUAL-FEATURE-CONSENSUS.md)
+combines the two conflict-free four-bit captures from executed `3F8` Y
+at ADC visits 47 and 94. Replaying all 13 held-out 0°–180° real-PROM
+streams gives 0 wrong and 0 unknown among 611 decisions, with no
+disagreement where both readouts know a label. The alternative subset
+resolves the primary rule's `3C` gap without fitting that held-out answer.
+This is a conditional external consumer, not a traced Nokia decoder;
+test the latch/serial/USART handoff and new phase/data cases, keeping C3
+open without waiting for continuity.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase

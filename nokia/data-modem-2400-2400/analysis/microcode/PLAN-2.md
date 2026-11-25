@@ -1329,6 +1329,15 @@ phases B–C turn "what" into "how".
   141 decisions. Key `3C`, physical capture/logic, and RxD/RxC/SYNDET
   remain open; test richer executed state and the serial handoff, not a
   continuity prerequisite. This does not pass C3.
+  The [dual-feature consensus](g2/RECEIVER-MASK04-DUAL-FEATURE-CONSENSUS.md)
+  uses the other conflict-free four-bit subset as a fallback for the
+  cubic rule. A fresh four-angle PROM comparison finds complementary
+  unknown cases and no wrong decisions. Re-executing the 13 held-out
+  0°–180° streams produces 0/611 wrong or unknown decisions and no
+  conflicts between known labels; the alternative covers the remaining
+  `3C` case. Both tables, capture clocks and symbol memory remain external
+  hypotheses. Test serial timing and the USART receive path next; C3
+  remains open until that handoff is supported.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
