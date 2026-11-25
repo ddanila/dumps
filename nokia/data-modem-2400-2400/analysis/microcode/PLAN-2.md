@@ -120,6 +120,14 @@ phases B–C turn "what" into "how".
   the same `16F–1CF` bytes equally well and neither reproduces a quarter of
   the rounded values exactly. Do not identify this region as a pulse filter
   from shape alone; find its actual address sequence and arithmetic consumer.
+  The [q1/q2 D127 input screen](g2/PHOTO-127-12C-EXCLUSIVITY.md) tests one
+  such consumer route. With the fitted ROM gate changed to leave D127 as an
+  external input, only D127=`00` in q1 and five bytes in q2 enter PC12C ROM
+  feedback; the rest revisit D127. The real-controller scrambler bitstream
+  consumes one bit in forward order, or six in reverse, before the fixed
+  table loop. Neither case reaches candidate output `392`. This fixture
+  does not show controller-driven pulse shaping; pursue a different gate,
+  input route or retained-state path.
 
   The [D127 two-bank execution](g2/PHOTO-127-BANK-COMPARE.md) tests the
   tempting 16-point-sine path directly: lower-bank reads leave addresses

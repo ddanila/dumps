@@ -1,0 +1,224 @@
+{
+  "cases": [
+    {
+      "controller_streams": [
+        {
+          "controller_bits_available": 128,
+          "controller_bits_consumed": 1,
+          "distinct_rom_addresses": 28,
+          "final_pc": "12D",
+          "first_inputs": [
+            0
+          ],
+          "first_rom_addresses": [
+            511,
+            268,
+            294,
+            359,
+            271,
+            303,
+            373,
+            509,
+            335,
+            280,
+            328,
+            286
+          ],
+          "input_127": 1,
+          "order": "forward",
+          "output_392": 0,
+          "rom_12c": 500,
+          "selected_rom_reads": 500,
+          "trace_digest": "e3eed4a3307c51095883b809bddfdb27dbbc151152a39df666df608688de8fd3"
+        },
+        {
+          "controller_bits_available": 128,
+          "controller_bits_consumed": 6,
+          "distinct_rom_addresses": 28,
+          "final_pc": "12D",
+          "first_inputs": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "first_rom_addresses": [
+            511,
+            268,
+            294,
+            359,
+            271,
+            303,
+            373,
+            509,
+            335,
+            280,
+            328,
+            286
+          ],
+          "input_127": 6,
+          "order": "reverse",
+          "output_392": 0,
+          "rom_12c": 495,
+          "selected_rom_reads": 495,
+          "trace_digest": "f9001be34c0df5c28e14df9333286f10b834a2c9b563cd9ed40dddfc9c0b47e3"
+        }
+      ],
+      "held_byte_sweep": {
+        "input_visit_histogram": {
+          "1": 1,
+          "118": 255
+        },
+        "output_visits": 0,
+        "runs": 256,
+        "table_entry_bytes": [
+          0
+        ],
+        "table_visit_histogram": {
+          "0": 255,
+          "116": 1
+        }
+      },
+      "mapping": "q1"
+    },
+    {
+      "controller_streams": [
+        {
+          "controller_bits_available": 128,
+          "controller_bits_consumed": 1,
+          "distinct_rom_addresses": 8,
+          "final_pc": "12D",
+          "first_inputs": [
+            0
+          ],
+          "first_rom_addresses": [
+            510,
+            311,
+            352,
+            507,
+            281,
+            465,
+            272,
+            269,
+            272,
+            269,
+            272,
+            269
+          ],
+          "input_127": 1,
+          "order": "forward",
+          "output_392": 0,
+          "rom_12c": 500,
+          "selected_rom_reads": 500,
+          "trace_digest": "00642dcedc87f1d485b520a8da1255cd4c314feef03bafbd9604b87ab4a32ef1"
+        },
+        {
+          "controller_bits_available": 128,
+          "controller_bits_consumed": 6,
+          "distinct_rom_addresses": 8,
+          "final_pc": "12D",
+          "first_inputs": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "first_rom_addresses": [
+            510,
+            311,
+            352,
+            507,
+            281,
+            465,
+            272,
+            269,
+            272,
+            269,
+            272,
+            269
+          ],
+          "input_127": 6,
+          "order": "reverse",
+          "output_392": 0,
+          "rom_12c": 495,
+          "selected_rom_reads": 495,
+          "trace_digest": "4f84aa6b1975c917fac7c4106331de98b03cd70a4b3ad35fdb22c7a8ada8becf"
+        }
+      ],
+      "held_byte_sweep": {
+        "input_visit_histogram": {
+          "1": 5,
+          "118": 251
+        },
+        "output_visits": 0,
+        "runs": 256,
+        "table_entry_bytes": [
+          0,
+          119,
+          183,
+          184,
+          185
+        ],
+        "table_visit_histogram": {
+          "0": 251,
+          "116": 5
+        }
+      },
+      "mapping": "q2"
+    }
+  ],
+  "fixture": {
+    "controller_cycles": 2048,
+    "external_input_pc": "127",
+    "held_byte_cycles": 512,
+    "initial_q": 0,
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mapping_names": [
+      "q1",
+      "q2"
+    ],
+    "rom_gate": "first fit selecting PC127, with PC127 removed",
+    "selected_rom_pc": "12C"
+  },
+  "limitations": [
+    "Removing PC127 from the fitted ROM gate is a wiring hypothesis, not a traced decoder.",
+    "The q1/q2 A2/A3 choices are photo candidates, not recovered Am2901 fields.",
+    "Only Q=0, zero RAM, one gate and two mappings are tested.",
+    "The controller source is a scrambler bitstream, not a full modem command or a traced DSC input.",
+    "ROM feedback at 12C is not a demonstrated pulse filter or DAC output."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "03561a0a6c05cbe20332910f9e199f4d05db7e72cea89e24b09377e6a158b09a",
+    "analysis/microcode/assumed/results/rom-gate-study/report.json": "922e7dd46484646faae167fa89f95a67c3f9a8812533a7850e2068746d998987",
+    "analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "analysis/microcode/g2/photo_127_12c_exclusivity.py": "efdf98e579113376c3fda005c7220da29867ee5005ad0533fd82fa6878a8c711",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_variant_rom_loop.py": "2a276ba4e218e77b9bcd0840cf558b900be5f70a3b29610f0c64d4850d23a0c3",
+    "analysis/microcode/g2/results/photo-b-constraints/q1-photo-swapped.json": "73d1121385d20a419ab06329004b7d15fec18fb7ee42fee95d11c43685c97cbe",
+    "analysis/microcode/g2/results/photo-b-constraints/q2-photo-swapped.json": "18c85f7921c473054bb73bb8bbca2d99519e9fc710ae06a23809ea59b5ae43b2",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "diagnostic D127/table-path exclusivity; no modem output"
+}
