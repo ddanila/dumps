@@ -503,9 +503,18 @@ phases B–C turn "what" into "how".
   from visit 188 and reach 745 selected visits, yet differ through visit
   744, including 1,034/1,112 later ROM-address events. This is persistent
   internal input history under a labelled D3F8 mapping, not a decoded ADC
-  waveform or USART receive bit. Next use a continuous complementary ADC
-  sample stream with an explicit D0 bias/mapping and a phase or time-reversed
-  control; keep C3 open.
+  waveform or USART receive bit. The [ADC-bit decoder screen and order
+  witness](g2/LOWER-I-D3F8-ADC-DECODER.md) now feed 32 consecutive reference
+  complementary ADC codes through explicit two-level D3F8 hypotheses with
+  188/187-visit sample holds. Eight of 112 bit/polarity/code-pair cases reach
+  all 6,000 visits. In detailed `03/05` tests, bits 0 and 4 select all 6,750
+  input visits and retain different state at all 750 visits of an identical
+  four-sample tail after the earlier waveform is reversed; bit 6 selects the
+  same number but loses the order difference. The changed later ROM addresses
+  and ALU Y values are conditional receive-side leads, not recovered bits.
+  Next seek a decision event correlated with known dibits across distinct
+  symbol sequences and phases, and trace the candidate receive output;
+  keep C3 open without blocking on the untraced ADC bus.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
