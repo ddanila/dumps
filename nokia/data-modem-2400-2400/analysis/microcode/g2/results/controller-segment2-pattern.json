@@ -1,0 +1,294 @@
+{
+  "exact_64_bit_windows": [
+    {
+      "bit_order": "lsb_first",
+      "polynomial": "GPC",
+      "selector": "40",
+      "start_bit": 1
+    },
+    {
+      "bit_order": "lsb_first",
+      "polynomial": "GPC",
+      "selector": "40",
+      "start_bit": 321
+    },
+    {
+      "bit_order": "lsb_first",
+      "polynomial": "GPA",
+      "selector": "60",
+      "start_bit": 1
+    },
+    {
+      "bit_order": "lsb_first",
+      "polynomial": "GPA",
+      "selector": "60",
+      "start_bit": 321
+    }
+  ],
+  "fixture": "Unchanged 8031 ROM, 64 polling iterations per selector, with forced timer expiry, ready status and received selector bytes as in main-loop-long.json",
+  "limitations": [
+    "The exact match identifies the controller-generated digital synchronization pattern under this fixture; it does not prove a DAC or analog line waveform.",
+    "The 64-bit match starts at bit 1 of the first A4 byte and takes its final bit from the first A5 byte. Physical symbol timing and the cause of that offset remain unmeasured.",
+    "The first 38 target bits are transcribed from Table 3; the remaining 26 are predicted by the published recurrence, not copied from a full printed table.",
+    "Port-01 routing to the DSC2847 and the natural-duration state schedule remain untraced."
+  ],
+  "rows": [
+    {
+      "a4_windows": [],
+      "best_by_polynomial_and_order": [
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 328,
+          "matching_bits": 50,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 2,
+          "first_start_bit": 42,
+          "matching_bits": 43,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 9,
+          "matching_bits": 46,
+          "polynomial": "GPA"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 7,
+          "first_start_bit": 66,
+          "matching_bits": 42,
+          "polynomial": "GPA"
+        }
+      ],
+      "port01_bytes": 60,
+      "selector": "00"
+    },
+    {
+      "a4_windows": [],
+      "best_by_polynomial_and_order": [
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 399,
+          "matching_bits": 43,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 400,
+          "matching_bits": 42,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 412,
+          "matching_bits": 44,
+          "polynomial": "GPA"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 375,
+          "matching_bits": 45,
+          "polynomial": "GPA"
+        }
+      ],
+      "port01_bytes": 60,
+      "selector": "20"
+    },
+    {
+      "a4_windows": [
+        {
+          "bytes": [
+            "F9",
+            "07",
+            "F8",
+            "1C",
+            "1C",
+            "F0",
+            "81",
+            "31",
+            "FC"
+          ],
+          "first_iteration": 6
+        },
+        {
+          "bytes": [
+            "F9",
+            "07",
+            "F8",
+            "1C",
+            "1C",
+            "F0",
+            "81",
+            "31",
+            "FC"
+          ],
+          "first_iteration": 50
+        }
+      ],
+      "best_by_polynomial_and_order": [
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 2,
+          "first_start_bit": 1,
+          "matching_bits": 64,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 314,
+          "matching_bits": 46,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 2,
+          "first_start_bit": 1,
+          "matching_bits": 50,
+          "polynomial": "GPA"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 315,
+          "matching_bits": 44,
+          "polynomial": "GPA"
+        }
+      ],
+      "port01_bytes": 54,
+      "selector": "40"
+    },
+    {
+      "a4_windows": [
+        {
+          "bytes": [
+            "F8",
+            "07",
+            "F8",
+            "9C",
+            "0F",
+            "C2",
+            "09",
+            "D9",
+            "D9"
+          ],
+          "first_iteration": 6
+        },
+        {
+          "bytes": [
+            "F8",
+            "07",
+            "F8",
+            "9C",
+            "0F",
+            "C2",
+            "09",
+            "D9",
+            "D9"
+          ],
+          "first_iteration": 50
+        }
+      ],
+      "best_by_polynomial_and_order": [
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 2,
+          "first_start_bit": 1,
+          "matching_bits": 50,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 315,
+          "matching_bits": 45,
+          "polynomial": "GPC"
+        },
+        {
+          "bit_order": "lsb_first",
+          "equally_best_windows": 2,
+          "first_start_bit": 1,
+          "matching_bits": 64,
+          "polynomial": "GPA"
+        },
+        {
+          "bit_order": "msb_first",
+          "equally_best_windows": 1,
+          "first_start_bit": 314,
+          "matching_bits": 44,
+          "polynomial": "GPA"
+        }
+      ],
+      "port01_bytes": 54,
+      "selector": "60"
+    }
+  ],
+  "source_sha256": {
+    "analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
+    "analysis/microcode/g2/controller_segment2_pattern.py": "3a547b9b4104fa940ec835dc13c1a2e4b624def72164107720bcb0b56b62ecf9",
+    "analysis/microcode/g2/results/main-loop-long.json": "fce0c72f99791de8d855cbaa2711f190edd3a99431c92273648ea2f8b64e0403"
+  },
+  "standard": {
+    "extension": "After the 19 printed dibits, apply Appendix I self-synchronizing scrambler to input ones, using taps 18/23 for GPC and 5/23 for GPA.",
+    "full_64_bits": {
+      "GPA": "0011111111000000001111100111001111100000100001110010000100110111",
+      "GPC": "0011111111000000001111100111000001110000000111110000001100011000"
+    },
+    "recommendation": "ITU-T V.26 ter (11/1988), Table 1, Table 3 and Appendix I",
+    "table3_printed_phase_prefix": {
+      "GPA": [
+        0,
+        180,
+        180,
+        180,
+        180,
+        0,
+        0,
+        0,
+        0,
+        180,
+        180,
+        270,
+        90,
+        180,
+        0,
+        180,
+        180,
+        270,
+        0
+      ],
+      "GPC": [
+        0,
+        180,
+        180,
+        180,
+        180,
+        0,
+        0,
+        0,
+        0,
+        180,
+        180,
+        270,
+        90,
+        180,
+        0,
+        0,
+        90,
+        180,
+        0
+      ]
+    },
+    "url": "https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I%21%21PDF-E&lang=e&type=items"
+  },
+  "status": "two controller A4 blocks per selector exactly match the 64-bit V.26 ter segment-2 pattern under the executed scrambler choice"
+}

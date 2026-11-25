@@ -26,6 +26,11 @@ The [direct-stream screen](CONTROLLER-SEGMENT1-STREAM-SCREEN.md) now checks
 both serial bit orders and both dibit alignments across the full recorded
 streams; no identical-dibit run exceeds six symbols. This excludes a direct
 32-symbol segment-1 source under those tested groupings.
+The [segment-2 comparison](CONTROLLER-SEGMENT2-PATTERN.md) finds an exact
+64-bit V.26 ter scrambled-ones pattern in each of the two A4 blocks for both
+selector `40` (GPC) and `60` (GPA), beginning at the second bit of A4's
+first port-01 byte. That is a positive digital synchronization signature,
+not a measured line waveform.
 
 This fixture starts at A0 with specified RAM and USART-ready responses, injects
 the same seven receive bytes on every polling pass, and forces timer17's high

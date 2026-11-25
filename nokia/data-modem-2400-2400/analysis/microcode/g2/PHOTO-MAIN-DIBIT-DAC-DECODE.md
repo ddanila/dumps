@@ -59,6 +59,14 @@ constrain the latch data/clock from the photos and test segment-1 reversals;
 keep alternative output and shaping paths live, especially for the selector
 `20` spectrum mismatch.
 
+The saved dibit labels use the first serial bit as the **low** numeric digit.
+V.26 ter defines the first bit as the **left** digit, so the near-perfect
+count here is not a standard bit-order check. The later
+[A4 segment-2 calibration](PHOTO-SEGMENT2-STANDARD-CALIBRATION.md) runs
+actual standard-pattern bits through both candidate two-lane assignments;
+swapping the lanes gives zero standard-labelled errors in 30 aligned
+decisions for each of GPC and GPA across the 12 surviving DAC buses.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_dac_decode.py
 ```

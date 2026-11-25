@@ -80,6 +80,15 @@ phases B–C turn "what" into "how".
   - *Done when* every V.26 ter operating-sequence step has an identified state,
     or a contradiction rules out V.26 ter (then retest against pre-standard
     variants and V.26 4-wire).
+  The [A4 pattern comparison](g2/CONTROLLER-SEGMENT2-PATTERN.md) now gives a
+  strong state-specific witness: on the `40`/`60` branches, two A4 blocks in
+  each unchanged-8031 run contain the exact 64-bit V.26 ter segment-2 GPC/GPA
+  pattern, starting at bit 1 of the first A4 port-01 byte and taking the last
+  bit from the first A5 byte. Table 3's printed 38-bit prefix and Appendix
+  I's scrambler recurrence independently predict all 64 bits. No other exact
+  window occurs in the four 64-iteration streams. A4 is therefore a strong
+  digital segment-2 candidate; the one-bit boundary, natural timing and line
+  output remain unresolved, so A1's full state map is not complete.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading
@@ -771,6 +780,18 @@ phases B–C turn "what" into "how".
   This narrows the direct-port-01 hypothesis only; the pre-scrambler source,
   DSP-side generation/descrambling, state commands and untested timings stay
   open.
+  The [standard-pattern PROM calibration](g2/PHOTO-SEGMENT2-STANDARD-CALIBRATION.md)
+  then drives the real A4/A5 64-bit GPC and GPA streams through two candidate
+  four-visit D127 pulse-lane orders. Four 384,256-word PROM runs check 96,054
+  PC129 ROM/ALU events each. Exchanging the two serial-bit lanes yields zero
+  errors in 30 aligned **standard-labelled** phase decisions for each pattern
+  on all 12 surviving DAC buses; the original lane order gives 6/8 errors.
+  This corrects the earlier first-bit-low numeric dibit convention: its
+  104-decision zero-error screen was not itself a V.26 ter bit-order check.
+  The controller supplies a real standard synchronization pattern, and the
+  candidate DSC path can modulate it with an explicit lane swap, but the
+  pulse circuit, DAC latch, full bus, line output and natural schedule are
+  still assumptions. C2 is not yet passed.
   Seek the actual segment-1 source or an independently supported control
   route without treating unknown nets as a blocker.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)

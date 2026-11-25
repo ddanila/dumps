@@ -191,7 +191,12 @@ of its five other simple orders. The later
 orders among all 5,040 photo-B5-compatible permutations, so that byte order
 is not unique. This supports conditional phase information, but
 the pulse gate, latch clock, line route and DSC receive/echo path remain
-unverified. The
+unverified. The original dibit score uses first-serial-bit-low numeric
+labels; the later [standard segment-2 calibration](g2/PHOTO-SEGMENT2-STANDARD-CALIBRATION.md)
+finds that exchanging the candidate two-bit pulse lanes gives zero
+standard-labelled phase errors for the controller's exact GPC/GPA pattern.
+This is a stronger conditional synchronization result, not a traced line
+output. The
 [joint state/data bus check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows
 that the separate A1 2,100 Hz and main-frame 1,800 Hz bit-swap leads cannot
 share one fixed chip-1 pin permutation, even with fixed inversions. Test

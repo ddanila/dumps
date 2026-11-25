@@ -30,6 +30,14 @@ The earlier Q4/Q5 swap is `[0, 1, 2, 4, 3, 5, 6, 7]`. Both satisfy the
 photo-suggested input bit 4→DAC code bit 3 (DAC B5). The 12 perfect-decision
 orders also beat the earlier swap on the same reference-correlation metric.
 
+These 104 decisions use the earlier **first-serial-bit-low** numeric dibit
+labels. The [segment-2 calibration](PHOTO-SEGMENT2-STANDARD-CALIBRATION.md)
+checks the standard's first-bit-left phase labels explicitly: the unchanged
+two-lane assignment makes 6 or 8 errors in the 30 aligned GPC/GPA decisions,
+whereas exchanging the two proposed pulse lanes gives zero errors for all
+12 buses. Thus “perfect decisions” in this table means perfect under the
+original internal labeling, not proof of the physical V.26 ter bit order.
+
 This corrects the interpretation of the six-order result: the near-perfect
 dibit decoding is strong evidence for **conditional differential phase
 information** in the candidate ROM output, but it does **not** identify a

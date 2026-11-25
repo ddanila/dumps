@@ -19,6 +19,13 @@ width in that set giving all four quarter-cycle phase offsets. In 256-step
 phase-index units, dibits `00`, `01`, `10`, `11` produce `00`, `C0`, `40`,
 `80`: the negative-phase orientation of the [reference model's](reference_modem.py)
 `00`, `40`, `C0`, `80` Gray order. The physical phase orientation is unverified.
+Here `b0` is the **first serial bit**, and the saved numeric dibit is
+`b0 + 2×b1`. V.26 ter instead writes that first bit as the **left** dibit
+digit. The [segment-2 standard calibration](PHOTO-SEGMENT2-STANDARD-CALIBRATION.md)
+shows that exchanging the two candidate D127 bit lanes is needed for the
+surviving DAC buses to decode the controller's A4 pattern with the standard
+90°/270° assignments. The original run's internal dibit labels should not
+be read as V.26 ter labels.
 
 The unchanged DSC PROMs then run through **every dibit** in each of the four
 recorded controller USART streams: 32 dibits in classes `00`/`20` and 24 in

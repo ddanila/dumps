@@ -23,3 +23,8 @@ pattern internally, and other controller states remain possible. The
 synthetic timer and serial events do not establish a natural operating
 sequence or the physical port-01 destination. The [machine report](results/controller-segment1-stream-screen.json)
 records all 16 bit-order/alignment cases and source hashes.
+
+The same A4 bytes **do** match the standard's different, scrambled
+[segment-2 pattern](CONTROLLER-SEGMENT2-PATTERN.md). That positive match
+helps distinguish the two synchronization segments; it does not turn the
+scrambled A4 bytes into segment 1.
