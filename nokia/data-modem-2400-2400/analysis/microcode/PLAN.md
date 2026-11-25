@@ -579,6 +579,13 @@ finds that 90°/180° rotations preserve 0/12 dibits per stream, while
 all eight waveforms. Seek an executed carrier-phase adjustment or a
 photo-compatible tracking/decision route; keep the fixed Boolean readout
 conditional and C3 open.
+The [initial-state phase screen](g2/RECEIVER-MASK04-PHASE-SEED-SCREEN.md)
+shows that only Q=`5` among four tested seeds reaches the mask-`04`
+receiver. With Q=`5`, R5=`40/80/C0` changes captured bytes but does not
+decode the 45° input at any of 375 capture visits. Treat Q as an entry
+selector under this fixture, and test a live phase-control input or
+photo-compatible row-0 latch rather than assuming an initial seed repairs
+the fixed decoder.
 The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
 also fails to decode the captured Y[3:0] as a fixed-phase differential
 symbol across independent streams. Keep the conditional latch experiment,

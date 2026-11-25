@@ -1,0 +1,140 @@
+{
+  "cases": [
+    {
+      "executed_initial_q": 0,
+      "executed_initial_r5": 0,
+      "final_pc": "12A",
+      "initial_value": 0,
+      "receiver_adc_visits": 0,
+      "receiver_output_visits": 0,
+      "receiver_reached": false,
+      "seed_role": "Q",
+      "trace_digest": "4e6c95aafcc7eaaf8a599de8aceaf3fd68910c7d5c884b4dced3ed68b9fd0616"
+    },
+    {
+      "captured_sha256": "1780b8b7a8fae221a3a52d3811b49bd0bb86ee5f266d9c9056b666a8393b34c7",
+      "executed_initial_q": 5,
+      "executed_initial_r5": 0,
+      "final_pc": "3F0",
+      "fixed_phase_errors": 10,
+      "initial_value": 5,
+      "min_errors_over_capture_phase": 2,
+      "receiver_adc_visits": 6000,
+      "receiver_output_visits": 24000,
+      "receiver_reached": true,
+      "seed_role": "Q",
+      "trace_digest": "82286e34703a324fc4323221662836047c25e2bc30f0cfc64040fb61a6b3b2a4",
+      "zero_error_phase_count": 0
+    },
+    {
+      "executed_initial_q": 10,
+      "executed_initial_r5": 0,
+      "final_pc": "084",
+      "initial_value": 10,
+      "receiver_adc_visits": 0,
+      "receiver_output_visits": 0,
+      "receiver_reached": false,
+      "seed_role": "Q",
+      "trace_digest": "9be9879358a4d5f6f9a3e055a1fc4f82b8d938e14397febe5be910b9f103ef53"
+    },
+    {
+      "executed_initial_q": 15,
+      "executed_initial_r5": 0,
+      "final_pc": "1E9",
+      "initial_value": 15,
+      "receiver_adc_visits": 0,
+      "receiver_output_visits": 0,
+      "receiver_reached": false,
+      "seed_role": "Q",
+      "trace_digest": "88c9f516f3a1da059ff35c1ae6de6c09104443b96b7498b3c0ed2c9120cb090d"
+    },
+    {
+      "captured_sha256": "7e529f582185b0e5d111d6f758e82ce0f7329e4a7070c0dabf93027889656741",
+      "executed_initial_q": 5,
+      "executed_initial_r5": 64,
+      "final_pc": "3F0",
+      "fixed_phase_errors": 7,
+      "initial_value": 64,
+      "min_errors_over_capture_phase": 6,
+      "receiver_adc_visits": 6000,
+      "receiver_output_visits": 24000,
+      "receiver_reached": true,
+      "seed_role": "R5",
+      "trace_digest": "329d879d27ffd9756da6e0a53328c4e44424f635b9423958f4260aa1e948e033",
+      "zero_error_phase_count": 0
+    },
+    {
+      "captured_sha256": "72e62f75367f07b5edcc562cc460a809798f91277518994097f64f66944ffced",
+      "executed_initial_q": 5,
+      "executed_initial_r5": 128,
+      "final_pc": "3F0",
+      "fixed_phase_errors": 9,
+      "initial_value": 128,
+      "min_errors_over_capture_phase": 6,
+      "receiver_adc_visits": 6000,
+      "receiver_output_visits": 24000,
+      "receiver_reached": true,
+      "seed_role": "R5",
+      "trace_digest": "50daafea45654440d80a06257538d938aa952fc708937af8ba6231188df96c47",
+      "zero_error_phase_count": 0
+    },
+    {
+      "captured_sha256": "8fab48372ebf8205a717b476d17dddc8788282ad9666598d249de9767a16c693",
+      "executed_initial_q": 5,
+      "executed_initial_r5": 192,
+      "final_pc": "3F0",
+      "fixed_phase_errors": 9,
+      "initial_value": 192,
+      "min_errors_over_capture_phase": 6,
+      "receiver_adc_visits": 6000,
+      "receiver_output_visits": 24000,
+      "receiver_reached": true,
+      "seed_role": "R5",
+      "trace_digest": "e990da70741145db95368f175973acafe1102f3ed5247aa392dd4a6914a49f76",
+      "zero_error_phase_count": 0
+    }
+  ],
+  "experiment": "initial Q/R5 carrier-phase seed screen under fixed mask-04 receive fixture",
+  "fixture": {
+    "base_initial_r5": 0,
+    "capture_phases": 375,
+    "carrier_phase_degrees": 45,
+    "dibit_seed": 23063,
+    "fixed_capture_phase": 47,
+    "initial_q_values": [
+      0,
+      5,
+      10,
+      15
+    ],
+    "initial_r5_values": [
+      0,
+      64,
+      128,
+      192
+    ],
+    "scenario_default_q": 5
+  },
+  "limitations": [
+    "Initial Q is an entry selector in this fixture; other values do not reach the receive loop, so they do not test an in-loop phase adjustment.",
+    "Only initial state is varied; a time-varying carrier-control input is not tested.",
+    "These four R5 values and four Q values do not exhaust register seeds.",
+    "The Boolean decision circuit and physical USART RxD route remain untraced."
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/receiver_mask04_3ed_prom_latch.py": "105ea21dd5061074aaa66453d82821a5961722ef008f91354c98ab5502befa72",
+    "analysis/microcode/g2/receiver_mask04_carrier_phase_screen.py": "c8e9524f385d07a4016fce6959ca4393f0ccb9d7a0212c86729db3ae5c5e5264",
+    "analysis/microcode/g2/receiver_mask04_phase47_logic.py": "6964217edb29bbc34394ed5f6628089ca05c1b04e2ecb31bef012902c5fbaea3",
+    "analysis/microcode/g2/receiver_mask04_phase_seed_screen.py": "bfcf698fa74d6266fbfc13c89fe9876244b5a7fee4d97913f6552f90eac75ed6",
+    "analysis/microcode/g2/receiver_mask04_rowpair_phase_code.py": "c69e2637d54d3e6e3bc105fa9746172d06cf42d333e062cee66d7af4b97e40a2",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/receiver-mask04-carrier-phase-screen.json": "078d03da3ad55f4c763fe6468850293552a789a9da7f971e09520c12c5c6a9cf",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

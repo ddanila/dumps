@@ -33,3 +33,7 @@ or a photo-compatible carrier-tracking gate, then rerun these same phase
 rotations through that candidate. C3 and G2 remain open. Reproduce from
 the microcode directory with
 `python3 g2/receiver_mask04_carrier_phase_screen.py`.
+The [initial-state follow-up](RECEIVER-MASK04-PHASE-SEED-SCREEN.md) finds
+that alternate initial Q values leave this receive path, while three
+different R5 seeds do not remove the 45° errors. This keeps the search
+on a dynamic phase-control or output-consumer route.

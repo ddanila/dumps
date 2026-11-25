@@ -1192,6 +1192,13 @@ phases B–C turn "what" into "how".
   reference receiver decodes all of them. Find an executed phase-tracking
   or photo-compatible decision route and retest; this readout alone does
   not pass C3 or block G2.
+  The [phase-seed screen](g2/RECEIVER-MASK04-PHASE-SEED-SCREEN.md) then
+  varies final-scenario Q and R5 on a 45° carrier trace. Q=`0/10/15`
+  never reaches the receive loop; Q=`5` does. Three alternate R5 seeds
+  change the captured output but leave at least 6/12 dibit errors after
+  all 375 capture visits are considered. Initial Q is an entry choice
+  here, not a demonstrated carrier-phase control. Test a dynamic input
+  or photo-compatible row latch/output consumer next; C3 stays open.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
