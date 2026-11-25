@@ -20,18 +20,19 @@ sample hash match the prior independent replay.
 
 | `k` | Microinstruction rate | Edge gaps per sample | Late A1 raw-code peak | Filtered A3/A4 dibit errors |
 | ---: | ---: | ---: | ---: | ---: |
-| 1 | 14.4 MHz | 375 | 2,100 Hz | 0/63, all six buses |
-| 2 | 7.2 MHz | 187/188 | 1,050 Hz | 33–37/63 |
-| 3 | 4.8 MHz | 125 | 1,800 Hz | 21/63 |
-| 4 | 3.6 MHz | 93/94 | 1,350 Hz | 43–45/63 |
+| 1 | 14.4 MHz | 375 | 2,100 Hz | 0/62, all six buses |
+| 2 | 7.2 MHz | 187/188 | 1,050 Hz | 33–37/62 |
+| 3 | 4.8 MHz | 125 | 1,800 Hz | 21/62 |
+| 4 | 3.6 MHz | 93/94 | 1,350 Hz | 43–45/62 |
 
 The 1,800 Hz peak at `k=3` is the dominant spectral component of the *raw
 candidate code* under this altered clock; it does not restore the expected
 A1 2,100 Hz tone or the A3/A4 data decisions. The data screen applies the
 same assumed A2 mid-code gate and fixed 1,950 Hz, Q=1 bandpass as the prior
 joined replay, then uses its fixed differential-decision phase. There are
-63 decisions for 64 A3/A4 input dibits because the first symbol is the
-differential reference.
+62 decisions for 64 A3/A4 input dibits: the fixed six-sample alignment
+discards an incomplete final symbol, and the first remaining symbol is
+the differential reference.
 
 Thus `k=1` is the only tested divisor consistent with both tone and data
 *under this D127 phase-step, pulse-width, sample-clock and analog fixture*.

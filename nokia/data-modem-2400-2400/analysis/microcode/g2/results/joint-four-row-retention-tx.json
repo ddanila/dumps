@@ -1,0 +1,651 @@
+{
+  "experiment": "nearby fixed-map receive retention and controller-driven TX",
+  "fixture": {
+    "masks": [
+      4,
+      6,
+      8,
+      10,
+      14
+    ],
+    "output": "Y129 every 375 visits, six candidate DAC buses and fixed bandpass",
+    "receive": "four-row [0,1,2,3], previous inverted overflow, two 32-sample ADC waveforms",
+    "transmit": "full controller A1/A2/A3/A4 stimulus, selector 40 and 60, D127 pulse fixture",
+    "upper_source": "joint inverted U17 D5 I0/I7"
+  },
+  "limitations": [
+    "The five field maps are local wiring hypotheses, not established board connections.",
+    "Receive retention is state sensitivity, not a recovered bit or echo cancellation.",
+    "DAC bus, latch, analog response, controller-to-DSC gate and USART paths remain assumed."
+  ],
+  "receive": [
+    {
+      "adc_rom_address_differences": 1312,
+      "adc_y_differences": 1312,
+      "after_adc_row": {
+        "any_byte_differences": 1312,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1312,
+          1124,
+          0,
+          0,
+          0,
+          1312
+        ],
+        "visits": 1500
+      },
+      "after_fourth_row": {
+        "any_byte_differences": 1312,
+        "byte_differences": [
+          0,
+          1312,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          563,
+          0,
+          0,
+          0,
+          1171
+        ],
+        "visits": 1500
+      },
+      "loop_test_differences": 0,
+      "mask": 4,
+      "same_pc_path": true,
+      "trace_digests": [
+        "cbcdf88ce815680b7b6d7dd891650fbab597e07aa7167ecb797a37b125a545d4",
+        "0c15686a7b4f54b522a7b34d95a3183a23dbff6b3f401c47668e23c4d554b5a8"
+      ],
+      "wrapper_test_differences": 234
+    },
+    {
+      "adc_rom_address_differences": 1312,
+      "adc_y_differences": 1312,
+      "after_adc_row": {
+        "any_byte_differences": 1312,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1312,
+          1124,
+          421,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "after_fourth_row": {
+        "any_byte_differences": 0,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "loop_test_differences": 0,
+      "mask": 6,
+      "same_pc_path": true,
+      "trace_digests": [
+        "efa978347e9a7f6ed628fa355955362e835c0a8ac1a1079ac5524bacff301ec3",
+        "ba3e40a7349d1e3ad16000b947135586255161eb93e42e6437db8a9153e8d0e5"
+      ],
+      "wrapper_test_differences": 0
+    },
+    {
+      "adc_rom_address_differences": 1359,
+      "adc_y_differences": 1359,
+      "after_adc_row": {
+        "any_byte_differences": 1359,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1359,
+          1135,
+          42,
+          0,
+          0,
+          1253
+        ],
+        "visits": 1500
+      },
+      "after_fourth_row": {
+        "any_byte_differences": 0,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "loop_test_differences": 0,
+      "mask": 8,
+      "same_pc_path": true,
+      "trace_digests": [
+        "b765d06ef12089970e96275eed427c2b52382721b44f900c76b7ab3084f59559",
+        "fd0b6f5426507044f8bf84a1be991f4b14979195e05ce81406df1aa69973ea74"
+      ],
+      "wrapper_test_differences": 0
+    },
+    {
+      "adc_rom_address_differences": 1359,
+      "adc_y_differences": 1359,
+      "after_adc_row": {
+        "any_byte_differences": 1359,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1359,
+          984,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "after_fourth_row": {
+        "any_byte_differences": 0,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "loop_test_differences": 0,
+      "mask": 10,
+      "same_pc_path": true,
+      "trace_digests": [
+        "9564dabc09098d7796d3249a6e2fc467f3992a83ba2c0807b58e1756d709d849",
+        "5e6f42adbfe75b5b58ba8ac518770895f0c90c922a4c222e3e9f8ad5006ba169"
+      ],
+      "wrapper_test_differences": 0
+    },
+    {
+      "adc_rom_address_differences": 1312,
+      "adc_y_differences": 1312,
+      "after_adc_row": {
+        "any_byte_differences": 1312,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1312,
+          1124,
+          421,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "after_fourth_row": {
+        "any_byte_differences": 0,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "loop_test_differences": 0,
+      "mask": 14,
+      "same_pc_path": true,
+      "trace_digests": [
+        "9e57095bd8541458c37345d16f95ec2405b167871eceeddd6b70d2d50e5f4f67",
+        "9fc4b440124e526b7ccf07b3607abb54ae535a316dc80f060ccadac984e138c7"
+      ],
+      "wrapper_test_differences": 0
+    }
+  ],
+  "receive_validation": [
+    {
+      "after_fourth_row_differences": 4547,
+      "middle": [
+        1,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        3,
+        3,
+        2,
+        0,
+        3
+      ],
+      "seed": 10311,
+      "trace_digest": "2593974687204c5e1af3d0a84f340f5d4b408d3851efea5e44036bbd3bf19ed9",
+      "visits": 6000
+    },
+    {
+      "after_fourth_row_differences": 4780,
+      "middle": [
+        1,
+        0,
+        2,
+        3,
+        1,
+        1,
+        3,
+        2,
+        2,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1
+      ],
+      "seed": 13655,
+      "trace_digest": "d686886a849821ebfbfd620935dee8d9b96d21db4431036dfe9dc19daeecf51a",
+      "visits": 6000
+    },
+    {
+      "after_fourth_row_differences": 3701,
+      "middle": [
+        3,
+        3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        1,
+        1,
+        0,
+        3,
+        3,
+        1,
+        0,
+        1
+      ],
+      "seed": 13656,
+      "trace_digest": "f45e7aa3c6db2da29d3a6c395326391cfa8f18a3669189d3a13981b2b86e646c",
+      "visits": 6000
+    },
+    {
+      "after_fourth_row_differences": 4360,
+      "middle": [
+        2,
+        0,
+        2,
+        3,
+        0,
+        3,
+        3,
+        1,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        3,
+        1
+      ],
+      "seed": 33026,
+      "trace_digest": "f9f774de7ff7e2242a57e407f06ef53fe792736de56351f27506991b58d6adec",
+      "visits": 6000
+    }
+  ],
+  "receive_validation_control_trace_digest": "e1dd2cbbeb7cc8432d0bd2703259fac3e6e6a38ee5e5e2d0e72ac073c5e2fa75",
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/joint_four_row_retention_tx.py": "58c1024ab797271fa9a810423538339d871e22c3ee3683d1e1b62f6771988970",
+    "analysis/microcode/g2/joint_upper_full_tx_replay.py": "05eb8bfa939c357bcaa50e575ca173a58d4f39cbf5a315c83913c0429a595ffa",
+    "analysis/microcode/g2/joint_upper_source_screen.py": "c075f4e3ecb046e929f18021fb74b3ea756177d73042d6083972802dd581735e",
+    "analysis/microcode/g2/lower_i_d3f8_full_adc.py": "26afc1dd3fc625a018f46f3633a306c1beaf885218aa473a03bff6a672eb1093",
+    "analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
+    "analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "analysis/microcode/g2/photo_main_dibit_dac_decode.py": "2ee3fbba408bb144d07ee86a1cc748bf9b896713a80cc84c03658104313d00e8",
+    "analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/photo-random-dibit-validation.json": "df23d89e1b7c6a5eb5c18ed712a7759afeeb9c139aed7eba463b452ba65c1081",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "transmit_mask04": [
+    {
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            0,
+            5,
+            1,
+            3,
+            2,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 1,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            0,
+            5,
+            2,
+            3,
+            1,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 2,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            1,
+            5,
+            0,
+            3,
+            2,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 3,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            1,
+            5,
+            2,
+            3,
+            0,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 4,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            2,
+            5,
+            0,
+            3,
+            1,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 5,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            2,
+            5,
+            1,
+            3,
+            0,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        }
+      ],
+      "clean": true,
+      "complete_candidate_waveform": true,
+      "completed_cycles": 1248256,
+      "pc129_visits": 312054,
+      "raw_y_sample_sha256": "742114ab8ca8230744758820917e9f851c08bc719e87abb8b28c75f37c4f83ee",
+      "sample_count": 832,
+      "selector": "40",
+      "trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd"
+    },
+    {
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            0,
+            5,
+            1,
+            3,
+            2,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 1,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            0,
+            5,
+            2,
+            3,
+            1,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 2,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            1,
+            5,
+            0,
+            3,
+            2,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 3,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            1,
+            5,
+            2,
+            3,
+            0,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 4,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            2,
+            5,
+            0,
+            3,
+            1,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        },
+        {
+          "bus_index": 5,
+          "data_decisions": 62,
+          "filtered_data_errors": 0,
+          "input_bit_to_dac_code_bit": [
+            4,
+            2,
+            5,
+            1,
+            3,
+            0,
+            6,
+            7
+          ],
+          "late_a1_peak_hz": 2100.0
+        }
+      ],
+      "clean": true,
+      "complete_candidate_waveform": true,
+      "completed_cycles": 1248256,
+      "pc129_visits": 312054,
+      "raw_y_sample_sha256": "3af937d3690a65e7e289c23204f54648f1467a86aa1df392d473803a702d9ff5",
+      "sample_count": 832,
+      "selector": "60",
+      "trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5"
+    }
+  ]
+}

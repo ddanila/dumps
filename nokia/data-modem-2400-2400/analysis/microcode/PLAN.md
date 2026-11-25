@@ -502,11 +502,22 @@ The [four-row condition screen](g2/RECEIVER-FOUR-ROW-CONDITION.md) tests a
 counter-like `0→1→2→3` dispatch instead of assuming that the 0/2 diagnostic
 is the board schedule. Five labelled TEST flag choices sustain 1,500 ADC
 visits across all four rows. In one full-row waveform pair the ADC changes
-the third-row ROM address on 1,359 visits, but the fourth row makes complete
-RAM/Q state identical to the control on all 1,500 visits. Keep this path as
+the third-row ROM address on 1,359 visits, but under the then-selected
+lower-field mask `08` the fourth row makes complete RAM/Q state identical to
+the control on all 1,500 visits. Keep that fixture as
 a conditional transient-input candidate, not a recovered receiver. Test a
 third-row latch or a different dispatch/condition route next; do not treat
 the absent pin trace as a blocker.
+
+The later [joint mask-04 screen](g2/JOINT-FOUR-ROW-RETENTION-TX.md) changes
+one disputed lower instruction source and retains the ADC-dependent state
+after the fourth row on 1,312/1,500 paired visits and four fresh nonperiodic
+streams. The same fixed map still gives both modeled controller-driven
+transmit modes a 2,100 Hz tone and 0/62 filtered data errors across six
+candidate DAC buses. This replaces mask `08` as the stronger joint hypothesis;
+its [direct retained-bit screen](g2/RECEIVER-MASK04-RETAINED-BIT.md) has no
+exact training fit, so C3 remains open. Continue with a stateful decision or
+photo-compatible output path rather than waiting for net continuity.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent

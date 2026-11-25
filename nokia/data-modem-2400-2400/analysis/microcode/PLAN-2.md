@@ -1102,6 +1102,15 @@ phases B–C turn "what" into "how".
   peak and 0/62 independent A3/A4 data errors. C2 is still conditional on
   the untraced latch, DAC bus and analog path. Keep G2 active and seek a
   generalizing receive decision and USART RxD/echo route on this map.
+  The [full-row joint-map screen](g2/JOINT-FOUR-ROW-RETENTION-TX.md) finds
+  a better fixed candidate: lower mask `04` retains ADC-dependent RAM/Q
+  state after all four receive rows on 1,312/1,500 paired visits and on
+  3,701–4,780/6,000 visits in four fresh nonperiodic streams. The same
+  map completes both full controller-driven transmit modes with a 2,100 Hz
+  A1 peak and 0/62 filtered data errors on all six candidate DAC buses.
+  Its [retained-bit screen](g2/RECEIVER-MASK04-RETAINED-BIT.md) finds no
+  exact direct R1/R12/Q bit or previous-symbol XOR on training data, so
+  C3 and the untraced C2 physical output route remain open.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,
@@ -1170,7 +1179,8 @@ phases B–C turn "what" into "how".
   A later [four-row condition screen](g2/RECEIVER-FOUR-ROW-CONDITION.md)
   corrects the earlier restriction: a full `0→1→2→3` cycle also sustains
   both reference ADC streams under five assumed TEST sources/polarities.
-  Its fourth row erases the tested RAM/Q input difference. A
+  Under the then-selected mask `08`, its fourth row erases the tested
+  RAM/Q input difference. A
   [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) finds no
   fixed-phase direct Y/flag bit that generalizes as a received dibit;
   C3 remains open.

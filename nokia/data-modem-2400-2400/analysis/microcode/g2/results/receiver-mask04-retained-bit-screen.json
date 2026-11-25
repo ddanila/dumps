@@ -1,0 +1,186 @@
+{
+  "experiment": "retained state bit screen on joint mask-04 full-row receiver",
+  "fixture": {
+    "adc": "complementary reference PCM, 47/46 visits per sample",
+    "channels": [
+      "R1",
+      "R12",
+      "Q"
+    ],
+    "condition": "inverted previous overflow at select 0",
+    "dispatch": "scenario [0,1,2,3]",
+    "holdout_indexes": [
+      2,
+      7,
+      8,
+      9
+    ],
+    "lags": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "mapping": "joint upper-source mask 04",
+    "operations": [
+      "direct",
+      "xor_previous"
+    ],
+    "symbol_indexes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "train_indexes": [
+      0,
+      1,
+      6
+    ],
+    "visits_per_symbol": 375
+  },
+  "limitations": [
+    "Only direct or previous-symbol XOR of one R1/R12/Q bit is tested.",
+    "A statistical bit fit alone would not establish a physical USART RxD wire.",
+    "Dispatch, TEST, ADC bus, sample clock and output latch are hypotheses."
+  ],
+  "results": [
+    {
+      "best": {
+        "bit": 2,
+        "channel": "R1",
+        "holdout_errors": 9,
+        "inverted": true,
+        "operation": "direct",
+        "phase_visit": 94,
+        "symbol_lag": 1,
+        "target_bit": 0,
+        "training_errors": 8
+      },
+      "exact_training": 0,
+      "exact_training_and_holdout": 0,
+      "operation": "direct",
+      "target_bit": 0
+    },
+    {
+      "best": {
+        "bit": 3,
+        "channel": "R1",
+        "holdout_errors": 5,
+        "inverted": false,
+        "operation": "direct",
+        "phase_visit": 141,
+        "symbol_lag": 1,
+        "target_bit": 1,
+        "training_errors": 7
+      },
+      "exact_training": 0,
+      "exact_training_and_holdout": 0,
+      "operation": "direct",
+      "target_bit": 1
+    },
+    {
+      "best": {
+        "bit": 0,
+        "channel": "R1",
+        "holdout_errors": 9,
+        "inverted": true,
+        "operation": "xor_previous",
+        "phase_visit": 94,
+        "symbol_lag": 1,
+        "target_bit": 0,
+        "training_errors": 8
+      },
+      "exact_training": 0,
+      "exact_training_and_holdout": 0,
+      "operation": "xor_previous",
+      "target_bit": 0
+    },
+    {
+      "best": {
+        "bit": 4,
+        "channel": "R12",
+        "holdout_errors": 10,
+        "inverted": false,
+        "operation": "xor_previous",
+        "phase_visit": 235,
+        "symbol_lag": 0,
+        "target_bit": 1,
+        "training_errors": 6
+      },
+      "exact_training": 0,
+      "exact_training_and_holdout": 0,
+      "operation": "xor_previous",
+      "target_bit": 1
+    }
+  ],
+  "selected_best": {
+    "bit": 4,
+    "channel": "R12",
+    "holdout_errors": 10,
+    "inverted": false,
+    "operation": "xor_previous",
+    "phase_visit": 235,
+    "symbol_lag": 0,
+    "target_bit": 1,
+    "training_errors": 6
+  },
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/joint_four_row_retention_tx.py": "58c1024ab797271fa9a810423538339d871e22c3ee3683d1e1b62f6771988970",
+    "analysis/microcode/g2/joint_upper_source_screen.py": "c075f4e3ecb046e929f18021fb74b3ea756177d73042d6083972802dd581735e",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/receiver_mask04_retained_bit_screen.py": "4db93c844af31b653f409273aed15d8fc212296c31a5e9f69ee1582337281e90",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "trace_digests": {
+    "0": "74f29233634207db577c65da76863930b48a4a5d33465084a1b6c5a909971dc3",
+    "1": "ba4863e9aa41113813f2ab9b5469f1b1c3be51d795f558487e049aebb3e28223",
+    "2": "e1dd2cbbeb7cc8432d0bd2703259fac3e6e6a38ee5e5e2d0e72ac073c5e2fa75",
+    "6": "2593974687204c5e1af3d0a84f340f5d4b408d3851efea5e44036bbd3bf19ed9",
+    "7": "d686886a849821ebfbfd620935dee8d9b96d21db4431036dfe9dc19daeecf51a",
+    "8": "f45e7aa3c6db2da29d3a6c395326391cfa8f18a3669189d3a13981b2b86e646c",
+    "9": "f9f774de7ff7e2242a57e407f06ef53fe792736de56351f27506991b58d6adec"
+  },
+  "validation": [
+    {
+      "checks": 12,
+      "errors": 3,
+      "seed": 9249,
+      "trace_digest": "2be9cf3e30213b08a9076b9673fa03d7c373529b0bf0d548bd67d1889adbfa8d"
+    },
+    {
+      "checks": 12,
+      "errors": 4,
+      "seed": 9217,
+      "trace_digest": "86a4ef07d48533365f879e4c084d15653142f1744c03671d22b383f5a5a756fd"
+    },
+    {
+      "checks": 12,
+      "errors": 4,
+      "seed": 9889,
+      "trace_digest": "d1e6a1163cb71a8a3590fd9f98e549b7d7a811de572ece1eb456d920a18abbb1"
+    },
+    {
+      "checks": 12,
+      "errors": 6,
+      "seed": 13251,
+      "trace_digest": "de79c8e880807210486518034d1cb3caa318a65cf387ef7d440ff9ddf4c884b6"
+    }
+  ]
+}
