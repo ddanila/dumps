@@ -46,3 +46,8 @@ the same direct bit route at 2,400 bit/s for four candidate microcycle
 divisors. The `47` classes exit during the first or second bit; the `42`
 classes never enter the second loop. Thus the present joined short-hold
 control-flow witness is not a sustained line-rate modulator.
+
+The [CD4094 order model](PHOTO-CD4094-ORDER.md) further limits the frame
+assumption: `47`/`42` appears at the hypothetical DSP D bus only for a
+particular chip and Q-pin order. Other photo-compatible orders present
+different bytes and may remove or reverse this branch split.

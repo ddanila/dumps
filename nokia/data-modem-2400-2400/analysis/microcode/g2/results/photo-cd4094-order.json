@@ -1,0 +1,298 @@
+{
+  "executions": {
+    "01": {
+      "parity": "odd",
+      "pc129_reads": 253,
+      "pc12e_reads": 255,
+      "trace_digest": "60772e3708ff6d4355a82d4c23657fdb6f8d90f4d3b290af99831805d312e6ef"
+    },
+    "02": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "05b5f6c6babaec3dbd8007654043f111228ce764114861f59369246dd7a4da4f"
+    },
+    "0B": {
+      "parity": "odd",
+      "pc129_reads": 23,
+      "pc12e_reads": 255,
+      "trace_digest": "48212a2907cffcb1a153977f29e6764c8db5abfa7665c72536a9924371312c1d"
+    },
+    "11": {
+      "parity": "odd",
+      "pc129_reads": 45,
+      "pc12e_reads": 255,
+      "trace_digest": "164f0b78f0405acd7bab044e8eb0d706ffa5a6f350d5cb9aa3512088d78fd0ce"
+    },
+    "22": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "80c4815d8cf10012855aba23c7eb439839989e86a3881322c4a70054e7b8f6bc"
+    },
+    "40": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "20e2bf3c129ba2cab843ce6337ea82f1d811cde378df4d3bd41003bccad255ee"
+    },
+    "42": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "f983c7f5c7e856cbedde67f92deb29e93260de716512623e9ff3e709d0a96751"
+    },
+    "44": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "125f864481eb25ed4ecbfa73ed5baad617afd6b20064750cc168e49eb451513f"
+    },
+    "47": {
+      "parity": "odd",
+      "pc129_reads": 155,
+      "pc12e_reads": 255,
+      "trace_digest": "f2823471a27c43c38fc45b4ebceed29cc1a580be6e1d9a81d5679d5713cce768"
+    },
+    "5D": {
+      "parity": "odd",
+      "pc129_reads": 33,
+      "pc12e_reads": 255,
+      "trace_digest": "8dc5b139acc2bd2998413b5c98e4003201d54cdd02366f0606090025829e5d32"
+    },
+    "5E": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "d473f0dac39140d6db3152e4796d9b11bd8ae50fff3a287ad39d456250f45622"
+    },
+    "7A": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "ac81f552c297bdee3e886a732aef8ba4e2c66550de602a15d65cfe17edd7c618"
+    },
+    "80": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "7f50e57a8214e7a47077449844a584bb60165c66026c4f7fb61a8f335d2d2337"
+    },
+    "81": {
+      "parity": "odd",
+      "pc129_reads": 125,
+      "pc12e_reads": 255,
+      "trace_digest": "1db3515e6ae11dcb79a15ad486c591e2bb00467a3d994bee6bb0584ea1b90404"
+    },
+    "85": {
+      "parity": "odd",
+      "pc129_reads": 25,
+      "pc12e_reads": 255,
+      "trace_digest": "fd1e8a30018aedd5cbc07f7c26202c5117b4ad5f72b9812786e79c46af544580"
+    },
+    "88": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "0e0344b229b85e9d253297192e71337b08af87f42f4475a3bb26e7e8a28f5926"
+    },
+    "A1": {
+      "parity": "odd",
+      "pc129_reads": 221,
+      "pc12e_reads": 255,
+      "trace_digest": "cd9eafb96a8b60a0571e601b8cdb74d09f158a9938a3ac64211c70cd3627a249"
+    },
+    "BA": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "c698a1fa9af0eec9dd5b779d8dd8171a8c89dee49c2f9398f6ab92f18f185ec9"
+    },
+    "D0": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "9a33729675edd79002a2e1b1c7e5c94f053a5fc761bd204fdfaa5669aced6967"
+    },
+    "E2": {
+      "parity": "even",
+      "pc129_reads": 740,
+      "pc12e_reads": 0,
+      "trace_digest": "f4f6e492e49cabe74fe75f9f067c7f38164d98c7e909c0738ef0c990ab55dc05"
+    }
+  },
+  "fixture": {
+    "candidate_hardware": "four cascaded CD4094BE, 32 stages, one strobe after fourth byte",
+    "chip_order": "logical chip 0 nearest serial input; actual board order untraced",
+    "controller_serial_mode": "mode 0, LSB first",
+    "d127_route": "one held CD4094 output byte",
+    "mapping": "q3 photo-swapped",
+    "q1_to_d0": "Q1 is bit 0 of candidate DSP D byte",
+    "q8_to_d0": "Q8 is bit 0 of candidate DSP D byte"
+  },
+  "frames": [
+    {
+      "chips_from_serial_input": [
+        {
+          "q1_to_d0": "44",
+          "q8_to_d0": "22"
+        },
+        {
+          "q1_to_d0": "85",
+          "q8_to_d0": "A1"
+        },
+        {
+          "q1_to_d0": "E2",
+          "q8_to_d0": "47"
+        },
+        {
+          "q1_to_d0": "0B",
+          "q8_to_d0": "D0"
+        }
+      ],
+      "frame": "main_00",
+      "sbuf_bytes": "D0 47 A1 22"
+    },
+    {
+      "chips_from_serial_input": [
+        {
+          "q1_to_d0": "44",
+          "q8_to_d0": "22"
+        },
+        {
+          "q1_to_d0": "85",
+          "q8_to_d0": "A1"
+        },
+        {
+          "q1_to_d0": "E2",
+          "q8_to_d0": "47"
+        },
+        {
+          "q1_to_d0": "0B",
+          "q8_to_d0": "D0"
+        }
+      ],
+      "frame": "main_20",
+      "sbuf_bytes": "D0 47 A1 22"
+    },
+    {
+      "chips_from_serial_input": [
+        {
+          "q1_to_d0": "5D",
+          "q8_to_d0": "BA"
+        },
+        {
+          "q1_to_d0": "85",
+          "q8_to_d0": "A1"
+        },
+        {
+          "q1_to_d0": "42",
+          "q8_to_d0": "42"
+        },
+        {
+          "q1_to_d0": "0B",
+          "q8_to_d0": "D0"
+        }
+      ],
+      "frame": "main_40",
+      "sbuf_bytes": "D0 42 A1 BA"
+    },
+    {
+      "chips_from_serial_input": [
+        {
+          "q1_to_d0": "5D",
+          "q8_to_d0": "BA"
+        },
+        {
+          "q1_to_d0": "85",
+          "q8_to_d0": "A1"
+        },
+        {
+          "q1_to_d0": "42",
+          "q8_to_d0": "42"
+        },
+        {
+          "q1_to_d0": "0B",
+          "q8_to_d0": "D0"
+        }
+      ],
+      "frame": "main_60",
+      "sbuf_bytes": "D0 42 A1 BA"
+    },
+    {
+      "chips_from_serial_input": [
+        {
+          "q1_to_d0": "5E",
+          "q8_to_d0": "7A"
+        },
+        {
+          "q1_to_d0": "11",
+          "q8_to_d0": "88"
+        },
+        {
+          "q1_to_d0": "40",
+          "q8_to_d0": "02"
+        },
+        {
+          "q1_to_d0": "01",
+          "q8_to_d0": "80"
+        }
+      ],
+      "frame": "state_A0",
+      "sbuf_bytes": "80 02 88 7A"
+    },
+    {
+      "chips_from_serial_input": [
+        {
+          "q1_to_d0": "5E",
+          "q8_to_d0": "7A"
+        },
+        {
+          "q1_to_d0": "81",
+          "q8_to_d0": "81"
+        },
+        {
+          "q1_to_d0": "40",
+          "q8_to_d0": "02"
+        },
+        {
+          "q1_to_d0": "01",
+          "q8_to_d0": "80"
+        }
+      ],
+      "frame": "state_A1",
+      "sbuf_bytes": "80 02 81 7A"
+    },
+    {
+      "chips_from_serial_input": [
+        {
+          "q1_to_d0": "5E",
+          "q8_to_d0": "7A"
+        },
+        {
+          "q1_to_d0": "11",
+          "q8_to_d0": "88"
+        },
+        {
+          "q1_to_d0": "40",
+          "q8_to_d0": "02"
+        },
+        {
+          "q1_to_d0": "01",
+          "q8_to_d0": "80"
+        }
+      ],
+      "frame": "state_A2",
+      "sbuf_bytes": "80 02 88 7A"
+    }
+  ],
+  "limitations": [
+    "Four CD4094 packages are photographed, but cascade wiring, serial clock, strobe route and DSP input pins are untraced.",
+    "The two Q-pin orientations are candidate bus orders; arbitrary cross-chip wiring and inversion are not covered.",
+    "The controller frames are executed ROM outputs, but the q3 D127 route and DAC path are hypotheses."
+  ],
+  "totals": {
+    "distinct_d127_bytes": 20,
+    "frames": 7
+  }
+}

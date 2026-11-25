@@ -583,6 +583,14 @@ phases B–C turn "what" into "how".
   transmitter at the proposed physical timing. Seek a decoded/biased input
   or another stateful path without treating the missing pin trace as a
   goal blocker.
+  The [four-CD4094 order model](g2/PHOTO-CD4094-ORDER.md) connects the
+  executed four-byte 8031 send to the photographed shift-register capacity.
+  Under a simple LSB-first cascade, the physical logical-chip order is the
+  reverse of SBUF byte order, and a Q1→D0 bus also reverses bit order.
+  Executed q3 D127 runs for all 20 resulting candidate bytes show that the
+  earlier `47`/`42` branch split survives only one tested chip/Q orientation;
+  another yields the opposite split. Keep these distinct wiring candidates
+  live while testing a DAC-bound path.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

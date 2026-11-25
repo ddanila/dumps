@@ -24,3 +24,7 @@ parallel control word, a more direct candidate is to hold a selected output
 byte or bit stable between controller latch events. The
 [latched-frame screen](PHOTO-LATCHED-FRAME.md) executes that alternative.
 Neither candidate is promoted to board wiring without a pin-level trace.
+The [four-chip order model](PHOTO-CD4094-ORDER.md) now shows that a
+LSB-first four-byte send would reverse the byte order across a simple
+cascade, and can reverse each byte depending on Q-pin-to-D-bus order.
+That distinction changes which q3 phase-loop branch a held frame can select.
