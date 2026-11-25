@@ -110,6 +110,13 @@ phases B–C turn "what" into "how".
   The final state-step handoff is synthetic, and the DSC receive/echo route
   is still unverified, so A1's complete operating-sequence map and C3/C4
   stay open.
+  A [photo-compatible AF/B0 frame-route screen](g2/PHOTO-AF-B0-FRAME-ROUTES.md)
+  now feeds those executed frames into two candidate DSC inputs. The reached
+  `D38E→39E` byte relay ignores both changed bits, so its ALU output and
+  selected ROM address stay fixed. Four of eight held-`D127` CD4094 lane/order
+  candidates change the running PROM trace. This narrows candidate command
+  routes but does not demonstrate a continuous DSP transition or echo
+  cancellation; use the changed bits as a differential stimulus for C4.
   A [literal A3-frame route screen](g2/PHOTO-A3-HELD-FRAME-SEGMENT1.md) then
   tests all six distinct frame-byte values as held candidate D127 inputs
   with no port-01 data. Three even bytes sustain 32-symbol, 384,256-word
