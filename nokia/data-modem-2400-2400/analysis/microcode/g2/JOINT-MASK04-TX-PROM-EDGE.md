@@ -34,12 +34,30 @@ joint map. The [machine report](results/joint-mask04-tx-prom-edge.json)
 contains the trace, raw-byte and mapped-code hashes, phase metrics and
 source hashes.
 
+The same saved edge capture now screens four explicit A2 output behaviors
+through the fixed 1,950 Hz, Q=1 bandpass. This is an **assumed line stage**;
+the photo has not established its transfer function or a mode gate.
+
+| A2 DAC behavior | Late-A2 RMS / late-A1 RMS, both modes, phases and six buses | A3/A4 errors per case |
+| --- | ---: | ---: |
+| Pass through the changing executed codes | 0.998245–0.998451 | 0/62 |
+| Hold the last A1 code | 0.000000 (six decimals) | 0/62 |
+| Force code 128 | 0.000000 (six decimals) | 0/62 |
+| Force code 0 | 0.000000 (six decimals) | 0/62 |
+
+Thus this bandpass model needs the A2 code to stop changing to reproduce
+silence; it does **not** single out a mid-code gate. A held 74LS273/74LS373
+output, a DAC-code override, or a later analog mute remain separate wiring
+hypotheses. All four controls preserve the later data decisions because the
+filter has settled by A3/A4. The report records every bus, phase and selector
+case, including the different held codes.
+
 This is a useful C2/C3 **mapping-compatibility** result: the same fixed
 field map that retains the tested ADC response can produce the candidate
 2,100 Hz tone and dibit-following DAC codes under a raw-PROM edge.
 It does not identify the physical line output. The 375:1 divider,
 U10-to-latch clock, Y-to-74LS273 data wiring, six possible DAC bus orders,
-A2 mute gate, analog bandpass and connector route remain assumptions.
+A2 hold/mute behavior, analog bandpass and connector route remain assumptions.
 C2 stays open; neither an identical filtered score nor a differing hash
 selects the true latch phase. The next discriminating test should constrain
 one of those connections or the analog response using existing photos and

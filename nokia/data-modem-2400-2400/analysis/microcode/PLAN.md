@@ -62,9 +62,12 @@ USART bit route. The missing net trace does not pause that experiment.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase
-is a verified board route. Carry the surviving phases into a bounded analog
-output or latch-control test; keep C2 open without treating the untraced
-clock, DAC bus or line filter as a goal blocker.
+is a verified board route. Under the assumed bandpass, changing A2 codes
+remain almost as loud as A1, whereas holding the last A1 code or forcing a
+constant code settles to silence. Test a photo-compatible A2 hold, code
+override or analog-mute control route rather than treating code 128 as the
+only possible mechanism. Carry both latch phases forward; keep C2 open
+without treating the untraced clock, DAC bus or line filter as a goal blocker.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
