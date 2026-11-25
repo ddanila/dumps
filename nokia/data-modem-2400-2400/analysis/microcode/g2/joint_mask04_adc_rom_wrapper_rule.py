@@ -36,6 +36,7 @@ def capture(mapping, base, mask, pattern, rom):
     pc_digest = hashlib.sha256()
     wrapper_q = []
     wrapper_r1 = []
+    consumer_y = []
     after_fourth = []
     wrapper_instructions = Counter()
     adc_instructions = Counter()
@@ -90,6 +91,16 @@ def capture(mapping, base, mask, pattern, rom):
                     raise ValueError(('ADC-derived ROM lookup changed', mask))
                 checks['adc_rom_lookups'] += 1
                 pending_y = None
+            elif pc == 0x3ED and mask == 4:
+                if ((row['instruction_i'], row['instruction_i_high']) !=
+                        (0xA0, 0xA1) or
+                        row['register_address_a'] != 1 or
+                        row.get('register_address_a_high',
+                                row['register_address_a']) != 1 or
+                        row['alu']['y'] != ram[1]):
+                    raise ValueError('mask-04 3ED R1-to-Y consumer changed')
+                consumer_y.append(row['alu']['y'])
+                checks['r1_y_consumptions'] += 1
             for address, value in row['registers'].items():
                 ram[int(address)] = value
             q = row['q']
@@ -106,6 +117,7 @@ def capture(mapping, base, mask, pattern, rom):
     if (checks['wrapper_rules'] != 6001 or
             checks['adc_rom_lookups'] != 1500 or
             (mask == 4 and checks['adc_equations'] != 1500) or
+            (mask == 4 and checks['r1_y_consumptions'] != 6000) or
             len(after_fourth) != 1500):
         raise ValueError(('rule count changed', mask, checks))
     return dict(mask=mask, pattern=list(pattern), checks=dict(checks),
@@ -117,6 +129,7 @@ def capture(mapping, base, mask, pattern, rom):
                 pc_digest=pc_digest.hexdigest(),
                 trace_digest=result['trace_digest'],
                 wrapper_q=wrapper_q, wrapper_r1=wrapper_r1,
+                consumer_y=consumer_y,
                 after_fourth=after_fourth)
 
 
@@ -141,13 +154,17 @@ def run(out=HERE / 'results/joint-mask04-adc-rom-wrapper-rule.json'):
                                                           zip(full['wrapper_q'], zero['wrapper_q'])),
                                 wrapper_r1_differences=sum(a != b for a, b in
                                                            zip(full['wrapper_r1'], zero['wrapper_r1'])),
+                                consumer_y_differences=sum(a != b for a, b in
+                                                           zip(full['consumer_y'], zero['consumer_y']))
+                                if mask == 4 else None,
                                 after_fourth_state_differences=sum(a != b for a, b in
                                                                  zip(full['after_fourth'], zero['after_fourth']))))
     if ([row['after_fourth_state_differences'] for row in comparisons] != [1312, 0] or
             [row['wrapper_r1_differences'] for row in comparisons][1] != 0):
         raise ValueError('joint map retention comparison changed')
     report_cases = [{key: value for key, value in row.items()
-                     if key not in ('wrapper_q', 'wrapper_r1', 'after_fourth')}
+                     if key not in ('wrapper_q', 'wrapper_r1', 'consumer_y',
+                                    'after_fourth')}
                     for row in cases]
     paths = [Path(__file__), HERE / 'joint_four_row_retention_tx.py',
              HERE / 'receiver_four_row_condition_screen.py',

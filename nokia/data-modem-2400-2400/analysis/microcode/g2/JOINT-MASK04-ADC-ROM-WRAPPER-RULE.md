@@ -33,6 +33,13 @@ differs before `3EB` on 2,483 wrapper visits and R1 differs on exactly
 those 2,483 visits. Complete RAM/Q state still differs after `3FE` on
 1,312/1,500 visits.
 
+The value is also *consumed*: at `3ED`, mask `04` executes `A0/A1`
+with A=1 in both slices. On all 6,000 reached visits per waveform, its Y
+byte equals R1 just before that word. The paired ADC waveforms make this
+`3ED` Y byte differ on 2,482/6,000 visits. This exposes the retained value
+at a possible external read/latch point, but no photographed connection
+or executed bit decision yet ties `3ED` Y to USART 01 RxD.
+
 Mask `08` provides a nearby control. Its `3EB` instructions are `94/C7`;
 Q differs on 1,253 wrapper visits between the same waveforms, but R1 is
 `0x10` on every wrapper visit and complete state reconverges after `3FE`
@@ -44,8 +51,8 @@ The field map, split-slice links, ADC gate, TEST source, dispatch schedule
 and D=`01` wrapper input are labelled board hypotheses. These checks
 explain why mask `04` is a stronger receive *candidate*; they do not prove
 the Nokia wiring or identify a received bit. C3 remains open. The next
-useful experiment must find an executed decision or output route from this
-retained state, or change the mapping/input hypothesis.
+useful experiment should test whether the `3ED` Y byte is latched or
+transformed into a receive decision, or change the mapping/input hypothesis.
 
 The [machine report](results/joint-mask04-adc-rom-wrapper-rule.json) records
 instruction pairs, equation counts, state contrasts, trace digests and

@@ -7,6 +7,7 @@
       "checks": {
         "adc_equations": 1500,
         "adc_rom_lookups": 1500,
+        "r1_y_consumptions": 6000,
         "wrapper_rules": 6001
       },
       "distinct_wrapper_r1": 11,
@@ -30,6 +31,7 @@
       "checks": {
         "adc_equations": 1500,
         "adc_rom_lookups": 1500,
+        "r1_y_consumptions": 6000,
         "wrapper_rules": 6001
       },
       "distinct_wrapper_r1": 10,
@@ -94,12 +96,14 @@
   "comparisons": [
     {
       "after_fourth_state_differences": 1312,
+      "consumer_y_differences": 2482,
       "mask": 4,
       "wrapper_q_differences": 2483,
       "wrapper_r1_differences": 2483
     },
     {
       "after_fourth_state_differences": 0,
+      "consumer_y_differences": null,
       "mask": 8,
       "wrapper_q_differences": 1253,
       "wrapper_r1_differences": 0
@@ -139,7 +143,7 @@
     "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
     "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
     "analysis/microcode/g2/joint_four_row_retention_tx.py": "58c1024ab797271fa9a810423538339d871e22c3ee3683d1e1b62f6771988970",
-    "analysis/microcode/g2/joint_mask04_adc_rom_wrapper_rule.py": "436c4daec9940aa62a3423fb1045c3fda7213b9b6cee19b5109f397ac1421bc2",
+    "analysis/microcode/g2/joint_mask04_adc_rom_wrapper_rule.py": "a05df62ca27efb9af301d52b3e2665ee1ab2e2b22b360d736fc5a529522bafcf",
     "analysis/microcode/g2/joint_upper_source_screen.py": "c075f4e3ecb046e929f18021fb74b3ea756177d73042d6083972802dd581735e",
     "analysis/microcode/g2/lower_i_d3f8_full_adc.py": "26afc1dd3fc625a018f46f3633a306c1beaf885218aa473a03bff6a672eb1093",
     "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",

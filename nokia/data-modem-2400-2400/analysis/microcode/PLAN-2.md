@@ -1114,8 +1114,9 @@ phases B–C turn "what" into "how".
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,
-  and `3EB` writes the negative of Q's low nibble to R1. This holds across
-  1,500 ADC and 6,001 wrapper visits in each paired trace. Mask `08`
+  and `3EB` writes the negative of Q's low nibble to R1. At `3ED`, Y equals
+  pre-word R1 on all 6,000 visits and differs on 2,482 visits between the
+  paired ADC waveforms. Mask `08`
   keeps R1 fixed and loses the after-fourth-row difference. Use these
   operations to locate an executed decision/output consumer; a table
   lookup and retained state alone do not pass C3.
