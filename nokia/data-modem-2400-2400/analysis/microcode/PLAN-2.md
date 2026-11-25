@@ -236,6 +236,13 @@ phases B–C turn "what" into "how".
   operand and internal state change, but the exact `39E` byte rule survives
   all 24 runs. A8 alone does not yield a ROM-shaped output at this site;
   continue with another retained ROM path and a timed latch hypothesis.
+  A [receiver Q-seed screen](g2/RECEIVER-SEED-RETENTION.md) then tests five
+  one-byte ADC-like impulses at the selected `38E` or `3A1` D site in three
+  slice layouts. Among 32, 32 and 24 Q seeds that reach the candidate input
+  repeatedly, none retains an impulse in the modeled state at cycle 1,024.
+  The upper-B candidate shows a two-boundary transient, so its input path is
+  real within that fixture but still lacks receiver history. Seek a separate
+  command/sample ingress or another branch and retained-state path.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
