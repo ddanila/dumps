@@ -19,7 +19,10 @@ from photo_mapping_q_sweep import mapped
 from photo_mapping_stream_screen import MAPPINGS
 from receiver_3eb_adc_route_screen import CYCLES, VISITS, scenario
 
-PCS = (0x3EA, 0x3EB, 0x3EC, 0x3ED)
+WRAPPER_PCS = (0x3EA, 0x3EB, 0x3EC, 0x3ED)
+ROW_PCS = (0x3EF, 0x3F0, 0x3F1, 0x3F2,
+           0x3F7, 0x3F8, 0x3F9, 0x3FA)
+PCS = WRAPPER_PCS + ROW_PCS
 FIELDS = ('test', 'next_pc', 'q', 'alu.y', 'alu.sign', 'alu.zero',
           'alu.carry', 'alu.overflow')
 PATTERNS = ((0, 1, 3, 2), (0, 0, 0, 0))
@@ -45,7 +48,8 @@ def capture(mapping, base, pattern):
                 else row[field] for field in FIELDS))
     if (not result['clean'] or result['completed_cycles'] != CYCLES or
             result['address_counts'].get(0x3F8) != VISITS or
-            [len(rows[pc]) for pc in PCS] != [6001, 6001, 6001, 6000]):
+            [len(rows[pc]) for pc in PCS] !=
+            [6001, 6001, 6001, 6000, 3001] + [3000] * 7):
         raise ValueError('receive wrapper fixture did not sustain')
     return rows, result['trace_digest'], samples
 
@@ -74,9 +78,11 @@ def run(out=HERE / 'results/receiver-wrapper-decision-probe.json'):
         comparison[f'{pc:03X}'] = site
     if (changing_digest == constant_digest or
             any(comparison[f'{pc:03X}'][field]['differing_visits']
-                for pc in PCS for field in FIELDS if field != 'q') or
+                for pc in WRAPPER_PCS for field in FIELDS if field != 'q') or
+            any(comparison[f'{pc:03X}'][field]['differing_visits']
+                for pc in ROW_PCS for field in ('test', 'next_pc')) or
             not all(comparison[f'{pc:03X}']['q']['differing_visits']
-                    for pc in PCS)):
+                    for pc in WRAPPER_PCS)):
         raise ValueError('wrapper contrast changed')
     report = dict(
         experiment='receive-wrapper output comparison, changing versus constant ADC',
@@ -84,7 +90,9 @@ def run(out=HERE / 'results/receiver-wrapper-decision-probe.json'):
                      dispatch='scenario sequence [0,2] at 3EC',
                      adc='complementary 127-PCM at 3F8; 94/94/94/93 visits per sample',
                      cycles=CYCLES, adc_visits=VISITS,
-                     fields=list(FIELDS)),
+                     fields=list(FIELDS),
+                     wrapper_pcs=[f'{pc:03X}' for pc in WRAPPER_PCS],
+                     row_pcs=[f'{pc:03X}' for pc in ROW_PCS]),
         streams=[dict(pattern=list(pattern),
                       first_adc_codes=[f'{value:02X}' for value in samples[:8]],
                       trace_digest=digest)
@@ -93,8 +101,9 @@ def run(out=HERE / 'results/receiver-wrapper-decision-probe.json'):
                   (PATTERNS[1], constant_samples, constant_digest))],
         comparison=comparison,
         interpretation=('Wrapper TEST/next-PC and ALU Y/flags do not differ '
-                        'between these streams; Q does. This fixture has no '
-                        'ADC-dependent decision at the four wrapper words.'),
+                        'between these streams; Q does. Table-row Y/flags '
+                        'change, but TEST and next-PC do not. This fixture '
+                        'has no ADC-dependent branch at these reached words.'),
         limitations=('Only this 32-sample pair, 0/2 dispatch, assumed mapping '
                      'and ADC site are tested; no claim about a physical RxD '
                      'route or other receive routines.'),

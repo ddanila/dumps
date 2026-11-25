@@ -453,9 +453,11 @@ latch phase and buffer wiring are still assumptions. The
 [wrapper decision probe](g2/RECEIVER-WRAPPER-DECISION-PROBE.md) finds no
 ADC-dependent TEST, branch, Y or ALU flag at `3EA`–`3ED` when comparing a
 changing-dibit waveform with an all-zero-dibit control, even though Q changes
-at 4,137 visits to each wrapper word. Keep C3 **open and G2 active**. Inspect
-where Q/RAM state is consumed in the receive rows or an output latch, then
-test a photo-compatible route to USART 01 RxD. If that readout fails, revise
+at 4,137 visits to each wrapper word. The two reached table rows have
+input-dependent Y and flags but no changed TEST or branch; prior fixed-phase
+flag screens do not decode the dibits. Keep C3 **open and G2 active**. Test
+where row arithmetic or Q/RAM state is latched for an output, then exercise
+a photo-compatible route to USART 01 RxD. If that readout fails, revise
 the enable phase, dispatch source or output route and run the next bounded
 candidate; do not wait for a continuity measurement to proceed.
 
