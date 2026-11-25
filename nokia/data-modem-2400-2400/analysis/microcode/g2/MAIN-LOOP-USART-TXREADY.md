@@ -42,3 +42,9 @@ canceller. The [machine report](results/main-loop-usart-txready.json) stores
 each clock phase, controller timing, writes, transmitted bytes and source
 hashes. Next carry the paced TxD bit events and an explicit TxEMPTY/clock
 alignment into the DSC input candidate, preserving the bridge bit.
+
+The [boundary-event screen](USART-TXRDY-BOUNDARY-GATE.md) now shows why
+TxEMPTY alone is insufficient as a fixed-delay cue across the tested clock
+phases. A TxRDY-rise cue plus a labelled first-data-bit discard reproduces
+the prior real-PROM segment-1/segment-2 inputs; its physical route is still
+unverified.

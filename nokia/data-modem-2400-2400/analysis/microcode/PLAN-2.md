@@ -137,6 +137,14 @@ phases B–C turn "what" into "how".
   starts; sampled phases provide 59–68 fill bits after A3 entry, so a
   32-symbol segment-1 window is timing-compatible. The exact clock phase,
   bridge-bit pairing, physical DSC route and line waveform remain open.
+  The [USART boundary-event screen](g2/USART-TXRDY-BOUNDARY-GATE.md) finds
+  that a fixed delay after TxEMPTY falls cannot align the first data bit
+  across the sampled phases: it takes 1–8 bit-clock edges. In the one-byte
+  model, TxRDY rises when that first bit shifts out. A labelled decoder
+  triggered by that rise and skipping the bridge bit reproduces the exact
+  inputs of the earlier zero-error DSC PROM runs for both selectors.
+  This narrows the candidate gating logic; the TxRDY wire and bit-skip
+  circuit remain untraced and C2 remains open.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading

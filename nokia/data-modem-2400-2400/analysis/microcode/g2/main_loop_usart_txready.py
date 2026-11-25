@@ -33,6 +33,7 @@ static void serial_tick(void) {
     if(serial_bitpos==8) {
         if(serial_pending_valid) {
             serial_char=serial_pending; serial_pending_valid=0; serial_source=1;
+            if(a3_start) fprintf(stderr,"TXRDY_RISE %u\\n",cycle);
         } else {serial_char=255; serial_source=0;}
         serial_bitpos=0;
     }
@@ -71,7 +72,7 @@ static void serial_tick(void) {
 
 def parse_events(stderr):
     start = None
-    writes, bits = [], []
+    writes, bits, ready_rises = [], [], []
     for line in stderr.splitlines():
         fields = line.split()
         if fields[0] == 'A3_START':
@@ -84,11 +85,13 @@ def parse_events(stderr):
         elif fields[0] == 'BIT':
             bits.append(dict(cycle=int(fields[1]), bit=int(fields[2]),
                              data_character=bool(int(fields[3]))))
+        elif fields[0] == 'TXRDY_RISE':
+            ready_rises.append(int(fields[1]))
         else:
             raise ValueError(('unexpected probe event', line))
     if start is None:
         raise ValueError('A3 start not observed')
-    return start, writes, bits
+    return start, writes, bits, ready_rises
 
 
 def run(out=HERE / 'results/main-loop-usart-txready.json'):
@@ -110,7 +113,7 @@ def run(out=HERE / 'results/main-loop-usart-txready.json'):
                         [group['state'] for group in groups] !=
                         ['A1', 'A2', 'A3', 'A4', 'A5']):
                     raise ValueError(('paced controller states changed', selector, phase))
-                start, writes, bits = parse_events(process.stderr)
+                start, writes, bits, ready_rises = parse_events(process.stderr)
                 a4 = [write for write in writes if write['state'] == 'A4']
                 a5 = [write for write in writes if write['state'] == 'A5']
                 if (len(a4) != 7 or [write['source'] for write in a4] != ['FF'] * 7 or
@@ -127,6 +130,9 @@ def run(out=HERE / 'results/main-loop-usart-txready.json'):
                 if any(write['cycle'] <= start for write in writes):
                     raise ValueError(('unexpected A3 data write', selector, phase))
                 first_data_bit = next(bit for bit in bits if bit['data_character'])
+                if not ready_rises or ready_rises[0] != first_data_bit['cycle']:
+                    raise ValueError(('TxRDY rise differs from data shift start',
+                                      selector, phase, ready_rises))
                 fill_bits_since_a3 = sum(not bit['data_character'] for bit in bits
                                          if bit['cycle'] < first_data_bit['cycle'])
                 data_bits = [bit['bit'] for bit in bits if bit['data_character']]
@@ -159,6 +165,9 @@ def run(out=HERE / 'results/main-loop-usart-txready.json'):
                                   exact_standard_segment2_bits_on_txd=64,
                                   segment2_start_bit_in_first_data_byte=1,
                                   first_data_bit_cycle=first_data_bit['cycle'],
+                                  first_txrdy_rise_cycle=ready_rises[0],
+                                  txempty_fall_to_txrdy_rise_ticks=(
+                                      ready_rises[0] - a4[0]['cycle']),
                                   sync_fill_bits_since_a3_entry=fill_bits_since_a3,
                                   first_data_bit_after_a3_entry_ticks=first_data_bit['cycle'] - start,
                                   a4_state_iterations=groups[3]['iterations'],
