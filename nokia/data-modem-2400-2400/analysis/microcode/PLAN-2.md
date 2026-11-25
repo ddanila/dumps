@@ -1128,6 +1128,14 @@ phases B–C turn "what" into "how".
   mode-input hypothesis, with a no-edge control; do not identify that boundary
   as echo freeze or infer a physical DSC wire from it. C3/C4 remain open, not
   blocked by the missing mode-route trace.
+  The [all-state-byte echo screen](g2/JOINT-UPPER-ECHO-OUTPUT-SCREEN.md)
+  extends the same paired controls to Y at `3F8–3FA`, Q and all 16 RAM bytes.
+  Eight bytes respond to remote input in both selectors, but none halves its
+  mixed-input echo response from the first to last 32-sample window. Lower
+  echo response at Y3FA/Q/R10/R13 accompanies lower remote response. This
+  narrows direct-byte residual sites under the fixed 128-sample fixture;
+  next test a justified mode-controlled or separately latched receive route,
+  and keep C3/C4 open without waiting for a physical continuity trace.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
