@@ -1120,6 +1120,14 @@ phases B–C turn "what" into "how".
   fixed receive fixture has no identified echo-train/freeze control and
   cannot pass or exclude C4. Seek a mode-qualified path and output site,
   while testing C3 independently.
+  The [interrupt-paced A3→A4 frame-edge check](g2/CONTROLLER-A3-A4-MODE-EDGE.md)
+  finds no held CD4094-frame or P1 bit that separates all A3 from A4
+  iterations. The exact third-byte `81→A1` edge occurs once at A4 entry in
+  each call/answer run, but bit 5 also rises earlier and the frame `D0 42 A1 BA`
+  is held in A3. Test a history-qualified edge decoder only as an explicit
+  mode-input hypothesis, with a no-edge control; do not identify that boundary
+  as echo freeze or infer a physical DSC wire from it. C3/C4 remain open, not
+  blocked by the missing mode-route trace.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
