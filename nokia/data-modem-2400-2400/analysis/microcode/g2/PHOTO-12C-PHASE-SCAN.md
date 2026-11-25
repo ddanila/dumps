@@ -38,6 +38,9 @@ check whether ROM values survive into a reached output or state register.
 The [paired-bank liveness check](PHOTO-12C-BANK-LIVENESS.md) finds only a
 transient R0 difference under the current fixture; the state matches after
 PC12D. A hypothetical external latch remains a separate output test.
+The [controller-bitstream screen](PHOTO-12C-CONTROLLER-STREAM.md) uses
+ROM-executed 8031 bits at PC12C under several hold schedules; it changes
+ROM addresses but still reaches no candidate output word.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_12c_phase_scan.py

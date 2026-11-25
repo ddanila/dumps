@@ -198,6 +198,14 @@ phases B–C turn "what" into "how".
   no state difference after the next PC12D. A changing PC12C input alone
   therefore does not establish retained ROM feedback in this fixture;
   test a photo-compatible latch at the transient site or another mapping.
+  A [controller-bitstream PC12C run](g2/PHOTO-12C-CONTROLLER-STREAM.md)
+  now feeds 128 ROM-executed 8031 scrambled bits under four hold schedules.
+  The input changes the selected ROM address, but 1/2/4-visit holds finish
+  the bitstream without leaving the loop, and eight-visit holds exit before
+  all bits are presented. Paired bank runs show no post-PC12D retained
+  difference; none reaches `392`/`39E`. Revisit the input route, mapping
+  or a photo-compatible latch clock rather than treating this fixture as
+  a transmitter demonstration.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:
