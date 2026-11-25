@@ -7,7 +7,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parent/'assumed'))
-from common import HERE, decode, field_value, read, validate
+from common import HERE, decode, field_value, load, read, validate
 from analyze import graph, must_targets, search_address, walk, rank_layouts
 from execute import CarryInput, execute, validate_scenario
 from register_study import recover_register, table_semantics
@@ -17,6 +17,42 @@ class AssumedTests(unittest.TestCase):
     def setUp(self):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
+
+    def test_clocked_prom_bit_captures_on_executed_edges(self):
+        fixture_root=Path(__file__).resolve().parent/'g2/results/swapped-sine-loop'
+        mapping=read(fixture_root/'phase-20-mapping.json')
+        scenario=read(fixture_root/'phase-20-scenario.json')
+        scenario['inputs']['clocked_prom_bit']=dict(
+            status='hypothesis',evidence='Unit-test edge and hold behavior',
+            clock_chip='10',clock_bit=0,edge_to=1,
+            data_chip='10',data_bit=5,invert_data=True,
+            initial=0,targets=['i0','a1'])
+        with tempfile.TemporaryDirectory() as temporary:
+            summary=execute(mapping,scenario,100,mode='integrated',out=temporary,trace_limit=100)
+            trace=[json.loads(line) for line in
+                   (Path(temporary)/'trace.jsonl').read_text().splitlines()]
+        raw=load()['10']
+        previous=None
+        q=0
+        captures=0
+        for row in trace:
+            pc=row['pc']
+            clock=raw[pc]&1
+            edge=previous == 0 and clock == 1
+            if edge:
+                q=1-((raw[pc]>>5)&1)
+                captures+=1
+            self.assertEqual(row['clocked_prom_bit'],dict(q=q,edge=edge))
+            self.assertEqual(row['instruction_i']&1,q)
+            self.assertEqual((row['register_address_a']>>1)&1,q)
+            previous=clock
+        self.assertGreater(captures,0)
+        self.assertEqual(summary['clocked_prom_bit_captures'],captures)
+        invalid=copy.deepcopy(scenario)
+        invalid['inputs']['instruction_bit_overrides']={'0':dict(
+            value=1,status='hypothesis',evidence='conflicting driver')}
+        with self.assertRaisesRegex(ValueError,'conflicts'):
+            validate_scenario(invalid)
 
     def test_pc_bit_overrides_take_precedence_and_require_provenance(self):
         fixture_root=Path(__file__).resolve().parent/'g2/results/swapped-sine-loop'

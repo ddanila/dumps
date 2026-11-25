@@ -289,6 +289,14 @@ phases B–C turn "what" into "how".
   preserves all 33 tested sign-table calls and nonzero downstream reads;
   the inverter and U5 connection are untraced. Use this as a targeted
   hypothesis, not proof of the physical mapping.
+  A [stateful U5 clock replay](g2/PHOTO-TABLE-CLOCKED-U5.md) tests seven
+  raw-PROM edges that match the required table/consumer levels in offline
+  traces. All 168 controller-fed diagnostic runs retain 728 exact sign-table
+  calls and 896 downstream reads, but no full trace matches the per-word
+  reference. Only U11 bit 3 produces nonzero candidate output, a late fixed
+  `FF` independent of the controller byte group. These specific direct-edge
+  clocks do not establish a transmitter; test a decoded or external clock
+  phase and the DAC latch route under labelled photo assumptions.
   A [raw-PROM clock-edge screen](g2/PHOTO-OUTPUT-CLOCK-BIT-SCREEN.md) finds
   six rising bits at every `140`/`146` consumer visit, but each also rises
   164–411 times in 2,500 microcycles. None is a direct 9,600 Hz sample clock

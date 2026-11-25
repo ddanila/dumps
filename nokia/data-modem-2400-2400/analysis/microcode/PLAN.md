@@ -212,6 +212,11 @@ controller stream and ROM. A path that opens only while U10 is disabled is a
 lead for a timing model, not evidence that the board uses that impossible
 same-phase combination. If a case settles to fixed output, record the scope
 and pursue a different phase, mapping, input route or state source.
+The [stateful U5 clock screen](g2/PHOTO-TABLE-CLOCKED-U5.md) applies that rule:
+seven raw PROM edges preserve the reached sign-table and consumer levels, but
+none reproduces the full reference trace or a controller-dependent output.
+That excludes those direct-edge fixtures, not decoded or external clock
+phases; continue with a labelled alternative and a DAC-latch check.
 
 An unknown physical net is never, by itself, a G2 blocker. If the available
 photo-compatible candidates all fail, record what each run excluded and pivot

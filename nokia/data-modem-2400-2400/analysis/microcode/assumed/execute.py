@@ -38,6 +38,26 @@ def validate_scenario(s):
         raise ValueError('scenario requires provenance')
     if s.get('stack_fallback') is not None:
         raise ValueError('stack repair is unsupported: diagnose mapping instead')
+    clocked = s['inputs'].get('clocked_prom_bit')
+    if clocked is not None:
+        if (not isinstance(clocked, dict) or
+                clocked.get('status') not in ('hypothesis', 'stub', 'recovered-from-data') or
+                not clocked.get('evidence') or
+                clocked.get('clock_chip') not in ('10', '11', '17', '18') or
+                clocked.get('data_chip') not in ('10', '11', '17', '18') or
+                type(clocked.get('clock_bit')) is not int or not 0 <= clocked['clock_bit'] < 8 or
+                type(clocked.get('data_bit')) is not int or not 0 <= clocked['data_bit'] < 8 or
+                type(clocked.get('edge_to')) is not int or clocked['edge_to'] not in (0, 1) or
+                type(clocked.get('invert_data')) is not bool or
+                type(clocked.get('initial')) is not int or clocked['initial'] not in (0, 1) or
+                clocked.get('targets') != ['i0', 'a1']):
+            raise ValueError('clocked PROM bit requires a sourced edge, data bit, initial level and I0/A1 targets')
+        if ('0' in s['inputs'].get('instruction_bit_overrides', {}) or
+                '1' in s['inputs'].get('register_address_bit_overrides', {}).get('a', {}) or
+                any('0' in bits for bits in s['inputs'].get('instruction_bit_overrides_by_pc', {}).values()) or
+                any('1' in fields.get('a', {}) for fields in
+                    s['inputs'].get('register_address_bit_overrides_by_pc', {}).values())):
+            raise ValueError('clocked PROM bit conflicts with I0/A1 overrides')
     overrides = s['inputs'].get('instruction_bit_overrides', {})
     if (not isinstance(overrides, dict) or any(
             not isinstance(bit, str) or not bit.isdecimal() or str(int(bit)) != bit
@@ -230,6 +250,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     if inputs.get('logic_flags',{}).get('mode')=='am2901b-ripple' and mode!='integrated':
         raise ValueError('logical flag model requires integrated mode')
     slice_instruction = inputs.get('slice_instruction')
+    clocked = inputs.get('clocked_prom_bit')
+    if clocked is not None and mode != 'integrated':
+        raise ValueError('clocked PROM bit requires integrated mode')
     if slice_instruction is not None and mode != 'integrated':
         raise ValueError('split-slice instruction model requires integrated mode')
     if any(k in mapping['fields'] for k in ('i_high', 'a_high', 'b_high')) and slice_instruction is None:
@@ -291,6 +314,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     routine_samples={}
     flags=dict(zero=None,sign=None,carry=None,overflow=None)
     h=hashlib.sha256(); stop='cycle limit'; completed=0
+    clocked_q = clocked['initial'] if clocked is not None else None
+    previous_clock = None
+    clocked_captures = 0
     # Hash compact transitions incrementally, without storing a full history.
     for cycle in range(cycles):
         pc=seq.pc;r=rows[pc];c=r['command'];select=r['select'];visited[pc]+=1
@@ -306,6 +332,18 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             for bit, value in instruction_overrides_by_pc.get(pc, {}).items():
                 instruction=(instruction & ~(1 << bit)) | (value << bit)
                 assumptions[f'instruction I{bit} PC {pc:03X} scenario {value}']+=1
+            clocked_edge = False
+            if clocked is not None:
+                clock_level = (lanes[clocked['clock_chip']][pc] >> clocked['clock_bit']) & 1
+                clocked_edge = (previous_clock is not None and
+                                previous_clock == 1 - clocked['edge_to'] and
+                                clock_level == clocked['edge_to'])
+                if clocked_edge:
+                    clocked_q = ((lanes[clocked['data_chip']][pc] >> clocked['data_bit']) & 1) ^ clocked['invert_data']
+                    clocked_captures += 1
+                previous_clock = clock_level
+                instruction = (instruction & ~1) | clocked_q
+                assumptions['clocked PROM I0/A1 hypothesis'] += 1
             high_instruction = (cpu.high_instruction(instruction, r.get('i_high'))
                                 if slice_instruction is not None else instruction)
             selects_d = ((instruction & 7) in (5, 6, 7) or
@@ -322,6 +360,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 for bit, value in bits.items():
                     register_address[field]=(register_address[field] & ~(1 << bit)) | (value << bit)
                     assumptions[f'register {field.upper()}{bit} PC {pc:03X} scenario {value}']+=1
+            if clocked is not None:
+                register_address['a'] = (register_address['a'] & ~2) | (clocked_q << 1)
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
             if source_read['mode']=='pc_sequence' and read_policy is not None and pc in read_policy['pcs']:
@@ -445,9 +485,12 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if isinstance(inputs['carry'],dict):record['carry_in']=carry
             if mode=='integrated' and (instruction_overrides or slice_instruction is not None):
                 record['instruction_i']=instruction
+            if mode=='integrated' and clocked is not None:
+                record['instruction_i']=instruction
+                record['clocked_prom_bit']=dict(q=clocked_q, edge=clocked_edge)
             if mode=='integrated' and slice_instruction is not None:
                 record['instruction_i_high']=high_instruction
-            if mode=='integrated' and address_overrides:
+            if mode=='integrated' and (address_overrides or clocked is not None):
                 record['register_address_a']=register_address['a']
                 record['register_address_b']=register_address['b']
             if mode=='integrated' and slice_instruction is not None and any(k in r for k in ('a_high', 'b_high')):
@@ -475,6 +518,10 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     if isinstance(inputs['carry'],dict):
         summary['carry_model']=dict(previous=carry_input.previous,counts=dict(carry_input.counts))
     if 'logic_flags' in inputs:summary['logic_flag_model']=inputs['logic_flags']
+    if clocked is not None:
+        summary['clocked_prom_bit_model']=clocked
+        summary['clocked_prom_bit_captures']=clocked_captures
+        summary['clocked_prom_bit_final_q']=clocked_q
     if slice_instruction is not None:
         summary['slice_instruction_model']=slice_instruction
         summary['undriven_shift_reads']=cpu.undriven_shift_reads
