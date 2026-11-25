@@ -99,6 +99,14 @@ phases B–C turn "what" into "how".
   The first A3→A4 boundary spans 25 modeled timer interrupts. A3 is a
   stronger segment-1 candidate, but the CPU timer model, RAM15 gate,
   physical symbol timing and 180° line reversals are not established.
+  A [state-AF zero-run execution](g2/ZERO-RUN-DETECTOR.md) adds a separate
+  sequence-C witness. With both V.26 ter scrambler polynomials and nonzero
+  history, eight received zero-source octets pass through the actual 8031
+  USART-read, descrambler and zero-counter ROM dispatch and advance `AF→B0`;
+  seven remain at `AF`, while a nonzero byte resets the count. This matches
+  the standard's 64-consecutive-zero step at octet alignment. The final
+  state-step handoff is synthetic, and the DSC receive/echo route is still
+  unverified, so A1's complete operating-sequence map and C3/C4 stay open.
   A [literal A3-frame route screen](g2/PHOTO-A3-HELD-FRAME-SEGMENT1.md) then
   tests all six distinct frame-byte values as held candidate D127 inputs
   with no port-01 data. Three even bytes sustain 32-symbol, 384,256-word
