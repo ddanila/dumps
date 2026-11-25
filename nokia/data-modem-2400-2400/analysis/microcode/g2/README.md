@@ -807,3 +807,9 @@ at every A1 `12E` visit and never in A0's recurring first loop under one
 CD4094 order. It could mark a mode-qualified transient sampling window, but
 an unqualified edge is 0.9–3.6 MHz under the tested clock ratios and no
 clock wire or full DAC byte route is traced.
+The [divided A1 strobe test](PHOTO-12C-DIVIDED-STATE-LATCH.md) projects
+9,600 captured bytes/s from the first 613 verified `12E`/`12F` recurrences
+for held frame bytes `7A`, `02` and `80`. Across integer clock divisors 1
+and 3, neither full Y nor the candidate DAC B5 bit peaks at 2,100 Hz.
+That closes this direct-held-byte tone fixture, while decoded steps and
+other output routes remain open.

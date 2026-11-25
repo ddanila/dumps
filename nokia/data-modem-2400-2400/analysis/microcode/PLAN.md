@@ -139,6 +139,9 @@ latch must sample before that point. The
 edge at every A1 `12E` visit but not in the recurring A0 loop; test a
 labelled divider/clock route rather than treating that correlation as a
 traced DAC strobe. The
+[divided-strobe A1 test](g2/PHOTO-12C-DIVIDED-STATE-LATCH.md) finds no
+2,100 Hz peak from the three direct held frame bytes under two integer
+clock ratios; keep decoded or changing inputs and other output paths live. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

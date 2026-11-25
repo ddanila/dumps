@@ -34,3 +34,6 @@ supplies one microinstruction per `k=1…4` periods. Reaching the proposed
 9,600 DAC samples/s would require a further divider or qualified transfer.
 The captured Y bytes and one candidate DAC bit do not yet form a measured
 1,800/2,100 Hz line signal or dibit-dependent modulation.
+The [divided-strobe tone test](PHOTO-12C-DIVIDED-STATE-LATCH.md) now checks
+the three held A1 frame bytes at hypothetical 9,600-sample/s clocking; none
+peaks at 2,100 Hz under the tested integer clock ratios.

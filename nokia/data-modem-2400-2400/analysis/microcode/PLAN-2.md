@@ -627,6 +627,14 @@ phases B–C turn "what" into "how".
   at 0.9–3.6 MHz under the tested fast-clock ratios. U18 D1 is also a
   tentative register-address bit. Test a photo-compatible divided/qualified
   clock and full DAC byte route before assigning output function.
+  The [divided-strobe replay](g2/PHOTO-12C-DIVIDED-STATE-LATCH.md) performs
+  that first clock test at 9,600 captures/s for the three held alternate-chip
+  A1 bytes. Full `12E`/`12F` Y and the candidate DAC B5 bit peak away from
+  2,100 Hz for both integer clock ratios; all divider phase alignments are
+  spectral rotations. A direct held byte cannot supply the proposed A1
+  tone in this fixture. Next test a decoded or changing D12C phase step and
+  a constrained full DAC byte path, rather than treating the missing net as
+  a goal blocker.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
