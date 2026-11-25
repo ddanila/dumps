@@ -1,0 +1,149 @@
+{
+  "experiment": "hypothetical ADC D bus held through 3EB wrapper",
+  "fixture": {
+    "adc_coding": "complementary 127 minus reference PCM",
+    "dispatch": "scenario [0,2] at 3EC",
+    "mapping": "joint upper-source mask 08",
+    "total_cycles": 48047,
+    "waveform_first_codes": [
+      "00",
+      "59",
+      "D7",
+      "BE",
+      "40",
+      "36",
+      "BD",
+      "F6"
+    ],
+    "wrapper_holds": "two 3EB visits per 3F8 visit"
+  },
+  "held": [
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "3F0",
+      "label": "00",
+      "pc_3eb_visits": 6001,
+      "pc_3f8_visits": 3000,
+      "selected_3eb_reads": 6001,
+      "selected_3f8_reads": 3000,
+      "trace_digest": "e03eaad30621b703f7d42df2684415ef2b4444e19056b927622a097102fa5917"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "3F0",
+      "label": "01",
+      "pc_3eb_visits": 6001,
+      "pc_3f8_visits": 3000,
+      "selected_3eb_reads": 6001,
+      "selected_3f8_reads": 3000,
+      "trace_digest": "e03eaad30621b703f7d42df2684415ef2b4444e19056b927622a097102fa5917"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "3F0",
+      "label": "09",
+      "pc_3eb_visits": 6001,
+      "pc_3f8_visits": 3000,
+      "selected_3eb_reads": 6001,
+      "selected_3f8_reads": 3000,
+      "trace_digest": "e03eaad30621b703f7d42df2684415ef2b4444e19056b927622a097102fa5917"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "3F0",
+      "label": "19",
+      "pc_3eb_visits": 6001,
+      "pc_3f8_visits": 3000,
+      "selected_3eb_reads": 6001,
+      "selected_3f8_reads": 3000,
+      "trace_digest": "d30a3605978f3dda0a2b9b458d33a3e0e434bbe969ea6e650893e4efdc87403a"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "3F0",
+      "label": "59",
+      "pc_3eb_visits": 6001,
+      "pc_3f8_visits": 3000,
+      "selected_3eb_reads": 6001,
+      "selected_3f8_reads": 3000,
+      "trace_digest": "ea6cde1ac261db480d7b77dd845b131cdf7f78a04934a1550b50c423be53d628"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "084",
+      "label": "A9",
+      "pc_3eb_visits": 1,
+      "pc_3f8_visits": 0,
+      "selected_3eb_reads": 1,
+      "selected_3f8_reads": 0,
+      "trace_digest": "64e89d042087da8e0f95aea55c263af01cd4aba6b745983725bfe28baa10e35e"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "084",
+      "label": "FF",
+      "pc_3eb_visits": 1,
+      "pc_3f8_visits": 0,
+      "selected_3eb_reads": 1,
+      "selected_3f8_reads": 0,
+      "trace_digest": "3f49d8c9a88de8574191379f6fa570f321c447fcb13c3a1c49e34ffdb5199923"
+    }
+  ],
+  "initial_wrapper_branches": [
+    {
+      "level": "09",
+      "next_pc_after_3ed": "3EA",
+      "test_3ed": 1,
+      "y_3eb": 16
+    },
+    {
+      "level": "A9",
+      "next_pc_after_3ed": "3EE",
+      "test_3ed": 0,
+      "y_3eb": 176
+    }
+  ],
+  "source_sha256": "e5cd0f0d2ca782df268c1d535d637ca718976e7ba9868638d58c4f64d9a0b753",
+  "waveform": [
+    {
+      "at_3eb": false,
+      "at_3f8": true,
+      "final_pc": "3F0",
+      "label": "3F8 only",
+      "pc_3eb_visits": 6001,
+      "pc_3f8_visits": 3000,
+      "selected_3eb_reads": 0,
+      "selected_3f8_reads": 3000,
+      "trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": false,
+      "final_pc": "084",
+      "label": "3EB only",
+      "pc_3eb_visits": 565,
+      "pc_3f8_visits": 282,
+      "selected_3eb_reads": 565,
+      "selected_3f8_reads": 282,
+      "trace_digest": "8e64c1450a75246d527e7e87905ea787485e5ac5e2f0a045ef015887a7aa5c0b"
+    },
+    {
+      "at_3eb": true,
+      "at_3f8": true,
+      "final_pc": "084",
+      "label": "3EB and 3F8",
+      "pc_3eb_visits": 565,
+      "pc_3f8_visits": 282,
+      "selected_3eb_reads": 565,
+      "selected_3f8_reads": 282,
+      "trace_digest": "7140c1b0740dc71e01bbbc2296b0561c0b97e7c01509d6c24c94a56c463a441e"
+    }
+  ]
+}

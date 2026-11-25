@@ -427,6 +427,15 @@ reconverge before the common tail. The long-lived offset in this fixture is
 therefore not evidence by itself of multi-sample phase history. Seek a
 sample-combining update or executed decision output next.
 
+The [3EB ADC bus-hold screen](g2/RECEIVER-3EB-ADC-ROUTE-SCREEN.md) tests
+another photo-compatible ingress assumption. The wrapper word also selects
+external D under the joint mapping; feeding full complementary ADC bytes
+there makes a 32-sample waveform leave the receive loop after 282 `3F8`
+visits, while the `3F8`-only run completes 3,000. A held `A9` at `3EB`
+leaves before the first `3F8` visit. This rejects the direct full-byte
+wrapper hold under that mapping, not a separately gated ADC route. Vary
+the enable/bit lanes and inspect an executed decision or output site.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing
