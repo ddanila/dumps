@@ -174,6 +174,13 @@ phases B–C turn "what" into "how".
   every start phase. The fractional divisors 2/4 cannot give a uniform phase
   step with one fixed nonzero D127 byte. Two candidate values (`F0`, `10`)
   occur in the ROM `30–7F` region, but their connection to D127 is unknown.
+  A [controller-frame lane screen](g2/PHOTO-127-CONTROLLER-FRAME-STEPS.md)
+  then feeds the observed A0/A1/A2 frame bytes directly into D127 under the
+  same assumptions. Only A0/A2's literal third byte `88` matches a fast-clock
+  2,100 Hz step; A1 has no exact step match, and its distinct `81` byte exits
+  the PC129 loop after 125 reads. A literal held frame lane therefore does
+  not explain a sustained A1 tone in this fixture. Test an intermediate ROM
+  parameter selection, another controller route or another sample site.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:

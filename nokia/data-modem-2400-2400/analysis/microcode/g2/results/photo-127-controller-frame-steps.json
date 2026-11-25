@@ -1,0 +1,367 @@
+{
+  "executed_literal_bytes": [
+    {
+      "d127": "02",
+      "first_rom_address": "105",
+      "gated": [
+        {
+          "b5_ones": 430,
+          "divisor": 1,
+          "effective_phase_step": 238,
+          "first_32_b5": "11111100001111111111000001111011",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 675.0,
+            "sinusoid_r2": 0.001657
+          }
+        },
+        {
+          "b5_ones": 430,
+          "divisor": 3,
+          "effective_phase_step": 250,
+          "first_32_b5": "11101111111111111110000000000000",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 225.0,
+            "sinusoid_r2": 7.7e-05
+          }
+        }
+      ],
+      "loop_sustained_for_3000_instructions": true,
+      "pc129_reads": 740,
+      "trace_digest": "05b5f6c6babaec3dbd8007654043f111228ce764114861f59369246dd7a4da4f"
+    },
+    {
+      "d127": "7A",
+      "first_rom_address": "17D",
+      "gated": [
+        {
+          "b5_ones": 430,
+          "divisor": 1,
+          "effective_phase_step": 182,
+          "first_32_b5": "10111011011001101101110110101011",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 2775.0,
+            "sinusoid_r2": 0.003478
+          }
+        },
+        {
+          "b5_ones": 430,
+          "divisor": 3,
+          "effective_phase_step": 146,
+          "first_32_b5": "11101011110101111010111101010110",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 4125.0,
+            "sinusoid_r2": 0.001657
+          }
+        }
+      ],
+      "loop_sustained_for_3000_instructions": true,
+      "pc129_reads": 740,
+      "trace_digest": "ac81f552c297bdee3e886a732aef8ba4e2c66550de602a15d65cfe17edd7c618"
+    },
+    {
+      "d127": "80",
+      "first_rom_address": "183",
+      "gated": [
+        {
+          "b5_ones": 320,
+          "divisor": 1,
+          "effective_phase_step": 128,
+          "first_32_b5": "01010101010101010101010101010101",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 4785.0,
+            "sinusoid_r2": 0.0
+          }
+        },
+        {
+          "b5_ones": 320,
+          "divisor": 3,
+          "effective_phase_step": 128,
+          "first_32_b5": "01010101010101010101010101010101",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 4785.0,
+            "sinusoid_r2": 0.0
+          }
+        }
+      ],
+      "loop_sustained_for_3000_instructions": true,
+      "pc129_reads": 740,
+      "trace_digest": "7f50e57a8214e7a47077449844a584bb60165c66026c4f7fb61a8f335d2d2337"
+    },
+    {
+      "d127": "81",
+      "first_rom_address": "184",
+      "gated": [
+        {
+          "divisor": 1,
+          "effective_phase_step": 247,
+          "projected_samples": null,
+          "reason": "executed PC129 loop exits; the checked recurrence cannot be projected as a sustained loop"
+        },
+        {
+          "divisor": 3,
+          "effective_phase_step": 253,
+          "projected_samples": null,
+          "reason": "executed PC129 loop exits; the checked recurrence cannot be projected as a sustained loop"
+        }
+      ],
+      "loop_sustained_for_3000_instructions": false,
+      "pc129_reads": 125,
+      "trace_digest": "1db3515e6ae11dcb79a15ad486c591e2bb00467a3d994bee6bb0584ea1b90404"
+    },
+    {
+      "d127": "88",
+      "first_rom_address": "18B",
+      "gated": [
+        {
+          "b5_ones": 420,
+          "divisor": 1,
+          "effective_phase_step": 56,
+          "first_32_b5": "10111001110111001110111001010111",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 2100.0,
+            "sinusoid_r2": 0.485502
+          }
+        },
+        {
+          "b5_ones": 420,
+          "divisor": 3,
+          "effective_phase_step": 104,
+          "first_32_b5": "01111010110101100011010111101111",
+          "projected_samples": 640,
+          "spectrum_against_2100_hz": {
+            "bin_hz": 15.0,
+            "expected_hz": 2100,
+            "peak_hz": 3900.0,
+            "sinusoid_r2": 0.001432
+          }
+        }
+      ],
+      "loop_sustained_for_3000_instructions": true,
+      "pc129_reads": 740,
+      "trace_digest": "0e0344b229b85e9d253297192e71337b08af87f42f4475a3bb26e7e8a28f5926"
+    }
+  ],
+  "fixture": {
+    "controller_states": [
+      "A0",
+      "A1",
+      "A2"
+    ],
+    "d127_source": "one held frame byte, hypothetical",
+    "mapping": "q3",
+    "oscillator_divisors": [
+      1,
+      3
+    ],
+    "output_route": "upper-bank PC129 Y7 to DAC08 B5, hypothetical",
+    "sample_hz": 9600
+  },
+  "frames": [
+    {
+      "frame": "80 02 88 7A",
+      "lanes": [
+        {
+          "byte": "80",
+          "exact_step_matches": [],
+          "lane": 0,
+          "transforms": {
+            "bit_reversed": "01",
+            "inverted": "7F",
+            "literal": "80",
+            "reversed_inverted": "FE"
+          }
+        },
+        {
+          "byte": "02",
+          "exact_step_matches": [],
+          "lane": 1,
+          "transforms": {
+            "bit_reversed": "40",
+            "inverted": "FD",
+            "literal": "02",
+            "reversed_inverted": "BF"
+          }
+        },
+        {
+          "byte": "88",
+          "exact_step_matches": [
+            {
+              "divisor": 1,
+              "target_hz": 2100,
+              "transform": "literal"
+            }
+          ],
+          "lane": 2,
+          "transforms": {
+            "bit_reversed": "11",
+            "inverted": "77",
+            "literal": "88",
+            "reversed_inverted": "EE"
+          }
+        },
+        {
+          "byte": "7A",
+          "exact_step_matches": [],
+          "lane": 3,
+          "transforms": {
+            "bit_reversed": "5E",
+            "inverted": "85",
+            "literal": "7A",
+            "reversed_inverted": "A1"
+          }
+        }
+      ],
+      "state": "A0"
+    },
+    {
+      "frame": "80 02 81 7A",
+      "lanes": [
+        {
+          "byte": "80",
+          "exact_step_matches": [],
+          "lane": 0,
+          "transforms": {
+            "bit_reversed": "01",
+            "inverted": "7F",
+            "literal": "80",
+            "reversed_inverted": "FE"
+          }
+        },
+        {
+          "byte": "02",
+          "exact_step_matches": [],
+          "lane": 1,
+          "transforms": {
+            "bit_reversed": "40",
+            "inverted": "FD",
+            "literal": "02",
+            "reversed_inverted": "BF"
+          }
+        },
+        {
+          "byte": "81",
+          "exact_step_matches": [],
+          "lane": 2,
+          "transforms": {
+            "bit_reversed": "81",
+            "inverted": "7E",
+            "literal": "81",
+            "reversed_inverted": "7E"
+          }
+        },
+        {
+          "byte": "7A",
+          "exact_step_matches": [],
+          "lane": 3,
+          "transforms": {
+            "bit_reversed": "5E",
+            "inverted": "85",
+            "literal": "7A",
+            "reversed_inverted": "A1"
+          }
+        }
+      ],
+      "state": "A1"
+    },
+    {
+      "frame": "80 02 88 7A",
+      "lanes": [
+        {
+          "byte": "80",
+          "exact_step_matches": [],
+          "lane": 0,
+          "transforms": {
+            "bit_reversed": "01",
+            "inverted": "7F",
+            "literal": "80",
+            "reversed_inverted": "FE"
+          }
+        },
+        {
+          "byte": "02",
+          "exact_step_matches": [],
+          "lane": 1,
+          "transforms": {
+            "bit_reversed": "40",
+            "inverted": "FD",
+            "literal": "02",
+            "reversed_inverted": "BF"
+          }
+        },
+        {
+          "byte": "88",
+          "exact_step_matches": [
+            {
+              "divisor": 1,
+              "target_hz": 2100,
+              "transform": "literal"
+            }
+          ],
+          "lane": 2,
+          "transforms": {
+            "bit_reversed": "11",
+            "inverted": "77",
+            "literal": "88",
+            "reversed_inverted": "EE"
+          }
+        },
+        {
+          "byte": "7A",
+          "exact_step_matches": [],
+          "lane": 3,
+          "transforms": {
+            "bit_reversed": "5E",
+            "inverted": "85",
+            "literal": "7A",
+            "reversed_inverted": "A1"
+          }
+        }
+      ],
+      "state": "A2"
+    }
+  ],
+  "limitations": [
+    "A0/A1/A2 frames use a fixed controller flag/payload fixture, not a complete physical call.",
+    "The serial frame destination, CD4094 byte order, D127 connection, clock and DAC route are untraced.",
+    "Exact step matching tests a fixed D127 byte and uniform 9600 Hz gate; other logic or timing can map the frame to a tone.",
+    "The 640 gated B5 samples project beyond the 740 executed PC129 reads using their checked recurrence.",
+    "Executing each literal byte checks the microcode recurrence, not physical selection of that byte."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "26789430ee6f5a1029eadc15cbc91f277ae8a186eea8248d46a0bc636d9669d3",
+    "analysis/microcode/g2/photo_127_clock_alias.py": "cfe9ea7063fb436b772216f376c145df3e600a7c594f06ab0e5abfae78b1928c",
+    "analysis/microcode/g2/photo_127_controller_frame_steps.py": "76af3323408f84681c396b1265922843d7566c4db9acb180ce4bbe4abea21320",
+    "analysis/microcode/g2/photo_127_fast_step_candidates.py": "ac7df7a5cbd4f6d2cae3eccb6a3deb7a58465ba3637b7b9219e3f597b1b60457",
+    "analysis/microcode/g2/photo_127_liveness.py": "cbab4e70ffe97b579d833b5e27751593d206f7459d962f525f730f52c875b33a",
+    "analysis/microcode/g2/photo_127_tone_probe.py": "0e13893b06ed2d2f3521293a5937b52d40e80d44b83e1cde007e4400abf8d56b",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/results/controller-frames.json": "1b3694d79afa5b43f1f21e7fde6870bcc5e557fc0fddadd71519ef688fcc6805",
+    "analysis/microcode/g2/results/photo-127-fast-step-candidates.json": "d54e008efd4643258187aac12b66fd17b2915d7bbf13d09311fb24f6978e4a6b",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a"
+  },
+  "status": "screened literal controller-frame lanes as held D127 sources"
+}
