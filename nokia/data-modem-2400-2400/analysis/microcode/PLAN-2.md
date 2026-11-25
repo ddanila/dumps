@@ -569,6 +569,14 @@ phases B–C turn "what" into "how".
   readout family under the stated candidate mapping. Infer a constrained
   decision from instruction behavior and test it across the independent
   streams and a candidate RxD output route; C3 stays open.
+  The [D3F8 lookup-chain trace](g2/LOWER-I-D3F8-LOOKUP-CHAIN.md) now gives
+  that candidate's first concrete computation: upper `FD` XNORs the offered
+  ADC high nibble with pre-existing RAM[A] high nibble, and `3F9` reads the
+  real Am27S31 at `0x100 + Y`. Both equations hold on all 512 visits in
+  each of two waveform runs. Full versus high-nibble-masked bytes change
+  324/512 next ROM addresses with `FD`, versus none with baseline `FC`.
+  Follow the table byte through the rest of the loop and test a constrained
+  decision on independent streams; this is still conditional dataflow, not C3.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
