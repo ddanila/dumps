@@ -603,6 +603,14 @@ phases B–C turn "what" into "how".
   addresses without changing the PC path. A ROM D4 toggle at that visit is
   masked by the current high-slice state. This shows conditional lookup
   feedback, while receive-bit identification and USART routing remain open.
+  A [small-codebook receive screen](g2/LOWER-I-D3F8-UPPER-CODEBOOK.md)
+  tests 20 reached state bytes at every fixed symbol phase, with direct,
+  XOR and subtraction readouts against a prior symbol. Learned four-way
+  lookups with at most 4, 8 or 16 byte values have no exact fit even on
+  48 training symbols from periodic and nonperiodic reference streams;
+  separate holdouts also fail. The table/Q feedback is therefore not a
+  demonstrated single-byte dibit decision in this fixture. Seek a constrained
+  multiword or differently clocked output and its USART-01 RxD route.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
