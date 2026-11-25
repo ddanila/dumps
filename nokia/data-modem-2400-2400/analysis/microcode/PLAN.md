@@ -6,7 +6,9 @@
 > labelled assumptions, run them, and use the results to choose the next test.
 > Missing continuity data or an untraced board connection is not a reason to
 > mark G2 blocked; unresolved acceptance checks stay open while experiments
-> continue.
+> continue. Treat each failed candidate as a result about its stated wiring,
+> timing and inputs, then test another photo-compatible route or independent
+> program/signal constraint.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
@@ -559,6 +561,14 @@ shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under
 this direct input route. Revise the mode lane or output hypothesis and
 keep C4 active.
+For the next G2 runs, carry the six surviving photo-compatible DAC byte orders
+as separate transmitter hypotheses and test their sample/latch timing against
+the executed A1–A4 trace. On receive, test a stateful decision/output route
+and alternative mode timing with the real PROMs and controller traffic. Record
+the visible photo segment, assumed continuation and control fixture for each.
+Neither the incomplete DAC trace nor the failed direct `D3EB` mode fixture
+blocks these experiments; C2, C3 and C4 remain open until their stated
+acceptance evidence is obtained.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent
