@@ -713,6 +713,14 @@ phases B–C turn "what" into "how".
   while the direct D0/D4 crossing projects 600/3,000 Hz. Test a transient
   sampling rule or another control route; keep the observed controller frame
   sequence distinct from the assumed DSC input wiring.
+  A [two-visit edge-pulse replay](g2/PHOTO-FRAME-TOGGLE-EDGE-PULSE.md) now
+  applies real B4 `C1→81` frames and eight actual port-01 bytes to one
+  parity/counter hypothesis. Two uninterrupted 384,256-word PROM runs show
+  the proposed frame-edge pulses add and then cancel a retained 128/256
+  phase offset without losing the dibit stream. The edge gate, frame/byte
+  timing, DAC route and B4 segment meaning remain untraced, so this is a
+  conditional mechanism, not a C2 pass. Constrain one of those routes with
+  independent evidence before interpreting the half-turn as Nokia output.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
   now prevents combining the two separate bit-swap leads as one fixed
   chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`
