@@ -365,6 +365,16 @@ phases B–C turn "what" into "how".
   fixed set of direct clock sites within the loop at this cadence. A
   held-data stage, another path or sample rate remains open; the photo does
   not trace the LS273 clock or full DAC byte wiring.
+  A [two-input late-loop run](g2/LOWER-I-COMMAND-DATA-MIX.md) now combines
+  frame lane 1 with USART-01 bits from four uninterrupted 8031 main-loop
+  classes, under separate assumed D3A4/D3A6 routes. Every one of their
+  64/64/48/48 line bits follows the exact executed quartet rule
+  `(F0|n, F0|((m+n)&0F), n, 0F-n)`, where m is the frame byte's low nibble
+  and n is the line input's low nibble. A 224-bit diagnostic concatenation
+  preserves this rule, and switching only frame lane 1 `47→42` changes only
+  the second captured Y on all 64 common-line visits. This is a conditional
+  command/data arithmetic bridge, not DAC-bound modulation; the artificial
+  entry trigger and both input connections still need independent support.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
