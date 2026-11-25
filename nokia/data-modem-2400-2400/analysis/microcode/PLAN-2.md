@@ -1264,6 +1264,19 @@ phases B–C turn "what" into "how".
   or naturally timed controller entry. Keep C3 open and test candidate
   physical latch/serial routes without treating missing continuity as a
   goal blocker.
+  The [four-bit phase readout](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md)
+  combines row-0 `3ED` Y bits 0/1/3 with transient `3F8` Y7 in one
+  frozen seven-entry table. Two new continuous preamble/data streams at
+  each of 0°/45°/90°/135°/180° yield 0 errors and 0 unknowns across
+  470 differential dibits without a per-angle selector. A third stream
+  at eight intermediate angles yields 27 wrong and 152 unknown decisions
+  of 376; within the data portion, 27/128 are wrong and 67/128 unknown.
+  The collision audit finds same-code conflicting phase states at four
+  angles and already-known-code mismatches at all eight, so adding the
+  two unseen table entries cannot make this four-bit memoryless readout
+  phase tolerant. Test a second visit or other retained state and then
+  repeat the controller handoff. Keep C3 open; the latch and RxD route
+  remain explicit photo-compatible hypotheses, not a reason to block G2.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

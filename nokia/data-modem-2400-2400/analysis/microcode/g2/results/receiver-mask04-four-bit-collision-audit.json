@@ -1,0 +1,197 @@
+{
+  "cases": [
+    {
+      "conflicting_codes": {},
+      "data_dibit_errors": 5,
+      "data_dibit_unknown": 7,
+      "degrees": 15,
+      "frozen_dibit_errors": 5,
+      "frozen_dibit_unknown": 7,
+      "known_symbol_mismatches_by_offset": [
+        37,
+        44,
+        44,
+        7
+      ],
+      "known_symbols": 44,
+      "minimum_known_symbol_mismatches": 7,
+      "previously_unseen_codes": [
+        0
+      ],
+      "trace_digest": "45721cb2201cd85b1e50440a7388301150600216784dd63604bfc5f509b73469"
+    },
+    {
+      "conflicting_codes": {
+        "0000": [
+          0,
+          1
+        ]
+      },
+      "data_dibit_errors": 3,
+      "data_dibit_unknown": 7,
+      "degrees": 30,
+      "frozen_dibit_errors": 3,
+      "frozen_dibit_unknown": 38,
+      "known_symbol_mismatches_by_offset": [
+        7,
+        6,
+        13,
+        13
+      ],
+      "known_symbols": 13,
+      "minimum_known_symbol_mismatches": 6,
+      "previously_unseen_codes": [
+        0
+      ],
+      "trace_digest": "0767d82e1b72c11a73b660f84c8b2496725a6758670d7c2669a609b49abc1723"
+    },
+    {
+      "conflicting_codes": {
+        "1000": [
+          2,
+          3
+        ]
+      },
+      "data_dibit_errors": 0,
+      "data_dibit_unknown": 15,
+      "degrees": 60,
+      "frozen_dibit_errors": 0,
+      "frozen_dibit_unknown": 15,
+      "known_symbol_mismatches_by_offset": [
+        38,
+        4,
+        38,
+        34
+      ],
+      "known_symbols": 38,
+      "minimum_known_symbol_mismatches": 4,
+      "previously_unseen_codes": [
+        8
+      ],
+      "trace_digest": "4aa33119668440db1930719fcb772fdfa0914c06225486df4831dfcb5817f3ba"
+    },
+    {
+      "conflicting_codes": {},
+      "data_dibit_errors": 4,
+      "data_dibit_unknown": 5,
+      "degrees": 75,
+      "frozen_dibit_errors": 4,
+      "frozen_dibit_unknown": 5,
+      "known_symbol_mismatches_by_offset": [
+        34,
+        45,
+        11,
+        45
+      ],
+      "known_symbols": 45,
+      "minimum_known_symbol_mismatches": 11,
+      "previously_unseen_codes": [
+        8
+      ],
+      "trace_digest": "67f8abbf37407dcacb36dbd188ab87e9afb34ec56f541962dbb32a3d03389cd5"
+    },
+    {
+      "conflicting_codes": {},
+      "data_dibit_errors": 3,
+      "data_dibit_unknown": 5,
+      "degrees": 105,
+      "frozen_dibit_errors": 3,
+      "frozen_dibit_unknown": 36,
+      "known_symbol_mismatches_by_offset": [
+        3,
+        11,
+        14,
+        14
+      ],
+      "known_symbols": 14,
+      "minimum_known_symbol_mismatches": 3,
+      "previously_unseen_codes": [
+        0
+      ],
+      "trace_digest": "8beaa03d6718ea661a11f5ec6da7f7dfa7777645813fb6b4edcf0537770b9f60"
+    },
+    {
+      "conflicting_codes": {
+        "0000": [
+          0,
+          3
+        ]
+      },
+      "data_dibit_errors": 3,
+      "data_dibit_unknown": 11,
+      "degrees": 120,
+      "frozen_dibit_errors": 3,
+      "frozen_dibit_unknown": 34,
+      "known_symbol_mismatches_by_offset": [
+        23,
+        3,
+        20,
+        23
+      ],
+      "known_symbols": 23,
+      "minimum_known_symbol_mismatches": 3,
+      "previously_unseen_codes": [
+        0
+      ],
+      "trace_digest": "d789eeac9f9ded08f92e4867a8de689bde25d8e704072254dae4a7b14fc761c8"
+    },
+    {
+      "conflicting_codes": {
+        "1000": [
+          1,
+          2
+        ]
+      },
+      "data_dibit_errors": 4,
+      "data_dibit_unknown": 10,
+      "degrees": 150,
+      "frozen_dibit_errors": 4,
+      "frozen_dibit_unknown": 10,
+      "known_symbol_mismatches_by_offset": [
+        7,
+        41,
+        34,
+        41
+      ],
+      "known_symbols": 41,
+      "minimum_known_symbol_mismatches": 7,
+      "previously_unseen_codes": [
+        8
+      ],
+      "trace_digest": "2b2794fab405e5d0f04f6c353aca3f767de3af8ab6e29e71dcd506f6a56d5caa"
+    },
+    {
+      "conflicting_codes": {},
+      "data_dibit_errors": 5,
+      "data_dibit_unknown": 7,
+      "degrees": 165,
+      "frozen_dibit_errors": 5,
+      "frozen_dibit_unknown": 7,
+      "known_symbol_mismatches_by_offset": [
+        44,
+        7,
+        44,
+        37
+      ],
+      "known_symbols": 44,
+      "minimum_known_symbol_mismatches": 7,
+      "previously_unseen_codes": [
+        8
+      ],
+      "trace_digest": "96fe96fb22cdb92b8aba60de8d3277f7093082a931ac3a74ea87b0d057839495"
+    }
+  ],
+  "conclusion": "Adding entries for the unseen 0000 and 1000 codes cannot make the frozen four-bit phase table correct at all intermediate angles; four runs have same-code phase collisions, and every run disagrees with at least one already-known code under every constant phase offset.",
+  "experiment": "four-bit receive phase table collision audit",
+  "limitations": [
+    "Relative phases come from the known reference stimulus and are not executed DSC output.",
+    "A stateful or multi-visit decoder may still separate the collisions; this only excludes a memoryless table on the four selected bits."
+  ],
+  "method": "Integrate the reference dibits to relative quadrants; test same-code label collisions and all four constant phase offsets against the frozen table.",
+  "source_sha256": {
+    "analysis/microcode/g2/receiver_mask04_four_bit_collision_audit.py": "08a9583e6f12922f821669b5d23052295af7f43110a103377bd5d5781fc46bf0",
+    "analysis/microcode/g2/receiver_mask04_four_bit_phase.py": "5c8e491c859a70b8fb26aaf38492c0d271ca2c9b17282c744c6b4fbcb4ce8f0c",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/receiver-mask04-four-bit-phase-between.json": "19165add244c5aa4b0b8bc995edde1f48d8f252fa4bec8cf32e00b49e43ba2ec"
+  }
+}

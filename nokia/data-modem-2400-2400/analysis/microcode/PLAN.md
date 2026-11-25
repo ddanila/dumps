@@ -35,6 +35,13 @@ zero detector under a labelled USART byte handoff. It narrows the required
 consumer behavior, but the external bit logic, byte clock and physical RxD
 route remain hypotheses. Test those routes against the controller signature;
 do not count the conditional handoff as a C3 pass or pause for new photos.
+The [four-bit phase test](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md) gives one
+frozen rule for the cardinal and diagonal carrier grids but finds genuine
+same-input phase collisions between them. Keep its four photo-compatible
+latch inputs as a baseline, add a second executed visit or retained state
+to resolve those collisions, and test fresh intermediate angles before
+repeating the serial/controller handoff. The failed intermediate-angle
+fixture narrows the rule; it does not make uncertain wiring a goal blocker.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
