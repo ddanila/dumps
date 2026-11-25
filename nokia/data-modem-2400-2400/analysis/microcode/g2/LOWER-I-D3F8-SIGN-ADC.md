@@ -51,3 +51,7 @@ candidate route to the controller.
 The follow-up [fixed symbol-bit screen](LOWER-I-D3F8-SYMBOL-BIT.md) finds
 no exact direct bit of the tested Y/Q/RAM sites across six symbol streams;
 a coded or differential decision remains open.
+The [held full-code experiment](LOWER-I-D3F8-FULL-ADC.md) sustains raw
+complementary ADC bytes across periodic and nonperiodic symbol streams,
+but a same-low-nibble control gives identical modeled traces: this mapping
+does not show use of ADC bits 4–7.

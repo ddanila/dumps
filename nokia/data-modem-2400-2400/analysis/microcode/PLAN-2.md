@@ -541,6 +541,15 @@ phases B–C turn "what" into "how".
   the selected close subtraction fits make 10/36 and 14/36 holdout errors.
   Test a constrained two-bit or multiword decision and its candidate output
   route; do not mark C3 complete.
+  A [held full-ADC-code test](g2/LOWER-I-D3F8-FULL-ADC.md) now offers raw
+  complementary sample bytes to D3F8. Six periodic and four nonperiodic
+  128-sample streams all sustain 24,000 visits under inverted previous sign,
+  even with D0 low for many samples. Two detailed streams select every
+  offered byte and change modeled state with the waveform. Crucially,
+  masking **ADC bits 4–7** while preserving the low nibble gives identical
+  full traces for both: this mapping has not demonstrated an 8-bit receive
+  datapath. Change a photo-compatible upper-slice/latch route or test a
+  low-nibble decision against independent dibits; C3 remains open.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
