@@ -554,6 +554,11 @@ its exact executed transmitter samples to the complete four-row receive
 loop under labelled echo/ADC assumptions. Neither call nor answer shows
 rapid selective attenuation at any remote-responsive direct byte; C4
 remains open until a train/freeze route and residual are identified.
+The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
+shows that a labelled `81→A1` mode-byte edge changes several executed
+registers but leaves no post-edge history or conditional branch under
+this direct input route. Revise the mode lane or output hypothesis and
+keep C4 active.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent

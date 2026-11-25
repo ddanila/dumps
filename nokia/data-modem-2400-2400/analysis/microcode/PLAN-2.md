@@ -1160,6 +1160,15 @@ phases B–C turn "what" into "how".
   This excludes rapid direct-byte attenuation in that fixed fixture,
   not mode-controlled echo cancellation. C4 still needs a justified
   train/freeze route and output residual.
+  The [controller-frame D3EB mode test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
+  offers the observed A3→A4 third-byte `81→A1` edge to mask-`04`'s
+  untraced wrapper D input. Both held bytes sustain all four receive
+  rows. The edge changes R0/R1/R10/R12/R13 and Q, but each completed
+  post-edge state immediately matches the target held-byte control;
+  the reverse edge mirrors it. Conditional TEST/PC and ADC-sensitivity
+  counts remain unchanged. That active direct-byte route does not show
+  training memory or freeze under this fixture. Try another mode lane
+  or output path for C4; do not treat the missing wire as a blocker.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,
