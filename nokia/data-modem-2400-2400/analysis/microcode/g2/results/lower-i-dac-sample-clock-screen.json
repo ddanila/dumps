@@ -1,0 +1,949 @@
+{
+  "controls": {
+    "one": {
+      "trace_digest": "a49643dfc5e68ae2e165489123fc8e4d9f600554dc9dde41e0a11ff52ee99393"
+    },
+    "zero": {
+      "trace_digest": "e001131f2523cd196596629dce008b2b4e7cd471b559ca460bb9b15b34319811"
+    }
+  },
+  "fixture": {
+    "b5_route": "photo candidate DAC08 B5 from LS273 Q4; all eight source bits tested for D4",
+    "full_byte_route": "candidate source byte to LS273 D1..D8; Q-to-DAC order untraced",
+    "held_d3f8_zero_one": [
+      8,
+      9
+    ],
+    "mapping": "q-independent-3-photo-ab-swapped-separated-independent-upper-instruction-upper-address-b-diagnostic-!10.6-11.2-paired-data-sources",
+    "offered_visits_per_control": 6750,
+    "q": 5,
+    "sample_count": 32,
+    "sample_interval_loop_visits": "187/188 alternating",
+    "sample_rate_hz": 9600,
+    "sample_window_start_visit": 750,
+    "sampled_phase_offsets": 188
+  },
+  "limitations": [
+    "The Y/R10-to-LS273 data route, latch clock, DAC byte order and controller-to-D3F8 connection are untraced hypotheses.",
+    "The photo supports only a candidate B5<-Q4 segment; no D4 source or complete DAC byte bus is verified.",
+    "A 32-sample digital code spectrum is a short carrier screen, not a measured analog line spectrum.",
+    "Only held D3F8 08/09 controls and the 14.4 MHz undivided microcycle case are tested."
+  ],
+  "source_cases": [
+    {
+      "best_carrier_fraction": {
+        "one": 5.109791071537348e-28,
+        "zero": 1.8459345182175256e-27
+      },
+      "both_symbol_b5_carrier_phases": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": []
+      },
+      "both_symbol_full_byte_carrier_phases": [],
+      "peak_hz_counts": {
+        "one": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 188,
+          "4800": 0,
+          "None": 0
+        },
+        "zero": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 188,
+          "4800": 0,
+          "None": 0
+        }
+      },
+      "phase_zero": {
+        "one": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 3.644822419752847e-31,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 8
+            },
+            "1": {
+              "carrier_fraction": 1.586009572592645e-31,
+              "distinct_codes": 2,
+              "peak_bin": 12,
+              "peak_hz": 3600,
+              "sample_period": 8
+            },
+            "2": {
+              "carrier_fraction": 8.43614877747295e-33,
+              "distinct_codes": 2,
+              "peak_bin": 4,
+              "peak_hz": 1200,
+              "sample_period": 8
+            },
+            "3": {
+              "carrier_fraction": 5.7392712342739655e-31,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 8
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 3.0522178019296955e-28,
+            "distinct_codes": 6,
+            "peak_bin": 8,
+            "peak_hz": 2400,
+            "sample_period": 8
+          },
+          "first_16_codes": [
+            253,
+            242,
+            248,
+            248,
+            251,
+            240,
+            240,
+            249,
+            253,
+            242,
+            248,
+            248,
+            251,
+            240,
+            240,
+            249
+          ]
+        },
+        "zero": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "1": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "2": {
+              "carrier_fraction": 7.366682037281164e-32,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "3": {
+              "carrier_fraction": 3.797933850331635e-31,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 1.8459345182175256e-27,
+            "distinct_codes": 2,
+            "peak_bin": 8,
+            "peak_hz": 2400,
+            "sample_period": 4
+          },
+          "first_16_codes": [
+            250,
+            246,
+            246,
+            250,
+            250,
+            246,
+            246,
+            250,
+            250,
+            246,
+            246,
+            250,
+            250,
+            246,
+            246,
+            250
+          ]
+        }
+      },
+      "sample_period_counts": {
+        "one": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 0,
+          "8": 188
+        },
+        "zero": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 188,
+          "8": 0
+        }
+      },
+      "source": "3F8_Y"
+    },
+    {
+      "best_carrier_fraction": {
+        "one": 1.398018865161143e-30,
+        "zero": 5.430266474307844e-31
+      },
+      "both_symbol_b5_carrier_phases": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": []
+      },
+      "both_symbol_full_byte_carrier_phases": [],
+      "peak_hz_counts": {
+        "one": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 125,
+          "4800": 63,
+          "None": 0
+        },
+        "zero": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 188,
+          "4800": 0,
+          "None": 0
+        }
+      },
+      "phase_zero": {
+        "one": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 6.0143582279972724e-31,
+              "distinct_codes": 2,
+              "peak_bin": 4,
+              "peak_hz": 1200,
+              "sample_period": 8
+            },
+            "1": {
+              "carrier_fraction": 2.360066652684527e-31,
+              "distinct_codes": 2,
+              "peak_bin": 16,
+              "peak_hz": 4800,
+              "sample_period": 8
+            },
+            "2": {
+              "carrier_fraction": 2.360066652684527e-31,
+              "distinct_codes": 2,
+              "peak_bin": 16,
+              "peak_hz": 4800,
+              "sample_period": 8
+            },
+            "3": {
+              "carrier_fraction": 1.974078192996919e-31,
+              "distinct_codes": 2,
+              "peak_bin": 4,
+              "peak_hz": 1200,
+              "sample_period": 8
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 3.964403415641166e-31,
+            "distinct_codes": 6,
+            "peak_bin": 16,
+            "peak_hz": 4800,
+            "sample_period": 8
+          },
+          "first_16_codes": [
+            9,
+            15,
+            0,
+            6,
+            7,
+            7,
+            1,
+            15,
+            9,
+            15,
+            0,
+            6,
+            7,
+            7,
+            1,
+            15
+          ]
+        },
+        "zero": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "1": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "2": {
+              "carrier_fraction": 7.366682037281164e-32,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "3": {
+              "carrier_fraction": 7.366682037281164e-32,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 1.1624124048024674e-31,
+            "distinct_codes": 2,
+            "peak_bin": 8,
+            "peak_hz": 2400,
+            "sample_period": 4
+          },
+          "first_16_codes": [
+            2,
+            14,
+            14,
+            2,
+            2,
+            14,
+            14,
+            2,
+            2,
+            14,
+            14,
+            2,
+            2,
+            14,
+            14,
+            2
+          ]
+        }
+      },
+      "sample_period_counts": {
+        "one": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 0,
+          "8": 188
+        },
+        "zero": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 188,
+          "8": 0
+        }
+      },
+      "source": "3F9_Y"
+    },
+    {
+      "best_carrier_fraction": {
+        "one": 7.3543884844586014e-31,
+        "zero": 7.106602885403432e-31
+      },
+      "both_symbol_b5_carrier_phases": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": []
+      },
+      "both_symbol_full_byte_carrier_phases": [],
+      "peak_hz_counts": {
+        "one": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 63,
+          "4800": 0,
+          "None": 0
+        },
+        "zero": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 188,
+          "4800": 0,
+          "None": 0
+        }
+      },
+      "phase_zero": {
+        "one": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 5.998308811794038e-31,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 8
+            },
+            "1": {
+              "carrier_fraction": 1.067928154162722e-31,
+              "distinct_codes": 2,
+              "peak_bin": 12,
+              "peak_hz": 3600,
+              "sample_period": 8
+            },
+            "2": {
+              "carrier_fraction": 2.512375612453152e-31,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "3": {
+              "carrier_fraction": 2.6000054249227684e-33,
+              "distinct_codes": 2,
+              "peak_bin": 12,
+              "peak_hz": 3600,
+              "sample_period": 8
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 2.0468180470880872e-31,
+            "distinct_codes": 7,
+            "peak_bin": 8,
+            "peak_hz": 2400,
+            "sample_period": 8
+          },
+          "first_16_codes": [
+            12,
+            4,
+            3,
+            9,
+            7,
+            6,
+            1,
+            1,
+            12,
+            4,
+            3,
+            9,
+            7,
+            6,
+            1,
+            1
+          ]
+        },
+        "zero": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 7.366682037281164e-32,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "1": {
+              "carrier_fraction": 3.797933850331635e-31,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "2": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "3": {
+              "carrier_fraction": 7.366682037281164e-32,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 1.3671940847048495e-31,
+            "distinct_codes": 2,
+            "peak_bin": 8,
+            "peak_hz": 2400,
+            "sample_period": 4
+          },
+          "first_16_codes": [
+            2,
+            9,
+            9,
+            2,
+            2,
+            9,
+            9,
+            2,
+            2,
+            9,
+            9,
+            2,
+            2,
+            9,
+            9,
+            2
+          ]
+        }
+      },
+      "sample_period_counts": {
+        "one": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 0,
+          "8": 188
+        },
+        "zero": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 188,
+          "8": 0
+        }
+      },
+      "source": "3FA_Y"
+    },
+    {
+      "best_carrier_fraction": {
+        "one": 4.959728161545787e-31,
+        "zero": 1.590299312119662e-30
+      },
+      "both_symbol_b5_carrier_phases": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": []
+      },
+      "both_symbol_full_byte_carrier_phases": [],
+      "peak_hz_counts": {
+        "one": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 63,
+          "4800": 0,
+          "None": 0
+        },
+        "zero": {
+          "1800": 0,
+          "2100": 0,
+          "2400": 188,
+          "4800": 0,
+          "None": 0
+        }
+      },
+      "phase_zero": {
+        "one": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 7.06721689649563e-32,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "1": {
+              "carrier_fraction": 8.464462105581902e-32,
+              "distinct_codes": 2,
+              "peak_bin": 12,
+              "peak_hz": 3600,
+              "sample_period": 8
+            },
+            "2": {
+              "carrier_fraction": 3.5629703971163874e-32,
+              "distinct_codes": 2,
+              "peak_bin": 4,
+              "peak_hz": 1200,
+              "sample_period": 8
+            },
+            "3": {
+              "carrier_fraction": 1.4685215825952673e-31,
+              "distinct_codes": 2,
+              "peak_bin": 4,
+              "peak_hz": 1200,
+              "sample_period": 8
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 2.0506491129963964e-31,
+            "distinct_codes": 7,
+            "peak_bin": 4,
+            "peak_hz": 1200,
+            "sample_period": 8
+          },
+          "first_16_codes": [
+            5,
+            12,
+            14,
+            8,
+            9,
+            10,
+            0,
+            0,
+            5,
+            12,
+            14,
+            8,
+            9,
+            10,
+            0,
+            0
+          ]
+        },
+        "zero": {
+          "b5_by_y_bit": {
+            "0": {
+              "carrier_fraction": 7.366682037281164e-32,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "1": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "2": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "3": {
+              "carrier_fraction": 3.797933850331635e-31,
+              "distinct_codes": 2,
+              "peak_bin": 8,
+              "peak_hz": 2400,
+              "sample_period": 4
+            },
+            "4": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "5": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "6": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            },
+            "7": {
+              "carrier_fraction": 0.0,
+              "distinct_codes": 1,
+              "peak_bin": null,
+              "peak_hz": null,
+              "sample_period": 1
+            }
+          },
+          "code": {
+            "carrier_fraction": 1.590299312119662e-30,
+            "distinct_codes": 2,
+            "peak_bin": 8,
+            "peak_hz": 2400,
+            "sample_period": 4
+          },
+          "first_16_codes": [
+            14,
+            7,
+            7,
+            14,
+            14,
+            7,
+            7,
+            14,
+            14,
+            7,
+            7,
+            14,
+            14,
+            7,
+            7,
+            14
+          ]
+        }
+      },
+      "sample_period_counts": {
+        "one": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 0,
+          "8": 188
+        },
+        "zero": {
+          "1": 0,
+          "16": 0,
+          "2": 0,
+          "32": 0,
+          "4": 188,
+          "8": 0
+        }
+      },
+      "source": "3F7_R10"
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/DAC08-OUTPUT.md": "12d47ff5710695483910bcf1b08a13483c1eeb1a9560280335ed9bf87ad0e0c0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/dac08_latch_probe.py": "c1599a6525f35793d56ff0be1e01c4172a6e4faa684a597e40194bc817897c73",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_dac_sample_clock_screen.py": "3ad9b755d196cfa5b641b085bf124d809afbe473567d0d57d82a4615d9b83c16",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_prom_data_route.py": "5af8dad5ed34c54fa4bf976af99e859585e3b5efe54bcb191200d4823641f3e7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_timed_d0_stream.py": "f329fce770ac7ab32724154d8064f84fc40207fe6e509d2513e2b7f07f51a3d0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "nokia/data-modem-2400-2400/analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d"
+  },
+  "status": "conditional divided-LS273 clock screen, not traced DAC output",
+  "totals": {
+    "b5_carrier_source_bit_phases": 0,
+    "full_byte_carrier_source_phases": 0,
+    "source_candidates": 4
+  }
+}

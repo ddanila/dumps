@@ -444,6 +444,15 @@ phases B–C turn "what" into "how".
   internal controller-to-ROM execution witness, conditional on the untraced
   input connection, clock and PROM-latch routes; C2 still needs a DAC-bound
   waveform and dibit/2100 Hz behavior.
+  A [divided DAC-latch screen](g2/LOWER-I-DAC-SAMPLE-CLOCK-SCREEN.md) tests
+  the simplest output continuation for that witness: ALU Y at `3F8/3F9/3FA`
+  or `3F7`-written R10 into the adjacent 74LS273, sampled at 9,600 Hz
+  under all 188 integer clock phases. Both held input levels yield exact
+  four- or eight-sample cycles at every tested source; none has a 1,800 Hz
+  full-byte peak, and none of eight possible D4 source bits gives the
+  photo-candidate DAC08 B5 a 1,800 Hz peak under both levels. This rules
+  out those **direct** latch fixtures, while a staged data path, other
+  clock/source or mapping remains open without waiting for pin traces.
   An [exit-path comparison](g2/LOWER-I-EXIT-PATH.md) follows the D3F8-sensitive
   branch: under previous-flag timing, `3FA` zero releases `3ED`, `3EE` returns
   to `18D`, and all six impulse/controller cases eventually repeat `1E9/1EA`
