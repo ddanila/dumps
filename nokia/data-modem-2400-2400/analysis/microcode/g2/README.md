@@ -779,3 +779,10 @@ The [all-site D screen](INDEPENDENT-SLICE-INPUT-SITES.md) finds only D38E
 (non-reversed) and D3A1 (reversed-upper) affect a loop-boundary state, and a
 single input impulse lasts just one boundary at either site. No tested site
 changes the reached candidate output values.
+The [joined CD4094/frame/line replay](PHOTO-CD4094-FRAME-LINE-JOINT.md)
+offers the executed 8031 frames through eight candidate chip/Q byte orders at
+D127 while replaying their USART bits at D12C. Sixteen of 32 cases enter the
+second ROM loop; four exit to `084` during the diagnostic eight-visit hold.
+The earlier literal `47`/`42` split occurs in only one chip/Q route, while
+another reverses it. No case reaches candidate output `392` or `39E`, and
+the physical byte lane and line-rate path remain open.

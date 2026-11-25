@@ -591,6 +591,14 @@ phases B–C turn "what" into "how".
   earlier `47`/`42` branch split survives only one tested chip/Q orientation;
   another yields the opposite split. Keep these distinct wiring candidates
   live while testing a DAC-bound path.
+  The [joined CD4094/frame/line replay](g2/PHOTO-CD4094-FRAME-LINE-JOINT.md)
+  executes all eight chip/Q orientations for four controller frame and USART
+  classes. Sixteen of 32 cases enter D12C, four leave at `084` during the
+  diagnostic eight-visit hold, and none reaches `392`/`39E`. Chip 2 Q8→D0
+  alone reproduces the literal `47`/`42` split; chip 0 Q1→D0 reverses it.
+  The hold is not physical line-rate timing, so test a decoded or qualified
+  input and a sustained output consumer without selecting a physical lane
+  from this control-flow result alone.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

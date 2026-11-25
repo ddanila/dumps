@@ -122,16 +122,16 @@ other photo-compatible scenarios found an input-sensitive R5 write before
 later table calls. That conditional path is a lead to test with changing
 inputs, not a claim about the board's untraced wiring.
 
-**Next G2 application:** the [CD4094 cascade model](g2/PHOTO-CD4094-ORDER.md)
-shows that chip order and Q-pin orientation can reverse or remove the apparent
-controller-frame branch split. Test each plausible frame lane with its labelled
-orientation, rather than feeding a literal frame byte to D127 without stating
-how it reaches that input. The [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
+**Current G2 application:** the [joined CD4094/frame/line replay](g2/PHOTO-CD4094-FRAME-LINE-JOINT.md)
+tests each simple chip/Q-pin byte orientation with the real controller frames
+and line bits. It finds that the apparent branch split depends on the assumed
+frame lane and reaches no candidate output word. The
+[line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
 a rejection of the **raw-bit fixture**, not of every controller-to-DSP route.
-Try a decoded or biased bit input, a different clock/loop, or a stateful ROM
-consumer, with the DAC latch route and sample gate stated separately. Compare
+Next try a decoded or biased bit input, a different clock/loop, or a stateful
+ROM consumer, with the DAC latch route and sample gate stated separately. Compare
 command-dependent samples against the required 1,800/2,100 Hz and dibit
 behavior. Continue independent receive-path analysis through the
 [D3F8 stream path](g2/LOWER-I-STREAM-SCHEDULE.md). Record each result and its
