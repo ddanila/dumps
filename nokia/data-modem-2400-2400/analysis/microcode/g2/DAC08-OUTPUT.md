@@ -128,3 +128,15 @@ Y→LS273-D4 route, PC129 clock edge, D127 connection, I0 hold timing, other
 seven DAC bits, analog filter and 9,600 Hz sample clock remain hypotheses.
 The bitstream comes from a controller subroutine, not an uninterrupted modem
 call or a decoded tone/data command.
+
+## Split-slice D4 clock replay
+
+The [independent-slice D-lane result](INDEPENDENT-SLICE-D-LANES.md) shows a
+controller-bit dependency at `39E` when the bit occupies D4 and the upper
+slice uses a separate B-address field. The [LS273 clock screen](SPLIT-DAC-CLOCK-SCREEN.md)
+holds each bit for eight loop visits and clocks the candidate latch at `38E`
+or `39E`. At either site, all-zero and all-one controls produce a constant
+code after startup across 1,024 captures. The photo-supported B5←Q4 bit
+changes with the bit at `38E` under the untraced Y→D4 assumption; it stays
+one at `39E`. Neither direct-clock hypothesis produces carrier samples.
+The physical latch clock, full data bus and DAC output route remain open.

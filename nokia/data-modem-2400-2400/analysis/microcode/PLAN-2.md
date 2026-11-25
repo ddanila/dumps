@@ -205,6 +205,11 @@ phases B–C turn "what" into "how".
   instead change the `39E` ALU result one loop later under the upper-B
   variant. Keep the actual D-bus lane and DAC clock open; this bounded bit
   forwarding is still not a transmitter.
+  A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
+  controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
+  Both candidate clocks yield constant codes under constant-symbol controls,
+  and neither meets the carrier-sample test. This narrows those explicit
+  output scenarios without requiring a complete pin trace.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are
