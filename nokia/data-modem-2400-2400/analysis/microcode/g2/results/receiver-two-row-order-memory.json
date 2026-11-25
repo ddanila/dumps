@@ -1,0 +1,84 @@
+{
+  "comparison": {
+    "address_differences_after_return": 2624,
+    "differences_after_return": 2624,
+    "final_q_offset": 2,
+    "final_register_offsets": {
+      "R10": 1,
+      "R11": 1
+    },
+    "final_rom_address_offset": 1,
+    "final_y3fa_offset": 255,
+    "first_state_difference": 188,
+    "last_state_difference": 2999,
+    "pc_digest": "24a5213ea0632ca5a0789e01daac049568a205ae4fdd02f0e2df0c8ec82c952c"
+  },
+  "experiment": "equal-histogram ADC hold orders with and without matched final level",
+  "fixture": {
+    "baseline": "09",
+    "dispatch": "scenario [0,2] at 3EC",
+    "first_visit": 188,
+    "hold_visits": 94,
+    "levels": [
+      "19",
+      "A9"
+    ],
+    "route": "hypothetical complementary ADC D3F8",
+    "total_visits": 3000
+  },
+  "forward_vs_baseline": {
+    "address_differences_after_return": 2624,
+    "differences_after_return": 2624,
+    "final_q_offset": 6,
+    "final_register_offsets": {
+      "R10": 2,
+      "R11": 2,
+      "R12": 240
+    },
+    "final_rom_address_offset": 2,
+    "final_y3fa_offset": 254,
+    "first_state_difference": 188,
+    "last_state_difference": 2999,
+    "pc_digest": "24a5213ea0632ca5a0789e01daac049568a205ae4fdd02f0e2df0c8ec82c952c"
+  },
+  "matched_last_level": {
+    "comparison": {
+      "address_differences_after_return": 0,
+      "differences_after_return": 0,
+      "final_q_offset": 0,
+      "final_register_offsets": {},
+      "final_rom_address_offset": 0,
+      "final_y3fa_offset": 0,
+      "first_state_difference": 188,
+      "last_state_difference": 377,
+      "pc_digest": "24a5213ea0632ca5a0789e01daac049568a205ae4fdd02f0e2df0c8ec82c952c"
+    },
+    "schedules": [
+      "A9,19,A9",
+      "19,A9,A9"
+    ]
+  },
+  "reverse_vs_baseline": {
+    "address_differences_after_return": 2624,
+    "differences_after_return": 2624,
+    "final_q_offset": 8,
+    "final_register_offsets": {
+      "R10": 3,
+      "R11": 3,
+      "R12": 240
+    },
+    "final_rom_address_offset": 3,
+    "final_y3fa_offset": 253,
+    "first_state_difference": 188,
+    "last_state_difference": 2999,
+    "pc_digest": "24a5213ea0632ca5a0789e01daac049568a205ae4fdd02f0e2df0c8ec82c952c"
+  },
+  "source_sha256": "5ebca010d6824b66078a87271d609c0e02743d9e97219714cb2c90412e56f765",
+  "trace_digests": {
+    "control": "e03eaad30621b703f7d42df2684415ef2b4444e19056b927622a097102fa5917",
+    "forward": "27591e717f5993e090bf0f07bb2e82aedc015ab65d382d6e97f0befeebf8dac9",
+    "matched_last_a": "0e73a8cd9b205a7f3628aa88e65fb403f5f8ebf23e128241439b8967913fbf43",
+    "matched_last_b": "bc602b726aa81ad005e0cac89a9f8afc1f3225f7966e2385d678a0fe9d1e2b93",
+    "reverse": "030494668f0fc5eeb58bf594b025d93b6f71292f3c5f15ad7b2bdfb9255c6468"
+  }
+}

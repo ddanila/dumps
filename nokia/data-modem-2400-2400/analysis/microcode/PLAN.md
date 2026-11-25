@@ -420,6 +420,13 @@ errors. This is input-sensitive receiver state, but not a recovered decision
 path. Keep C3 open and test a stateful readout or another photo-compatible
 clock/route; the untraced connection is not a blocker.
 
+The [matched-last-level order test](g2/RECEIVER-TWO-ROW-ORDER-MEMORY.md)
+further narrows that state: reversing `19,A9` holds changes the late state,
+but two equal-histogram three-hold sequences with the same final `A9` hold
+reconverge before the common tail. The long-lived offset in this fixture is
+therefore not evidence by itself of multi-sample phase history. Seek a
+sample-combining update or executed decision output next.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing
