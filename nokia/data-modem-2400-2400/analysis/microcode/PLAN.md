@@ -549,6 +549,11 @@ The [mask-04 TEST audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) finds three
 surviving previous-flag choices, but none turns the paired ADC difference
 into an executed conditional branch. Keep the receive output and mapping
 questions open and test another photo-compatible route.
+The [mask-04 own-echo replay](g2/JOINT-MASK04-FOUR-ROW-ECHO.md) now joins
+its exact executed transmitter samples to the complete four-row receive
+loop under labelled echo/ADC assumptions. Neither call nor answer shows
+rapid selective attenuation at any remote-responsive direct byte; C4
+remains open until a train/freeze route and residual are identified.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent

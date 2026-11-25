@@ -1151,6 +1151,15 @@ phases B–C turn "what" into "how".
   ignores TEST. This narrows the flag substitution route without making
   unknown TEST wiring a blocker; pursue an output consumer or a different
   input/field hypothesis for C3.
+  The [same-map four-row echo replay](g2/JOINT-MASK04-FOUR-ROW-ECHO.md)
+  uses the **exact** mask-`04` controller-driven transmit samples as a
+  delayed, half-scale ADC echo, with zero, independent remote and mixed
+  controls. Both call and answer complete the 128-sample fixture; five
+  remote-responsive bytes include Y3F8/Y3F9/Q/R1/R12, but none halves
+  its mixed-input echo response from the first to last 32-sample window.
+  This excludes rapid direct-byte attenuation in that fixed fixture,
+  not mode-controlled echo cancellation. C4 still needs a justified
+  train/freeze route and output residual.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,
