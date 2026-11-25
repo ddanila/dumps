@@ -1,0 +1,117 @@
+{
+  "fast_step_coincidence": {
+    "interpretation": "opposite positions in the same 16-byte anti-symmetric region, not independent D127-source evidence",
+    "negative_tap": {
+      "address": "5D",
+      "byte": "F0",
+      "signed": -16
+    },
+    "positive_tap": {
+      "address": "66",
+      "byte": "10",
+      "signed": 16
+    }
+  },
+  "limitations": [
+    "Anti-symmetry is a ROM-data fact; FIR taps, byte order, sample rate and functional role are hypotheses.",
+    "The frequency response assumes contiguous signed taps at 9600 Hz; the board may read the bytes in another order or at another rate.",
+    "The q3 lower-bank run sweeps all addresses, so reaching these windows does not identify their intended consumer.",
+    "The q3 mapping, ROM gate, held-I0 level and D127 source are untraced; no transmitter or receiver path is shown."
+  ],
+  "q3_lower_bank_control": {
+    "held_d127": "01",
+    "paired_bank_runs": [
+      {
+        "bank": 0,
+        "first_region_hits": 16,
+        "pc129_selected_reads": 253,
+        "second_region_hits": 10,
+        "trace_digest": "002abc41ee1c9aa319622cadab4b63c88759c10b60a0cbde0566f41d138ceca0"
+      },
+      {
+        "bank": 256,
+        "first_region_hits": 0,
+        "pc129_selected_reads": 253,
+        "second_region_hits": 0,
+        "trace_digest": "60772e3708ff6d4355a82d4c23657fdb6f8d90f4d3b290af99831805d312e6ef"
+      }
+    ],
+    "pc128_retained_snapshots_equal": true
+  },
+  "region": [
+    {
+      "contiguous_tap_interpretation_at_9600_hz": {
+        "bin_hz": 15,
+        "gain_by_hz": {
+          "0": 0.0,
+          "1800": 0.73789,
+          "2100": 2.245075,
+          "4800": 330.0
+        },
+        "max_grid_frequency_hz": 4800
+      },
+      "exact_anti_symmetry": true,
+      "first_address": "5A",
+      "last_address": "69",
+      "length": 16,
+      "signed_values": [
+        -1,
+        0,
+        6,
+        -16,
+        25,
+        -33,
+        40,
+        -46,
+        46,
+        -40,
+        33,
+        -25,
+        16,
+        -6,
+        0,
+        1
+      ]
+    },
+    {
+      "contiguous_tap_interpretation_at_9600_hz": {
+        "bin_hz": 15,
+        "gain_by_hz": {
+          "0": 0.0,
+          "1800": 1.170917,
+          "2100": 1.263848,
+          "4800": 446.0
+        },
+        "max_grid_frequency_hz": 4800
+      },
+      "exact_anti_symmetry": true,
+      "first_address": "72",
+      "last_address": "7B",
+      "length": 10,
+      "signed_values": [
+        6,
+        -22,
+        46,
+        -68,
+        81,
+        -81,
+        68,
+        -46,
+        22,
+        -6
+      ]
+    }
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "26789430ee6f5a1029eadc15cbc91f277ae8a186eea8248d46a0bc636d9669d3",
+    "analysis/microcode/g2/photo_127_liveness.py": "cbab4e70ffe97b579d833b5e27751593d206f7459d962f525f730f52c875b33a",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/rom_antisymmetric_regions.py": "04b101dff2e53f2408603475591c7b3c6dc4fd15ebef9c895db4f469aa5b6ffa",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "exact ROM anti-symmetry and conditional q3 read audit"
+}

@@ -111,8 +111,9 @@ phases B–C turn "what" into "how".
     curves.
   - Test 68–6F against the V.26 ter Table 1 Gray mapping (00→0°, 01→90°,
     11→180°, 10→270°).
-  - Interpret 30–7F as parameter blocks, e.g. phase increments: 48 = 1800 Hz
-    and 56 = 2100 Hz per 256-step phase at 9600 Hz; byte 0x34 = 0x30.
+  - Characterise 30–7F as potentially mixed parameters and signed sequences.
+    Test phase-step interpretations such as 48/56 at 9600 Hz against actual
+    read addresses and dataflow before assigning any byte that role.
   - Record negative results as well.
 
   The [shape-control comparison](g2/README.md#first-independent-rom-constraint)
@@ -174,6 +175,12 @@ phases B–C turn "what" into "how".
   every start phase. The fractional divisors 2/4 cannot give a uniform phase
   step with one fixed nonzero D127 byte. Two candidate values (`F0`, `10`)
   occur in the ROM `30–7F` region, but their connection to D127 is unknown.
+  A [signed-ROM structure check](g2/ROM-ANTISYMMETRIC-REGIONS.md) now shows
+  those two bytes are opposite positions of one exact anti-symmetric
+  16-byte window. This weakens the parameter-source interpretation: a q3
+  lower-bank scan reaches them only as part of an almost full-ROM sweep,
+  without retained PC128 state. Keep the fast-step equation as a timing
+  possibility, and seek an actual controller-selected source for D127.
   A [controller-frame lane screen](g2/PHOTO-127-CONTROLLER-FRAME-STEPS.md)
   then feeds the observed A0/A1/A2 frame bytes directly into D127 under the
   same assumptions. Only A0/A2's literal third byte `88` matches a fast-clock

@@ -39,8 +39,11 @@ clock circuit.
 
 The lower-bank Am27S31 region `30–7F` happens to contain `F0` at `5D` and
 `10` at `66`, the two `k=3` 1,800 Hz alternatives. None of the four
-2,100 Hz candidate bytes appears in that region. These are value
-co-occurrences, **not evidence that the table drives D127**. No controller
+2,100 Hz candidate bytes appears in that region. A later
+[signed-ROM structure check](ROM-ANTISYMMETRIC-REGIONS.md) shows `F0` and
+`10` are opposite taps in one exact anti-symmetric 16-byte window, making
+their co-occurrence especially weak evidence of phase-step storage. There
+is **no evidence that the table drives D127**. No controller
 tone command or full DAC output route has been identified. The
 [machine report](results/photo-127-fast-step-candidates.json) records all
 eight executed traces, start-phase screens, ROM-region hits and source hashes.
