@@ -1097,6 +1097,14 @@ phases B–C turn "what" into "how".
   symbol-difference state, fits even the 36-dibit training set exactly.
   Seek a microinstruction-motivated multi-sample or separately latched
   decision; input-sensitive ROM addresses alone do not pass C3.
+  A [single-ADC-pulse replay](g2/JOINT-UPPER-ADC-PULSE-MEMORY.md) supplies
+  a timing clue on the same map. One `59` byte among otherwise identical
+  `09` bytes changes Q, RAM 10–13 and subsequent `3F9` ROM addresses through
+  visit 5,999 when placed at visit phase 0, 1 or 4 modulo five. At phase 2
+  the effect ends immediately, and at phase 3 it lasts two further visits.
+  The phase classes repeat 90 visits later. This is retained modeled state,
+  not a decoded bit; use the five-visit cadence to constrain the next
+  multi-sample receive/output-latch test.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
