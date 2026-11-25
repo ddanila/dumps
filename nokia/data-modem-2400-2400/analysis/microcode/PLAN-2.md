@@ -149,6 +149,15 @@ phases B–C turn "what" into "how".
   microinstructions: 0.9–3.6 MHz for the hypothetical `14.4 MHz / k`,
   `k=1…4` clock, rather than 9,600 Hz. The divider and latch clock are
   untraced; test a qualified clock or another repeated output site.
+  A [photo-B5 tone-step screen](g2/PHOTO-DAC-B5-TONE-STEP.md) now clocks a
+  candidate LS273 at each PC129 and enumerates all eight Y-bit sources for
+  its D4 input, using the photographed DAC08 B5←Q4 segment. With upper-bank
+  ROM reads and hypothetical 9600 samples/s, only Y7→D4 peaks at both
+  1800 Hz for D127=48 and 2100 Hz for D127=56. Lower-bank D127=48 instead
+  peaks at 3600 Hz on that bit. All nine tested upper-bank increments peak
+  at their own step frequency, so this is a constrained phase-dependent
+  output-bit candidate, not proof of Nokia's tone values, sample clock,
+  full DAC code or carrier output.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:
