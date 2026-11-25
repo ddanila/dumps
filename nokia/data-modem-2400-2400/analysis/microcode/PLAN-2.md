@@ -1148,6 +1148,16 @@ phases B–C turn "what" into "how".
   The isolated perfect fresh stream does not generalize. This excludes
   that simple external readout under the fixture, not an executed
   multi-sample receiver; C3 remains open.
+  A [paired-row phase-code screen](g2/RECEIVER-MASK04-ROWPAIR-PHASE-CODE.md)
+  combines the executed `3ED` Y bytes from rows 0 and 3 of the same ADC
+  visit. One fixed eight-state lookup, including the expected 180° carrier
+  advance per symbol, gives 0/36 training, 0/48 holdout and 0/48 fresh
+  differential-dibit errors with full coverage. Training-exact one- and
+  two-sample raw-ADC codebooks cover at most 11/96 independent decisions.
+  This is a strong conditional phase-state witness under mask `04`, but its
+  lookup/subtraction is external and no USART RxD consumer is identified.
+  Test an executed or photo-compatible row-pair consumer and input-level
+  variation before passing C3; G2 remains active.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

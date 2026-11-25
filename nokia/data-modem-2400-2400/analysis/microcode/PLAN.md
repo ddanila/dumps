@@ -543,6 +543,14 @@ now supplies one all-positive raw-PROM decode that would clock R1-derived
 `3ED` Y after every row. Eleven full traces verify the edge, but their
 captured bytes yield no exact fixed-phase direct bit. U19/U12 wiring and
 USART RxD remain hypotheses; test a stateful readout next.
+The [paired-row phase-code test](g2/RECEIVER-MASK04-ROWPAIR-PHASE-CODE.md)
+finds a compact, generalizing state in those executed bytes: a fixed
+eight-state lookup of row-0/row-3 `3ED` Y pairs gives zero differential
+dibit errors on 36 training, 48 holdout and 48 fresh decisions under the
+labelled mask-`04` receive fixture. The lookup and subtraction are external;
+find a photo-compatible or executed consumer and its USART timing before
+claiming C3. Test another input level rather than treating the untraced
+consumer as a blocker.
 The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
 also fails to decode the captured Y[3:0] as a fixed-phase differential
 symbol across independent streams. Keep the conditional latch experiment,
