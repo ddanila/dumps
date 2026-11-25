@@ -560,6 +560,15 @@ phases B–C turn "what" into "how".
   This is a strong **conditional** input-path candidate; the U17-to-U8 wire,
   ADC bus and receive decision are untraced. Seek a symbol decision and a
   path to USART-01 RxD before claiming C3.
+  The [upper-sensitive symbol screen](g2/LOWER-I-D3F8-UPPER-SYMBOL.md)
+  then checks all 1,500 fixed phases per symbol for direct Y/Q/RAM bits and
+  same-byte symbol-to-symbol subtraction bits against three training,
+  three periodic holdout and four nonperiodic holdout streams. No tested
+  rule exactly fits even the 36 training symbols (direct minima 1/36 and
+  2/36 errors; subtraction 3/36 and 2/36). This rules out only that simple
+  readout family under the stated candidate mapping. Infer a constrained
+  decision from instruction behavior and test it across the independent
+  streams and a candidate RxD output route; C3 stays open.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring

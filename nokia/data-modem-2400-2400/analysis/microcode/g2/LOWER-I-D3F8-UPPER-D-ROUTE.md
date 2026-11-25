@@ -53,3 +53,6 @@ dibit or USART-01 RxD transition has been identified. The next discriminating
 test is to search the upper-sensitive run for a symbol decision that
 generalizes to the nonperiodic streams, then constrain its physical output
 route.
+The [direct/subtraction symbol screen](LOWER-I-D3F8-UPPER-SYMBOL.md) finds
+no exact fixed-phase bit among the tested Y/Q/RAM sites; a coded decision
+and the output route remain open.
