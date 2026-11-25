@@ -1,7 +1,7 @@
 # DSC2847 microcode emulation plan
 
-> **Status:** complete ([final review](assumed/FINAL-REVIEW.md)). The current
-> goal is **G2** in [PLAN-2.md](PLAN-2.md#goal-g2). G2 remains active when a
+> **Status:** G1 complete ([final review](assumed/FINAL-REVIEW.md)); **G2 active**
+> in [PLAN-2.md](PLAN-2.md#goal-g2). G2 remains active when a
 > photographed connection is ambiguous: model the plausible connections as
 > labelled assumptions, run them, and use the results to choose the next test.
 > Missing continuity data is not a reason to mark G2 blocked.
@@ -107,6 +107,13 @@ blocked or request new measurements while another runnable hypothesis or
 independent program/signal analysis remains. State the next experiment in the
 result summary so an ambiguous photograph leads to another action.
 An acceptance check that has not passed is **open**, not automatically blocked.
+If the photos show only part of a required net, assume the simplest
+pin-compatible continuation, label the unseen segment and its timing, and run
+the microprogram with the real PROMs. Test alternatives where they could change
+the result. A plausible output is a conditional finding, not proof of the
+physical connection or a passed acceptance check. A failed candidate prompts
+another assumption or independent experiment; missing continuity alone never
+pauses the work.
 For the current receive/echo work, infer candidate ADC, feedback and mode-control
 routes from the existing photographs and executed controller state/frame timing.
 Label each inferred connection and training/freeze gate, run a small set of
