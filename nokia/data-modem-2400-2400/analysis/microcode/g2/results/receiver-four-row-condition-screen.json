@@ -1,0 +1,1370 @@
+{
+  "experiment": "four-row receive dispatch under candidate ALU TEST sources",
+  "fixture": {
+    "adc": "complementary 127-PCM at 3F8; seven 47-visit and one 46-visit hold per eight samples",
+    "condition": "select 0 flag source/polarity and timing swept",
+    "cycles": 48047,
+    "dispatch": "scenario [0,1,2,3] at 3EC",
+    "expected_adc_visits": 1500,
+    "mapping": "joint upper-source mask 08"
+  },
+  "held_input_cases": [
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 0,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "zero",
+      "timing": "previous",
+      "trace_digest": "c3f79aadaf6702a2c2742d80e6bfedf7a8ed382c08ad80b33ccc2c25ae5b6f2b"
+    },
+    {
+      "adc_visits": 6,
+      "final_pc": "1EA",
+      "polarity": 1,
+      "row_visits": [
+        7,
+        7,
+        6,
+        6
+      ],
+      "selected_adc_reads": 6,
+      "source": "zero",
+      "timing": "previous",
+      "trace_digest": "9648fba4c9aa9002a1d5eec9227e1417b22ab2e8b6e6bff144387d7970f6411e"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "1EC",
+      "polarity": 0,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "sign",
+      "timing": "previous",
+      "trace_digest": "316c70dbb3b25055417b45e2afd31b358920c4a9887bcfe1faaffac7170a09fd"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 1,
+      "row_visits": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "sign",
+      "timing": "previous",
+      "trace_digest": "5eaab8aeb64770de3c8a3dc2f6903f138669128e855172abf177f36d83087fd3"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 0,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "carry",
+      "timing": "previous",
+      "trace_digest": "9bc0447eefe3d5fba01882cc44635df63a34af45619aae932db3cb7d5903f4a3"
+    },
+    {
+      "adc_visits": 5,
+      "final_pc": "1EA",
+      "polarity": 1,
+      "row_visits": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "selected_adc_reads": 5,
+      "source": "carry",
+      "timing": "previous",
+      "trace_digest": "a34c42df9e3d54e26b37ed1575eca58d239fcb389998d6d4728f42f6e851f015"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 0,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "overflow",
+      "timing": "previous",
+      "trace_digest": "b77ce7065dbc43ceac3d05423eebc011b218713864a9d71af810582b475e9002"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "overflow",
+      "timing": "previous",
+      "trace_digest": "402bdae0400ed9349c8dc7623d74ab6ac5e9a09a46b77c8afc9b7f6fe31a4db3"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "polarity": 0,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "zero",
+      "timing": "current",
+      "trace_digest": "029040bca845c054fef75866f52c9f5b321fcfcebd7cf533bf637568f990394e"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 1,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "zero",
+      "timing": "current",
+      "trace_digest": "5a5f8994cd9f2162e66091f7e36ab0fc2c9f3e26f1d7edf563d9cc46b9e23959"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 0,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "sign",
+      "timing": "current",
+      "trace_digest": "0c89e6dc6cb1d75ff1a208bfa9584e52e28bc7267b6a798b640deab1c2593c8f"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "sign",
+      "timing": "current",
+      "trace_digest": "73311fb4f47f218055e8a1dc7546247e49034476b60ec07287c02ffb3c513fee"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 0,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "carry",
+      "timing": "current",
+      "trace_digest": "f1f607601cb01704408a4f944c9aa0cf6bf5658dfc44355cc782d8dbd871d6d4"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "carry",
+      "timing": "current",
+      "trace_digest": "f754b0c75c37bf2b50cac7a9fc46df20f0c8df00b83b99c5326eac0caa5c5fa9"
+    },
+    {
+      "adc_visits": 0,
+      "final_pc": "084",
+      "polarity": 0,
+      "row_visits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "selected_adc_reads": 0,
+      "source": "overflow",
+      "timing": "current",
+      "trace_digest": "55bee7c34bc5301888e68f3fea5c67f1d6ae1469271729a5d426c37b061e8079"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "overflow",
+      "timing": "current",
+      "trace_digest": "095b690ebb9a961f9198026de5563af26988aeb03f7ae53b2f9cc786027f133e"
+    }
+  ],
+  "limitations": [
+    "The counter-like dispatch, TEST flag wiring, ADC bus and sample clock are hypotheses.",
+    "Identical PC paths do not rule out a separately clocked decision or output latch.",
+    "Input-dependent table arithmetic is not a recovered dibit or USART RxD event."
+  ],
+  "source_sha256": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+  "waveform_cases": [
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "overflow",
+      "timing": "previous",
+      "trace_digest": "b765d06ef12089970e96275eed427c2b52382721b44f900c76b7ab3084f59559"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "overflow",
+      "timing": "previous",
+      "trace_digest": "fd0b6f5426507044f8bf84a1be991f4b14979195e05ce81406df1aa69973ea74"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "polarity": 0,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "zero",
+      "timing": "current",
+      "trace_digest": "4417ed3e71dd5752787b5481f736ee2fe8b22dd144af32f1d25664cd4dd34514"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "polarity": 0,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "zero",
+      "timing": "current",
+      "trace_digest": "3502c03f7d7dd3b3858eeea378f29bf8842a704d65559d06fada6ef917a9390b"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "sign",
+      "timing": "current",
+      "trace_digest": "0ad9be87c1266fae01379e6ed0120c86262d166d7ac46c2ffde1dd9914a7be46"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "sign",
+      "timing": "current",
+      "trace_digest": "f33cec5b68abddf080dcad36ad26719ef59b88d01923422e81cedba0b1c00cfa"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "carry",
+      "timing": "current",
+      "trace_digest": "e8efc32323fe22f0601e72ef0adbd166ebf7bdceee7c0ca2ea50028cca2c14fc"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "carry",
+      "timing": "current",
+      "trace_digest": "21c728f31dd4ac44468da4f4fb3af4c52490276627e21367fa9b31095ce5af35"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "overflow",
+      "timing": "current",
+      "trace_digest": "59b5f5b5793493321f50d6c1211eb92f8dd5ec10ffac06fe1cfb0ce72fcc5fc4"
+    },
+    {
+      "adc_visits": 1500,
+      "final_pc": "3F0",
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "polarity": 1,
+      "row_visits": [
+        1501,
+        1500,
+        1500,
+        1500
+      ],
+      "selected_adc_reads": 1500,
+      "source": "overflow",
+      "timing": "current",
+      "trace_digest": "9da0af5588f7ab8b0b0b2cd5fa3f3631fd60d18739e9ec0826be68deed363f74"
+    }
+  ],
+  "waveform_contrast": {
+    "pc_digest": "22124c388a760f10427d5abb8808e32d2d187d2eb5f35c16fb60fb464476150a",
+    "sites": {
+      "3EA": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 1253,
+          "first": 191
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 6001
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3EB": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 1253,
+          "first": 191
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3EC": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 1253,
+          "first": 191
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3ED": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 1253,
+          "first": 190
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3EF": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 1501
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F0": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F1": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 1500
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F2": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F3": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 1500
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F4": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F5": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 1500
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F6": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F7": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 1500
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F8": {
+        "alu.carry": {
+          "differences": 148,
+          "first": 238
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 850,
+          "first": 238
+        },
+        "alu.y": {
+          "differences": 1359,
+          "first": 47
+        },
+        "alu.zero": {
+          "differences": 34,
+          "first": 240
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3F9": {
+        "alu.carry": {
+          "differences": 382,
+          "first": 97
+        },
+        "alu.overflow": {
+          "differences": 324,
+          "first": 54
+        },
+        "alu.sign": {
+          "differences": 324,
+          "first": 54
+        },
+        "alu.y": {
+          "differences": 1336,
+          "first": 47
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 1253,
+          "first": 47
+        },
+        "rom_address": {
+          "differences": 1359,
+          "reads": 1500
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3FA": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 382,
+          "first": 97
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 1253,
+          "first": 47
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3FB": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 1500
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3FC": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3FD": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 1500
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      },
+      "3FE": {
+        "alu.carry": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.overflow": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.sign": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.y": {
+          "differences": 0,
+          "first": null
+        },
+        "alu.zero": {
+          "differences": 0,
+          "first": null
+        },
+        "next_pc": {
+          "differences": 0,
+          "first": null
+        },
+        "q": {
+          "differences": 0,
+          "first": null
+        },
+        "rom_address": {
+          "differences": 0,
+          "reads": 0
+        },
+        "test": {
+          "differences": 0,
+          "first": null
+        }
+      }
+    },
+    "state_differences": {
+      "3F2": {
+        "any_byte_differences": 0,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "3F6": {
+        "any_byte_differences": 0,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      },
+      "3FA": {
+        "any_byte_differences": 1359,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1359,
+          1135,
+          42,
+          0,
+          0,
+          1253
+        ],
+        "visits": 1500
+      },
+      "3FE": {
+        "any_byte_differences": 0,
+        "byte_differences": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "visits": 1500
+      }
+    },
+    "streams": [
+      {
+        "first_adc_codes": [
+          "00",
+          "59",
+          "D7",
+          "BE",
+          "40",
+          "36",
+          "BD",
+          "F6"
+        ],
+        "pattern": [
+          0,
+          1,
+          3,
+          2
+        ],
+        "trace_digest": "b765d06ef12089970e96275eed427c2b52382721b44f900c76b7ab3084f59559"
+      },
+      {
+        "first_adc_codes": [
+          "00",
+          "4E",
+          "D9",
+          "F4",
+          "7F",
+          "0A",
+          "25",
+          "B0"
+        ],
+        "pattern": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "trace_digest": "fd0b6f5426507044f8bf84a1be991f4b14979195e05ce81406df1aa69973ea74"
+      }
+    ]
+  }
+}

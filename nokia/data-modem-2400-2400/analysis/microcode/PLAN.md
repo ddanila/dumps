@@ -461,6 +461,16 @@ a photo-compatible route to USART 01 RxD. If that readout fails, revise
 the enable phase, dispatch source or output route and run the next bounded
 candidate; do not wait for a continuity measurement to proceed.
 
+The [four-row condition screen](g2/RECEIVER-FOUR-ROW-CONDITION.md) tests a
+counter-like `0→1→2→3` dispatch instead of assuming that the 0/2 diagnostic
+is the board schedule. Five labelled TEST flag choices sustain 1,500 ADC
+visits across all four rows. In one full-row waveform pair the ADC changes
+the third-row ROM address on 1,359 visits, but the fourth row makes complete
+RAM/Q state identical to the control on all 1,500 visits. Keep this path as
+a conditional transient-input candidate, not a recovered receiver. Test a
+third-row latch or a different dispatch/condition route next; do not treat
+the absent pin trace as a blocker.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing
