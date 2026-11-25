@@ -287,6 +287,13 @@ phases B–C turn "what" into "how".
   no later retained state, ROM-address change or candidate output change in
   any of the five. The next receiver search needs a joint field/timing or
   different state-path hypothesis, still without waiting for pin tracing.
+  A [follow-up on the divergent lower-I paths](g2/LOWER-I-BRANCH-FOLLOWUP.md)
+  finds two repeated one-bit ALU relays at `396/398` or `39A/39C`, plus a
+  separate `3ED–3FA` loop that cycles eight quarter-sine ROM addresses at
+  `3F7`. D38E is absent from that ROM loop; a byte at its selected D3F8 site
+  also lasts just one boundary. Test a photo-compatible way for the ROM values
+  to reach controller-driven state and a DAC latch; the loop alone is not a
+  carrier-output proof.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
