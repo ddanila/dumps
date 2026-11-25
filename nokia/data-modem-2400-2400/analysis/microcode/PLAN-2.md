@@ -317,6 +317,16 @@ phases B–C turn "what" into "how".
   reads, makes changing Y at `3F8–3FA`, and a single `44→33` byte change
   sends `3ED` to `3EE` rather than `3EA`. Those source and inverter routes
   remain untraced; no controller-fed or DAC-bound waveform is shown.
+  A [selected D3F8 input screen](g2/LOWER-I-D3F8-INPUT.md) now offers bytes
+  at the repeated D sites of that mapping. D1–D3 impulses at the 21st D3F8
+  visit persist across 5–14 loop boundaries, change later selected ROM
+  addresses and eventually branch away. Constant high bits keep the loop;
+  actual 8031 bits offered there exit after 28/38/53 visits, short of a
+  sustained transmitter. D3FA D1 affects one ALU site without a ROM/PC
+  change, and D3EB single-bit controls have no modeled effect. Determine
+  which physical input and clock could feed D3F8, then test for a recovered
+  decision or DAC-bound stream rather than treating these state changes as
+  proof of either function.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
