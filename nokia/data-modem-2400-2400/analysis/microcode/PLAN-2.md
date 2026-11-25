@@ -433,6 +433,17 @@ phases B–C turn "what" into "how".
   every eight microcycles. All three exit early with 2/4/8/16-visit holds;
   this is an internal algorithmic lead, not a timed 1,200-baud connection or
   DAC output. Test a physically plausible input phase and output latch next.
+  A [clock-matched D0 replay](g2/LOWER-I-TIMED-D0-STREAM.md) finds a simpler
+  single-bit continuation: hold D3F8 D3 high, D2/D1 low, and put the 8031
+  bit on D0 (`08/09`, or its inverse). With 750 loop visits per bit, exactly
+  the `14.4 MHz`, `k=1`, 2,400 bit/s hypothesis for this eight-cycle loop,
+  both polarities select all 96,000 offered D3F8 bytes and continue through
+  the full 128-bit stream. The first bit change alters `3F8–3FA` Y and later
+  `3F7` ROM addresses. The exact alternating 187/188-visit `k=4` schedule
+  and fixed 250/375-visit `k=3/2` schedules exit early. This is a strong
+  internal controller-to-ROM execution witness, conditional on the untraced
+  input connection, clock and PROM-latch routes; C2 still needs a DAC-bound
+  waveform and dibit/2100 Hz behavior.
   An [exit-path comparison](g2/LOWER-I-EXIT-PATH.md) follows the D3F8-sensitive
   branch: under previous-flag timing, `3FA` zero releases `3ED`, `3EE` returns
   to `18D`, and all six impulse/controller cases eventually repeat `1E9/1EA`

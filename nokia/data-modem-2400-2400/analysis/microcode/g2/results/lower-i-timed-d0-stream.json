@@ -1,0 +1,399 @@
+{
+  "fixture": {
+    "alternating_k4_holds": [
+      "187/188",
+      "188/187"
+    ],
+    "candidate_clock": "14.4 MHz/k, k=1..4",
+    "controller_bits": "128 locally ROM-executed 8031 scrambler bits",
+    "fixed_holds": [
+      188,
+      250,
+      375,
+      750
+    ],
+    "mapping": "q-independent-3-photo-ab-swapped-separated-independent-upper-instruction-upper-address-b-diagnostic-!10.6-11.2-paired-data-sources",
+    "microcycles_per_loop_visit": 8,
+    "nominal_data_bits_per_second": 2400,
+    "q": 5,
+    "zero_one_d3f8_bytes": [
+      "08/09",
+      "09/08"
+    ]
+  },
+  "limitations": [
+    "D3F8 D0 from controller bit, D3 held high, D2/D1 low, paired PROM-data latch routes and initial Q are hypotheses.",
+    "The 8031 scrambler executes locally; no physical USART-to-DSP phase or sequencer divider has been measured.",
+    "A selected ROM/ALU stream is not a DAC08 sample stream or proof of the transmit waveform.",
+    "The 14.4 MHz undivided clock assumption gives 750 loop visits per 2400 bit/s bit only in this eight-microcycle loop."
+  ],
+  "schedules": [
+    {
+      "consumed_all_bits": true,
+      "consumed_visits": 24069,
+      "final_pc": 1017,
+      "offered_visits": 24064,
+      "one": 9,
+      "schedule": "fixed_188",
+      "selected_rom_visits": 24069,
+      "trace_digest": "770c1876fb8f68bdac186c7200fc3143542847e8decacc223943a7529f236e82",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 2253,
+      "final_pc": 490,
+      "offered_visits": 32000,
+      "one": 9,
+      "schedule": "fixed_250",
+      "selected_rom_visits": 2253,
+      "trace_digest": "5594db63ee831fcfb389a9c501b4d0c65746a38eeaaa5632d1f07a5b6eaf9ec7",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 33753,
+      "final_pc": 490,
+      "offered_visits": 48000,
+      "one": 9,
+      "schedule": "fixed_375",
+      "selected_rom_visits": 33753,
+      "trace_digest": "91ef028ae08a16bf44d619e98d8ff4aa8346614433357060239a6f5c0fb43134",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": true,
+      "consumed_visits": 96005,
+      "final_pc": 1017,
+      "offered_visits": 96000,
+      "one": 9,
+      "schedule": "fixed_750",
+      "selected_rom_visits": 96005,
+      "trace_digest": "ea7ac99db2e1c47edec9485b3984068d20165f6134625007a48708450c5aceb7",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 19878,
+      "final_pc": 490,
+      "offered_visits": 24000,
+      "one": 9,
+      "schedule": "alternating_187_188",
+      "selected_rom_visits": 19878,
+      "trace_digest": "345f2e78c8696c83be26d51a2877eaeb151b2ad0c3af31c7ef75c91071d98498",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 5628,
+      "final_pc": 490,
+      "offered_visits": 24000,
+      "one": 9,
+      "schedule": "alternating_188_187",
+      "selected_rom_visits": 5628,
+      "trace_digest": "b0b31ec02384d54ee50f056fd27b86cc4e5b31b305b12e463d71014f9e570ca5",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": true,
+      "consumed_visits": 24069,
+      "final_pc": 1017,
+      "offered_visits": 24064,
+      "one": 8,
+      "schedule": "fixed_188",
+      "selected_rom_visits": 24069,
+      "trace_digest": "e1e9ce1154d60403809afab7bc231a7b5c481c13a1ac3c009065ed1508c0ce14",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 13253,
+      "final_pc": 490,
+      "offered_visits": 32000,
+      "one": 8,
+      "schedule": "fixed_250",
+      "selected_rom_visits": 13253,
+      "trace_digest": "865bdb305c73ae6e9218ea40573b646830bd76c61429a0e9e79575b3135d1994",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 4878,
+      "final_pc": 490,
+      "offered_visits": 48000,
+      "one": 8,
+      "schedule": "fixed_375",
+      "selected_rom_visits": 4878,
+      "trace_digest": "077e19c381055d4d9588a15b20da872e8df8a73d5b3d0b1b019732bc01a264cc",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": true,
+      "consumed_visits": 96005,
+      "final_pc": 1017,
+      "offered_visits": 96000,
+      "one": 8,
+      "schedule": "fixed_750",
+      "selected_rom_visits": 96005,
+      "trace_digest": "61d567e2728a93d36fde39d7a5c88129a76b882995f59c1369a9e0014e1e8015",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 9565,
+      "final_pc": 490,
+      "offered_visits": 24000,
+      "one": 8,
+      "schedule": "alternating_187_188",
+      "selected_rom_visits": 9565,
+      "trace_digest": "4463f21fa37390eb2b6ffdda8021fe8118c2effa7f1e0b26245cbbece1e14236",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 6003,
+      "final_pc": 490,
+      "offered_visits": 24000,
+      "one": 8,
+      "schedule": "alternating_188_187",
+      "selected_rom_visits": 6003,
+      "trace_digest": "be8f852a2a5e1799863febc2db3d1d8cde553cfffae55dd960d8febaed57c956",
+      "zero": 9
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "nokia/data-modem-2400-2400/analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
+    "nokia/data-modem-2400-2400/analysis/interface_probe.c": "9dcda6531bb853652c89c253ad557ee85c6f2855c2d77379b706a48f9becdd2b",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_prom_data_route.py": "5af8dad5ed34c54fa4bf976af99e859585e3b5efe54bcb191200d4823641f3e7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_timed_d0_stream.py": "f329fce770ac7ab32724154d8064f84fc40207fe6e509d2513e2b7f07f51a3d0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "nokia/data-modem-2400-2400/analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "timed single-D0 controller-to-ROM path under candidate mapping",
+  "totals": {
+    "full_stream_schedules": 4,
+    "schedules": 12
+  },
+  "transition_witnesses": [
+    {
+      "input_cycle_gaps": [
+        8
+      ],
+      "one": 9,
+      "selected_input_visits": 3000,
+      "sites": {
+        "3F7_rom_address": {
+          "changed_after_first_bit": 748,
+          "distinct_controller_values": 11,
+          "first_16_after_transition": [
+            282,
+            264,
+            264,
+            274,
+            278,
+            285,
+            278,
+            277,
+            261,
+            278,
+            280,
+            273,
+            274,
+            281,
+            264,
+            274
+          ],
+          "first_difference_from_zero": 2252
+        },
+        "3F8_alu_y": {
+          "changed_after_first_bit": 688,
+          "distinct_controller_values": 10,
+          "first_16_after_transition": [
+            251,
+            247,
+            249,
+            243,
+            253,
+            240,
+            242,
+            248,
+            249,
+            250,
+            251,
+            242,
+            250,
+            240,
+            248,
+            243
+          ],
+          "first_difference_from_zero": 2250
+        },
+        "3F9_alu_y": {
+          "changed_after_first_bit": 687,
+          "distinct_controller_values": 10,
+          "first_16_after_transition": [
+            2,
+            0,
+            6,
+            12,
+            9,
+            7,
+            1,
+            0,
+            15,
+            14,
+            7,
+            15,
+            9,
+            1,
+            6,
+            12
+          ],
+          "first_difference_from_zero": 2251
+        },
+        "3FA_alu_y": {
+          "changed_after_first_bit": 749,
+          "distinct_controller_values": 12,
+          "first_16_after_transition": [
+            2,
+            10,
+            8,
+            1,
+            12,
+            6,
+            7,
+            3,
+            1,
+            14,
+            7,
+            4,
+            9,
+            1,
+            9,
+            1
+          ],
+          "first_difference_from_zero": 2251
+        }
+      },
+      "trace_digests": {
+        "controller": "e27e6dbe3940fcd50cd2ee358cbd217b6457b16e14e5cb168f0ad10682fca3a2",
+        "zero": "16665267c3691904645dd40f1f79d73945567671fb37c526d111836710568635"
+      },
+      "zero": 8
+    },
+    {
+      "input_cycle_gaps": [
+        8
+      ],
+      "one": 8,
+      "selected_input_visits": 3000,
+      "sites": {
+        "3F7_rom_address": {
+          "changed_after_first_bit": 736,
+          "distinct_controller_values": 18,
+          "first_16_after_transition": [
+            278,
+            286,
+            266,
+            275,
+            277,
+            278,
+            281,
+            277,
+            286,
+            268,
+            282,
+            287,
+            270,
+            273,
+            279,
+            263
+          ],
+          "first_difference_from_zero": 2251
+        },
+        "3F8_alu_y": {
+          "changed_after_first_bit": 685,
+          "distinct_controller_values": 14,
+          "first_16_after_transition": [
+            252,
+            240,
+            244,
+            241,
+            250,
+            249,
+            251,
+            244,
+            241,
+            246,
+            246,
+            253,
+            247,
+            251,
+            254,
+            248
+          ],
+          "first_difference_from_zero": 2250
+        },
+        "3F9_alu_y": {
+          "changed_after_first_bit": 711,
+          "distinct_controller_values": 15,
+          "first_16_after_transition": [
+            8,
+            4,
+            7,
+            14,
+            15,
+            13,
+            4,
+            7,
+            2,
+            2,
+            11,
+            1,
+            13,
+            10,
+            0,
+            8
+          ],
+          "first_difference_from_zero": 2250
+        },
+        "3FA_alu_y": {
+          "changed_after_first_bit": 674,
+          "distinct_controller_values": 14,
+          "first_16_after_transition": [
+            12,
+            3,
+            5,
+            14,
+            15,
+            15,
+            4,
+            5,
+            2,
+            14,
+            6,
+            4,
+            6,
+            10,
+            7,
+            11
+          ],
+          "first_difference_from_zero": 2251
+        }
+      },
+      "trace_digests": {
+        "controller": "362e36d1ceecc91695e5c1f525a80664170fa49e85b67038ea7952bbc1e91a80",
+        "zero": "8c47fc652a7ffe38d4a65d35b071b5e02a13032f1802c1ce44d08f0972425562"
+      },
+      "zero": 9
+    }
+  ]
+}
