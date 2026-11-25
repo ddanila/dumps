@@ -721,6 +721,12 @@ phases B–C turn "what" into "how".
   timing, DAC route and B4 segment meaning remain untraced, so this is a
   conditional mechanism, not a C2 pass. Constrain one of those routes with
   independent evidence before interpreting the half-turn as Nokia output.
+  The [64-iteration counter trace](g2/MAIN-LOOP-COUNTER-LONG.md) now identifies
+  the controller source of that frame bit: a state-indexed ROM table reloads
+  RAM49 to 32 in B4 and 8 in A5, causing eight and two bit-6 toggles at
+  four-build spacing. All 256 output builds match the independent builder
+  model. This is a deliberate finite controller pattern, but the forced
+  polling/build cadence does not establish its physical reversal interval.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
   now prevents combining the two separate bit-swap leads as one fixed
   chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`
