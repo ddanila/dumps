@@ -38,6 +38,14 @@ outputs also mean that a candidate microcode loop should normally see a held
 conversion byte until a new conversion completes, rather than a new sample
 on every microinstruction.
 
+The later [raw-PROM enable-phase screen](RECEIVER-PROM-ADC-ENABLE-PHASE.md)
+provides one testable buffer-control continuation: a three-literal U10 decode
+latched one microinstruction enables the ADC only at the reached `3F8` word
+under the alternating 0/2 receive fixture. Same-phase use conflicts with a
+ROM read, and a simpler two-literal delayed gate also changes high-slice D
+at `3FA` and exits early. These are simulation constraints on possible OE
+timing, not observed pin connections.
+
 The [held-byte 187 probe](adc_hold_187.py) tests that timing alternative in
 the fitted-swapped mapping. Across both Q=1 and Q=129, all 256 byte values
 run cleanly for 512 cycles. Only byte `00` exits the 187/188 PLP/BLT loop to

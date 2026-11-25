@@ -1167,6 +1167,15 @@ phases B–C turn "what" into "how".
   Test a generalizing receive decision on this interleaved schedule, then
   constrain its counter/buffer index and output routes; the two-row sequence
   is still an explicit hypothesis, not recovered board wiring or a C3 pass.
+  The [raw-PROM ADC enable-phase screen](g2/RECEIVER-PROM-ADC-ENABLE-PHASE.md)
+  finds a concrete buffer-gate hypothesis for that same path. A one-cycle
+  latched `!U10.D1 & U10.D3 & U10.D7` level enables only `3F8` on all
+  3,000 reached ADC visits; its same-phase level instead coincides with
+  `3F7`'s ROM read. The ADC-fed replay has the same full-state trace digest
+  as the PC-qualified baseline. A shorter two-literal gate also enables
+  high-slice D at `3FA` and exits after 95 ADC visits. This constrains OE
+  timing under the joint map, but the U10-to-74LS244 wire, dispatch index,
+  receive decision and USART output remain unverified; C3 stays open.
   The [two-row receive-decision screens](g2/RECEIVER-TWO-ROW-DECISION.md)
   now run seven independent streams through that same schedule. No direct
   Y/Q/RAM bit, previous-symbol byte difference, small byte codebook or ALU

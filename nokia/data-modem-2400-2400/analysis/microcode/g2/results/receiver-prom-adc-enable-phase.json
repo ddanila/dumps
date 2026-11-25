@@ -1,0 +1,40 @@
+{
+  "baseline_trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d",
+  "delayed_enabled_pcs": {
+    "3F8": 3000
+  },
+  "experiment": "one-cycle raw-PROM ADC output-enable hypothesis",
+  "failed_two_literal_control": {
+    "adc_visits": 95,
+    "extra_selected_site": "3FA high-slice D",
+    "final_pc": "084",
+    "predicate": "!U10.D1 & U10.D3, one-cycle delay",
+    "trace_digest": "40049a719a756a026a45e8c70f9c7cc5cae6ce5903d0c01243d2a68ee7c31910"
+  },
+  "fixture": {
+    "adc": "32 complementary samples, 94/93 visits each",
+    "buffer": "photo-supported 74LS244 pair; connection untraced",
+    "dispatch": "scenario [0,2] at 3EC",
+    "gate": "!U10.D1 & U10.D3 & U10.D7, latched one microinstruction",
+    "mapping": "joint upper-source mask 08",
+    "receiver_window": "after first 3EA entry"
+  },
+  "gated_trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d",
+  "same_phase_enabled_pcs": {
+    "3F7": 3000
+  },
+  "selected_adc_visits": 3000,
+  "single_literal_gate_count": 0,
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_3eb_adc_route_screen.py": "e5cd0f0d2ca782df268c1d535d637ca718976e7ba9868638d58c4f64d9a0b753",
+    "analysis/microcode/g2/receiver_3eb_nibble_truth.py": "622a12de91dac65eac5c63faae3927f376eacff9fe8fb8099416282d564859f6",
+    "analysis/microcode/g2/receiver_prom_adc_enable_phase.py": "683a9b7925b3327e2af0333149a6b298392d3a5ffa537a7378ec90d68c3b03c9",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d"
+  },
+  "two_literal_gate_count": 0
+}
