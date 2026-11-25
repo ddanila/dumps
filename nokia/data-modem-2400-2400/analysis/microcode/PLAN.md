@@ -246,10 +246,12 @@ The [eight-visit D3F8 screen](g2/LOWER-I-FOUR-SAMPLE-BIT-SCREEN.md) is the
 current example of this decision. One photo-compatible, D0-only `08/09`
 candidate carries all 128 controller bits through the selected ROM loop when
 each bit is held for eight loop visits. Its input route and 153.6 kHz
-microcycle interpretation remain assumptions. Test a candidate 9,600 Hz
-DAC08 latch clock on alternating visits, and change the latch route or timing
-if the resulting bytes fail the transmitter checks. A missing continuity
-measurement does not pause that experiment.
+microcycle interpretation remain assumptions. The
+[alternating-visit latch screen](g2/LOWER-I-ALTERNATE-VISIT-LATCH.md) then
+finds constant codes for held `08` under every tested direct Y/R10 byte
+route, so those routes cannot supply a held-input carrier at that clock.
+Change the latch route, timing or command-dependent input fixture next;
+a missing continuity measurement does not pause the experiment.
 
 ## Steps
 

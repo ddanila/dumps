@@ -469,6 +469,14 @@ phases B–C turn "what" into "how".
   its 153.6 kHz microcycle and data/latch wiring are unmeasured. Screen the
   alternating-visit latch bytes and phase next, without waiting for a pin
   trace or treating this internal path as proof of C2.
+  The [alternating-visit latch screen](g2/LOWER-I-ALTERNATE-VISIT-LATCH.md)
+  runs that test at 9,600 samples/s, both phases and four direct Y/R10 byte
+  sources. Held `08` gives a constant byte for all eight cases, so none can
+  provide its steady 1,800 Hz carrier. A short controller-stream window at
+  one source/phase has a 1,800 Hz peak, but the held controls fail. This
+  closes those direct source/clock fixtures; continue with a staged latch
+  route, different clock or command-dependent input rather than waiting for
+  a pin trace.
   An [exit-path comparison](g2/LOWER-I-EXIT-PATH.md) follows the D3F8-sensitive
   branch: under previous-flag timing, `3FA` zero releases `3ED`, `3EE` returns
   to `18D`, and all six impulse/controller cases eventually repeat `1E9/1EA`
