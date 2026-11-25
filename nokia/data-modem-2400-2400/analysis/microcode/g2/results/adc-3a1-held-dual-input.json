@@ -1,0 +1,162 @@
+{
+  "cases": [
+    {
+      "adc_selected_per_run": 2500,
+      "controller_selected_per_run": 2500,
+      "differing_adc_boundary_count": 1750,
+      "first_shared_adc_boundary": 2000,
+      "last_differing_adc_boundary": 1999,
+      "lower_i2_source": "11.0",
+      "microinstructions_per_run": 30044,
+      "output_event_count": 5000,
+      "same_final_state": true,
+      "same_output_events": true,
+      "same_selected_rom_addresses": true,
+      "selected_rom_reads": 3,
+      "trace_digests": {
+        "forward": "93648aaf8b44dd7e33c689bc7cc3dd7b5d6cb385cb5d5bc2f18bb2feee7eee3d",
+        "reverse": "d898aebfbfb885db8d0fbe4a022e17639e90ebe073e0f776af30c96a74d95db0"
+      }
+    },
+    {
+      "adc_selected_per_run": 2500,
+      "controller_selected_per_run": 2500,
+      "differing_adc_boundary_count": 1750,
+      "first_shared_adc_boundary": 2000,
+      "last_differing_adc_boundary": 1999,
+      "lower_i2_source": "11.4",
+      "microinstructions_per_run": 30044,
+      "output_event_count": 5000,
+      "same_final_state": true,
+      "same_output_events": true,
+      "same_selected_rom_addresses": true,
+      "selected_rom_reads": 3,
+      "trace_digests": {
+        "forward": "142f6be7e3f050fcb5fc422fb57d97e9810886da472b3ce1849d1d438b72c803",
+        "reverse": "2ffad596fcaeb4fb68959c4983b0f09c5fa800dfe0b26727203c813f319b1a93"
+      }
+    }
+  ],
+  "fixture": {
+    "adc_code": "127 - reference signed PCM at D3A1",
+    "adc_hold_visits_per_sample": 125,
+    "assumed_line_bit_hz": 2400,
+    "assumed_oscillator_hz": 14400000,
+    "assumed_sample_hz": 9600,
+    "controller_bit_value": "16 \u00d7 bit at D38E",
+    "controller_bits": [
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "controller_hold_visits_per_bit": 500,
+    "controller_iterations": [
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "controller_line_bytes": [
+      "F8",
+      "4F",
+      "0F",
+      "3C",
+      "65",
+      "08",
+      "F5",
+      "EC"
+    ],
+    "controller_selector": "00",
+    "forward_sample_codes": [
+      0,
+      89,
+      215,
+      190,
+      64,
+      54,
+      189,
+      246,
+      127,
+      20,
+      70,
+      148,
+      127,
+      112,
+      191,
+      231,
+      127,
+      15,
+      32,
+      122
+    ],
+    "initial_q": 5,
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "instruction_count_per_site_visit": 12,
+    "prefix_samples": 16,
+    "reverse_sample_codes": [
+      231,
+      191,
+      112,
+      127,
+      148,
+      70,
+      20,
+      127,
+      246,
+      189,
+      54,
+      64,
+      190,
+      215,
+      89,
+      0,
+      127,
+      15,
+      32,
+      122
+    ],
+    "shared_tail_samples": 4
+  },
+  "limitations": [
+    "The two physical D-bus routes, U11 instruction bits, clock divisor, ADC reference range and initial Q/RAM are hypotheses.",
+    "Forced controller polling gives the line bytes; the bit-to-site hold schedule is imposed rather than measured.",
+    "The tested 389\u20133A1 loop shows no recovered bit or persistent receive history; another mapping or path may.",
+    "No ADC-to-USART receive path is identified."
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/ADC0800-INPUT.md": "fd2a3652221f7e07c269fe127f3c0ac4daa4fe1f746203cd9b7dfda1fedfa98e",
+    "analysis/microcode/g2/adc_3a1_held_dual_input.py": "4ab1ca1ca4cfc88e95b477ac515748e6c4ea5199a7310b57412fb842bcb4c7fa",
+    "analysis/microcode/g2/adc_sample_path.py": "62054e697ea19356b6f1331fe38d16262794f5bf923b9c5199647e07226a983e",
+    "analysis/microcode/g2/lower_i_command_data_mix.py": "4bbee6ff803a64cce2c524845b276dbcc915138144f675b315070a2f52f2bbe8",
+    "analysis/microcode/g2/lower_i_input_pipeline.py": "d9c8da05eec3a5cff2ceb01569ad8b9b99eb3486dde3bae7e817ece4c8c0c03c",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/main-loop-long.json": "fce0c72f99791de8d855cbaa2711f190edd3a99431c92273648ea2f8b64e0403",
+    "analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7"
+  },
+  "status": "held ADC samples at simultaneous D3A1 ingress leave no retained modeled receive history"
+}

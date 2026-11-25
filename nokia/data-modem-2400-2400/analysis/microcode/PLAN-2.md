@@ -554,6 +554,12 @@ phases B–C turn "what" into "how".
   their first shared input group, with no recurring selected ROM read.
   This closes that q3/Q=5 ingress under held-sample timing, not the ADC
   receiver or another mapping.
+  A [separate held D3A1 replay](g2/ADC-3A1-HELD-DUAL-INPUT.md) keeps real
+  8031 line bits on D38E at 500 visits/bit while complementary ADC codes
+  occupy D3A1 for 125 visits/sample. Both U11.0 and U11.4 instruction
+  candidates select all inputs but lose the ADC history at the first shared
+  sample; reached output events and ROM addresses do not depend on that
+  history. Seek a different retaining input phase or program path for C3.
 
   A [fast-gated full-byte screen](g2/PHOTO-127-FULL-BYTE-GATE.md) follows
   the alternative PC129 phase loop and tests selected upper-ROM bytes as
