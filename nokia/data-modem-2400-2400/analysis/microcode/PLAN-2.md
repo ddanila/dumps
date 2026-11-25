@@ -89,6 +89,14 @@ phases B–C turn "what" into "how".
   - Produce a table `state → frame bytes → expected DSP behaviour`.
   - This replaces the arbitrary "c,p,l,h" bridge in
     [FRAME-DAC-BRIDGE](assumed/FRAME-DAC-BRIDGE.md) with meaningful inputs.
+
+  A [preserved-image receive/state/send run](g2/RECEIVED-CHAIN.md) now proves
+  that a USART-received byte selects four distinct controller state/frame
+  chains under forced expiry events. Replaying their actual outgoing bytes
+  through an [assumed DSC D38E route](g2/RECEIVED-CHAIN-MICROCODE.md) changes
+  reached `39E` ALU values, but only by the previously identified byte-field
+  relay. The frame destination and tone/training/data meanings remain open;
+  this conditional bridge does not complete A2 or G2's transmitter test.
 - **A3 Characterise the Am27S31 regions as DSP tables.**
   - Fit 141–1CF against raised-cosine and root-raised-cosine pulses at 8 (and
     4, 6, 12) samples/baud, Hilbert/interpolator taps, 1/x, log/exp and AGC

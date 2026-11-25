@@ -1,0 +1,331 @@
+{
+  "cases": [
+    {
+      "distinct_output_bytes": [
+        27,
+        91,
+        155,
+        187,
+        219,
+        251
+      ],
+      "final_pc": "389",
+      "first_17_outputs": [
+        251,
+        27,
+        27,
+        27,
+        251,
+        27,
+        27,
+        27,
+        251,
+        187,
+        155,
+        27,
+        91,
+        187,
+        155,
+        27,
+        219
+      ],
+      "four_frames": [
+        "80 02 81 7A",
+        "80 02 88 7A",
+        "D0 42 81 22",
+        "D0 42 81 EA"
+      ],
+      "input_bytes": 128,
+      "output_visits": 128,
+      "selected_rom_addresses_after_first_input": [
+        502
+      ],
+      "selector": "00",
+      "state_chain": [
+        "A1",
+        "A2",
+        "B8",
+        "B4"
+      ],
+      "trace_digest": "06beb0905b50ec3db285f3814cfa175d17dc8420145c8f07b0780c8c619ad023"
+    },
+    {
+      "distinct_output_bytes": [
+        27,
+        91,
+        155,
+        219,
+        251
+      ],
+      "final_pc": "389",
+      "first_17_outputs": [
+        251,
+        27,
+        27,
+        27,
+        251,
+        27,
+        27,
+        27,
+        251,
+        155,
+        155,
+        27,
+        91,
+        155,
+        155,
+        27,
+        219
+      ],
+      "four_frames": [
+        "80 02 81 7A",
+        "80 02 88 7A",
+        "C0 42 81 22",
+        "C0 42 81 EA"
+      ],
+      "input_bytes": 128,
+      "output_visits": 128,
+      "selected_rom_addresses_after_first_input": [
+        502
+      ],
+      "selector": "01",
+      "state_chain": [
+        "A1",
+        "A2",
+        "B8",
+        "B4"
+      ],
+      "trace_digest": "efa79292f1819328b7adc0a5392b296b9e9cf2fbd2e29628afc15d3bf7feb274"
+    },
+    {
+      "distinct_output_bytes": [
+        27,
+        123,
+        155,
+        187,
+        251
+      ],
+      "final_pc": "389",
+      "first_17_outputs": [
+        251,
+        27,
+        27,
+        27,
+        251,
+        27,
+        27,
+        27,
+        251,
+        187,
+        155,
+        27,
+        123,
+        187,
+        155,
+        27,
+        123
+      ],
+      "four_frames": [
+        "80 02 81 7A",
+        "80 02 88 7A",
+        "D0 42 81 BA",
+        "D0 42 81 BA"
+      ],
+      "input_bytes": 128,
+      "output_visits": 128,
+      "selected_rom_addresses_after_first_input": [
+        502
+      ],
+      "selector": "40",
+      "state_chain": [
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "trace_digest": "9a1f6bb5be0b906df69aea79e2eb2c457fa9343ebd3eab9e53ca26714a6aa6b5"
+    },
+    {
+      "distinct_output_bytes": [
+        27,
+        123,
+        155,
+        251
+      ],
+      "final_pc": "389",
+      "first_17_outputs": [
+        251,
+        27,
+        27,
+        27,
+        251,
+        27,
+        27,
+        27,
+        251,
+        155,
+        155,
+        27,
+        123,
+        155,
+        155,
+        27,
+        123
+      ],
+      "four_frames": [
+        "80 02 81 7A",
+        "80 02 88 7A",
+        "C0 42 81 BA",
+        "C0 42 81 BA"
+      ],
+      "input_bytes": 128,
+      "output_visits": 128,
+      "selected_rom_addresses_after_first_input": [
+        502
+      ],
+      "selector": "41",
+      "state_chain": [
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "trace_digest": "c220facda1b12d0998cf0170ea4f9f108a886f6fd611158413d04ac339f7b86a"
+    }
+  ],
+  "fixture": {
+    "candidate_input_pc": "38E",
+    "candidate_output_pc": "39E",
+    "controller_frames_per_class": 4,
+    "initial_q": 5,
+    "mapping": "q-independent-3-photo-ab-swapped-separated-independent-upper-instruction-upper-address-b",
+    "received_selector_classes": [
+      "00",
+      "01",
+      "40",
+      "41"
+    ],
+    "repeated_frame_cycles": 8
+  },
+  "interpretation": "The executed controller receive byte changes the state frames; replaying those frames through one assumed DSC D-input changes the reached 39E ALU byte by the already-derived field-extraction rule.",
+  "limitations": [
+    "The controller-to-DSC byte route and timing are untraced and the frame repetition is diagnostic.",
+    "The 39E ALU byte is not a traced DAC sample or recovered modem command.",
+    "The ROM is read at a fixed address in this fixture; no carrier phase or receiver operation is shown.",
+    "Controller state handoffs and timer expiries are synthetic, though its ROM runs unchanged."
+  ],
+  "pairwise_output_differences": {
+    "00/01": {
+      "differing_output_visits": 16,
+      "differing_sites_mod_16": [
+        9,
+        13
+      ],
+      "first_16_positions": [
+        9,
+        13,
+        25,
+        29,
+        41,
+        45,
+        57,
+        61,
+        73,
+        77,
+        89,
+        93,
+        105,
+        109,
+        121,
+        125
+      ]
+    },
+    "00/40": {
+      "differing_output_visits": 15,
+      "differing_sites_mod_16": [
+        0,
+        12
+      ],
+      "first_16_positions": [
+        12,
+        16,
+        28,
+        32,
+        44,
+        48,
+        60,
+        64,
+        76,
+        80,
+        92,
+        96,
+        108,
+        112,
+        124
+      ]
+    },
+    "01/41": {
+      "differing_output_visits": 15,
+      "differing_sites_mod_16": [
+        0,
+        12
+      ],
+      "first_16_positions": [
+        12,
+        16,
+        28,
+        32,
+        44,
+        48,
+        60,
+        64,
+        76,
+        80,
+        92,
+        96,
+        108,
+        112,
+        124
+      ]
+    },
+    "40/41": {
+      "differing_output_visits": 16,
+      "differing_sites_mod_16": [
+        9,
+        13
+      ],
+      "first_16_positions": [
+        9,
+        13,
+        25,
+        29,
+        41,
+        45,
+        57,
+        61,
+        73,
+        77,
+        89,
+        93,
+        105,
+        109,
+        121,
+        125
+      ]
+    }
+  },
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "03561a0a6c05cbe20332910f9e199f4d05db7e72cea89e24b09377e6a158b09a",
+    "analysis/microcode/g2/independent_slice_addresses.py": "44179df43940e338b22839d0b00b3a6f3c9b1e9b19623accd1a8020e9a4a9a3e",
+    "analysis/microcode/g2/independent_slice_fields.py": "b5a2807b47b5a47dcd6f8aa42f6876d0f5ace0d9c035bdd8c4bf17883de7c946",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/received_chain.py": "d7a56bd8850635097ac62b1928b150417ee2e184524e25165250233d632f6495",
+    "analysis/microcode/g2/received_chain_microcode.py": "b24840068f1a5068647f1b76fc5e1d11d9c8161d260e7f5cb5207b2fa80376ab",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/received-chain.json": "aa53b60bbcc58bdbbd3cec2038387d5e60a7bd59f1bd0b54b3af8a68125dc6df",
+    "analysis/microcode/g2/split_frame_byte_rule.py": "c22b4844aed5b6593a8bd369c6f7770c1a7b5b0a4735af9fa8ee677b60fb1c84",
+    "analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "conditional 8031-receive-to-DSC-byte-relay bridge"
+}
