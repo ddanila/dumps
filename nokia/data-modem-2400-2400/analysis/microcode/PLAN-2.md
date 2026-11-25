@@ -327,6 +327,14 @@ phases B–C turn "what" into "how".
   which physical input and clock could feed D3F8, then test for a recovered
   decision or DAC-bound stream rather than treating these state changes as
   proof of either function.
+  A [D3F8 schedule screen](g2/LOWER-I-STREAM-SCHEDULE.md) tests all 256 Q
+  seeds with one real 8031 bit per visit, plus 2/4/8/16-visit bit holds for
+  Q=`00–0F`; none consumes the full 128-bit stream. A reference ADC-like
+  waveform under every forward cyclic start position at Q=5 also exits
+  before 128 samples (at most 121 or 98 visits for the two byte polarities).
+  A time-reversed control survives 133 visits, showing ordering sensitivity
+  but not a physical receiver. Change the input mapping/timing hypothesis
+  or follow an independent signal path; these fixtures do not meet C2/C3.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
