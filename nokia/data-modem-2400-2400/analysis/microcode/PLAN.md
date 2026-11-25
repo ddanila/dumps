@@ -91,6 +91,12 @@ unavailable continuity measurements **do not by themselves block progress**.
 Use the photos, component topology, chip behavior, ROM structure and existing
 traces to propose plausible connections, then run them. Physical checks are
 optional ways to discriminate candidates, not prerequisites for continuing.
+**Default decision:** keep the goal active and run a photo-compatible baseline
+plus a few meaningful alternatives whenever a connection is uncertain. Mark
+only the tested candidate as unsuccessful when it fails; do not mark the goal
+blocked or request new measurements while another runnable hypothesis or
+independent program/signal analysis remains. State the next experiment in the
+result summary so an ambiguous photograph leads to another action.
 Check package pin counts and pin directions before turning a visible track into
 a wiring hypothesis. If a later check changes the interpretation of a photo,
 correct the evidence record and relabel earlier simulations as counterfactual

@@ -35,6 +35,9 @@ gets one delayed bit-dependent level and no carrier waveform. The
 three pulse positions, lag rules, trace digests and source hashes. The result
 identifies U2 I2 as a useful pin to constrain while continuing to search for
 a retained ROM-using or output path.
+The [simultaneous D3A1 screen](DUAL-INPUT-ADC-NIBBLE.md) tests the second
+selected D site with controller bits still present at D38E. It finds an
+exhaustive low-nibble addition into R7, erased at the next loop boundary.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_input_pipeline.py

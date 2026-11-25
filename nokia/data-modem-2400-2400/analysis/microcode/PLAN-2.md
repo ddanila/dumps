@@ -274,6 +274,13 @@ phases B–C turn "what" into "how".
   and `3A1` under the real controller bitstream. ROM addresses do not change
   and the candidate output still relays one bit; constrain U2 I2 and keep
   looking for a sustained ROM-using and DAC-bound path.
+  The [dual-input byte screen](g2/DUAL-INPUT-ADC-NIBBLE.md) uses the same two
+  lower-field candidates to offer every byte at the newly selected D3A1
+  site while controller bits continue at D38E. Both inputs are selected;
+  D3A1 updates R7 as `60 | ((0B + (D & 0F)) & 0F)` for all 256 bytes.
+  Every next-boundary state, ROM address and candidate output matches the
+  zero-byte control. This is a concrete simultaneous-ingress computation,
+  but it does not yet retain a sample or recover a receive bit.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
