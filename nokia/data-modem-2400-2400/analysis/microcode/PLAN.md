@@ -106,6 +106,15 @@ only the tested candidate as unsuccessful when it fails; do not mark the goal
 blocked or request new measurements while another runnable hypothesis or
 independent program/signal analysis remains. State the next experiment in the
 result summary so an ambiguous photograph leads to another action.
+An acceptance check that has not passed is **open**, not automatically blocked.
+For the current receive/echo work, infer candidate ADC, feedback and mode-control
+routes from the existing photographs and executed controller state/frame timing.
+Label each inferred connection and training/freeze gate, run a small set of
+alternatives with the real PROMs, and compare against zero-input, remote-only
+and own-echo controls. If a candidate fails to recover bits or attenuate echo,
+record its exact fixture and try another route or mode timing. Do not claim a
+physical wire, echo-canceller function or C3/C4 pass from a plausible output
+alone; do not call the goal blocked merely because those checks remain open.
 For each unresolved connection, start from the visible pins, chip directions
 and nearby parts in the existing photographs. Draw the shortest plausible
 continuation as a labelled hypothesis, including any required inversion,
