@@ -1105,6 +1105,13 @@ phases B–C turn "what" into "how".
   The phase classes repeat 90 visits later. This is retained modeled state,
   not a decoded bit; use the five-visit cadence to constrain the next
   multi-sample receive/output-latch test.
+  The [five-phase sampled-state DPSK screen](g2/JOINT-UPPER-SAMPLED-STATE-DPSK.md)
+  uses an external known-carrier decoder on reached Y/Q/RAM bytes at ADC
+  sample phases. Center-sampled `Y3F8` yields 0/36 training but 7/48
+  holdout errors, then 13/48 errors on four fresh random streams; the
+  direct ADC input gives 0/48. It preserves a distorted waveform rather
+  than a decoded DSC bit. Test paired echo/remote inputs or a distinct
+  receive output latch before assigning this subtraction to C3 or C4.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

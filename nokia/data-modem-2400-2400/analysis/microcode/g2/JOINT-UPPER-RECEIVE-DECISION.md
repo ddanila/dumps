@@ -39,7 +39,9 @@ separately clocked output latch. No internal state bit has been tied to
 USART RxD, and echo cancellation remains unshown. The next useful test
 should use the operations and timing of the reached microinstructions to
 propose a small multi-sample readout, then validate it on independent
-streams and a candidate output route.
+streams and a candidate output route. The [sampled-state DPSK screen](JOINT-UPPER-SAMPLED-STATE-DPSK.md)
+now tries one such readout family: center-sampled `Y3F8` retains a distorted
+waveform but does not give reliable holdout decisions.
 
 Reproduce with:
 
