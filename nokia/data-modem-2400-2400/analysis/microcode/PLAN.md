@@ -4,6 +4,7 @@
 > goal is **G2** in [PLAN-2.md](PLAN-2.md#goal-g2). G2 remains active when a
 > photographed connection is ambiguous: model the plausible connections as
 > labelled assumptions, run them, and use the results to choose the next test.
+> Missing continuity data is not a reason to mark G2 blocked.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
@@ -178,6 +179,11 @@ The preserved chain emits chip-1 `A1` during its A1 state, where the isolated
 send fixture emitted `81`; a byte's counter-phase bit cannot be treated as
 a state-only tone selector. Continue with time-varying controller frames and
 separate DAC hypotheses, without blocking on physical net ambiguity. The
+next test is to run repeated A1 output builds with controller RAM and counter
+state preserved, then replay the observed byte sequence through labelled
+photo-compatible decoder and DAC routes. A mismatch between the isolated and
+preserved fixtures rejects a state-only interpretation of that byte; it does
+not require a new photograph before testing other routes. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
