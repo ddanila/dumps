@@ -106,6 +106,15 @@ only the tested candidate as unsuccessful when it fails; do not mark the goal
 blocked or request new measurements while another runnable hypothesis or
 independent program/signal analysis remains. State the next experiment in the
 result summary so an ambiguous photograph leads to another action.
+This also applies when the controller emits no line-data bytes or a candidate
+route fails to reproduce a required signal. Use the protocol's specified
+symbol sequence and the observed controller state/frame timing to define a
+labelled idle-source or decoder hypothesis, then run it continuously into the
+next state with the real controller bitstream. Compare a simple control input
+and inspect the transition, phase and output samples. A match constrains the
+candidate route; it does not establish the untraced source or physical line
+connection. If it fails, revise the source, gate, timing or loop and keep G2
+active while another bounded experiment remains.
 Check package pin counts and pin directions before turning a visible track into
 a wiring hypothesis. If a later check changes the interpretation of a photo,
 correct the evidence record and relabel earlier simulations as counterfactual
