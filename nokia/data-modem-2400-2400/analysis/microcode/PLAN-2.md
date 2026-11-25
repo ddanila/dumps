@@ -728,7 +728,7 @@ phases B–C turn "what" into "how".
   but the tone does not choose a unique bus. The A1 decode and physical
   output remain assumptions, and C2 still needs segment-1 and line checks.
   An [extended 8031 polling-loop replay](g2/MAIN-LOOP-LONG.md) now supplies a
-  real controller frame toggle to test for segment-1 reversals: on the B4
+  real controller frame toggle to test a phase-control hypothesis: on the B4
   branch, the third frame byte alternates `81`/`C1` every four forced-timer
   iterations, while the A5 branch has a shorter toggle. Replay that observed
   sequence with the real line-side bytes through labelled held-frame and DAC
@@ -754,6 +754,17 @@ phases B–C turn "what" into "how".
   four-build spacing. All 256 output builds match the independent builder
   model. This is a deliberate finite controller pattern, but the forced
   polling/build cadence does not establish its physical reversal interval.
+  The [segment-1 cadence check](g2/PHOTO-SEGMENT1-REPEATED-DIBIT.md) sharpens
+  that limitation: V.26 ter §2.7.1 requires a 180° reversal at **each** of
+  32 symbol intervals. In the tested one-byte/four-symbol alignment, B4 bit-6
+  changes only at symbols 0 and 16, so its direct edge-to-D127 pulse route
+  cannot produce segment 1. A separate synthetic run of 32 repeated `11`
+  dibits executes 384,256 PROM microinstructions and alternates the retained
+  phase offset `128/0` every symbol; all 12 surviving DAC bus projections
+  decode the 30 aligned transitions as `11` with zero errors. This proves
+  candidate-path capability, not a controller-sourced segment-1 run or C2.
+  Seek the actual segment-1 source or an independently supported control
+  route without treating unknown nets as a blocker.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
   now prevents combining the two separate bit-swap leads as one fixed
   chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`

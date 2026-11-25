@@ -17,6 +17,11 @@ observed frame edges map to candidate symbols 0 and 16 under the explicit
 one-byte/four-symbol alignment. The 8031 run forces timer expiry each
 iteration, so this alignment and edge spacing are diagnostic assumptions,
 not natural segment-1 timing.
+Under this alignment, the two edges cannot directly supply the continuous
+180° reversal at every one of 32 symbol intervals required by
+[ITU-T V.26 ter §2.7.1](https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I%21%21PDF-E&lang=e&type=items).
+The [separate repeated-dibit replay](PHOTO-SEGMENT1-REPEATED-DIBIT.md)
+tests that required cadence without assigning it to B4.
 
 The DSC emulator runs the same 32 dibits twice, once with frame bit 6 held
 fixed for the edge gate and once with the two pulses. Each run executes

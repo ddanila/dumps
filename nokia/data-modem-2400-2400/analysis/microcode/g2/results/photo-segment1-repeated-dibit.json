@@ -1,0 +1,327 @@
+{
+  "candidate_bus_decisions": [
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        0,
+        5,
+        1,
+        3,
+        2,
+        6,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        0,
+        5,
+        2,
+        3,
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        0,
+        6,
+        1,
+        3,
+        2,
+        5,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        0,
+        6,
+        2,
+        3,
+        1,
+        5,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        1,
+        5,
+        0,
+        3,
+        2,
+        6,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        1,
+        5,
+        2,
+        3,
+        0,
+        6,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        1,
+        6,
+        0,
+        3,
+        2,
+        5,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        1,
+        6,
+        2,
+        3,
+        0,
+        5,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        2,
+        5,
+        0,
+        3,
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        2,
+        5,
+        1,
+        3,
+        0,
+        6,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        2,
+        6,
+        0,
+        3,
+        1,
+        5,
+        7
+      ]
+    },
+    {
+      "decisions": 30,
+      "errors": 0,
+      "input_bit_to_dac_code_bit": [
+        4,
+        2,
+        6,
+        1,
+        3,
+        0,
+        5,
+        7
+      ]
+    }
+  ],
+  "execution": {
+    "first_16_selected_bus_samples": [
+      "83",
+      "FA",
+      "AB",
+      "89",
+      "7A",
+      "25",
+      "DA",
+      "F1",
+      "83",
+      "FA",
+      "AB",
+      "89",
+      "7A",
+      "25",
+      "DA",
+      "F1"
+    ],
+    "microinstructions": 384256,
+    "pc129_visits": 96054,
+    "selected_bus_sample_sha256": "d5aa144ab6f16f8e4342b5cc12ae046ff0ef6a716a019654b14e03ea5f971d78",
+    "symbol_phase_offsets": [
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0,
+      128,
+      0
+    ],
+    "trace_digest": "e657056e18db9cb10dd59c00fb93fa45edd38174adffede1c7ed963e2f363fee"
+  },
+  "limitations": [
+    "The repeated dibits and four-visit D127 pulses are imposed, not recovered from the controller segment-1 state.",
+    "The D127 route, sample clock, full DAC bus and line path remain hypotheses.",
+    "The matched-filter check is a candidate waveform projection, not received hardware data."
+  ],
+  "reference_phase_positions": [
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0,
+    8,
+    0
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/photo_127_liveness.py": "cbab4e70ffe97b579d833b5e27751593d206f7459d962f525f730f52c875b33a",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_dac_bus_permutations.py": "7032d9a809229467df736d417d5c2a36a9ff6d04a0f83c9271627f106507f4ab",
+    "analysis/microcode/g2/photo_frame_toggle_edge_pulse.py": "2313703960e119814451ca1a4c90dadbae5fef25e8a866a25c2d1563bd82dc7f",
+    "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
+    "analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/photo_segment1_repeated_dibit.py": "54841ec0cd33244b4e3234f65840f24dcd67baab20475efae5d597ed1a54dc98",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/photo-dac-bus-permutations.json": "d13a8ebf176e76c2f99252d248522e99c15573cad9771ebe0afb50b6652fb4bf"
+  },
+  "status": "synthetic repeated-dibit segment-1 signature tested in real PROM execution",
+  "stimulus": {
+    "controller_source": "not established",
+    "d127_first_four_visits": "90",
+    "d127_remaining_visits": "B0",
+    "dibits": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "sample_gate": "one PC129 Y capture per 375 visits",
+    "visits_per_symbol": 3000
+  }
+}
