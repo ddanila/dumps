@@ -786,3 +786,9 @@ second ROM loop; four exit to `084` during the diagnostic eight-visit hold.
 The earlier literal `47`/`42` split occurs in only one chip/Q route, while
 another reverses it. No case reaches candidate output `392` or `39E`, and
 the physical byte lane and line-rate path remain open.
+The [paired A0/A1 CD4094 replay](PHOTO-CD4094-STATE-TONE.md) finds one
+candidate Q8→D0 chip-1 route that selects different ROM loops from the
+controller's A0=`88` and A1=`81` bytes. Three other held chip bytes sustain
+the A1 second loop, but none supplies the fixed ±56 phase step required for
+a proposed 2,100 Hz tone under the tested clock/gate model. No candidate
+DAC word is reached; state selection is an internal conditional witness.

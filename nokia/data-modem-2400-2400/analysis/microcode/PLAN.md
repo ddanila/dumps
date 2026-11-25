@@ -126,6 +126,9 @@ inputs, not a claim about the board's untraced wiring.
 tests each simple chip/Q-pin byte orientation with the real controller frames
 and line bits. It finds that the apparent branch split depends on the assumed
 frame lane and reaches no candidate output word. The
+[paired A0/A1 state replay](g2/PHOTO-CD4094-STATE-TONE.md) finds a runnable
+state-selecting lane, but its held alternate-chip bytes do not give the
+proposed 2,100 Hz phase step. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

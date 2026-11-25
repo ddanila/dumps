@@ -599,6 +599,14 @@ phases B–C turn "what" into "how".
   The hold is not physical line-rate timing, so test a decoded or qualified
   input and a sustained output consumer without selecting a physical lane
   from this control-flow result alone.
+  A [paired A0/A1 CD4094 replay](g2/PHOTO-CD4094-STATE-TONE.md) now tests
+  logical chip 1 as the D127 control byte and another chip as held D12C.
+  Q8→D0 presents A0=`88` (first loop) and A1=`81` (second loop), so this
+  candidate wiring does give an executed state-dependent branch. Its three
+  alternate-chip D12C bytes are even and sustain the A1 loop, but none gives
+  the required ±56 phase step for a 2,100 Hz tone at the tested 9,600 Hz
+  gate and clock divisors. A decoded step and DAC-bound consumer remain to
+  be demonstrated; the A1 tone interpretation is still provisional.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
