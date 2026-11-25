@@ -43,6 +43,11 @@ than insert the desired phase steps by hand; the real USART bits and DAC
 clock must remain explicit in the scenario. No receiver or echo-canceller
 behavior is shown here.
 
+The follow-up [counter/parity pulse screen](PHOTO-MAIN-DIBIT-PULSE.md) runs a
+labelled four-visit symbol-boundary hypothesis with real controller dibits.
+It obtains all four retained phase offsets while restoring the base carrier
+step between pulses; the qualifying wiring and DAC capture remain untraced.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_frame_line_hold.py
 ```

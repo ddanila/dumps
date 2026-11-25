@@ -167,7 +167,13 @@ the symbol path rather than treating the missing wire as a blocker. The
 USART bits on two hypothesized D lanes. It produces retained 64/128-step
 phase changes but also changes the candidate DAC-code frequency during each
 held one bit. Keep testing a photo-compatible timed or decoded input route,
-without calling this direct gate the modulator. The
+without calling this direct gate the modulator. A
+[four-visit dibit-pulse replay](g2/PHOTO-MAIN-DIBIT-PULSE.md) now tests one
+counter/parity-qualified alternative with real USART dibits. Four continuous
+PROM runs retain all four Gray-related quarter-cycle phase offsets while
+holding the carrier step outside each pulse. Its pulse gate, DAC clock and
+shaping path are untraced, so this is a conditional lead rather than a C2
+transmitter pass. The
 [joint state/data bus check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows
 that the separate A1 2,100 Hz and main-frame 1,800 Hz bit-swap leads cannot
 share one fixed chip-1 pin permutation, even with fixed inversions. Test
