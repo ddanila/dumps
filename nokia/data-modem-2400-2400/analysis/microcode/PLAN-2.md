@@ -129,6 +129,12 @@ phases B–C turn "what" into "how".
   checkpoint is identical. Under this fixture the ROM effect is transient;
   test a photo-compatible latch phase at `129`/`12A` or another retained ROM
   route, without treating the missing trace as a blocker.
+  A [raw-bit clock screen](g2/PHOTO-127-CLOCK-SCREEN.md) finds 11 PROM-bit
+  edge choices at every `129` visit and six at every `12A` visit for both
+  D127=48 and 56. A direct, unqualified edge would recur every four
+  microinstructions: 0.9–3.6 MHz for the hypothetical `14.4 MHz / k`,
+  `k=1…4` clock, rather than 9,600 Hz. The divider and latch clock are
+  untraced; test a qualified clock or another repeated output site.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:

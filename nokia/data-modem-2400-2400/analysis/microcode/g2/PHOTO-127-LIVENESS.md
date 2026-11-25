@@ -31,6 +31,9 @@ or `12A`. The latch clock and DAC data path have not been traced, and neither
 bank produces a verified line-output waveform. A useful next test must put
 a photo-compatible sampling phase on these transient sites, or find a
 different ROM path whose effects persist into later controller-driven work.
+The [raw PROM edge screen](PHOTO-127-CLOCK-SCREEN.md) finds direct bit edges
+at every visit, but their unqualified rate is too high for the proposed
+9,600 Hz sample cadence under the fast-clock hypothesis.
 
 The [result](results/photo-127-liveness.json) contains trace digests, source
 hashes and the checked counts. Reproduce it with:
