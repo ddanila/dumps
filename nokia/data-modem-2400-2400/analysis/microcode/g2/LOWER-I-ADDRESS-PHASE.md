@@ -26,6 +26,13 @@ fixture; ALU Y at `3F8`, `3F9` and `3FA` takes 8, 7 and 8 distinct values,
 respectively. The lower-bank alternative exits through `3EE`. These are
 internal bytes and branches, not measured carrier samples or DAC input codes.
 
+**Read-validity limit:** the schedule assigns E4=`0` and E2=`1` at
+`3F9/3FA`. Under the documented 6381 enable conditions, that disables U11
+and U10 in the same phase while this run still uses their current PROM data.
+It is therefore a counterfactual unless a separate earlier capture and latch
+hold supplies those bytes. The [PROM-data alternative](LOWER-I-PROM-DATA-ROUTE.md)
+tests read-valid enable levels with untraced data-bit sources instead.
+
 An isolated-byte control shows a direct causal route. Replaying every
 upper-bank `3F7` byte as a PC-keyed D sequence exactly reproduces the real-ROM
 trace digest. Replacing **only visit 20** with the lower-bank byte at the same

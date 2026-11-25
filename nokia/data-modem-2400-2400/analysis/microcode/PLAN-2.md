@@ -309,6 +309,14 @@ phases B–C turn "what" into "how".
   values, but D38E is absent and no DAC sample is established. Constrain the
   timing and output continuation without treating the missing trace as a
   blocker.
+  The E4/E2 phase schedule disables U10/U11 at `3F9/3FA` in the same phase,
+  so that result needs an additional held-output circuit to be physical.
+  A [read-valid PROM-data source screen](g2/LOWER-I-PROM-DATA-ROUTE.md) instead
+  tests four paired data-bit alternatives with U10 E2 low and U11 E4 high.
+  Inverted U10 D6 for I7/A0 and U11 D2 for I0/A1 keeps 59 upper-bank `3F7`
+  reads, makes changing Y at `3F8–3FA`, and a single `44→33` byte change
+  sends `3ED` to `3EE` rather than `3EA`. Those source and inverter routes
+  remain untraced; no controller-fed or DAC-bound waveform is shown.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
