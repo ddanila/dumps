@@ -574,6 +574,15 @@ phases B–C turn "what" into "how".
   consumes all 64 bits and continues. This is a conditional controller-
   driven phase/control witness under two untraced input routes, with no
   DAC-bound byte or receiver result yet.
+  The [line-rate hold replay](g2/PHOTO-127-LINE-RATE-HOLDS.md) tests that
+  direct serial-bit route at `1500/k` PC12C visits per 2,400 bit/s bit for
+  `k=1…4` oscillator periods/microinstruction. Selector `00` holds its
+  first zero bit at one ROM address and exits during the second bit;
+  selector `20` exits during its first one bit; `40`/`60` never enter PC12C.
+  The earlier short-hold branch witness therefore does not show a sustained
+  transmitter at the proposed physical timing. Seek a decoded/biased input
+  or another stateful path without treating the missing pin trace as a
+  goal blocker.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

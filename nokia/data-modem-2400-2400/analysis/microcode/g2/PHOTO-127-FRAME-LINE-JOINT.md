@@ -40,3 +40,9 @@ transient phase/ROM value to a photo-compatible DAC latch or find a different
 output path. The negative direct frame-to-D12C tone-step result remains
 separate: here the frame at D127 selects which phase loop consumes the
 line bits.
+
+The [oscillator-derived hold replay](PHOTO-127-LINE-RATE-HOLDS.md) tests
+the same direct bit route at 2,400 bit/s for four candidate microcycle
+divisors. The `47` classes exit during the first or second bit; the `42`
+classes never enter the second loop. Thus the present joined short-hold
+control-flow witness is not a sustained line-rate modulator.
