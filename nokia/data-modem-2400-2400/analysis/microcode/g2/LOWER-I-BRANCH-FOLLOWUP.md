@@ -35,6 +35,9 @@ The quarter-sine address loop is a useful independent lead: test which
 photo-compatible input or latch phase can couple its table values to a
 controller-driven state and then to the DAC08 path. An ambiguous net does not
 block that experiment.
+The [3F7 dataflow check](LOWER-I-ROM-DATAFLOW.md) finds that the selected ROM
+bytes do update R10, but no other RAM location, ALU Y or control path in the
+tested loop; an isolated byte change is overwritten at the next `3F7` visit.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_branch_followup.py

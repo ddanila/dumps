@@ -294,6 +294,12 @@ phases B–C turn "what" into "how".
   also lasts just one boundary. Test a photo-compatible way for the ROM values
   to reach controller-driven state and a DAC latch; the loop alone is not a
   carrier-output proof.
+  A [paired-bank and single-byte 3F7 check](g2/LOWER-I-ROM-DATAFLOW.md) then
+  shows where those selected table bytes go: they update R10, the only RAM
+  location affected by a 3F7-only A8 bank change across 1,580 cycles. ALU Y,
+  flags, Q and PC path stay equal; one changed ROM byte is overwritten at the
+  next `3F7` visit. The next mapping/timing candidate must carry R10 or the
+  table byte into a later output or decision path.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
