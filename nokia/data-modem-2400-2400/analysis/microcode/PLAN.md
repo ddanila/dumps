@@ -10,16 +10,20 @@
 > timing and inputs, then test another photo-compatible route or independent
 > program/signal constraint.
 
-**Current blocker decision:** C3's missing `3ED`-to-latch and latch-to-USART
-connections are *open wiring hypotheses*, not a stop condition. In the
-[row-latch replay](g2/RECEIVER-MASK04-U12-LATCH-REPLAY.md), treat the pictured
-four-bit U12 and four-bit U24 as capacity-compatible candidates: assume a
-modulo-four row qualifier clocks U12 from `3ED` Y only on row 0, then compare
-its held nibble with row 3's live Y under the real PROM trace. Also run the
-unqualified clock as a control. The surviving timing hypothesis still has to
-explain arbitrary carrier phase and reach USART-01 RxD; its success on one
-stream does not close C3. Continue with a different input, clock or consumer
-hypothesis while either check remains open, without waiting for continuity.
+**Current blocker decision:** C3's missing latch, clock and DSC-to-USART
+connections are *open wiring hypotheses*, not a stop condition. The
+[continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
+recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
+ADC, readout and oscillator assumptions. Use the existing DSC and DSU photos
+to propose pin-compatible `3F8`/`3ED` capture, phase-selection, RxD and RxC
+routes. Model a baseline and meaningful alternatives, including sync-hunt
+entry and eight-bit character alignment, against the continuous real-PROM
+trace. Record which photo segments are visible and which connections, edges
+and dividers are inferred. An unsuccessful route rules out that fixture; a
+successful route remains conditional until its physical path and USART
+receive behavior are established. Keep C3 open and G2 active while those
+tests or other independent C2/C4 experiments remain possible; do not wait
+for continuity measurements or new photos to choose the next test.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
