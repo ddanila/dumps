@@ -632,6 +632,15 @@ phases B–C turn "what" into "how".
   candidates select all inputs but lose the ADC history at the first shared
   sample; reached output events and ROM addresses do not depend on that
   history. Seek a different retaining input phase or program path for C3.
+  A [joint lower-I2/I7 source screen](g2/RECEIVER-JOINT-I2-I7-SCREEN.md)
+  now tests 64 two-pin U11 assignments with simultaneous D38E controller
+  bits and a D3A1 candidate ADC byte. Forty mappings select both inputs
+  through the sample; `01` and `FF` affect only its current boundary, while
+  none of the tested bytes changes a later state, selected ROM address or
+  candidate output event. The other 24 mappings do not support a retention
+  conclusion. This narrows the two-pin variant of the `389–3A1` receive
+  fixture; seek a different program path or jointly changed address/sample
+  timing rather than waiting for physical continuity. C3 remains open.
 
   A [fast-gated full-byte screen](g2/PHOTO-127-FULL-BYTE-GATE.md) follows
   the alternative PC129 phase loop and tests selected upper-ROM bytes as
