@@ -637,6 +637,15 @@ phases B–C turn "what" into "how".
   changing D12C phase step and
   a constrained full DAC byte path, rather than treating the missing net as
   a goal blocker.
+  A [two-wire CD4094 permutation](g2/PHOTO-CD4094-BIT-SWAP-TONE.md) is a
+  concrete alternative: swapping candidate D0/D3 before D127 makes the
+  executed A1 `81→88` stay in the PC129 loop, while A0/A2 `88→81` enter
+  PC12E. At the divisor-1, 9,600-sample/s gate, A1's projected full Y and
+  photo-candidate B5 both peak at 2,100 Hz across all start phases. This is
+  an untraced two-wire route and a spectral witness, not a DAC waveform.
+  All 11 raw PROM edges aligned with A1 PC129 also fire at every A0 PC12E;
+  test a photo-compatible qualified latch and full-byte output route before
+  assigning the loop a transmitter function.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

@@ -1,0 +1,237 @@
+{
+  "a1_first_loop_tone": {
+    "1": {
+      "alignments_checked": 32,
+      "first_16_y": [
+        "7E",
+        "C6",
+        "8B",
+        "BA",
+        "5E",
+        "91",
+        "CA",
+        "DA",
+        "31",
+        "79",
+        "BC",
+        "97",
+        "BC",
+        "54",
+        "8A",
+        "B3"
+      ],
+      "full_y": {
+        "distinct_codes": 30,
+        "peak_hz": 2100.0,
+        "target_r2": 0.345587
+      },
+      "photo_b5_y7": {
+        "distinct_codes": 2,
+        "peak_hz": 2100.0,
+        "target_r2": 0.485502
+      }
+    },
+    "3": {
+      "alignments_checked": 32,
+      "first_16_y": [
+        "7E",
+        "97",
+        "4A",
+        "C6",
+        "BC",
+        "83",
+        "8B",
+        "54",
+        "D0",
+        "BA",
+        "8A",
+        "FA",
+        "5E",
+        "B3",
+        "BD",
+        "91"
+      ],
+      "full_y": {
+        "distinct_codes": 30,
+        "peak_hz": 3900.0,
+        "target_r2": 0.153265
+      },
+      "photo_b5_y7": {
+        "distinct_codes": 2,
+        "peak_hz": 3900.0,
+        "target_r2": 0.001432
+      }
+    }
+  },
+  "cases": [
+    {
+      "candidate_output_visits": 0,
+      "chip0_d12c": "7A",
+      "first_loop_reads": 125,
+      "frame": "80 02 88 7A",
+      "p1_5": 1,
+      "raw_chip1": "88",
+      "second_loop_reads": 613,
+      "state": "A0",
+      "swapped_d127": "81",
+      "trace_digest": "0e0c998579012a6dfc90b695ab53421ee7a4376035aab71e78a4c7a698d73c4c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "chip0_d12c": "7A",
+      "first_loop_reads": 740,
+      "frame": "80 02 81 7A",
+      "p1_5": 0,
+      "raw_chip1": "81",
+      "second_loop_reads": 0,
+      "state": "A1",
+      "swapped_d127": "88",
+      "trace_digest": "0e0344b229b85e9d253297192e71337b08af87f42f4475a3bb26e7e8a28f5926"
+    },
+    {
+      "candidate_output_visits": 0,
+      "chip0_d12c": "7A",
+      "first_loop_reads": 125,
+      "frame": "80 02 88 7A",
+      "p1_5": 0,
+      "raw_chip1": "88",
+      "second_loop_reads": 613,
+      "state": "A2",
+      "swapped_d127": "81",
+      "trace_digest": "0e0c998579012a6dfc90b695ab53421ee7a4376035aab71e78a4c7a698d73c4c"
+    }
+  ],
+  "fixture": {
+    "controller": "executed A0/A1/A2 8031 frames and P1.5",
+    "d127": "logical CD4094 chip 1 Q8\u2192D0, then D0/D3 swap",
+    "d12c": "held logical chip 0 Q8\u2192D0",
+    "mapping": "q3 photo-swapped",
+    "photo_b5_candidate": "Y7\u2192LS273 D4\u2192Q4\u2192DAC08 B5",
+    "q": 0,
+    "rom_bank": "upper at 129 and 12E",
+    "sample_hz": 9600,
+    "samples": 640
+  },
+  "limitations": [
+    "The D0/D3 crossing is a simple wiring hypothesis, not a photographed connection.",
+    "The q3 mapping, held-I0 levels, controller-to-DSP routes, sample clock and full DAC data bus remain untraced.",
+    "Only 740 first-loop reads are executed; 640 divided captures project the checked ROM/Y recurrence.",
+    "Every raw PROM bit edge at all A1 129 visits also occurs at all A0 12E visits; no mode-isolated direct PROM clock was found.",
+    "A 2100 Hz spectral peak in Y/B5 does not prove a sinusoidal DAC waveform, phase reversals, receiver behavior or modem line output."
+  ],
+  "raw_prom_edge_candidates": [
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 5,
+      "a1_target": 740,
+      "bit": 0,
+      "chip": "10",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 6,
+      "a1_target": 740,
+      "bit": 2,
+      "chip": "10",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 7,
+      "a1_target": 740,
+      "bit": 0,
+      "chip": "11",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 5,
+      "a1_target": 740,
+      "bit": 7,
+      "chip": "11",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 9,
+      "a1_target": 740,
+      "bit": 3,
+      "chip": "17",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 10,
+      "a1_target": 740,
+      "bit": 7,
+      "chip": "17",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 9,
+      "a1_target": 740,
+      "bit": 0,
+      "chip": "18",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 8,
+      "a1_target": 740,
+      "bit": 2,
+      "chip": "18",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 13,
+      "a1_target": 740,
+      "bit": 3,
+      "chip": "18",
+      "edge": "falling"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 10,
+      "a1_target": 740,
+      "bit": 6,
+      "chip": "18",
+      "edge": "rising"
+    },
+    {
+      "a0_second_loop": 613,
+      "a1_extra": 12,
+      "a1_target": 740,
+      "bit": 7,
+      "chip": "18",
+      "edge": "falling"
+    }
+  ],
+  "single_bit_swap_tone_matches": [
+    {
+      "a0_d127": "81",
+      "a1_d127": "88",
+      "swapped_bits": [
+        0,
+        3
+      ]
+    }
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/photo_12c_divided_state_latch.py": "67b360a48be69709cf6dbf0a9bae5986fa297f4e5171628ad69325eb659506f2",
+    "analysis/microcode/g2/photo_12c_prom_edge_latch.py": "e99e8fa73690583b0abd4e1332814ca6c135d8acc107adf0046a60c0a75e0ec1",
+    "analysis/microcode/g2/photo_cd4094_bit_swap_tone.py": "2fbd1b106f5e77e694cf94f723d1b5a484921b26aed9dd392311ee0229103c81",
+    "analysis/microcode/g2/photo_cd4094_order.py": "000cf41081bc3ade72f2ce894c50e8537efee19349dbaf3dc92535b3bc51db09",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/photo_output_clock_bit_screen.py": "c2377bd486ee530bb1e8fa86959810bbecd5b75823cdee2c6919f9103b02ed39",
+    "analysis/microcode/g2/results/controller-state-pin-channels.json": "d9ce7308146ba26b4f1f6a44aff7f75338ad03ae761d9be999e490d415398983",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a"
+  },
+  "status": "candidate CD4094 bus-bit permutation and tone projection"
+}

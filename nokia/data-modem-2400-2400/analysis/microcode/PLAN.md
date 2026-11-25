@@ -143,6 +143,11 @@ traced DAC strobe. The
 2,100 Hz peak from the three direct held frame bytes under oscillator divisors
 1–4 and every tested divider alignment; keep decoded or changing inputs and
 other output paths live. The
+[A1 bit-swap candidate](g2/PHOTO-CD4094-BIT-SWAP-TONE.md) now gives a
+labelled two-wire alternative: exchanging candidate D0/D3 sends A1 to a
+2,100 Hz PC129 phase walk at one tested divider ratio, but the clock and
+full DAC bus remain untraced. Its raw PROM edges are not mode-isolated, so
+test a qualified latch before promoting the signal claim. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
