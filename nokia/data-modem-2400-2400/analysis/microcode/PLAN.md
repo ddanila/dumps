@@ -122,6 +122,15 @@ other photo-compatible scenarios found an input-sensitive R5 write before
 later table calls. That conditional path is a lead to test with changing
 inputs, not a claim about the board's untraced wiring.
 
+**Next G2 application:** the [D3F8 stream timing sweep](g2/LOWER-I-STREAM-SCHEDULE.md)
+exits the `3ED–3FA` loop early under the tested read-valid PROM-data route;
+that result rules out a sustained sampler in those fixtures, not the proposed
+route or the goal. Follow the `3EE` exit and its downstream state/output first,
+then vary the input schedule, state or photo-compatible connection if that
+path still does not meet the transmit/receive checks. Keep the assumed nets
+and timing attached to every interpretation. An untraced continuation or a
+failed fixture is not a reason to pause for new photographs.
+
 For each unresolved dependency:
 
 1. Record what is observed, what is inferred and what must be assumed. Keep
