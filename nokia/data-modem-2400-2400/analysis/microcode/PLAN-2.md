@@ -91,7 +91,7 @@ phases B–C turn "what" into "how".
   output remain unresolved, so A1's full state map is not complete.
   An [interrupt-paced 8031 continuation](g2/MAIN-LOOP-TIMER1-SEGMENT2.md)
   replaces per-poll countdown expiry with Timer 1 interrupts while explicitly
-  holding the separate RAM15 sign gate positive. Both `40` and `60` paths
+  holding the separate RAM15 sign gate positive and TxRDY high. Both `40` and `60` paths
   then spend 34 polling passes in A3 with **no port-01 writes**, followed by
   exactly eight A4 `FF`-source bytes and the first A5 `03`-source byte.
   Those nine bytes exactly match the forced-timer source used in the DSC
@@ -128,6 +128,15 @@ phases B–C turn "what" into "how".
   Next test the bridge's symbol timing or a photo-compatible decoder rather
   than silently dropping it. CTS, Tx clock and the physical DSC route remain
   assumptions; G2 stays active.
+  A [TxRDY-paced controller/8251A replay](g2/MAIN-LOOP-USART-TXREADY.md)
+  then models the one-byte transmit buffer and a 2400-bit/s shifter at eight
+  byte-clock phases per selector. Each run shifts the same nine bytes onto
+  candidate TxD, including the exact 64-bit segment-2 pattern. Waiting for
+  buffer space moves the eighth `FF`-source CPU write from A4 into A5, but
+  does not delete it. `FF` sync fill continues until the first data byte
+  starts; sampled phases provide 59–68 fill bits after A3 entry, so a
+  32-symbol segment-1 window is timing-compatible. The exact clock phase,
+  bridge-bit pairing, physical DSC route and line waveform remain open.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading

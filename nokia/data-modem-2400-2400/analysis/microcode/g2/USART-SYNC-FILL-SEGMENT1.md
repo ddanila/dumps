@@ -64,3 +64,10 @@ controller checks, byte/bit windows and source hashes. The next experiment
 should feed the **raw 8251 bit sequence including the bridge bit** into a
 photo-compatible clock/bit-pairing candidate and compare the resulting DSC
 phase and DAC samples.
+
+The later [TxRDY-paced 8031/USART replay](MAIN-LOOP-USART-TXREADY.md)
+implements the transmit buffer and 2400-bit/s shifter. It verifies that
+`FF` fill persists until data starts and that all nine controller bytes
+are shifted in the same order, although the eighth `FF`-source CPU write
+occurs in A5 rather than A4. This strengthens the digital source evidence;
+the bridge-bit and physical-route qualifications above still apply.

@@ -26,6 +26,10 @@ used by the DSC [segment-2 PROM replay](PHOTO-SEGMENT2-STANDARD-CALIBRATION.md).
 Starting at the second bit of A4's first byte, the same 64 bits exactly
 match the standard GPC or GPA segment-2 pattern. Every port-01 byte in the
 paced run independently matches the controller scrambler calculation.
+With a [modeled 8251A TxRDY buffer](MAIN-LOOP-USART-TXREADY.md), the
+eighth `FF`-source write moves into A5 because the CPU must wait for the
+preceding byte to leave the buffer. The first nine bytes actually shifted
+on candidate TxD still match this sequence in all tested clock phases.
 
 The final P1 latch is `D8` throughout both A3 and A4. The third frame byte
 changes among `A1`, `81` and `C1` during A3; A4's recorded frames have `A1`.
@@ -40,10 +44,11 @@ every observed A3 frame-byte value as a carrier-preserving segment-1 source
 when wired literally to D127 in the tested q3 loop. That result leaves
 decoded commands and other DSC paths open.
 
-The emulator increments Timer 1 once per instruction tick, without varying
-the count by 8031 instruction machine-cycle cost. The interrupt count is
-therefore a program-sequence observation, not measured milliseconds or an
-exact 32-symbol duration. RAM15 gating, port status, receive timing, the
+The emulator increments Timer 1 once per `tick()` call. Its instruction
+delay counter makes those calls modeled 8031 machine cycles, including the
+extra cycles for longer instructions. Converting them to milliseconds still
+assumes a classic 12-clock 8031 and the photographed 11.9808 MHz oscillator;
+it is not a measured symbol duration. RAM15 gating, port status, receive timing, the
 frame recipient and DAC/line route remain assumptions. The
 [machine report](results/main-loop-timer1-segment2.json) records the state
 groups, firmware timers, interrupt counts, frames, P1 values, bytes and

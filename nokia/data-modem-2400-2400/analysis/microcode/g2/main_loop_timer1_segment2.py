@@ -163,13 +163,13 @@ def run(out=HERE / 'results/main-loop-timer1-segment2.json'):
                      rx_bytes='00 07 00 00 00 selector 00 every polling iteration',
                      external_reads='status 01 at PC0539/1D9D/1DBD, data 00 at PC1DC6; all synthetic',
                      serial_completion_delay_emulator_ticks=8,
-                     timer_caveat='emu8051 timer_tick advances once per tick() instruction call, not calibrated to varying 8031 machine cycles',
+                     timer_caveat='emu8051 tick() advances one modeled machine cycle and mTickDelay accounts for longer instructions; milliseconds still assume a classic 12-clock 8031 and the photographed 11.9808 MHz oscillator',
                      generated_source_replacement_keys=changes),
         unheld_ram15_control=dict(first_states=[f"{row['state']:02X}" for row in negative['iterations']],
                                   first_timer1_interrupt_counts=[row['timer1_irqs'] for row in negative['iterations']]),
         cases=cases,
         limitations=['RAM15 is held positive at state dispatch to bypass the separate sign gate; the source of that gate is unknown.',
-                     'The 8031 instruction-tick timer model and synthetic USART completion/receive events do not establish physical milliseconds or line symbol timing.',
+                     'The 8031 machine-cycle timer model and synthetic USART completion/receive events do not establish physical line symbol timing or a measured clock period.',
                      'The exact port-01 pattern is a controller digital signal, not a traced DSC2847 input or DAC/line output.'],
         source_sha256={str(path.relative_to(ROOT)):
                        hashlib.sha256(path.read_bytes()).hexdigest()
