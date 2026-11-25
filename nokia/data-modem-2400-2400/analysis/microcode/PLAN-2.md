@@ -1126,6 +1126,15 @@ phases B–C turn "what" into "how".
   That external I/Q readout is not an executed DSC decision. Continue with
   an instruction-driven multi-sample consumer or a photo-compatible output
   latch/USART route, keeping C3 open and G2 active.
+  The [mask-04 `3ED` PROM-latch test](g2/RECEIVER-MASK04-3ED-PROM-LATCH.md)
+  finds one all-positive three-bit raw-PROM decode of `3ED`. A hypothetical
+  U19 NAND clocks on `3ED→3EA` exactly 24,000 times in each of eleven
+  full streams, capturing the R1-derived Y byte after every row. U19 is
+  photographed near four-bit latch U12, but the pins and RxD route are
+  untraced. No direct or previous-symbol bit among 240,000 choices fits
+  training; the selected choice misses 5/48 holdout and 12/48 fresh bits.
+  Test a stateful four-row readout or another executed output consumer,
+  rather than treating the plausible latch clock as a C3 pass.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,

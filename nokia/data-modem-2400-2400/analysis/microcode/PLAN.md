@@ -536,6 +536,11 @@ at `3ED`. The
 does not turn that retained state into a received dibit. Keep testing an
 executed decision/output route under labelled photo-compatible connections;
 neither missing continuity nor a failed readout blocks G2.
+The [mask-04 PROM-latch candidate](g2/RECEIVER-MASK04-3ED-PROM-LATCH.md)
+now supplies one all-positive raw-PROM decode that would clock R1-derived
+`3ED` Y after every row. Eleven full traces verify the edge, but their
+captured bytes yield no exact fixed-phase direct bit. U19/U12 wiring and
+USART RxD remain hypotheses; test a stateful readout next.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent
