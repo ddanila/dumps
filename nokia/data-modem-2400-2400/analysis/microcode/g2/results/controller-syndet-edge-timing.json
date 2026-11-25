@@ -1,0 +1,105 @@
+{
+  "cases": [
+    {
+      "first_a4_port01_data_write": {
+        "cycle": 2703100,
+        "kind": "D",
+        "pc": "1DA8",
+        "value": 249
+      },
+      "frame_sbuf_writes": [
+        {
+          "cycle": 2702911,
+          "kind": "F",
+          "pc": "08A7",
+          "value": 208
+        },
+        {
+          "cycle": 2702924,
+          "kind": "F",
+          "pc": "08B5",
+          "value": 66
+        },
+        {
+          "cycle": 2702937,
+          "kind": "F",
+          "pc": "08C3",
+          "value": 161
+        },
+        {
+          "cycle": 2702950,
+          "kind": "F",
+          "pc": "08D1",
+          "value": 186
+        }
+      ],
+      "selector": "40",
+      "ticks_last_sbuf_write_before_data": 150,
+      "ticks_third_frame_byte_before_data": 163
+    },
+    {
+      "first_a4_port01_data_write": {
+        "cycle": 2703403,
+        "kind": "D",
+        "pc": "1DA8",
+        "value": 248
+      },
+      "frame_sbuf_writes": [
+        {
+          "cycle": 2703240,
+          "kind": "F",
+          "pc": "08A7",
+          "value": 208
+        },
+        {
+          "cycle": 2703253,
+          "kind": "F",
+          "pc": "08B5",
+          "value": 66
+        },
+        {
+          "cycle": 2703266,
+          "kind": "F",
+          "pc": "08C3",
+          "value": 161
+        },
+        {
+          "cycle": 2703279,
+          "kind": "F",
+          "pc": "08D1",
+          "value": 186
+        }
+      ],
+      "selector": "60",
+      "ticks_last_sbuf_write_before_data": 124,
+      "ticks_third_frame_byte_before_data": 137
+    }
+  ],
+  "fixture": {
+    "controller": "unchanged 8031 ROM under Timer1 harness",
+    "observation": "instruction-level SBUF writes and MOVX port-01 data writes",
+    "ram15": "held positive at each PC1000 dispatch; external gate untraced",
+    "receive_and_status": "synthetic harness events",
+    "uart_tx_completion": "synthetically asserted eight emulator ticks after each SBUF write"
+  },
+  "inference": "An external decoder could use the exact 81-to-A1 frame transition as an A4 event before the controller writes its first line byte. This is a candidate SYNDET source, not an observed connection or correctly timed receive pulse.",
+  "limitations": [
+    "SBUF write order does not measure CD4094 shift, latch, propagation, or remote receiver timing.",
+    "The harness imposes eight-tick serial completion and does not co-simulate the physical USART clocks.",
+    "The first port-01 write is local transmit data; it does not locate the first arriving remote receive bit.",
+    "The 81-to-A1 edge is only unique with frame history; an unqualified bit-5 rise occurs earlier.",
+    "RxD, RxC and SYNDET routes remain assumed, so this result does not pass C3."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_syndet_edge_timing.py": "17d2aa0dde9d78ff6dd5ff2935d9730831ca2aa1cf172b8226b3480a7fdc2e52",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_probe.c": "5c2ed6612890c4484ba81858356cbff76fdb9420a74eade23ce1215e65147ed1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_timer1_segment2.py": "291c96bd7c8a371ce761b49c82c0e7bb0e252a11001f1a6a7c654910565bd390",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/controller-a3-a4-mode-edge.json": "29ddaf274d90514b30db15c143e6bf7d5618a1476149b32de2e1eb071b40119c",
+    "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "The 8031 writes the first A4 CD4094 frame before its first port-01 data byte in both selectors."
+}

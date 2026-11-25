@@ -48,7 +48,11 @@ The [executed A3→A4 frame edge](g2/CONTROLLER-A3-A4-MODE-EDGE.md) supplies a
 specific next SYNDET hypothesis: decode the unique third-frame-byte `81→A1`
 transition into a pulse before the first data RxC edge. Model the required
 decoder, CD4094-to-receiver connection and timing as assumptions; the photos
-do not establish those nets. Compare this candidate with no pulse, an
+do not establish those nets. The [instruction-level timing probe](g2/CONTROLLER-SYNDET-EDGE-TIMING.md)
+shows the controller writes that frame 150/124 emulator ticks before its
+first line-data byte in the call/answer fixtures; synthetic serial completion
+means this is not a physical SYNDET timing measurement. Compare this candidate
+with no pulse, an
 unqualified bit-5 rise, and pulses one bit or one byte away, using the same
 PROM-derived input and controller state. If the candidate misses the required
 edge or the controller signature, revise the decoder or clock alignment and
