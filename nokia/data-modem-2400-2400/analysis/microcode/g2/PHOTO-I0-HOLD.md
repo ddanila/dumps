@@ -76,8 +76,11 @@ and cosine components:
 
 The apparent tone peak is **not evidence of a recovered carrier**: the
 phase-index byte ramp alone peaks at each proposed frequency with comparable
-or greater sinusoidal content. The selected ROM bytes peak at 3,000 Hz in both
-cases, rather than providing a full-cycle sine lookup. The hypothetical
+or greater sinusoidal content. With the unsigned-byte treatment used by this
+probe, the selected ROM bytes peak at 3,000 Hz in both cases. A later
+[signed-byte and two-bank comparison](PHOTO-127-BANK-COMPARE.md) finds upper-
+bank signed-ROM peaks at 1,800/2,100 Hz, but also finds the peak follows every
+tested control increment and the walk leaves the sine-table region. The hypothetical
 9,600 Hz output cadence would also require the 14.4 MHz oscillator to be
 divided by 375 to obtain the four-instruction PC129 loop rate; that clock
 divider and any PC129-to-DAC latch are untraced. The [tone report](results/photo-127-tone-probe.json)

@@ -98,6 +98,14 @@ phases B–C turn "what" into "how".
   - Interpret 30–7F as parameter blocks, e.g. phase increments: 48 = 1800 Hz
     and 56 = 2100 Hz per 256-step phase at 9600 Hz; byte 0x34 = 0x30.
   - Record negative results as well.
+
+  The [D127 two-bank execution](g2/PHOTO-127-BANK-COMPARE.md) tests the
+  tempting 16-point-sine path directly: lower-bank reads leave addresses
+  `000–00F` after four D127=3 steps, and the upper-bank read traverses its
+  quarter-sine region plus unrelated regions. Signed upper-bank ROM bytes
+  peak at the chosen 1800/2100 Hz step frequencies, but the same peak follows
+  seven other tested step values. This is a ROM harmonic under assumed timing,
+  not yet a carrier sample stream or recovered address-folding circuit.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:
