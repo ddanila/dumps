@@ -1164,6 +1164,14 @@ phases B–C turn "what" into "how".
   bus orders and both latch phases. This focuses the next output-route
   experiment on the Y7/latch/DAC MSB path or an analog node. It does not
   prove that the photographed board uses the assumed DAC bus or pass C2.
+  The [MSB-only controller-data replay](g2/JOINT-MASK04-DAC-MSB-DATA.md)
+  checks two 1,248,256-word mask-`04` PROM runs against the prior trace and
+  sample hashes. After the same candidate bandpass, the top bit alone
+  gives a 2,100 Hz A1 peak and 0/62 A3/A4 decisions for each call/answer
+  selector under both latch phases and six bus orders; lower seven bits
+  alone miss 22–23/62. The top-bit route is therefore the most useful
+  DAC input to constrain next. Y7→latch→DAC08 B1/pin 5 and the analog
+  line path remain untraced, so C2 remains open.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,

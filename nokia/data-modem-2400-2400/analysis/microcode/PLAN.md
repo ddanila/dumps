@@ -143,6 +143,14 @@ equals the full-code phasor and the other seven components are zero, across
 six bus orders and both latch phases. Test the Y7/latch/DAC MSB route or an
 independent analog constraint next. This digital result is not a physical
 DAC/line connection and does not close C2.
+The [MSB-only data replay](g2/JOINT-MASK04-DAC-MSB-DATA.md) extends that
+constraint to the executed controller-derived A3/A4 streams: on the fixed
+mask-`04` map, the assumed DAC top bit alone keeps the 2,100 Hz A1 peak
+and gives 0/62 differential decisions for each selector, bus order and
+latch phase after the same assumed filter. Lower seven bits alone miss
+22–23/62. Focus the next photo-compatible route test on Y7 through the
+sample latch to DAC08 B1/pin 5 and the analog output; keep C2 open until
+that route and the line signal are independently established.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
