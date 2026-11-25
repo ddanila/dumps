@@ -1849,12 +1849,61 @@
           ]
         ],
         "status": "hypothesis"
+      },
+      {
+        "evidence": "../g2/JOINT-MASK04-TX-PROM-EDGE.md",
+        "limitations": "D127 pulses, upper-bank select, 375-edge latch divider, DAC bus, analog filter and physical line connection are hypotheses. The reference decoder is external; this is not a C2 pass or proof that every word in this range has a unique modem function.",
+        "meaning": "The executed D127 input schedule sustains the four-word loop, PC129 selects the upper Am27S31 ROM bank, and a divided raw-PROM edge captures controller-dependent bytes. The fixed joint map gives a 2100 Hz tone and zero reference dibit errors on both A3/A4 streams under the candidate DAC/filter route.",
+        "name": "candidate DPSK transmit sample loop",
+        "profiles": [
+          "joint_mask04"
+        ],
+        "ranges": [
+          [
+            "127",
+            "12A"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md",
+        "limitations": "Complementary ADC ingress, TEST source, four-row dispatch and table-bank selection are untraced. Retained state is not an executed dibit decision or a routed USART RxD bit; C3 remains open.",
+        "meaning": "At 3F8 the candidate ADC high nibble enters an executed Am2901 calculation; 3F9 reads the real Am27S31 at 0x100+Y. Under the four-row receive fixture, the subsequent table/update cycle retains ADC-dependent Q and RAM state after 3FE.",
+        "name": "candidate ADC-table receive update",
+        "profiles": [
+          "joint_mask04"
+        ],
+        "ranges": [
+          [
+            "3F8",
+            "3FE"
+          ]
+        ],
+        "status": "hypothesis"
+      },
+      {
+        "evidence": "../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md",
+        "limitations": "The selected D byte, row clock, latch, subsequent phase readout and USART route are assumed. The microprogram has not been shown to emit a recovered receive bit.",
+        "meaning": "3EB writes R1 as the negative of Q's previous low nibble; reached 3ED exposes that pre-word R1 as Y. Its value changes with the tested ADC waveform and is a candidate external latch input.",
+        "name": "candidate receive-state byte exposure",
+        "profiles": [
+          "joint_mask04"
+        ],
+        "ranges": [
+          [
+            "3EB",
+            "3ED"
+          ]
+        ],
+        "status": "hypothesis"
       }
     ],
     "evidence": "Consolidate tested local interpretations without promoting them to recovered hardware semantics.",
     "profiles": {
       "fitted_original": "results/selector-completion/original-marked/mapping.json",
       "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json",
+      "joint_mask04": "results/program-reading/joint-mask04-mapping.json",
       "q1": "results/independent-study/variant-1.json",
       "q2": "results/independent-study/variant-2.json",
       "q3": "results/independent-study/variant-3.json",
@@ -3743,6 +3792,8 @@
     }
   ],
   "evidence_documents": [
+    "../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md",
+    "../g2/JOINT-MASK04-TX-PROM-EDGE.md",
     "AFFINE-TAIL.md",
     "ALIAS-RUNTIME.md",
     "BIASED-DRAIN.md",
@@ -5142,8 +5193,8 @@
     "interpretation": "Every default-graph gap has a replayed clean zero-reset witness under a named mapping and scenario. This is a union of incompatible hypotheses, not single-model coverage, a safe default gate, physical wiring recovery or full-plan completion.",
     "source_sha256": {
       "assumed/analyze.py": "23e9f59f4c35a3301efd989afe578af1496dd2b75bea7629d8efb1674b8039f2",
-      "assumed/common.py": "1a4c2a113e91c0fa3d3b3d26668756eb9a4c53f19fa55c73935a0af705cb193e",
-      "assumed/execute.py": "240e84ad8c31a9d5d595e69c38bd2d3e7a22c48b6dc5305bfdba5a2985df051f",
+      "assumed/common.py": "a985206f795a708ef4c535ca9e8f862228341d13c6d62e751ead63b6c57cbbdd",
+      "assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
       "assumed/reset-witnesses.json": "d02dcba8c47ed26d3bca3dfcb01ff659354ac2655a9ee225bdae7937c6cfa90e",
       "assumed/reset_witness_catalog.py": "8aff31a5ba24080db3be6a7a98318ea07ca4a5db8e98b8f0a99d2dd291d69561",
       "assumed/results/alias-runtime-study/fitted_swapped-extended-ff/io.jsonl": "93eabe279366d66a7820d9a092494aaad9026db40899652f5fcf3c3415654c26",
@@ -5176,7 +5227,7 @@
       "assumed/results/tail-variant-study/q3-01/trace.jsonl": "a1e9e2f32d48aa25e899a5af6b6f89a379aa192f285744e32c66c31c79be8603",
       "assumed/results/third-case-study/scenario-all_cases.json": "c8beefc21e23949d8964dd919325b64e731faef9b025f16c14f191d5affe766e",
       "assumed/sequencer.json": "b2e12bd569e614540a9e0db78ba2cf0888c41961077e221940fd8b69d1dfa99b",
-      "model.py": "83bc5523aada3bb5a496a429eade473e84372f695ec29efe7e04416104e0fe22"
+      "model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
     },
     "target_words": 22,
     "witness_count": 5,
@@ -5335,6 +5386,7 @@
     "results/independent-study/variant-3.json": "cc8270f2521aab3409d7d884dea4a66496e50b14af997c1e5ea3386270dc41b2",
     "results/independent-study/variant-4.json": "0ec561af24f767f8d43c327c1308244d684aaf37eca5057538395c189ae118e9",
     "results/nested-reset-study/seed-0115/summary.json": "c260c5ccca516af322ca498bd3a301f65a0204850e5916e6f36f36534f61329d",
+    "results/program-reading/joint-mask04-mapping.json": "9be743744246a8811b9334b547b38686291de89da29dee17979f707069b44748",
     "results/selector-completion/original-marked/mapping.json": "84e956aba39195fa3e91af8bc2d5e015ab6a6e19cc2738627ab456051f8f0652",
     "results/selector-completion/original-marked/summary.json": "e6211e7090896b145a8f5b7c3de2674f6caed178cae51eb5446bc8344b7571d4",
     "results/selector-completion/swapped-marked/mapping.json": "a0f6381e186ea11b965f4b0d57171aa37962cd40c681c5bc26e69e354bd7aee1",

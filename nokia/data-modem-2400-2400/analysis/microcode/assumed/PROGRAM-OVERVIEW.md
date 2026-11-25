@@ -10,7 +10,8 @@ repeats forever in the current scenarios; reaching it does not demonstrate a
 physical reset or completion handshake.
 
 This account joins the evidence in the [address listing](PROGRAM-READING.md).
-It does not combine the six candidate datapath mappings into one machine.
+The G1 account below does not combine its six candidate datapath mappings into
+one machine. The later joint mask-`04` G2 profile is described separately.
 Most handler contracts below use **q3, previous flags, zero reset and diagnostic
 input replies**. Handler 0 uses current flags; alternative branches sometimes
 need a different condition source or timed external line. Each linked study
@@ -125,6 +126,17 @@ These establish a reproducible relative timing model; no physical sample
 frequency or analog waveform is recovered. The controller-to-microcode byte
 routing, reset request and DAC strobes remain declared assumptions, and this
 experiment supplies no controller return protocol.
+
+## Later joint-map modem candidates
+
+The later [joint mask-`04` listing](PROGRAM-READING.md#g2-modem-function-candidates-on-the-joint-mask-04-map)
+adds evidence-scoped modem-function names for the executed 127–12A transmit
+loop and 3F8–3FE/3EB–3ED receive update and readout. The same mapping sustains
+the tested controller-driven transmit samples and retains ADC-dependent state.
+The candidate DAC route reproduces a 2,100 Hz tone and reference dibit
+decisions, while the receive readout supports a conditional 45°-grid selector.
+Intermediate-angle decoding and the physical DAC, ADC and USART paths remain
+unverified, so C2 and C3 stay open.
 
 ## What the coverage numbers establish
 

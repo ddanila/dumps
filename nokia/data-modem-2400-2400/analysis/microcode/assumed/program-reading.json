@@ -7,7 +7,8 @@
     "q3": "results/independent-study/variant-3.json",
     "q4": "results/independent-study/variant-4.json",
     "fitted_original": "results/selector-completion/original-marked/mapping.json",
-    "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json"
+    "fitted_swapped": "results/selector-completion/swapped-marked/mapping.json",
+    "joint_mask04": "results/program-reading/joint-mask04-mapping.json"
   },
   "scenario": "results/third-case-study/scenario-all_cases.json",
   "sequencer_sweep": "results/third-case-study/all_cases.json",
@@ -1865,6 +1866,33 @@
       "evidence": "FINAL-BLOCKS.md",
       "meaning": "Current-flag handler 6 reaches 1DC because 0DA tests its own FF-mask subtraction carry. 1DC exposes Q plus the mask-wrap bit. 1DD tests its own XNOR zero, taking 079 exactly when the mask complements R15; otherwise 1DE joins 1D3. The paths preserve Q but retain distinct R3/R4 and differ by eight cycles.",
       "limitations": "q3 current flags, matched BLT-side early replies, timed selector-1 rise at 0C0, independent 0C6/0E5/0D4 inputs. Previous-flag controls still take 0DB. Zero-reset contracts and local predicate plane do not establish physical timing or modem meaning."
+    },
+    {
+      "name": "candidate DPSK transmit sample loop",
+      "ranges": [["127", "12A"]],
+      "profiles": ["joint_mask04"],
+      "status": "hypothesis",
+      "evidence": "../g2/JOINT-MASK04-TX-PROM-EDGE.md",
+      "meaning": "The executed D127 input schedule sustains the four-word loop, PC129 selects the upper Am27S31 ROM bank, and a divided raw-PROM edge captures controller-dependent bytes. The fixed joint map gives a 2100 Hz tone and zero reference dibit errors on both A3/A4 streams under the candidate DAC/filter route.",
+      "limitations": "D127 pulses, upper-bank select, 375-edge latch divider, DAC bus, analog filter and physical line connection are hypotheses. The reference decoder is external; this is not a C2 pass or proof that every word in this range has a unique modem function."
+    },
+    {
+      "name": "candidate ADC-table receive update",
+      "ranges": [["3F8", "3FE"]],
+      "profiles": ["joint_mask04"],
+      "status": "hypothesis",
+      "evidence": "../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md",
+      "meaning": "At 3F8 the candidate ADC high nibble enters an executed Am2901 calculation; 3F9 reads the real Am27S31 at 0x100+Y. Under the four-row receive fixture, the subsequent table/update cycle retains ADC-dependent Q and RAM state after 3FE.",
+      "limitations": "Complementary ADC ingress, TEST source, four-row dispatch and table-bank selection are untraced. Retained state is not an executed dibit decision or a routed USART RxD bit; C3 remains open."
+    },
+    {
+      "name": "candidate receive-state byte exposure",
+      "ranges": [["3EB", "3ED"]],
+      "profiles": ["joint_mask04"],
+      "status": "hypothesis",
+      "evidence": "../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md",
+      "meaning": "3EB writes R1 as the negative of Q's previous low nibble; reached 3ED exposes that pre-word R1 as Y. Its value changes with the tested ADC waveform and is a candidate external latch input.",
+      "limitations": "The selected D byte, row clock, latch, subsequent phase readout and USART route are assumed. The microprogram has not been shown to emit a recovered receive bit."
     }
   ],
   "reset_witness_manifest": "reset-witnesses.json"

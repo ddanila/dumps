@@ -7,7 +7,7 @@ startup, handler, helper and I/O account. The tables below provide the
 address-level evidence and the limitations of each interpretation.
 
 The [annotated listing](results/program-reading/listing.csv) consolidates the
-current control-flow graph, six candidate datapath decodes, and evidence-linked
+current control-flow graph, seven candidate datapath decodes, and evidence-linked
 routine interpretations for all 1,024 words. The [catalog](results/program-reading/catalog.json)
 records direct-call entries, dispatch targets, unresolved addresses, and source
 file hashes. These are generated indexes of existing evidence, not a new
@@ -44,10 +44,26 @@ hardware model or a claim that the full program has been understood.
 `fitted_original` and `fitted_swapped` are the mappings in the selected
 [reset-to-preparation examples](SELECTOR-COMPLETION.md). Their source fields
 and register roles differ from the four earlier profiles. The generator
-requires all six profiles to share the sequencer decode before combining them
-into one address listing.
+requires all seven profiles to share the sequencer decode before combining them
+into one address listing. `joint_mask04` is the later G2 mapping used for the
+[same-map transmit/receive run](../g2/JOINT-FOUR-ROW-RETENTION-TX.md). Its
+modem-function labels are conditional on the board-route assumptions in the
+linked G2 experiments; they do not revise the older profiles.
 
-## Current provisional names
+## G2 modem-function candidates on the joint mask-`04` map
+
+| Addresses | Executed role | What remains assumed |
+| --- | --- | --- |
+| 127–12A | Candidate DPSK transmit sample loop: controller-derived input sustains the loop; PC 129 selects the upper Am27S31 bank; a divided raw-PROM edge captures bytes whose candidate DAC path yields the 2,100 Hz tone and all tested A3/A4 dibits. [Trace](../g2/JOINT-MASK04-TX-PROM-EDGE.md) | Input and latch clocks, DAC bus and line filter/output; C2 stays open. |
+| 3F8–3FE | Candidate ADC-table receive update: the assumed ADC high nibble affects 3F8 Y, 3F9 reads the real ROM at `0x100 + Y`, and the four-row cycle retains input-dependent Q/RAM state. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | ADC ingress, row dispatch and any recovered-bit consumer; C3 stays open. |
+| 3EB–3ED | Candidate receive-state byte exposure: 3EB writes R1 from Q's low nibble and 3ED exposes that R1 byte on Y. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | Capture, phase decision and USART RxD/RxC/SYNDET route; C3 stays open. |
+
+The [two-visit selector](../g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
+recovers the tested 45° grid streams from these receive-side outputs, but
+fails the saved intermediate-angle challenges. It is an external candidate
+consumer, not an identified microprogram routine or a verified receiver path.
+
+## Earlier provisional names
 
 | Addresses | Interpretation | Principal limitation |
 | --- | --- | --- |
@@ -157,6 +173,7 @@ in the catalog; default reachability and interpretation labels stay separate.
 ## Reproduce
 
 ```sh
+python3 nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_program_profile.py
 python3 nokia/data-modem-2400-2400/analysis/microcode/assumed/program_reading.py \
   --out /tmp/nokia-program-reading
 python3 -m unittest discover -s nokia/data-modem-2400-2400/analysis/microcode -p 'test_*.py'
@@ -167,7 +184,7 @@ scope. The generator validates evidence paths, profile names, address ranges,
 shared control decode, and consistency of the saved sweep with a freshly
 computed graph. It also replays the five gap witnesses and rejects missing,
 failed, truncated or altered evidence. Both output files reproduce byte for
-byte. All 137 functional/assumption tests pass, including checks that
+byte. The functional/assumption tests include checks that
 interpretation labels do not leak across profiles or hide default unresolved
 entries. The [final review](FINAL-REVIEW.md) records completion within the plan's
 assumption-driven scope.
