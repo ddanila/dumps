@@ -646,6 +646,14 @@ phases B–C turn "what" into "how".
   All 11 raw PROM edges aligned with A1 PC129 also fire at every A0 PC12E;
   test a photo-compatible qualified latch and full-byte output route before
   assigning the loop a transmitter function.
+  The [bit-swap data-site screen](g2/PHOTO-CD4094-BIT-SWAP-DATA-SITES.md)
+  compares the executed phase, ROM byte and `129/12A` ALU values as possible
+  full DAC bytes. At divisor 1, the upper-bank ROM byte peaks at 3,000 Hz;
+  `129` Y peaks at 2,100 Hz but puts only 0.346 of its variance there, while
+  `12A` Y reaches 0.609 mainly because it is the raw phase ramp plus a
+  carry bit. This is a tone-rate internal walk, not yet a sine DAC code.
+  Look for a constrained shaping/latch route or a better mapped output
+  source; do not infer one from the single B5-bit peak.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

@@ -148,6 +148,10 @@ labelled two-wire alternative: exchanging candidate D0/D3 sends A1 to a
 2,100 Hz PC129 phase walk at one tested divider ratio, but the clock and
 full DAC bus remain untraced. Its raw PROM edges are not mode-isolated, so
 test a qualified latch before promoting the signal claim. The
+[bit-swap byte-source screen](g2/PHOTO-CD4094-BIT-SWAP-DATA-SITES.md) finds
+that the selected ROM byte does not give a dominant 2,100 Hz upper-bank
+full-byte stream; the stronger `12A` result is almost just the phase ramp.
+Keep the DAC byte route and shaping stage open hypotheses. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
