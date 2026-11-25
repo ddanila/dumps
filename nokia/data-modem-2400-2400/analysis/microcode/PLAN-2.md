@@ -181,6 +181,12 @@ phases B–C turn "what" into "how".
   the PC129 loop after 125 reads. A literal held frame lane therefore does
   not explain a sustained A1 tone in this fixture. Test an intermediate ROM
   parameter selection, another controller route or another sample site.
+  A [full D127 parity screen](g2/PHOTO-127-PARITY-EXIT.md) runs all 256 held
+  bytes and shows why the `81` case exits: every odd byte reaches phase zero,
+  branches at PC12A, scans 255 upper-bank ROM bytes at PC12E and waits at 084;
+  every even byte stays in the PC127 loop for the tested 3,000 instructions.
+  The PC12C input is a constant scenario stub, so vary that source and the
+  controller-frame selector before assigning these paths modem roles.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:

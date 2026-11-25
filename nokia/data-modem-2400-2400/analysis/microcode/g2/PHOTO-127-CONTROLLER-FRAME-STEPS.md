@@ -26,6 +26,9 @@ for literal `88` at one oscillator period per microinstruction peaks at
 3,900 Hz. The other sustained literal bytes do not peak at 2,100 Hz under
 either integer-ratio gate. No long sample projection is made for `81`
 because the executed microcode exits the loop.
+The [all-byte parity screen](PHOTO-127-PARITY-EXIT.md) shows that this exit
+is not unique to `81`: every odd held D127 byte reaches phase zero and
+continues through a 255-read PC12E ROM scan in the same fixture.
 
 This excludes a **direct held frame byte** as an explanation for a sustained
 A1 2,100 Hz output under the tested D127 route, mapping and clock model.
