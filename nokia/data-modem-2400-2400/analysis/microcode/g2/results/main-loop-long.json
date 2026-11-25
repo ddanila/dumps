@@ -1,0 +1,2526 @@
+{
+  "controller_rom_sha256": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+  "fixture": {
+    "entry_pc": "1ED3",
+    "external_reads": {
+      "0539": 1,
+      "08E5": 0,
+      "1D9D": 1,
+      "1DBD": 1,
+      "1DC6": 0
+    },
+    "generated_source_changes": [
+      "wanted>12 \u2192 wanted>64",
+      "cycle<200000 \u2192 cycle<2000000"
+    ],
+    "initial_ram22": "10",
+    "initial_state": "A0",
+    "initial_timer17": "80",
+    "interrupts": "disabled",
+    "per_iteration_timer17": "80",
+    "receive_bytes": "00 07 00 00 00 selector 00",
+    "serial_tx_completion_delay": 8
+  },
+  "limitations": [
+    "Forced timer expiry and USART-ready status are diagnostic fixtures.",
+    "The transmitted four-byte frame recipient and physical line route are untraced.",
+    "Frame byte changes are not yet identified as carrier phase reversals."
+  ],
+  "runs": [
+    {
+      "completed": 64,
+      "errors": 0,
+      "final_pc": "1ED3",
+      "iterations": [
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "D0 47 A1 22",
+          "line_bytes": [
+            "06"
+          ],
+          "line_sources": [
+            "00"
+          ],
+          "state": "B8"
+        },
+        {
+          "frame": "D0 47 A1 22",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "00"
+          ],
+          "state": "B8"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "84"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "90"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "CF"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "B1"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "09"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "DF"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "01"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "07"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "17"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "63"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "20"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "4F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "0F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "3C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "65"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "08"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "F5"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "EC"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "AF"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "36"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "B6"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "72"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "3C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "6E"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "37"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "59"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "95"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "00"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "06"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "B7"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "E7"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "A0"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "BA"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "0F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "45"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "6C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "AC"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "41"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "78"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "2F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "3E"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "FE"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "10"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "18"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "C3"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "97"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "7F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "41"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "CA"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "45"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "F6"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "0D"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "04"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "33"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "E9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        }
+      ],
+      "line_byte_count": 60,
+      "selector": "00"
+    },
+    {
+      "completed": 64,
+      "errors": 0,
+      "final_pc": "1ED3",
+      "iterations": [
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "D0 47 A1 22",
+          "line_bytes": [
+            "E7"
+          ],
+          "line_sources": [
+            "00"
+          ],
+          "state": "B8"
+        },
+        {
+          "frame": "D0 47 A1 22",
+          "line_bytes": [
+            "7B"
+          ],
+          "line_sources": [
+            "00"
+          ],
+          "state": "B8"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "97"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "DE"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "79"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "DB"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "6B"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "8E"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "63"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "06"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "38"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "E9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 A1 EA",
+          "line_bytes": [
+            "C1"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "1B"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "08"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "DE"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "C9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "A2"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "84"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "EB"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "D3"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "C7"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "52"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "9C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "6F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "BB"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "E6"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "D4"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "B8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "FB"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "CA"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "7A"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "2D"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "7F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "ED"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "F4"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "9E"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "DA"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "5E"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "DB"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "A9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 C1 EA",
+          "line_bytes": [
+            "E5"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "CE"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "72"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "E3"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "04"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "86"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "5E"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "36"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "FA"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "2F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "C1"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "5A"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "03"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "7F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "FD"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "41"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "48"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "08"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        },
+        {
+          "frame": "D0 47 81 EA",
+          "line_bytes": [
+            "1E"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "B4"
+        }
+      ],
+      "line_byte_count": 60,
+      "selector": "20"
+    },
+    {
+      "completed": 64,
+      "errors": 0,
+      "final_pc": "1ED3",
+      "iterations": [
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "07"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F0"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "81"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "31"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "FC"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "05"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "EB"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "EA"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "2D"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "DD"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "41"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "E1"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "EA"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "26"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "D8"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "ED"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "70"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "58"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "B6"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "5A"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "F6"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "32"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "F7"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "B3"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "46"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "37"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "40"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "7D"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "18"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "56"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "5C"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "57"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "59"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "F0"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "CD"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "EE"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A9 3A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A6"
+        },
+        {
+          "frame": "D0 42 A9 3A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A6"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "07"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F0"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "81"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "31"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "FC"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "05"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "EB"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "EA"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "2D"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "DD"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        }
+      ],
+      "line_byte_count": 54,
+      "selector": "40"
+    },
+    {
+      "completed": 64,
+      "errors": 0,
+      "final_pc": "1ED3",
+      "iterations": [
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A1 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A1"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "80 02 A8 7A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A2"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "07"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "9C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "0F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "C2"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "09"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "D9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "D9"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "6C"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "22"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "29"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "30"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "14"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "B5"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "AD"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "9A"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "86"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "BD"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "79"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "2F"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 C1 BA",
+          "line_bytes": [
+            "D8"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "24"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "10"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "CD"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "08"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "CA"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "FC"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "18"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "C5"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "C5"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "77"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "0F"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "E0"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "24"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "00"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "13"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 81 BA",
+          "line_bytes": [
+            "73"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A9 3A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A6"
+        },
+        {
+          "frame": "D0 42 A9 3A",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A6"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [],
+          "line_sources": [],
+          "state": "A3"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "07"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "F8"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "9C"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "0F"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "C2"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "09"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "D9"
+          ],
+          "line_sources": [
+            "FF"
+          ],
+          "state": "A4"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "D9"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "1C"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "6C"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "22"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "29"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        },
+        {
+          "frame": "D0 42 A1 BA",
+          "line_bytes": [
+            "30"
+          ],
+          "line_sources": [
+            "03"
+          ],
+          "state": "A5"
+        }
+      ],
+      "line_byte_count": 54,
+      "selector": "60"
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_long.py": "4aaf9d28630a00479480912fcfb442924b6b3b4ba8d71cfad35edfd010d492e2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_probe.c": "5c2ed6612890c4484ba81858356cbff76fdb9420a74eade23ce1215e65147ed1",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "64 uninterrupted controller polling iterations per selector",
+  "validation": "Every port-01 write matches the independent bit-serial scrambler result."
+}

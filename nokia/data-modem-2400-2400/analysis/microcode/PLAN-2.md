@@ -700,6 +700,13 @@ phases B–C turn "what" into "how".
   The decoder is a known-carrier reference tool, not the DSC receiver, and
   the pulse, DAC clock and analog route remain assumed. Keep C2 and C3/C4
   open while tracing or otherwise constraining those physical paths.
+  An [extended 8031 polling-loop replay](g2/MAIN-LOOP-LONG.md) now supplies a
+  real controller frame toggle to test for segment-1 reversals: on the B4
+  branch, the third frame byte alternates `81`/`C1` every four forced-timer
+  iterations, while the A5 branch has a shorter toggle. Replay that observed
+  sequence with the real line-side bytes through labelled held-frame and DAC
+  routes, and compare against a fixed-bit control. The forced iterations do
+  not establish reversal timing or the physical destination of frame bit 6.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
   now prevents combining the two separate bit-swap leads as one fixed
   chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`
