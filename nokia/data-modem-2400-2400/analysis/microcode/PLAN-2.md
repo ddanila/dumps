@@ -1289,6 +1289,15 @@ phases B–C turn "what" into "how".
   one bit late or one byte early leave `AF`, and no pulse yields no RxRDY.
   This constrains a proposed sync gate, but its source, timing and physical
   routes are assumptions. C3 remains open.
+  A [paced continuous-controller replay](g2/RECEIVER-TIMED-CONTROLLER-HANDOFF.md)
+  clocks the same saved real-PROM bits through a narrow external-sync/RxRDY
+  model at 416 assumed 8031 machine ticks per bit while the unchanged 8031
+  ROM runs its main loop. With the matching DTE selector (`40` for delay 5,
+  `60` for delay 18), all four aligned fixtures deliver eight bytes without
+  overrun and reach `AF→B0`; early, late, absent-pulse and opposite-selector
+  controls remain at `AF`. This removes the immediate-read shortcut but not
+  the assumed SYNDET source, RxD/RxC wiring or synthetic controller inputs.
+  Keep C3 open.
   The [four-bit phase readout](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md)
   combines row-0 `3ED` Y bits 0/1/3 with transient `3F8` Y7 in one
   frozen seven-entry table. Two new continuous preamble/data streams at

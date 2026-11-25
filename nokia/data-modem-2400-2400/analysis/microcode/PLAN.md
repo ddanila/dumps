@@ -44,6 +44,14 @@ model. Only a pulse before the first data bit reaches the controller's
 one-bit-shifted controls stay at `AF`. Treat the pulse source and timing
 as hypotheses, not verified wiring or a C3 pass.
 
+The [paced continuous-controller replay](g2/RECEIVER-TIMED-CONTROLLER-HANDOFF.md)
+removes the immediate CPU-read handoff: at an assumed 416 8031 ticks per
+receive bit, the uninterrupted ROM polls and consumes all eight bytes with
+no overrun and reaches `AF→B0` only for the aligned pulse in four fixtures.
+Its DTE selector must match the receive descrambler delay; the opposite
+selector fails. The SYNDET source, physical serial route and naturally
+timed Timer 1 behavior are still open, so keep C3 active.
+
 The [executed A3→A4 frame edge](g2/CONTROLLER-A3-A4-MODE-EDGE.md) supplies a
 specific next SYNDET hypothesis: decode the unique third-frame-byte `81→A1`
 transition into a pulse before the first data RxC edge. Model the required
