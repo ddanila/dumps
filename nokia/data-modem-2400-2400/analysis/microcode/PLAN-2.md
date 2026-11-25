@@ -266,6 +266,14 @@ phases B–C turn "what" into "how".
   stays fixed. Treat the earlier D-lane byte rule as conditional on these
   unresolved instruction nets, and score future mappings by retained signal
   behavior rather than read count.
+  A [lower instruction source screen](g2/LOWER-I-INPUT-PIPELINE.md) tests
+  U11 bits 0–7 as U2 I2 or I7. The D4→`39E` one-visit relay survives every
+  direct source choice, so the lower U11.6 duplicate is not necessary for
+  that relay. U11.0 or U11.4 at U2 I2 instead carries a pulse through four
+  loop-boundary states and gives exact two-visit delayed ALU bytes at `38F`
+  and `3A1` under the real controller bitstream. ROM addresses do not change
+  and the candidate output still relays one bit; constrain U2 I2 and keep
+  looking for a sustained ROM-using and DAC-bound path.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,

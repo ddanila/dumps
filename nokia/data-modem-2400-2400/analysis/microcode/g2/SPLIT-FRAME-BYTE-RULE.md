@@ -33,6 +33,12 @@ data order and clock are not recovered. In particular, the
 [upper photo-bundle screen](PHOTO-UPPER-BUNDLE.md) found that 24 tested
 high-bit upper-B orders hold `39E` fixed; it does not validate this low-bit
 field.
+The [instruction-field screens](UPPER-I-FIELD-SENSITIVITY.md) show that this
+relay also depends on an unverified U18.6 fan-out to both U8 I2 and I7.
+Changing the lower U2 I2 source can preserve the relay while extending its
+internal transient to four loop checkpoints
+([lower-field result](LOWER-I-INPUT-PIPELINE.md)); neither result establishes
+the physical wiring or a modem waveform.
 
 The [report](results/split-frame-byte-rule.json) records all 256 byte
 results, controller frame witnesses, ROM address, trace digests, source
