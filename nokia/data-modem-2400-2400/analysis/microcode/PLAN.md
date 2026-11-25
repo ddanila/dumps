@@ -122,17 +122,20 @@ other photo-compatible scenarios found an input-sensitive R5 write before
 later table calls. That conditional path is a lead to test with changing
 inputs, not a claim about the board's untraced wiring.
 
-**Next G2 application:** the [D127 fast-step screen](g2/PHOTO-127-FAST-STEP-CANDIDATES.md)
-finds held phase-step bytes that can yield candidate 1,800/2,100 Hz DAC-bit
-spectra under specific assumed clock ratios. Treat the byte source, loop clock,
-sample gate and latch route as separate, photo-compatible hypotheses. Test a
-controller-driven way to load the candidate steps and clock the latch, then
-compare the resulting byte stream with the expected command and bit timing.
-If that fixture fails, vary the route, timing or input/state fixture and keep
-the negative result tied to those assumptions. Continue the independent
-[D3F8 stream-path test](g2/LOWER-I-STREAM-SCHEDULE.md) for receive behavior.
-Neither an untraced continuation nor a failed fixture calls for new photos
-before the next experiment.
+**Next G2 application:** the [CD4094 cascade model](g2/PHOTO-CD4094-ORDER.md)
+shows that chip order and Q-pin orientation can reverse or remove the apparent
+controller-frame branch split. Test each plausible frame lane with its labelled
+orientation, rather than feeding a literal frame byte to D127 without stating
+how it reaches that input. The [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
+also shows that raw USART bits at D12C leave the proposed phase loop before a
+sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
+a rejection of the **raw-bit fixture**, not of every controller-to-DSP route.
+Try a decoded or biased bit input, a different clock/loop, or a stateful ROM
+consumer, with the DAC latch route and sample gate stated separately. Compare
+command-dependent samples against the required 1,800/2,100 Hz and dibit
+behavior. Continue independent receive-path analysis through the
+[D3F8 stream path](g2/LOWER-I-STREAM-SCHEDULE.md). Record each result and its
+next discriminating experiment; do not wait for a complete pin trace.
 
 For each unresolved dependency:
 
