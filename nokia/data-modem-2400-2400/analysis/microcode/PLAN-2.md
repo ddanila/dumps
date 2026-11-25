@@ -1082,10 +1082,14 @@ phases B–C turn "what" into "how".
   ADC visits. One map also sustains 24,000 visits on two periodic and one
   nonperiodic reference streams; masking the ADC high nibble changes 5,624
   selected ROM addresses in its 6,000-visit comparison. This is a
-  conditional compatibility witness, not proof of the upper wires, a full
-  controller-driven C2 waveform, or a recovered C3/C4 decision. Keep G2
-  active and test that fixed map on the full dibit replay and a candidate
-  receive decision/output route.
+  conditional compatibility witness, not proof of the upper wires or a
+  recovered C3/C4 decision. The [full transmit replay](g2/JOINT-UPPER-FULL-TX.md)
+  then runs the *same* map for 1,248,256 microinstructions per call/answer
+  selector with the controller-derived A1–A4 input sequence. Its candidate
+  DAC-code hashes match the earlier q3 stream; both have a 2,100 Hz tone
+  peak and 0/62 independent A3/A4 data errors. C2 is still conditional on
+  the untraced latch, DAC bus and analog path. Keep G2 active and seek a
+  generalizing receive decision and USART RxD/echo route on this map.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

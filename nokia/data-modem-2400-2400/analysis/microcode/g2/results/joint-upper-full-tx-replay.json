@@ -1,0 +1,108 @@
+{
+  "cases": [
+    {
+      "a3_a4_boundary_samples": [
+        "7A",
+        "25",
+        "DA",
+        "F1",
+        "A9",
+        "79",
+        "3F",
+        "C3"
+      ],
+      "data_decisions": 62,
+      "data_errors": 0,
+      "dsc_microinstructions": 1248256,
+      "matches_prior_q3_selected_bus": true,
+      "pc129_visits": 312054,
+      "phase_after_silence": 3,
+      "phase_after_tone": 3,
+      "phase_milestones_match_prior": true,
+      "sample_count": 832,
+      "scenario_digest": "bfe1113336dea419d31172cf22af2cc7f57ce136adc04e677eab59052a7f8966",
+      "selected_bus_sample_sha256": "85af918eb8777f2851fe800ce43c87c6a448710f73f5e01bcd1d918c2bf3835c",
+      "selector": "40",
+      "tone": {
+        "distinct_codes": 30,
+        "peak_hz": 2100,
+        "peak_r2": 0.33599,
+        "r2_1800": 0.001732,
+        "r2_2100": 0.33599,
+        "samples": 256
+      },
+      "trace_digest": "2068e5a7a5e2f1945bd6809df7068003bfd7974319e091cef3ca23ea948d47c4"
+    },
+    {
+      "a3_a4_boundary_samples": [
+        "7A",
+        "25",
+        "DA",
+        "F1",
+        "A9",
+        "79",
+        "3F",
+        "C3"
+      ],
+      "data_decisions": 62,
+      "data_errors": 0,
+      "dsc_microinstructions": 1248256,
+      "matches_prior_q3_selected_bus": true,
+      "pc129_visits": 312054,
+      "phase_after_silence": 3,
+      "phase_after_tone": 3,
+      "phase_milestones_match_prior": true,
+      "sample_count": 832,
+      "scenario_digest": "38c4f87e6688627f35a3adca2fc7e453d81e4711b9f1d323bf944175ce9ec255",
+      "selected_bus_sample_sha256": "8c83ffbdf4b87f23052dcf7b219409f04ca854bdb82462705742dbfdcd895e61",
+      "selector": "60",
+      "tone": {
+        "distinct_codes": 30,
+        "peak_hz": 2100,
+        "peak_r2": 0.33599,
+        "r2_1800": 0.001732,
+        "r2_2100": 0.33599,
+        "samples": 256
+      },
+      "trace_digest": "b5a447b374b43668b3beb47c41b588505b109cf63b2456da13b6b61aa7dfb00e"
+    }
+  ],
+  "fixture": {
+    "controller_selectors": [
+      "40",
+      "60"
+    ],
+    "high_a": "separately labelled diagnostic U8 A pin levels match U2 A pins",
+    "input": "observed A1/A2 frame decode and TxRDY-paced A3/A4 TxD bytes; D127 ingress timing is hypothetical",
+    "mapping": "joint upper-source mask 08",
+    "output": "hypothetical ordered Y to DAC bus with Q4/Q5 swap and free-running 9600 Hz sample phase"
+  },
+  "limitations": [
+    "The high I0/I7 source, U8 A pins, input decoder, DAC latch and analog line connection are untraced.",
+    "An exact q3 output hash or reference-decoder score would establish only conditional signal behavior, not physical Nokia wiring.",
+    "The receiver side has no recovered dibit, echo cancellation or USART RxD proof."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/joint_tx_rx_mapping_screen.py": "93c02b095d1d3d5d1d87aa6e01fcca17697095dc8d973fd8ca1dcf1c04081ce1",
+    "analysis/microcode/g2/joint_upper_full_tx_replay.py": "05eb8bfa939c357bcaa50e575ca173a58d4f39cbf5a315c83913c0429a595ffa",
+    "analysis/microcode/g2/joint_upper_source_screen.py": "c075f4e3ecb046e929f18021fb74b3ea756177d73042d6083972802dd581735e",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_dac_bus_permutations.py": "7032d9a809229467df736d417d5c2a36a9ff6d04a0f83c9271627f106507f4ab",
+    "analysis/microcode/g2/photo_frame_toggle_edge_pulse.py": "2313703960e119814451ca1a4c90dadbae5fef25e8a866a25c2d1563bd82dc7f",
+    "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
+    "analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "analysis/microcode/g2/results/joint-upper-source-mask08-mapping.json": "b1bdc8998a3ceb92c52862266ca29e95203c92a3c0be8ea20c6d17ac951184ae",
+    "analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/photo-joint-tone-training-data.json": "f76698597b3deda45e520ebc847f52766219359a8faf26ea97c47399d1f6d010",
+    "analysis/microcode/g2/split_slice_probe.py": "b327f3193df6b72d79d57906f76aedf6877dd39da65fb57f4de91ecae21538f1",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "status": "full controller-derived TX stream through one split-slice map also used by sustained ADC experiment"
+}

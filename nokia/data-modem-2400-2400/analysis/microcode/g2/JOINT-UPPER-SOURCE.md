@@ -30,8 +30,9 @@ This removes the *local* compatibility conflict between a changing held
 transmitter ROM path and sustained ADC-sensitive execution. It does not
 establish that U17 D5 drives either U8 pin, that the inverted level is
 latched at the assumed phase, or that the two candidate slice crosslinks
-are continuous. The transmitter still needs a controller-driven dibit run
-with a specified DAC latch and output bus. The receiver still needs a
+are continuous. The [full controller-driven transmit replay](JOINT-UPPER-FULL-TX.md)
+now passes under this same field map with a specified *hypothetical* DAC
+latch and output bus. The receiver still needs a
 decision that generalizes to independent streams and a path to USART RxD;
 the present address differences do not identify a recovered bit or echo
 cancellation. The transmit and receive scenarios also use different,
