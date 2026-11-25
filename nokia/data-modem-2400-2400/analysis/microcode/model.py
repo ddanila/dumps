@@ -91,8 +91,10 @@ class SplitAm2901:
         return high
 
     def step(self, instruction, a, b, d=0, carry=0, ram_in=0, q_in=0,
-             high_instruction=None):
+             high_instruction=None, high_a=None, high_b=None):
         high_instruction = self.high_instruction(instruction, high_instruction)
+        high_a = a if high_a is None else high_a
+        high_b = b if high_b is None else high_b
         low = Am2901(width=4, ram=[v & 15 for v in self.ram], q=self.q & 15,
                      logic_flags=True)
         high = Am2901(width=4, ram=[v >> 4 for v in self.ram], q=self.q >> 4,
@@ -100,7 +102,7 @@ class SplitAm2901:
         # Destination 1 leaves RAM/Q unchanged, allowing shift inputs and
         # the high-slice carry to be computed from the old simultaneous state.
         lo_f = low.step((instruction & 63) | 64, a, b, d & 15, carry)
-        hi_f = high.step((high_instruction & 63) | 64, a, b, d >> 4,
+        hi_f = high.step((high_instruction & 63) | 64, high_a, high_b, d >> 4,
                          lo_f['carry'])
         lo_dest, hi_dest = instruction >> 6, high_instruction >> 6
         lo_ram_in = hi_f['f'] & 1 if hi_dest in (4, 5) else self.undriven_shift
@@ -118,7 +120,7 @@ class SplitAm2901:
         if hi_dest in (6, 7) and lo_dest not in (6, 7):
             self.undriven_shift_reads += 1 + (hi_dest == 6)
         lo_result = low.step(instruction, a, b, d & 15, carry, lo_ram_in, lo_q_in)
-        hi_result = high.step(high_instruction, a, b, d >> 4,
+        hi_result = high.step(high_instruction, high_a, high_b, d >> 4,
                               lo_result['carry'], hi_ram_in, hi_q_in)
         self.ram = [lower | (upper << 4) for lower, upper in zip(low.ram, high.ram)]
         self.q = low.q | (high.q << 4)

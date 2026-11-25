@@ -195,6 +195,13 @@ phases B–C turn "what" into "how".
   impulse survives for just one boundary at either site. No tested site
   changes the reached candidate output words. The D38E sample test replaces
   the controller stream, so neither path demonstrates simultaneous Tx/Rx.
+  An [independent upper register-address screen](g2/INDEPENDENT-SLICE-ADDRESSES.md)
+  also removes the unproven shared A/B-address coupling. A photo-compatible
+  upper B field changes reached candidate output values, but only as a startup
+  transient or another fixed value. Across 24 and 16 reachable Q seeds in the
+  two upper-B variants, zero and one controller streams give identical state
+  traces and output sets despite 128 selected input bytes. Keep upper A/B
+  wiring open; this bounded loop is still not a transmitter.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

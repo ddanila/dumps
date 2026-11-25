@@ -205,8 +205,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     slice_instruction = inputs.get('slice_instruction')
     if slice_instruction is not None and mode != 'integrated':
         raise ValueError('split-slice instruction model requires integrated mode')
-    if 'i_high' in mapping['fields'] and slice_instruction is None:
-        raise ValueError('independent high instruction requires split-slice model')
+    if any(k in mapping['fields'] for k in ('i_high', 'a_high', 'b_high')) and slice_instruction is None:
+        raise ValueError('independent high-slice fields require split-slice model')
     if mode=='sequencer' and (cond['mode']=='flags' or dispatch['source']!='scenario' or scenario['indirect_branch']['source'] in ('y','q')):
         raise ValueError('datapath source requires integrated mode')
     all_tables=[*dispatch['tables'].values(),*scenario.get('branch_tables',{}).values()]
@@ -274,6 +274,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             selects_d = ((instruction & 7) in (5, 6, 7) or
                          (high_instruction & 7) in (5, 6, 7))
             register_address={'a': r['a'], 'b': r['b']}
+            if slice_instruction is not None:
+                register_address['a_high'] = r.get('a_high', r['a'])
+                register_address['b_high'] = r.get('b_high', r['b'])
             for field, bits in address_overrides.items():
                 for bit, value in bits.items():
                     register_address[field]=(register_address[field] & ~(1 << bit)) | (value << bit)
@@ -315,7 +318,8 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 result=cpu.step(instruction,register_address['a'],register_address['b'],d,carry,inputs['ram_in'],inputs['q_in'])
             else:
                 result=cpu.step(instruction,register_address['a'],register_address['b'],d,carry,inputs['ram_in'],inputs['q_in'],
-                                high_instruction=r.get('i_high'))
+                                high_instruction=r.get('i_high'),
+                                high_a=register_address['a_high'], high_b=register_address['b_high'])
             if slice_instruction is not None:
                 assumptions['split-slice candidate instruction']+=1
             carry_input.observe(result)
@@ -405,6 +409,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if mode=='integrated' and address_overrides:
                 record['register_address_a']=register_address['a']
                 record['register_address_b']=register_address['b']
+            if mode=='integrated' and slice_instruction is not None and any(k in r for k in ('a_high', 'b_high')):
+                record['register_address_a_high']=register_address['a_high']
+                record['register_address_b_high']=register_address['b_high']
             if read_event is not None:record['external_read']=read_event
             if external_condition is not None:record['external_condition']=external_condition
             if trace_index:record.update(dispatch_input=index,dispatch_source=index_source)

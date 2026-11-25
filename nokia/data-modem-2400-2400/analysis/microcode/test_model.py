@@ -132,6 +132,16 @@ class DatapathTests(unittest.TestCase):
         self.assertEqual(linked.high_instruction(low_instruction,high_instruction),
                          high_instruction | (1<<4))
 
+    def test_split_can_address_different_registers_in_each_slice(self):
+        ram = [0] * 16
+        ram[1], ram[2], ram[3], ram[4] = 0x01, 0x20, 0x04, 0x80
+        split = SplitAm2901(ram=ram)
+        instruction = op(1, 3, 1)  # A OR B, no write.
+        same = split.step(instruction, 1, 3)
+        different = split.step(instruction, 1, 3, high_a=2, high_b=4)
+        self.assertEqual(same['y'], 0x05)
+        self.assertEqual(different['y'], 0xA5)
+
     def test_split_asymmetric_shift_uses_explicit_undriven_level(self):
         instruction=op(0,3,4)  # Low Q shifts right; high I8 is cleared.
         zero=SplitAm2901(q=0x81,high_from_low={8:0},undriven_shift=0)

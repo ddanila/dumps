@@ -11,7 +11,7 @@ from run import load, field_value
 NAMES = ['TSK', 'INC', 'BLT', 'POP', 'BSR', 'PLP', 'BRT', 'RST']
 STATUS = {'recovered-from-data', 'hypothesis', 'stub'}
 WIDTHS = dict(command=3, branch=10, select=3, direct=1, i=9, i_high=9,
-              a=4, b=4, d=8,
+              a=4, b=4, a_high=4, b_high=4, d=8,
               carry=1, carry_select=1, ram_in=1, q_in=1)
 
 
