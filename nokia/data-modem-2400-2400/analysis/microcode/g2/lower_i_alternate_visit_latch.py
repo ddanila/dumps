@@ -14,7 +14,8 @@ from lower_i_prom_data_route import mapping_for
 from photo_controller_path import fixture
 from split_slice_probe import split_scenario
 
-SOURCES = ('3F8_Y', '3F9_Y', '3FA_Y', '3F7_R10')
+SOURCES = ('3F8_Y', '3F9_Y', '3FA_Y', '3F7_R10',
+           '3F7_ROM', '3F7_ROM_XOR80')
 SAMPLE_RATE = 9600
 WINDOW = 64
 WARMUP = 128
@@ -31,6 +32,11 @@ def source_sequences(trace, initial_r10):
             result[f'{pc:03X}_Y'].append(row['alu']['y'])
         if pc == 0x3F7:
             result['3F7_R10'].append(r10)
+            if not row['external_read']['selected_by_alu']:
+                raise ValueError('candidate ROM byte not selected at 3F7')
+            value = row['external_read']['value']
+            result['3F7_ROM'].append(value)
+            result['3F7_ROM_XOR80'].append(value ^ 0x80)
     if any(len(values) < VISITS for values in result.values()):
         raise ValueError('candidate source lacks 1,024 loop visits')
     return result
@@ -109,7 +115,7 @@ def run(out=HERE / 'results/lower-i-alternate-visit-latch.json'):
                             for label, data in controls.items()},
                   cases=cases,
                   limitations=[
-                      'The loop clock, controller D0 input, Y/R10-to-LS273 bus, LS273 clock and DAC08 bit order are untraced.',
+                      'The loop clock, controller D0 input, Y/R10/ROM-to-LS273 bus, LS273 clock and DAC08 bit order are untraced.',
                       'A 64-sample digital-code DFT is a diagnostic screen, not the analog line spectrum.',
                       'Held D3F8 bits are not proven steady modem dibits or the complete data2400 command.'])
     save(out, report)

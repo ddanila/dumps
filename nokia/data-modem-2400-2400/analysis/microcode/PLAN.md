@@ -248,7 +248,7 @@ candidate carries all 128 controller bits through the selected ROM loop when
 each bit is held for eight loop visits. Its input route and 153.6 kHz
 microcycle interpretation remain assumptions. The
 [alternating-visit latch screen](g2/LOWER-I-ALTERNATE-VISIT-LATCH.md) then
-finds constant codes for held `08` under every tested direct Y/R10 byte
+finds constant codes for held `08` under every tested direct Y/R10/ROM byte
 route, so those routes cannot supply a held-input carrier at that clock.
 Change the latch route, timing or command-dependent input fixture next;
 a missing continuity measurement does not pause the experiment.
