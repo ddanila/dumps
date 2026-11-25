@@ -1180,6 +1180,14 @@ phases B–C turn "what" into "how".
   but none also fits holdout. The best has 7/48 holdout and 12/48 fresh
   validation errors. This narrows simple output-latch hypotheses; it is
   not an executed DSC decision or a USART RxD result.
+  A [timed caller handoff](g2/RECEIVER-FOUR-ROW-CALLER-HANDOFF.md) releases
+  the executed `3EA` wrapper after 1,500 ADC visits. Releasing `3ED` just
+  after the ADC-sensitive third row carries five distinct RAM/Q states into
+  the caller and leaves three distinct terminal states across five input
+  patterns. Releasing it after the fourth row collapses all five to one.
+  The sole changed later TEST is at nonbranching `1AA`; all PC paths match.
+  This points to a pre-fourth-row latch or different mode timing to test,
+  rather than an executed receive bit on the current route.
   The [raw-PROM ADC enable-phase screen](g2/RECEIVER-PROM-ADC-ENABLE-PHASE.md)
   finds a concrete buffer-gate hypothesis for that same path. A one-cycle
   latched `!U10.D1 & U10.D3 & U10.D7` level enables only `3F8` on all
