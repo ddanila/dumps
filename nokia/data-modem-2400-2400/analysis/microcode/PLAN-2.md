@@ -422,6 +422,17 @@ phases B–C turn "what" into "how".
   A time-reversed control survives 133 visits, showing ordering sensitivity
   but not a physical receiver. Change the input mapping/timing hypothesis
   or follow an independent signal path; these fixtures do not meet C2/C3.
+  A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
+  only D3F8's low nibble affects this candidate loop: all 16 high-nibble
+  choices share one full trace. Ten low nibbles sustain exact recurring
+  ROM-address, ROM-byte and `3F8–3FA` ALU periods of 2–21 visits; six exit.
+  A [two-nibble controller screen](g2/LOWER-I-NIBBLE-STREAM-BRIDGE.md) then
+  finds three of 90 zero/one encodings (`5/3`, `7/8`, `F/2`) that consume all
+  128 locally executed 8031 scrambler bits and change repeated ROM/ALU
+  values. They require an untraced multi-bit D3F8 source and one new bit
+  every eight microcycles. All three exit early with 2/4/8/16-visit holds;
+  this is an internal algorithmic lead, not a timed 1,200-baud connection or
+  DAC output. Test a physically plausible input phase and output latch next.
   An [exit-path comparison](g2/LOWER-I-EXIT-PATH.md) follows the D3F8-sensitive
   branch: under previous-flag timing, `3FA` zero releases `3ED`, `3EE` returns
   to `18D`, and all six impulse/controller cases eventually repeat `1E9/1EA`

@@ -1,0 +1,1303 @@
+{
+  "fixture": {
+    "bits": "128 ROM-executed 8031 scrambler bits",
+    "cycle_limit": "9*offered D3F8 visits + 80",
+    "held_input_levels": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "7",
+      "8",
+      "9",
+      "C",
+      "F"
+    ],
+    "holds": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "input_pc": "3F8",
+    "mapping": "q-independent-3-photo-ab-swapped-separated-independent-upper-instruction-upper-address-b-diagnostic-!10.6-11.2-paired-data-sources",
+    "q": 5,
+    "rom_pc": "3F7"
+  },
+  "held_cases": [
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 94,
+      "final_pc": 490,
+      "hold": 2,
+      "offered_visits": 256,
+      "one": 3,
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 50,
+      "final_pc": 489,
+      "hold": 4,
+      "offered_visits": 512,
+      "one": 3,
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 307,
+      "final_pc": 489,
+      "hold": 8,
+      "offered_visits": 1024,
+      "one": 3,
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 242,
+      "final_pc": 489,
+      "hold": 16,
+      "offered_visits": 2048,
+      "one": 3,
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 178,
+      "final_pc": 489,
+      "hold": 2,
+      "offered_visits": 256,
+      "one": 8,
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 186,
+      "final_pc": 489,
+      "hold": 4,
+      "offered_visits": 512,
+      "one": 8,
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 74,
+      "final_pc": 490,
+      "hold": 8,
+      "offered_visits": 1024,
+      "one": 8,
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 482,
+      "final_pc": 489,
+      "hold": 16,
+      "offered_visits": 2048,
+      "one": 8,
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 63,
+      "final_pc": 489,
+      "hold": 2,
+      "offered_visits": 256,
+      "one": 2,
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 64,
+      "final_pc": 489,
+      "hold": 4,
+      "offered_visits": 512,
+      "one": 2,
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 40,
+      "final_pc": 490,
+      "hold": 8,
+      "offered_visits": 1024,
+      "one": 2,
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "consumed_visits": 64,
+      "final_pc": 490,
+      "hold": 16,
+      "offered_visits": 2048,
+      "one": 2,
+      "zero": 15
+    }
+  ],
+  "limitations": [
+    "The controller bit-to-D3F8 nibble encoder, input timing and all PROM/latch pin routes are untraced.",
+    "The 8031 scrambler bytes are executed locally; this is not a complete controller-DSP co-simulation.",
+    "One new bit per eight-microcycle loop visit is much faster than the 2400 bit/s data stream under the 14.4 MHz/k, k=1..4, clock hypothesis.",
+    "ROM addresses and ALU Y are internal; no DAC08 sample, line carrier or receive bit is established."
+  ],
+  "pair_cases": [
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 18,
+      "final_pc": 489,
+      "one": 2,
+      "rom_visits": 18,
+      "trace_digest": "aeb7322f6d73d69a17260365e60a856f274f10b8f61974ec021ce05b427b787f",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 28,
+      "final_pc": 490,
+      "one": 3,
+      "rom_visits": 28,
+      "trace_digest": "6e52220f52d496350e88676aee4484e674714f32d90c4fc705e5349fda90bf9a",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 9,
+      "final_pc": 490,
+      "one": 4,
+      "rom_visits": 9,
+      "trace_digest": "2d9320707f41ec7ba94f9074e74c717b1ec5326653ef88a890a7349fea2c9034",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 38,
+      "final_pc": 490,
+      "one": 5,
+      "rom_visits": 38,
+      "trace_digest": "37b463fc92eb575033614fd59dbcf03d0e64310fac2122aaa223f12f9b09a1a7",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 40,
+      "final_pc": 489,
+      "one": 7,
+      "rom_visits": 40,
+      "trace_digest": "5235fd55d909efd335dcd9cc0c374097a98c5f9cc08dda86b0325b9be3b0801b",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 22,
+      "final_pc": 489,
+      "one": 8,
+      "rom_visits": 22,
+      "trace_digest": "0889dbf28e604f62557cd0766c6e6632d75b2c99d016a74e419c0234b897682f",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 53,
+      "final_pc": 489,
+      "one": 9,
+      "rom_visits": 53,
+      "trace_digest": "efebac1cd8a231423b1d0421769f9b6f5194e8fcc74aee850ed55eda74bce749",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 5,
+      "final_pc": 489,
+      "one": 12,
+      "rom_visits": 5,
+      "trace_digest": "0e02302ce555ccb7bbbaa3cacc83a723550a98287cbd3bab39cc5b65b740f0d9",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 5,
+      "final_pc": 489,
+      "one": 15,
+      "rom_visits": 5,
+      "trace_digest": "f50570308d3be968648b57a5e76c0c91e607de82a2e9b165418a193c152a7ea1",
+      "zero": 1
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 7,
+      "final_pc": 490,
+      "one": 1,
+      "rom_visits": 7,
+      "trace_digest": "dd9eab31e8753256ce1fbb6a7b88829acbbe7cdae3721fe9fe54480f6759800c",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 38,
+      "final_pc": 490,
+      "one": 3,
+      "rom_visits": 38,
+      "trace_digest": "661d06df9c8752df827853a2c96e4c77d41c165c21b93140321c793f2e0e4981",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 82,
+      "final_pc": 489,
+      "one": 4,
+      "rom_visits": 82,
+      "trace_digest": "596a472f8d9f6573dda07e54e495849ea9b8ba9eead4407878f4a03aa3be4398",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 19,
+      "final_pc": 489,
+      "one": 5,
+      "rom_visits": 19,
+      "trace_digest": "7da3cdfcda3ae170da0a8456d0a3a5a80d75b7643b6d373bbc88e4ffbfcff4e3",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 17,
+      "final_pc": 490,
+      "one": 7,
+      "rom_visits": 17,
+      "trace_digest": "a49b97b79995f180e90cd72c03526d047aecd7a05ceb4de78b34e2f8e8a05487",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 5,
+      "final_pc": 490,
+      "one": 8,
+      "rom_visits": 5,
+      "trace_digest": "2666f507e3e35bfb1c76aa0d1c1e19751ecec33f0fe043efd86a05243afeb8ef",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 19,
+      "final_pc": 489,
+      "one": 9,
+      "rom_visits": 19,
+      "trace_digest": "3e3a0c33806177d8f4a7c54e3d5a9c4ed6629630706612c623202aec1b11f6d3",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 29,
+      "final_pc": 489,
+      "one": 12,
+      "rom_visits": 29,
+      "trace_digest": "bcc243e9488423d9009a68d33db1fc6954c125a18e50bb95f9e26f7280f5f515",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 37,
+      "final_pc": 489,
+      "one": 15,
+      "rom_visits": 37,
+      "trace_digest": "b2a625eff7aa4aed8cf04a741c358076950e67d2a6c6910bea3d3aa466ab1381",
+      "zero": 2
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 29,
+      "final_pc": 489,
+      "one": 1,
+      "rom_visits": 29,
+      "trace_digest": "02a5852d5ee7910d70fba68d7f2e63c6216c3faeb364a7c80c69427527fed038",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 67,
+      "final_pc": 490,
+      "one": 2,
+      "rom_visits": 67,
+      "trace_digest": "cb246dd104daae9aafc9963ca06d7c323a344e291cda086eb50ad1be7bc285fb",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 23,
+      "final_pc": 490,
+      "one": 4,
+      "rom_visits": 23,
+      "trace_digest": "8844df793acc700f478c3fb2cd850ae0917f189a71b816cef605a4c7987a8fc7",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 6,
+      "final_pc": 489,
+      "one": 5,
+      "rom_visits": 6,
+      "trace_digest": "e740d61d69c1eb10ccf1c1353355840f3b79541ae575405913f0249b116fac50",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 18,
+      "final_pc": 490,
+      "one": 7,
+      "rom_visits": 18,
+      "trace_digest": "4423cb3db5e4c131baabdc6d6dcd05b3e91bb3a75155f083b79e6664eb3d7ff4",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 16,
+      "final_pc": 490,
+      "one": 8,
+      "rom_visits": 16,
+      "trace_digest": "c5f4c18278babc25e34d8e16f880298891bee348d8fa59716bbae0f12b8ac13d",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 19,
+      "final_pc": 489,
+      "one": 9,
+      "rom_visits": 19,
+      "trace_digest": "a068cfc9c4275df495d86f78d9bc3038281e630e3432b017d068f668e942ed57",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 11,
+      "final_pc": 490,
+      "one": 12,
+      "rom_visits": 11,
+      "trace_digest": "599dc73659758b417763816b463d17af6a85bcdb2e22b914ee0ff33a8385be0f",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 105,
+      "final_pc": 490,
+      "one": 15,
+      "rom_visits": 105,
+      "trace_digest": "ee702da7898c43a69634d68717f846c252826a3d59854d36ad6b95cfdeff8a14",
+      "zero": 3
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 12,
+      "final_pc": 490,
+      "one": 1,
+      "rom_visits": 12,
+      "trace_digest": "94eae66e6703d59c4be52f6bd9c9a48cd11eafe3d6e55fb7d9e7732b050c8eb6",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 19,
+      "final_pc": 490,
+      "one": 2,
+      "rom_visits": 19,
+      "trace_digest": "2bebe787c7c25c621efa8d16faec7ecd4044d914942c92c4f39497d1fa2be8f4",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 78,
+      "final_pc": 490,
+      "one": 3,
+      "rom_visits": 78,
+      "trace_digest": "38ec27b17e350a7dcb25370f4c5818f774d0e2acee3ea4aa5d3f749b85e38a18",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 11,
+      "final_pc": 490,
+      "one": 5,
+      "rom_visits": 11,
+      "trace_digest": "18eb3d8c800a9e690e14bb5f8d745c7e4bbba0270aa593fc2bd10fdbad1b927d",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 5,
+      "final_pc": 490,
+      "one": 7,
+      "rom_visits": 5,
+      "trace_digest": "0077d1a3135bfd57413b812193952bb54362abde70a83add1b8ce5a04bc6358c",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 10,
+      "final_pc": 490,
+      "one": 8,
+      "rom_visits": 10,
+      "trace_digest": "b8aef7ec5d016f93080feb377d1b006f61c15d5fc510b7ddee918ff4aab2f96b",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 38,
+      "final_pc": 489,
+      "one": 9,
+      "rom_visits": 38,
+      "trace_digest": "837135647d9a447d7f7b96634453875c4d3ea791c4a675f56c8a3b52082bb2cb",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 60,
+      "final_pc": 489,
+      "one": 12,
+      "rom_visits": 60,
+      "trace_digest": "853d25fb45e139590124e9807c67f60e8ccda0bc7642b00f0336b50d1dbcdd9c",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 29,
+      "final_pc": 489,
+      "one": 15,
+      "rom_visits": 29,
+      "trace_digest": "085d4c6cb582aa99f84bce3e57b470b9595d0d44f47e92aeb469b1c451c66807",
+      "zero": 4
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 10,
+      "final_pc": 489,
+      "one": 1,
+      "rom_visits": 10,
+      "trace_digest": "6812837722b22911593386ba2c167eed9cbc7d4c83eac248888990d9edcd6061",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 19,
+      "final_pc": 490,
+      "one": 2,
+      "rom_visits": 19,
+      "trace_digest": "4429e3fe6302e865eb9da98269ffc55a4a3a316f3b2559be6e6118180668d5b8",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": true,
+      "d3f8_visits": 149,
+      "final_pc": 1017,
+      "one": 3,
+      "rom_visits": 149,
+      "trace_digest": "f442d4b5491efb49f3fa5f24dbd85f5ef71e6567aac7b5b3af35e364c5bbded8",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 9,
+      "final_pc": 490,
+      "one": 4,
+      "rom_visits": 9,
+      "trace_digest": "e9daa8dbb37679426dd7537d79cf58b1d177e9252227fcf74bf85e76b13f41c9",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 85,
+      "final_pc": 489,
+      "one": 7,
+      "rom_visits": 85,
+      "trace_digest": "0c77aa3e08cff75020106f5c6dde029dc4d6bc3c22a61ba3391514f76789a8f9",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 18,
+      "final_pc": 489,
+      "one": 8,
+      "rom_visits": 18,
+      "trace_digest": "6e367a2781f250fb0229c4da0bcb46bb291391773e054f6efb559718e1cf0f6c",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 16,
+      "final_pc": 489,
+      "one": 9,
+      "rom_visits": 16,
+      "trace_digest": "68504ec32af2158b671db2e59b1f6bb65149a261eb9083ba8daab311ba5634c2",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 8,
+      "final_pc": 489,
+      "one": 12,
+      "rom_visits": 8,
+      "trace_digest": "0c31a6d71b2b19387d7234a8e74951e2f92c5598e41e7f04696517ecae40a353",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 98,
+      "final_pc": 489,
+      "one": 15,
+      "rom_visits": 98,
+      "trace_digest": "018a1f5a41b07d095ed13f50bb59b413e856a083674b80354193d03c9f27f664",
+      "zero": 5
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 55,
+      "final_pc": 489,
+      "one": 1,
+      "rom_visits": 55,
+      "trace_digest": "d0dfa3cdaf5717494b2b5af35930ab950b1f3a287d3d556a094bf1884459a772",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 7,
+      "final_pc": 489,
+      "one": 2,
+      "rom_visits": 7,
+      "trace_digest": "3bca6656ae41b4b7f665d5567d915ef997a2fde564debd68610b8ce55adaddaf",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 84,
+      "final_pc": 490,
+      "one": 3,
+      "rom_visits": 84,
+      "trace_digest": "e82951686a1ef6da57ff6698aeedeac26a7b9c4de357a6d812d16a95519ab57b",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 83,
+      "final_pc": 490,
+      "one": 4,
+      "rom_visits": 83,
+      "trace_digest": "15e814203587e7ce78f6577c4edfc89d82b9220bcca5ab4f2f13e676264a51c7",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 53,
+      "final_pc": 489,
+      "one": 5,
+      "rom_visits": 53,
+      "trace_digest": "cd7f3c07ac2dad530466f6b0e1b250f2fceacbc49d8471d68444047ae6a59244",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": true,
+      "d3f8_visits": 149,
+      "final_pc": 1017,
+      "one": 8,
+      "rom_visits": 149,
+      "trace_digest": "41663b9bd68fc7fe1b23922dc4637d39597cd988305b402430e32480f6d83b44",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 13,
+      "final_pc": 489,
+      "one": 9,
+      "rom_visits": 13,
+      "trace_digest": "b2651861db5ce3558e19df7f51b6c47e00742c5379bca170ac7fa67c52e2a7b6",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 5,
+      "final_pc": 489,
+      "one": 12,
+      "rom_visits": 5,
+      "trace_digest": "9040bd780ddc56b63a2ece24d0379774f8fcc49837fd482d0b1afb4be5b50c10",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 49,
+      "final_pc": 490,
+      "one": 15,
+      "rom_visits": 49,
+      "trace_digest": "ba7f9d3ccc70f219a820f419d43d88e5fee7fb37996ae388f8ceaaa541a06c19",
+      "zero": 7
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 42,
+      "final_pc": 490,
+      "one": 1,
+      "rom_visits": 42,
+      "trace_digest": "c4d0286215260dea87401a1355f6ff520b9a2d704460e4640d1058b0bd4c075c",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 63,
+      "final_pc": 490,
+      "one": 2,
+      "rom_visits": 63,
+      "trace_digest": "17708e52750dfb5edf10a7e7e289c7c4b3410556ff10cecbf93179fcbb9f1e58",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 118,
+      "final_pc": 490,
+      "one": 3,
+      "rom_visits": 118,
+      "trace_digest": "53f782e22112e917a4635f55fa825b81729767bd2a85b78cd610a24a0d581b4d",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 40,
+      "final_pc": 490,
+      "one": 4,
+      "rom_visits": 40,
+      "trace_digest": "25b4fa84ef20c7132093782089f251b2b3c246b46c4084e6519d0efd0f529985",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 25,
+      "final_pc": 490,
+      "one": 5,
+      "rom_visits": 25,
+      "trace_digest": "4fe694646d3458eab446609a68020ba323a81c8351fb93e65bef5b980f535638",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 14,
+      "final_pc": 489,
+      "one": 7,
+      "rom_visits": 14,
+      "trace_digest": "8b6f21752d95737b9f6f3be0235c9d14cef5c0d135122540308b0adc4169c2d8",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 33,
+      "final_pc": 490,
+      "one": 9,
+      "rom_visits": 33,
+      "trace_digest": "47630034ecf3ebda2c53e3066a68567befc872744ba4f6c8d8d152a4e3e7b74c",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 17,
+      "final_pc": 490,
+      "one": 12,
+      "rom_visits": 17,
+      "trace_digest": "92970a94661543a2d05aa08188dbb98a38e8e55b1eddc3691389605d05a8cba3",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 13,
+      "final_pc": 490,
+      "one": 15,
+      "rom_visits": 13,
+      "trace_digest": "69332c2ce2ad7160b7ef98acaec3266be2896b7570262ce0fa1317f777f7dd68",
+      "zero": 8
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 12,
+      "final_pc": 489,
+      "one": 1,
+      "rom_visits": 12,
+      "trace_digest": "03e497be62e0052416afd6720b02dfd581d6e89c4be0d4fbf8a4a7cf872f928d",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 12,
+      "final_pc": 489,
+      "one": 2,
+      "rom_visits": 12,
+      "trace_digest": "ac8bdbd924e3b406e85e0f7e47b88180978ae8303f4e4b32c48555bbb1b1ce74",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 13,
+      "final_pc": 490,
+      "one": 3,
+      "rom_visits": 13,
+      "trace_digest": "05550fa62cbdd7ca24863c052f9e3c58119e38752f46440b020c9c7537f121a5",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 39,
+      "final_pc": 489,
+      "one": 4,
+      "rom_visits": 39,
+      "trace_digest": "c69bd12bbb4fa062b48643084a8f04661af69475a057baf24e8ad9e0fa0c08c3",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 14,
+      "final_pc": 490,
+      "one": 5,
+      "rom_visits": 14,
+      "trace_digest": "f8749ceff7ab4f20193da4e15ae6e83cbd28ab77720dd66cf02029ee147133da",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 39,
+      "final_pc": 489,
+      "one": 7,
+      "rom_visits": 39,
+      "trace_digest": "53c8ea3d52cb1c95efee596fba6c46573f62208d4e82a3d5a0fe1bd684d8c985",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 27,
+      "final_pc": 490,
+      "one": 8,
+      "rom_visits": 27,
+      "trace_digest": "ef34b88d06aab7ca7ea11ed0f1f963614dc3ac544ed5a7c25a1824194affd770",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 12,
+      "final_pc": 489,
+      "one": 12,
+      "rom_visits": 12,
+      "trace_digest": "e7dae9ba56a2b028aee73d5e8576dc4cdcd99008891c65e36ece9d61cf10f55f",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 17,
+      "final_pc": 490,
+      "one": 15,
+      "rom_visits": 17,
+      "trace_digest": "3aaca4737a6e6fea51612bcc5b21a8c3f079c0400594f7ac75999e062f2015be",
+      "zero": 9
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 7,
+      "final_pc": 490,
+      "one": 1,
+      "rom_visits": 7,
+      "trace_digest": "90022614d334469b861779d79f5e68395b1a833b14a743618e998cf2c8b47f1d",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 79,
+      "final_pc": 489,
+      "one": 2,
+      "rom_visits": 79,
+      "trace_digest": "e98270888a27bdccc53eb7bb3e4957f4c605f27b6892768a0254d5aa61ee3d12",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 9,
+      "final_pc": 489,
+      "one": 3,
+      "rom_visits": 9,
+      "trace_digest": "29896edccf82c405902723226c1272aae109ff16887a230b275c56a54d9be6ab",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 14,
+      "final_pc": 490,
+      "one": 4,
+      "rom_visits": 14,
+      "trace_digest": "19d04ef36504407cf2871c08893a462b47c355d5270a2f7837b3da92591df772",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 23,
+      "final_pc": 489,
+      "one": 5,
+      "rom_visits": 23,
+      "trace_digest": "0b9516c86e2fb25540370d7af134123f70e43b6924b223a9beeb2a5296f2049a",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 56,
+      "final_pc": 489,
+      "one": 7,
+      "rom_visits": 56,
+      "trace_digest": "feddc1a3a1956246a0f1d63fa29e13d3d5650a379f6c806a9cdc2b78b42b1fc3",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 19,
+      "final_pc": 490,
+      "one": 8,
+      "rom_visits": 19,
+      "trace_digest": "2c2a8f8116db194459008f1cab7ce001aecb7c18189a3a5ce814d636875edb5a",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 10,
+      "final_pc": 490,
+      "one": 9,
+      "rom_visits": 10,
+      "trace_digest": "434711b5c751d41b6e51db7aa1b99f0dd6ed027d7822ac94a8ff6ceb4142e1dc",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 29,
+      "final_pc": 490,
+      "one": 15,
+      "rom_visits": 29,
+      "trace_digest": "88288502f6640acc9eb0f9fd06f90358aae56c31d22f9123485f3f52b1590f85",
+      "zero": 12
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 6,
+      "final_pc": 490,
+      "one": 1,
+      "rom_visits": 6,
+      "trace_digest": "437bbf4941896581e55867c62d3695de9f75435d6a7ae888e1973ab8ae565e74",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": true,
+      "d3f8_visits": 149,
+      "final_pc": 1017,
+      "one": 2,
+      "rom_visits": 149,
+      "trace_digest": "ab197fc217ad68947d4c83a0768ec1b2ef2e872fde383da4f6409b584f1fd522",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 56,
+      "final_pc": 490,
+      "one": 3,
+      "rom_visits": 56,
+      "trace_digest": "7288e4be0944240fc38f091fe4b3a28169b1434254a6a6cf287d958cf1e718e3",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 8,
+      "final_pc": 490,
+      "one": 4,
+      "rom_visits": 8,
+      "trace_digest": "561a6d4e69264b4d808a715e6697a3bb48ad23965d9abf4d8267234d7133625b",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 12,
+      "final_pc": 489,
+      "one": 5,
+      "rom_visits": 12,
+      "trace_digest": "351c4d707edca83ed674d62aaaa7b481d25b4fd1ffb9499d833103aa68ec8f83",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 15,
+      "final_pc": 490,
+      "one": 7,
+      "rom_visits": 15,
+      "trace_digest": "6dab93b09f4fb31fac0f25d4da5d5ddf75b438e72c0c1fb0a1184a88c777426d",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 60,
+      "final_pc": 489,
+      "one": 8,
+      "rom_visits": 60,
+      "trace_digest": "13337f99e5ecbc34663a2e63c30618fa95cea0f9dadee04b9a7c5cd8315d16ce",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 43,
+      "final_pc": 489,
+      "one": 9,
+      "rom_visits": 43,
+      "trace_digest": "4fad5673fb205a7c5c5ebc56bbfa136185239f5402d2379caf6f406f91568af1",
+      "zero": 15
+    },
+    {
+      "consumed_all_bits": false,
+      "d3f8_visits": 56,
+      "final_pc": 490,
+      "one": 12,
+      "rom_visits": 56,
+      "trace_digest": "64d2b07b02c2cdebb157a4247146a460103631d243386ffbea51f1f0fc3bcc83",
+      "zero": 15
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "nokia/data-modem-2400-2400/analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
+    "nokia/data-modem-2400-2400/analysis/interface_probe.c": "9dcda6531bb853652c89c253ad557ee85c6f2855c2d77379b706a48f9becdd2b",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_held_nibble_cycles.py": "f444dc42fd274e7ad6e38a8df2298d4df94f61b566211bb370abafbb20167146",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_nibble_stream_bridge.py": "6edb22ac7e9099d8644e9da00761a7e8b78d0afd2a430ebf3e15489aec2b40a3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/lower_i_prom_data_route.py": "5af8dad5ed34c54fa4bf976af99e859585e3b5efe54bcb191200d4823641f3e7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "nokia/data-modem-2400-2400/analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "conditional 8031-bit to repeated ROM/ALU path via D3F8 nibble encoding",
+  "totals": {
+    "full_stream_pairs": 3,
+    "full_stream_pairs_at_longer_holds": 0,
+    "pairs": 90
+  },
+  "witnesses": [
+    {
+      "input_cycle_gaps": [
+        8
+      ],
+      "one": 3,
+      "selected_input_bytes": 128,
+      "site_differences": {
+        "3F7_rom_address": {
+          "differs_from_one": 121,
+          "differs_from_zero": 118,
+          "distinct_controller_values": 25,
+          "first_16_controller": [
+            285,
+            282,
+            264,
+            275,
+            285,
+            268,
+            277,
+            275,
+            286,
+            260,
+            278,
+            258,
+            281,
+            284,
+            283,
+            285
+          ]
+        },
+        "3F8_alu_y": {
+          "differs_from_one": 121,
+          "differs_from_zero": 119,
+          "distinct_controller_values": 16,
+          "first_16_controller": [
+            253,
+            242,
+            243,
+            254,
+            253,
+            242,
+            254,
+            243,
+            254,
+            251,
+            247,
+            255,
+            252,
+            246,
+            242,
+            247
+          ]
+        },
+        "3F9_alu_y": {
+          "differs_from_one": 119,
+          "differs_from_zero": 116,
+          "distinct_controller_values": 16,
+          "first_16_controller": [
+            3,
+            2,
+            5,
+            6,
+            1,
+            7,
+            2,
+            5,
+            10,
+            14,
+            4,
+            9,
+            13,
+            1,
+            14,
+            2
+          ]
+        },
+        "3FA_alu_y": {
+          "differs_from_one": 119,
+          "differs_from_zero": 113,
+          "distinct_controller_values": 15,
+          "first_16_controller": [
+            6,
+            8,
+            10,
+            13,
+            4,
+            13,
+            9,
+            10,
+            1,
+            14,
+            14,
+            15,
+            1,
+            13,
+            3,
+            12
+          ]
+        }
+      },
+      "trace_digests": {
+        "controller": "f442d4b5491efb49f3fa5f24dbd85f5ef71e6567aac7b5b3af35e364c5bbded8",
+        "one": "868f744732293dffcab09028fc036cd88519c0fd7903cbbdd5a54a720c50a3c1",
+        "zero": "ad3e033b8158547e3458148a7342a2030fb867616f021e39a8403a53e3ecbf15"
+      },
+      "zero": 5
+    },
+    {
+      "input_cycle_gaps": [
+        8
+      ],
+      "one": 8,
+      "selected_input_bytes": 128,
+      "site_differences": {
+        "3F7_rom_address": {
+          "differs_from_one": 121,
+          "differs_from_zero": 122,
+          "distinct_controller_values": 28,
+          "first_16_controller": [
+            285,
+            269,
+            286,
+            262,
+            256,
+            287,
+            271,
+            262,
+            262,
+            283,
+            257,
+            284,
+            268,
+            282,
+            287,
+            270
+          ]
+        },
+        "3F8_alu_y": {
+          "differs_from_one": 115,
+          "differs_from_zero": 114,
+          "distinct_controller_values": 16,
+          "first_16_controller": [
+            255,
+            247,
+            248,
+            240,
+            242,
+            247,
+            247,
+            254,
+            248,
+            252,
+            253,
+            243,
+            247,
+            246,
+            253,
+            246
+          ]
+        },
+        "3F9_alu_y": {
+          "differs_from_one": 121,
+          "differs_from_zero": 117,
+          "distinct_controller_values": 16,
+          "first_16_controller": [
+            0,
+            15,
+            8,
+            6,
+            1,
+            0,
+            9,
+            0,
+            11,
+            10,
+            5,
+            0,
+            2,
+            11,
+            1,
+            11
+          ]
+        },
+        "3FA_alu_y": {
+          "differs_from_one": 122,
+          "differs_from_zero": 121,
+          "distinct_controller_values": 15,
+          "first_16_controller": [
+            6,
+            8,
+            11,
+            5,
+            7,
+            10,
+            2,
+            7,
+            14,
+            14,
+            8,
+            5,
+            12,
+            6,
+            4,
+            6
+          ]
+        }
+      },
+      "trace_digests": {
+        "controller": "41663b9bd68fc7fe1b23922dc4637d39597cd988305b402430e32480f6d83b44",
+        "one": "16d5aea8e2f6586db2a67eb522270c76e7a11ed69a869ea9e76116a663107f50",
+        "zero": "e1ba09c00c43f5c291c896f407ceb159944aebaea0f352a06f1e0abcb33fb0e2"
+      },
+      "zero": 7
+    },
+    {
+      "input_cycle_gaps": [
+        8
+      ],
+      "one": 2,
+      "selected_input_bytes": 128,
+      "site_differences": {
+        "3F7_rom_address": {
+          "differs_from_one": 127,
+          "differs_from_zero": 124,
+          "distinct_controller_values": 10,
+          "first_16_controller": [
+            285,
+            257,
+            284,
+            264,
+            275,
+            281,
+            282,
+            278,
+            275,
+            286,
+            270,
+            270,
+            270,
+            270,
+            270,
+            270
+          ]
+        },
+        "3F8_alu_y": {
+          "differs_from_one": 99,
+          "differs_from_zero": 125,
+          "distinct_controller_values": 10,
+          "first_16_controller": [
+            247,
+            243,
+            250,
+            254,
+            253,
+            248,
+            240,
+            251,
+            255,
+            250,
+            255,
+            242,
+            255,
+            242,
+            242,
+            255
+          ]
+        },
+        "3F9_alu_y": {
+          "differs_from_one": 101,
+          "differs_from_zero": 124,
+          "distinct_controller_values": 7,
+          "first_16_controller": [
+            12,
+            5,
+            4,
+            5,
+            10,
+            15,
+            4,
+            3,
+            5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "3FA_alu_y": {
+          "differs_from_one": 114,
+          "differs_from_zero": 113,
+          "distinct_controller_values": 9,
+          "first_16_controller": [
+            5,
+            10,
+            4,
+            12,
+            13,
+            1,
+            3,
+            3,
+            11,
+            1,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6
+          ]
+        }
+      },
+      "trace_digests": {
+        "controller": "ab197fc217ad68947d4c83a0768ec1b2ef2e872fde383da4f6409b584f1fd522",
+        "one": "ba61be590924334357738c0dcd6252255a4e9a8855a167e3dc12b2fb70c1e4f2",
+        "zero": "bd6f0fc3e232ccd6a741d827483a44e4c7a282f7667d3cfb4607fddaebf897ff"
+      },
+      "zero": 15
+    }
+  ]
+}
