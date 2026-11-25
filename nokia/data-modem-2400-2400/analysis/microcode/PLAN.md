@@ -557,6 +557,14 @@ decodable, but the frozen eight-state lookup recognizes only 2/24 paired
 transitions and gets both wrong. Seek an executed threshold/gain-control
 consumer or a generalizing stateful decision; do not treat the original
 0/96 error result as a C3 pass.
+The [row-3 parity-gate replay](g2/RECEIVER-MASK04-ROW3-PARITY-GATE.md)
+finds one fixed, simpler survivor: OR of `3ED` row-3 Y bits 0–2, XORed
+with the previous symbol's value, matches dibit-bit parity on 192/192
+transitions across nominal, reduced-gain and biased full-PROM runs. The
+same gate on raw ADC misses 103/192. This is an executed-byte lead for
+one bit combination, not an executed or routed USART decision. Test a
+photo-compatible row-3 consumer and the second independent bit; keep C3
+open and G2 active.
 The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
 also fails to decode the captured Y[3:0] as a fixed-phase differential
 symbol across independent streams. Keep the conditional latch experiment,

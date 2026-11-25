@@ -33,3 +33,6 @@ threshold, gain-control or stateful decision consumes the row pair, or
 whether a separately labelled normalized lookup generalizes. No USART-01
 RxD route is identified, so C3 remains open. Reproduce from the microcode
 directory with `python3 g2/receiver_mask04_rowpair_level_check.py`.
+The [row-3 parity-gate follow-up](RECEIVER-MASK04-ROW3-PARITY-GATE.md)
+finds a smaller readout that does generalize across these levels for one
+dibit parity bit; it does not yet supply both received bits or RxD wiring.

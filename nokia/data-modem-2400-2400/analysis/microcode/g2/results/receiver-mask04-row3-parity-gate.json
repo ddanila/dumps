@@ -1,0 +1,420 @@
+{
+  "executed_total": {
+    "direct_adc_errors": 103,
+    "gate_checks": 192,
+    "gate_errors": 0
+  },
+  "experiment": "fixed row-3 low-three-bit gate for one received dibit parity bit",
+  "fixture": {
+    "adc": "complementary reference PCM, same four-row schedule",
+    "capture": "3ED Y on row 3, symbol-boundary ADC visit",
+    "fresh_seeds": [
+      18227,
+      10311
+    ],
+    "gain_bias_levels": [
+      [
+        1.0,
+        0
+      ],
+      [
+        0.75,
+        0
+      ],
+      [
+        1.0,
+        16
+      ]
+    ],
+    "gate": "OR of Y[2:0], XOR with previous symbol gate bit",
+    "mapping": "joint upper-source mask 04",
+    "target": "dibit bit 0 XOR dibit bit 1"
+  },
+  "fresh_cases": [
+    {
+      "bias": 0,
+      "captured_sha256": "0b845356ddcabbc5d493de27028013d51a2a6e96f9e8179d8e2f4244eb2d85f2",
+      "clipped_pcm_samples": 0,
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 5
+      },
+      "gain": 1.0,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "input_adc_sha256": "c7819a888322456ab15a7a1173ed36118d29afe1faba6c965aa85eabf1a59c7a",
+      "middle_dibits": [
+        2,
+        3,
+        2,
+        3,
+        1,
+        1,
+        1,
+        3,
+        2,
+        3,
+        2,
+        3,
+        0,
+        2,
+        1,
+        1
+      ],
+      "seed": 18227,
+      "trace_digest": "2876226f4e080cc43519855ee9a0ce55e106d6cda608e57e70c2eb4ec538c30d"
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "c3eaca9c074c5ad9a749492307211c05132d7949ac0dee2abd655dc22de6a3bd",
+      "clipped_pcm_samples": 0,
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 8
+      },
+      "gain": 1.0,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "input_adc_sha256": "c7d01d9dc5ab48f246642cda5c06f0d7a2baad9c4993f7e679f16f30b8339ec0",
+      "middle_dibits": [
+        1,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        3,
+        3,
+        2,
+        0,
+        3
+      ],
+      "seed": 10311,
+      "trace_digest": "2593974687204c5e1af3d0a84f340f5d4b408d3851efea5e44036bbd3bf19ed9"
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "7cc806135893229f0d9bad23e648fc1d248efafcbddc89465c5ec3efcb17a53a",
+      "clipped_pcm_samples": 0,
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 5
+      },
+      "gain": 0.75,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "input_adc_sha256": "b1167bac440bc85e88b0633b86b4835cc11e7e1574b46e643ca66156906e22a9",
+      "middle_dibits": [
+        2,
+        3,
+        2,
+        3,
+        1,
+        1,
+        1,
+        3,
+        2,
+        3,
+        2,
+        3,
+        0,
+        2,
+        1,
+        1
+      ],
+      "seed": 18227,
+      "trace_digest": "05c117ce36e790b3db5620c0855c77b3c2259753681b83fdc263b9535572f4cd"
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "102df65cd54ff14caf6a352480dcaf027c8a4f3a57562c2c3f91be9914072a1f",
+      "clipped_pcm_samples": 0,
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 8
+      },
+      "gain": 0.75,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "input_adc_sha256": "e6cccbd88cd341f7bcc106974d67fa8a6af755c0096c086e9b8c99d9203a1c7d",
+      "middle_dibits": [
+        1,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        3,
+        3,
+        2,
+        0,
+        3
+      ],
+      "seed": 10311,
+      "trace_digest": "10a713a649ef6903eb1b7dffdd47abe818bd87d5012a32a80371dba10804d3c0"
+    },
+    {
+      "bias": 16,
+      "captured_sha256": "3c9d6b37c5631eaa782398073082cdc47ba556db0aa001769d35457baa8fe6d8",
+      "clipped_pcm_samples": 32,
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 5
+      },
+      "gain": 1.0,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "input_adc_sha256": "e2cd6abf371dc53b79b587853bd1397dc0f92730de49af4c4f78c34b10d69d3e",
+      "middle_dibits": [
+        2,
+        3,
+        2,
+        3,
+        1,
+        1,
+        1,
+        3,
+        2,
+        3,
+        2,
+        3,
+        0,
+        2,
+        1,
+        1
+      ],
+      "seed": 18227,
+      "trace_digest": "44cc4dc29791e76cda52693ed90ebccd2e3d0f35a50d47b2aa03c9519cea0951"
+    },
+    {
+      "bias": 16,
+      "captured_sha256": "d771b6768fa4b0149b6ff5b14ba63042e8c43cbdb7d2be87b941a8deda0654b0",
+      "clipped_pcm_samples": 37,
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 8
+      },
+      "gain": 1.0,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "input_adc_sha256": "bf6d592271ccaa28461285e46cc57d5c9c7bb6e8644968735f838bfdc54ce2ee",
+      "middle_dibits": [
+        1,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        3,
+        3,
+        2,
+        0,
+        3
+      ],
+      "seed": 10311,
+      "trace_digest": "e6cb618aba67804334de12cc4ae31cb67e1e8ca10ccb8b1fb8f53c3ad59766c9"
+    }
+  ],
+  "limitations": [
+    "The OR and previous-symbol XOR are external diagnostic logic, not an executed DSC decision or a traced USART RxD route.",
+    "Only one linear combination of the two dibit bits is recovered; a complete received dibit is not shown.",
+    "ADC input, four-row schedule and latch path remain labelled hypotheses."
+  ],
+  "prior_cases": [
+    {
+      "bias": 0,
+      "captured_sha256": "c0f25ac131169a8e9f3b681c9cd19cabdf6ae585eecbfa627ff0f220d905c58a",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 6
+      },
+      "gain": 0.75,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "changed-level report",
+      "stream_index": 0
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "102df65cd54ff14caf6a352480dcaf027c8a4f3a57562c2c3f91be9914072a1f",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 8
+      },
+      "gain": 0.75,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "changed-level report",
+      "stream_index": 6
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "6f9987fd0424ab7aff3868e3dadb6d92a0ee993b6a347f851a100d96ac1bb256",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 6
+      },
+      "gain": 1.25,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "changed-level report",
+      "stream_index": 0
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "695a947bbe98c5b869f582fedd706511ed77514426d7bfbfc872e51f845c4ccc",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 8
+      },
+      "gain": 1.25,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "changed-level report",
+      "stream_index": 6
+    },
+    {
+      "bias": 16,
+      "captured_sha256": "27b45f23ccb839cdff4e1717e8ad97fa0f89b8691027417f977ae3ecefaf1a58",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 6
+      },
+      "gain": 1.0,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "changed-level report",
+      "stream_index": 0
+    },
+    {
+      "bias": 16,
+      "captured_sha256": "d771b6768fa4b0149b6ff5b14ba63042e8c43cbdb7d2be87b941a8deda0654b0",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 8
+      },
+      "gain": 1.0,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "changed-level report",
+      "stream_index": 6
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "590d308b65b252ecbe59d816150dcbf9c7ddfd6fad225d42b7d90cfbc2d9074d",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 4
+      },
+      "gain": 0.75,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "gain-adaptation holdout",
+      "stream_index": 7
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "958646213673bd33e4398ea0b36ebc3062be3b92cdb71e7180182091a07c9fd7",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 7
+      },
+      "gain": 0.75,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "gain-adaptation holdout",
+      "stream_index": 8
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "e991338540211c56274211e7bfa67bdc9b548c4b56acc508efd8a0eedeb6e7c7",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 4
+      },
+      "gain": 1.25,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "gain-adaptation holdout",
+      "stream_index": 7
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "b3154143fb1ec92b90da25b656ca2b6823a064608e3773a333db298d49a23287",
+      "direct_adc_control": {
+        "checks": 12,
+        "errors": 7
+      },
+      "gain": 1.25,
+      "gate": {
+        "checks": 12,
+        "errors": 0
+      },
+      "source": "gain-adaptation holdout",
+      "stream_index": 8
+    }
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/receiver_mask04_3ed_prom_latch.py": "105ea21dd5061074aaa66453d82821a5961722ef008f91354c98ab5502befa72",
+    "analysis/microcode/g2/receiver_mask04_row3_parity_gate.py": "92bcf1dee86ff4030434171fe4f903d5ed18db3e19a587e0af369a79ee4166dc",
+    "analysis/microcode/g2/receiver_mask04_rowpair_gain_adaptation.py": "a1bc9619f7a0265d1c63e833c3f165f0623d468973a059c7dbcaaec790fcbaba",
+    "analysis/microcode/g2/receiver_mask04_rowpair_level_check.py": "df2c27d2ddf1b3555fd5baaabe41ae8a9b2c093e72724a28979cf4365f742384",
+    "analysis/microcode/g2/receiver_mask04_rowpair_phase_code.py": "c69e2637d54d3e6e3bc105fa9746172d06cf42d333e062cee66d7af4b97e40a2",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/receiver-mask04-rowpair-gain-adaptation.json": "6fe9acd6b1278e2f5cbeb8f4f4948395b39c14608b2ed9f312d9c663c8fd1958",
+    "analysis/microcode/g2/results/receiver-mask04-rowpair-level-check.json": "af39c6d556712be86d343046c692a0a28bd7db0e948e3da6519e0132cb36c84b",
+    "analysis/microcode/g2/results/receiver-mask04-rowpair-phase-code.json": "fede476155873cf3a95cfc6e0e8cd83f0fe9e17e7d31aa599c6a00833d58fc87",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

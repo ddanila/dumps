@@ -1165,6 +1165,15 @@ phases B–C turn "what" into "how".
   still decodes the waveforms. The lookup is therefore specific to its
   original ADC level. Seek an executed adaptation/decision or a separately
   validated normalized readout; C3 remains open without blocking on wiring.
+  The [row-3 gate continuation](g2/RECEIVER-MASK04-ROW3-PARITY-GATE.md)
+  finds an input-level-tolerant partial decision: `OR(Y3ED_row3[2:0])`
+  XOR its previous-symbol value equals dibit-bit parity on 192/192
+  transitions from sixteen full-PROM traces, including six fresh random
+  runs. The same gate on raw ADC errs 103/192. A gain-specific full-phase
+  lookup recovers 19/24 reduced-gain holdout transitions with five unknown,
+  so the second bit and gain adaptation remain open. Identify an executed
+  or photo-compatible gate/latch route to USART-01 RxD before passing C3;
+  continue with labelled hypotheses rather than waiting for continuity.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

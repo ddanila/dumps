@@ -98,6 +98,10 @@ def run(out=HERE / 'results/receiver-mask04-rowpair-level-check.json'):
             cases.append(dict(gain=gain, bias=bias, stream_index=index,
                               score=score,
                               distinct_row_pairs=len(set(pairs)),
+                              phase0_symbol_pairs=[pairs[375 * symbol]
+                                                   for symbol in range(16)],
+                              phase47_symbol_pairs=[pairs[375 * symbol + 47]
+                                                    for symbol in range(16)],
                               row1_nonzero=sum(captured[4 * n + 1] != 0
                                                for n in range(ADC_VISITS)),
                               row2_nonzero=sum(captured[4 * n + 2] != 0
