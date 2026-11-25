@@ -1,4 +1,4 @@
-"""Screen hypothetical 8251A FF sync hunt and character alignment."""
+"""Screen a counterfactual internal-FF-hunt receive alignment."""
 
 import hashlib
 import json
@@ -20,7 +20,8 @@ def recovered_bits(case):
 def hunt(bits, leading_ones, hunt_start):
     """First all-one eight-bit window locks; group later bits into bytes.
 
-    This is a deliberately simple external 8251A model, not an emulated chip.
+    This is a counterfactual internal-sync boundary model, not the mode-CC
+    external-SYNDET behavior of the photographed 8251A.
     leading_ones includes the first preamble dibit, which has no measured
     differential phase, and possibly earlier FF fill. hunt_start is a
     hypothetical RxC/hunt-entry phase.
@@ -76,16 +77,18 @@ def run(out=HERE / 'results/receiver-mask04-sync-hunt-alignment.json'):
         raise ValueError('four-case phase screen changed')
     paths = (Path(__file__), SOURCE,
              HERE / 'receiver_mask04_serial_candidate.py')
-    report = dict(experiment='hypothetical FF sync-hunt and eight-bit character alignment',
-                  model=dict(sync_character='FF', bit_order='least significant bit first',
+    report = dict(experiment='counterfactual internal-FF-hunt character alignment; actual mode CC uses external SYNDET',
+                  model=dict(counterfactual_internal_sync=True,
+                             actual_mode_cc_external_sync=True,
+                             sync_character='FF', bit_order='least significant bit first',
                              leading_unobserved_one_bits=list(range(8)),
                              hunt_start_bit_offsets=list(range(8)),
                              first_matching_eight_bit_window_ends_hunt=True,
                              character_groups_begin_immediately_after_match=True),
                   cases=cases,
-                  conclusion='The FF preamble permits character acquisition but does not uniquely locate the first data-byte boundary without a known first dibit and RxC/hunt-entry phase.',
+                  conclusion='Under a counterfactual internal-FF-hunt model the preamble gives eight aligning phase pairs; the actual CC external-sync setting disables this hunt and requires a SYNDET input pulse.',
                   limitations=['The first preamble dibit is unobserved in the decoded output; two leading ones would reproduce the supplied reference preamble, while other leading counts also allow earlier fill or truncated observation.',
-                               'Sync hunt is a simplified external model, not an executed DSC instruction or observed 8251A receive event.',
+                               'The programmed 8251A mode CC has external sync detect, so FF matching here cannot be the real receive framing mechanism.',
                                'The RxD route, RxC phase, oscillator divisor and initial hunt-entry timing remain untraced.'],
                   source_sha256={str(path.relative_to(HERE.parents[2])):
                                  hashlib.sha256(path.read_bytes()).hexdigest()

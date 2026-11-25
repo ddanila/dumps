@@ -553,16 +553,18 @@
       "trace_digest": "1e416eb95d1141541fc62418d81eeee0436d5f26f990a995fd34a492d87cdfb6"
     }
   ],
-  "conclusion": "The FF preamble permits character acquisition but does not uniquely locate the first data-byte boundary without a known first dibit and RxC/hunt-entry phase.",
-  "experiment": "hypothetical FF sync-hunt and eight-bit character alignment",
+  "conclusion": "Under a counterfactual internal-FF-hunt model the preamble gives eight aligning phase pairs; the actual CC external-sync setting disables this hunt and requires a SYNDET input pulse.",
+  "experiment": "counterfactual internal-FF-hunt character alignment; actual mode CC uses external SYNDET",
   "limitations": [
     "The first preamble dibit is unobserved in the decoded output; two leading ones would reproduce the supplied reference preamble, while other leading counts also allow earlier fill or truncated observation.",
-    "Sync hunt is a simplified external model, not an executed DSC instruction or observed 8251A receive event.",
+    "The programmed 8251A mode CC has external sync detect, so FF matching here cannot be the real receive framing mechanism.",
     "The RxD route, RxC phase, oscillator divisor and initial hunt-entry timing remain untraced."
   ],
   "model": {
+    "actual_mode_cc_external_sync": true,
     "bit_order": "least significant bit first",
     "character_groups_begin_immediately_after_match": true,
+    "counterfactual_internal_sync": true,
     "first_matching_eight_bit_window_ends_hunt": true,
     "hunt_start_bit_offsets": [
       0,
@@ -588,7 +590,7 @@
   },
   "source_sha256": {
     "analysis/microcode/g2/receiver_mask04_serial_candidate.py": "2195a070b7cdfb10a6759387b0f36f24cda28c075b25fbabe11dc21829ce64eb",
-    "analysis/microcode/g2/receiver_mask04_sync_hunt_alignment.py": "b3e315591113d38ff7fb05d171ab0991f6bd2b9e38eb80e5563cfc807204a7ea",
+    "analysis/microcode/g2/receiver_mask04_sync_hunt_alignment.py": "f41a2c763f201a50c93c1f2f51ff5a067a7b1149f690e30c74ef3e71a05d20ad",
     "analysis/microcode/g2/results/receiver-mask04-protocol-preamble.json": "cfc332bd19dd58e0e5019a30156ef07398982d5c22822e135ab5ab23b1bdeb1d"
   }
 }

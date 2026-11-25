@@ -36,5 +36,11 @@ by a naturally timed main loop. C3 and C4 remain open. A next test can
 vary the photo-compatible latch/RxC/RxD route and check the resulting bytes
 against this controller signature without waiting for new continuity data.
 
+The [external-SYNDET replay](RECEIVER-MASK04-EXTERNAL-SYNC-HANDOFF.md)
+now adds a narrow bit-clock/RxRDY model before these same controller reads.
+Mode `CC` requires an external SYNDET pulse; the earlier internal `FF` hunt
+screen is counterfactual for this setup. The pulse source and wiring remain
+assumptions, so C3 stays open.
+
 Reproduce from the microcode directory with
 `python3 g2/receiver_mask04_controller_zero_handoff.py`.

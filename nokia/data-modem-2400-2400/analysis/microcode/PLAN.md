@@ -26,19 +26,23 @@ For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
 ADC, readout and oscillator assumptions. Use the existing DSC and DSU photos
 to propose pin-compatible `3F8`/`3ED` capture, phase-selection, RxD and RxC
-routes. Model a baseline and meaningful alternatives, including sync-hunt
-entry and eight-bit character alignment, against the continuous real-PROM
-trace. Record which photo segments are visible and which connections, edges
-and dividers are inferred. An unsuccessful route rules out that fixture; a
-successful route remains conditional until its physical path and USART
-receive behavior are established. Keep C3 open and G2 active while those
+routes. Model a baseline and meaningful alternatives, including external
+SYNDET pulse timing and eight-bit character alignment, against the
+continuous real-PROM trace. Record visible photo segments separately from
+inferred connections, edges and dividers. An unsuccessful route rules out
+that fixture; a successful route remains conditional until its physical
+path and USART receive behavior are established. Keep C3 open and G2 active while those
 tests or other independent C2/C4 experiments remain possible; do not wait
 for continuity measurements or new photos to choose the next test.
-The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
-shows why: `FF` fill permits a clean candidate byte schedule, but eight
-leading-bit/hunt-start pairs align the data under its explicit model. Carry
-those alternatives into the photo-compatible RxD/RxC test instead of
-treating the unknown character phase as a blocker or as a proven alignment.
+The [`FF` sync-hunt screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
+is counterfactual for the controller's `CC` mode: the 8251A uses an
+external SYNDET input, so `FF` fill cannot align its receiver internally.
+The [external-SYNDET handoff](g2/RECEIVER-MASK04-EXTERNAL-SYNC-HANDOFF.md)
+clocks the saved PROM-derived bits through an explicit receive-shift/RxRDY
+model. Only a pulse before the first data bit reaches the controller's
+`AF→B0` zero signature in its four tested fixtures; byte-early and
+one-bit-shifted controls stay at `AF`. Treat the pulse source and timing
+as hypotheses, not verified wiring or a C3 pass.
 The [controller zero-run handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
 now joins a longer real-PROM receive trace to the 8031's executed `AF→B0`
 zero detector under a labelled USART byte handoff. It narrows the required

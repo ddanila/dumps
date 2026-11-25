@@ -59,8 +59,8 @@ The [continuous trace report](results/receiver-mask04-protocol-preamble.json)
 and [serial timing report](results/receiver-mask04-serial-candidate.json)
 retain input, trace and source hashes, capture events, decisions and
 candidate bit times. C3 remains open. The next bounded test should model
-the 8251A sync-hunt and character alignment under labelled RxC/RxD
-connections, or constrain those pins from the existing board photos;
+the 8251A external-SYNDET character alignment under labelled
+SYNDET/RxC/RxD connections, or constrain those pins from the existing board photos;
 missing continuity is not a reason to stop. Reproduce from the microcode
 directory with `python3 g2/receiver_mask04_protocol_preamble.py` and
 `python3 g2/receiver_mask04_serial_candidate.py`.

@@ -51,6 +51,12 @@ and the photographs. None of them depends on an unverified microcode mapping.
 | E8 | A separate 16-pin device in DED 3558's lower analog section is marked `DAC 08` / `HP`, consistent with **DAC08HP**, an 8-bit current-output D/A converter. Adjacent 74LS273 and 74LS373 devices are candidate sample-code and hold latches. This supplies a concrete output-converter candidate, but the bus direction, input nets, latch controls and analog output route are untraced. The earlier DAC0830 two-register sink is a counterfactual, not the observed part. | [photo and component datasheet review](g2/DAC08-OUTPUT.md) | High for visible markings and component functions; medium for latch roles; routing unknown |
 | E9 | Executing controller routine 1C07 over all octets shows that state 83 marks exactly the rotations of V.26 ter's first five rate-pattern representatives (`01 03 05 07 09`), and state A6 marks exactly the first two. In a preserved-RAM probe, four identical marked octets advance state 83 to 84; three or an interrupted sequence do not. This independently matches the standard's four-consecutive-octet detection rule, but the probe directs the PC between routines and does not establish the physical receive path. | [executed comparison](g2/PATTERN-CLASSIFIER.md#comparison-with-v26-ter-rate-patterns), ITU-T V.26 ter §6.1.3 and §6.3.1.2 | High for executed set and state transition; protocol role strongly supported but still conditional |
 
+For E2, `CC` sets the 8251A's **external** sync-detect bit. The programmed
+`FF` character is a transmit fill candidate; it does not make the
+line-side receiver hunt internally for `FF`. C3 therefore needs a
+photo-compatible source and timing hypothesis for SYNDET pin 16 as well
+as RxD and RxC. See the [external-sync handoff](g2/RECEIVER-MASK04-EXTERNAL-SYNC-HANDOFF.md).
+
 **Working conclusion:** the modem is very probably a V.26 ter-class 2400 bit/s
 duplex echo-cancelling modem (1800 Hz carrier, 1200 baud, 4-phase DPSK, 100%
 raised cosine split between Tx and Rx). The 8031 handles the DTE, scrambling,
@@ -1253,16 +1259,17 @@ phases B–C turn "what" into "how".
   events are 12,000 microcycles apart, permitting a labelled two-bit
   serial candidate at 6,000 cycles/bit. The oscillator ratio, RxC phase,
   8251A character alignment and DSC-to-RxD connection remain hypotheses.
-  Test sync-hunt and pin routing next; this progress does not pass C3.
+  Test external SYNDET timing and pin routing next; this progress does not pass C3.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
-  groups those recovered bits under a simplified external `FF`-hunt model.
+  groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
   gives seven further `FF` characters followed by four correctly aligned
   data bytes in all four traces. Across eight leading-bit and eight
   hunt-start choices, eight pairs align the data and 56 do not. Repeated
-  `FF` fill therefore cannot establish the physical RxC phase or data-byte
-  boundary alone. Test a photo-compatible RxD/RxC route and executed USART
-  consumer; keep C3 open and G2 active without waiting for net continuity.
+  `FF` fill cannot establish the physical RxC phase or data-byte boundary;
+  more importantly, the actual `CC` mode disables internal receive hunt.
+  Test a photo-compatible SYNDET/RxD/RxC route and executed USART consumer;
+  keep C3 open and G2 active without waiting for net continuity.
   The [conditional controller handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
   extends the real-PROM receive run to eight scrambled zero octets. Both
   scrambler delays at 0° and 45° recover all 32 data dibits; their eight
@@ -1274,6 +1281,14 @@ phases B–C turn "what" into "how".
   or naturally timed controller entry. Keep C3 open and test candidate
   physical latch/serial routes without treating missing continuity as a
   goal blocker.
+  The [external-SYNDET replay](g2/RECEIVER-MASK04-EXTERNAL-SYNC-HANDOFF.md)
+  now clocks those saved real-PROM bits through a narrow 8251A external-sync
+  shift/RxRDY model before offering assembled bytes to the same executed
+  8031 AF detector. A pulse before the first data RxC edge yields eight
+  exact line bytes and `AF→B0` in four fixtures; pulses one bit early,
+  one bit late or one byte early leave `AF`, and no pulse yields no RxRDY.
+  This constrains a proposed sync gate, but its source, timing and physical
+  routes are assumptions. C3 remains open.
   The [four-bit phase readout](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md)
   combines row-0 `3ED` Y bits 0/1/3 with transient `3F8` Y7 in one
   frozen seven-entry table. Two new continuous preamble/data streams at
