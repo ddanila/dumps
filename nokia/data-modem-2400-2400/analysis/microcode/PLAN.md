@@ -162,11 +162,15 @@ state source. Do not pause G2 for a complete pin trace, and do not call a
 candidate byte stream the physical line output without independent support.
 
 The Am27S31 A8 bank select is a current example: the photos do not establish
-its source, but the lower- and upper-bank runs at 12C behave differently
-([comparison](g2/SWAPPED-ROM-LOOPS.md)). Test fixed and, where the modeled
-interface permits it, changing bank choices as labelled scenarios. Use the
-resulting control flow and ROM addresses to narrow the candidates; do not
-promote a useful bank choice to a traced connection.
+its source, but the lower- and upper-bank runs at 12C and the D127 ROM walk
+behave differently ([12C comparison](g2/SWAPPED-ROM-LOOPS.md),
+[D127 comparison](g2/PHOTO-127-BANK-COMPARE.md)). Treat fixed and changing A8
+values as labelled scenarios, with any assumed timing or driver made explicit.
+Run the next bounded controller-driven test under those scenarios and compare
+ROM addresses, retained state and output bytes. If none produces the required
+signal path, change the address mapping, timing or state fixture and continue
+with another independent clue. Do not wait to trace A8 before testing, and do
+not promote a useful bank choice to a traced connection.
 
 Apply the same rule to the current execution dead ends. A run that parks in a
 wait loop or misses the transmit path under one assumed latch route, dispatch
@@ -195,8 +199,10 @@ An unknown physical net is never, by itself, a G2 blocker. If the available
 photo-compatible candidates all fail, record what each run excluded and pivot
 to a new mapping, timing model, stimulus or independent program/signal clue.
 Only consider a goal-level blocker after showing that no such experiment can
-advance the acceptance checks; a failed candidate or a missing continuity
-measurement does not meet that test.
+advance the acceptance checks. Before calling something blocked, write down
+the concrete next experiment attempted, its result and why no alternative
+candidate, stimulus or independent analysis remains. A failed candidate or a
+missing continuity measurement does not meet that test.
 
 Apply this rule to the U9 enable/address-bus idea as well. A hypothesised
 external driver can be modelled from the chip's documented pin behavior and
