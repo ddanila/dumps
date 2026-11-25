@@ -471,6 +471,14 @@ a conditional transient-input candidate, not a recovered receiver. Test a
 third-row latch or a different dispatch/condition route next; do not treat
 the absent pin trace as a blocker.
 
+The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
+every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent
+reference streams. No fixed-phase bit, with either polarity or previous-symbol
+XOR, fits even the 36 training dibits exactly. This rejects that simple
+output-latch readout under the declared four-row fixture, not the ADC or all
+receiver architectures. Continue with a multi-bit/stateful output candidate
+or a different photo-compatible mapping; keep G2 active and C3 open.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing
