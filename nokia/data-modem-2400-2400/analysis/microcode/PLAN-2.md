@@ -1188,6 +1188,13 @@ phases B–C turn "what" into "how".
   The sole changed later TEST is at nonbranching `1AA`; all PC paths match.
   This points to a pre-fourth-row latch or different mode timing to test,
   rather than an executed receive bit on the current route.
+  A [raw-PROM latch-gate screen](g2/RECEIVER-PROM-ROW-LATCH-GATE.md) now
+  finds two minimal three-literal decodes that isolate `3FA` on the reached
+  path. A three-input NAND would rise on `3FA→3ED`; both decodes yield exactly
+  1,500 such edges and capture input-sensitive `3FA` Y bytes in each of five
+  full real-PROM traces. The board contains a compatible SN74LS10N, but its
+  pin route, latch setup phase and USART consumer remain hypotheses. Use
+  this timing lead for an executed output-route test; C3 is still open.
   The [raw-PROM ADC enable-phase screen](g2/RECEIVER-PROM-ADC-ENABLE-PHASE.md)
   finds a concrete buffer-gate hypothesis for that same path. A one-cycle
   latched `!U10.D1 & U10.D3 & U10.D7` level enables only `3F8` on all
