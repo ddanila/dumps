@@ -1222,6 +1222,19 @@ phases B–C turn "what" into "how".
   2/24 dibits on two new 45° streams and 2/24 on 135° controls. Seek
   retained-state or multi-visit arithmetic with a physical output
   hypothesis; the missing RxD route does not block further experiments.
+  The [transient `3F8` bit audit](g2/RECEIVER-MASK04-3F8-TRANSIENT-BIT.md)
+  locates the missing information earlier in the executed receive row.
+  For 24 ambiguous `(F3,F2)` symbols, the modeled whole Am2901 state is
+  identical at visit-47 `3ED`, but `3F8` Y7 and carry separate the two
+  reference states 13 cycles after row-0 `3ED` and 11 cycles before row-3
+  `3ED`. A frozen external latch/readout makes 0/48 fresh dibit errors
+  at 45°/135° with full coverage, while its 0°/90°/180° coverage is poor.
+  A four-literal raw-PROM `3F8` decode produces 6,000 candidate latch
+  edges at `3F8→3F9` in one full trace plus one startup edge. The edge
+  captures exactly the executed Y stream under the timing hypothesis;
+  physical clock integrity remains untested. Test an explicit latch and
+  a phase-class consumer next; do not promote this conditional bit
+  to a traced USART receive decision or block on the missing net.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

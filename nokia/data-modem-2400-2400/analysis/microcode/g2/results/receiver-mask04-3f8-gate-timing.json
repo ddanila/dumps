@@ -1,0 +1,82 @@
+{
+  "captured_y_sha256": "22140ccfb348c3c1b1746776a39372de0a03376ae7ac0cb1153d49428f8d24be",
+  "edge_captured_y_sha256": "22140ccfb348c3c1b1746776a39372de0a03376ae7ac0cb1153d49428f8d24be",
+  "experiment": "executed four-literal raw-PROM 3F8 clock level and falling edge",
+  "falling_edges": {
+    "18C->3EA": 1,
+    "3F8->3F9": 6000
+  },
+  "first_edges": [
+    {
+      "after_cycle": 43,
+      "after_pc": "3EA",
+      "before_cycle": 42,
+      "before_pc": "18C",
+      "captured_y": 0
+    },
+    {
+      "after_cycle": 64,
+      "after_pc": "3F9",
+      "before_cycle": 63,
+      "before_pc": "3F8",
+      "captured_y": 47
+    },
+    {
+      "after_cycle": 96,
+      "after_pc": "3F9",
+      "before_cycle": 95,
+      "before_pc": "3F8",
+      "captured_y": 47
+    },
+    {
+      "after_cycle": 128,
+      "after_pc": "3F9",
+      "before_cycle": 127,
+      "before_pc": "3F8",
+      "captured_y": 47
+    },
+    {
+      "after_cycle": 160,
+      "after_pc": "3F9",
+      "before_cycle": 159,
+      "before_pc": "3F8",
+      "captured_y": 47
+    },
+    {
+      "after_cycle": 192,
+      "after_pc": "3F9",
+      "before_cycle": 191,
+      "before_pc": "3F8",
+      "captured_y": 47
+    }
+  ],
+  "fixture": {
+    "degrees": 45,
+    "gate": "U10.D1 & U10.D3 & U10.D7 & !U17.D1",
+    "nand_rising": "on candidate level high-to-low",
+    "seed": 19985
+  },
+  "high_sites": {
+    "18C": 1,
+    "3F8": 6000
+  },
+  "limitations": [
+    "Raw PROM bits and instruction timing are executed; the physical gate, NAND edge and latch pin route are assumed.",
+    "A combinational decode may glitch during PROM address transitions; edge cleanliness is not proved by the instruction-level model."
+  ],
+  "selected_y_count": 6000,
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_mask04_3f8_gate_timing.py": "b50e97b9d38f17e9fa1aa12ec2a0f0809685109caeace82a1bcd1f7f8e85d816",
+    "analysis/microcode/g2/receiver_mask04_3f8_phase_bit.py": "971611669d5a74f43fcf744857ec8843320e6600bed052bffb1eced8c9ff760c",
+    "analysis/microcode/g2/receiver_mask04_carrier_phase_screen.py": "c8e9524f385d07a4016fce6959ca4393f0ccb9d7a0212c86729db3ae5c5e5264",
+    "analysis/microcode/g2/receiver_mask04_collision_state.py": "70d29b9a864b5b433739ff84c669ad0f428f86104f342a35a407a335049a6e1e",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "trace_digest": "b48bdf8e967a0ef97b55a6cc5554cf33d26d15770481e656a9fb10267f0b2a9c"
+}
