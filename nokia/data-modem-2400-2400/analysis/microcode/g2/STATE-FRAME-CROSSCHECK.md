@@ -26,6 +26,10 @@ to A0/A2 (`88` to `81`). These byte changes are observations, not identified
 tone, training or data commands. In particular, the similar timing of these
 states to V.26 ter operating windows does not establish which signal each
 state requests.
+The [P1 channel replay](CONTROLLER-STATE-PIN-CHANNELS.md) adds a separate
+observed signal: A0 leaves P1.5 high, while A1 and A2 leave it low. Thus the
+controller can distinguish A0 from A2 even though their serial frames match;
+the destination and meaning of this pin are still unknown.
 
 The separate [receive-to-state experiment](results/receive-state.json) also
 shows that received payload and flags can affect both the next state and

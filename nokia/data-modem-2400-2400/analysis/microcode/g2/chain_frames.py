@@ -30,10 +30,12 @@ def run():
             assert [s['after'] for s in steps[:2]] == [0xa1, 0xa2]
             assert steps[2]['after'] == (0xa3 if value & 0x40 else 0xb8)
             assert steps[3]['before'] == steps[2]['after']
+            assert all((step['p1'] & 0x20) == 0 for step in steps[:2])
             rows.append(dict(selector=f'{value:02X}', steps=[
                 dict(before=f'{s["before"]:02X}', after=f'{s["after"]:02X}',
                      state_cycles=s['state_cycles'],
-                     wire=' '.join(f'{b:02X}' for b in s['wire'])) for s in steps]))
+                     wire=' '.join(f'{b:02X}' for b in s['wire']),
+                     p1=f'{s["p1"]:02X}') for s in steps]))
     signatures = {}
     for row in rows:
         signature = tuple((s['before'], s['after'], s['wire']) for s in row['steps'])
@@ -46,7 +48,7 @@ def run():
         preconditions='RAM34 starts A0; RAM22 qualification bit set; RAM2E set to selector; each step is forced to countdown expiry, then PC is directed to the four-byte send routine; RAM and SFR state are preserved across steps; no interrupts.',
         limitations=['The timer expiry and PC handoffs are harness-directed; this is not a natural uninterrupted call.',
                      'RAM2E is injected directly rather than received through USART in this experiment.',
-                     'The physical recipient and meaning of the four-byte frames remain unknown.',
+                     'The physical recipients and meanings of the four-byte frames and P1 pins remain unknown.',
                      'No DSC2847 microcode or line waveform is executed.'],
         source_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
                        for p in sources})

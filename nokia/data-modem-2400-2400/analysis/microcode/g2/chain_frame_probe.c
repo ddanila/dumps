@@ -50,8 +50,8 @@ int main(int argc, char **argv) {
                 writes++;
             }
         if (writes!=4 || completed!=4) return 5;
-        printf("%s{\"before\":%u,\"after\":%u,\"state_cycles\":%u,\"wire\":[%u,%u,%u,%u]}",
-            step?",":"",before,after,state_cycles,wire[0],wire[1],wire[2],wire[3]);
+        printf("%s{\"before\":%u,\"after\":%u,\"state_cycles\":%u,\"wire\":[%u,%u,%u,%u],\"p1\":%u}",
+            step?",":"",before,after,state_cycles,wire[0],wire[1],wire[2],wire[3],c.mSFR[REG_P1]);
     }
     printf("],\"errors\":%u}\n",errors);
     return errors!=0;

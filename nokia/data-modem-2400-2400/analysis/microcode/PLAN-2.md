@@ -607,6 +607,12 @@ phases B–C turn "what" into "how".
   the required ±56 phase step for a 2,100 Hz tone at the tested 9,600 Hz
   gate and clock divisors. A decoded step and DAC-bound consumer remain to
   be demonstrated; the A1 tone interpretation is still provisional.
+  The [controller P1 replay](g2/CONTROLLER-STATE-PIN-CHANNELS.md) exposes a
+  second command channel: A0 and A2 transmit the same four-byte frame, but
+  the executed send routine leaves P1.5 high for A0 and low for A2. A1 is
+  also low. Include this pin as an independent candidate control input when
+  testing state-dependent DSP behavior; its physical destination and tone
+  meaning are not established.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

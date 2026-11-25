@@ -1,0 +1,135 @@
+{
+  "controller_rom_sha256": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+  "finding": "A0 and A2 send identical four-byte frames, but P1.5 differs; frame plus P1.5 distinguishes A0/A1/A2 in this fixture.",
+  "fixture": {
+    "entry": "1EE2",
+    "flags_payload": "fixed controller-frames fixture",
+    "initial_p1": "F8",
+    "initial_sp": 113,
+    "serial_completions": "synthetic after each send"
+  },
+  "limitations": [
+    "These are separate send-routine entries under one fixed RAM/flag fixture, not a natural uninterrupted state chain.",
+    "P1.5 electrical destination, CD4094 cascade and DSC2847 input route are untraced.",
+    "The result identifies an additional controller channel, not its tone or training meaning."
+  ],
+  "rows": [
+    {
+      "cd4094_q8_chip1": "88",
+      "code": "83",
+      "final_p1": "F8",
+      "frame": "80 02 88 7A",
+      "last_tx_complete_cycle": 404,
+      "latch_high_cycle": 408,
+      "p1_5": 1,
+      "p1_events": [
+        {
+          "cycle": 292,
+          "value": "F8"
+        },
+        {
+          "cycle": 299,
+          "value": "F8"
+        },
+        {
+          "cycle": 304,
+          "value": "F8"
+        },
+        {
+          "cycle": 348,
+          "value": "F8"
+        },
+        {
+          "cycle": 408,
+          "value": "FC"
+        },
+        {
+          "cycle": 410,
+          "value": "F8"
+        }
+      ],
+      "state": "A0"
+    },
+    {
+      "cd4094_q8_chip1": "81",
+      "code": "84",
+      "final_p1": "D8",
+      "frame": "80 02 81 7A",
+      "last_tx_complete_cycle": 408,
+      "latch_high_cycle": 412,
+      "p1_5": 0,
+      "p1_events": [
+        {
+          "cycle": 296,
+          "value": "F8"
+        },
+        {
+          "cycle": 303,
+          "value": "F8"
+        },
+        {
+          "cycle": 308,
+          "value": "D8"
+        },
+        {
+          "cycle": 352,
+          "value": "D8"
+        },
+        {
+          "cycle": 412,
+          "value": "DC"
+        },
+        {
+          "cycle": 414,
+          "value": "D8"
+        }
+      ],
+      "state": "A1"
+    },
+    {
+      "cd4094_q8_chip1": "88",
+      "code": "81",
+      "final_p1": "D8",
+      "frame": "80 02 88 7A",
+      "last_tx_complete_cycle": 404,
+      "latch_high_cycle": 408,
+      "p1_5": 0,
+      "p1_events": [
+        {
+          "cycle": 292,
+          "value": "F8"
+        },
+        {
+          "cycle": 299,
+          "value": "F8"
+        },
+        {
+          "cycle": 304,
+          "value": "D8"
+        },
+        {
+          "cycle": 348,
+          "value": "D8"
+        },
+        {
+          "cycle": 408,
+          "value": "DC"
+        },
+        {
+          "cycle": 410,
+          "value": "D8"
+        }
+      ],
+      "state": "A2"
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/controller_output.py": "ffe0d96f44367a908c8a7c9334e1fe2044e9242ca51f2f2ff9a100090ecfcd28",
+    "nokia/data-modem-2400-2400/analysis/interface_probe.c": "9dcda6531bb853652c89c253ad557ee85c6f2855c2d77379b706a48f9becdd2b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_state_pin_channels.py": "5d3ecd7c7679837bfb1d13259211001f08001d5db6916dd30e95db5a43693eb6",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "executed controller frame and P1.5 state channels"
+}

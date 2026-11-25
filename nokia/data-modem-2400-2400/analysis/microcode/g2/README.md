@@ -792,3 +792,8 @@ controller's A0=`88` and A1=`81` bytes. Three other held chip bytes sustain
 the A1 second loop, but none supplies the fixed ±56 phase step required for
 a proposed 2,100 Hz tone under the tested clock/gate model. No candidate
 DAC word is reached; state selection is an internal conditional witness.
+The [controller P1 channel replay](CONTROLLER-STATE-PIN-CHANNELS.md) shows
+that A0 and A2 send identical four-byte frames but leave P1.5 at different
+levels. A1 and A2 keep P1.5 low in all 256 preserved-RAM chain selectors.
+Frame-only DSP hypotheses therefore omit an observed state signal; its
+physical destination and role remain open.
