@@ -926,8 +926,9 @@ phases B–C turn "what" into "how".
   four longer projections score 1,016 decisions per bus: six orders stay
   error-free, the other six make 5–10 errors, and unpulsed carrier controls
   make 186–198 errors per stream. This strengthens the conditional DPSK
-  behavior and fixes the upper five candidate bit routes, but leaves the
-  low three bits permutable and the physical decoder, DAC latch and line
+  behavior and fixes candidate source bits 0, 2, 4, 6 and 7 to DAC code
+  bits 4, 5, 3, 6 and 7, respectively; source bits 1, 3 and 5 remain
+  permutable across DAC code bits 0–2. The physical decoder, DAC latch and line
   output untraced; C2 remains open.
   A [joint data/tone screen](g2/PHOTO-DAC-JOINT-DATA-TONE.md) then keeps each
   of the 12 zero-error buses fixed through the existing A1 `B0→88` dynamic

@@ -97,6 +97,11 @@ def run(out=HERE / 'results/photo-random-dibit-validation.json'):
     survivors = [bus for bus, errors in zip(buses, total_errors) if errors == 0]
     if len(survivors) != 6 or any(row['no_pulse_errors'] < 100 for row in rows):
         raise ValueError('random transmitter validation changed')
+    fixed_destinations = {str(bit): next(iter(destinations))
+                          for bit in range(8)
+                          if len(destinations := {bus[bit] for bus in survivors}) == 1}
+    if fixed_destinations != {'0': 4, '2': 5, '4': 3, '6': 6, '7': 7}:
+        raise ValueError('surviving DAC bit positions changed')
     paths = [Path(__file__), BUSES, ROM,
              HERE / 'photo_main_dibit_pulse.py',
              HERE / 'photo_dac_bus_permutations.py',
@@ -119,6 +124,7 @@ def run(out=HERE / 'results/photo-random-dibit-validation.json'):
                   projected_cases=rows,
                   total_errors_by_bus=total_errors,
                   zero_error_survivors=survivors,
+                  fixed_source_bit_to_dac_code_bit=fixed_destinations,
                   decoder_validation='All 48 bus/stream scores agree with direct reference receiver results.',
                   limitations=['Only two 32-symbol prefixes were executed with full real-PROM traces; all 256-symbol scores use the recurrence whose PC129 address, ROM byte, Y and selected-bus DAC hash those traces check.',
                                'The seeded dibits are synthetic holdouts, not bytes from the 8031; the D127 decoder, DAC bus and clock remain untraced.',

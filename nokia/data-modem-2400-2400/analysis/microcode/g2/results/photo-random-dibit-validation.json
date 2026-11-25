@@ -1,5 +1,12 @@
 {
   "decoder_validation": "All 48 bus/stream scores agree with direct reference receiver results.",
+  "fixed_source_bit_to_dac_code_bit": {
+    "0": 4,
+    "2": 5,
+    "4": 3,
+    "6": 6,
+    "7": 7
+  },
   "fixture": {
     "d127": "assumed four-visit parity/counter dibit pulse",
     "dac_clock": "one capture per 375 PC129 visits",
@@ -187,7 +194,7 @@
   ],
   "source_sha256": {
     "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
-    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
     "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
     "analysis/microcode/g2/photo_dac_bus_permutations.py": "7032d9a809229467df736d417d5c2a36a9ff6d04a0f83c9271627f106507f4ab",
     "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
@@ -195,7 +202,7 @@
     "analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
     "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
     "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
-    "analysis/microcode/g2/photo_random_dibit_validation.py": "8d15b7b604e7b7394552fdd5f0a052ad87d46dddc7f1399f450802a22e4a1698",
+    "analysis/microcode/g2/photo_random_dibit_validation.py": "0d91ba3aa129940f18eecb91121cd9bf6dfa52c526e52083090f8fb2a8f52986",
     "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
     "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
     "analysis/microcode/g2/results/photo-dac-bus-permutations.json": "d13a8ebf176e76c2f99252d248522e99c15573cad9771ebe0afb50b6652fb4bf",

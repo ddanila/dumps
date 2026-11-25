@@ -23,10 +23,13 @@ with a direct invocation of the independent reference receiver.
 
 The four streams each yield 254 decisions after the fixed four-sample
 alignment. A no-pulse carrier control makes 186–198 errors per stream. The
-six survivors share the same routes for source bits 3–7: bits 3, 4, 5, 6,
-7 map to candidate DAC code bits 5, 3, 4, 6, 7 respectively. Their source
-bits 0–2 can map to output bits 0–2 in any order, so these decisions still
-cannot recover the complete physical bus. The [saved report](results/photo-random-dibit-validation.json)
+six survivors share the same routes for source bits **0, 2, 4, 6 and 7**:
+they map to candidate DAC code bits **4, 5, 3, 6 and 7**, respectively.
+Under the ordered-Y-to-latch hypothesis, those are DAC inputs B4, B3, B5,
+B2 and B1. Source bits **1, 3 and 5** can map to code bits **0, 1 and 2**
+(DAC B8, B7 and B6) in any order. The earlier prose incorrectly described
+the fixed bits as 3–7; the saved permutations were correct. These decisions
+still cannot recover the complete physical bus. The [saved report](results/photo-random-dibit-validation.json)
 records all 12 per-stream scores, survivors, full-PROM trace digests,
 sample hashes and source hashes.
 
