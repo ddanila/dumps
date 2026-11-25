@@ -413,6 +413,13 @@ receive decision, revise the mapping or timing and pursue another independent
 signal-path clue. A recovered bit supports only a conditional receiver
 explanation until the physical input route is verified.
 
+The [two-row sampled-state DPSK screen](g2/RECEIVER-TWO-ROW-SAMPLED-STATE-DPSK.md)
+tests a fixed readout on the sustained 0/2 ADC fixture: its best training
+choice has 1/36 training, 5/48 holdout and 11/48 fresh-validation dibit
+errors. This is input-sensitive receiver state, but not a recovered decision
+path. Keep C3 open and test a stateful readout or another photo-compatible
+clock/route; the untraced connection is not a blocker.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing

@@ -1,0 +1,90 @@
+{
+  "best": {
+    "channel": "Y3F8",
+    "coding": "offset_binary",
+    "holdout_errors": 5,
+    "phase_offset": 1,
+    "site": "end",
+    "symbol_lag": 0,
+    "training_errors": 1
+  },
+  "exact_all": 0,
+  "exact_training": 0,
+  "experiment": "conditional 0/2 sampled-state external DPSK diagnostic",
+  "holdout_indices": [
+    2,
+    7,
+    8,
+    9
+  ],
+  "invalid": 0,
+  "reference_errors": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "6": 0,
+    "7": 0,
+    "8": 0,
+    "9": 0
+  },
+  "source_sha256": {
+    "receiver_two_row_decision_screen.py": "d0305f568d87ada1c9bbed1ebd22d425762c98f223e09319facc475eb6b75457",
+    "receiver_two_row_sampled_state_dpsk.py": "c6d6da9fdc13b08426712c0540bf458aaccd73a1316fdee87b4f45a065076da8",
+    "reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078"
+  },
+  "symbol_indices": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "tested": 1200,
+  "trace_digests": {
+    "0": "2cd474d014486a930082bdac95cde50ebb82961dd5d53bfa4d4cfd3021428649",
+    "1": "a2bd06e815683b6abea447d4ac06d842e8daa8b84c036fdf98df103cc6341207",
+    "2": "1e7daf04ed1fd203b7e36aaf4d4fb0abb68c73f14f9561aa213a2b35432688ee",
+    "6": "9169938c6f9b03957668c1c4c4e8aa4a370f1c42782271359bdef55de6de47ee",
+    "7": "d1639453dbad07fba701de62ed2d5b29c9fc20b073536d42a3d0dc17da4a9051",
+    "8": "ceb5faff96fb871bcf6939592d34efd018e51571554795dc9092c51e2a8039a9",
+    "9": "09ea533444a980a5c66b6fb172a5fcfc9a9bdf81d201d9fca5decab051cd9ca6"
+  },
+  "train_indices": [
+    0,
+    1,
+    6
+  ],
+  "validation": [
+    {
+      "errors": 1,
+      "reference_errors": 0,
+      "seed": 9249,
+      "trace_digest": "0e08fba1c8c3bd71d97916caf8de38a874996ec3336e16658b42eba7c303f318"
+    },
+    {
+      "errors": 4,
+      "reference_errors": 0,
+      "seed": 9217,
+      "trace_digest": "a03a1312b9c994b092d183334353e3d0dc823a5b53aa626d27232931ca7603b1"
+    },
+    {
+      "errors": 2,
+      "reference_errors": 0,
+      "seed": 9889,
+      "trace_digest": "3eece5bddece5af4c72a1cd88edef85cc395d7abc8dcc42f579d20f74b5c27be"
+    },
+    {
+      "errors": 4,
+      "reference_errors": 0,
+      "seed": 13251,
+      "trace_digest": "a4f18ffcdb593c72da06a2a67beb15f675907932fb86faee0013eadffb12eafe"
+    }
+  ]
+}
