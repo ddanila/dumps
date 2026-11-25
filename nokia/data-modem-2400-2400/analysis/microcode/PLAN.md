@@ -136,6 +136,13 @@ Full candidate codes peak at 2,100/1,800 Hz for tone/carrier controls, but
 B5 alone peaks at 2,400/2,600 Hz in the tested band. Do not treat that pin's
 changing level as proof of a line signal; pursue a higher-weight DAC input or
 analog output node under labelled photo-compatible routes.
+The [all-bit decomposition](g2/JOINT-MASK04-DAC-BIT-CONTRIBUTIONS.md) now
+identifies the decisive higher-weight hypothesis in these same traces: at
+the exact 2,100/1,800 Hz DFT bins, the assumed Y7→DAC code-bit-7 component
+equals the full-code phasor and the other seven components are zero, across
+six bus orders and both latch phases. Test the Y7/latch/DAC MSB route or an
+independent analog constraint next. This digital result is not a physical
+DAC/line connection and does not close C2.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.

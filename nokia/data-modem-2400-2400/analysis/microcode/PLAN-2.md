@@ -1157,6 +1157,13 @@ phases B–C turn "what" into "how".
   its own level is not an independent line-carrier witness. This does not
   reject the Q4→B5 photo segment, but a higher-weight DAC pin or analog
   node must constrain the output route before C2 can pass.
+  The [all-bit carrier-bin audit](g2/JOINT-MASK04-DAC-BIT-CONTRIBUTIONS.md)
+  decomposes those same real-PROM samples. At the exact tone and carrier
+  bins, the assumed Y7→DAC code-bit-7 contribution equals the entire
+  full-code component; all seven lower-bit components are zero in all six
+  bus orders and both latch phases. This focuses the next output-route
+  experiment on the Y7/latch/DAC MSB path or an analog node. It does not
+  prove that the photographed board uses the assumed DAC bus or pass C2.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,
