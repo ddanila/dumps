@@ -32,10 +32,22 @@ assumed filter. The lower bits can still shape the waveform and affect
 other conditions; their error count does not show that they are unused
 by the physical modem.
 
+The same replay also compares the data interval with the independent
+raised-cosine reference using the earlier two-basis, ±8-sample lag fit.
+For the call run, the **top-bit-only** filtered waveform gives R²=0.908988,
+versus 0.833580–0.838074 for the six full-code buses. For answer the
+figures are **0.900087** versus 0.810443–0.814873. Both latch phases give
+the same values. This makes the top-bit continuation a stronger candidate
+under this *particular* reference/filter test; it does not prove the
+other DAC pins are disconnected or that the Nokia analog path implements
+the assumed bandpass. The full-code values are read from the hash-matched
+prior edge report; the top-bit fit is computed on this replay.
+
 The [machine report](results/joint-mask04-dac-msb-data.json) retains
 trace/capture hashes and every bus/phase score. Reproduce from the
 microcode directory with `python3 g2/joint_mask04_dac_msb_data.py`.
-The photos do not establish Y7→latch, the latch clock, DAC08 B1, or the
-analog line route. The controller timing is projected onto the DSC
+Inspection of the existing DED 3558 front and back photos still does not
+establish Y7→latch, the latch clock, DAC08 B1, or the analog line route.
+The controller timing is projected onto the DSC
 schedule, and the decoder/filter are external diagnostics. This is a
 stronger candidate constraint, not a C2 pass or a receiver result.

@@ -26,6 +26,7 @@ from photo_joint_tone_training_data import (DATA_STEP, SEGMENT_SYMBOLS,
 from photo_main_dibit_dac_decode import decision_result
 from photo_main_dibit_pulse import VISITS_PER_SYMBOL, scenario_inputs
 from photo_tx_divided_prom_clock import capture
+from photo_joint_waveform_shape_screen import best_fit, reference_templates
 
 TXREADY = HERE / 'results/main-loop-usart-txready.json'
 PRIOR = HERE / 'results/joint-four-row-retention-tx.json'
@@ -70,11 +71,21 @@ def replay(mapping, base, tx_case, prior_case, edge_case, buses):
             samples['captured_samples'] != TOTAL_SYMBOLS * 8):
         raise ValueError(('full PROM stream changed', selector))
     rows = []
+    phase_shapes = []
+    templates = reference_templates(symbols)
     for phase in ('pre_rising', 'post_rom'):
         raw = samples[phase]
         expected_hash = edge_case['selected_bus_sha256'][phase]
         if hashlib.sha256(bytes(mapped_codes(raw, SELECTED))).hexdigest() != expected_hash:
             raise ValueError(('edge capture hash changed', selector, phase))
+        msb_codes = [value & 0x80 for value in mapped_codes(raw, buses[0])]
+        msb_line = bandpass([value - 128 for value in msb_codes], 1.0)
+        msb_shape, alignment = best_fit(
+            [value + 128 for value in msb_line[SILENCE_END:]], templates)
+        full_shapes = [row[phase]['data_shape_r2'] for row in edge_case['bus_cases']]
+        phase_shapes.append(dict(phase=phase, msb_data_shape_r2=msb_shape,
+                                 msb_shape_alignment=alignment,
+                                 full_data_shape_r2_range=[min(full_shapes), max(full_shapes)]))
         for bus_index, bus in enumerate(buses):
             codes = mapped_codes(raw, bus)
             full = score(codes, symbols)
@@ -88,7 +99,7 @@ def replay(mapping, base, tx_case, prior_case, edge_case, buses):
     return dict(selector=selector, cycles=cycles, trace_digest=result['trace_digest'],
                 raw_pre_rising_sha256=hashlib.sha256(bytes(samples['pre_rising'])).hexdigest(),
                 raw_post_rom_sha256=hashlib.sha256(bytes(samples['post_rom'])).hexdigest(),
-                rows=rows)
+                rows=rows, phase_shapes=phase_shapes)
 
 
 def run(out=HERE / 'results/joint-mask04-dac-msb-data.json'):
@@ -121,6 +132,7 @@ def run(out=HERE / 'results/joint-mask04-dac-msb-data.json'):
              HERE / 'photo_tx_divided_prom_clock.py',
              HERE / 'photo_joint_line_filter_screen.py',
              HERE / 'photo_main_dibit_dac_decode.py',
+             HERE / 'photo_joint_waveform_shape_screen.py',
              HERE / 'photo_joint_tone_training_data.py',
              HERE / 'reference_modem.py', HERE.parent / 'assumed/execute.py',
              MAPPINGS['q3'],

@@ -1170,8 +1170,11 @@ phases B–C turn "what" into "how".
   gives a 2,100 Hz A1 peak and 0/62 A3/A4 decisions for each call/answer
   selector under both latch phases and six bus orders; lower seven bits
   alone miss 22–23/62. The top-bit route is therefore the most useful
-  DAC input to constrain next. Y7→latch→DAC08 B1/pin 5 and the analog
-  line path remain untraced, so C2 remains open.
+  DAC input to constrain next. The top-bit-only filtered waveform also
+  improves the same reference shape fit to R²=0.909/0.900 versus the
+  six full-code ranges 0.834–0.838/0.810–0.815. This is conditional on
+  the external bandpass and reference. Y7→latch→DAC08 B1/pin 5 and the
+  analog line path remain untraced, so C2 remains open.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,

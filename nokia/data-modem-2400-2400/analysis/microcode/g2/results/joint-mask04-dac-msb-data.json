@@ -2,6 +2,34 @@
   "cases": [
     {
       "cycles": 1248256,
+      "phase_shapes": [
+        {
+          "full_data_shape_r2_range": [
+            0.83358,
+            0.838074
+          ],
+          "msb_data_shape_r2": 0.908988,
+          "msb_shape_alignment": {
+            "carrier_sign": 1,
+            "lag_samples": -7,
+            "symbol_phase_sign": 1
+          },
+          "phase": "pre_rising"
+        },
+        {
+          "full_data_shape_r2_range": [
+            0.83358,
+            0.838074
+          ],
+          "msb_data_shape_r2": 0.908988,
+          "msb_shape_alignment": {
+            "carrier_sign": 1,
+            "lag_samples": -7,
+            "symbol_phase_sign": 1
+          },
+          "phase": "post_rom"
+        }
+      ],
       "raw_post_rom_sha256": "742114ab8ca8230744758820917e9f851c08bc719e87abb8b28c75f37c4f83ee",
       "raw_pre_rising_sha256": "24623347682574f2d68ea28dc832b3bc7306299666111c0a572f9cdab23ee6fe",
       "rows": [
@@ -1571,6 +1599,34 @@
     },
     {
       "cycles": 1248256,
+      "phase_shapes": [
+        {
+          "full_data_shape_r2_range": [
+            0.810443,
+            0.814873
+          ],
+          "msb_data_shape_r2": 0.900087,
+          "msb_shape_alignment": {
+            "carrier_sign": 1,
+            "lag_samples": -7,
+            "symbol_phase_sign": 1
+          },
+          "phase": "pre_rising"
+        },
+        {
+          "full_data_shape_r2_range": [
+            0.810443,
+            0.814873
+          ],
+          "msb_data_shape_r2": 0.900087,
+          "msb_shape_alignment": {
+            "carrier_sign": 1,
+            "lag_samples": -7,
+            "symbol_phase_sign": 1
+          },
+          "phase": "post_rom"
+        }
+      ],
       "raw_post_rom_sha256": "3af937d3690a65e7e289c23204f54648f1467a86aa1df392d473803a702d9ff5",
       "raw_pre_rising_sha256": "47f109ac5609e9ac1d2d3429c29592fd8e4a6da84a9bc518d0d30ffcbff42730",
       "rows": [
@@ -3156,9 +3212,10 @@
   "source_sha256": {
     "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
     "analysis/microcode/g2/joint_four_row_retention_tx.py": "58c1024ab797271fa9a810423538339d871e22c3ee3683d1e1b62f6771988970",
-    "analysis/microcode/g2/joint_mask04_dac_msb_data.py": "c114a8739189e2c74054976582cacd545c58bf5198ff13fe8ac422f7f03eb30c",
+    "analysis/microcode/g2/joint_mask04_dac_msb_data.py": "1deb6453dbe486cf2cacff5d80d30593dbcdf10265e62fc5f8ff3b978d4bef9f",
     "analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
     "analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "analysis/microcode/g2/photo_joint_waveform_shape_screen.py": "176e680a7d91871f89d86f06c754a2529a7c8076ca7fd1f85977ed7016764c31",
     "analysis/microcode/g2/photo_main_dibit_dac_decode.py": "2ee3fbba408bb144d07ee86a1cc748bf9b896713a80cc84c03658104313d00e8",
     "analysis/microcode/g2/photo_tx_divided_prom_clock.py": "22ae6aaadd3e914a0efb0c124586ffa7afdd69bef1c0f656110b094c5e64c1ed",
     "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",

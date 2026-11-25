@@ -148,9 +148,12 @@ constraint to the executed controller-derived A3/A4 streams: on the fixed
 mask-`04` map, the assumed DAC top bit alone keeps the 2,100 Hz A1 peak
 and gives 0/62 differential decisions for each selector, bus order and
 latch phase after the same assumed filter. Lower seven bits alone miss
-22–23/62. Focus the next photo-compatible route test on Y7 through the
-sample latch to DAC08 B1/pin 5 and the analog output; keep C2 open until
-that route and the line signal are independently established.
+22–23/62. With the same two-basis raised-cosine fit, top-bit-only output
+also scores R² 0.909/0.900 in call/answer, above the full-code bus ranges
+0.834–0.838/0.810–0.815. Focus the next photo-compatible route test on
+Y7 through the sample latch to DAC08 B1/pin 5 and the analog output;
+keep C2 open until that route and the line signal are independently
+established. The existing photos do not settle the back-side continuation.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
