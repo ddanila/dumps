@@ -1,0 +1,355 @@
+{
+  "controller_cases": [
+    {
+      "active_high_A1_A3_A4_low_A2_frame_bits": [
+        [
+          2,
+          0
+        ]
+      ],
+      "held_frames": {
+        "A1": [
+          "80 02 81 7A",
+          "80 02 A1 7A",
+          "80 02 C1 7A"
+        ],
+        "A2": [
+          "80 02 88 7A",
+          "80 02 C8 7A",
+          "80 02 E8 7A"
+        ],
+        "A3": [
+          "D0 42 81 BA",
+          "D0 42 A1 BA",
+          "D0 42 C1 BA"
+        ],
+        "A4": [
+          "D0 42 A1 BA"
+        ]
+      },
+      "iterations": {
+        "A1": 3577,
+        "A2": 84,
+        "A3": 34,
+        "A4": 8
+      },
+      "selector": "40"
+    },
+    {
+      "active_high_A1_A3_A4_low_A2_frame_bits": [
+        [
+          2,
+          0
+        ]
+      ],
+      "held_frames": {
+        "A1": [
+          "80 02 81 7A",
+          "80 02 A1 7A",
+          "80 02 C1 7A"
+        ],
+        "A2": [
+          "80 02 88 7A",
+          "80 02 C8 7A",
+          "80 02 E8 7A"
+        ],
+        "A3": [
+          "D0 42 81 BA",
+          "D0 42 A1 BA",
+          "D0 42 C1 BA"
+        ],
+        "A4": [
+          "D0 42 A1 BA"
+        ]
+      },
+      "iterations": {
+        "A1": 3542,
+        "A2": 84,
+        "A3": 34,
+        "A4": 8
+      },
+      "selector": "60"
+    }
+  ],
+  "fixture": {
+    "controller": "unchanged 8031 ROM under Timer1 harness",
+    "dac_evidence": "saved real-PROM mask-04 joint-map DAC capture, six photo-compatible buses, two U10 D2 latch phases, assumed 1950 Hz Q=1 bandpass",
+    "held_frame": "last completed four-byte CD4094 send persists across no-send iterations",
+    "latch_hypothesis": "third-frame-byte bit 0 to SN74LS373 C/LE pin 11; OC pin 1 low; high transparent, low holds last code",
+    "ram15": "held positive at PC1000; source untraced",
+    "synthetic_receive_and_status": "same as interrupt-paced controller run"
+  },
+  "limitations": [
+    "A controller frame bit and a photographed 74LS373 latch are identified, but their physical connection and data-bus route are untraced.",
+    "The DAC hold metrics reuse an earlier real-PROM run and an assumed analog bandpass; this script does not re-execute the DSC.",
+    "The controller and DSC were not co-simulated on a shared clock; state-to-sample alignment remains a hypothesis.",
+    "The 74LS273 clock, DAC08 input bus, output filter and line route are still unverified, so C2 remains open."
+  ],
+  "saved_dac_hold_cases": [
+    {
+      "bus_index": 0,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 99,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "post_rom",
+      "selector": "40"
+    },
+    {
+      "bus_index": 0,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 65,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "pre_rising",
+      "selector": "40"
+    },
+    {
+      "bus_index": 1,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 101,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "post_rom",
+      "selector": "40"
+    },
+    {
+      "bus_index": 1,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 65,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "pre_rising",
+      "selector": "40"
+    },
+    {
+      "bus_index": 2,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 99,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "post_rom",
+      "selector": "40"
+    },
+    {
+      "bus_index": 2,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 66,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "pre_rising",
+      "selector": "40"
+    },
+    {
+      "bus_index": 3,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 102,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "post_rom",
+      "selector": "40"
+    },
+    {
+      "bus_index": 3,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 66,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "pre_rising",
+      "selector": "40"
+    },
+    {
+      "bus_index": 4,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 101,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "post_rom",
+      "selector": "40"
+    },
+    {
+      "bus_index": 4,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 68,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "pre_rising",
+      "selector": "40"
+    },
+    {
+      "bus_index": 5,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 102,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "post_rom",
+      "selector": "40"
+    },
+    {
+      "bus_index": 5,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 68,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "pre_rising",
+      "selector": "40"
+    },
+    {
+      "bus_index": 0,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 99,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "post_rom",
+      "selector": "60"
+    },
+    {
+      "bus_index": 0,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 65,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "pre_rising",
+      "selector": "60"
+    },
+    {
+      "bus_index": 1,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 101,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "post_rom",
+      "selector": "60"
+    },
+    {
+      "bus_index": 1,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 65,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "pre_rising",
+      "selector": "60"
+    },
+    {
+      "bus_index": 2,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 99,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "post_rom",
+      "selector": "60"
+    },
+    {
+      "bus_index": 2,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 66,
+      "pass_through_a2_to_a1_rms": 0.998451,
+      "phase": "pre_rising",
+      "selector": "60"
+    },
+    {
+      "bus_index": 3,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 102,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "post_rom",
+      "selector": "60"
+    },
+    {
+      "bus_index": 3,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 66,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "pre_rising",
+      "selector": "60"
+    },
+    {
+      "bus_index": 4,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 101,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "post_rom",
+      "selector": "60"
+    },
+    {
+      "bus_index": 4,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 68,
+      "pass_through_a2_to_a1_rms": 0.998286,
+      "phase": "pre_rising",
+      "selector": "60"
+    },
+    {
+      "bus_index": 5,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 102,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "post_rom",
+      "selector": "60"
+    },
+    {
+      "bus_index": 5,
+      "data_decisions": 62,
+      "data_errors_after_hold": 0,
+      "hold_a2_to_a1_rms": 0.0,
+      "hold_code": 68,
+      "pass_through_a2_to_a1_rms": 0.998245,
+      "phase": "pre_rising",
+      "selector": "60"
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_a2_latch_gate.py": "a81b8a6407db69fc4255b4dbaf8c2d41ba1fd7c0f090d9e522414217ee488340",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_probe.c": "5c2ed6612890c4484ba81858356cbff76fdb9420a74eade23ce1215e65147ed1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_timer1_segment2.py": "291c96bd7c8a371ce761b49c82c0e7bb0e252a11001f1a6a7c654910565bd390",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-prom-edge.json": "e7e5833e6f9d1ed8dff1fd936bea6eeb9c346dde512fc6cf56eaf44f773181d3",
+    "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "The third CD4094 frame byte bit 0 is the unique observed active-high A1/A3/A4, low-A2 bit in both uninterrupted controller runs; a 74LS373 latch-enable hypothesis matches the saved DAC hold/silence screen.",
+  "summary": {
+    "dac_cases": 24,
+    "hold_a2_to_a1_rms_range": [
+      0.0,
+      0.0
+    ],
+    "pass_through_a2_to_a1_rms_range": [
+      0.998245,
+      0.998451
+    ],
+    "total_post_hold_data_decisions": 1488,
+    "total_post_hold_data_errors": 0
+  }
+}

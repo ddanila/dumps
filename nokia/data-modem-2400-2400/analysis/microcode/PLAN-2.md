@@ -1133,6 +1133,14 @@ phases B–C turn "what" into "how".
   earlier q3 replay, and the q3 phase-shape ranking does not transfer.
   Keep the latch phase, data wiring and analog path as explicit C2
   hypotheses; the same map's receive sensitivity does not prove C3.
+  The [A2 latch-gate screen](g2/CONTROLLER-A2-LATCH-GATE.md) identifies
+  third-frame-byte bit 0 as the **only** held CD4094 frame bit high throughout
+  A1/A3/A4 and low throughout A2 in both uninterrupted Timer 1 controller
+  runs. A labelled connection to the photographed 74LS373 C/LE input would
+  make it transparent while active and hold the last code in A2. The saved
+  real-PROM hold case yields silence under the assumed bandpass with 0/1,488
+  subsequent data-decision errors across 24 bus/phase/selector cases. The
+  bit-to-LE wire, data route and shared timing remain open, so C2 does not pass.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,

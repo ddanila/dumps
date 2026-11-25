@@ -108,6 +108,12 @@ constant code settles to silence. Test a photo-compatible A2 hold, code
 override or analog-mute control route rather than treating code 128 as the
 only possible mechanism. Carry both latch phases forward; keep C2 open
 without treating the untraced clock, DAC bus or line filter as a goal blocker.
+The [executed A2 frame-bit screen](g2/CONTROLLER-A2-LATCH-GATE.md) now finds
+one specific hold hypothesis: third-frame-byte bit 0 is high across A1/A3/A4
+and low across A2 in both selector runs. If it drives the photographed
+74LS373 latch-enable pin, the saved real-PROM hold case gives A2 silence and
+preserves the later data decisions. Test this labelled bit-to-latch route on a
+common controller/PROM schedule; the connection is not yet traced or a C2 pass.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
