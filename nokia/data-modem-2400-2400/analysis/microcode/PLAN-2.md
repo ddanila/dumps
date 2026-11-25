@@ -691,6 +691,16 @@ phases B–C turn "what" into "how".
   gives 1,800 Hz in main data but 600 Hz in A1. Treat each as a diagnostic
   route; seek a mode-dependent selector, different source or other output
   path without promoting either simple crossing to board wiring.
+  A [small fan-out/inversion decode](g2/PHOTO-CONTROLLER-MODE-DECODE.md)
+  can map isolated A1 `81→88` and first-line main `A1→B0` while using raw
+  bit 0 as a hypothetical output gate. The real-PROM replay gives the
+  candidate 2,100/1,800 Hz full-code peaks. **But** the preserved 8031
+  main-loop chain sends `80 02 A1 7A` in all 512 tested A1 sends, rather
+  than isolated fixture's `80 02 81 7A`. The same decode would select the
+  1,800 Hz branch already in A1. Controller output32 bit 5 is a counter-phase
+  flag, not a state-only mode bit. Treat A1 tone semantics and this decoder
+  as unresolved; trace the counter phase and actual frame chronology before
+  promoting either spectrum to the physical operating sequence.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

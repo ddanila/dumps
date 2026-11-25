@@ -51,6 +51,10 @@ input and output hypotheses.
 The [joint state/data check](PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows
 that this D0/D3 crossing and the later D0/D4 carrier crossing cannot be one
 fixed chip-1 byte wiring under the tested phase-step model.
+The [preserved-chain frame check](PHOTO-CONTROLLER-MODE-DECODE.md) further
+shows that A1 emits `A1`, rather than `81`, in all 512 tested A1 sends of a
+different ROM-executed controller fixture. This report's `81` is specific
+to its isolated state-send setup, not a universal A1 command byte.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_cd4094_bit_swap_tone.py

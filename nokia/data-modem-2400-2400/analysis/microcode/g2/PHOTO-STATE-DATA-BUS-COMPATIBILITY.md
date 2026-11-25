@@ -47,6 +47,9 @@ state labels themselves are still protocol hypotheses; the actual board
 wiring and DAC clock are untraced. Next use the other controller frame bytes
 and observed mode signals to constrain a possible mode-select circuit,
 rather than treating either crossing as the recovered Nokia wiring.
+The [preserved-chain decode check](PHOTO-CONTROLLER-MODE-DECODE.md) adds a
+fixture caveat: the chain emits `A1` during A1, so the `81` source in this
+Hamming comparison is not present in every executed A1 run.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_state_data_bus_compatibility.py

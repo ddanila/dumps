@@ -172,6 +172,12 @@ that the separate A1 2,100 Hz and main-frame 1,800 Hz bit-swap leads cannot
 share one fixed chip-1 pin permutation, even with fixed inversions. Test
 mode-dependent selection or another source before combining them into a
 single transmitter interpretation. The
+[controller mode-decode replay](g2/PHOTO-CONTROLLER-MODE-DECODE.md) tries a
+fixed fan-out/inverter candidate, then checks preserved 8031 frame history.
+The preserved chain emits chip-1 `A1` during its A1 state, where the isolated
+send fixture emitted `81`; a byte's counter-phase bit cannot be treated as
+a state-only tone selector. Continue with time-varying controller frames and
+separate DAC hypotheses, without blocking on physical net ambiguity. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
