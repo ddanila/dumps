@@ -281,6 +281,12 @@ phases B–C turn "what" into "how".
   Every next-boundary state, ROM address and candidate output matches the
   zero-byte control. This is a concrete simultaneous-ingress computation,
   but it does not yet retain a sample or recover a receive bit.
+  A [single lower-instruction pin screen](g2/LOWER-I-ADC-RETENTION-SCREEN.md)
+  tries all 72 direct U11 source substitutions. Five select both D3A1 and
+  D38E through the comparison window; D3A1 bytes `01`, `80` and `FF` yield
+  no later retained state, ROM-address change or candidate output change in
+  any of the five. The next receiver search needs a joint field/timing or
+  different state-path hypothesis, still without waiting for pin tracing.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
