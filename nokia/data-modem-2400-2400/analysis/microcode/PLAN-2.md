@@ -1147,6 +1147,14 @@ phases B–C turn "what" into "how".
   rerun nonperiodic samples under a surviving dispatch schedule. Keep the
   constant-index results as conditional algorithm probes, not a physical
   receiver or echo-canceller demonstration.
+  A [two-row dispatch follow-up](g2/RECEIVER-DISPATCH-SOURCE.md#a-two-row-index-schedule-survives)
+  finds that alternating `3EF` and `3F7` survives both 128-sample reference
+  streams with 12,000 ADC visits, unlike a full four-row cycle. In paired
+  32-sample detail, all 3,000 ADC bytes are selected and 2,781 of 3,000
+  following Am27S31 addresses differ between waveforms on the same PC path.
+  Test a generalizing receive decision on this interleaved schedule, then
+  constrain its counter/buffer index and output routes; the two-row sequence
+  is still an explicit hypothesis, not recovered board wiring or a C3 pass.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
