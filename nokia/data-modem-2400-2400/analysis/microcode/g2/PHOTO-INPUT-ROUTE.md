@@ -30,6 +30,12 @@ should prioritize the connector and latch routes that can deliver controller
 commands and ADC samples to *different* operations, rather than continuing
 to treat D38E as the default ingress for both.
 
+A later [separate-slice full-byte replay](SPLIT-FRAME-BYTE-RULE.md) tests a
+different, untraced upper-B field and finds a precise one-visit-delayed
+extraction of D38E bits 4–6 at `39E`, including for real controller frame
+bytes. That result corrects any inference that the shared-slice screen ruled
+out *all* D38E input effects. It still does not show a modulator or receiver.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_input_route_screen.py
 ```

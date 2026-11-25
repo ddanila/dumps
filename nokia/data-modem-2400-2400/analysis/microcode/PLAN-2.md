@@ -216,6 +216,12 @@ phases B–C turn "what" into "how".
   fixed under D4 zero/one, although internal state responds. The U30-to-U8
   continuation is untraced, so this prunes a tested field family rather than
   proving the earlier low-bit field or blocking further runs.
+  A [full-byte replay](g2/SPLIT-FRAME-BYTE-RULE.md) then classifies the
+  earlier low-bit upper-B fixture exactly: after startup, `39E` equals
+  `1B + 2*(previous D38E byte & 70)` for all 256 byte values in both orders
+  and for four real 8031 frame streams. That loop relays selected byte bits
+  with one-visit delay and reads one fixed ROM address; it is not the
+  advancing modulator or receiver needed for G2 under these assumptions.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are
