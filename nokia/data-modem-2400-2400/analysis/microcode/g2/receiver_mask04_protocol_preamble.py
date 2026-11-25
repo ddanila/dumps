@@ -52,14 +52,17 @@ def score(states, dibits, indexes):
 
 
 def capture(mapping, base, degrees, seed, middle):
+    data_symbols = len(middle)
+    adc_visits = (PREAMBLE_SYMBOLS + data_symbols) * VISITS_PER_SYMBOL
+    cycles = 32 * adc_visits + 47
     dibits = [3] * PREAMBLE_SYMBOLS + middle + [0] * 8
     pcm = rotated_transmit(dibits, degrees)
     if receive(pcm) != dibits[1:]:
         raise ValueError('reference receiver lost protocol preamble or data')
-    samples = [127 - value for value in pcm[:8 * (PREAMBLE_SYMBOLS + DATA_SYMBOLS)]]
+    samples = [127 - value for value in pcm[:8 * (PREAMBLE_SYMBOLS + data_symbols)]]
     values = [sample for index, sample in enumerate(samples)
               for _ in range(47 if index % 8 < 7 else 46)]
-    if len(values) != ADC_VISITS:
+    if len(values) != adc_visits:
         raise ValueError('ADC hold schedule changed')
     scenario = configured(base, values, 'previous', 'overflow', 1)
     row_y = {}
@@ -71,11 +74,11 @@ def capture(mapping, base, degrees, seed, middle):
     adc_event = row_event = 0
     previous = None
     with tempfile.TemporaryDirectory() as temporary:
-        result = execute(mapping, scenario, CYCLES, mode='integrated',
-                         out=temporary, trace_limit=CYCLES)
-        if (not result['clean'] or result['completed_cycles'] != CYCLES or
-                result['read_sequence_visits'].get(0x3F8) != ADC_VISITS or
-                result['address_counts'].get(0x3ED) != 4 * ADC_VISITS):
+        result = execute(mapping, scenario, cycles, mode='integrated',
+                         out=temporary, trace_limit=cycles)
+        if (not result['clean'] or result['completed_cycles'] != cycles or
+                result['read_sequence_visits'].get(0x3F8) != adc_visits or
+                result['address_counts'].get(0x3ED) != 4 * adc_visits):
             raise ValueError('protocol receive path stopped')
         for line in (Path(temporary) / 'trace.jsonl').open():
             row = json.loads(line)
@@ -101,13 +104,13 @@ def capture(mapping, base, degrees, seed, middle):
                     row_y[(symbol, index)] = dict(cycle=row['cycle'], y=row['alu']['y'])
                 row_event += 1
             previous = row
-    if (adc_event != ADC_VISITS or row_event != 4 * ADC_VISITS or
-            len(edge_y) != ADC_VISITS or edge_y != selected_y or
-            len(row_y) != 2 * (PREAMBLE_SYMBOLS + DATA_SYMBOLS) or
-            len(transient_y) != PREAMBLE_SYMBOLS + DATA_SYMBOLS):
+    if (adc_event != adc_visits or row_event != 4 * adc_visits or
+            len(edge_y) != adc_visits or edge_y != selected_y or
+            len(row_y) != 2 * (PREAMBLE_SYMBOLS + data_symbols) or
+            len(transient_y) != PREAMBLE_SYMBOLS + data_symbols):
         raise ValueError('protocol receive capture count changed')
     symbols = []
-    for symbol in range(PREAMBLE_SYMBOLS + DATA_SYMBOLS):
+    for symbol in range(PREAMBLE_SYMBOLS + data_symbols):
         symbols.append(dict(symbol=symbol, dibit=dibits[symbol],
                             row0=row_y[(symbol, 0)],
                             row3=row_y[(symbol, 3)],
@@ -120,9 +123,9 @@ def capture(mapping, base, degrees, seed, middle):
         if pair == (0xF3, 0xF2):
             state = (row['at_3f8']['y'] >> 7) & 1
         diagonal_states.append(state)
-    all_data = range(PREAMBLE_SYMBOLS, PREAMBLE_SYMBOLS + DATA_SYMBOLS)
+    all_data = range(PREAMBLE_SYMBOLS, PREAMBLE_SYMBOLS + data_symbols)
     interior = range(PREAMBLE_SYMBOLS + 2,
-                     PREAMBLE_SYMBOLS + DATA_SYMBOLS - 2)
+                     PREAMBLE_SYMBOLS + data_symbols - 2)
     return dict(degrees=degrees, seed=seed, middle=middle, symbols=symbols,
                 adc_stream_sha256=hashlib.sha256(bytes(values)).hexdigest(),
                 trace_digest=result['trace_digest'],

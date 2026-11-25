@@ -1253,6 +1253,17 @@ phases B–C turn "what" into "how".
   `FF` fill therefore cannot establish the physical RxC phase or data-byte
   boundary alone. Test a photo-compatible RxD/RxC route and executed USART
   consumer; keep C3 open and G2 active without waiting for net continuity.
+  The [conditional controller handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
+  extends the real-PROM receive run to eight scrambled zero octets. Both
+  scrambler delays at 0° and 45° recover all 32 data dibits; their eight
+  line bytes, offered at the preserved 8031 ROM's modeled USART-01 reads,
+  descramble to eight zero octets and advance state `AF→B0`, emitting
+  `D0 42 81 1A`. Flipping one bit in the last offered byte keeps `AF` and
+  its `D0 42 89 9A` frame. This establishes a conditional DSC-to-controller
+  behavioral handoff, not a traced RxD/RxC circuit, chip-level 8251A event
+  or naturally timed controller entry. Keep C3 open and test candidate
+  physical latch/serial routes without treating missing continuity as a
+  goal blocker.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

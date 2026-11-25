@@ -29,6 +29,12 @@ shows why: `FF` fill permits a clean candidate byte schedule, but eight
 leading-bit/hunt-start pairs align the data under its explicit model. Carry
 those alternatives into the photo-compatible RxD/RxC test instead of
 treating the unknown character phase as a blocker or as a proven alignment.
+The [controller zero-run handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
+now joins a longer real-PROM receive trace to the 8031's executed `AF→B0`
+zero detector under a labelled USART byte handoff. It narrows the required
+consumer behavior, but the external bit logic, byte clock and physical RxD
+route remain hypotheses. Test those routes against the controller signature;
+do not count the conditional handoff as a C3 pass or pause for new photos.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
