@@ -1,0 +1,111 @@
+{
+  "cases": [
+    {
+      "cycles": 384256,
+      "input_d127": "88",
+      "phases": [
+        {
+          "b5_bit_sha256": "49c8fcbecd54c52760adf03fd6d2251259e6f291949d7572f149d39f2d7654fd",
+          "b5_expected_hz": 2100,
+          "b5_expected_power": 0.0,
+          "b5_expected_to_peak_power": 0.0,
+          "b5_late_one_count": 96,
+          "b5_late_peak_hz": 2400.0,
+          "b5_late_peak_power": 18432.0,
+          "b5_transitions": 127,
+          "full_code_peak_hz_across_six_buses": [
+            2100.0
+          ],
+          "phase": "pre_rising",
+          "raw_y_sha256": "2ead3a43755eab7a60d66b57e897ad777603bee7051b8d0f897440646a3ab72f"
+        },
+        {
+          "b5_bit_sha256": "49c8fcbecd54c52760adf03fd6d2251259e6f291949d7572f149d39f2d7654fd",
+          "b5_expected_hz": 2100,
+          "b5_expected_power": 0.0,
+          "b5_expected_to_peak_power": 0.0,
+          "b5_late_one_count": 96,
+          "b5_late_peak_hz": 2400.0,
+          "b5_late_peak_power": 18432.0,
+          "b5_transitions": 127,
+          "full_code_peak_hz_across_six_buses": [
+            2100.0
+          ],
+          "phase": "post_rom",
+          "raw_y_sha256": "7b76649439c1775c535e43fefaabc0c4a960dad74a1b962ce54f642f97f5a0f4"
+        }
+      ],
+      "raw_rising_edges": 96054,
+      "samples": 256,
+      "stimulus": "A1_2100_tone",
+      "trace_digest": "3a8755cac1999216e9c87c9616ae2a50acdabeb35f47078e9a7583cd57a925bd"
+    },
+    {
+      "cycles": 384256,
+      "input_d127": "B0",
+      "phases": [
+        {
+          "b5_bit_sha256": "014db61ba22eeeee9378094a94f9ff70be0ccec56bdd14447d214d5f74f218ff",
+          "b5_expected_hz": 1800,
+          "b5_expected_power": 0.0,
+          "b5_expected_to_peak_power": 0.050363,
+          "b5_late_one_count": 96,
+          "b5_late_peak_hz": 2600.0,
+          "b5_late_peak_power": 0.0,
+          "b5_transitions": 255,
+          "full_code_peak_hz_across_six_buses": [
+            1800.0
+          ],
+          "phase": "pre_rising",
+          "raw_y_sha256": "f8546ecc31eb9824e93ab9b56eab488f18cf5a086a4d6a99d0310572d3357110"
+        },
+        {
+          "b5_bit_sha256": "014db61ba22eeeee9378094a94f9ff70be0ccec56bdd14447d214d5f74f218ff",
+          "b5_expected_hz": 1800,
+          "b5_expected_power": 0.0,
+          "b5_expected_to_peak_power": 0.050363,
+          "b5_late_one_count": 96,
+          "b5_late_peak_hz": 2600.0,
+          "b5_late_peak_power": 0.0,
+          "b5_transitions": 255,
+          "full_code_peak_hz_across_six_buses": [
+            1800.0
+          ],
+          "phase": "post_rom",
+          "raw_y_sha256": "712fcaed06f77367030401c0afa1c2418208a4c6cea828bb726e9edd36e3644b"
+        }
+      ],
+      "raw_rising_edges": 96054,
+      "samples": 256,
+      "stimulus": "unmodulated_1800_carrier",
+      "trace_digest": "81a2a0dbba7c7a99c616bf3612966434ae089a77c302e83a648ff6b75efbd65b"
+    }
+  ],
+  "fixture": {
+    "assumed_source": "Am2901 Y bit 4 to 74LS273 D4; Q4 to DAC08 B5",
+    "input": "D127 held at A1 tone step 88 or unmodulated step B0",
+    "latch": "candidate U10 D2 rising/falling phase, divided by 375",
+    "mapping": "joint upper-source lower mask 04",
+    "photo_route": "DAC08 B5 pin 9 appears to lead toward 74LS273 Q4 pin 9",
+    "sample_hz": 9600,
+    "spectral_window": "samples 64 through 255, 192 samples, 50 Hz DFT bins"
+  },
+  "limitations": [
+    "Only the Q4-to-B5 segment is suggested by the existing photograph; Y4-to-D4, latch clock, full DAC bus and analog route are untraced.",
+    "A one-bit DAC input spectrum is not the analog line spectrum and cannot pass C2 alone.",
+    "The held D127 stimuli are reconstructed controller-mode hypotheses, not a live controller/DSC co-simulation."
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/joint_four_row_retention_tx.py": "58c1024ab797271fa9a810423538339d871e22c3ee3683d1e1b62f6771988970",
+    "analysis/microcode/g2/joint_mask04_photo_b5_tone.py": "efa6240db50eb33fe722a61b5478dd60d7c77076c2b2010e18679f050b6e1b34",
+    "analysis/microcode/g2/photo_tx_divided_prom_clock.py": "22ae6aaadd3e914a0efb0c124586ffa7afdd69bef1c0f656110b094c5e64c1ed",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/photo-random-dibit-validation.json": "df23d89e1b7c6a5eb5c18ed712a7759afeeb9c139aed7eba463b452ba65c1081",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "status": "A photo-suggested DAC08 B5 bit is tested on the fixed mask-04 real-PROM stream under tone and unmodulated-carrier inputs."
+}

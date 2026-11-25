@@ -1149,6 +1149,14 @@ phases B–C turn "what" into "how".
   retain a 2,100 Hz A1 peak, quiet late A2 and 0/62 A3/A4 decisions; an
   ungated A2 stays nearly as loud as A1. This tests the timing candidate,
   while the physical latch/data/analog path remains unverified and C2 open.
+  A [photo-B5 bit screen](g2/JOINT-MASK04-PHOTO-B5-TONE.md) then checks the
+  one DAC data pin suggested by a front-side trace, under the same fixed map.
+  The full candidate code peaks at 2,100 Hz for tone and 1,800 Hz for an
+  unmodulated carrier in all six bus orders and both latch phases. The
+  assumed Y4→74LS273 Q4→DAC08 B5 bit instead peaks at 2,400/2,600 Hz;
+  its own level is not an independent line-carrier witness. This does not
+  reject the Q4→B5 photo segment, but a higher-weight DAC pin or analog
+  node must constrain the output route before C2 can pass.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,

@@ -123,6 +123,12 @@ complete 2,040,256 instructions; all 72 bus/phase/release cases retain a
 2,100 Hz tone, quiet late A2 and 0/62 A3/A4 decisions. This strengthens the
 specific controller-to-latch hypothesis but leaves its net and analog route
 unverified. Keep C2 open and test independent output-route constraints next.
+The [photo-B5 single-bit test](g2/JOINT-MASK04-PHOTO-B5-TONE.md) checks the
+one visible DAC input candidate against the same mask-`04` PROM mapping.
+Full candidate codes peak at 2,100/1,800 Hz for tone/carrier controls, but
+B5 alone peaks at 2,400/2,600 Hz in the tested band. Do not treat that pin's
+changing level as proof of a line signal; pursue a higher-weight DAC input or
+analog output node under labelled photo-compatible routes.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
