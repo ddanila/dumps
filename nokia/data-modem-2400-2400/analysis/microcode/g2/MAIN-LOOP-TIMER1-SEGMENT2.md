@@ -35,6 +35,10 @@ observed distinction. A3 is now a stronger *segment-1 candidate* because
 it precedes the exact segment-2 sequence, lasts across 25 modeled timer
 interrupts and supplies no scrambled data, but no 180° line reversals have
 been demonstrated for A3.
+The [direct held-frame replay](PHOTO-A3-HELD-FRAME-SEGMENT1.md) now excludes
+every observed A3 frame-byte value as a carrier-preserving segment-1 source
+when wired literally to D127 in the tested q3 loop. That result leaves
+decoded commands and other DSC paths open.
 
 The emulator increments Timer 1 once per instruction tick, without varying
 the count by 8031 instruction machine-cycle cost. The interrupt count is

@@ -99,6 +99,15 @@ phases B–C turn "what" into "how".
   The first A3→A4 boundary spans 25 modeled timer interrupts. A3 is a
   stronger segment-1 candidate, but the CPU timer model, RAM15 gate,
   physical symbol timing and 180° line reversals are not established.
+  A [literal A3-frame route screen](g2/PHOTO-A3-HELD-FRAME-SEGMENT1.md) then
+  tests all six distinct frame-byte values as held candidate D127 inputs
+  with no port-01 data. Three even bytes sustain 32-symbol, 384,256-word
+  PROM runs but their carrier-relative phase drifts; none retains an
+  alternating 180° offset. The three odd bytes leave the first loop after
+  61–221 ROM reads in the prior all-byte screen. A direct held byte in this
+  q3 loop therefore does not generate A3's required segment-1 pattern.
+  Test a decoded command, symbol-rate idle source or different microcode
+  loop without treating the untraced connection as a blocker.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading
