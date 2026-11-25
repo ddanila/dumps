@@ -1,0 +1,372 @@
+{
+  "experiment": "greedy partial-truth-table Boolean receive transition decoder",
+  "fixture": {
+    "development_observations": 987,
+    "development_traces": 21,
+    "input": "previous and current four-bit visit47/94 states",
+    "known_transition_keys": 86,
+    "optimization": "for each output bit, enumerate all eight-input cubes excluding known zeros; greedily cover known ones by new coverage, then fewer literals and fixed numeric tie breaks; prune redundant cubes",
+    "unknown_transition_keys": 170,
+    "validation": "leave one carrier angle out; freeze final terms before testing third-seed fresh stream"
+  },
+  "fresh_cases": [
+    {
+      "checks": 47,
+      "degrees": 0,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "56eeecee755704cd782b6a746ce222ecab421b6f6625b85b32fd3a8a26a545d6"
+    },
+    {
+      "checks": 47,
+      "degrees": 15,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "641dd508158d22a70f1e7d2c30645a7d3a4f7e47c5f3d588119044b2c1018f9c"
+    },
+    {
+      "checks": 47,
+      "degrees": 30,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "9580bed321b4d0769ff36dd179e17d0a9d19d754f006f069f3861f86d6b18efd"
+    },
+    {
+      "checks": 47,
+      "degrees": 45,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "f6b9c62cbf0194d3e777763389ee5536531c21c586c479d4f7ce856a8d1acd91"
+    },
+    {
+      "checks": 47,
+      "degrees": 60,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "d08c229a3501782223fa13f3e286119535c1713b897682c0d964c7a5dde479fb"
+    },
+    {
+      "checks": 47,
+      "degrees": 75,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "372d0818a6127c95c7b4591467c7383ccd4a9fbc264d584a2381d50ca4688078"
+    },
+    {
+      "checks": 47,
+      "degrees": 90,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "d539f507baaee0b3f3feda9cb34920d11a94eef15764697267b8c6fd0efce965"
+    },
+    {
+      "checks": 47,
+      "degrees": 105,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "b43429a12317c616ab85db374de28c0f6b880d1e208b4257d75d51a603551379"
+    },
+    {
+      "checks": 47,
+      "degrees": 120,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "7a60acb42175e374c327e7e9667590c9cb05105688550e26b0503cdde4cb5bbe"
+    },
+    {
+      "checks": 47,
+      "degrees": 135,
+      "errors": 2,
+      "misses": [
+        {
+          "actual": 3,
+          "expected": 1,
+          "key": "E8",
+          "symbol": 37,
+          "unseen_in_training": true
+        },
+        {
+          "actual": 1,
+          "expected": 3,
+          "key": "7B",
+          "symbol": 45,
+          "unseen_in_training": true
+        }
+      ],
+      "trace_digest": "565770c9e3624156d0b1c130ea405eb1e46b19ba3917c6c106632d9191999bbc"
+    },
+    {
+      "checks": 47,
+      "degrees": 150,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "b80ab038a5388946e6b6288ce0af9f27c5fd4f5e73ded9e8730b97b5e746eabf"
+    },
+    {
+      "checks": 47,
+      "degrees": 165,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "be6ccc68acab149528700bd5cc3f2f678fbe1274ec2d46bb5b471d13117da415"
+    },
+    {
+      "checks": 47,
+      "degrees": 180,
+      "errors": 0,
+      "misses": [],
+      "trace_digest": "3c4d9c270f6de3965c0033625774f1ffaa9a0aedfd280d47df6607f0e66c6531"
+    }
+  ],
+  "fresh_total": {
+    "checks": 611,
+    "errors": 2
+  },
+  "leave_angle_out": [
+    {
+      "checks": 47,
+      "degrees": 0,
+      "errors": 1,
+      "known_key_errors": 0,
+      "product_terms": [
+        8,
+        8
+      ],
+      "unseen_keys": 8
+    },
+    {
+      "checks": 94,
+      "degrees": 15,
+      "errors": 0,
+      "known_key_errors": 0,
+      "product_terms": [
+        9,
+        8
+      ],
+      "unseen_keys": 3
+    },
+    {
+      "checks": 94,
+      "degrees": 30,
+      "errors": 1,
+      "known_key_errors": 0,
+      "product_terms": [
+        8,
+        8
+      ],
+      "unseen_keys": 1
+    },
+    {
+      "checks": 47,
+      "degrees": 45,
+      "errors": 4,
+      "known_key_errors": 0,
+      "product_terms": [
+        8,
+        8
+      ],
+      "unseen_keys": 6
+    },
+    {
+      "checks": 94,
+      "degrees": 60,
+      "errors": 0,
+      "known_key_errors": 0,
+      "product_terms": [
+        9,
+        8
+      ],
+      "unseen_keys": 0
+    },
+    {
+      "checks": 94,
+      "degrees": 75,
+      "errors": 0,
+      "known_key_errors": 0,
+      "product_terms": [
+        8,
+        8
+      ],
+      "unseen_keys": 6
+    },
+    {
+      "checks": 47,
+      "degrees": 90,
+      "errors": 3,
+      "known_key_errors": 0,
+      "product_terms": [
+        9,
+        8
+      ],
+      "unseen_keys": 5
+    },
+    {
+      "checks": 94,
+      "degrees": 105,
+      "errors": 0,
+      "known_key_errors": 0,
+      "product_terms": [
+        9,
+        8
+      ],
+      "unseen_keys": 0
+    },
+    {
+      "checks": 94,
+      "degrees": 120,
+      "errors": 7,
+      "known_key_errors": 0,
+      "product_terms": [
+        8,
+        8
+      ],
+      "unseen_keys": 7
+    },
+    {
+      "checks": 47,
+      "degrees": 135,
+      "errors": 0,
+      "known_key_errors": 0,
+      "product_terms": [
+        9,
+        8
+      ],
+      "unseen_keys": 3
+    },
+    {
+      "checks": 94,
+      "degrees": 150,
+      "errors": 4,
+      "known_key_errors": 0,
+      "product_terms": [
+        9,
+        8
+      ],
+      "unseen_keys": 7
+    },
+    {
+      "checks": 94,
+      "degrees": 165,
+      "errors": 0,
+      "known_key_errors": 0,
+      "product_terms": [
+        9,
+        8
+      ],
+      "unseen_keys": 7
+    },
+    {
+      "checks": 47,
+      "degrees": 180,
+      "errors": 0,
+      "known_key_errors": 0,
+      "product_terms": [
+        8,
+        8
+      ],
+      "unseen_keys": 5
+    }
+  ],
+  "leave_angle_out_total": {
+    "checks": 987,
+    "errors": 20
+  },
+  "limitations": [
+    "Unobserved transition keys are Boolean don't-cares during fitting; their predictions are not established by the PROM traces.",
+    "This is external combinational logic, not a traced or executed DSC/8251A consumer.",
+    "The fresh errors and leave-angle-out errors reject this particular fitted circuit as a complete receiver."
+  ],
+  "literal_count": 59,
+  "source_sha256": {
+    "analysis/microcode/g2/receiver_mask04_four_bit_transition.py": "e10cf6e16e4ee30cf49f317f0a16604c93b44ef3ead707c1537460bded168c14",
+    "analysis/microcode/g2/receiver_mask04_phase_state_audit.py": "3ac3ec6fcb99f813a74dd3c4f68c18c33df789a6b947debf2bf3e90dd42e6baf",
+    "analysis/microcode/g2/receiver_mask04_transition_pla.py": "c8b63f0125490ca2baa717e813eaa571e1f152d1b4167f3dcaaa7cd07283d869",
+    "analysis/microcode/g2/results/receiver-mask04-four-bit-transition.json": "2cf720fb9d51e90cf90c1df8e7835a51aab08f8d80030f33932a71f797edc972",
+    "analysis/microcode/g2/results/receiver-mask04-multivisit-capture.json": "06920fc854266fbcc4cbfca6828c550327dd280f3495558e6bc2b13d8017903d",
+    "analysis/microcode/g2/results/receiver-mask04-three-bit-two-visit.json": "e4bcd4f52bed507fe043aa870eec4c6a4bcd9dfd7bbe2a75d1618f5940d8c021"
+  },
+  "term_count": 17,
+  "terms": [
+    {
+      "cubes": [
+        {
+          "mask": "A2",
+          "value": "80"
+        },
+        {
+          "mask": "8A",
+          "value": "02"
+        },
+        {
+          "mask": "2E",
+          "value": "2E"
+        },
+        {
+          "mask": "3A",
+          "value": "00"
+        },
+        {
+          "mask": "B8",
+          "value": "B8"
+        },
+        {
+          "mask": "62",
+          "value": "22"
+        },
+        {
+          "mask": "91",
+          "value": "11"
+        },
+        {
+          "mask": "62",
+          "value": "40"
+        },
+        {
+          "mask": "91",
+          "value": "80"
+        }
+      ],
+      "output_bit": 0
+    },
+    {
+      "cubes": [
+        {
+          "mask": "2A",
+          "value": "08"
+        },
+        {
+          "mask": "2A",
+          "value": "22"
+        },
+        {
+          "mask": "8B",
+          "value": "8B"
+        },
+        {
+          "mask": "93",
+          "value": "00"
+        },
+        {
+          "mask": "19",
+          "value": "08"
+        },
+        {
+          "mask": "1B",
+          "value": "11"
+        },
+        {
+          "mask": "66",
+          "value": "04"
+        },
+        {
+          "mask": "9C",
+          "value": "10"
+        }
+      ],
+      "output_bit": 1
+    }
+  ],
+  "training": {
+    "errors": 0,
+    "keys": 86
+  }
+}

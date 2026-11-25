@@ -1305,6 +1305,12 @@ phases B–C turn "what" into "how".
   transitions `0→4→8→0` require a nonzero net state-phase change. A
   direct transition decision or extra retained/timing state remains
   testable; this negative result does not block C3.
+  A [direct two-output Boolean screen](g2/RECEIVER-MASK04-TRANSITION-PLA.md)
+  fits all 86 known transition keys with 17 product terms, but makes
+  20/987 leave-angle-out errors and 2/611 fresh-stream errors, both on
+  previously unseen data keys. This rejects that frozen circuit as a
+  complete receive readout; test additional executed features or retained
+  state before a serial/USART handoff.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

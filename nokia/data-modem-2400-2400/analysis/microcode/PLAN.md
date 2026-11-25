@@ -65,6 +65,12 @@ plus a constant symbol advance. Self-transitions force a 180° advance,
 but an observed three-edge cycle contradicts that model. Seek direct
 pair-to-dibit logic or additional retained/timing state; do not infer a
 simple absolute-phase latch from the transition lookup.
+The [direct Boolean transition screen](g2/RECEIVER-MASK04-TRANSITION-PLA.md)
+fits the 86 observed keys with 17 product terms but misses 20/987
+leave-angle-out decisions and two fresh data decisions. Treat those as
+counterexamples to that fixed circuit, not as a reason to fill unseen
+keys from reference answers or pause C3. Test richer executed features,
+retained state or capture timing against new streams.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase
