@@ -1208,6 +1208,13 @@ phases B–C turn "what" into "how".
   the proposed clock but establishes neither U12/U24 wiring nor an RxD
   route. Try a phase-tracking input or another four-row consumer, and
   keep C3 open without treating the missing continuity as a blocker.
+  The [rotated row-pair codebook](g2/RECEIVER-MASK04-ROTATED-CODEBOOK.md)
+  tests whether another fixed lookup could repair that failure. Across
+  six real-PROM 45°/135° streams, `(F3,F2)` represents two reference
+  phase states even after allowing a constant offset between rotations.
+  A 45° table trained on one stream covers both independent streams but
+  misses 5/24 dibits. Test a multi-visit or stateful consumer rather than
+  treating a new one-visit gate as established; C3 remains open.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
