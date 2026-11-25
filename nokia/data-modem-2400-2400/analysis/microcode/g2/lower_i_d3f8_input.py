@@ -24,7 +24,7 @@ OTHER_PC = 0x3EB
 OUTPUT_PCS = (0x3F8, 0x3F9, 0x3FA)
 
 
-def run_trace(mapping, base, site, values):
+def run_trace(mapping, base, site, values, cycles=CYCLES):
     scenario = split_scenario(base)
     scenario['initial']['q'] = 5
     for bit in ('7', '0'):
@@ -37,11 +37,11 @@ def run_trace(mapping, base, site, values):
     scenario['io']['read']['evidence'] += (
         f'; diagnostic D{site:03X} byte stream; physical source and clock untraced')
     with tempfile.TemporaryDirectory() as temporary:
-        result = execute(mapping, scenario, CYCLES, mode='integrated',
-                         out=temporary, trace_limit=CYCLES)
+        result = execute(mapping, scenario, cycles, mode='integrated',
+                         out=temporary, trace_limit=cycles)
         trace = [json.loads(line) for line in
                  (Path(temporary)/'trace.jsonl').read_text().splitlines()]
-    if not result['clean'] or len(trace) != CYCLES:
+    if not result['clean'] or len(trace) != cycles:
         raise ValueError('D-site stream run incomplete')
     ram = scenario['initial']['ram'][:]
     boundaries = []

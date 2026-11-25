@@ -1,0 +1,205 @@
+{
+  "controller_stream": {
+    "bits": 128,
+    "first_128_one_bits": 57,
+    "lanes": [
+      {
+        "checked_bits": 128,
+        "distinct_quartets": 2,
+        "input_visits": 138,
+        "lane": 1,
+        "output_quartets": 138,
+        "trace_digest": "562ec83ce0ea1f0fbbf82182af1c7b13be2d0942281bfd1e2085caf3f4838e35"
+      },
+      {
+        "checked_bits": 128,
+        "distinct_quartets": 2,
+        "input_visits": 138,
+        "lane": 2,
+        "output_quartets": 138,
+        "trace_digest": "10575e8b417eb8ab22a66049e586ecae750281fbfaf9caedc2536960156e2c0b"
+      },
+      {
+        "checked_bits": 128,
+        "distinct_quartets": 2,
+        "input_visits": 138,
+        "lane": 3,
+        "output_quartets": 138,
+        "trace_digest": "9ac2db0dad14a4d1bbdc514fb82188b0b71ff29d186f7ea486ed463df117ce77"
+      }
+    ]
+  },
+  "fixture": {
+    "condition_select_0": "previous carry, inverted",
+    "d3f8_trigger": "D1 pulse at visit 20",
+    "initial_q": 5,
+    "mapping": "I7/A0=!10.6, I0/A1=11.2, lower I6=11.0",
+    "tested_late_d_sites": [
+      "3A3",
+      "3A4",
+      "3A5",
+      "3A6",
+      "3A7"
+    ],
+    "virtual_output_sites": [
+      "3B3",
+      "3B4",
+      "3B5",
+      "3B6"
+    ]
+  },
+  "full_byte_check": {
+    "bytes_checked": 256,
+    "cycles_each": 512,
+    "distinct_signatures": 16,
+    "input_visits_each": 14,
+    "rule": "n=D&0F; outputs=(F0|n, F0|((n+1)&0F), n, 0F-n)",
+    "signatures_sha256": "5629654b4703a25249a241a2444fc408d903bdec9a9d32d8ea87437b6ae2b8e0"
+  },
+  "limitations": [
+    "The D3F8 trigger, D3A6 input route, condition source, PROM data connections and output capture sites are untraced hypotheses.",
+    "The quartet is a nibble transform with no demonstrated carrier phase, DAC sample clock or analog line path.",
+    "This does not meet the transmitter or receiver/echo-canceller acceptance tests."
+  ],
+  "site_screen": [
+    {
+      "lanes": [
+        {
+          "differing_output_bytes": 0,
+          "lane": 1,
+          "output_quartets": 103,
+          "trace_digest": "49cdf2d5228cc046fd02a55ca0d220ad3ad8776def81039faee1988b5392375c",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 0,
+          "lane": 2,
+          "output_quartets": 103,
+          "trace_digest": "b0b9cd0121a3b80c9764a973c7b20e7bec9a5d77a8cd519019d182a0ab8dddce",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 0,
+          "lane": 3,
+          "output_quartets": 103,
+          "trace_digest": "9554cd789a95304c375c531f0af3fec918f3e45c6a1726aeea2dd9f893db4306",
+          "visits": 103
+        }
+      ],
+      "pc": "3A3"
+    },
+    {
+      "lanes": [
+        {
+          "differing_output_bytes": 42,
+          "lane": 1,
+          "output_quartets": 103,
+          "trace_digest": "326b707785d8a31c1e80e3fdbec48050d2be32fd7f722349a265212131d8ca72",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 42,
+          "lane": 2,
+          "output_quartets": 103,
+          "trace_digest": "5904c8ed306d58d84503b47c1555cbbe37b7392f8843e200f9435c5725553f72",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 42,
+          "lane": 3,
+          "output_quartets": 103,
+          "trace_digest": "d0122d7154107d57bee26e1556a2d7c4480a1e319e218cca359983d8fa909320",
+          "visits": 103
+        }
+      ],
+      "pc": "3A4"
+    },
+    {
+      "lanes": [
+        {
+          "differing_output_bytes": 0,
+          "lane": 1,
+          "output_quartets": 103,
+          "trace_digest": "fd4d645af8a8e965b9f87c66f064156537055becda3a686112d6d4535df4b186",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 0,
+          "lane": 2,
+          "output_quartets": 103,
+          "trace_digest": "74de7261d8b39eff8ebc10981813b655aa61cbf02a609e96c92aef0cc6513fc0",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 0,
+          "lane": 3,
+          "output_quartets": 103,
+          "trace_digest": "8aa0f0b38705492e7f6a595b27ff57fedbc2737a359907c0f54427ab860de4c5",
+          "visits": 103
+        }
+      ],
+      "pc": "3A5"
+    },
+    {
+      "lanes": [
+        {
+          "differing_output_bytes": 168,
+          "lane": 1,
+          "output_quartets": 103,
+          "trace_digest": "a13591af45249959ce6a95ebf8209b02b7c91ceb8a4253bd43577da9af867a62",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 168,
+          "lane": 2,
+          "output_quartets": 103,
+          "trace_digest": "9267584897c9e01727187d68f346a9c4ce9eeb9a0b679477c7d8d615005f4e43",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 168,
+          "lane": 3,
+          "output_quartets": 103,
+          "trace_digest": "84018e7d27f8a12898fc57937f5ee6a61fc33e58e9578dc51740dcbe413b9c16",
+          "visits": 103
+        }
+      ],
+      "pc": "3A6"
+    },
+    {
+      "lanes": [
+        {
+          "differing_output_bytes": 0,
+          "lane": 1,
+          "output_quartets": 103,
+          "trace_digest": "237a46e0d916ec89ec73748551d61911effaded5f397eff72ab58912e5550b48",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 0,
+          "lane": 2,
+          "output_quartets": 103,
+          "trace_digest": "237a46e0d916ec89ec73748551d61911effaded5f397eff72ab58912e5550b48",
+          "visits": 103
+        },
+        {
+          "differing_output_bytes": 0,
+          "lane": 3,
+          "output_quartets": 103,
+          "trace_digest": "237a46e0d916ec89ec73748551d61911effaded5f397eff72ab58912e5550b48",
+          "visits": 103
+        }
+      ],
+      "pc": "3A7"
+    }
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "26789430ee6f5a1029eadc15cbc91f277ae8a186eea8248d46a0bc636d9669d3",
+    "analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "analysis/microcode/g2/lower_i_d3f8_input.py": "ec229ee4b12a5de53f12bec92a7bb7b97199c4c78b96f4b54c56e30c91fe4764",
+    "analysis/microcode/g2/lower_i_late_byte_relay.py": "f5cb98c51e4383c1b665d31635a0cccca59c6aceb1f4e96511f97536ea5ae710",
+    "analysis/microcode/g2/lower_i_prom_data_route.py": "5af8dad5ed34c54fa4bf976af99e859585e3b5efe54bcb191200d4823641f3e7",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32"
+  },
+  "status": "conditional full-byte and 8031-stream relay at 3A6"
+}

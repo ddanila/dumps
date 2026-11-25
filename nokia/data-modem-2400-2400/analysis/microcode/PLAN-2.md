@@ -346,6 +346,15 @@ phases B–C turn "what" into "how".
   flag timings based on the word alone. Try another plausible mapping,
   initial state or input route rather than treating the missing physical
   trace as a blocker.
+  A [later-byte relay](g2/LOWER-I-LATE-BYTE-RELAY.md) now follows one such
+  alternative: previous-carry select 0 plus a labelled D3F8 pulse enters a
+  repeated `3A2–3B6` path. With the real 8031 stream offered at D3A6, all
+  128 bits are reflected in the internal `3B3–3B6` capture quartet according to a
+  verified low-nibble rule, checked also for all 256 constant byte values.
+  This is a reproducible controller-to-internal-data bridge, but the input
+  connection, virtual captures and DAC route remain untraced, and the quartet
+  does not establish carrier samples. Test a photo-compatible DAC latch and
+  timing continuation or another state/input mapping before claiming C2.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
