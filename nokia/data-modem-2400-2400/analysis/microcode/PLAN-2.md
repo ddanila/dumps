@@ -911,6 +911,15 @@ phases B–C turn "what" into "how".
   those two signatures cannot identify the actual latch site or prove the
   `129` ROM-shaped byte is the line output. Compare output shape and the
   photographed 74LS373/74LS273 data/clock routes before closing C2.
+  The [pulse-shaped waveform screen](g2/PHOTO-JOINT-WAVEFORM-SHAPE.md)
+  supplies the first of those discriminators. It re-executes both full
+  traces, verifies all eight site-code hashes, and fits each of 12 DAC bus
+  orders at four ALU sites against the independent raised-cosine reference.
+  PC129 wins for **all 12 fixed bus orders** in both GPC and GPA; its best
+  mean R² is 0.757, versus 0.653 at the best other site, and its per-bus
+  margin is 0.092–0.131. Several PC129 bus orders remain close, the fit is
+  incomplete, and no latch/DAC route is proven. Use the shape ranking to
+  focus photo-compatible 74LS373/74LS273 timing tests, not to pass C2.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
