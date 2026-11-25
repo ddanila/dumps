@@ -335,6 +335,14 @@ phases B–C turn "what" into "how".
   A time-reversed control survives 133 visits, showing ordering sensitivity
   but not a physical receiver. Change the input mapping/timing hypothesis
   or follow an independent signal path; these fixtures do not meet C2/C3.
+  An [exit-path comparison](g2/LOWER-I-EXIT-PATH.md) follows the D3F8-sensitive
+  branch: under previous-flag timing, `3FA` zero releases `3ED`, `3EE` returns
+  to `18D`, and all six impulse/controller cases eventually repeat `1E9/1EA`
+  with Q=0 and no selected D read or virtual output capture. Under current-flag
+  timing, the loop exits after two D3F8 visits even with constant input;
+  controller-lane traces match the constant control exactly. Treat these as
+  timing-specific results and try another plausible input/timing route rather
+  than treating the missing physical trace as a blocker.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
