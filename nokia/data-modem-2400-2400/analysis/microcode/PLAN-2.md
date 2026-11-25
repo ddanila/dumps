@@ -145,6 +145,13 @@ phases B–C turn "what" into "how".
   inputs of the earlier zero-error DSC PROM runs for both selectors.
   This narrows the candidate gating logic; the TxRDY wire and bit-skip
   circuit remain untraced and C2 remains open.
+  A [nine-offset data-start screen](g2/USART-DATA-START-ALIGNMENT.md)
+  then uses the actual TxRDY-paced nine-byte stream and a 64-bit `FF`-fill
+  window. Only starting at the second shifted data bit gives 0/62 aligned
+  errors in both modes across all 12 candidate DAC buses; the other eight
+  starts give at least 14 errors. Two neighboring starts were run through
+  the real PROM as controls. This constrains a possible input gate, but the
+  output DAC clock/bus and line waveform still need independent evidence.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading

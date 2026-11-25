@@ -42,3 +42,9 @@ retains all 16 event timings, candidate input checks, trace digests and
 source hashes. The next experiment should inspect the photographed 8251A
 TxRDY/TxEMPTY vicinity for a plausible clocked gate, then exercise any
 photo-compatible route through the actual DSC input and DAC sample clock.
+
+The [first-byte alignment screen](USART-DATA-START-ALIGNMENT.md) now checks
+all nine possible starts in the first transmitted data byte. Only a one-bit
+skip gives zero standard-labelled decisions in both modes; adjacent offsets
+were exercised in new real-PROM control runs. This sharpens the timing
+constraint without identifying the physical gate.
