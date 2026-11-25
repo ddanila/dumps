@@ -104,6 +104,8 @@ def run():
                     [p['flag24'] & 0x20 for p in held_phases] != [0x20] + [0]*11):
                 raise AssertionError(('held A1 trajectory', selector))
             held_rows.append(dict(selector=f'{selector:02X}', phases=held_phases,
+                                  iteration_cycles=[step['cycle'] for step in
+                                                    held_execution['iterations']],
                                   frames=[step['tx'] for step in
                                           held_execution['iterations']]))
         for mode in range(3):

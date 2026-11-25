@@ -185,9 +185,12 @@ and reloading counter49, while the isolated fixture starts with that flag
 clear and yields `81`. A directed preserved-state replay later yields `81`
 and `C1` as the counter advances. An uninterrupted polling-loop fixture held
 in A1 now emits `A1` for eleven iterations, then `81`, in four controller
-selector classes. Replay that changing sequence through labelled
-photo-compatible decoder and DAC routes, and test the timer-driven A1
-duration. No new photograph is needed to run those candidates. The
+selector classes. The [dynamic A1 mode replay](g2/PHOTO-A1-DYNAMIC-MODE-REPLAY.md)
+feeds that byte change into one continuously running, photo-compatible DSC
+scenario; its candidate DAC-code peak moves from 1,800 to 2,100 Hz in all
+four classes. Test dibit phase modulation in the same run and the
+timer-driven A1 duration. The decoder, DAC bus and clock remain hypotheses;
+no new photograph is needed to run those candidates. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

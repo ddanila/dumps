@@ -64,10 +64,11 @@ controller-frame counts, nine trace digests, projections and source hashes.
 This fixed decode **cannot be promoted as a state-to-tone explanation** from
 the isolated A1 result. A later counter phase in A1, another frame bit,
 mode-dependent logic, or an entirely different DAC path could still be
-responsible. Next replay the held-A1 changing frame sequence through the
-candidate DSC decoder and DAC capture, then establish the actual A1 interval
-using timer events; do not block on untraced nets or assume the isolated A1
-frame is the physical tone command.
+responsible. The [dynamic DSC replay](PHOTO-A1-DYNAMIC-MODE-REPLAY.md) runs
+the held-A1 changing frame sequence through this decoder and finds a
+1,800→2,100 Hz peak change in candidate DAC codes. Test it with real dibits
+and establish the actual A1 interval using timer events; do not block on
+untraced nets or assume the isolated A1 frame is the physical tone command.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_controller_mode_decode.py

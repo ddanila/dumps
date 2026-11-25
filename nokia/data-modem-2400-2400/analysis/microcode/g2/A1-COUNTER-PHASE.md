@@ -63,9 +63,10 @@ follows from these bytes alone. The simple bit-5 tone/data decode in
 [the earlier candidate](PHOTO-CONTROLLER-MODE-DECODE.md) would change its
 candidate output during A1, from `B0` to `88`, after the eleventh held
 iteration. That delayed change may be a useful hypothesis to test, but it is
-not yet a demonstrated 2,100 Hz tone. Next replay the changing frame sequence
-through candidate DSC input and DAC routes, and establish the A1 duration
-with controller timer events rather than the held-state fixture.
+not yet a demonstrated 2,100 Hz tone. The subsequent
+[dynamic DSC replay](PHOTO-A1-DYNAMIC-MODE-REPLAY.md) does find a 1,800→2,100 Hz
+peak change in candidate DAC codes without resetting the microcode. The
+physical output path and A1 duration still need independent support.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/a1_counter_phase.py
