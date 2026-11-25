@@ -1,0 +1,192 @@
+{
+  "cases": [
+    {
+      "d127_increment": 48,
+      "direct_9600_pc129_per_sample": {
+        "bin_hz": 15.0,
+        "expected_hz": 1800,
+        "peak_hz": 1800.0,
+        "sinusoid_r2": 0.660524
+      },
+      "execution_trace_digest": "038560f9fa99d8e48467883750f6488329eb6df8e9627d1c82edd8e592e3862e",
+      "projected_fast_clock": [
+        {
+          "alignments": 16,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 3000.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 1,
+          "pc129_visits_per_sample": "375/1",
+          "peak_hz_counts": {
+            "3000.0": 16
+          },
+          "target_r2_max": 0.011668,
+          "target_r2_min": 0.011668
+        },
+        {
+          "alignments": 32,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 1500.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 2,
+          "pc129_visits_per_sample": "375/2",
+          "peak_hz_counts": {
+            "1500.0": 32
+          },
+          "target_r2_max": 0.065418,
+          "target_r2_min": 0.065418
+        },
+        {
+          "alignments": 48,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 4200.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 3,
+          "pc129_visits_per_sample": "375/3",
+          "peak_hz_counts": {
+            "4200.0": 48
+          },
+          "target_r2_max": 0.050597,
+          "target_r2_min": 0.050597
+        },
+        {
+          "alignments": 64,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 4050.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 4,
+          "pc129_visits_per_sample": "375/4",
+          "peak_hz_counts": {
+            "4050.0": 64
+          },
+          "target_r2_max": 0.001644,
+          "target_r2_min": 0.001644
+        }
+      ],
+      "target_hz": 1800,
+      "verified_pc129_reads": 740
+    },
+    {
+      "d127_increment": 56,
+      "direct_9600_pc129_per_sample": {
+        "bin_hz": 15.0,
+        "expected_hz": 2100,
+        "peak_hz": 2100.0,
+        "sinusoid_r2": 0.485502
+      },
+      "execution_trace_digest": "86639261e18d76590db26d6315a8f6f9e5b9b46feaec2f9d5d9ff8ef1a9eadf0",
+      "projected_fast_clock": [
+        {
+          "alignments": 32,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 300.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 1,
+          "pc129_visits_per_sample": "375/1",
+          "peak_hz_counts": {
+            "300.0": 32
+          },
+          "target_r2_max": 0.003576,
+          "target_r2_min": 0.003576
+        },
+        {
+          "alignments": 64,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 150.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 2,
+          "pc129_visits_per_sample": "375/2",
+          "peak_hz_counts": {
+            "150.0": 64
+          },
+          "target_r2_max": 0.000188,
+          "target_r2_min": 0.000188
+        },
+        {
+          "alignments": 96,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 3300.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 3,
+          "pc129_visits_per_sample": "375/3",
+          "peak_hz_counts": {
+            "3300.0": 96
+          },
+          "target_r2_max": 0.028444,
+          "target_r2_min": 0.028444
+        },
+        {
+          "alignments": 128,
+          "best_target_alignment": {
+            "fractional_phase": 0,
+            "peak_hz": 4725.0,
+            "visit_offset": 0
+          },
+          "oscillator_periods_per_microinstruction": 4,
+          "pc129_visits_per_sample": "375/4",
+          "peak_hz_counts": {
+            "4725.0": 128
+          },
+          "target_r2_max": 8e-05,
+          "target_r2_min": 8e-05
+        }
+      ],
+      "target_hz": 2100,
+      "verified_pc129_reads": 740
+    }
+  ],
+  "fixture": {
+    "assumed_b5_route": "Y7\u2192LS273 D4\u2192Q4\u2192DAC08 B5",
+    "fast_microinstruction_divisors": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "held_d127_steps": [
+      48,
+      56
+    ],
+    "initial_q": 0,
+    "mapping": "q3 photo-swapped",
+    "oscillator_hz": 14400000,
+    "pc129_rom_bank": 256,
+    "projected_samples": 640,
+    "sample_visit_rule": "n=offset+floor((sample*375+fractional_phase)/divisor)",
+    "target_sample_rate_hz": 9600
+  },
+  "limitations": [
+    "Only the first 740 PC129 visits per step are executed; longer sample sequences use the checked phase/ROM/Y recurrence.",
+    "The 14.4 MHz oscillator marking is visible, but its connection and divisor to the 8X02 and LS273 clock are untraced.",
+    "A 9600 Hz output gate at PC129, Y7\u2192D4, A8 bank, held-I0 and D127 source are hypotheses.",
+    "The tested divisors 1\u20134 and fixed-gate alignments do not exhaust slower or independently generated clocks, other paths or full DAC wiring."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "26789430ee6f5a1029eadc15cbc91f277ae8a186eea8248d46a0bc636d9669d3",
+    "analysis/microcode/board/inventory.json": "7a3a60f886f2e786dae46cbcc1e618d154c2efde75f35dc29a638d916280e3a5",
+    "analysis/microcode/g2/photo_127_clock_alias.py": "cfe9ea7063fb436b772216f376c145df3e600a7c594f06ab0e5abfae78b1928c",
+    "analysis/microcode/g2/photo_127_liveness.py": "cbab4e70ffe97b579d833b5e27751593d206f7459d962f525f730f52c875b33a",
+    "analysis/microcode/g2/photo_127_tone_probe.py": "0e13893b06ed2d2f3521293a5937b52d40e80d44b83e1cde007e4400abf8d56b",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "photos/PXL_20261123_114926601.jpg": "9f15c0ee40fa352a7c123975e83753a7f073320d7bc8971dc9c282358c06f7b2"
+  },
+  "status": "validated PC129 recurrence with projected fast-clock alias screen"
+}

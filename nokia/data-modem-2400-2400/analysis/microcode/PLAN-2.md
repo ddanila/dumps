@@ -158,6 +158,14 @@ phases B–C turn "what" into "how".
   at their own step frequency, so this is a constrained phase-dependent
   output-bit candidate, not proof of Nokia's tone values, sample clock,
   full DAC code or carrier output.
+  A [fast-clock alias screen](g2/PHOTO-127-CLOCK-ALIAS.md) checks the PC129
+  phase/ROM/Y recurrence against 740 executed reads, then projects all
+  distinct 9,600 Hz gate alignments for 14.4 MHz microinstruction divisors
+  1–4. Every step-48 B5 peak moves to 1,500–4,200 Hz and every step-56 peak
+  to 150–4,725 Hz; none remains at 1,800/2,100 Hz. A one-visit-per-sample
+  clock would need 375 oscillator periods per four-word-loop instruction.
+  The divider is untraced, so revise timing, effective step or output path
+  rather than treating this as a physical transmitter rejection.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:

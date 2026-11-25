@@ -41,6 +41,9 @@ held-I0 circuit and LS273 clock remain untraced; the [raw clock screen](PHOTO-12
 shows that unqualified PROM-bit edges at PC129 run far faster than the
 assumed sample cadence under the fast-clock hypothesis. No controller tone
 command, data modulation or receive/echo path is shown by this test.
+The [fast-clock alias screen](PHOTO-127-CLOCK-ALIAS.md) further shows that
+gating a 0.9–3.6 MHz PC129 visit stream down to 9,600 Hz shifts these B5
+peaks away from 1,800/2,100 Hz under the tested divider and gate phases.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_dac_b5_tone_step.py
