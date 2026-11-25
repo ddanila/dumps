@@ -1075,6 +1075,17 @@ phases B–C turn "what" into "how".
   current transmitter and receiver hypotheses therefore cannot simply be
   combined as one C2/C3 mapping. Test an upper-slice instruction/enable or
   output-latch alternative on both paths before assigning modem functions.
+  The [joint upper-source screen](g2/JOINT-UPPER-SOURCE.md) tests one such
+  alternative: inverted U17 D5 to upper I0/I7, with the other high sources
+  from q3 and five disputed lower groups varied. Five of 32 fixed maps
+  preserve 16 held transmitter ROM addresses and sustain 6,000 changing
+  ADC visits. One map also sustains 24,000 visits on two periodic and one
+  nonperiodic reference streams; masking the ADC high nibble changes 5,624
+  selected ROM addresses in its 6,000-visit comparison. This is a
+  conditional compatibility witness, not proof of the upper wires, a full
+  controller-driven C2 waveform, or a recovered C3/C4 decision. Keep G2
+  active and test that fixed map on the full dibit replay and a candidate
+  receive decision/output route.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
