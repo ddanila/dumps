@@ -46,6 +46,9 @@ or receiver/echo function is established. The next experiment should inject
 the same ROM-executed USART dibits through a labelled, line-rate input route
 and ask whether they cause four differential phase changes while preserving
 this carrier-rate loop.
+The [joint state/data check](PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows
+that this D0/D4 crossing cannot also implement the separate A1-state
+2,100 Hz D0/D3 candidate as one fixed chip-1 byte wiring.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_frame_carrier_swap.py

@@ -167,6 +167,11 @@ USART bits on two hypothesized D lanes. It produces retained 64/128-step
 phase changes but also changes the candidate DAC-code frequency during each
 held one bit. Keep testing a photo-compatible timed or decoded input route,
 without calling this direct gate the modulator. The
+[joint state/data bus check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows
+that the separate A1 2,100 Hz and main-frame 1,800 Hz bit-swap leads cannot
+share one fixed chip-1 pin permutation, even with fixed inversions. Test
+mode-dependent selection or another source before combining them into a
+single transmitter interpretation. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

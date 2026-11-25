@@ -681,6 +681,16 @@ phases B–C turn "what" into "how".
   direct gate is a frequency-excursion fixture, not yet the required dibit
   phase modulator. Seek a photo-compatible symbol-boundary or decoded input
   timing rule; do not insert ideal kicks as if they were recovered wiring.
+  A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
+  now prevents combining the two separate bit-swap leads as one fixed
+  chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`
+  differ by one bit, whereas every exact 2,100/1,800 Hz D127 step pair for
+  divisors 1/3 differs by at least two. Fixed pin permutations and fixed
+  inversions preserve Hamming distance. Cross-replaying both candidates
+  confirms D0/D3 gives 2,100 Hz in A1 but 900 Hz in main data, while D0/D4
+  gives 1,800 Hz in main data but 600 Hz in A1. Treat each as a diagnostic
+  route; seek a mode-dependent selector, different source or other output
+  path without promoting either simple crossing to board wiring.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

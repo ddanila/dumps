@@ -1,0 +1,155 @@
+{
+  "crossed_wire_executions": [
+    {
+      "candidate_full_dac_peak_hz": 2100.0,
+      "d127": "88",
+      "effective_step": "38",
+      "mode": "A1_tone_state",
+      "pc129_reads": 740,
+      "proposed_target_hz": 2100,
+      "raw_chip1": "81",
+      "target_r2": 0.33599,
+      "trace_digest": "0e0344b229b85e9d253297192e71337b08af87f42f4475a3bb26e7e8a28f5926",
+      "wire_crossing": [
+        0,
+        3
+      ]
+    },
+    {
+      "candidate_full_dac_peak_hz": 900.0,
+      "d127": "A8",
+      "effective_step": "18",
+      "mode": "main_data_frame",
+      "pc129_reads": 740,
+      "proposed_target_hz": 1800,
+      "raw_chip1": "A1",
+      "target_r2": 0.156941,
+      "trace_digest": "ae6252eab874fa7249c71d8be4343a4c113509f003415b5a96de7bf27215e996",
+      "wire_crossing": [
+        0,
+        3
+      ]
+    },
+    {
+      "candidate_full_dac_peak_hz": 600.0,
+      "d127": "90",
+      "effective_step": "F0",
+      "mode": "A1_tone_state",
+      "pc129_reads": 740,
+      "proposed_target_hz": 2100,
+      "raw_chip1": "81",
+      "target_r2": 0.0,
+      "trace_digest": "7aa50bccf4c37cb36c0d54c5bb641c4b833a728948d80b01d8e8dd3fc390d29a",
+      "wire_crossing": [
+        0,
+        4
+      ]
+    },
+    {
+      "candidate_full_dac_peak_hz": 1800.0,
+      "d127": "B0",
+      "effective_step": "D0",
+      "mode": "main_data_frame",
+      "pc129_reads": 740,
+      "proposed_target_hz": 1800,
+      "raw_chip1": "A1",
+      "target_r2": 0.603612,
+      "trace_digest": "0f32a579db5ad1cf2b5716ad64997ca478efdb5bc7c40cb27452678a257971b7",
+      "wire_crossing": [
+        0,
+        4
+      ]
+    }
+  ],
+  "fixture": {
+    "candidate_dac": "Y129\u2192LS273 ordered; Q4/Q5 swapped to DAC08",
+    "controller": "ROM-executed A1 state and main_00 data frames",
+    "mapping": "q3 photo-swapped",
+    "oscillator_hz": 14400000,
+    "raw_chip1_data": "A1",
+    "raw_chip1_state": "81",
+    "sample_hz": 9600,
+    "tested_divisors": [
+      1,
+      3
+    ]
+  },
+  "invariant": "Any one-to-one bit permutation plus any fixed per-bit inversion preserves pairwise Hamming distance; source distance 1 cannot become target distance >=2.",
+  "limitations": [
+    "The A1 state as 2100 Hz tone and main frame as 1800 Hz data mode are protocol hypotheses, not identified physical commands.",
+    "The result excludes only one fixed chip-1 byte route with bit permutation and fixed inversions at the tested integer clock ratios.",
+    "State-dependent decoding, a second frame chip, different clock/sample relation or other output path can escape this constraint.",
+    "The CD4094-to-DSP route, DAC bus/clock and q3 mapping remain untraced."
+  ],
+  "source_hamming_distance": 1,
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/photo_12c_prom_edge_latch.py": "e99e8fa73690583b0abd4e1332814ca6c135d8acc107adf0046a60c0a75e0ec1",
+    "analysis/microcode/g2/photo_cd4094_order.py": "000cf41081bc3ade72f2ce894c50e8537efee19349dbaf3dc92535b3bc51db09",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_dac08_bus_order_screen.py": "e196857e0a8c14bb531cc974f5e71092662342f5bcca3985cfe2d3b717e91d01",
+    "analysis/microcode/g2/photo_main_frame_carrier_swap.py": "e0439252554baf4cfbfcd0922f0008d615f0ae5612128ac42c9535a2bd5ed0ac",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/photo_state_data_bus_compatibility.py": "f1929f8fb0f33efedbfa99542e6e97455502ddf17431f6c35ec2ffd469a500ec",
+    "analysis/microcode/g2/results/controller-frames.json": "1b3694d79afa5b43f1f21e7fde6870bcc5e557fc0fddadd71519ef688fcc6805",
+    "analysis/microcode/g2/results/main-loop-serial.json": "6375319c79eff2e459b3b32f55b1bfbe4c761463136f1030a45fc4f1453bbebf",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a"
+  },
+  "status": "one fixed chip-1 bitwise wiring cannot explain both exact tone and carrier steps",
+  "target_step_pairs": [
+    {
+      "data_divisor": 1,
+      "data_steps": [
+        "50",
+        "B0"
+      ],
+      "minimum_hamming_distance": 2,
+      "tone_divisor": 1,
+      "tone_steps": [
+        "78",
+        "88"
+      ]
+    },
+    {
+      "data_divisor": 3,
+      "data_steps": [
+        "10",
+        "F0"
+      ],
+      "minimum_hamming_distance": 2,
+      "tone_divisor": 1,
+      "tone_steps": [
+        "78",
+        "88"
+      ]
+    },
+    {
+      "data_divisor": 1,
+      "data_steps": [
+        "50",
+        "B0"
+      ],
+      "minimum_hamming_distance": 2,
+      "tone_divisor": 3,
+      "tone_steps": [
+        "68",
+        "98"
+      ]
+    },
+    {
+      "data_divisor": 3,
+      "data_steps": [
+        "10",
+        "F0"
+      ],
+      "minimum_hamming_distance": 2,
+      "tone_divisor": 3,
+      "tone_steps": [
+        "68",
+        "98"
+      ]
+    }
+  ]
+}
