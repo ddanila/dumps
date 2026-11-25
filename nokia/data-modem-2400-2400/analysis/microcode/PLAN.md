@@ -309,6 +309,14 @@ while the post-ROM phase fits the pulse-shaped data better. Use that tradeoff
 to test an independently constrained clock phase or analog response; keep
 C2 open and do not wait for a measured net before trying another candidate.
 
+The [cycle-divisor screen](g2/PHOTO-TX-CYCLE-DIVISOR.md) keeps the joined
+transmitter fixture fixed and runs real-PROM traces at four hypothetical
+`14.4 MHz / k` microinstruction rates. Only `k=1` retains both the A1
+2,100 Hz peak and zero filtered A3/A4 dibit errors; the others shift the
+tone and lose decisions. This narrows the assumed cycle budget, not the
+untraced physical divider. Keep C2 open and continue with a photo-compatible
+clock, input or receive-output candidate.
+
 For each unresolved dependency:
 
 1. Record what is observed, what is inferred and what must be assumed. Keep

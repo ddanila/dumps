@@ -1161,12 +1161,19 @@ phases B–C turn "what" into "how".
   receiver or echo-canceller demonstration.
   A [two-row dispatch follow-up](g2/RECEIVER-DISPATCH-SOURCE.md#a-two-row-index-schedule-survives)
   finds that alternating `3EF` and `3F7` survives both 128-sample reference
-  streams with 12,000 ADC visits, unlike a full four-row cycle. In paired
+  streams with 12,000 ADC visits. In paired
   32-sample detail, all 3,000 ADC bytes are selected and 2,781 of 3,000
   following Am27S31 addresses differ between waveforms on the same PC path.
   Test a generalizing receive decision on this interleaved schedule, then
   constrain its counter/buffer index and output routes; the two-row sequence
   is still an explicit hypothesis, not recovered board wiring or a C3 pass.
+  A later [four-row condition screen](g2/RECEIVER-FOUR-ROW-CONDITION.md)
+  corrects the earlier restriction: a full `0→1→2→3` cycle also sustains
+  both reference ADC streams under five assumed TEST sources/polarities.
+  Its fourth row erases the tested RAM/Q input difference. A
+  [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) finds no
+  fixed-phase direct Y/flag bit that generalizes as a received dibit;
+  C3 remains open.
   The [raw-PROM ADC enable-phase screen](g2/RECEIVER-PROM-ADC-ENABLE-PHASE.md)
   finds a concrete buffer-gate hypothesis for that same path. A one-cycle
   latched `!U10.D1 & U10.D3 & U10.D7` level enables only `3F8` on all
@@ -1202,6 +1209,12 @@ phases B–C turn "what" into "how".
   microinstructions available per 9600 Hz sample and per baud. Compare these
   with loop lengths in the listing. The main loop must close in a whole
   number of samples.
+  The [joined cycle-divisor screen](g2/PHOTO-TX-CYCLE-DIVISOR.md) executes
+  `k=1…4` with the real PROMs and a counter-qualified sample clock. The
+  four-word loop gives `375/k` edges per 9,600 Hz sample; 832 samples are
+  captured in every case. Under the same D127 pulse and analog hypotheses,
+  only `k=1` has the 2,100 Hz A1 peak and zero filtered A3/A4 dibit errors.
+  This constrains that fixture, not the untraced physical divider or C2.
 
 ### Phase B: optional physical checks to discriminate candidates
 
