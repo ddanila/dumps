@@ -541,6 +541,10 @@ now supplies one all-positive raw-PROM decode that would clock R1-derived
 `3ED` Y after every row. Eleven full traces verify the edge, but their
 captured bytes yield no exact fixed-phase direct bit. U19/U12 wiring and
 USART RxD remain hypotheses; test a stateful readout next.
+The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
+also fails to decode the captured Y[3:0] as a fixed-phase differential
+symbol across independent streams. Keep the conditional latch experiment,
+but seek an executed multi-sample decision or another output source.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent

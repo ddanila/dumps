@@ -1135,6 +1135,13 @@ phases B–C turn "what" into "how".
   training; the selected choice misses 5/48 holdout and 12/48 fresh bits.
   Test a stateful four-row readout or another executed output consumer,
   rather than treating the plausible latch clock as a C3 pass.
+  A [differential phase-nibble test](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
+  then treats each captured Y[3:0] as a possible phase index. None of
+  240,000 fixed phase/direction/offset/lag choices fits training; the
+  training-selected choice misses 16/48 holdout and 10/48 fresh dibits.
+  The isolated perfect fresh stream does not generalize. This excludes
+  that simple external readout under the fixture, not an executed
+  multi-sample receiver; C3 remains open.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,
