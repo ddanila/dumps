@@ -373,6 +373,20 @@ route, so those routes cannot supply a held-input carrier at that clock.
 Change the latch route, timing or command-dependent input fixture next;
 a missing continuity measurement does not pause the experiment.
 
+Apply the same rule to the photographed ADC0800 receive candidate. Its
+complementary output bus, D3F8 input connection and sample clock have not been
+traced, but the [held-input D3F8 test](g2/LOWER-I-D3F8-HELD-HISTORY.md)
+shows a real-PROM loop that selects an assumed input and retains its history.
+Use the available photos and component behavior to define a few explicit
+ADC-bit, polarity, bias and clock hypotheses. Feed continuous reference
+samples through each candidate, compare a changed or time-reversed stream
+with a control that has the same later input, and inspect branch decisions,
+retained state and any candidate receive output. An exit or fixed output
+rejects that fixture; it does not block G2. If no candidate produces a
+receive decision, revise the mapping or timing and pursue another independent
+signal-path clue. A recovered bit supports only a conditional receiver
+explanation until the physical input route is verified.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing
