@@ -707,6 +707,12 @@ phases B–C turn "what" into "how".
   sequence with the real line-side bytes through labelled held-frame and DAC
   routes, and compare against a fixed-bit control. The forced iterations do
   not establish reversal timing or the physical destination of frame bit 6.
+  The first [held-route screen](g2/PHOTO-FRAME-TOGGLE-ROUTES.md) excludes both
+  existing D127 interpretations as a carrier-preserving reversal: the mode
+  decoder ignores the `81`/`C1` difference and projects 2,100 Hz for both,
+  while the direct D0/D4 crossing projects 600/3,000 Hz. Test a transient
+  sampling rule or another control route; keep the observed controller frame
+  sequence distinct from the assumed DSC input wiring.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
   now prevents combining the two separate bit-swap leads as one fixed
   chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`
