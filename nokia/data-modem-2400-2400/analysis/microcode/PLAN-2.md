@@ -108,6 +108,15 @@ phases B–C turn "what" into "how".
   q3 loop therefore does not generate A3's required segment-1 pattern.
   Test a decoded command, symbol-rate idle source or different microcode
   loop without treating the untraced connection as a blocker.
+  A [continuous A3→A4 PROM replay](g2/PHOTO-SEGMENT1-TO-SEGMENT2-CONTINUOUS.md)
+  now gives that idle-source hypothesis a bounded test: 32 assumed `11`
+  dibits followed by the controller's exact A4/A5 GPC or GPA dibits run in
+  one 768,256-word q3 trace per selector. All 12 candidate DAC bus orders
+  decode 62/62 aligned decisions, with the required A3 half-turns and no
+  phase reset at A4. An unmodulated `00` control misses 31 decisions.
+  This demonstrates conditional continuity, not the physical A3 source or
+  line output. Next seek a photo-compatible state-dependent idle source or
+  decoder and test its timing in the same uninterrupted path; G2 stays active.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading
