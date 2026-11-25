@@ -630,9 +630,11 @@ phases B–C turn "what" into "how".
   The [divided-strobe replay](g2/PHOTO-12C-DIVIDED-STATE-LATCH.md) performs
   that first clock test at 9,600 captures/s for the three held alternate-chip
   A1 bytes. Full `12E`/`12F` Y and the candidate DAC B5 bit peak away from
-  2,100 Hz for both integer clock ratios; all divider phase alignments are
-  spectral rotations. A direct held byte cannot supply the proposed A1
-  tone in this fixture. Next test a decoded or changing D12C phase step and
+  2,100 Hz for the integer clock ratios. The fractional ratios at oscillator
+  divisors 2 and 4 also fail the target-bin peak bound across all divider
+  alignments. A direct held byte cannot supply the proposed A1 tone at
+  9,600 captures/s in these divisor-1–4 fixtures. Next test a decoded or
+  changing D12C phase step and
   a constrained full DAC byte path, rather than treating the missing net as
   a goal blocker.
 

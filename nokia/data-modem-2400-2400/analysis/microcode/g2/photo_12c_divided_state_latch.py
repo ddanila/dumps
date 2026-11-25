@@ -21,7 +21,7 @@ from photo_output_clock_bit_screen import CHIPS, edges
 SAMPLES = 640
 SAMPLE_HZ = 9600
 TARGET_HZ = 2100
-DIVISORS = (1, 3)
+DIVISORS = (1, 2, 3, 4)
 STROBE_REPORT = HERE / 'results/photo-12c-prom-edge-latch.json'
 
 
@@ -66,6 +66,42 @@ def rotations_cover_offsets(rom, step, interval, site, period):
     return baseline
 
 
+def target_fraction(values):
+    """Variance fraction at 2100 Hz, with a one-sided real DFT."""
+    count = len(values)
+    mean = sum(values) / count
+    variance = sum((value - mean) ** 2 for value in values)
+    if not variance:
+        return 0.0
+    target_bin = TARGET_HZ * count // SAMPLE_HZ
+    if target_bin * SAMPLE_HZ != TARGET_HZ * count:
+        raise ValueError('target frequency is not a DFT bin')
+    real = sum((value - mean) * math.cos(2 * math.pi * target_bin * index / count)
+               for index, value in enumerate(values))
+    imag = sum((value - mean) * math.sin(2 * math.pi * target_bin * index / count)
+               for index, value in enumerate(values))
+    return 2 * (real * real + imag * imag) / (count * variance)
+
+
+def fractional_alignments(rom, step, divisor, site, period):
+    """Cover the fractional oscillator/sample phase and all ROM-walk offsets."""
+    fractions = []
+    distinct = set()
+    for fractional_phase in range(divisor):
+        for offset in range(period):
+            visits = [1 + offset + (sample * 375 + fractional_phase) // divisor
+                      for sample in range(SAMPLES)]
+            _, _, e, f = sample_values(rom, step, visits)
+            values = tuple(e if site == '12E' else f)
+            distinct.add(values)
+            for source in (values, tuple(value >> 7 for value in values)):
+                fractions.append(target_fraction(source))
+    return dict(alignments=divisor * period,
+                distinct_full_y_sequences=len(distinct),
+                max_full_y_target_r2=max(fractions[::2]),
+                max_photo_b5_target_r2=max(fractions[1::2]))
+
+
 def run(out=HERE / 'results/photo-12c-divided-state-latch.json'):
     prior = json.loads(STROBE_REPORT.read_text())
     prior_by_chip = {row['step_chip']: row for row in prior['cases']}
@@ -95,27 +131,34 @@ def run(out=HERE / 'results/photo-12c-divided-state-latch.json'):
             raise ValueError('projected sample recurrence differs from execution')
         period = 256 // math.gcd(step, 256)
         for divisor in DIVISORS:
-            interval = 375 // divisor
-            if 375 % divisor:
-                raise ValueError('noninteger strobe/sample ratio')
+            interval = 375 // divisor if 375 % divisor == 0 else None
             by_site = {}
             for site in ('12E', '12F'):
-                y = rotations_cover_offsets(rom, step, interval, site, period)
-                b5 = tuple((value >> 7) & 1 for value in y)
-                by_site[site] = dict(full_y=profile(y),
-                                     photo_b5_y7=profile(b5),
-                                     first_16_y=[f'{value:02X}' for value in y[:16]])
-            expected_step = (step * interval) & 255
-            if any(row['full_y']['peak_hz'] == TARGET_HZ or
-                   row['photo_b5_y7']['peak_hz'] == TARGET_HZ
-                   for row in by_site.values()):
-                raise ValueError('A1 held-byte tone result changed')
+                if interval is not None:
+                    y = rotations_cover_offsets(rom, step, interval, site, period)
+                    b5 = tuple((value >> 7) & 1 for value in y)
+                    by_site[site] = dict(full_y=profile(y),
+                                         photo_b5_y7=profile(b5),
+                                         first_16_y=[f'{value:02X}' for value in y[:16]])
+                    if (by_site[site]['full_y']['peak_hz'] == TARGET_HZ or
+                            by_site[site]['photo_b5_y7']['peak_hz'] == TARGET_HZ):
+                        raise ValueError('A1 held-byte tone result changed')
+                else:
+                    by_site[site] = fractional_alignments(
+                        rom, step, divisor, site, period)
+                    # The 320 non-DC one-sided bins sum to unit variance.
+                    # A target bin below 1/320 cannot be the strongest bin.
+                    if (by_site[site]['max_full_y_target_r2'] >= 1 / (SAMPLES // 2) or
+                            by_site[site]['max_photo_b5_target_r2'] >= 1 / (SAMPLES // 2)):
+                        raise ValueError('fractional A1 target bin may be strongest')
+            expected_step = (step * interval) & 255 if interval is not None else None
             cases.append(dict(step_chip=chip, held_d12c=f'{step:02X}',
                               microinstruction_divisor=divisor,
-                              strobes_per_sample=interval,
+                              strobes_per_sample=f'375/{divisor}',
                               effective_phase_step=expected_step,
-                              phase_alignments_checked=period,
-                              alignment_invariant_spectrum=True,
+                              phase_alignments_checked=(period if interval is not None
+                                                        else divisor * period),
+                              alignment_invariant_spectrum=(interval is not None),
                               sites=by_site,
                               executed_pc12e_reads=len(reads),
                               execution_trace_digest=result['trace_digest']))
@@ -137,10 +180,12 @@ def run(out=HERE / 'results/photo-12c-divided-state-latch.json'):
                                photo_b5_candidate='Y7→74LS273 D4→Q4→DAC08 B5',
                                sample_hz=SAMPLE_HZ, samples=SAMPLES,
                                target_hz=TARGET_HZ,
-                               microinstruction_divisors=list(DIVISORS)),
+                               microinstruction_divisors=list(DIVISORS),
+                               fractional_peak_exclusion_bound=1 / (SAMPLES // 2)),
                   cases=cases,
                   limitations=[
                       'The first 613 PC12E/12F visits per byte are executed; 640 gated samples project their checked phase/ROM/Y recurrence.',
+                      'For fractional visit spacing, all oscillator/sample phases and ROM-walk offsets are tested; a target-bin variance fraction below 1/320 proves 2100 Hz cannot be the strongest non-DC bin.',
                       'The CD4094, D-input, U18-clock and DAC byte connections, clock divider and sample rate are untraced hypotheses.',
                       'A1 is a candidate 2100 Hz handshake state, not an identified tone command.',
                       'The tested direct held-byte route failing a tone does not exclude decoded steps, another clock, or another output path.'],
@@ -153,6 +198,7 @@ def run(out=HERE / 'results/photo-12c-divided-state-latch.json'):
 
 if __name__ == '__main__':
     for case in run()['cases']:
+        site = case['sites']['12E']
         print(case['held_d12c'], case['microinstruction_divisor'],
-              case['sites']['12E']['full_y']['peak_hz'],
-              case['sites']['12E']['photo_b5_y7']['peak_hz'])
+              site['full_y']['peak_hz'] if 'full_y' in site else
+              site['max_full_y_target_r2'])

@@ -29,11 +29,23 @@ None peaks at the candidate **2,100 Hz A1 tone**. The target-bin variance
 fraction for full `12E` Y is at most 0.009812, and for the photo-supported
 B5 candidate at most 0.003478. The spectral calculation includes the
 4,800 Hz Nyquist bin, which matters for `80`'s alternating sample series.
+The [extended replay](photo_12c_divided_state_latch.py) also covers two and
+four oscillator periods per microinstruction. These give fractional
+`12E`-visits-per-sample ratios of `375/2` and `375/4`. For each byte and
+ratio, it checks every oscillator/sample phase and every offset within the
+ROM-walk period, at both `12E` and `12F` and for full Y and candidate B5.
+The largest 2,100 Hz variance fraction over all these cases is **0.001283**
+(`7A`, divisor 2, `12E` full Y). There are 320 non-DC bins in the 640-sample
+real spectrum; their one-sided variance fractions sum to one. Thus a bin
+below `1/320 = 0.003125` cannot be the largest. All fractional-site/data
+checks fall below that bound, so none has 2,100 Hz as its strongest bin.
 The [machine report](results/photo-12c-divided-state-latch.json) records
-all six cases, both latch sites, all alignment checks and execution digests.
+all twelve divisor/byte cases, the alignment counts, target fractions and
+execution digests.
 
 This excludes a **direct, held alternate-chip byte** producing the proposed
-A1 tone through this q3 second-loop latch and these two integer clock ratios.
+A1 tone through this q3 second-loop latch at 9,600 samples/s and the tested
+oscillator divisors 1–4.
 It does not establish that A1 is the tone state or that this is the physical
 DAC route. A decoded/changing D12C phase step, another clock relation or a
 different output consumer remains testable; the unknown connections do not
