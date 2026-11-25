@@ -117,6 +117,12 @@ on its wiring and timing. If it fails, revise or discard that candidate and
 continue with another testable route. Physical continuity is useful later to
 choose among survivors; it is not a prerequisite to running or interpreting
 them, and a missing net trace alone must never be recorded as the G2 blocker.
+Before rejecting a candidate, compare it with a control under equivalent
+input levels, register addresses and startup state. A split-slice run must
+state any high-slice pin levels separately from the low slice; copying a
+diagnostic level between them is a labelled hypothesis, not a traced wire.
+If unequal fixtures explain a failure, correct the fixture and rerun the
+candidate. The untraced connection remains an experiment, not a blocker.
 This also applies when the controller emits no line-data bytes or a candidate
 route fails to reproduce a required signal. Use the protocol's specified
 symbol sequence and the observed controller state/frame timing to define a

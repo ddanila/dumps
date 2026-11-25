@@ -2544,6 +2544,30 @@ class AssumedTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'undriven shift level'):
             execute(m,invalid,1,mode='integrated')
 
+    def test_split_slice_high_address_override_is_independent(self):
+        m=copy.deepcopy(self.mapping)
+        for name,bits in dict(command=1,select=3,i=0x87,a=0,b=2,d=0).items():
+            m['fields'][name]=dict(bits=bits,status='stub',evidence='high A fixture')
+        s=copy.deepcopy(self.scenario)
+        s['initial']['ram'][0]=0xAB
+        s['initial']['ram'][1]=0xF0
+        s['inputs']['logic_flags']=dict(mode='am2901b-ripple',status='hypothesis',evidence='ripple fixture')
+        s['inputs']['slice_instruction']=dict(
+            high_from_low={'4':4},status='hypothesis',evidence='identity link fixture',
+            undriven_shift=dict(value=0,status='stub',evidence='unused shift fixture'))
+        policy=lambda value:dict(value=value,status='hypothesis',evidence='independent high A test')
+        s['inputs']['register_address_bit_overrides']={'a_high':{'0':policy(0)}}
+        s['inputs']['register_address_bit_overrides_by_pc']={'0':{'a_high':{'0':policy(1)}}}
+        with tempfile.TemporaryDirectory() as temporary:
+            execute(m,s,2,mode='integrated',out=temporary,trace_limit=2)
+            rows=[json.loads(line) for line in (Path(temporary)/'trace.jsonl').read_text().splitlines()]
+        self.assertEqual([row['register_address_a_high'] for row in rows],[1,0])
+        self.assertEqual([row['alu']['y'] for row in rows],[0xFB,0xAB])
+        invalid=copy.deepcopy(s)
+        del invalid['inputs']['slice_instruction']
+        with self.assertRaisesRegex(ValueError,'register address overrides'):
+            validate_scenario(invalid)
+
     def test_previous_flags_start_unknown(self):
         m=copy.deepcopy(self.mapping)
         for name,bits in dict(command=1,select=3,i=7|(1<<6),a=0,b=0,d=0).items():

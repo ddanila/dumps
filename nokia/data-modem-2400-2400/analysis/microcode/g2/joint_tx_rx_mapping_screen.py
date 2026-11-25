@@ -44,10 +44,18 @@ def mapped_choice(receiver, transmitter, mask):
     return mapping
 
 
-def tx_case(mapping, base, independent=True):
+def tx_case(mapping, base, independent=True, high_links=None):
     scenario = hold_candidate(base)
     if independent:
         scenario = split_scenario(scenario)
+        if high_links is not None:
+            scenario['inputs']['slice_instruction']['high_from_low'] = dict(high_links)
+            scenario['inputs']['slice_instruction']['evidence'] = (
+                'Diagnostic identity links for comparison with the shared-slice control.')
+        scenario['inputs']['register_address_bit_overrides']['a_high'] = copy.deepcopy(
+            scenario['inputs']['register_address_bit_overrides']['a'])
+        for policy in scenario['inputs']['register_address_bit_overrides']['a_high'].values():
+            policy['evidence'] += '; same diagnostic level at U8 A pin is a separate, untraced hypothesis'
     scenario['initial']['q'] = 0
     scenario['io']['read']['pc_sequences'][str(0x127)] = [0xB0]
     scenario['io']['read']['pc_sequences'][str(0x12C)] = [0xEA]
@@ -98,6 +106,9 @@ def run(out=HERE / 'results/joint-tx-rx-mapping-screen.json'):
     del shared_receiver_low['fields']['i_high']
     del shared_receiver_low['fields']['b_high']
     controls = dict(q3_shared=tx_case(transmitter, base, independent=False),
+                    q3_split_photo=tx_case(transmitter, base),
+                    q3_split_identity=tx_case(transmitter, base,
+                                              high_links={'4': 4, '6': 6}),
                     receiver_lower_shared=tx_case(shared_receiver_low, base,
                                                   independent=False))
     if any((row['pc129_visits'], row['distinct_y129'],
@@ -150,7 +161,7 @@ def run(out=HERE / 'results/joint-tx-rx-mapping-screen.json'):
                                switched_groups=[list(f'{field}[{index}]' for field, index in group)
                                                 for group in GROUPS],
                                mask_bit_one='use q3 transmitter source for that group; zero uses receiver source',
-                               transmitter='D127=B0, Q=0, upper ROM, 3000 real-PROM instructions',
+                               transmitter='D127=B0, Q=0, upper ROM, 3000 real-PROM instructions; independent high-slice A pins held at the same diagnostic A levels as low-slice A pins under a separate untraced hypothesis',
                                receiver='Q=5, held complementary ADC 59 versus 09 at D3F8 for 128 visits',
                                high_fields='receiver candidate kept fixed in all 32 variants'),
                   controls=controls, cases=rows,

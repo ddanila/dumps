@@ -26,7 +26,7 @@ def split_scenario(base, undriven=0):
     scenario = copy.deepcopy(base)
     scenario['name'] += f'; U8 instruction links I4=U2.I1, I6=U2.I2; undriven shift={undriven}'
     scenario['inputs']['slice_instruction'] = dict(
-        high_from_low=LINKS, status='hypothesis',
+        high_from_low=dict(LINKS), status='hypothesis',
         evidence='Two facing-pad candidates in g2/PHOTO-SLICE-LINK.md; '
                  'ordinary carry and shift cascade remains assumed.',
         undriven_shift=dict(value=undriven, status='stub',

@@ -81,7 +81,9 @@ def validate_scenario(s):
         raise ValueError('PC instruction overrides require indexed, provenance-owned constant bits')
     address_overrides = s['inputs'].get('register_address_bit_overrides', {})
     if (not isinstance(address_overrides, dict) or any(
-            field not in ('a', 'b') or not isinstance(bits, dict) or any(
+            field not in ('a', 'b', 'a_high', 'b_high') or
+            (field.endswith('_high') and s['inputs'].get('slice_instruction') is None) or
+            not isinstance(bits, dict) or any(
                 not isinstance(bit, str) or not bit.isdecimal() or str(int(bit)) != bit
                 or not 0 <= int(bit) < 4 or not isinstance(policy, dict)
                 or type(policy.get('value')) is not int or policy['value'] not in (0, 1)
@@ -94,7 +96,9 @@ def validate_scenario(s):
     if (not isinstance(address_overrides_by_pc, dict) or any(
             not isinstance(pc, str) or not pc.isdecimal() or str(int(pc)) != pc
             or not 0 <= int(pc) < 1024 or not isinstance(fields, dict) or any(
-                field not in ('a', 'b') or not isinstance(bits, dict) or any(
+                field not in ('a', 'b', 'a_high', 'b_high') or
+                (field.endswith('_high') and s['inputs'].get('slice_instruction') is None) or
+                not isinstance(bits, dict) or any(
                     not isinstance(bit, str) or not bit.isdecimal() or
                     str(int(bit)) != bit or not 0 <= int(bit) < 4 or
                     not isinstance(policy, dict) or
@@ -493,7 +497,10 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             if mode=='integrated' and (address_overrides or clocked is not None):
                 record['register_address_a']=register_address['a']
                 record['register_address_b']=register_address['b']
-            if mode=='integrated' and slice_instruction is not None and any(k in r for k in ('a_high', 'b_high')):
+            if mode=='integrated' and slice_instruction is not None and (
+                    any(k in r for k in ('a_high', 'b_high')) or
+                    any(k in address_overrides for k in ('a_high', 'b_high')) or
+                    any(k in address_overrides_by_pc.get(pc, {}) for k in ('a_high', 'b_high'))):
                 record['register_address_a_high']=register_address['a_high']
                 record['register_address_b_high']=register_address['b_high']
             if read_event is not None:record['external_read']=read_event

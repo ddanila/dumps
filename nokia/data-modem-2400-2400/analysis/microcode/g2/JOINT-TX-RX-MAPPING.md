@@ -15,26 +15,34 @@ the real control PROMs twice: 3,000 instructions with held `D127=B0`, Q=0
 and the upper ROM bank; and 128 `D3F8` visits with Q=5 and a held ADC byte
 `59` versus its low-nibble-only counterpart `09`. The receiver fixture
 uses the same inverted-previous-sign condition as the earlier ADC work.
+The transmit screen now holds the independent high-slice A pins at the same
+diagnostic levels as the low-slice A pins. This is a separate, untraced pin
+assumption: the original comparison left those high pins at their raw PROM
+levels and therefore gave the two slices unequal register addresses.
 
 | Fixed-map case | `129` reads / distinct `Y129` values | ADC high nibble changes next `3F9` address? |
 | --- | ---: | --- |
 | q3 shared-slice transmitter control | 740 / 16 | Not tested as an upper-sensitive map |
+| q3 split-slice, photographed instruction links | 740 / 16 | Not tested as an upper-sensitive map |
+| q3 split-slice, identity instruction links | 740 / 16 | Not tested as an upper-sensitive map |
 | Receiver lower fields, shared slice and no independent upper fields | 740 / 16 | No independent upper ADC path in this control |
 | Receiver map with independent upper slice (mask `00`) | 740 / 1 | Yes, 128/128 paired reads |
 | One mixed map (mask `0E`) | 740 / 2 | Yes, 128/128 paired reads |
 
-Across all 32 independent-upper-slice variants, 24 complete the 740-read
-`129` loop, but none has more than four `Y129` values. Eleven show an ADC
-high-nibble effect on the next `3F9` ROM address. Ten do **both**; among
-those ten the most varied `Y129` stream has only two values. The saved
+Across all 32 independent-upper-slice variants, all complete the 740-read
+`129` loop, but none has more than two `Y129` values. Eleven show an ADC
+high-nibble effect on the next `3F9` ROM address. All eleven do **both**;
+among those eleven the most varied `Y129` stream has two values. The saved
 [report](results/joint-tx-rx-mapping-screen.json) includes every field
 choice, loop count, selected ADC reads, first output bytes and trace digest.
 
 This is a compatibility constraint on the **current hypotheses**. Merely
 adding the receiver's independent upper-slice instruction wiring to the
 q3 transmitter does not retain the 16-value ROM/Y phase path that supported
-the candidate DAC waveform. Switching the disputed lower sources alone
-does not explain the collapse: both shared-slice controls retain that path.
+the candidate DAC waveform. The q3 split-slice controls also retain 16
+values when their high A pins receive the same diagnostic levels. Thus the
+collapse is specific to these fixed receiver upper fields combined with the
+tested lower-field choices, rather than split-slice execution alone.
 The output may use a different high-slice source, a mode-dependent gate, or
 a different byte/latch route. The screen uses held inputs and does not score
 a full dibit waveform, so it does not rule out all modulation in a two-value

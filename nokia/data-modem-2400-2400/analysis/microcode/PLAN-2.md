@@ -1067,9 +1067,11 @@ phases B–C turn "what" into "how".
   A [joint transmitter/ADC field screen](g2/JOINT-TX-RX-MAPPING.md) checks
   whether the separate q3 DAC and independent-upper-slice ADC witnesses can
   coexist in one field map. All 32 tested lower-field combinations keep the
-  receiver upper fields fixed. Ten both complete the held `D127` loop and
-  retain ADC high-nibble influence, but their `Y129` streams contain at most
-  two values, versus 16 in the shared-slice q3 transmitter control. The
+  receiver upper fields fixed. The high-slice A pins use the same labelled
+  diagnostic levels as the low-slice A pins, correcting an unequal-address
+  control fixture. All 32 complete the held `D127` loop; eleven also retain
+  ADC high-nibble influence, but their `Y129` streams contain at most two
+  values, versus 16 in both shared- and split-slice q3 transmitter controls. The
   current transmitter and receiver hypotheses therefore cannot simply be
   combined as one C2/C3 mapping. Test an upper-slice instruction/enable or
   output-latch alternative on both paths before assigning modem functions.
