@@ -1028,6 +1028,17 @@ phases B–C turn "what" into "how".
   windows are diagnostic excerpts, not natural handshake durations. Next
   test a photo-compatible latch/output route; keep C2 open until its line
   output conditions are met, and continue C3/C4 independently.
+  A [conditional line-stage screen](g2/PHOTO-JOINT-LINE-FILTER-SCREEN.md)
+  now applies one A2 mid-code mute gate and a fixed 1,950 Hz biquad bandpass
+  to the same hash-checked joined PROM stream. At Q=1, all six independently
+  validated DAC orders in both controller modes retain the 2,100 Hz peak,
+  fit it with R² 0.721–0.725, settle to less than 0.001 of tone RMS by the
+  last 32 A2 samples, and decode A3/A4 at 0/62 errors with one common
+  sample shift. Narrower Q=2/3 filters improve tone fit but introduce
+  at least 17/70 errors across the twelve cases. This gives a useful
+  analog-bandwidth and gate-timing target, not an independently constrained
+  line waveform; the latch, DAC current-output and connector routes keep
+  C2 open.
   The [output-clock phase screen](g2/PHOTO-JOINT-OUTPUT-CLOCK-PHASE.md)
   projects the PROM-checked recurrence through all 375 offsets of a
   hypothetical one-capture-per-375-`129`-visits gate. All offsets retain the
