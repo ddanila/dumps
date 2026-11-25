@@ -1,0 +1,101 @@
+{
+  "cases": [
+    {
+      "d38e_visits": 2500,
+      "distinct_codes": 18,
+      "final_state_sha256": "0f976aa452418d3f88527cc42b1a165805fa7f005dbd0ea1493a3ff525c186ea",
+      "first_shared_group_index": 2000,
+      "microinstructions": 30044,
+      "name": "forward_prefix",
+      "post_dispatch_rom_reads": 0,
+      "sample_codes": [
+        0,
+        89,
+        215,
+        190,
+        64,
+        54,
+        189,
+        246,
+        127,
+        20,
+        70,
+        148,
+        127,
+        112,
+        191,
+        231,
+        127,
+        15,
+        32,
+        122
+      ],
+      "trace_digest": "46a5daedb0964d4096b5d858253128612f262a4488b39a2e18320cf06fc4e4f6"
+    },
+    {
+      "d38e_visits": 2500,
+      "distinct_codes": 18,
+      "final_state_sha256": "0f976aa452418d3f88527cc42b1a165805fa7f005dbd0ea1493a3ff525c186ea",
+      "first_shared_group_index": 2000,
+      "microinstructions": 30044,
+      "name": "reverse_prefix",
+      "post_dispatch_rom_reads": 0,
+      "sample_codes": [
+        231,
+        191,
+        112,
+        127,
+        148,
+        70,
+        20,
+        127,
+        246,
+        189,
+        54,
+        64,
+        190,
+        215,
+        89,
+        0,
+        127,
+        15,
+        32,
+        122
+      ],
+      "trace_digest": "ecd91d1181d2bd0a0df7f26ccf24998ec7ab2a1158d2d13035b7b9dadddb9c8d"
+    }
+  ],
+  "differing_group_count": 2000,
+  "first_shared_group_index": 2000,
+  "fixture": {
+    "adc_code": "127 - reference signed PCM",
+    "candidate_input_pc": "38E",
+    "d38e_visits_per_sample": 125,
+    "first_reference_sample_index": 64,
+    "initial_q": 5,
+    "instructions_per_d38e_visit": 12,
+    "mapping": "q-independent-3-photo-ab-swapped-photo-a2-a3",
+    "microinstruction_divisor": 1,
+    "oscillator_hz": 14400000,
+    "prefix_samples": 16,
+    "sample_hz": 9600,
+    "shared_tail_samples": 4
+  },
+  "identical_after_first_shared_group": true,
+  "last_differing_group_index": 1999,
+  "limitations": [
+    "ADC-to-D38E wiring, reference range, Q seed, microcycle divisor and conversion schedule are hypotheses.",
+    "This comparison covers the modeled 38E dispatch path, not another DSC input site or external RAM state.",
+    "No recovered bits reach the USART; C3 is not met."
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/ADC0800-INPUT.md": "fd2a3652221f7e07c269fe127f3c0ac4daa4fe1f746203cd9b7dfda1fedfa98e",
+    "analysis/microcode/g2/adc_38e_held_samples.py": "c5337f872999f0944aaeaafe2489d5536067e0365287db548acff7ea78a76494",
+    "analysis/microcode/g2/adc_sample_path.py": "62054e697ea19356b6f1331fe38d16262794f5bf923b9c5199647e07226a983e",
+    "analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078"
+  },
+  "status": "held ADC-like samples at D38E leave no modeled receive history after the first shared input group"
+}
