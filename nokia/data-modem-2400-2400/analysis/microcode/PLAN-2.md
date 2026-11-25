@@ -1076,6 +1076,12 @@ phases B–C turn "what" into "how".
   four random streams while preserving all 2,232 scored decisions and the
   2,100 Hz tone peak. The remaining fit gap and untraced analog/latch path
   keep C2 open; test actual component connections or another output stage.
+  A [six-order DAC code comparison](g2/PHOTO-DAC-SURVIVOR-EQUIVALENCE.md)
+  shows why the surviving bus orders are hard to separate by those signal
+  tests: they share all upper-five-bit codes in both joined controller traces
+  and differ by at most three DAC code counts at any sample. Carry their
+  low-bit ambiguity through clock/output-route tests and seek an independent
+  low-bit trace or precise analog capture to distinguish them; C2 stays open.
   A [joint transmitter/ADC field screen](g2/JOINT-TX-RX-MAPPING.md) checks
   whether the separate q3 DAC and independent-upper-slice ADC witnesses can
   coexist in one field map. All 32 tested lower-field combinations keep the

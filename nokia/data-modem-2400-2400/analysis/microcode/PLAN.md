@@ -569,6 +569,11 @@ the visible photo segment, assumed continuation and control fixture for each.
 Neither the incomplete DAC trace nor the failed direct `D3EB` mode fixture
 blocks these experiments; C2, C3 and C4 remain open until their stated
 acceptance evidence is obtained.
+The [six-order code comparison](g2/PHOTO-DAC-SURVIVOR-EQUIVALENCE.md) shows
+that these orders share every upper-five-bit DAC code on the joined traces;
+they differ by at most three counts in the complete 8-bit code. Treat the
+low-bit order as an uncertainty to carry through clock/output-route tests,
+not as a reason to repeat phase-decision screens or pause for continuity.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent
