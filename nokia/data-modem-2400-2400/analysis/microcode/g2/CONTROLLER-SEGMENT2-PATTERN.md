@@ -37,3 +37,8 @@ output is proved. The [PROM calibration](PHOTO-SEGMENT2-STANDARD-CALIBRATION.md)
 tests these actual bits as candidate DSC inputs. The
 [machine report](results/controller-segment2-pattern.json) includes all
 four selector controls, exact windows and source hashes.
+
+An [interrupt-paced controller run](MAIN-LOOP-TIMER1-SEGMENT2.md) now reaches
+the same A4/A5 byte sequence without forcing expiry at each polling pass,
+under an explicit positive-RAM15 gate. It also observes 25 modeled Timer 1
+interrupts through the preceding A3 interval and no A3 port-01 writes.

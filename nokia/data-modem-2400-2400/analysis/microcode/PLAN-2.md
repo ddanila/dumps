@@ -89,6 +89,16 @@ phases B–C turn "what" into "how".
   window occurs in the four 64-iteration streams. A4 is therefore a strong
   digital segment-2 candidate; the one-bit boundary, natural timing and line
   output remain unresolved, so A1's full state map is not complete.
+  An [interrupt-paced 8031 continuation](g2/MAIN-LOOP-TIMER1-SEGMENT2.md)
+  replaces per-poll countdown expiry with Timer 1 interrupts while explicitly
+  holding the separate RAM15 sign gate positive. Both `40` and `60` paths
+  then spend 34 polling passes in A3 with **no port-01 writes**, followed by
+  exactly eight A4 `FF`-source bytes and the first A5 `03`-source byte.
+  Those nine bytes exactly match the forced-timer source used in the DSC
+  PROM calibration and again contain the full 64-bit GPC/GPA pattern.
+  The first A3→A4 boundary spans 25 modeled timer interrupts. A3 is a
+  stronger segment-1 candidate, but the CPU timer model, RAM15 gate,
+  physical symbol timing and 180° line reversals are not established.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading
