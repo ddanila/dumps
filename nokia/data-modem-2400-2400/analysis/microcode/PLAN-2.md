@@ -1235,6 +1235,15 @@ phases B–C turn "what" into "how".
   physical clock integrity remains untested. Test an explicit latch and
   a phase-class consumer next; do not promote this conditional bit
   to a traced USART receive decision or block on the missing net.
+  The [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
+  now runs 32 `11` reversal symbols and 16 data symbols without restarting
+  the real-PROM receive loop. Two independent streams each give 0/16 data
+  errors at 0° with the nominal readout and at 45° with the `3F8`-bit
+  readout; all 31 measurable preamble dibits are `11`. Executed symbol
+  events are 12,000 microcycles apart, permitting a labelled two-bit
+  serial candidate at 6,000 cycles/bit. The oscillator ratio, RxC phase,
+  8251A character alignment and DSC-to-RxD connection remain hypotheses.
+  Test sync-hunt and pin routing next; this progress does not pass C3.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
