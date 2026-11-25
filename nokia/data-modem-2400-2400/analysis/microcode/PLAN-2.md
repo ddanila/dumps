@@ -550,6 +550,16 @@ phases B–C turn "what" into "how".
   full traces for both: this mapping has not demonstrated an 8-bit receive
   datapath. Change a photo-compatible upper-slice/latch route or test a
   low-nibble decision against independent dibits; C3 remains open.
+  The [upper-D instruction-source test](g2/LOWER-I-D3F8-UPPER-D-ROUTE.md)
+  makes that one-bit mapping change: U8 I0 from U17 bit 5 to bit 6 changes
+  D3F8's upper instruction `FC→FD`, selecting the external high D nibble.
+  Ten periodic/nonperiodic 128-sample streams sustain 24,000 visits each.
+  In two detailed full-versus-masked comparisons, the same PC path now
+  retains upper-nibble effects at 5,812/6,000 state boundaries and more
+  than 11,000 selected ROM addresses, while the baseline has zero effects.
+  This is a strong **conditional** input-path candidate; the U17-to-U8 wire,
+  ADC bus and receive decision are untraced. Seek a symbol decision and a
+  path to USART-01 RxD before claiming C3.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring

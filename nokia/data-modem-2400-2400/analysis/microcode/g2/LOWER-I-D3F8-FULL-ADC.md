@@ -56,3 +56,8 @@ recovered bit or USART-01 RxD event has been found. The next test should
 check whether another photo-compatible field or latch route makes the
 upper ADC bits observable, and search the sustained low-nibble computation
 for a symbol decision that generalizes to nonperiodic streams.
+The [upper instruction-source follow-up](LOWER-I-D3F8-UPPER-D-ROUTE.md)
+finds one such conditional route: changing U8 I0 from U17 bit 5 to bit 6
+makes the upper nibble affect retained state and ROM addresses while the
+128-sample loop remains active. The physical wire and decision route are
+still unverified.

@@ -1,0 +1,392 @@
+{
+  "detailed_full_vs_masked": [
+    {
+      "cases": {
+        "baseline": {
+          "different_alu_y_by_pc": {
+            "3F8": 0,
+            "3F9": 0,
+            "3FA": 0
+          },
+          "different_boundaries": 0,
+          "different_selected_rom_addresses": 0,
+          "high_instructions_at_d3f8": [
+            252
+          ],
+          "high_operand_selects_d": false,
+          "same_pc_path": true
+        },
+        "upper_i0_17_6": {
+          "different_alu_y_by_pc": {
+            "3F8": 5739,
+            "3F9": 5391,
+            "3FA": 5434
+          },
+          "different_boundaries": 5812,
+          "different_selected_rom_addresses": 11368,
+          "high_instructions_at_d3f8": [
+            253
+          ],
+          "high_operand_selects_d": true,
+          "same_pc_path": true
+        }
+      },
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "cases": {
+        "baseline": {
+          "different_alu_y_by_pc": {
+            "3F8": 0,
+            "3F9": 0,
+            "3FA": 0
+          },
+          "different_boundaries": 0,
+          "different_selected_rom_addresses": 0,
+          "high_instructions_at_d3f8": [
+            252
+          ],
+          "high_operand_selects_d": false,
+          "same_pc_path": true
+        },
+        "upper_i0_17_6": {
+          "different_alu_y_by_pc": {
+            "3F8": 5807,
+            "3F9": 5583,
+            "3FA": 5413
+          },
+          "different_boundaries": 5812,
+          "different_selected_rom_addresses": 11458,
+          "high_instructions_at_d3f8": [
+            253
+          ],
+          "high_operand_selects_d": true,
+          "same_pc_path": true
+        }
+      },
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "fixture": {
+    "condition_select_0": "inverted previous sign",
+    "expected_long_visits": 24000,
+    "initial_q": 5,
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "input": "held complementary ADC code 127-PCM at D3F8",
+    "long_cycles": 192047,
+    "long_sample_window": [
+      64,
+      192
+    ],
+    "mapping": "lower I7/A0=!10.6, I0/A1=11.2, I6=11.0",
+    "other_upper_instruction_bits": "unchanged",
+    "sample_hold_visits": [
+      188,
+      187
+    ],
+    "upper_crosslinks": "I4=lower I1, I6=lower I2",
+    "upper_instruction_baseline_i0": "17.5",
+    "upper_instruction_candidate_i0": "17.6"
+  },
+  "limitations": [
+    "U17 D6 to U8 I0 is a photo-compatible source hypothesis, not traced continuity; other upper-slice instruction and address bits remain uncertain.",
+    "ADC bus order, buffer enables, reference range, conversion clock and select-0 condition wiring are also untraced.",
+    "Two detailed 32-sample streams prove upper-bit influence under this mapping; long runs count offered visits but do not save full traces.",
+    "An input-sensitive upper slice is not a decoded symbol, verified output latch or USART-01 RxD route."
+  ],
+  "long_cases": [
+    {
+      "d3f8_visits": 24000,
+      "final_pc": "3F8",
+      "kind": "periodic",
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "selected_rom_reads": 48003,
+      "trace_digest": "44867c0e10bd816fe391ef8dcb33abe3b7d988051f9857345329c0cecc457a5d"
+    },
+    {
+      "d3f8_visits": 24000,
+      "final_pc": "3F8",
+      "kind": "periodic",
+      "pattern": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "selected_rom_reads": 48003,
+      "trace_digest": "9f8e723a115556a8679d59624b1bcfe1775195009676521f73ab3282344423e8"
+    },
+    {
+      "d3f8_visits": 24000,
+      "final_pc": "3F8",
+      "kind": "periodic",
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "selected_rom_reads": 48003,
+      "trace_digest": "9afd6b654325deeac9cf1b1d23434578c694a921d97a81e1b7aa53c721dd3d46"
+    },
+    {
+      "d3f8_visits": 24000,
+      "final_pc": "3F8",
+      "kind": "periodic",
+      "pattern": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "selected_rom_reads": 48003,
+      "trace_digest": "db27eb2b8a0a8d96ccd588391991192169efbca783c5a92d2e867148aad77f36"
+    },
+    {
+      "d3f8_visits": 24000,
+      "final_pc": "3F8",
+      "kind": "periodic",
+      "pattern": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "selected_rom_reads": 48003,
+      "trace_digest": "ea01e225699ed003f826fbbae5df6335d72171a37eb947cf18cf2febae34abdf"
+    },
+    {
+      "d3f8_visits": 24000,
+      "final_pc": "3F8",
+      "kind": "periodic",
+      "pattern": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "selected_rom_reads": 48003,
+      "trace_digest": "0011ca9e552d6ed0d13188baf5ce6712ca2a69a3bf09a1abadd42637f32f8f81"
+    },
+    {
+      "d3f8_visits": 24000,
+      "dibits": [
+        1,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        3,
+        3,
+        2,
+        0,
+        3
+      ],
+      "final_pc": "3F8",
+      "kind": "nonperiodic",
+      "seed": 10311,
+      "selected_rom_reads": 48003,
+      "trace_digest": "2e98a267f87172fb09d10e15346bc59841670895bd4be25b1a7bb342b00a00d8"
+    },
+    {
+      "d3f8_visits": 24000,
+      "dibits": [
+        1,
+        0,
+        2,
+        3,
+        1,
+        1,
+        3,
+        2,
+        2,
+        1,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1
+      ],
+      "final_pc": "3F8",
+      "kind": "nonperiodic",
+      "seed": 13655,
+      "selected_rom_reads": 48003,
+      "trace_digest": "a11a645d3713d331a4d5d4d50f2ad4a5fd168530b416cceff10ef4529a62dfb7"
+    },
+    {
+      "d3f8_visits": 24000,
+      "dibits": [
+        3,
+        3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        1,
+        1,
+        0,
+        3,
+        3,
+        1,
+        0,
+        1
+      ],
+      "final_pc": "3F8",
+      "kind": "nonperiodic",
+      "seed": 13656,
+      "selected_rom_reads": 48003,
+      "trace_digest": "20965786b39d3afe5468605f5f3d36929ade3d3333e4620005c697bcba561841"
+    },
+    {
+      "d3f8_visits": 24000,
+      "dibits": [
+        2,
+        0,
+        2,
+        3,
+        0,
+        3,
+        3,
+        1,
+        2,
+        1,
+        0,
+        2,
+        2,
+        0,
+        3,
+        1
+      ],
+      "final_pc": "3F8",
+      "kind": "nonperiodic",
+      "seed": 33026,
+      "selected_rom_reads": 48003,
+      "trace_digest": "1c4606c9ee51b7d9cc78bfedcc91caf7bad6e4a3e8f7aac777e94cef3b280f0f"
+    }
+  ],
+  "source_cases": [
+    {
+      "d3f8_visits": [
+        59,
+        59
+      ],
+      "final_pcs": [
+        "3F9",
+        "3F9"
+      ],
+      "high_nibble_changes_trace": true,
+      "prom_source": "17.6",
+      "trace_digests": [
+        "f5a214364012ddf05afb0efc882900c512acca83a90340833e06df5bf0e308fb",
+        "e381ddd51a67e1ed2869fe1e7747ff3df76c6e1219e580a6fe9b333ddf4440a5"
+      ],
+      "upper_i_bit": 0
+    },
+    {
+      "d3f8_visits": [
+        59,
+        59
+      ],
+      "final_pcs": [
+        "3F9",
+        "3F9"
+      ],
+      "high_nibble_changes_trace": true,
+      "prom_source": "18.1",
+      "trace_digests": [
+        "d246247eb1f36b1907494ce7868c66baeb1dfefda788e1b973e485c5feb9243d",
+        "b16196d59fb2f36f64f09357770ea53ea057923b80cac4fb611a66e6eee3b692"
+      ],
+      "upper_i_bit": 0
+    },
+    {
+      "d3f8_visits": [
+        59,
+        59
+      ],
+      "final_pcs": [
+        "3F9",
+        "3F9"
+      ],
+      "high_nibble_changes_trace": true,
+      "prom_source": "17.6",
+      "trace_digests": [
+        "ef1e15dc245c8ea5a2574708b6a49152a61a0f17cb5ea733dc2b9caaf8274e83",
+        "5e385a70c0e1b37e91ea4278c68401e502d4adf7d1b8f8c050822899c1a56aaa"
+      ],
+      "upper_i_bit": 1
+    },
+    {
+      "d3f8_visits": [
+        59,
+        59
+      ],
+      "final_pcs": [
+        "3F9",
+        "3F9"
+      ],
+      "high_nibble_changes_trace": true,
+      "prom_source": "18.1",
+      "trace_digests": [
+        "9694e5a9eba0e6f49d6793c0befb59dd529647b688d7413b06ef1d5592373b32",
+        "077d1f0d1eaad670756fa3bf139d331854d9a8ca67661388fb6db9157bb11e86"
+      ],
+      "upper_i_bit": 1
+    }
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/lower_i_d3f8_full_adc.py": "26afc1dd3fc625a018f46f3633a306c1beaf885218aa473a03bff6a672eb1093",
+    "analysis/microcode/g2/lower_i_d3f8_input.py": "ec229ee4b12a5de53f12bec92a7bb7b97199c4c78b96f4b54c56e30c91fe4764",
+    "analysis/microcode/g2/lower_i_d3f8_sign_adc.py": "fba55f4f61909d3da20ff54a70b924bd03d50c3ee7d383ef723c560f261d3c86",
+    "analysis/microcode/g2/lower_i_d3f8_upper_d_route.py": "e46262e47466866738baa43d382693f1580a5c79f15db70bdcb67ef4e98ab36b",
+    "analysis/microcode/g2/lower_i_prom_data_route.py": "5af8dad5ed34c54fa4bf976af99e859585e3b5efe54bcb191200d4823641f3e7",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "conditional upper-slice ADC D selection under one photo-compatible instruction source swap"
+}
