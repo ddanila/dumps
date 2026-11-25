@@ -1117,6 +1117,16 @@ phases B–C turn "what" into "how".
   Its [retained-bit screen](g2/RECEIVER-MASK04-RETAINED-BIT.md) finds no
   exact direct R1/R12/Q bit or previous-symbol XOR on training data, so
   C3 and the untraced C2 physical output route remain open.
+  The [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md) now
+  verifies that the same mask-`04` map has 312,054 U10 D2 rise/fall pairs
+  per uninterrupted transmit mode and 832 divider-qualified samples.
+  Its post-ROM byte hash matches the saved joint-map Y129 trace. Both
+  latch phases peak at 2,100 Hz and give 0/372 A3/A4 decisions per
+  phase across six candidate DAC buses in each mode, although all 832
+  raw bytes differ between phases. Neither selected-bus hash matches the
+  earlier q3 replay, and the q3 phase-shape ranking does not transfer.
+  Keep the latch phase, data wiring and analog path as explicit C2
+  hypotheses; the same map's receive sensitivity does not prove C3.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,

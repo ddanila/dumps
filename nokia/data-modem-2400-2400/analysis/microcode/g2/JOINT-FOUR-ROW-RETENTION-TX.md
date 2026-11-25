@@ -59,3 +59,6 @@ The [machine report](results/joint-four-row-retention-tx.json) saves all
 receive contrasts, four fresh stream digests, both full transmitter traces,
 bus/decoder metrics and source hashes. Reproduce with
 `python3 g2/joint_four_row_retention_tx.py` from the microcode directory.
+The later [raw-PROM edge replay](JOINT-MASK04-TX-PROM-EDGE.md) checks the
+same saved transmitter trace with explicit candidate DAC latch phases;
+its mapped-byte hashes differ from the older q3 map.

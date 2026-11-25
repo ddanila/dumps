@@ -360,6 +360,14 @@ bandpass and six candidate buses. The direct-rise phase fits the tone better,
 while the post-ROM phase fits the pulse-shaped data better. Use that tradeoff
 to test an independently constrained clock phase or analog response; keep
 C2 open and do not wait for a measured net before trying another candidate.
+The [mask-`04` joint-map edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
+confirms that this raw PROM strobe and its 832 divided captures also run
+on the fixed map used for the receive experiments. The `129` capture hash
+matches its saved full-PROM transmit run, but the mapped DAC-code hashes
+differ from q3 and both latch phases have the same tested filtered scores.
+Carry both photo-compatible phases into the next output-route test; do not
+use the q3 waveform-shape preference to select a phase on mask `04` or
+declare C2 passed without a constrained DAC/analog route.
 
 The [cycle-divisor screen](g2/PHOTO-TX-CYCLE-DIVISOR.md) keeps the joined
 transmitter fixture fixed and runs real-PROM traces at four hypothetical
