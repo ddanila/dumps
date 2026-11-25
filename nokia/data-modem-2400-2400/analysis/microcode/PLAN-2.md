@@ -654,6 +654,14 @@ phases B–C turn "what" into "how".
   carry bit. This is a tone-rate internal walk, not yet a sine DAC code.
   Look for a constrained shaping/latch route or a better mapped output
   source; do not infer one from the single B5-bit peak.
+  A [photo-B5-compatible DAC bus screen](g2/PHOTO-DAC08-BUS-ORDER-SCREEN.md)
+  tests reverse, one-position rotation and Q4/Q5 exchange as full LS273-Q
+  to DAC08-B orders, with ordered or Y7/Y4-swapped ALU-Y inputs. All preserve
+  the candidate Q4→B5 photo segment. If Y7 drives Q4, B5 peaks at 2,100 Hz
+  but **none** of the three `129` full-byte codes does; only the reversed
+  `12A` code retains that peak, with 0.247 target-bin variance fraction.
+  The remaining DAC pins and clock are untraced. Use full-byte and physical
+  constraints together when testing further output routes.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

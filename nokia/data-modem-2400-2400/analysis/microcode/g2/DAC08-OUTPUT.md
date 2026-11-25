@@ -140,3 +140,9 @@ code after startup across 1,024 captures. The photo-supported B5←Q4 bit
 changes with the bit at `38E` under the untraced Y→D4 assumption; it stays
 one at `39E`. Neither direct-clock hypothesis produces carrier samples.
 The physical latch clock, full data bus and DAC output route remain open.
+
+The [photo-compatible full-byte order screen](PHOTO-DAC08-BUS-ORDER-SCREEN.md)
+now tests three simple Q→B permutations that all preserve the candidate
+Q4→B5 segment. In the A1 bit-swap phase-loop fixture, assigning Y7 to Q4
+makes B5 peak at 2,100 Hz, but none of the three `129` full-byte DAC codes
+does. This prevents promoting the single-bit tone result to a DAC waveform.

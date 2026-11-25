@@ -152,6 +152,10 @@ test a qualified latch before promoting the signal claim. The
 that the selected ROM byte does not give a dominant 2,100 Hz upper-bank
 full-byte stream; the stronger `12A` result is almost just the phase ramp.
 Keep the DAC byte route and shaping stage open hypotheses. The
+[photo-B5-compatible full-bus screen](g2/PHOTO-DAC08-BUS-ORDER-SCREEN.md)
+shows that a 2,100 Hz B5 bit can coexist with a different full-code peak
+under three simple LS273-to-DAC08 orders. Carry the complete candidate DAC
+byte and clock through later tests. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
