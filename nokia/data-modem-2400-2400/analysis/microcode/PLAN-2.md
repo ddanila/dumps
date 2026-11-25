@@ -1311,6 +1311,15 @@ phases B–C turn "what" into "how".
   confined to those fixed-phase preamble bytes under the tested fixture.
   Test another visit or retained phase state before claiming an automatic
   receive decision; C3 remains open and G2 active.
+  The [two-visit follow-up](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
+  finds that `3F8` Y7 at ADC visit 94 distinguishes the aliased 45°/180°
+  preambles. Combined with row-0 `3ED` Y at visit 47, a frozen external
+  selector gives 0/248 preamble and 0/128 data errors with full coverage
+  on a new random stream across eight 45° carrier rotations, each a
+  576,047-word real-PROM run. A saved 15°–165° challenge yields no fully
+  correct case, so the rule does not establish arbitrary phase tracking.
+  Test an executed or photo-compatible multi-visit decision and then its
+  USART timing; C3 remains open without waiting for net continuity.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero

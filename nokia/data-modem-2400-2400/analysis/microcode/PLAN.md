@@ -115,6 +115,15 @@ only at 180°. A row-0 bit selector fails at 90°; a four-value selector
 fails at 180°. Seek another visit, full-rate sample or retained phase state
 before selecting the readout and replaying USART RxD. This collision does
 not block C3 or prove a physical net.
+The [two-visit preamble selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
+finds the missing distinction at `3F8` Y7 on ADC visit 94 and combines
+it with row-0 `3ED` Y at visit 47. Frozen before a fresh data seed, this
+external rule recovers all 248 measurable preamble and 128 data dibits
+across eight 45° grid rotations in eight 576,047-word PROM runs. It fails
+all eight saved intermediate-angle challenges, so test an executed or
+photo-compatible phase tracker/multi-visit consumer rather than promoting
+the grid rule to C3. The selector clocks, logic and USART path remain open
+wiring hypotheses; G2 stays active.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase
