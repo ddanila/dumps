@@ -893,6 +893,16 @@ phases B–C turn "what" into "how".
   conditional phase information, but the full DAC bus is not identified;
   constrain another bit or the latch/analog path before treating it as
   line output.
+  A [nonperiodic dibit holdout](g2/PHOTO-RANDOM-DIBIT-VALIDATION.md) now
+  tests those 12 fixed orders on four seeded 256-symbol streams. Two
+  32-symbol prefixes are checked by full real-PROM execution, including
+  every `129` address, ROM byte, Y result and candidate sample hash. The
+  four longer projections score 1,016 decisions per bus: six orders stay
+  error-free, the other six make 5–10 errors, and unpulsed carrier controls
+  make 186–198 errors per stream. This strengthens the conditional DPSK
+  behavior and fixes the upper five candidate bit routes, but leaves the
+  low three bits permutable and the physical decoder, DAC latch and line
+  output untraced; C2 remains open.
   A [joint data/tone screen](g2/PHOTO-DAC-JOINT-DATA-TONE.md) then keeps each
   of the 12 zero-error buses fixed through the existing A1 `B0→88` dynamic
   PROM replay. All 12 retain projected 1,800/2,100 Hz peaks across all four
