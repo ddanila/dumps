@@ -1030,6 +1030,14 @@ phases B–C turn "what" into "how".
   margin is 0.092–0.131. Several PC129 bus orders remain close, the fit is
   incomplete, and no latch/DAC route is proven. Use the shape ranking to
   focus photo-compatible 74LS373/74LS273 timing tests, not to pass C2.
+  The [six-bus filter continuation](g2/PHOTO-SURVIVOR-FILTER-VALIDATION.md)
+  revisits that ranking after the nonperiodic holdout: the prior best-shape
+  bus is among the six rejected by independent data, so its R²≈0.757 is
+  not evidence for the surviving family. A fixed one-pole smoothing rule
+  raises mean shape R² from 0.654→0.705 on GPC/GPA and 0.595→0.647 on
+  four random streams while preserving all 2,232 scored decisions and the
+  2,100 Hz tone peak. The remaining fit gap and untraced analog/latch path
+  keep C2 open; test actual component connections or another output stage.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
