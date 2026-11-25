@@ -512,9 +512,15 @@ phases B–C turn "what" into "how".
   four-sample tail after the earlier waveform is reversed; bit 6 selects the
   same number but loses the order difference. The changed later ROM addresses
   and ALU Y values are conditional receive-side leads, not recovered bits.
-  Next seek a decision event correlated with known dibits across distinct
-  symbol sequences and phases, and trace the candidate receive output;
-  keep C3 open without blocking on the untraced ADC bus.
+  The follow-up [cross-symbol screen](g2/LOWER-I-D3F8-ADC-DECODER.md)
+  challenges those eight cases with six four-dibit patterns. Only the
+  original pattern keeps all eight for 32 samples; `03/05` bit 0 survives
+  four patterns, but all four extended 128-sample runs leave D3F8 after
+  6,002–10,690 of 24,000 scheduled visits and settle in `1E9/1EA`.
+  This fixture has not demonstrated a continuing receiver. Change a
+  concrete timing, input-route or field hypothesis and seek a decision
+  event correlated with known dibits across sequences and phases; keep C3
+  open without blocking on the untraced ADC bus.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring

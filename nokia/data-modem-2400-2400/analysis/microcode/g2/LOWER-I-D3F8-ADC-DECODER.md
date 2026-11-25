@@ -55,7 +55,26 @@ records source hashes, trace digests and comparison counts.
 This narrows the receive-side search; it does **not** identify a demodulator
 or satisfy C3. Only one bit of each sample is offered, the two-level decoder
 and D0 bias are untraced, and the changed ALU Y values have no verified route
-to a receive decision or USART-01 RxD. The next discriminating experiment is
-to identify a candidate decision event or output and test whether its timing
-and values correlate with the known transmitted dibits across different
-symbol sequences and phases, while checking the physical input/output routes.
+to a receive decision or USART-01 RxD.
+
+The [cross-symbol screen](lower_i_d3f8_adc_cross_symbols.py) then tests all
+eight 32-sample survivors against six different repeated four-dibit patterns.
+The independent reference receiver recovers each complete pattern. In the
+[saved 48-case matrix](results/lower-i-d3f8-adc-cross-symbols.json), the
+original `0,1,3,2` pattern keeps all eight candidates in D3F8, but the other
+patterns keep only one to five. The `03/05` bit-0 candidate is the most
+consistent of the earlier history witnesses, reaching the full 6,000 visits
+for four of six patterns. Bit 4 reaches the full window only for the original
+pattern. Every short-window exit in this fixture proceeds into the repeated
+`1E9/1EA` path described by the [exit-path analysis](LOWER-I-EXIT-PATH.md).
+
+For the four patterns that bit 0 carries through 32 samples, the same screen
+extends the window to **128 samples** (24,000 scheduled D3F8 visits). All
+four leave D3F8 after **6,002–10,690 visits** and spend the rest of the run
+at `1E9/1EA`; none reaches a demonstrated receive decision. These are
+constraints on this **mapping, initial state, one-bit decoder and assumed
+clock**, not proof that the ADC cannot feed a different receiver path. The
+next test should change a concrete timing or input-route hypothesis that
+can sustain multiple symbol sequences and pass through a candidate decision
+or output event. A decision must then be compared with known dibits under
+different sequences and phases, and its route toward USART-01 RxD checked.
