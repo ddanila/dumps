@@ -10,9 +10,19 @@
 > timing and inputs, then test another photo-compatible route or independent
 > program/signal constraint.
 
-**Current blocker decision:** C3's missing latch, clock and DSC-to-USART
-connections are *open wiring hypotheses*, not a stop condition. The
-[continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
+**Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART and
+analog-line connections are *open wiring hypotheses*, not a stop condition.
+Use the existing photos to choose the simplest pin-compatible continuation,
+state its unseen nets and timing explicitly, and run it with the real PROMs
+and relevant controller traffic. Test a few alternatives that could change
+the result, and keep failed outcomes attached to their exact fixtures. If a
+candidate fails, revise that route or pursue an independent program or signal
+constraint. Keep G2 active while such experiments are possible; an unmet C2,
+C3 or C4 acceptance check remains open, and a plausible waveform or decoded
+bitstream does not by itself verify a physical connection. Do not wait for
+continuity measurements or new photographs to choose the next experiment.
+
+For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
 ADC, readout and oscillator assumptions. Use the existing DSC and DSU photos
 to propose pin-compatible `3F8`/`3ED` capture, phase-selection, RxD and RxC
@@ -49,6 +59,12 @@ external lookup still leaves five fresh data transitions unknown. Keep
 those as explicit missing cases, and test an executed or small
 photo-compatible consumer of the two captures before treating this as a
 USART bit route. The missing net trace does not pause that experiment.
+For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
+supports both candidate DAC latch phases under an assumed divided clock and
+six photo-compatible bus orders. Their output codes differ, so neither phase
+is a verified board route. Carry the surviving phases into a bounded analog
+output or latch-control test; keep C2 open without treating the untraced
+clock, DAC bus or line filter as a goal blocker.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
