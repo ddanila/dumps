@@ -1215,6 +1215,13 @@ phases B–C turn "what" into "how".
   A 45° table trained on one stream covers both independent streams but
   misses 5/24 dibits. Test a multi-visit or stateful consumer rather than
   treating a new one-visit gate as established; C3 remains open.
+  The [two-visit replay](g2/RECEIVER-MASK04-TWO-VISIT-PHASE.md) finds that
+  visit 94 separates the observed ambiguous `(F3,F2)` states, but a
+  lookup trained on one stream leaves several independent decisions
+  unknown. An explicit rule developed on four 45° streams then misses
+  2/24 dibits on two new 45° streams and 2/24 on 135° controls. Seek
+  retained-state or multi-visit arithmetic with a physical output
+  hypothesis; the missing RxD route does not block further experiments.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
