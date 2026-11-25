@@ -1,0 +1,200 @@
+{
+  "cases": [
+    {
+      "candidate_tx_sample_sha256": "85af918eb8777f2851fe800ce43c87c6a448710f73f5e01bcd1d918c2bf3835c",
+      "echo_only": [
+        {
+          "echo_rms": 25.757281,
+          "output_change_rms": 25.437423,
+          "output_change_to_echo_ratio": 0.987582,
+          "sample_start": 0
+        },
+        {
+          "echo_rms": 30.65891,
+          "output_change_rms": 29.390156,
+          "output_change_to_echo_ratio": 0.958617,
+          "sample_start": 32
+        },
+        {
+          "echo_rms": 33.363528,
+          "output_change_rms": 32.203455,
+          "output_change_to_echo_ratio": 0.965229,
+          "sample_start": 64
+        },
+        {
+          "echo_rms": 30.971257,
+          "output_change_rms": 30.197268,
+          "output_change_to_echo_ratio": 0.975009,
+          "sample_start": 96
+        }
+      ],
+      "echo_trace_digest": "120001c2434daf4da8d40f296e9baae4d3395e7ccf46773d7d6c72fbe1718665",
+      "first_16_echo_samples": [
+        0,
+        0,
+        0,
+        20,
+        -4,
+        -32,
+        34,
+        8,
+        35,
+        2,
+        -26,
+        45,
+        -4,
+        -32,
+        34,
+        8
+      ],
+      "mixed_trace_digest": "48662d82e47a90f99068990212ad77033b567183661683cdade4f4f8db70c7a5",
+      "remote_plus_echo": [
+        {
+          "echo_rms": 25.757281,
+          "output_change_rms": 28.085806,
+          "output_change_to_echo_ratio": 1.090403,
+          "sample_start": 0
+        },
+        {
+          "echo_rms": 30.65891,
+          "output_change_rms": 32.0083,
+          "output_change_to_echo_ratio": 1.044013,
+          "sample_start": 32
+        },
+        {
+          "echo_rms": 33.363528,
+          "output_change_rms": 33.886299,
+          "output_change_to_echo_ratio": 1.015669,
+          "sample_start": 64
+        },
+        {
+          "echo_rms": 30.971257,
+          "output_change_rms": 31.409095,
+          "output_change_to_echo_ratio": 1.014137,
+          "sample_start": 96
+        }
+      ],
+      "selector": "40"
+    },
+    {
+      "candidate_tx_sample_sha256": "8c83ffbdf4b87f23052dcf7b219409f04ca854bdb82462705742dbfdcd895e61",
+      "echo_only": [
+        {
+          "echo_rms": 25.757281,
+          "output_change_rms": 25.437423,
+          "output_change_to_echo_ratio": 0.987582,
+          "sample_start": 0
+        },
+        {
+          "echo_rms": 30.65891,
+          "output_change_rms": 29.390156,
+          "output_change_to_echo_ratio": 0.958617,
+          "sample_start": 32
+        },
+        {
+          "echo_rms": 33.363528,
+          "output_change_rms": 32.203455,
+          "output_change_to_echo_ratio": 0.965229,
+          "sample_start": 64
+        },
+        {
+          "echo_rms": 31.755413,
+          "output_change_rms": 31.025695,
+          "output_change_to_echo_ratio": 0.977021,
+          "sample_start": 96
+        }
+      ],
+      "echo_trace_digest": "c9b53f4f96ea2fdd6c831e6375538400c02b276be4e9f55bc472fabf86a5a356",
+      "first_16_echo_samples": [
+        0,
+        0,
+        0,
+        20,
+        -4,
+        -32,
+        34,
+        8,
+        35,
+        2,
+        -26,
+        45,
+        -4,
+        -32,
+        34,
+        8
+      ],
+      "mixed_trace_digest": "337d2df583c1406d784888abfba53a25d61e9d84c09f42faab0fbc972f56bc89",
+      "remote_plus_echo": [
+        {
+          "echo_rms": 25.757281,
+          "output_change_rms": 28.085806,
+          "output_change_to_echo_ratio": 1.090403,
+          "sample_start": 0
+        },
+        {
+          "echo_rms": 30.65891,
+          "output_change_rms": 32.0083,
+          "output_change_to_echo_ratio": 1.044013,
+          "sample_start": 32
+        },
+        {
+          "echo_rms": 33.363528,
+          "output_change_rms": 33.886299,
+          "output_change_to_echo_ratio": 1.015669,
+          "sample_start": 64
+        },
+        {
+          "echo_rms": 31.755413,
+          "output_change_rms": 32.064388,
+          "output_change_to_echo_ratio": 1.00973,
+          "sample_start": 96
+        }
+      ],
+      "selector": "60"
+    }
+  ],
+  "fixture": {
+    "adc": "complementary 127-PCM held 188/187 visits per sample at D3F8",
+    "compared_output": "modulo-256 signed difference from zero-input or remote-only paired control",
+    "echo_delay_samples": 3,
+    "echo_gain": 0.5,
+    "mapping": "joint upper-source mask 08",
+    "output": "Y3F8 at center of each held ADC sample",
+    "remote": "independent reference DPSK PCM",
+    "remote_gain": 0.25,
+    "remote_seed": 13656,
+    "training_enable": "not modeled; no identified controller-to-DSC echo-train input",
+    "tx": "A4 first 16 symbols from controller-derived full real-PROM TX replay; selected candidate DAC bus"
+  },
+  "limitations": [
+    "This 128-sample fixed-fixture test cannot establish or exclude an echo canceller that requires another mode, output site or longer training interval.",
+    "The DAC byte order, analog echo path, gain/delay, ADC bus, clock and high-slice wiring remain hypotheses.",
+    "An output difference at Y3F8 is not a verified line residual or USART receive bit."
+  ],
+  "remote_trace_digest": "25424bdbe98d2aca6c3179e9e864c8d5a7740e79a6e5358d09abeed5922b3f6b",
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/joint_upper_echo_feed_probe.py": "4e7b99ae58ea4b9e360a5bf9065e0514b6e60c6616d9d0cce39803d72d6aa2e1",
+    "analysis/microcode/g2/joint_upper_sampled_state_dpsk.py": "64bef617c439c775419315d3207f86c56356a4c5589d988add5c729b8e962dc8",
+    "analysis/microcode/g2/joint_upper_source_screen.py": "c075f4e3ecb046e929f18021fb74b3ea756177d73042d6083972802dd581735e",
+    "analysis/microcode/g2/lower_i_d3f8_full_adc.py": "26afc1dd3fc625a018f46f3633a306c1beaf885218aa473a03bff6a672eb1093",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_dac_bus_permutations.py": "7032d9a809229467df736d417d5c2a36a9ff6d04a0f83c9271627f106507f4ab",
+    "analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/joint-upper-source-mask08-mapping.json": "b1bdc8998a3ceb92c52862266ca29e95203c92a3c0be8ea20c6d17ac951184ae",
+    "analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/photo-joint-tone-training-data.json": "f76698597b3deda45e520ebc847f52766219359a8faf26ea97c47399d1f6d010",
+    "analysis/microcode/g2/split_slice_probe.py": "b327f3193df6b72d79d57906f76aedf6877dd39da65fb57f4de91ecae21538f1",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "status": "conditional own-transmit echo feed shows no strong short-window attenuation at Y3F8 under fixed receive fixture",
+  "zero_trace_digest": "4c181a3fa62601c4d60f845177d27a2f59a0e60ee5b7595c290bfa74410d6f89"
+}

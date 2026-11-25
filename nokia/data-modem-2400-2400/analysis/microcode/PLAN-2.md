@@ -1112,6 +1112,14 @@ phases B–C turn "what" into "how".
   direct ADC input gives 0/48. It preserves a distorted waveform rather
   than a decoded DSC bit. Test paired echo/remote inputs or a distinct
   receive output latch before assigning this subtraction to C3 or C4.
+  The [paired own-echo feed](g2/JOINT-UPPER-ECHO-FEED.md) uses the verified
+  candidate A4 transmit-code sequence as a delayed, half-scale ADC echo,
+  with zero and independent-remote controls. In both call and answer
+  fixtures, `Y3F8` output change stays near the injected echo level across
+  four 32-sample windows; it does not show a falling residual. This short,
+  fixed receive fixture has no identified echo-train/freeze control and
+  cannot pass or exclude C4. Seek a mode-qualified path and output site,
+  while testing C3 independently.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
