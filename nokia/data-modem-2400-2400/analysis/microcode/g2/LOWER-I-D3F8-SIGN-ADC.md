@@ -48,3 +48,6 @@ identified, so C3 remains open. The next test should inspect the sustained
 loop's register, ROM-address and ALU-Y events at symbol timing, look for a
 decision that tracks known dibits across patterns and phases, and test its
 candidate route to the controller.
+The follow-up [fixed symbol-bit screen](LOWER-I-D3F8-SYMBOL-BIT.md) finds
+no exact direct bit of the tested Y/Q/RAM sites across six symbol streams;
+a coded or differential decision remains open.

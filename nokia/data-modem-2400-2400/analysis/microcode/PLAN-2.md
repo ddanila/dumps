@@ -530,6 +530,13 @@ phases B–C turn "what" into "how".
   ROM-address events. This is a stronger conditional input-processing path,
   not a recovered bit. Inspect symbol-timed register/ALU events and test a
   candidate decision route to USART-01 RxD; C3 remains open.
+  The [symbol-bit screen](g2/LOWER-I-D3F8-SYMBOL-BIT.md) checks every fixed
+  phase of the 1,500-visit symbol, both polarities and five symbol lags for
+  direct bits of Y at `3F8/3F9/3FA`, Q and all 16 RAM bytes. Across three
+  training and three holdout patterns, neither dibit bit has an exact
+  training fit (minimum 1/36 and 3/36 errors). Input-sensitive state is
+  therefore not yet a decoded symbol. Test differential or multiword
+  decisions and a candidate output route; do not mark C3 complete.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
