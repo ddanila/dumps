@@ -10,12 +10,14 @@ the earlier description of the read as upper-slice selection.
 
 The [D38C perturbation probe](independent_slice_d38c.py) replaces that one
 ROM-read policy with an explicitly hypothetical stream of 128 D bytes. It
-keeps the same 128 real 8031 scrambler bits at D38E and compares five D38C
+offers the same 128 real 8031 scrambler bits at D38E and compares five D38C
 stimuli in each separated layout: constant `13`, a generated 8-sample/baud
 reference line waveform encoded as `127 − PCM` for a candidate ADC0800
 complementary bus, its reversal, and both orders of the inverted-bus
 alternative `128 + PCM`. The ADC coding, dual source schedule and D38C route
 are assumptions, not traced Nokia wiring.
+Only the non-reversed layout's ALU selects those D38E bits; the reversed-upper
+layout advances the stream without selecting it.
 
 | Observation | Both separated layouts |
 | --- | --- |

@@ -708,6 +708,7 @@
   },
   "limitations": [
     "ADC0800-to-D38C and USART-to-D38E routes, sample pacing, ROM gating and lane fields are hypotheses.",
+    "The reversed-upper layout visits D38E but neither slice selects its offered controller byte.",
     "The reference waveform is generated independently; no physical ADC sample or USART receive bit is traced.",
     "A zero boundary difference applies to this q3 loop and its tested input/mapping choices, not all receiver paths."
   ],
@@ -738,8 +739,8 @@
     "assumed/execute.py": "35f4374fba422c0f7c629ec5272a6fd818af23a6fb201743d35f2cc72d18de99",
     "g2/adc_sample_path.py": "62054e697ea19356b6f1331fe38d16262794f5bf923b9c5199647e07226a983e",
     "g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
-    "g2/independent_slice_d38c.py": "d4307d2647cb6ddaf54c80d979391230e2122a5a639b7e1361a4ab065114a14c",
-    "g2/independent_slice_fields.py": "25eb5d4bea8bb3e189e8effa894bbbcc92fe5738a4ad823f132e9cb589db2f17",
+    "g2/independent_slice_d38c.py": "4c1e4263b55d767584cc1aa2374e5696a5fa25843e512c88098f181692fa497e",
+    "g2/independent_slice_fields.py": "b5a2807b47b5a47dcd6f8aa42f6876d0f5ace0d9c035bdd8c4bf17883de7c946",
     "g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
     "g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
     "g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",

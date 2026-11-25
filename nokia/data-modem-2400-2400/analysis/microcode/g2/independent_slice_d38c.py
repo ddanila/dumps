@@ -155,6 +155,7 @@ def run(out=HERE / 'results/independent-slice-d38c.json'):
                   conclusion='D38C changes its R6 write, but all modeled RAM/Q/flags/stack states match the constant-byte run after each 3A1 boundary in this fixture.',
                   limitations=[
                       'ADC0800-to-D38C and USART-to-D38E routes, sample pacing, ROM gating and lane fields are hypotheses.',
+                      'The reversed-upper layout visits D38E but neither slice selects its offered controller byte.',
                       'The reference waveform is generated independently; no physical ADC sample or USART receive bit is traced.',
                       'A zero boundary difference applies to this q3 loop and its tested input/mapping choices, not all receiver paths.'],
                   source_sha256={str(path.relative_to(HERE.parent)):

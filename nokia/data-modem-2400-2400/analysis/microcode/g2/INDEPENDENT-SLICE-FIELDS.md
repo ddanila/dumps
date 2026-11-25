@@ -25,15 +25,18 @@ then ran Q=0, Q=5 and the seed with most selected ROM reads for 1,580 cycles.
 At Q=5 it supplied 128 unchanged 8031 scrambler bits and two controls of
 128 all-zero or all-one bits.
 
-| Layout | Q seeds reaching D38E | Maximum selected ROM reads in a 512-cycle seed run | Q=5 controller bits consumed | Selected ROM operands after first input | Candidate output |
+| Layout | Q seeds reaching D38E | Maximum selected ROM reads in a 512-cycle seed run | Q=5 D38E visits / ALU selections | Selected ROM operands after first input | Candidate output |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Shared control | 32 | 5 | 128 | 0 | Constant at reached sites |
-| Upper pair only | 4 | 6 | 0 | 0 | No reached candidate site |
-| Separated pairs | 4 | 61 | 128 | 127 | `39E`/`39F` both `0B` |
-| Separated, reversed upper | 32 | 119 | 128 | 127 | `39E`/`39F` both `0B` |
+| Shared control | 32 | 5 | 128 / 128 | 0 | Constant at reached sites |
+| Upper pair only | 4 | 6 | 0 / 0 | 0 | No reached candidate site |
+| Separated pairs | 4 | 61 | 128 / 128 | 127 | `39E`/`39F` both `0B` |
+| Separated, reversed upper | 32 | 119 | 128 / **0** | 127 | `39E`/`39F` both `0B` |
 
 The two separated layouts therefore restore **repeated ROM operand
-selection** in a controller-fed path that the shared layout did not show.
+selection** in a loop reached with a controller stream offered, where the
+shared layout did not show those reads. Only the non-reversed separated
+layout actually selects the controller bits at D38E; the reversed-upper
+layout advances the scenario stream without using it in either ALU slice.
 That is an architectural distinction worth testing against more of the
 photos. It is not yet a carrier or receiver: all 127 post-input ROM reads
 per Q=5 run use one address, and the two reached candidate output words hold
@@ -44,6 +47,9 @@ The repeated read is specifically **lower-slice D selection at `38C`** from
 Am27S31 address `106`; the [varying-D follow-up](INDEPENDENT-SLICE-D38C.md)
 shows that it changes R6 locally but is overwritten before the next loop
 boundary. It does not establish an upper-slice D read or a receive filter.
+The [full recurring D-site screen](INDEPENDENT-SLICE-INPUT-SITES.md) finds no
+site that retains an isolated sample beyond one loop boundary in these two
+layouts, and no changing candidate output.
 
 The [report](results/independent-slice-fields.json) records the exact bit
 fields, seed counts, ROM addresses, output values, trace digests and source

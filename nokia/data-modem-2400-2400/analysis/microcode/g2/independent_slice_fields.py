@@ -72,8 +72,10 @@ def stream_run(mapping, scenario, q, bits, directory, stimulus):
     dispatches = [row for row in trace if row['pc'] == 0x38F]
     return dict(q=q, stimulus=stimulus, clean=result['clean'], completed_cycles=len(trace),
                 input_visits=len(inputs),
-                offered_bits_consumed=sum(not row['external_read']['held_last']
+                offered_bits_advanced=sum(not row['external_read']['held_last']
                                           for row in inputs),
+                controller_bits_selected_by_alu=sum(
+                    row['external_read']['selected_by_alu'] for row in inputs),
                 selected_rom_reads_after_input=len(rom),
                 selected_rom_reads_total=len(rom_all),
                 rom_addresses=sorted({row['external_read']['address'] for row in rom_all}),
@@ -128,6 +130,9 @@ def run(out=HERE / 'results/independent-slice-fields.json'):
                             row['selected_rom_reads_after_input'] != 127 or
                             row['distinct_rom_addresses_after_input'] != 1 or
                             row['output_y_by_site'] != {'39E': [11], '39F': [11]}
+                            for row in active) or
+                        any(row['controller_bits_selected_by_alu'] !=
+                            (0 if kind == 'separated_reversed_upper' else 128)
                             for row in active)):
                     raise ValueError('independent-slice controller result changed')
             cases.append(dict(kind=kind, low_i=mapping['fields']['i']['bits'],

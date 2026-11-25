@@ -176,9 +176,11 @@ phases B–C turn "what" into "how".
   A [separate-slice instruction screen](g2/INDEPENDENT-SLICE-FIELDS.md) now
   lets U8 decode an independent nine-bit PROM field under the candidate
   U8↔U2 control links. Two hypothesized U10/U11-lower and U17/U18-upper
-  layouts consume 128 controller bits and select a ROM operand 127 times
-  after input begins, versus zero in the shared-field fixture. Both still
-  read one fixed ROM address and hold `0B` at reached `39E`/`39F` sites;
+  layouts visit D38E 128 times and select a ROM operand 127 times after
+  the first D38E visit, versus zero in the shared-field fixture. Only the
+  non-reversed layout actually selects the offered controller bits at D38E;
+  the reversed-upper layout selects none. Both still read one fixed ROM
+  address and hold `0B` at reached `39E`/`39F` sites;
   use the architecture change to search for a history-dependent path, not
   as a transmitter claim.
   A [D38C receive-input perturbation](g2/INDEPENDENT-SLICE-D38C.md) locates
@@ -187,6 +189,12 @@ phases B–C turn "what" into "how".
   all 128 complete loop-boundary states match the constant-byte control in
   both separated layouts. Look for a different retained input path rather
   than treating the restored ROM-read count as receiver evidence.
+  The [recurring D-site screen](g2/INDEPENDENT-SLICE-INPUT-SITES.md) checks
+  every selected D site in those two loops. Only D38E in the non-reversed
+  layout and D3A1 in the reversed layout change a boundary state; a one-byte
+  impulse survives for just one boundary at either site. No tested site
+  changes the reached candidate output words. The D38E sample test replaces
+  the controller stream, so neither path demonstrates simultaneous Tx/Rx.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are

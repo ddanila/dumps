@@ -753,7 +753,9 @@ divider or different repeated path remains to be tested.
 The [independent-slice instruction screen](INDEPENDENT-SLICE-FIELDS.md)
 extends the executor so U8 can decode its own PROM field under the candidate
 crosslinks. Two photo-inspired lane layouts select ROM D on 127 recurring
-controller-fed cycles, where the shared-field model selected none. The ROM
+cycles reached with a controller stream offered, where the shared-field model
+selected none. Only the non-reversed layout actually selects controller D38E
+bits; the reversed-upper layout visits D38E without selecting D. The ROM
 address and reached output codes remain fixed under real and constant-bit
 stimuli, so this reopens an architectural path without demonstrating a modem
 function.
@@ -762,3 +764,7 @@ reads as lower-slice D selections and replaces the fixed ROM byte with
 reference ADC-like samples. They change R6 at `38C`, but `3A0` restores one
 fixed R6 value and all 128 subsequent loop-boundary states match the
 constant-byte control. This scoped path does not retain receive history.
+The [all-site D screen](INDEPENDENT-SLICE-INPUT-SITES.md) finds only D38E
+(non-reversed) and D3A1 (reversed-upper) affect a loop-boundary state, and a
+single input impulse lasts just one boundary at either site. No tested site
+changes the reached candidate output values.
