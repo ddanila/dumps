@@ -78,3 +78,6 @@ next test should change a concrete timing or input-route hypothesis that
 can sustain multiple symbol sequences and pass through a candidate decision
 or output event. A decision must then be compared with known dibits under
 different sequences and phases, and its route toward USART-01 RxD checked.
+The subsequent [inverted-sign condition test](LOWER-I-D3F8-SIGN-ADC.md)
+finds a sustained, input-sensitive D3F8 path under a different explicit
+select-0 hypothesis; the decision and physical routes remain open.

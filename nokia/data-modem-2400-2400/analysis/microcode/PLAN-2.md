@@ -521,6 +521,15 @@ phases B–C turn "what" into "how".
   concrete timing, input-route or field hypothesis and seek a decision
   event correlated with known dibits across sequences and phases; keep C3
   open without blocking on the untraced ADC bus.
+  A [uniform select-0 condition screen and sign follow-up](g2/LOWER-I-D3F8-SIGN-ADC.md)
+  make that next change: inverted sign, with either flag timing, keeps all
+  six tested 128-sample ADC-bit streams in D3F8 for 24,000 visits each.
+  The independent reference receiver recovers the test dibits; detailed
+  real-PROM traces for two patterns select all offered D3F8 bytes on the
+  same PC path yet differ at 5,259 state boundaries and 10,072 selected
+  ROM-address events. This is a stronger conditional input-processing path,
+  not a recovered bit. Inspect symbol-timed register/ALU events and test a
+  candidate decision route to USART-01 RxD; C3 remains open.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
