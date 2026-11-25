@@ -461,6 +461,14 @@ phases B–C turn "what" into "how".
   for held `3`/`7`, but their exact 14-sample cycle has a dominant third
   harmonic at 2,057.14 Hz. This prunes the tested direct byte routes;
   constrain the output latch data/clock or seek another mapped signal path.
+  The [four/eight-visit stream screen](g2/LOWER-I-FOUR-SAMPLE-BIT-SCREEN.md)
+  tests all 90 ordered live-nibble pairs with 128 real controller bits. None
+  survives four visits per bit; at eight visits, D0-only `08/09` alone
+  consumes all 1,024 offered inputs and changes ROM/ALU state. A hypothetical
+  19,200-visit/s loop permits a 9,600 Hz latch clock every second visit, but
+  its 153.6 kHz microcycle and data/latch wiring are unmeasured. Screen the
+  alternating-visit latch bytes and phase next, without waiting for a pin
+  trace or treating this internal path as proof of C2.
   An [exit-path comparison](g2/LOWER-I-EXIT-PATH.md) follows the D3F8-sensitive
   branch: under previous-flag timing, `3FA` zero releases `3ED`, `3EE` returns
   to `18D`, and all six impulse/controller cases eventually repeat `1E9/1EA`

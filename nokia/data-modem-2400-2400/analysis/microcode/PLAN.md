@@ -242,6 +242,15 @@ G2's transmitter and receiver/echo-canceller checks: completing a candidate run
 does not satisfy them. Do not inject the expected waveform, force control flow
 past a wait loop, or relabel an assumption as evidence to claim success.
 
+The [eight-visit D3F8 screen](g2/LOWER-I-FOUR-SAMPLE-BIT-SCREEN.md) is the
+current example of this decision. One photo-compatible, D0-only `08/09`
+candidate carries all 128 controller bits through the selected ROM loop when
+each bit is held for eight loop visits. Its input route and 153.6 kHz
+microcycle interpretation remain assumptions. Test a candidate 9,600 Hz
+DAC08 latch clock on alternating visits, and change the latch route or timing
+if the resulting bytes fail the transmitter checks. A missing continuity
+measurement does not pause that experiment.
+
 ## Steps
 
 ### 1. Check in the field analysis and a static listing
