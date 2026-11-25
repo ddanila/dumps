@@ -1,0 +1,187 @@
+{
+  "delta_bit_results": [
+    {
+      "best_low_training_error_candidate": null,
+      "checks_per_set": 36,
+      "dibit_bit": 0,
+      "minimum_training_errors": 6,
+      "operation": "xor",
+      "perfect_train_and_holdout_candidates": 0,
+      "perfect_training_candidates": 0
+    },
+    {
+      "best_low_training_error_candidate": null,
+      "checks_per_set": 36,
+      "dibit_bit": 1,
+      "minimum_training_errors": 7,
+      "operation": "xor",
+      "perfect_train_and_holdout_candidates": 0,
+      "perfect_training_candidates": 0
+    },
+    {
+      "best_low_training_error_candidate": {
+        "bit": 3,
+        "channel": "Y3F8",
+        "holdout_errors": 10,
+        "inverted": false,
+        "phase_visit": 215,
+        "symbol_lag": -1,
+        "training_errors": 2
+      },
+      "checks_per_set": 36,
+      "dibit_bit": 0,
+      "minimum_training_errors": 1,
+      "operation": "subtract",
+      "perfect_train_and_holdout_candidates": 0,
+      "perfect_training_candidates": 0
+    },
+    {
+      "best_low_training_error_candidate": {
+        "bit": 3,
+        "channel": "Y3F8",
+        "holdout_errors": 14,
+        "inverted": false,
+        "phase_visit": 1163,
+        "symbol_lag": 0,
+        "training_errors": 4
+      },
+      "checks_per_set": 36,
+      "dibit_bit": 1,
+      "minimum_training_errors": 3,
+      "operation": "subtract",
+      "perfect_train_and_holdout_candidates": 0,
+      "perfect_training_candidates": 0
+    }
+  ],
+  "fixture": {
+    "channels": [
+      "Y3F8",
+      "Y3F9",
+      "Y3FA",
+      "Q",
+      "R0",
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14",
+      "R15"
+    ],
+    "condition_select_0": "inverted previous sign",
+    "delta": "current symbol state versus previous symbol at same visit phase",
+    "holdout_pattern_indexes": [
+      2,
+      3,
+      5
+    ],
+    "input": "complementary ADC bit0 to held D3F8 03/05",
+    "mapping": "I7/A0=!10.6, I0/A1=11.2, lower I6=11.0",
+    "patterns": [
+      [
+        0,
+        1,
+        3,
+        2
+      ],
+      [
+        0,
+        2,
+        3,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        1,
+        2,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        0,
+        1
+      ]
+    ],
+    "sample_window": [
+      64,
+      192
+    ],
+    "symbol_indexes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "tested_symbol_lags": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "training_pattern_indexes": [
+      0,
+      1,
+      4
+    ],
+    "visits_per_symbol": 1500
+  },
+  "limitations": [
+    "The ADC decoder, condition source, clock and output route are assumed.",
+    "Only same-channel XOR/subtraction bits at one fixed phase per symbol are tested; a different coding, phase relation or output site could carry a decision.",
+    "Six periodic symbol streams and one Q/RAM seed are used; any candidate requires independent sequence validation.",
+    "An internal bit fit does not prove a physical USART-01 RxD decision."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/lower_i_d3f8_adc_cross_symbols.py": "302e44dc3b201323b7ebd9354a8c14428176c061698775167bdfd86a2344544b",
+    "analysis/microcode/g2/lower_i_d3f8_adc_decoder_screen.py": "c060caa0770a40f409bc79132084a4547cdc5d9d6086611d52b7de79ee1ac55f",
+    "analysis/microcode/g2/lower_i_d3f8_sign_adc.py": "fba55f4f61909d3da20ff54a70b924bd03d50c3ee7d383ef723c560f261d3c86",
+    "analysis/microcode/g2/lower_i_d3f8_symbol_bit_screen.py": "95ae6561afdd8abc1711e60be07d150c6d43f758ee7605639c4806cd6862cded",
+    "analysis/microcode/g2/lower_i_d3f8_symbol_delta_screen.py": "7916bd31e6bc5267fa821d6361253129e0851606393dbd14da620eb006eac39f",
+    "analysis/microcode/g2/lower_i_prom_data_route.py": "5af8dad5ed34c54fa4bf976af99e859585e3b5efe54bcb191200d4823641f3e7",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "symbol-to-symbol XOR and subtraction bit screen of sustained D3F8 state",
+  "trace_digests": [
+    "adb9b97848241a5e3d72bc588852416f9c0ad0bdb66e70c44c8e15b1e723c82e",
+    "a7a0c426bcccff572131075c8c9dbeed98f5fb14c1e43e6201e9718f852fd0e0",
+    "27348d9aa3a789160bc8cdb070835fe9f953b48a54e7c23ab4605276930bd36d",
+    "e62902bf6e2a39a5e1904797c44a5ce78ea7e0260d7c6321c36f735f29eace84",
+    "c33d2cdaac780b390336e4596cab73028e57a2e011a426877250f5b4279caa00",
+    "1037e5b711b2928fa0f8f9c26277bb1c1e89f8302b6829c9abeaf68150c6b45c"
+  ]
+}

@@ -31,11 +31,30 @@ snapshot, Y at `3F8` repeats with the source pattern but gives the same
 `F8` value for two different dibits, illustrating why input sensitivity
 alone cannot establish a four-way decision.
 
-This excludes only a **fixed, direct or inverted bit** of the tested state
-sites under one timing and field/input mapping. It does not test a
-differential decision between symbols, a two-bit or multiword code, a
-different output site or a separately clocked latch. The ADC route and
-condition wiring remain assumptions, and no USART-01 RxD transition is
-observed. The next receive test should look for a **symbol-to-symbol state
-change or decoded two-bit value** that generalizes to independent symbol
-sequences, then check whether any corresponding signal can reach RxD.
+That first screen excludes only a **fixed, direct or inverted bit** of the
+tested state sites under one timing and field/input mapping. The ADC route
+and condition wiring remain assumptions, and no USART-01 RxD transition is
+observed.
+
+The [differential-bit screen](lower_i_d3f8_symbol_delta_screen.py) repeats
+the six real-PROM runs and compares each channel with itself one symbol
+earlier at the **same visit phase**. It tests every bit of both bytewise XOR
+and modulo-256 subtraction, with the same phases, polarities, symbol lags,
+training patterns and holdout patterns.
+
+| Symbol-to-symbol operation | Target dibit bit | Fewest training errors / 36 | Exact training fits | Selected low-training candidate: training / holdout errors |
+| --- | ---: | ---: | ---: | ---: |
+| XOR | 0 | 6 | 0 | None with ≤4 training errors |
+| XOR | 1 | 7 | 0 | None with ≤4 training errors |
+| Subtraction | 0 | 1 | 0 | 2 / 10 |
+| Subtraction | 1 | 3 | 0 | 4 / 14 |
+
+The [saved differential report](results/lower-i-d3f8-symbol-delta-screen.json)
+contains the candidate settings, full-trace digests and source hashes. The
+subtraction result is **not a receive decision**: its close training fit does
+not generalize to the held-out patterns. This excludes only these two
+single-byte, single-bit difference rules. A two-bit or multiword code, a
+different output site or a separately clocked latch remains possible. The
+next receive test should seek a constrained **two-bit or symbol-to-symbol
+code** that generalizes to independent symbol sequences, then check whether
+any corresponding signal can reach USART-01 RxD.
