@@ -1,0 +1,280 @@
+{
+  "assumptions": [
+    "Raw PROM 3ED decode feeds an external clock gate; its physical route is untraced.",
+    "An external modulo-four row counter identifies row 0; U24 is only a photo-compatible candidate.",
+    "U12 holds the low four Y bits on row 0 until row 3, where another external gate uses live Y bits 0..2.",
+    "Previous-symbol phase storage, dibit logic, serialization and USART-01 RxD route are untraced hypotheses."
+  ],
+  "capture_visit": 47,
+  "cases": [
+    {
+      "adc_stream_sha256": "3775e734bcf387b4dadf036a642ce02b9a297d18ff3432219275d03bc5d8489d",
+      "degrees": 0,
+      "events": 24000,
+      "first_event_cycles": [
+        50,
+        58,
+        66,
+        74,
+        82,
+        90,
+        98,
+        106
+      ],
+      "first_visit_rows": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ]
+      ],
+      "phases": {
+        "row0_qualified": [
+          2,
+          3,
+          2,
+          3,
+          2,
+          2,
+          1,
+          3,
+          1,
+          2,
+          1,
+          1,
+          1,
+          0,
+          3,
+          3
+        ],
+        "unqualified_every_row": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "scores": {
+        "row0_qualified": {
+          "checks": 12,
+          "dibits": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            0,
+            0,
+            2,
+            1,
+            3,
+            3,
+            1
+          ],
+          "errors": 0
+        },
+        "unqualified_every_row": {
+          "checks": 12,
+          "dibits": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "errors": 9
+        }
+      },
+      "trace_digest": "abfc1a3db03166aa940979c2309c7b0a31c61cc0aebea0e36559db265a21aa96"
+    },
+    {
+      "adc_stream_sha256": "53852ba6f42339a4613e44e79974d1d333d9967a3a17c32fbf37ebcc179c7669",
+      "degrees": 45,
+      "events": 24000,
+      "first_event_cycles": [
+        50,
+        58,
+        66,
+        74,
+        82,
+        90,
+        98,
+        106
+      ],
+      "first_visit_rows": [
+        [
+          1,
+          7,
+          0,
+          7
+        ],
+        [
+          5,
+          7,
+          0,
+          7
+        ],
+        [
+          5,
+          7,
+          0,
+          7
+        ],
+        [
+          5,
+          7,
+          0,
+          7
+        ]
+      ],
+      "phases": {
+        "row0_qualified": [
+          3,
+          1,
+          3,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "unqualified_every_row": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "scores": {
+        "row0_qualified": {
+          "checks": 12,
+          "dibits": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "errors": 10
+        },
+        "unqualified_every_row": {
+          "checks": 12,
+          "dibits": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "errors": 9
+        }
+      },
+      "trace_digest": "82286e34703a324fc4323221662836047c25e2bc30f0cfc64040fb61a6b3b2a4"
+    }
+  ],
+  "experiment": "hypothetical U12 row-0 latch versus unqualified 3ED clock",
+  "middle_dibits": [
+    1,
+    2,
+    1,
+    2,
+    1,
+    3,
+    1,
+    0,
+    0,
+    2,
+    1,
+    3,
+    3,
+    1,
+    1,
+    3
+  ],
+  "seed": 23063,
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/receiver_mask04_3ed_prom_latch.py": "105ea21dd5061074aaa66453d82821a5961722ef008f91354c98ab5502befa72",
+    "analysis/microcode/g2/receiver_mask04_phase47_logic.py": "6964217edb29bbc34394ed5f6628089ca05c1b04e2ecb31bef012902c5fbaea3",
+    "analysis/microcode/g2/receiver_mask04_u12_latch_replay.py": "44570ff2391233ba2e7d322284e0e4e94c009d3523d99d40452e4a4f6030a62c",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

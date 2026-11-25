@@ -10,6 +10,17 @@
 > timing and inputs, then test another photo-compatible route or independent
 > program/signal constraint.
 
+**Current blocker decision:** C3's missing `3ED`-to-latch and latch-to-USART
+connections are *open wiring hypotheses*, not a stop condition. In the
+[row-latch replay](g2/RECEIVER-MASK04-U12-LATCH-REPLAY.md), treat the pictured
+four-bit U12 and four-bit U24 as capacity-compatible candidates: assume a
+modulo-four row qualifier clocks U12 from `3ED` Y only on row 0, then compare
+its held nibble with row 3's live Y under the real PROM trace. Also run the
+unqualified clock as a control. The surviving timing hypothesis still has to
+explain arbitrary carrier phase and reach USART-01 RxD; its success on one
+stream does not close C3. Continue with a different input, clock or consumer
+hypothesis while either check remains open, without waiting for continuity.
+
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
 Bit-exact fidelity to the Nokia board is *not* required. Where the hardware is

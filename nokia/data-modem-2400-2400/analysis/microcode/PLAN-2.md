@@ -1199,6 +1199,15 @@ phases B–C turn "what" into "how".
   all 375 capture visits are considered. Initial Q is an entry choice
   here, not a demonstrated carrier-phase control. Test a dynamic input
   or photo-compatible row latch/output consumer next; C3 stays open.
+  The [U12 latch replay](g2/RECEIVER-MASK04-U12-LATCH-REPLAY.md) now
+  tests that consumer timing on two complete real-PROM streams. A
+  hypothesized row-0-qualified four-bit latch holds Y through two zero
+  rows and gives 0/12 nominal dibit errors; clocking it at every raw
+  `3ED` edge overwrites the byte and gives 9/12. The qualified latch
+  still gives 10/12 errors with a 45° carrier rotation. This constrains
+  the proposed clock but establishes neither U12/U24 wiring nor an RxD
+  route. Try a phase-tracking input or another four-row consumer, and
+  keep C3 open without treating the missing continuity as a blocker.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
