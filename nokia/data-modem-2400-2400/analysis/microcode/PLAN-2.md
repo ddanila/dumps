@@ -721,6 +721,12 @@ phases B–C turn "what" into "how".
   conditional phase information, but the full DAC bus is not identified;
   constrain another bit or the latch/analog path before treating it as
   line output.
+  A [joint data/tone screen](g2/PHOTO-DAC-JOINT-DATA-TONE.md) then keeps each
+  of the 12 zero-error buses fixed through the existing A1 `B0→88` dynamic
+  PROM replay. All 12 retain projected 1,800/2,100 Hz peaks across all four
+  selector classes, so the candidate route is compatible with both tests
+  but the tone does not choose a unique bus. The A1 decode and physical
+  output remain assumptions, and C2 still needs segment-1 and line checks.
   An [extended 8031 polling-loop replay](g2/MAIN-LOOP-LONG.md) now supplies a
   real controller frame toggle to test for segment-1 reversals: on the B4
   branch, the third frame byte alternates `81`/`C1` every four forced-timer
