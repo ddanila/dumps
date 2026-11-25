@@ -1195,6 +1195,13 @@ phases B–C turn "what" into "how".
   full real-PROM traces. The board contains a compatible SN74LS10N, but its
   pin route, latch setup phase and USART consumer remain hypotheses. Use
   this timing lead for an executed output-route test; C3 is still open.
+  An [all-phase latch-byte screen](g2/RECEIVER-PROM-LATCH-SAMPLE-PHASE.md)
+  then tests the captured `3FA` Y stream at every 47/46-visit ADC-sample
+  phase. None of 470 fixed external differential readouts fits the 36
+  training dibits; the best misses 38/48 holdout and 37/48 fresh decisions.
+  The exact PROM edge therefore does not make this Y-only route a usable
+  PCM/USART source. Try a different latch data source or an executed
+  stateful decision while keeping C3 open.
   The [raw-PROM ADC enable-phase screen](g2/RECEIVER-PROM-ADC-ENABLE-PHASE.md)
   finds a concrete buffer-gate hypothesis for that same path. A one-cycle
   latched `!U10.D1 & U10.D3 & U10.D7` level enables only `3F8` on all
