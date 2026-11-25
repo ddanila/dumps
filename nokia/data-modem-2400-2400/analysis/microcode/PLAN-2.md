@@ -231,6 +231,11 @@ phases B–C turn "what" into "how".
   with one-visit delay and reads one fixed ROM address; it is not the
   advancing modulator or receiver needed for G2 under these assumptions.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
+  An [A8 bank screen](g2/SPLIT-ROM-BANK-SCREEN.md)
+  varies global and `38C` bank choices across the same six streams. The ROM
+  operand and internal state change, but the exact `39E` byte rule survives
+  all 24 runs. A8 alone does not yield a ROM-shaped output at this site;
+  continue with another retained ROM path and a timed latch hypothesis.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
