@@ -4,7 +4,9 @@
 > in [PLAN-2.md](PLAN-2.md#goal-g2). G2 remains active when a
 > photographed connection is ambiguous: model the plausible connections as
 > labelled assumptions, run them, and use the results to choose the next test.
-> Missing continuity data is not a reason to mark G2 blocked.
+> Missing continuity data or an untraced board connection is not a reason to
+> mark G2 blocked; unresolved acceptance checks stay open while experiments
+> continue.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
@@ -92,6 +94,14 @@ unavailable continuity measurements **do not by themselves block progress**.
 Use the photos, component topology, chip behavior, ROM structure and existing
 traces to propose plausible connections, then run them. Physical checks are
 optional ways to discriminate candidates, not prerequisites for continuing.
+For each uncertain connection, record the visible photo evidence and the
+assumed continuation separately. Run the simplest pin-compatible candidate
+with the real PROMs, then vary the few connections or timing choices most
+likely to change the outcome. Compare against a control using the same input
+and startup state. If the candidate fails, record what that fixture excludes
+and choose the next candidate or independent program/signal test. If it works,
+report the result as conditional on the assumed wiring; do not promote it to a
+verified board connection or a passed acceptance check.
 **Status rule:** report G2 as active with the current uncertainty and the next
 bounded experiment whenever a photo-supported connection, timing or input
 hypothesis can still be tested. A failed run closes that hypothesis under its
