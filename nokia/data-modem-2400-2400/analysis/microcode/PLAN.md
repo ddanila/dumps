@@ -106,6 +106,15 @@ leave-angle-out decisions and two fresh data decisions. Treat those as
 counterexamples to that fixed circuit, not as a reason to fill unseen
 keys from reference answers or pause C3. Test richer executed features,
 retained state or capture timing against new streams.
+The [preamble phase-alias audit](g2/RECEIVER-MASK04-PREAMBLE-PHASE-ALIAS.md)
+now limits one tempting selector for those readouts. Fresh real-PROM runs
+show that the full 32-symbol preamble has identical `3ED` row-0/row-3 Y
+and `3F8` Y triples at ADC visit 47 for 45° and 180° carrier rotations,
+although the diagonal rule decodes data only at 45° and the nominal rule
+only at 180°. A row-0 bit selector fails at 90°; a four-value selector
+fails at 180°. Seek another visit, full-rate sample or retained phase state
+before selecting the readout and replaying USART RxD. This collision does
+not block C3 or prove a physical net.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase

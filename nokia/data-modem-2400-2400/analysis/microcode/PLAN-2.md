@@ -1302,6 +1302,15 @@ phases B–C turn "what" into "how".
   serial candidate at 6,000 cycles/bit. The oscillator ratio, RxC phase,
   8251A character alignment and DSC-to-RxD connection remain hypotheses.
   Test external SYNDET timing and pin routing next; this progress does not pass C3.
+  The [preamble selector and alias audit](g2/RECEIVER-MASK04-PREAMBLE-PHASE-ALIAS.md)
+  now tests how to choose between the two external readouts. A row-0 bit
+  works at 0°/45° but fails at 90°; a four-value byte lookup fits 0°–135°
+  but fails at 180°. In a matched 45°/180° pair, all 32 preamble triples
+  of `3ED` row-0/row-3 Y and `3F8` Y at visit 47 are identical, even
+  though the data needs different readouts. This excludes any selector
+  confined to those fixed-phase preamble bytes under the tested fixture.
+  Test another visit or retained phase state before claiming an automatic
+  receive decision; C3 remains open and G2 active.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
