@@ -101,14 +101,15 @@ connection. Then test the revised route or move to another independent clue.
 Am2901-to-DAC connections are open hypotheses, **not a goal blocker**. The
 photographs may justify a candidate even when they do not prove its endpoint.
 For each candidate, record the visible segment separately from the assumed
-continuation, exercise it with the real PROMs and controller inputs, and keep
-the negative result tied to that exact wiring and state fixture. If a sweep
-only yields fixed output or a wait loop, change the connection, timing or input
-fixture, or move to an independent controller, ROM or analog-path constraint.
-Do not wait for new photos or continuity measurements to make that next move.
-Only mark G2 blocked if no plausible assumed connection and no independent
-experiment can advance its acceptance checks; an unresolved physical net or a
-failed candidate run is not sufficient.
+continuation, encode it as a labelled scenario, and exercise it with the real
+PROMs and controller inputs. Keep a negative result tied to that exact wiring
+and state fixture. If a sweep only yields fixed output or a wait loop, change
+the connection, timing or input fixture, or move to an independent controller,
+ROM or analog-path constraint. This applies equally to uncertain upper-slice
+instruction fields and to the DAC input path: a missing pin-level trace does
+not halt implementation or analysis. Do not wait for new photos or continuity
+measurements to make the next move, and do not promote an assumed connection
+to a board fact just because it produces a plausible run.
 The [D349 source-update experiment](g2/PHOTO-TABLE-SOURCE-UPDATE.md) is a
 concrete example: after two restart fixtures gave fixed table sources, four
 other photo-compatible scenarios found an input-sensitive R5 write before
@@ -190,13 +191,12 @@ lead for a timing model, not evidence that the board uses that impossible
 same-phase combination. If a case settles to fixed output, record the scope
 and pursue a different phase, mapping, input route or state source.
 
-Reserve a goal blocker for an indispensable dependency that cannot be supplied
-or usefully approximated **and** leaves no meaningful independent experiment.
-Before declaring one, identify that dependency, explain why photo-informed
-candidate assumptions cannot advance the work, and account for the remaining
-controller, ROM and signal analyses. A failed wiring candidate or an unknown
-physical net alone does not meet this test; keep G2 active and choose the next
-discriminating experiment.
+An unknown physical net is never, by itself, a G2 blocker. If the available
+photo-compatible candidates all fail, record what each run excluded and pivot
+to a new mapping, timing model, stimulus or independent program/signal clue.
+Only consider a goal-level blocker after showing that no such experiment can
+advance the acceptance checks; a failed candidate or a missing continuity
+measurement does not meet that test.
 
 Apply this rule to the U9 enable/address-bus idea as well. A hypothesised
 external driver can be modelled from the chip's documented pin behavior and
