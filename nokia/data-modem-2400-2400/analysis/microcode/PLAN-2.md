@@ -1320,6 +1320,15 @@ phases B–C turn "what" into "how".
   correct case, so the rule does not establish arbitrary phase tracking.
   Test an executed or photo-compatible multi-visit decision and then its
   USART timing; C3 remains open without waiting for net continuity.
+  The [cubic transition constraint](g2/RECEIVER-MASK04-CUBIC-TRANSITION.md)
+  applies to the separate four-bit two-visit readout. It forces 14 labels
+  beyond the 86 observed development keys without fitting held-out answers.
+  Four of five unknown decisions on the saved 13-angle real-PROM run become
+  correct, leaving 0 errors and one unknown among 611 decisions. Three
+  new-seed real-PROM runs at 0°/75°/165° give 0 errors and 0 unknown among
+  141 decisions. Key `3C`, physical capture/logic, and RxD/RxC/SYNDET
+  remain open; test richer executed state and the serial handoff, not a
+  continuity prerequisite. This does not pass C3.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero

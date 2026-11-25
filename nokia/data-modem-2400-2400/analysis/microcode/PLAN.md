@@ -125,6 +125,16 @@ all eight saved intermediate-angle challenges, so test an executed or
 photo-compatible phase tracker/multi-visit consumer rather than promoting
 the grid rule to C3. The selector clocks, logic and USART path remain open
 wiring hypotheses; G2 stays active.
+The [cubic transition constraint](g2/RECEIVER-MASK04-CUBIC-TRANSITION.md)
+now extends the distinct four-bit two-visit transition readout: among 86
+observed development keys, a frozen cubic Boolean relation forces 14
+unseen labels. It resolves four of five unknown decisions on the saved
+13-angle PROM challenge (0 errors, 1 unknown / 611) and all three
+unknowns in three new-seed PROM runs at 0°/75°/165° (0 errors, 0 unknown /
+141). The remaining `3C` key, arbitrary phase tracking, the external
+logic and USART route stay open. Test another executed feature or visit
+and a complete serial handoff; do not promote this conditional readout to
+C3 or pause for missing continuity.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase

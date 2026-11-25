@@ -62,6 +62,10 @@ The [two-visit selector](../g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
 recovers the tested 45° grid streams from these receive-side outputs, but
 fails the saved intermediate-angle challenges. It is an external candidate
 consumer, not an identified microprogram routine or a verified receiver path.
+The separate [cubic transition constraint](../g2/RECEIVER-MASK04-CUBIC-TRANSITION.md)
+uses two executed `3F8` visits per symbol and reduces the independent
+13-angle readout to one unknown decision in 611, with no wrong decisions.
+Its external Boolean relation and USART connection remain unverified.
 
 ## Earlier provisional names
 
