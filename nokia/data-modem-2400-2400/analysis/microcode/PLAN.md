@@ -280,6 +280,17 @@ behavior. Continue independent receive-path analysis through the
 [D3F8 stream path](g2/LOWER-I-STREAM-SCHEDULE.md). Record each result and its
 next discriminating experiment; do not wait for a complete pin trace.
 
+The [transmit PROM-edge phase check](g2/PHOTO-TX-PROM-LATCH-PHASE.md) adds a
+specific latch-clock hypothesis to the joined DAC path. Real U10 D2 rises
+at the ROM-result words `129/12E` and falls at `12A/12F` in both four-word
+loops. A direct rising-edge 74LS273 clock may see the preceding Y byte;
+a qualified later/inverted edge can see the settled ROM-result byte if its
+setup timing is met. The latter phase fits the saved full-PROM pulse-shaped
+reference better for all six surviving candidate DAC buses, but the edge
+wire, inversion, divider and full DAC bus remain assumptions. Run a
+rate-qualified post-ROM latch scenario next; do not mark C2 passed or G2
+blocked on this timing ambiguity.
+
 For each unresolved dependency:
 
 1. Record what is observed, what is inferred and what must be assumed. Keep
