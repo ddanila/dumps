@@ -162,6 +162,11 @@ separate 1,800 Hz lead: one candidate CD4094 byte is `A1` in all four real
 The upper-bank, divisor-1 run gives a full candidate DAC-code peak at
 1,800 Hz, but no USART dibits or physical DAC clock are yet coupled. Test
 the symbol path rather than treating the missing wire as a blocker. The
+[line-rate D127 hold](g2/PHOTO-MAIN-FRAME-LINE-HOLD.md) feeds actual 8031
+USART bits on two hypothesized D lanes. It produces retained 64/128-step
+phase changes but also changes the candidate DAC-code frequency during each
+held one bit. Keep testing a photo-compatible timed or decoded input route,
+without calling this direct gate the modulator. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

@@ -672,6 +672,15 @@ phases B–C turn "what" into "how".
   fraction is 0.604. Lower bank and divisor 3 fail. This is a controller
   **frame** to carrier-rate witness under untraced wiring, not USART dibit
   modulation. Next test line-rate phase changes and the DAC clock separately.
+  The [line-rate held-bit replay](g2/PHOTO-MAIN-FRAME-LINE-HOLD.md) now overlays
+  real ROM-executed USART-01 bits on D127 D4 or D5 for the 1,500 loop visits
+  per 2,400-bit/s bit under the divisor-1 hypothesis. All eight controller
+  class/lane runs preserve the loop and accumulate the expected 64- or
+  128-step phase difference after a one bit, but the candidate full DAC-code
+  peak moves from 1,800 Hz to 3,600 or 600 Hz during that held level. This
+  direct gate is a frequency-excursion fixture, not yet the required dibit
+  phase modulator. Seek a photo-compatible symbol-boundary or decoded input
+  timing rule; do not insert ideal kicks as if they were recovered wiring.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
