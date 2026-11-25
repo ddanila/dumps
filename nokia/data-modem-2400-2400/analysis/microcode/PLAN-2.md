@@ -662,6 +662,16 @@ phases B–C turn "what" into "how".
   `12A` code retains that peak, with 0.247 target-bin variance fraction.
   The remaining DAC pins and clock are untraced. Use full-byte and physical
   constraints together when testing further output routes.
+  A [main-frame carrier swap](g2/PHOTO-MAIN-FRAME-CARRIER-SWAP.md) finds a
+  more direct data-state lead: all four ROM-executed 8031 main-loop frame
+  classes place `A1` on candidate logical CD4094 chip 1. A single D0/D4
+  crossing, unique among pairwise swaps to an exact 1,800 Hz step, presents
+  D127=`B0`. Four 3,000-word real-PROM runs sustain 740 PC129 reads. With
+  upper-bank ROM and divisor-1 9,600 Hz gating, both `129` Y and a minimal
+  photo-B5-compatible full DAC bus peak at 1,800 Hz; the full code's target
+  fraction is 0.604. Lower bank and divisor 3 fail. This is a controller
+  **frame** to carrier-rate witness under untraced wiring, not USART dibit
+  modulation. Next test line-rate phase changes and the DAC clock separately.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning

@@ -156,6 +156,12 @@ Keep the DAC byte route and shaping stage open hypotheses. The
 shows that a 2,100 Hz B5 bit can coexist with a different full-code peak
 under three simple LS273-to-DAC08 orders. Carry the complete candidate DAC
 byte and clock through later tests. The
+[main-frame carrier swap](g2/PHOTO-MAIN-FRAME-CARRIER-SWAP.md) supplies a
+separate 1,800 Hz lead: one candidate CD4094 byte is `A1` in all four real
+8031 main-loop classes, and a labelled D0/D4 crossing makes it D127=`B0`.
+The upper-bank, divisor-1 run gives a full candidate DAC-code peak at
+1,800 Hz, but no USART dibits or physical DAC clock are yet coupled. Test
+the symbol path rather than treating the missing wire as a blocker. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as
