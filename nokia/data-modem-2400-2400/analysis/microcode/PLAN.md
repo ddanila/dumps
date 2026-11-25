@@ -175,6 +175,12 @@ holding the carrier step outside each pulse. Its pulse gate, DAC clock and
 shaping path are untraced, and the full-stream candidate DAC spectrum differs
 from the reference in one controller class. Test alternate output/phase
 routes; this is a conditional lead rather than a C2 transmitter pass. The
+[DAC bus/decoder screen](g2/PHOTO-MAIN-DIBIT-DAC-DECODE.md) finds that one
+simple photo-B5-compatible full bus lets an independent reference receiver
+recover 103/104 real controller dibits, versus 30 or more errors under each
+other tested bus. That strengthens the conditional phase-modulator lead, but
+the pulse gate, latch clock, line route and DSC receive/echo path remain
+unverified. The
 [joint state/data bus check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows
 that the separate A1 2,100 Hz and main-frame 1,800 Hz bit-swap leads cannot
 share one fixed chip-1 pin permutation, even with fixed inversions. Test

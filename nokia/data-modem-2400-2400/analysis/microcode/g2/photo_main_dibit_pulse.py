@@ -131,6 +131,8 @@ def inspect_trace(path, rom, inputs, dibits):
     return dict(pc129_visits=visits, symbol_ends=symbol_ends,
                 first_16_dac_samples=samples[:16],
                 dac_samples=len(samples),
+                dac_sample_sha256=hashlib.sha256(bytes(
+                    int(row['dac_code'], 16) for row in samples)).hexdigest(),
                 first_8_symbol_tone_fit=tone_summary([
                     int(row['dac_code'], 16) for row in samples[:FIRST_SYMBOLS * 8]]),
                 full_stream_tone_fit=tone_summary([

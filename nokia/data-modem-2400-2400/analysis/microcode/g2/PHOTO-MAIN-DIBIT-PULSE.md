@@ -63,6 +63,13 @@ DAC bus, phase orientation and shaping route against the full-stream mismatch,
 then test the required segment-1 180° reversals. Keep the receiver and echo
 paths open as separate G2 requirements.
 
+The subsequent [full-bus decode screen](PHOTO-MAIN-DIBIT-DAC-DECODE.md)
+finds that the existing ordered Y/Q4-Q5-swapped candidate lets an independent
+reference receiver recover 103 of 104 real controller dibits. Five other
+simple photo-B5-compatible bus orders make at least 31 errors. This strongly
+discriminates the *conditional* output byte order but does not trace the
+latch clock, prove line output or supply DSC receive processing.
+
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_pulse.py
 ```

@@ -1,0 +1,2770 @@
+{
+  "fixture": {
+    "ac_center": 128,
+    "fixed_sample_shift": 4,
+    "input": "four full controller USART streams through the previously executed parity/counter pulse and PC129 phase walk",
+    "output": "PC129 Am2901 Y sampled once per 375 visits; six simple LS273/DAC08 bus orders preserving the photo-suggested Q4\u2192B5 segment",
+    "receiver": "independent V.26-class known-carrier raised-cosine reference decoder, not DSC2847 receiver microcode"
+  },
+  "limitations": [
+    "The output bus, sample clock and analog line route are hypotheses; one photographed Q4\u2192B5 segment does not establish the other seven bits.",
+    "The four-visit USART dibit pulse and its parity/counter wiring are assumed, not traced.",
+    "The reference receiver has known carrier and fixed chosen timing; it is not the Nokia DSC receiver and does not satisfy C3.",
+    "The candidate code stream has abrupt phase changes and no demonstrated pulse shaping, segment-1 reversals or physical DAC output."
+  ],
+  "mappings": [
+    {
+      "cases": [
+        {
+          "abs_reference_correlation": 0.114869,
+          "decision_counts": {
+            "0": 6,
+            "1": 2,
+            "2": 8,
+            "3": 14
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8,
+            9,
+            11,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21,
+            23,
+            24,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 21,
+          "first_8_decisions": [
+            1,
+            3,
+            2,
+            1,
+            2,
+            2,
+            3,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "projected_dac_peak_hz": 2400,
+          "reference_peak_hz": 1780,
+          "selector": "00"
+        },
+        {
+          "abs_reference_correlation": 0.018288,
+          "decision_counts": {
+            "0": 10,
+            "1": 4,
+            "2": 10,
+            "3": 6
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            0,
+            1,
+            5,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 22,
+          "first_8_decisions": [
+            2,
+            0,
+            3,
+            3,
+            2,
+            2,
+            1,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "projected_dac_peak_hz": 2400,
+          "reference_peak_hz": 1560,
+          "selector": "20"
+        },
+        {
+          "abs_reference_correlation": 0.079449,
+          "decision_counts": {
+            "0": 3,
+            "1": 1,
+            "2": 5,
+            "3": 13
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "errors": 15,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            2,
+            3,
+            3,
+            3
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1330,
+          "reference_peak_hz": 1730,
+          "selector": "40"
+        },
+        {
+          "abs_reference_correlation": 0.000811,
+          "decision_counts": {
+            "0": 5,
+            "1": 1,
+            "2": 7,
+            "3": 9
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "errors": 16,
+          "first_8_decisions": [
+            0,
+            2,
+            3,
+            3,
+            0,
+            2,
+            1,
+            2
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1360,
+          "reference_peak_hz": 1720,
+          "selector": "60"
+        }
+      ],
+      "ls273_q_to_dac": "reverse",
+      "mean_abs_reference_correlation": 0.053354,
+      "total_decisions": 104,
+      "total_errors": 74,
+      "y_to_ls273": "ordered_y_to_d"
+    },
+    {
+      "cases": [
+        {
+          "abs_reference_correlation": 0.318297,
+          "decision_counts": {
+            "0": 10,
+            "1": 9,
+            "2": 4,
+            "3": 7
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            1,
+            3,
+            9,
+            14,
+            16,
+            17,
+            18,
+            21,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 12,
+          "first_8_decisions": [
+            1,
+            1,
+            0,
+            1,
+            2,
+            3,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "projected_dac_peak_hz": 2400,
+          "reference_peak_hz": 1780,
+          "selector": "00"
+        },
+        {
+          "abs_reference_correlation": 0.308194,
+          "decision_counts": {
+            "0": 4,
+            "1": 5,
+            "2": 6,
+            "3": 15
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            0,
+            1,
+            9,
+            10,
+            15,
+            18,
+            19,
+            20,
+            22,
+            24,
+            26,
+            27,
+            29
+          ],
+          "errors": 13,
+          "first_8_decisions": [
+            0,
+            0,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "projected_dac_peak_hz": 2400,
+          "reference_peak_hz": 1560,
+          "selector": "20"
+        },
+        {
+          "abs_reference_correlation": 0.341587,
+          "decision_counts": {
+            "0": 10,
+            "1": 2,
+            "2": 1,
+            "3": 9
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            8,
+            11,
+            17
+          ],
+          "errors": 4,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 2400,
+          "reference_peak_hz": 1730,
+          "selector": "40"
+        },
+        {
+          "abs_reference_correlation": 0.31993,
+          "decision_counts": {
+            "0": 8,
+            "1": 0,
+            "2": 4,
+            "3": 10
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            4,
+            13
+          ],
+          "errors": 2,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            3,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 2410,
+          "reference_peak_hz": 1720,
+          "selector": "60"
+        }
+      ],
+      "ls273_q_to_dac": "rotate_q_to_next_b",
+      "mean_abs_reference_correlation": 0.322002,
+      "total_decisions": 104,
+      "total_errors": 31,
+      "y_to_ls273": "ordered_y_to_d"
+    },
+    {
+      "cases": [
+        {
+          "abs_reference_correlation": 0.70617,
+          "decision_counts": {
+            "0": 13,
+            "1": 5,
+            "2": 5,
+            "3": 7
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            0
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "projected_dac_peak_hz": 1780,
+          "reference_peak_hz": 1780,
+          "selector": "00"
+        },
+        {
+          "abs_reference_correlation": 0.679493,
+          "decision_counts": {
+            "0": 1,
+            "1": 9,
+            "2": 9,
+            "3": 11
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "projected_dac_peak_hz": 2390,
+          "reference_peak_hz": 1560,
+          "selector": "20"
+        },
+        {
+          "abs_reference_correlation": 0.714183,
+          "decision_counts": {
+            "0": 9,
+            "1": 3,
+            "2": 2,
+            "3": 8
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1730,
+          "reference_peak_hz": 1730,
+          "selector": "40"
+        },
+        {
+          "abs_reference_correlation": 0.704416,
+          "decision_counts": {
+            "0": 8,
+            "1": 2,
+            "2": 4,
+            "3": 8
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1720,
+          "reference_peak_hz": 1720,
+          "selector": "60"
+        }
+      ],
+      "ls273_q_to_dac": "swap_q4_q5",
+      "mean_abs_reference_correlation": 0.701066,
+      "total_decisions": 104,
+      "total_errors": 1,
+      "y_to_ls273": "ordered_y_to_d"
+    },
+    {
+      "cases": [
+        {
+          "abs_reference_correlation": 0.156817,
+          "decision_counts": {
+            "0": 5,
+            "1": 8,
+            "2": 8,
+            "3": 9
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            9,
+            11,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21,
+            23,
+            24,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 19,
+          "first_8_decisions": [
+            1,
+            1,
+            2,
+            1,
+            2,
+            2,
+            3,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "projected_dac_peak_hz": 2400,
+          "reference_peak_hz": 1780,
+          "selector": "00"
+        },
+        {
+          "abs_reference_correlation": 0.039818,
+          "decision_counts": {
+            "0": 9,
+            "1": 4,
+            "2": 10,
+            "3": 7
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            0,
+            1,
+            4,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            21,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 22,
+          "first_8_decisions": [
+            2,
+            0,
+            3,
+            3,
+            3,
+            3,
+            1,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "projected_dac_peak_hz": 2400,
+          "reference_peak_hz": 1560,
+          "selector": "20"
+        },
+        {
+          "abs_reference_correlation": 0.128313,
+          "decision_counts": {
+            "0": 1,
+            "1": 2,
+            "2": 7,
+            "3": 12
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "errors": 15,
+          "first_8_decisions": [
+            1,
+            3,
+            3,
+            3,
+            2,
+            3,
+            3,
+            3
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1330,
+          "reference_peak_hz": 1730,
+          "selector": "40"
+        },
+        {
+          "abs_reference_correlation": 0.054475,
+          "decision_counts": {
+            "0": 4,
+            "1": 2,
+            "2": 8,
+            "3": 8
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "errors": 16,
+          "first_8_decisions": [
+            0,
+            2,
+            3,
+            3,
+            2,
+            2,
+            1,
+            2
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1360,
+          "reference_peak_hz": 1720,
+          "selector": "60"
+        }
+      ],
+      "ls273_q_to_dac": "reverse",
+      "mean_abs_reference_correlation": 0.094856,
+      "total_decisions": 104,
+      "total_errors": 72,
+      "y_to_ls273": "swap_y7_y4_to_d"
+    },
+    {
+      "cases": [
+        {
+          "abs_reference_correlation": 0.034199,
+          "decision_counts": {
+            "0": 6,
+            "1": 6,
+            "2": 6,
+            "3": 12
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 24,
+          "first_8_decisions": [
+            1,
+            2,
+            3,
+            3,
+            0,
+            3,
+            3,
+            1
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "projected_dac_peak_hz": 1120,
+          "reference_peak_hz": 1780,
+          "selector": "00"
+        },
+        {
+          "abs_reference_correlation": 0.140805,
+          "decision_counts": {
+            "0": 15,
+            "1": 0,
+            "2": 3,
+            "3": 12
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            0,
+            1,
+            6,
+            8,
+            9,
+            10,
+            11,
+            13,
+            15,
+            16,
+            18,
+            20,
+            21,
+            24,
+            25,
+            26,
+            27,
+            29
+          ],
+          "errors": 18,
+          "first_8_decisions": [
+            0,
+            0,
+            3,
+            3,
+            2,
+            3,
+            0,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "projected_dac_peak_hz": 1800,
+          "reference_peak_hz": 1560,
+          "selector": "20"
+        },
+        {
+          "abs_reference_correlation": 0.036732,
+          "decision_counts": {
+            "0": 5,
+            "1": 3,
+            "2": 2,
+            "3": 12
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20
+          ],
+          "errors": 14,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            0,
+            1,
+            2,
+            1
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1340,
+          "reference_peak_hz": 1730,
+          "selector": "40"
+        },
+        {
+          "abs_reference_correlation": 0.096978,
+          "decision_counts": {
+            "0": 4,
+            "1": 2,
+            "2": 3,
+            "3": 13
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            4,
+            5,
+            6,
+            7,
+            11,
+            13,
+            14,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "errors": 13,
+          "first_8_decisions": [
+            1,
+            3,
+            3,
+            3,
+            0,
+            3,
+            3,
+            3
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1360,
+          "reference_peak_hz": 1720,
+          "selector": "60"
+        }
+      ],
+      "ls273_q_to_dac": "rotate_q_to_next_b",
+      "mean_abs_reference_correlation": 0.077179,
+      "total_decisions": 104,
+      "total_errors": 69,
+      "y_to_ls273": "swap_y7_y4_to_d"
+    },
+    {
+      "cases": [
+        {
+          "abs_reference_correlation": 0.02224,
+          "decision_counts": {
+            "0": 10,
+            "1": 1,
+            "2": 5,
+            "3": 14
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21,
+            22,
+            23,
+            24,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 24,
+          "first_8_decisions": [
+            0,
+            3,
+            2,
+            3,
+            0,
+            3,
+            3,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "projected_dac_peak_hz": 1010,
+          "reference_peak_hz": 1780,
+          "selector": "00"
+        },
+        {
+          "abs_reference_correlation": 0.118802,
+          "decision_counts": {
+            "0": 16,
+            "1": 4,
+            "2": 0,
+            "3": 10
+          },
+          "decisions": 30,
+          "dibits": 32,
+          "error_indices": [
+            1,
+            4,
+            7,
+            8,
+            9,
+            10,
+            11,
+            13,
+            15,
+            16,
+            18,
+            20,
+            21,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 19,
+          "first_8_decisions": [
+            1,
+            0,
+            3,
+            3,
+            0,
+            3,
+            1,
+            1
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "projected_dac_peak_hz": 3000,
+          "reference_peak_hz": 1560,
+          "selector": "20"
+        },
+        {
+          "abs_reference_correlation": 0.021666,
+          "decision_counts": {
+            "0": 7,
+            "1": 2,
+            "2": 2,
+            "3": 11
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            21
+          ],
+          "errors": 15,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            0,
+            3,
+            3,
+            3
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1070,
+          "reference_peak_hz": 1730,
+          "selector": "40"
+        },
+        {
+          "abs_reference_correlation": 0.079667,
+          "decision_counts": {
+            "0": 7,
+            "1": 1,
+            "2": 2,
+            "3": 12
+          },
+          "decisions": 22,
+          "dibits": 24,
+          "error_indices": [
+            0,
+            4,
+            5,
+            6,
+            7,
+            8,
+            11,
+            13,
+            14,
+            17,
+            18,
+            19,
+            20
+          ],
+          "errors": 13,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            0,
+            2,
+            1,
+            2
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "projected_dac_peak_hz": 1360,
+          "reference_peak_hz": 1720,
+          "selector": "60"
+        }
+      ],
+      "ls273_q_to_dac": "swap_q4_q5",
+      "mean_abs_reference_correlation": 0.060594,
+      "total_decisions": 104,
+      "total_errors": 71,
+      "y_to_ls273": "swap_y7_y4_to_d"
+    }
+  ],
+  "no_pulse_control": {
+    "cases": [
+      {
+        "decision_counts": {
+          "0": 30,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "decisions": 30,
+        "error_indices": [
+          0,
+          4,
+          5,
+          6,
+          8,
+          10,
+          12,
+          13,
+          17,
+          18,
+          19,
+          20,
+          22,
+          23,
+          25,
+          26,
+          27,
+          28
+        ],
+        "errors": 18,
+        "first_8_decisions": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "first_8_expected": [
+          1,
+          0,
+          0,
+          0,
+          2,
+          3,
+          3,
+          0
+        ],
+        "selector": "00"
+      },
+      {
+        "decision_counts": {
+          "0": 30,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "decisions": 30,
+        "error_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "errors": 29,
+        "first_8_decisions": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "first_8_expected": [
+          1,
+          2,
+          3,
+          3,
+          2,
+          3,
+          1,
+          3
+        ],
+        "selector": "20"
+      },
+      {
+        "decision_counts": {
+          "0": 22,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "decisions": 22,
+        "error_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          8,
+          9,
+          10,
+          12,
+          13,
+          16,
+          17,
+          21
+        ],
+        "errors": 13,
+        "first_8_decisions": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "first_8_expected": [
+          2,
+          3,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "selector": "40"
+      },
+      {
+        "decision_counts": {
+          "0": 22,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "decisions": 22,
+        "error_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16,
+          19
+        ],
+        "errors": 14,
+        "first_8_decisions": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "first_8_expected": [
+          2,
+          3,
+          3,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "selector": "60"
+      }
+    ],
+    "total_decisions": 104,
+    "total_errors": 74
+  },
+  "selected_bus_timing_sweep": [
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 14,
+            "1": 9,
+            "2": 5,
+            "3": 3
+          },
+          "decisions": 31,
+          "error_indices": [
+            5,
+            7,
+            12,
+            13,
+            18,
+            19,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 15,
+          "first_8_decisions": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            1,
+            3,
+            1
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 11,
+            "1": 4,
+            "2": 8,
+            "3": 8
+          },
+          "decisions": 31,
+          "error_indices": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            12,
+            13,
+            16,
+            17,
+            20,
+            21,
+            24,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 20,
+          "first_8_decisions": [
+            0,
+            0,
+            2,
+            3,
+            3,
+            0,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 8,
+            "1": 6,
+            "2": 5,
+            "3": 4
+          },
+          "decisions": 23,
+          "error_indices": [
+            0,
+            1,
+            4,
+            5,
+            8,
+            9,
+            11,
+            12,
+            13,
+            14,
+            16,
+            18,
+            21
+          ],
+          "errors": 13,
+          "first_8_decisions": [
+            0,
+            2,
+            3,
+            3,
+            2,
+            1,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 8,
+            "1": 7,
+            "2": 3,
+            "3": 5
+          },
+          "decisions": 23,
+          "error_indices": [
+            1,
+            5,
+            8,
+            9,
+            11,
+            12,
+            14,
+            15,
+            17,
+            19,
+            20,
+            22
+          ],
+          "errors": 12,
+          "first_8_decisions": [
+            2,
+            1,
+            3,
+            3,
+            1,
+            1,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 0,
+      "total_decisions": 108,
+      "total_errors": 60
+    },
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 13,
+            "1": 9,
+            "2": 3,
+            "3": 5
+          },
+          "decisions": 30,
+          "error_indices": [
+            12,
+            13,
+            18,
+            19,
+            21,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29
+          ],
+          "errors": 12,
+          "first_8_decisions": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 12,
+            "1": 3,
+            "2": 5,
+            "3": 10
+          },
+          "decisions": 30,
+          "error_indices": [
+            0,
+            1,
+            5,
+            6,
+            7,
+            8,
+            10,
+            13,
+            16,
+            20,
+            21,
+            24,
+            26,
+            27,
+            29
+          ],
+          "errors": 15,
+          "first_8_decisions": [
+            0,
+            0,
+            3,
+            3,
+            2,
+            0,
+            3,
+            2
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 9,
+            "1": 6,
+            "2": 0,
+            "3": 7
+          },
+          "decisions": 22,
+          "error_indices": [
+            0,
+            4,
+            5,
+            8,
+            9,
+            11,
+            13,
+            14,
+            18
+          ],
+          "errors": 9,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            0,
+            1,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 8,
+            "1": 4,
+            "2": 3,
+            "3": 7
+          },
+          "decisions": 22,
+          "error_indices": [
+            5,
+            9,
+            11,
+            14,
+            19,
+            20
+          ],
+          "errors": 6,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            1,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 1,
+      "total_decisions": 104,
+      "total_errors": 42
+    },
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 16,
+            "1": 6,
+            "2": 2,
+            "3": 6
+          },
+          "decisions": 30,
+          "error_indices": [
+            0,
+            18,
+            19,
+            24,
+            26,
+            27,
+            28
+          ],
+          "errors": 7,
+          "first_8_decisions": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 4,
+            "1": 8,
+            "2": 7,
+            "3": 11
+          },
+          "decisions": 30,
+          "error_indices": [
+            1,
+            26,
+            27
+          ],
+          "errors": 3,
+          "first_8_decisions": [
+            1,
+            0,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 8,
+            "1": 5,
+            "2": 2,
+            "3": 7
+          },
+          "decisions": 22,
+          "error_indices": [
+            9,
+            18
+          ],
+          "errors": 2,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 7,
+            "1": 3,
+            "2": 4,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [
+            5
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            1,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 2,
+      "total_decisions": 104,
+      "total_errors": 13
+    },
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 13,
+            "1": 6,
+            "2": 5,
+            "3": 6
+          },
+          "decisions": 30,
+          "error_indices": [
+            0,
+            19
+          ],
+          "errors": 2,
+          "first_8_decisions": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 1,
+            "1": 9,
+            "2": 9,
+            "3": 11
+          },
+          "decisions": 30,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 9,
+            "1": 4,
+            "2": 2,
+            "3": 7
+          },
+          "decisions": 22,
+          "error_indices": [
+            9
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 8,
+            "1": 2,
+            "2": 4,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 3,
+      "total_decisions": 104,
+      "total_errors": 3
+    },
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 13,
+            "1": 5,
+            "2": 5,
+            "3": 7
+          },
+          "decisions": 30,
+          "error_indices": [
+            0
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 1,
+            "1": 9,
+            "2": 9,
+            "3": 11
+          },
+          "decisions": 30,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 9,
+            "1": 3,
+            "2": 2,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 8,
+            "1": 2,
+            "2": 4,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 4,
+      "total_decisions": 104,
+      "total_errors": 1
+    },
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 13,
+            "1": 5,
+            "2": 5,
+            "3": 7
+          },
+          "decisions": 30,
+          "error_indices": [
+            0
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 2,
+            "1": 8,
+            "2": 9,
+            "3": 11
+          },
+          "decisions": 30,
+          "error_indices": [
+            6
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            0,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 9,
+            "1": 3,
+            "2": 2,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 9,
+            "1": 2,
+            "2": 3,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [
+            0
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 5,
+      "total_decisions": 104,
+      "total_errors": 3
+    },
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 14,
+            "1": 4,
+            "2": 5,
+            "3": 7
+          },
+          "decisions": 30,
+          "error_indices": [
+            0,
+            7,
+            8,
+            13
+          ],
+          "errors": 4,
+          "first_8_decisions": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            1
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 3,
+            "1": 7,
+            "2": 9,
+            "3": 11
+          },
+          "decisions": 30,
+          "error_indices": [
+            0,
+            6
+          ],
+          "errors": 2,
+          "first_8_decisions": [
+            0,
+            2,
+            3,
+            3,
+            2,
+            3,
+            0,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 9,
+            "1": 3,
+            "2": 2,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [],
+          "errors": 0,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 9,
+            "1": 2,
+            "2": 3,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [
+            0
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            0,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 6,
+      "total_decisions": 104,
+      "total_errors": 7
+    },
+    {
+      "cases": [
+        {
+          "decision_counts": {
+            "0": 16,
+            "1": 5,
+            "2": 3,
+            "3": 6
+          },
+          "decisions": 30,
+          "error_indices": [
+            0,
+            4,
+            6,
+            7,
+            8,
+            13,
+            18
+          ],
+          "errors": 7,
+          "first_8_decisions": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            1,
+            1
+          ],
+          "first_8_expected": [
+            1,
+            0,
+            0,
+            0,
+            2,
+            3,
+            3,
+            0
+          ],
+          "selector": "00"
+        },
+        {
+          "decision_counts": {
+            "0": 10,
+            "1": 6,
+            "2": 5,
+            "3": 9
+          },
+          "decisions": 30,
+          "error_indices": [
+            0,
+            4,
+            6,
+            9,
+            15,
+            16,
+            19,
+            20,
+            23,
+            25,
+            26
+          ],
+          "errors": 11,
+          "first_8_decisions": [
+            0,
+            2,
+            3,
+            3,
+            0,
+            3,
+            0,
+            3
+          ],
+          "first_8_expected": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            3,
+            1,
+            3
+          ],
+          "selector": "20"
+        },
+        {
+          "decision_counts": {
+            "0": 10,
+            "1": 3,
+            "2": 1,
+            "3": 8
+          },
+          "decisions": 22,
+          "error_indices": [
+            8
+          ],
+          "errors": 1,
+          "first_8_decisions": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "40"
+        },
+        {
+          "decision_counts": {
+            "0": 11,
+            "1": 3,
+            "2": 1,
+            "3": 7
+          },
+          "decisions": 22,
+          "error_indices": [
+            0,
+            8,
+            13,
+            14,
+            16
+          ],
+          "errors": 5,
+          "first_8_decisions": [
+            1,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "first_8_expected": [
+            2,
+            3,
+            3,
+            3,
+            1,
+            0,
+            0,
+            0
+          ],
+          "selector": "60"
+        }
+      ],
+      "sample_shift": 7,
+      "total_decisions": 104,
+      "total_errors": 24
+    }
+  ],
+  "selection_check": {
+    "held_out_decisions": 74,
+    "held_out_errors": 0,
+    "held_out_selectors": [
+      "20",
+      "40",
+      "60"
+    ],
+    "training_errors": 1,
+    "training_selector": "00"
+  },
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/board/inventory.json": "7a3a60f886f2e786dae46cbcc1e618d154c2efde75f35dc29a638d916280e3a5",
+    "analysis/microcode/g2/photo_a1_dynamic_mode_replay.py": "0527db2eb39197beea664ab3db4b929c7049d4a7df4d5cd59194a350b4c4b110",
+    "analysis/microcode/g2/photo_dac08_bus_order_screen.py": "e196857e0a8c14bb531cc974f5e71092662342f5bcca3985cfe2d3b717e91d01",
+    "analysis/microcode/g2/photo_main_dibit_dac_decode.py": "2ee3fbba408bb144d07ee86a1cc748bf9b896713a80cc84c03658104313d00e8",
+    "analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/main-loop-serial.json": "6375319c79eff2e459b3b32f55b1bfbe4c761463136f1030a45fc4f1453bbebf",
+    "analysis/microcode/g2/results/photo-main-dibit-pulse.json": "e24efe6f7b8f3d40ba920c0f376e54db1ffb7e312464b6fcc678b48a9335edd6",
+    "photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d"
+  },
+  "status": "one photo-compatible candidate DAC bus lets an independent reference receiver recover 103 of 104 controller dibits"
+}

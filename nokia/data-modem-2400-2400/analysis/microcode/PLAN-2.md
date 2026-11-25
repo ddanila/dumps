@@ -692,6 +692,14 @@ phases B–C turn "what" into "how".
   spectrum disagrees with the same-input reference. This is not a C2 pass.
   Constrain the pulse and output routes before assigning this the modem's
   data-transmitter function.
+  A [DAC bus/independent-decode screen](g2/PHOTO-MAIN-DIBIT-DAC-DECODE.md)
+  now compares six photo-B5-compatible full-byte mappings on those verified
+  code streams. Ordered Y→LS273 with Q4/Q5 exchanged at DAC08 yields one
+  error in 104 real dibit decisions, with zero errors on 74 decisions held
+  out from bus selection; every other tested order makes at least 31 errors.
+  The decoder is a known-carrier reference tool, not the DSC receiver, and
+  the pulse, DAC clock and analog route remain assumed. Keep C2 and C3/C4
+  open while tracing or otherwise constraining those physical paths.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
   now prevents combining the two separate bit-swap leads as one fixed
   chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`
