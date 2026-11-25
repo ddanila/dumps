@@ -345,6 +345,14 @@ phases B–C turn "what" into "how".
   stays fixed. Treat the earlier D-lane byte rule as conditional on these
   unresolved instruction nets, and score future mappings by retained signal
   behavior rather than read count.
+  The [upper-I0 ROM liveness screen](g2/UPPER-I0-ROM-LIVENESS.md) now tests
+  that polarity variant over all 256 initial Q bytes with D4 held low/high.
+  The 32 Q values that repeatedly enter `389–3A1` all settle to one Y byte
+  at every loop site and one ROM address/byte at each read site after eight
+  visits. Independent A8 choices at `389/38A/38C` change some static levels
+  but not that plateau. The earlier 19–25 distinct addresses per full run
+  are startup activity, not a sustained ROM oscillator. Seek a different
+  phase-retaining mapping or output path; these untraced nets are not blockers.
   A [lower instruction source screen](g2/LOWER-I-INPUT-PIPELINE.md) tests
   U11 bits 0–7 as U2 I2 or I7. The D4→`39E` one-visit relay survives every
   direct source choice, so the lower U11.6 duplicate is not necessary for
