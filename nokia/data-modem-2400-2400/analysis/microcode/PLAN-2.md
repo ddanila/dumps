@@ -891,6 +891,17 @@ phases B–C turn "what" into "how".
   windows are diagnostic excerpts, not natural handshake durations. Next
   test a photo-compatible latch/output route; keep C2 open until its line
   output conditions are met, and continue C3/C4 independently.
+  The [output-clock phase screen](g2/PHOTO-JOINT-OUTPUT-CLOCK-PHASE.md)
+  projects the PROM-checked recurrence through all 375 offsets of a
+  hypothetical one-capture-per-375-`129`-visits gate. All offsets retain the
+  candidate 2,100 Hz peak; 234 offsets give 0/62 A3→A4 errors on all 12
+  buses in both modes. The frequency match is a sampled alias: `88` advances
+  56 phase counts per 9,600 Hz sample and `B0` advances 208, equivalent to
+  −48. At the photographed 14.4 MHz oscillator, the tested 3,000-visit
+  symbol schedule implies 1,200 baud only if the four-word loop executes
+  one microinstruction per oscillator period. The actual divider and DAC
+  latch clock are not traced. Screen concrete clock/gate candidates; do not
+  treat the many matching offsets as proof of the physical output path.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
