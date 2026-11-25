@@ -291,6 +291,17 @@ wire, inversion, divider and full DAC bus remain assumptions. Run a
 rate-qualified post-ROM latch scenario next; do not mark C2 passed or G2
 blocked on this timing ambiguity.
 
+The [divided PROM-clock replay](g2/PHOTO-TX-DIVIDED-PROM-CLOCK.md) now runs
+that latch hypothesis through both uninterrupted controller-driven PROM
+traces. Dividing 312,054 real U10 D2 edges by 375 gives 832 evenly spaced
+candidate samples per mode; the captured byte hashes match the prior
+full-PROM site streams. Both direct-rise and inverted-fall phases keep the
+2,100 Hz peak, A2 silence and 0/744 data decisions under the same assumed
+bandpass and six candidate buses. The direct-rise phase fits the tone better,
+while the post-ROM phase fits the pulse-shaped data better. Use that tradeoff
+to test an independently constrained clock phase or analog response; keep
+C2 open and do not wait for a measured net before trying another candidate.
+
 For each unresolved dependency:
 
 1. Record what is observed, what is inferred and what must be assumed. Keep
