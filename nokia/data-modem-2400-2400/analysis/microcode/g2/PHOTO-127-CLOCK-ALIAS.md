@@ -46,6 +46,9 @@ This excludes **this direct gated-PC129 timing family**, not a slower clock,
 a different effective phase step, a held-data circuit or another output
 path. The earlier photo-B5 peak remains a conditional signal clue, not a
 verified modem carrier or a reason to wait for a physical trace.
+The [fast-step candidate screen](PHOTO-127-FAST-STEP-CANDIDATES.md) tests
+which alternate D127 bytes would restore the sampled 1,800/2,100 Hz phase
+rate under integer-ratio fast clocks.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_127_clock_alias.py

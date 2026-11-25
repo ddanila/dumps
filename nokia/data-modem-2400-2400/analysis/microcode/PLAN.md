@@ -122,14 +122,17 @@ other photo-compatible scenarios found an input-sensitive R5 write before
 later table calls. That conditional path is a lead to test with changing
 inputs, not a claim about the board's untraced wiring.
 
-**Next G2 application:** the [D3F8 stream timing sweep](g2/LOWER-I-STREAM-SCHEDULE.md)
-exits the `3ED–3FA` loop early under the tested read-valid PROM-data route;
-that result rules out a sustained sampler in those fixtures, not the proposed
-route or the goal. Follow the `3EE` exit and its downstream state/output first,
-then vary the input schedule, state or photo-compatible connection if that
-path still does not meet the transmit/receive checks. Keep the assumed nets
-and timing attached to every interpretation. An untraced continuation or a
-failed fixture is not a reason to pause for new photographs.
+**Next G2 application:** the [D127 fast-step screen](g2/PHOTO-127-FAST-STEP-CANDIDATES.md)
+finds held phase-step bytes that can yield candidate 1,800/2,100 Hz DAC-bit
+spectra under specific assumed clock ratios. Treat the byte source, loop clock,
+sample gate and latch route as separate, photo-compatible hypotheses. Test a
+controller-driven way to load the candidate steps and clock the latch, then
+compare the resulting byte stream with the expected command and bit timing.
+If that fixture fails, vary the route, timing or input/state fixture and keep
+the negative result tied to those assumptions. Continue the independent
+[D3F8 stream-path test](g2/LOWER-I-STREAM-SCHEDULE.md) for receive behavior.
+Neither an untraced continuation nor a failed fixture calls for new photos
+before the next experiment.
 
 For each unresolved dependency:
 

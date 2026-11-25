@@ -166,6 +166,14 @@ phases B–C turn "what" into "how".
   clock would need 375 oscillator periods per four-word-loop instruction.
   The divider is untraced, so revise timing, effective step or output path
   rather than treating this as a physical transmitter rejection.
+  A [fast-step candidate screen](g2/PHOTO-127-FAST-STEP-CANDIDATES.md) now
+  executes eight alternative D127 bytes and solves the exact sampled phase
+  equation for the integer fast-clock cases. Divisor 1 admits forward
+  1800/2100 steps `50/88`; divisor 3 admits `F0/98`, with reverse alternatives
+  `B0/78` and `10/68`. Their projected B5 series peaks at the target under
+  every start phase. The fractional divisors 2/4 cannot give a uniform phase
+  step with one fixed nonzero D127 byte. Two candidate values (`F0`, `10`)
+  occur in the ROM `30–7F` region, but their connection to D127 is unknown.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:
