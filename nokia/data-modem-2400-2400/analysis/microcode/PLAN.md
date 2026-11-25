@@ -43,6 +43,18 @@ model. Only a pulse before the first data bit reaches the controller's
 `AF→B0` zero signature in its four tested fixtures; byte-early and
 one-bit-shifted controls stay at `AF`. Treat the pulse source and timing
 as hypotheses, not verified wiring or a C3 pass.
+
+The [executed A3→A4 frame edge](g2/CONTROLLER-A3-A4-MODE-EDGE.md) supplies a
+specific next SYNDET hypothesis: decode the unique third-frame-byte `81→A1`
+transition into a pulse before the first data RxC edge. Model the required
+decoder, CD4094-to-receiver connection and timing as assumptions; the photos
+do not establish those nets. Compare this candidate with no pulse, an
+unqualified bit-5 rise, and pulses one bit or one byte away, using the same
+PROM-derived input and controller state. If the candidate misses the required
+edge or the controller signature, revise the decoder or clock alignment and
+continue with another photo-compatible route. Do not mark G2 blocked because
+SYNDET continuity or the physical pulse timing is unknown.
+
 The [controller zero-run handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
 now joins a longer real-PROM receive trace to the 8031's executed `AF→B0`
 zero detector under a labelled USART byte handoff. It narrows the required
@@ -187,6 +199,12 @@ the available evidence supports no runnable candidate and no independent
 controller, PROM or signal analysis can advance an acceptance check. Do not
 ask for more photos or continuity measurements as a prerequisite while those
 routes remain open.
+
+Do not convert an unmet acceptance check into a goal blocker: keep its status
+open, record which physical claim is still unverified, and run the next
+candidate. A measurement can distinguish surviving models later; its absence
+does not stop tests that can be run under explicit assumptions now.
+
 **Default decision:** keep the goal active and run a photo-compatible baseline
 plus a few meaningful alternatives whenever a connection is uncertain. Mark
 only the tested candidate as unsuccessful when it fails; do not mark the goal
