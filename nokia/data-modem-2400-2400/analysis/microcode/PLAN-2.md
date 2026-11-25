@@ -1142,6 +1142,15 @@ phases B–C turn "what" into "how".
   The isolated perfect fresh stream does not generalize. This excludes
   that simple external readout under the fixture, not an executed
   multi-sample receiver; C3 remains open.
+  A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
+  all 16 zero/sign/carry/overflow, current/previous and polarity choices.
+  Only inverted previous sign, carry and overflow sustain all four rows
+  under held `09`; each retains 1,312/1,500 after-fourth-row differences
+  for paired waveforms. None changes TEST at any executed conditional
+  command. The 234–282 changed `3EA` TEST levels occur on PLP, which
+  ignores TEST. This narrows the flag substitution route without making
+  unknown TEST wiring a blocker; pursue an output consumer or a different
+  input/field hypothesis for C3.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,

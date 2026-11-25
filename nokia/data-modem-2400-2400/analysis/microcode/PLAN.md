@@ -545,6 +545,10 @@ The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
 also fails to decode the captured Y[3:0] as a fixed-phase differential
 symbol across independent streams. Keep the conditional latch experiment,
 but seek an executed multi-sample decision or another output source.
+The [mask-04 TEST audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) finds three
+surviving previous-flag choices, but none turns the paired ADC difference
+into an executed conditional branch. Keep the receive output and mapping
+questions open and test another photo-compatible route.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent
