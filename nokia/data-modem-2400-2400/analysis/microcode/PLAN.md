@@ -565,6 +565,13 @@ same gate on raw ADC misses 103/192. This is an executed-byte lead for
 one bit combination, not an executed or routed USART decision. Test a
 photo-compatible row-3 consumer and the second independent bit; keep C3
 open and G2 active.
+The [phase-47 Boolean readout](g2/RECEIVER-MASK04-PHASE47-BOOLEAN-DIBITS.md)
+now recovers both reference dibit bits with 0/96 errors on eight fresh
+full-PROM traces spanning nominal, 0.75/1.25 gain and +16 PCM bias. It
+uses two executed `3ED` Y bytes, but its row-0 hold, row-3 gates,
+previous-symbol phase register and USART timing are external hypotheses.
+Run a photo-compatible latch/consumer and shifted-carrier test next;
+keep C3 open until the recovered bits reach USART-01 RxD.
 The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
 also fails to decode the captured Y[3:0] as a fixed-phase differential
 symbol across independent streams. Keep the conditional latch experiment,

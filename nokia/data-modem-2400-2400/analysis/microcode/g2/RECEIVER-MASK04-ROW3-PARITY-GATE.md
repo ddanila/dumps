@@ -58,3 +58,6 @@ contains both gain-specific codebooks and holdout coverage. Reproduce with
 `python3 g2/receiver_mask04_row3_parity_gate.py` and
 `python3 g2/receiver_mask04_rowpair_gain_adaptation.py` from the microcode
 directory.
+The later [phase-47 Boolean readout](RECEIVER-MASK04-PHASE47-BOOLEAN-DIBITS.md)
+recovers both reference dibit bits on fresh multi-level fixtures; its
+external logic and USART connection still need identification.

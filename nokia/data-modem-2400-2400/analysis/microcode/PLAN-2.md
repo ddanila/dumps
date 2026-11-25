@@ -1174,6 +1174,16 @@ phases B–C turn "what" into "how".
   so the second bit and gain adaptation remain open. Identify an executed
   or photo-compatible gate/latch route to USART-01 RxD before passing C3;
   continue with labelled hypotheses rather than waiting for continuity.
+  The [phase-47 Boolean continuation](g2/RECEIVER-MASK04-PHASE47-BOOLEAN-DIBITS.md)
+  uses row-0/row-3 executed `3ED` Y bytes to form a two-bit phase and
+  subtract the previous symbol's phase plus the reference carrier's
+  180° advance. The rule was derived on earlier traces, then frozen for
+  eight new full-PROM runs at four ADC input levels: **0/96 fresh dibit
+  errors**, with complete decisions. This is the first multi-level,
+  two-dibit conditional receiver readout. The Boolean circuit and USART
+  route are not executed or traced, and carrier-phase tolerance remains
+  untested. Model a photo-compatible latch/consumer and actual RxD timing
+  before passing C3; G2 remains active.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
