@@ -1064,6 +1064,15 @@ phases B–C turn "what" into "how".
   four random streams while preserving all 2,232 scored decisions and the
   2,100 Hz tone peak. The remaining fit gap and untraced analog/latch path
   keep C2 open; test actual component connections or another output stage.
+  A [joint transmitter/ADC field screen](g2/JOINT-TX-RX-MAPPING.md) checks
+  whether the separate q3 DAC and independent-upper-slice ADC witnesses can
+  coexist in one field map. All 32 tested lower-field combinations keep the
+  receiver upper fields fixed. Ten both complete the held `D127` loop and
+  retain ADC high-nibble influence, but their `Y129` streams contain at most
+  two values, versus 16 in the shared-slice q3 transmitter control. The
+  current transmitter and receiver hypotheses therefore cannot simply be
+  combined as one C2/C3 mapping. Test an upper-slice instruction/enable or
+  output-latch alternative on both paths before assigning modem functions.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
