@@ -548,6 +548,17 @@ phases B–C turn "what" into "how".
   real within that fixture but still lacks receiver history. Seek a separate
   command/sample ingress or another branch and retained-state path.
 
+  A [fast-gated full-byte screen](g2/PHOTO-127-FULL-BYTE-GATE.md) follows
+  the alternative PC129 phase loop and tests selected upper-ROM bytes as
+  candidate DAC latch data. Its executed 740-read recurrence supports a
+  projected 9,600 Hz sample series. The raw ROM byte peaks at 3,000 Hz for
+  both proposed 1,800/2,100 Hz step values; a hypothetical high-bit
+  inversion produces the target peak bins but explains under half the code
+  variance. The phase ramp alone has comparable or stronger target-bin
+  power. Continue by finding a decoded quarter-wave or other retained
+  ROM-to-latch data path and controller-selected phase steps; the pin route
+  remains an assumption, not a blocker.
+
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
   rather than statistical plausibility.
