@@ -1,0 +1,93 @@
+{
+  "cases": [
+    {
+      "candidate_output_visits": 0,
+      "held_d12c": "7A",
+      "pc12e_reads_per_bank": 613,
+      "pc12e_y_differences": 598,
+      "pc12f_y_differences": 165,
+      "postclear_12d_state_differences": 0,
+      "preclear_12c_state_differences": 165,
+      "selected_rom_byte_differences": 598,
+      "trace_digests_by_bank": {
+        "0": "479085300af11642ad6607842a5b2f26e942d681b4eea71959b16fa2c215c677",
+        "256": "0e0c998579012a6dfc90b695ab53421ee7a4376035aab71e78a4c7a698d73c4c"
+      }
+    },
+    {
+      "candidate_output_visits": 0,
+      "held_d12c": "02",
+      "pc12e_reads_per_bank": 613,
+      "pc12e_y_differences": 600,
+      "pc12f_y_differences": 163,
+      "postclear_12d_state_differences": 0,
+      "preclear_12c_state_differences": 163,
+      "selected_rom_byte_differences": 600,
+      "trace_digests_by_bank": {
+        "0": "e71328b8e41a28fa76a0c021297d4102cf582f61fe13d017d6605fe243857bb7",
+        "256": "6884537424840288cd2e380c716352fc9d895a25b570c5636b04c5825f6ed2a9"
+      }
+    },
+    {
+      "candidate_output_visits": 0,
+      "held_d12c": "80",
+      "pc12e_reads_per_bank": 613,
+      "pc12e_y_differences": 613,
+      "pc12f_y_differences": 0,
+      "postclear_12d_state_differences": 0,
+      "preclear_12c_state_differences": 0,
+      "selected_rom_byte_differences": 613,
+      "trace_digests_by_bank": {
+        "0": "da87bd9d088d80c64ffad112fc7b39a0964c0fff57b7c7cddce27f4c4df062ad",
+        "256": "e220c6c5f8cf1838290d28fb8da010df9c0e54a49cf005909dfd46d7abfb7bd6"
+      }
+    },
+    {
+      "candidate_output_visits": 0,
+      "held_d12c": "88",
+      "pc12e_reads_per_bank": 613,
+      "pc12e_y_differences": 613,
+      "pc12f_y_differences": 114,
+      "postclear_12d_state_differences": 0,
+      "preclear_12c_state_differences": 114,
+      "selected_rom_byte_differences": 613,
+      "trace_digests_by_bank": {
+        "0": "72b031e45bf7a6988945d763cb48061a6c4ba357223b9d2a93def8ff8f4aa6a5",
+        "256": "eb0d982cdf6e61738fa9d7aa0a0f5e16bdec119772ecb28273958552e1c0b9d8"
+      }
+    }
+  ],
+  "fixture": {
+    "compared_pc12e_banks": [
+      0,
+      256
+    ],
+    "cycles_per_case": 3000,
+    "d12c_steps": [
+      "7A",
+      "02",
+      "80",
+      "88"
+    ],
+    "held_d127": "81",
+    "mapping": "q3 photo-swapped",
+    "pc129_bank": 256,
+    "q": 0
+  },
+  "limitations": [
+    "The D127/D12C input routes, ROM bank control, mapping and held-I0 circuit are hypotheses.",
+    "Equality after 12D applies to these four held steps and this q3 fixture; it does not rule out an external latch sampling 12E/12F.",
+    "Neither the DAC08 data bus nor latch clock is identified."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/g2/photo_12c_rom_liveness.py": "abce9713e8a9bc2ad583fe3acf326ec0ef8f114e448b46fc116db4429ba4b62e",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a"
+  },
+  "status": "second-loop ROM-bank liveness diagnostic"
+}

@@ -797,3 +797,8 @@ that A0 and A2 send identical four-byte frames but leave P1.5 at different
 levels. A1 and A2 keep P1.5 low in all 256 preserved-RAM chain selectors.
 Frame-only DSP hypotheses therefore omit an observed state signal; its
 physical destination and role remain open.
+The [paired second-loop ROM-bank replay](PHOTO-12C-ROM-LIVENESS.md) finds
+hundreds of changed `12E` operands but identical full modeled state after
+each next `12D` for four held D12C inputs. The ROM effect is transient under
+this q3 fixture, narrowing any DAC latch hypothesis to the `12E`/`12F`/preclear
+`12C` window without establishing the physical clock or output bus.

@@ -132,6 +132,9 @@ proposed 2,100 Hz phase step. The
 [controller P1 replay](g2/CONTROLLER-STATE-PIN-CHANNELS.md) also shows that
 P1.5 distinguishes A0 from A2 even when their serial frames match; keep it
 as a separate, untraced input hypothesis in the next state-sensitive test. The
+[second-loop ROM liveness test](g2/PHOTO-12C-ROM-LIVENESS.md) shows that the
+ROM-bank effect is erased by `12D` in the tested q3 loop, so a candidate DAC
+latch must sample before that point. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

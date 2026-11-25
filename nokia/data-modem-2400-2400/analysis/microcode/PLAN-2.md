@@ -613,6 +613,13 @@ phases B–C turn "what" into "how".
   also low. Include this pin as an independent candidate control input when
   testing state-dependent DSP behavior; its physical destination and tone
   meaning are not established.
+  A [paired-bank second-loop replay](g2/PHOTO-12C-ROM-LIVENESS.md) now shows
+  that changing the selected Am27S31 bank at `12E` changes hundreds of ALU
+  bytes and some `12F` results, yet every complete post-`12D` state agrees
+  across banks for four held phase inputs. In this q3 fixture, any DAC route
+  using the ROM shape must sample `12E`, `12F` or the following preclear
+  `12C` window; a later state consumer cannot recover it. Test a qualified
+  latch clock in that window under explicit chip/timing assumptions.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
