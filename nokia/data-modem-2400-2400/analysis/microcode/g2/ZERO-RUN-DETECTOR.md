@@ -16,14 +16,21 @@ ROM dispatcher; the test checks one status and one data read, the decoded
 octet and the running count. After the last byte, it directs the same 8031
 image to the `1000` state step.
 
-| Decoded sequence | RAM63 after final byte | State after step, both polynomials |
-| --- | ---: | --- |
-| Seven `00` octets | 7 | `AF` |
-| Eight `00` octets | 8 | `B0` |
-| Seven `00`, then `01` | 0 | `AF` |
-| Eight `FF` octets | 0 | `AF` |
-| Seven `00`, `01`, seven `00` | 7 | `AF` |
-| Seven `00`, `01`, eight `00` | 8 | `B0` |
+| Decoded sequence | RAM63 after final byte | State after step | Four outgoing bytes, both polynomials |
+| --- | ---: | --- | --- |
+| Seven `00` octets | 7 | `AF` | `D0 42 89 9A` |
+| Eight `00` octets | 8 | `B0` | `D0 42 81 1A` |
+| Seven `00`, then `01` | 0 | `AF` | `D0 42 89 9A` |
+| Eight `FF` octets | 0 | `AF` | `D0 42 89 9A` |
+| Seven `00`, `01`, seven `00` | 7 | `AF` | `D0 42 89 9A` |
+| Seven `00`, `01`, eight `00` | 8 | `B0` | `D0 42 81 1A` |
+
+After the state step, the same preserved controller image executes the real
+four-byte send at `1EE2`. Reaching `B0` clears bit 3 in the third byte
+(`89→81`) and bit 7 in the fourth (`9A→1A`); the first two bytes and modeled
+P1 value stay unchanged. These frames match the separate
+[fixed-state frame execution](results/controller-frames.json). The frame's
+physical recipient and bit meanings remain untraced.
 
 The line bytes are genuinely scrambled rather than eight literal zero
 bytes: with the five-bit polynomial, the first eight zero-source octets
@@ -33,7 +40,8 @@ they arrive as `A5 C2 4C 58 52 47 65 B4`. The
 source hashes.
 
 This is a strong controller-side match to the standard's 64-zero step and
-narrows the likely role of state `AF→B0`. The ROM implementation counts
+narrows the likely role of state `AF→B0` and identifies two outgoing control
+bits associated with that transition. The ROM implementation counts
 whole zero octets; this test does not establish detection at every possible
 bit alignment. The harness supplies modeled USART reads and explicitly
 starts the final state step, so it does not prove a naturally timed call,

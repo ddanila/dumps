@@ -15,6 +15,7 @@ from state_transitions import CORE, ROM
 
 STANDARD = 'https://www.itu.int/rec/dologin_pub.asp?id=T-REC-V.26ter-198811-I%21%21PDF-E&lang=e&type=items'
 HISTORY = 0x5A1234
+STATE_FRAMES = HERE / 'results/controller-frames.json'
 SEQUENCES = {
     'seven_zero_octets': [0] * 7,
     'eight_zero_octets': [0] * 8,
@@ -35,6 +36,11 @@ def line_octets(values, delay):
 
 
 def run(out=HERE / 'results/zero-run-detector.json'):
+    independent_frames = {row['state']: row['wire'] for row in
+                          json.loads(STATE_FRAMES.read_text())['rows']
+                          if row['state'] in ('AF', 'B0')}
+    assert independent_frames == {'AF': 'D0 42 89 9A',
+                                  'B0': 'D0 42 81 1A'}
     rows = []
     with tempfile.TemporaryDirectory() as temporary:
         exe = Path(temporary) / 'zero-run-probe'
@@ -66,14 +72,23 @@ def run(out=HERE / 'results/zero-run-detector.json'):
                 assert (result['state_after'], result['zero_octets'],
                         result['errors'], result['reached_stop']) == (
                             expected_state, count, 0, True)
+                assert result['tx_completions'] == 4 and len(result['wire']) == 4
+                expected_wire = ([0xD0, 0x42, 0x81, 0x1A] if expected_state == 0xB0
+                                 else [0xD0, 0x42, 0x89, 0x9A])
+                assert result['wire'] == expected_wire
+                assert ' '.join(f'{value:02X}' for value in result['wire']) == (
+                    independent_frames[f'{expected_state:02X}'])
                 assert [event['line'] for event in result['octets']] == offered
                 rows.append(dict(delay=delay, sequence=label,
                                  line_bytes=[f'{value:02X}' for value in offered],
                                  decoded_bytes=[f'{value:02X}' for value in decoded],
                                  zero_octets_after_each=counts,
                                  final_state=f'{expected_state:02X}',
+                                 p1_after_state=f'{result["p1_after_state"]:02X}',
+                                 outgoing_frame=' '.join(f'{value:02X}'
+                                                         for value in result['wire']),
                                  errors=0))
-    paths = [Path(__file__), HERE / 'zero_run_probe.c',
+    paths = [Path(__file__), HERE / 'zero_run_probe.c', STATE_FRAMES,
              HERE / 'state_transitions.py',
              HERE.parents[1] / 'controller_scrambler.py', ROM,
              *(CORE / name for name in
@@ -88,7 +103,11 @@ def run(out=HERE / 'results/zero-run-detector.json'):
                                receive_byte_source='modelled USART-01 status=02 and data byte at MOVX reads; physical DSP-to-USART wire untraced',
                                scrambler_delays=[5, 18]),
                   cases=rows,
-                  interpretation='For both V.26 ter scrambler polynomials, seven decoded zero octets leave AF; eight advance AF to B0. A nonzero decoded byte resets the count, and eight fresh zero octets are required.',
+                  frame_change=dict(before='D0 42 89 9A',
+                                    after='D0 42 81 1A',
+                                    changed_lanes='third byte bit 3 clears; fourth byte bit 7 clears',
+                                    crosscheck='matches independently executed fixed-state controller-frames report'),
+                  interpretation='For both V.26 ter scrambler polynomials, seven decoded zero octets leave AF; eight advance AF to B0 and change two outgoing frame bits. A nonzero decoded byte resets the count, and eight fresh zero octets are required.',
                   limitations=['Each byte enters through the actual state-AF receive dispatcher and its 1DB8/05A3/1BBB calls, with one modeled status and data read; the final handoff to the state-step entry is synthetic rather than a naturally timed main loop.',
                                'The input bytes come from a verified reference scrambler, not from an executed DSC receiver or physical USART RxD wire.',
                                'The counter recognizes eight full zero octets; this test does not establish detection of every unaligned 64-bit zero window.',

@@ -65,8 +65,28 @@ int main(int argc, char **argv) {
     c.mPC=0x1000;
     c.mSFR[REG_SP]=113;
     for (unsigned n=0;n<300 && c.mPC!=0x1755;n++,cycle++) tick(&c);
-    printf("],\"state_after\":%u,\"zero_octets\":%u,\"errors\":%u,\"reached_stop\":%s}\n",
-           c.mLowerData[0x34],c.mLowerData[0x63],errors,
-           c.mPC==0x1755?"true":"false");
-    return errors || c.mPC!=0x1755;
+    if (c.mPC!=0x1755 || errors) return 5;
+    unsigned p1_after_state=c.mSFR[REG_P1];
+    unsigned first_event=event_count;
+    c.mPC=0x1EE2; sending=1; tx_due=0;
+    unsigned completed=0;
+    for (unsigned n=0;n<2000 && c.mPC!=0x1EE8;n++,cycle++) {
+        tick(&c);
+        if (tx_due && cycle>=tx_due) {
+            c.mSFR[REG_SCON]|=2;
+            tx_due=0;
+            completed++;
+        }
+    }
+    unsigned wire[4]={0},writes=0;
+    for (unsigned i=first_event;i<event_count;i++)
+        if (!strcmp(events[i].kind,"tx")) {
+            if (writes<4) wire[writes]=events[i].value;
+            writes++;
+        }
+    printf("],\"state_after\":%u,\"zero_octets\":%u,\"p1_after_state\":%u,\"wire\":[%u,%u,%u,%u],\"tx_completions\":%u,\"errors\":%u,\"reached_stop\":%s}\n",
+           c.mLowerData[0x34],c.mLowerData[0x63],p1_after_state,
+           wire[0],wire[1],wire[2],wire[3],completed,errors,
+           c.mPC==0x1EE8?"true":"false");
+    return errors || c.mPC!=0x1EE8 || writes!=4 || completed!=4;
 }

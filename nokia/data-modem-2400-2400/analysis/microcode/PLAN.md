@@ -106,6 +106,17 @@ only the tested candidate as unsuccessful when it fails; do not mark the goal
 blocked or request new measurements while another runnable hypothesis or
 independent program/signal analysis remains. State the next experiment in the
 result summary so an ambiguous photograph leads to another action.
+For each unresolved connection, start from the visible pins, chip directions
+and nearby parts in the existing photographs. Draw the shortest plausible
+continuation as a labelled hypothesis, including any required inversion,
+latch edge and clock ratio; add a small number of alternatives where those
+choices change the result. Run each with the real PROM contents and relevant
+8031 traffic, and keep the mapping, stimulus and output trace together. If a
+candidate explains the expected behavior, report that behavior as conditional
+on its wiring and timing. If it fails, revise or discard that candidate and
+continue with another testable route. Physical continuity is useful later to
+choose among survivors; it is not a prerequisite to running or interpreting
+them, and a missing net trace alone must never be recorded as the G2 blocker.
 This also applies when the controller emits no line-data bytes or a candidate
 route fails to reproduce a required signal. Use the protocol's specified
 symbol sequence and the observed controller state/frame timing to define a

@@ -104,9 +104,12 @@ phases B–C turn "what" into "how".
   history, eight received zero-source octets pass through the actual 8031
   USART-read, descrambler and zero-counter ROM dispatch and advance `AF→B0`;
   seven remain at `AF`, while a nonzero byte resets the count. This matches
-  the standard's 64-consecutive-zero step at octet alignment. The final
-  state-step handoff is synthetic, and the DSC receive/echo route is still
-  unverified, so A1's complete operating-sequence map and C3/C4 stay open.
+  the standard's 64-consecutive-zero step at octet alignment. From the same
+  controller image, the subsequent four-byte send changes from
+  `D0 42 89 9A` at `AF` to `D0 42 81 1A` at `B0`, clearing two frame bits.
+  The final state-step handoff is synthetic, and the DSC receive/echo route
+  is still unverified, so A1's complete operating-sequence map and C3/C4
+  stay open.
   A [literal A3-frame route screen](g2/PHOTO-A3-HELD-FRAME-SEGMENT1.md) then
   tests all six distinct frame-byte values as held candidate D127 inputs
   with no port-01 data. Three even bytes sustain 32-symbol, 384,256-word

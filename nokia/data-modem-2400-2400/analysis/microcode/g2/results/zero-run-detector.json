@@ -22,6 +22,8 @@
         "5F",
         "E5"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "seven_zero_octets",
       "zero_octets_after_each": [
         1,
@@ -57,6 +59,8 @@
         "E5",
         "E2"
       ],
+      "outgoing_frame": "D0 42 81 1A",
+      "p1_after_state": "FF",
       "sequence": "eight_zero_octets",
       "zero_octets_after_each": [
         1,
@@ -93,6 +97,8 @@
         "E5",
         "C3"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "seven_zero_then_one",
       "zero_octets_after_each": [
         1,
@@ -129,6 +135,8 @@
         "81",
         "92"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "eight_one_octets",
       "zero_octets_after_each": [
         0,
@@ -179,6 +187,8 @@
         "D6",
         "4C"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "interrupted_then_seven",
       "zero_octets_after_each": [
         1,
@@ -238,6 +248,8 @@
         "4C",
         "8D"
       ],
+      "outgoing_frame": "D0 42 81 1A",
+      "p1_after_state": "FF",
       "sequence": "interrupted_then_eight",
       "zero_octets_after_each": [
         1,
@@ -280,6 +292,8 @@
         "47",
         "65"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "seven_zero_octets",
       "zero_octets_after_each": [
         1,
@@ -315,6 +329,8 @@
         "65",
         "B4"
       ],
+      "outgoing_frame": "D0 42 81 1A",
+      "p1_after_state": "FF",
       "sequence": "eight_zero_octets",
       "zero_octets_after_each": [
         1,
@@ -351,6 +367,8 @@
         "65",
         "B5"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "seven_zero_then_one",
       "zero_octets_after_each": [
         1,
@@ -387,6 +405,8 @@
         "5A",
         "4C"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "eight_one_octets",
       "zero_octets_after_each": [
         0,
@@ -437,6 +457,8 @@
         "DE",
         "CB"
       ],
+      "outgoing_frame": "D0 42 89 9A",
+      "p1_after_state": "FF",
       "sequence": "interrupted_then_seven",
       "zero_octets_after_each": [
         1,
@@ -496,6 +518,8 @@
         "CB",
         "61"
       ],
+      "outgoing_frame": "D0 42 81 1A",
+      "p1_after_state": "FF",
       "sequence": "interrupted_then_eight",
       "zero_octets_after_each": [
         1,
@@ -530,7 +554,13 @@
     ],
     "stop_state_step": "1755"
   },
-  "interpretation": "For both V.26 ter scrambler polynomials, seven decoded zero octets leave AF; eight advance AF to B0. A nonzero decoded byte resets the count, and eight fresh zero octets are required.",
+  "frame_change": {
+    "after": "D0 42 81 1A",
+    "before": "D0 42 89 9A",
+    "changed_lanes": "third byte bit 3 clears; fourth byte bit 7 clears",
+    "crosscheck": "matches independently executed fixed-state controller-frames report"
+  },
+  "interpretation": "For both V.26 ter scrambler polynomials, seven decoded zero octets leave AF; eight advance AF to B0 and change two outgoing frame bits. A nonzero decoded byte resets the count, and eight fresh zero octets are required.",
   "limitations": [
     "Each byte enters through the actual state-AF receive dispatcher and its 1DB8/05A3/1BBB calls, with one modeled status and data read; the final handoff to the state-step entry is synthetic rather than a naturally timed main loop.",
     "The input bytes come from a verified reference scrambler, not from an executed DSC receiver or physical USART RxD wire.",
@@ -539,9 +569,10 @@
   ],
   "source_sha256": {
     "nokia/data-modem-2400-2400/analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/controller-frames.json": "1b3694d79afa5b43f1f21e7fde6870bcc5e557fc0fddadd71519ef688fcc6805",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/state_transitions.py": "3996083ae0e98d5c4c390c0e8a111d4ffa6393ef18f5f9838668b70aac50d630",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/zero_run_detector.py": "0f437a7a1b5652592cee22c39661240ec1381ba57e3d888067e522dc650f2f14",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/zero_run_probe.c": "16bcecb25ca7639555be38da0fc9eeb7d69190e18db1891b903526eb4b40ed9b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/zero_run_detector.py": "4f0180cde570b9176fda7b99b226e5e0de5fd6288144f94e69c45c84a93868a5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/zero_run_probe.c": "c7830b31201a481f2c8b388f0dd6d42d723b9a3aeeb740efa4cf0d6b8ae80362",
     "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
     "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
     "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
