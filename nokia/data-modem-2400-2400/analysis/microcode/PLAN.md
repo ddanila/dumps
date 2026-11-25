@@ -112,8 +112,17 @@ The [executed A2 frame-bit screen](g2/CONTROLLER-A2-LATCH-GATE.md) now finds
 one specific hold hypothesis: third-frame-byte bit 0 is high across A1/A3/A4
 and low across A2 in both selector runs. If it drives the photographed
 74LS373 latch-enable pin, the saved real-PROM hold case gives A2 silence and
-preserves the later data decisions. Test this labelled bit-to-latch route on a
-common controller/PROM schedule; the connection is not yet traced or a C2 pass.
+preserves the later data decisions. The bit-to-latch connection is not traced
+or a C2 pass.
+The [controller gate timing](g2/CONTROLLER-A2-LATCH-GATE-TIMING.md) places its
+A2 low interval at 61,938/61,772 modeled 8031 ticks, or about 596/594
+candidate DAC samples. The [extended joint-map PROM run](g2/JOINT-MASK04-A2-LE-TIMED.md)
+now carries the proposed hold through 74 A2 symbols and the first two/four
+A3 samples, then through the real controller-derived A4 data. Both selectors
+complete 2,040,256 instructions; all 72 bus/phase/release cases retain a
+2,100 Hz tone, quiet late A2 and 0/62 A3/A4 decisions. This strengthens the
+specific controller-to-latch hypothesis but leaves its net and analog route
+unverified. Keep C2 open and test independent output-route constraints next.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.

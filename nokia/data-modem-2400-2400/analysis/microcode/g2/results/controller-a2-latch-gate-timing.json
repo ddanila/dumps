@@ -1,0 +1,109 @@
+{
+  "cases": [
+    {
+      "a2_gate_fall": {
+        "cycle": 2616560,
+        "gate_after": 0,
+        "gate_before": 1,
+        "new_third": "E8",
+        "old_third": "C1",
+        "state": "A2"
+      },
+      "a3_gate_rise": {
+        "cycle": 2678498,
+        "gate_after": 1,
+        "gate_before": 0,
+        "new_third": "A1",
+        "old_third": "88",
+        "state": "A3"
+      },
+      "gate_events": [
+        {
+          "cycle": 2616560,
+          "gate_after": 0,
+          "gate_before": 1,
+          "new_third": "E8",
+          "old_third": "C1",
+          "state": "A2"
+        },
+        {
+          "cycle": 2678498,
+          "gate_after": 1,
+          "gate_before": 0,
+          "new_third": "A1",
+          "old_third": "88",
+          "state": "A3"
+        }
+      ],
+      "held_candidate_dac_samples": 595.5576923076923,
+      "held_controller_ticks": 61938,
+      "selector": "40",
+      "tested_short_dac_hold_samples": 64
+    },
+    {
+      "a2_gate_fall": {
+        "cycle": 2616376,
+        "gate_after": 0,
+        "gate_before": 1,
+        "new_third": "E8",
+        "old_third": "C1",
+        "state": "A2"
+      },
+      "a3_gate_rise": {
+        "cycle": 2678148,
+        "gate_after": 1,
+        "gate_before": 0,
+        "new_third": "A1",
+        "old_third": "88",
+        "state": "A3"
+      },
+      "gate_events": [
+        {
+          "cycle": 2616376,
+          "gate_after": 0,
+          "gate_before": 1,
+          "new_third": "E8",
+          "old_third": "C1",
+          "state": "A2"
+        },
+        {
+          "cycle": 2678148,
+          "gate_after": 1,
+          "gate_before": 0,
+          "new_third": "A1",
+          "old_third": "88",
+          "state": "A3"
+        }
+      ],
+      "held_candidate_dac_samples": 593.9615384615385,
+      "held_controller_ticks": 61772,
+      "selector": "60",
+      "tested_short_dac_hold_samples": 64
+    }
+  ],
+  "fixture": {
+    "clock_ratio": "14.4 MHz / 1500 DAC cycles per sample = 9600 samples/s; 11.9808 MHz / 12 = 998400 controller ticks/s; exactly 104 controller ticks per DAC sample",
+    "controller": "unchanged 8031 ROM under Timer1 harness",
+    "controller_ticks_per_candidate_dac_sample": 104,
+    "frame_latch_event": "P1.2 rising edge after fourth mode-0 SBUF byte under synthetic eight-tick serial completion",
+    "ram15": "held positive at PC1000; source untraced"
+  },
+  "limitations": [
+    "The CD4094 cascade-to-74LS373 C/LE connection is untraced.",
+    "The controller and DSC clocks are related by assumed dividers; the probe does not co-simulate both devices.",
+    "Eight-tick SBUF completion is synthetic, so physical frame-latch timing and sample phase remain unverified.",
+    "The earlier DAC screen held the output for only 64 samples; this event screen projects the controller interval under the clock hypothesis, not a new long PROM execution."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/controller_a2_latch_gate_timing.py": "2ddc117d0ccc02dbdcd2ec85baa5beba678028f650966da72c99651c4b52774d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_probe.c": "5c2ed6612890c4484ba81858356cbff76fdb9420a74eade23ce1215e65147ed1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_timer1_segment2.py": "291c96bd7c8a371ce761b49c82c0e7bb0e252a11001f1a6a7c654910565bd390",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/controller-a2-latch-gate.json": "0c08d917c051397d7ff2076d0019e41b60553b51b98a2b8858c15d6d50aa78d3",
+    "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b"
+  },
+  "status": "The candidate controller latch-enable bit stays low across the A2 interval for hundreds of modeled DAC sample periods."
+}

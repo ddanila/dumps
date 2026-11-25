@@ -37,7 +37,7 @@ SAMPLE_COUNT = TOTAL_SYMBOLS * 8
 DIVISOR = VISITS_PER_SAMPLE
 
 
-def capture(path):
+def capture(path, sample_count=SAMPLE_COUNT):
     """Counter-qualify actual 129 rises and 12A falls; capture preceding Y."""
     pre_rising = []
     post_rom = []
@@ -69,7 +69,7 @@ def capture(path):
                 if (raw_level != 1 or previous_128 is None or
                         previous_128['cycle'] + 1 != row['cycle']):
                     raise ValueError('U10.D2 rising edge timing changed')
-                if rise_count % DIVISOR == 0 and len(pre_rising) < SAMPLE_COUNT:
+                if rise_count % DIVISOR == 0 and len(pre_rising) < sample_count:
                     pre_rising.append(previous_128['alu']['y'])
                 rise_count += 1
                 previous_129 = row
@@ -77,7 +77,7 @@ def capture(path):
                 if (raw_level != 0 or previous_129 is None or
                         previous_129['cycle'] + 1 != row['cycle']):
                     raise ValueError('U10.D2 falling edge timing changed')
-                if fall_count % DIVISOR == 0 and len(post_rom) < SAMPLE_COUNT:
+                if fall_count % DIVISOR == 0 and len(post_rom) < sample_count:
                     if (last_sample_cycle is not None and
                             row['cycle'] - last_sample_cycle != CYCLES_PER_SAMPLE):
                         raise ValueError('divided PROM sample clock drifted')
@@ -85,14 +85,14 @@ def capture(path):
                     last_sample_cycle = row['cycle']
                 fall_count += 1
     if (first_127 != START_CYCLE or rise_count != fall_count or
-            len(pre_rising) != SAMPLE_COUNT or len(post_rom) != SAMPLE_COUNT):
+            len(pre_rising) != sample_count or len(post_rom) != sample_count):
         raise ValueError(('divided PROM capture incomplete', first_127,
                           rise_count, fall_count,
                           len(pre_rising), len(post_rom)))
     return dict(pre_rising=pre_rising, post_rom=post_rom,
                 first_pc127_cycle=first_127,
                 raw_rising_edges=rise_count, raw_falling_edges=fall_count,
-                captured_samples=SAMPLE_COUNT,
+                captured_samples=sample_count,
                 first_capture_cycle=START_CYCLE + 3,
                 final_capture_cycle=last_sample_cycle)
 

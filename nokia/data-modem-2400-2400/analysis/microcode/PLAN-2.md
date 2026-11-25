@@ -1141,6 +1141,14 @@ phases B–C turn "what" into "how".
   real-PROM hold case yields silence under the assumed bandpass with 0/1,488
   subsequent data-decision errors across 24 bus/phase/selector cases. The
   bit-to-LE wire, data route and shared timing remain open, so C2 does not pass.
+  The [frame-latch event timing](g2/CONTROLLER-A2-LATCH-GATE-TIMING.md) makes
+  the proposed A2 hold 61,938/61,772 controller ticks, or about 596/594 DAC
+  samples under the stated 104:1 clock ratio. An [extended real-PROM run](g2/JOINT-MASK04-A2-LE-TIMED.md)
+  executes 2,040,256 instructions per selector through 74 A2 symbols and
+  releases the hold two/four samples into A3. All 72 bus/phase/release cases
+  retain a 2,100 Hz A1 peak, quiet late A2 and 0/62 A3/A4 decisions; an
+  ungated A2 stays nearly as loud as A1. This tests the timing candidate,
+  while the physical latch/data/analog path remains unverified and C2 open.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,
