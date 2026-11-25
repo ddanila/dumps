@@ -902,6 +902,15 @@ phases B–C turn "what" into "how".
   one microinstruction per oscillator period. The actual divider and DAC
   latch clock are not traced. Screen concrete clock/gate candidates; do not
   treat the many matching offsets as proof of the physical output path.
+  A [free-running-clock site replay](g2/PHOTO-JOINT-FREE-CLOCK-SITES.md)
+  now tests a simpler latch alternative directly against two full PROM
+  traces: sample Am2901 Y every 1,500 microinstructions at `127`, `128`,
+  `129` or `12A`. **All four** sites peak at 2,100 Hz in A1 and give 0/62
+  A3→A4 external-decoder errors across the 12 candidate DAC buses. Their
+  byte waveforms differ substantially (`R²(2100)` ranges 0.336–0.610), so
+  those two signatures cannot identify the actual latch site or prove the
+  `129` ROM-shaped byte is the line output. Compare output shape and the
+  photographed 74LS373/74LS273 data/clock routes before closing C2.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
