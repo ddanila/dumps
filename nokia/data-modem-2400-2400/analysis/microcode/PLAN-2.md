@@ -97,6 +97,14 @@ phases B–C turn "what" into "how".
   reached `39E` ALU values, but only by the previously identified byte-field
   relay. The frame destination and tone/training/data meanings remain open;
   this conditional bridge does not complete A2 or G2's transmitter test.
+  The [DSU 3556 photo review](g2/DSU3556-SHIFT-REGISTERS.md) identifies four
+  CD4094BE shift-and-store registers, enough parallel stages for the four
+  transmitted bytes. Their cascade and destination are untraced, but this
+  makes a held control word a more direct candidate than presenting outgoing
+  bytes to D38E one at a time. Under that [held-byte hypothesis](g2/PHOTO-LATCHED-FRAME.md),
+  all 16 controller-class/byte-lane runs settle to constant `39E` values.
+  Continue by testing which latched bits could alter control flow or a
+  sustained sample path; the physical output route remains open.
 - **A3 Characterise the Am27S31 regions as DSP tables.**
   - Fit 141–1CF against raised-cosine and root-raised-cosine pulses at 8 (and
     4, 6, 12) samples/baud, Hilbert/interpolator taps, 1/x, log/exp and AGC

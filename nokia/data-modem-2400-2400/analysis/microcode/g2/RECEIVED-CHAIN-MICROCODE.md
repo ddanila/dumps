@@ -27,6 +27,11 @@ not a recovered DSP command: the four-byte output's physical destination,
 the D38E route and timing, and any `39E`-to-DAC latch path remain untraced.
 Repeating the frames is a diagnostic stimulus, not a real call. The ROM read
 does not advance and the `39E` values are not a modulated line signal.
+The later [controller-board photo review](DSU3556-SHIFT-REGISTERS.md) finds
+four CD4094BE shift-and-store registers. If they store the four transmitted
+bytes in parallel, this successive-byte D38E replay is a counterfactual
+interface. A [held-byte replay](PHOTO-LATCHED-FRAME.md) tests that more direct
+candidate and reaches only constant `39E` values after startup.
 
 The [report](results/received-chain-microcode.json) records the frames,
 output bytes, pairwise differences, ROM addresses, trace digests and source
