@@ -92,6 +92,14 @@ unavailable continuity measurements **do not by themselves block progress**.
 Use the photos, component topology, chip behavior, ROM structure and existing
 traces to propose plausible connections, then run them. Physical checks are
 optional ways to discriminate candidates, not prerequisites for continuing.
+**Status rule:** report G2 as active with the current uncertainty and the next
+bounded experiment whenever a photo-supported connection, timing or input
+hypothesis can still be tested. A failed run closes that hypothesis under its
+recorded fixture; it does not block G2. Reserve "blocked" for the case where
+the available evidence supports no runnable candidate and no independent
+controller, PROM or signal analysis can advance an acceptance check. Do not
+ask for more photos or continuity measurements as a prerequisite while those
+routes remain open.
 **Default decision:** keep the goal active and run a photo-compatible baseline
 plus a few meaningful alternatives whenever a connection is uncertain. Mark
 only the tested candidate as unsuccessful when it fails; do not mark the goal
