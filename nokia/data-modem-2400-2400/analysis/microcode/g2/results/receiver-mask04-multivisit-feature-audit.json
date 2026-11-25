@@ -1,0 +1,71 @@
+{
+  "experiment": "two-visit receive transition feature audit",
+  "frozen_four_bit_validation": {
+    "checks": 611,
+    "data_errors": 0,
+    "data_unknown": 5,
+    "errors": 0,
+    "unknown": 5
+  },
+  "interpretation": "Four captured bits per symbol suffice to distinguish every observed dibit transition in 21 inspected traces, but the fitted 86-entry transition table leaves five unseen decisions on a new stream.",
+  "limitations": [
+    "This is a collision screen on observed traces, not a proof that a four-bit Boolean circuit implements the modem receiver.",
+    "Feature minimization used all 21 inspected development traces; the frozen-table validation is the separate new-seed run.",
+    "Unseen transition keys remain unknown and no physical latch or USART route has been established."
+  ],
+  "minimum_conflict_free_feature": {
+    "bits_per_symbol": 4,
+    "candidates": [
+      {
+        "bits": [
+          "visit47.Y5",
+          "visit47.Y6",
+          "visit47.Y7",
+          "visit94.Y7"
+        ],
+        "transition_states": 91
+      },
+      {
+        "bits": [
+          "visit47.Y6",
+          "visit47.Y7",
+          "visit94.Y6",
+          "visit94.Y7"
+        ],
+        "transition_states": 86
+      }
+    ]
+  },
+  "observations": 987,
+  "source_sha256": {
+    "analysis/microcode/g2/receiver_mask04_multivisit_feature_audit.py": "e3f701b82d32de80723660911f4a6b8114d9239dc2f196a76978259859d27a9b",
+    "analysis/microcode/g2/results/receiver-mask04-four-bit-transition.json": "2cf720fb9d51e90cf90c1df8e7835a51aab08f8d80030f33932a71f797edc972",
+    "analysis/microcode/g2/results/receiver-mask04-multivisit-capture.json": "06920fc854266fbcc4cbfca6828c550327dd280f3495558e6bc2b13d8017903d",
+    "analysis/microcode/g2/results/receiver-mask04-three-bit-two-visit.json": "e4bcd4f52bed507fe043aa870eec4c6a4bcd9dfd7bbe2a75d1618f5940d8c021"
+  },
+  "three_bit_rule": {
+    "bits": [
+      "visit47.Y6",
+      "visit47.Y7",
+      "visit94.Y7"
+    ],
+    "conflicting_transitions": {
+      "00->80": [
+        2,
+        3
+      ],
+      "0C->00": [
+        0,
+        2
+      ],
+      "80->00": [
+        1,
+        3
+      ],
+      "8C->0C": [
+        2,
+        3
+      ]
+    }
+  }
+}

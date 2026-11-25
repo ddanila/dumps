@@ -1277,6 +1277,18 @@ phases B–C turn "what" into "how".
   phase tolerant. Test a second visit or other retained state and then
   repeat the controller handoff. Keep C3 open; the latch and RxD route
   remain explicit photo-compatible hypotheses, not a reason to block G2.
+  The [two-visit transition audit](g2/RECEIVER-MASK04-TWO-VISIT-TRANSITIONS.md)
+  captures executed `3F8` Y at symbol visits 47 and 94 on the same eight
+  intermediate-angle traces. Three selected bits give a compact phase rule
+  that recovers all 376 development dibits, but a new stream exposes 9/16
+  data errors at 45° and 5/16 at 135°. Using Y6/Y7 from both visits as a
+  four-bit symbol state makes all 987 inspected dibit transitions
+  non-conflicting. Its frozen 86-entry table has 0 wrong and 5 unknown
+  decisions of 611 on a further fresh stream across 13 angles. This
+  localizes useful information in executed arithmetic, but the table is
+  external and the five unseen transitions are unresolved. Seek an
+  executed or small photo-compatible consumer before repeating the USART
+  handoff; C3 remains open and G2 active without a continuity prerequisite.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

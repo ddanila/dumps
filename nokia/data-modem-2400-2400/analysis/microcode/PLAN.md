@@ -42,6 +42,13 @@ latch inputs as a baseline, add a second executed visit or retained state
 to resolve those collisions, and test fresh intermediate angles before
 repeating the serial/controller handoff. The failed intermediate-angle
 fixture narrows the rule; it does not make uncertain wiring a goal blocker.
+The [two-visit transition test](g2/RECEIVER-MASK04-TWO-VISIT-TRANSITIONS.md)
+finds that Y6/Y7 at visits 47 and 94 carry enough information to separate
+every observed dibit transition in the inspected traces. Its frozen
+external lookup still leaves five fresh data transitions unknown. Keep
+those as explicit missing cases, and test an executed or small
+photo-compatible consumer of the two captures before treating this as a
+USART bit route. The missing net trace does not pause that experiment.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
