@@ -26,23 +26,22 @@ once, then `1B`, and `39F=EC`; `ab` gives `39E=0B`, `39F=FB` throughout.
 The `none` and `a` variants hold `0B` at both sites. The single `FB` in `b`
 is a startup transient, not a changing waveform.
 
-Real controller bits, 128 zero bits and 128 one bits give identical modeled
-state traces within each Q=5 variant. For `b` and `ab`, the screen also tests
+With the original **D0** bit placement, real controller bits, 128 zero bits
+and 128 one bits give identical modeled state traces within each Q=5 variant.
+For `b` and `ab`, the screen also tests
 all 256 startup Q bytes for 512 cycles, then compares zero and one streams in
 1,580-cycle runs for each seed reaching both D38E and `39E`: **24 seeds** for
 `b`, **16** for `ab`. Every such run selects all 128 offered input bytes; none
-has a different trace or candidate output set between zero and one. Thus
-independent upper register addresses do change computation under these field
-assumptions, but they do not connect this controller bitstream to a changing
-output in the tested loop. The ROM address after input remains fixed within
-each Q=5 variant.
+has a different trace or candidate output set between zero and one **when the
+bit is carried on D0**. This was an input-placement limitation, not evidence
+that the loop cannot respond to controller data. The [D-lane follow-up](INDEPENDENT-SLICE-D-LANES.md)
+finds that D4–D6 do reach `39E` under the `b` variant. The ROM address after
+input remains fixed within each Q=5 variant.
 
 The [report](results/independent-slice-addresses.json) records the complete
 field choices, seed lists, selected-input counts, output sets, trace digests
-and source hashes. The next useful test is a different input route or
-instruction/clock mapping, or a controller state that reaches another loop;
-the upper latch pin order and DAC clock remain untraced. No transmitter or
-receiver acceptance check is met by this screen.
+and source hashes. The upper latch pin order and DAC clock remain untraced.
+No transmitter or receiver acceptance check is met by this screen.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/independent_slice_addresses.py

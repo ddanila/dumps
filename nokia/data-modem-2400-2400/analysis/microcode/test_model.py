@@ -142,6 +142,17 @@ class DatapathTests(unittest.TestCase):
         self.assertEqual(same['y'], 0x05)
         self.assertEqual(different['y'], 0xA5)
 
+    def test_upper_slice_d_source_uses_high_nibble(self):
+        low_instruction = op(2, 3, 1)   # 0 OR Q; no D input.
+        high_instruction = op(7, 3, 1)  # D OR 0; no load.
+        split = SplitAm2901(q=0)
+        low_bit = split.step(low_instruction, 0, 0, d=0x01,
+                             high_instruction=high_instruction)
+        high_bit = split.step(low_instruction, 0, 0, d=0x10,
+                              high_instruction=high_instruction)
+        self.assertEqual(low_bit['y'], 0)
+        self.assertEqual(high_bit['y'], 0x10)
+
     def test_split_asymmetric_shift_uses_explicit_undriven_level(self):
         instruction=op(0,3,4)  # Low Q shifts right; high I8 is cleared.
         zero=SplitAm2901(q=0x81,high_from_low={8:0},undriven_shift=0)

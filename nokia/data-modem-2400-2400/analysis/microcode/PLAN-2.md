@@ -198,10 +198,13 @@ phases B–C turn "what" into "how".
   An [independent upper register-address screen](g2/INDEPENDENT-SLICE-ADDRESSES.md)
   also removes the unproven shared A/B-address coupling. A photo-compatible
   upper B field changes reached candidate output values, but only as a startup
-  transient or another fixed value. Across 24 and 16 reachable Q seeds in the
-  two upper-B variants, zero and one controller streams give identical state
-  traces and output sets despite 128 selected input bytes. Keep upper A/B
-  wiring open; this bounded loop is still not a transmitter.
+  transient or another fixed value **when controller bits occupy D0**. Across
+  24 and 16 reachable Q seeds in the two upper-B variants, that D0 encoding
+  gives identical state traces despite 128 nominally selected input bytes.
+  The [D-lane correction](g2/INDEPENDENT-SLICE-D-LANES.md) finds that D4–D6
+  instead change the `39E` ALU result one loop later under the upper-B
+  variant. Keep the actual D-bus lane and DAC clock open; this bounded bit
+  forwarding is still not a transmitter.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are
