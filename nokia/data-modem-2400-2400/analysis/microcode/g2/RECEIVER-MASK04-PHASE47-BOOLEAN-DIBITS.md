@@ -57,9 +57,14 @@ phase storage, `3ED` capture circuit, symbol clock and USART-01 RxD wire
 are external hypotheses. The tested reference streams also use one
 carrier phase and limited gain/bias values. Next, model a photo-compatible
 row-0 latch and row-3 consumer at the executed PROM edges, then test its
-two output bits at USART timing. Test a shifted carrier phase separately;
-do not mark G2 blocked on the untraced wires.
+two output bits at USART timing. The shifted-carrier test below checks
+the separate phase-tolerance question; do not mark G2 blocked on the
+untraced wires.
 
 Reproduce from the microcode directory with
 `python3 g2/receiver_mask04_phase47_joint_codebook.py` and
 `python3 g2/receiver_mask04_phase47_logic.py`.
+The [carrier-rotation follow-up](RECEIVER-MASK04-CARRIER-PHASE-SCREEN.md)
+finds that 45° and 135° rotated, still-decodable inputs defeat this fixed
+readout even after screening every ADC capture visit. Its zero-error
+multi-level result is specific to the original carrier-phase grid.

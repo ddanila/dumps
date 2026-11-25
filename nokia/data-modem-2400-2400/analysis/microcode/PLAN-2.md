@@ -1181,9 +1181,17 @@ phases B–C turn "what" into "how".
   eight new full-PROM runs at four ADC input levels: **0/96 fresh dibit
   errors**, with complete decisions. This is the first multi-level,
   two-dibit conditional receiver readout. The Boolean circuit and USART
-  route are not executed or traced, and carrier-phase tolerance remains
-  untested. Model a photo-compatible latch/consumer and actual RxD timing
+  route are not executed or traced, and carrier-phase tolerance was
+  untested in that fixture. Model a photo-compatible latch/consumer and
+  actual RxD timing
   before passing C3; G2 remains active.
+  The [rotated-carrier replay](g2/RECEIVER-MASK04-CARRIER-PHASE-SCREEN.md)
+  qualifies that result: the fixed gate still decodes 90° and 180°
+  rotations, but 45° and 135° rotations leave at least 2–5 errors per
+  12-dibit stream even after trying all 375 ADC capture visits. The
+  reference receiver decodes all of them. Find an executed phase-tracking
+  or photo-compatible decision route and retest; this readout alone does
+  not pass C3 or block G2.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows

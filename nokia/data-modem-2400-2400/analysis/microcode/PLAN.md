@@ -570,8 +570,15 @@ now recovers both reference dibit bits with 0/96 errors on eight fresh
 full-PROM traces spanning nominal, 0.75/1.25 gain and +16 PCM bias. It
 uses two executed `3ED` Y bytes, but its row-0 hold, row-3 gates,
 previous-symbol phase register and USART timing are external hypotheses.
-Run a photo-compatible latch/consumer and shifted-carrier test next;
-keep C3 open until the recovered bits reach USART-01 RxD.
+Run a photo-compatible latch/consumer next; keep C3 open until the
+recovered bits reach USART-01 RxD.
+The [carrier-phase screen](g2/RECEIVER-MASK04-CARRIER-PHASE-SCREEN.md)
+finds that 90°/180° rotations preserve 0/12 dibits per stream, while
+45°/135° rotations still have at least 2–5 errors per stream after all
+375 capture visits are tested. The independent reference receiver decodes
+all eight waveforms. Seek an executed carrier-phase adjustment or a
+photo-compatible tracking/decision route; keep the fixed Boolean readout
+conditional and C3 open.
 The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
 also fails to decode the captured Y[3:0] as a fixed-phase differential
 symbol across independent streams. Keep the conditional latch experiment,
