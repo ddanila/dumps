@@ -1,0 +1,153 @@
+{
+  "cases": [
+    {
+      "adc_instructions": {
+        "D4/C5": 1500
+      },
+      "checks": {
+        "adc_equations": 1500,
+        "adc_rom_lookups": 1500,
+        "wrapper_rules": 6001
+      },
+      "distinct_wrapper_r1": 11,
+      "mask": 4,
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "pc_digest": "22124c388a760f10427d5abb8808e32d2d187d2eb5f35c16fb60fb464476150a",
+      "trace_digest": "cbcdf88ce815680b7b6d7dd891650fbab597e07aa7167ecb797a37b125a545d4",
+      "wrapper_instructions": {
+        "92/97": 6001
+      }
+    },
+    {
+      "adc_instructions": {
+        "D4/C5": 1500
+      },
+      "checks": {
+        "adc_equations": 1500,
+        "adc_rom_lookups": 1500,
+        "wrapper_rules": 6001
+      },
+      "distinct_wrapper_r1": 10,
+      "mask": 4,
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pc_digest": "22124c388a760f10427d5abb8808e32d2d187d2eb5f35c16fb60fb464476150a",
+      "trace_digest": "0c15686a7b4f54b522a7b34d95a3183a23dbff6b3f401c47668e23c4d554b5a8",
+      "wrapper_instructions": {
+        "92/97": 6001
+      }
+    },
+    {
+      "adc_instructions": {
+        "D6/D5": 1500
+      },
+      "checks": {
+        "adc_rom_lookups": 1500,
+        "wrapper_rules": 6001
+      },
+      "distinct_wrapper_r1": 1,
+      "mask": 8,
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "pc_digest": "22124c388a760f10427d5abb8808e32d2d187d2eb5f35c16fb60fb464476150a",
+      "trace_digest": "b765d06ef12089970e96275eed427c2b52382721b44f900c76b7ab3084f59559",
+      "wrapper_instructions": {
+        "94/C7": 6001
+      }
+    },
+    {
+      "adc_instructions": {
+        "D6/D5": 1500
+      },
+      "checks": {
+        "adc_rom_lookups": 1500,
+        "wrapper_rules": 6001
+      },
+      "distinct_wrapper_r1": 1,
+      "mask": 8,
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "pc_digest": "22124c388a760f10427d5abb8808e32d2d187d2eb5f35c16fb60fb464476150a",
+      "trace_digest": "fd0b6f5426507044f8bf84a1be991f4b14979195e05ce81406df1aa69973ea74",
+      "wrapper_instructions": {
+        "94/C7": 6001
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "after_fourth_state_differences": 1312,
+      "mask": 4,
+      "wrapper_q_differences": 2483,
+      "wrapper_r1_differences": 2483
+    },
+    {
+      "after_fourth_state_differences": 0,
+      "mask": 8,
+      "wrapper_q_differences": 1253,
+      "wrapper_r1_differences": 0
+    }
+  ],
+  "experiment": "mask-04 ADC-to-ROM equation and Q-to-R1 wrapper transfer",
+  "fixture": {
+    "adc": "complementary reference PCM, 47/46 visits per sample",
+    "condition": "inverted previous overflow at select 0",
+    "dispatch": "scenario [0,1,2,3]",
+    "mapping": "joint upper-source candidate with lower masks 04 and 08",
+    "masks": [
+      4,
+      8
+    ],
+    "patterns": [
+      [
+        0,
+        1,
+        3,
+        2
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "limitations": [
+    "The input/field wiring, TEST source and dispatch remain photo-compatible hypotheses.",
+    "An ADC-dependent table lookup and retained R1 are not a received dibit or echo cancellation.",
+    "The 3EB D=1 level is a scenario input, not a traced source."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/joint_four_row_retention_tx.py": "58c1024ab797271fa9a810423538339d871e22c3ee3683d1e1b62f6771988970",
+    "analysis/microcode/g2/joint_mask04_adc_rom_wrapper_rule.py": "436c4daec9940aa62a3423fb1045c3fda7213b9b6cee19b5109f397ac1421bc2",
+    "analysis/microcode/g2/joint_upper_source_screen.py": "c075f4e3ecb046e929f18021fb74b3ea756177d73042d6083972802dd581735e",
+    "analysis/microcode/g2/lower_i_d3f8_full_adc.py": "26afc1dd3fc625a018f46f3633a306c1beaf885218aa473a03bff6a672eb1093",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

@@ -1111,6 +1111,20 @@ phases B–C turn "what" into "how".
   Its [retained-bit screen](g2/RECEIVER-MASK04-RETAINED-BIT.md) finds no
   exact direct R1/R12/Q bit or previous-symbol XOR on training data, so
   C3 and the untraced C2 physical output route remain open.
+  An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
+  now identifies the actual input path in this candidate: `3F8` combines
+  the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,
+  and `3EB` writes the negative of Q's low nibble to R1. This holds across
+  1,500 ADC and 6,001 wrapper visits in each paired trace. Mask `08`
+  keeps R1 fixed and loses the after-fourth-row difference. Use these
+  operations to locate an executed decision/output consumer; a table
+  lookup and retained state alone do not pass C3.
+  A [fixed-phase quadrature screen](g2/RECEIVER-MASK04-QUADRATURE-DECISION.md)
+  also finds no exact training fit among 90,000 R1/R12/Q pair choices; the
+  training-selected choice misses 25/48 holdout and 39/48 fresh dibits.
+  That external I/Q readout is not an executed DSC decision. Continue with
+  an instruction-driven multi-sample consumer or a photo-compatible output
+  latch/USART route, keeping C3 open and G2 active.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,

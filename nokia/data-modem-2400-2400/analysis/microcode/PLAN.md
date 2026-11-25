@@ -528,6 +528,13 @@ candidate DAC buses. This replaces mask `08` as the stronger joint hypothesis;
 its [direct retained-bit screen](g2/RECEIVER-MASK04-RETAINED-BIT.md) has no
 exact training fit, so C3 remains open. Continue with a stateful decision or
 photo-compatible output path rather than waiting for net continuity.
+The [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
+shows the candidate ADC byte entering a `3F8` calculation, selecting a
+real-ROM byte at `3F9`, and Q's low nibble reaching R1 at `3EB`. The
+[fixed-phase quadrature screen](g2/RECEIVER-MASK04-QUADRATURE-DECISION.md)
+does not turn that retained state into a received dibit. Keep testing an
+executed decision/output route under labelled photo-compatible connections;
+neither missing continuity nor a failed readout blocks G2.
 
 The [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) samples
 every Y-bus bit and ALU flag at `3F8`–`3FA` across seven independent
