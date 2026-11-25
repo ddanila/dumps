@@ -1,7 +1,42 @@
 {
   "cases": [
     {
-      "dac_samples": 64,
+      "all_dibits": [
+        2,
+        1,
+        0,
+        0,
+        0,
+        2,
+        3,
+        3,
+        0,
+        1,
+        0,
+        2,
+        0,
+        3,
+        1,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        3,
+        0,
+        3,
+        1,
+        0,
+        3,
+        2,
+        1,
+        2,
+        0,
+        0
+      ],
+      "dac_samples": 256,
+      "dsc_microinstructions": 384256,
       "first_16_dac_samples": [
         {
           "dac_code": "79",
@@ -126,12 +161,7 @@
         3,
         3
       ],
-      "first_line_bytes": [
-        "06",
-        "F8"
-      ],
-      "frame": "D0 47 A1 22",
-      "full_stream_tone_fit": {
+      "first_8_symbol_tone_fit": {
         "distinct_codes": 16,
         "peak_hz": 1770,
         "peak_r2": 0.171498,
@@ -139,7 +169,20 @@
         "r2_2100": 0.035894,
         "samples": 64
       },
-      "pc129_visits": 24054,
+      "first_line_bytes": [
+        "06",
+        "F8"
+      ],
+      "frame": "D0 47 A1 22",
+      "full_stream_tone_fit": {
+        "distinct_codes": 16,
+        "peak_hz": 1780,
+        "peak_r2": 0.081208,
+        "r2_1800": 0.016823,
+        "r2_2100": 0.020097,
+        "samples": 256
+      },
+      "pc129_visits": 96054,
       "pulse_d127_values": [
         "80",
         "90",
@@ -153,6 +196,14 @@
         "r2_1800": 0.39481,
         "r2_2100": 0.036022,
         "samples": 64
+      },
+      "reference_full_stream_tone_fit": {
+        "distinct_codes": 99,
+        "peak_hz": 1780,
+        "peak_r2": 0.21072,
+        "r2_1800": 0.036188,
+        "r2_2100": 0.026305,
+        "samples": 256
       },
       "selector": "00",
       "symbol_ends": [
@@ -203,12 +254,191 @@
           "dibit": 3,
           "phase": "43",
           "symbol": 7
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 0,
+          "phase": "C3",
+          "symbol": 8
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 1,
+          "phase": "03",
+          "symbol": 9
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 0,
+          "phase": "83",
+          "symbol": 10
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 2,
+          "phase": "43",
+          "symbol": 11
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 0,
+          "phase": "C3",
+          "symbol": 12
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 3,
+          "phase": "C3",
+          "symbol": 13
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 1,
+          "phase": "03",
+          "symbol": 14
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "83",
+          "symbol": 15
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 16
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "83",
+          "symbol": 17
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 1,
+          "phase": "C3",
+          "symbol": 18
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "83",
+          "symbol": 19
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "83",
+          "symbol": 20
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 3,
+          "phase": "83",
+          "symbol": 21
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 22
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 23
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 1,
+          "phase": "43",
+          "symbol": 24
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 0,
+          "phase": "C3",
+          "symbol": 25
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 3,
+          "phase": "C3",
+          "symbol": 26
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "83",
+          "symbol": 27
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 1,
+          "phase": "C3",
+          "symbol": 28
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "83",
+          "symbol": 29
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 30
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "83",
+          "symbol": 31
         }
       ],
-      "trace_digest": "a54a51ee70eb94140dacc3b17884ebee5f8c4c48c08d869791d1555767d0e516"
+      "trace_digest": "a10d116cd741a192bd479de176b86d9a3d08d3026b74779d7352103741405164"
     },
     {
-      "dac_samples": 64,
+      "all_dibits": [
+        3,
+        1,
+        2,
+        3,
+        3,
+        2,
+        3,
+        1,
+        3,
+        1,
+        1,
+        2,
+        2,
+        3,
+        1,
+        3,
+        1,
+        2,
+        3,
+        1,
+        3,
+        2,
+        1,
+        3,
+        3,
+        2,
+        2,
+        1,
+        2,
+        3,
+        0,
+        2
+      ],
+      "dac_samples": 256,
+      "dsc_microinstructions": 384256,
       "first_16_dac_samples": [
         {
           "dac_code": "83",
@@ -333,12 +563,7 @@
         3,
         1
       ],
-      "first_line_bytes": [
-        "E7",
-        "7B"
-      ],
-      "frame": "D0 47 A1 22",
-      "full_stream_tone_fit": {
+      "first_8_symbol_tone_fit": {
         "distinct_codes": 15,
         "peak_hz": 2050,
         "peak_r2": 0.180807,
@@ -346,7 +571,20 @@
         "r2_2100": 0.10197,
         "samples": 64
       },
-      "pc129_visits": 24054,
+      "first_line_bytes": [
+        "E7",
+        "7B"
+      ],
+      "frame": "D0 47 A1 22",
+      "full_stream_tone_fit": {
+        "distinct_codes": 16,
+        "peak_hz": 2390,
+        "peak_r2": 0.098594,
+        "r2_1800": 0.037009,
+        "r2_2100": 0.010562,
+        "samples": 256
+      },
+      "pc129_visits": 96054,
       "pulse_d127_values": [
         "80",
         "90",
@@ -360,6 +598,14 @@
         "r2_1800": 0.033723,
         "r2_2100": 0.201255,
         "samples": 64
+      },
+      "reference_full_stream_tone_fit": {
+        "distinct_codes": 104,
+        "peak_hz": 1560,
+        "peak_r2": 0.114797,
+        "r2_1800": 0.074672,
+        "r2_2100": 0.015628,
+        "samples": 256
       },
       "selector": "20",
       "symbol_ends": [
@@ -410,12 +656,183 @@
           "dibit": 1,
           "phase": "03",
           "symbol": 7
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 8
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 1,
+          "phase": "43",
+          "symbol": 9
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 1,
+          "phase": "83",
+          "symbol": 10
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 2,
+          "phase": "43",
+          "symbol": 11
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "03",
+          "symbol": 12
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 13
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 1,
+          "phase": "43",
+          "symbol": 14
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 3,
+          "phase": "43",
+          "symbol": 15
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 1,
+          "phase": "83",
+          "symbol": 16
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 2,
+          "phase": "43",
+          "symbol": 17
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 3,
+          "phase": "43",
+          "symbol": 18
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 1,
+          "phase": "83",
+          "symbol": 19
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "83",
+          "symbol": 20
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 2,
+          "phase": "43",
+          "symbol": 21
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 1,
+          "phase": "83",
+          "symbol": 22
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 3,
+          "phase": "83",
+          "symbol": 23
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "83",
+          "symbol": 24
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 2,
+          "phase": "43",
+          "symbol": 25
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "03",
+          "symbol": 26
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 1,
+          "phase": "43",
+          "symbol": 27
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "03",
+          "symbol": 28
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 29
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 0,
+          "phase": "83",
+          "symbol": 30
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 2,
+          "phase": "43",
+          "symbol": 31
         }
       ],
-      "trace_digest": "67fe5cb97eb44d8c44b6a40177a0432eb2f18262d6f3032f6bd962926cb4e3d6"
+      "trace_digest": "c3a4a5c53080aa479ca171acae93493416c2292fab19907e4ed540d3e841f634"
     },
     {
-      "dac_samples": 64,
+      "all_dibits": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        2,
+        3,
+        3,
+        0,
+        3,
+        1,
+        0,
+        0,
+        3,
+        1,
+        0,
+        0,
+        0,
+        3,
+        3
+      ],
+      "dac_samples": 192,
+      "dsc_microinstructions": 288256,
       "first_16_dac_samples": [
         {
           "dac_code": "89",
@@ -540,12 +957,7 @@
         0,
         0
       ],
-      "first_line_bytes": [
-        "F9",
-        "07"
-      ],
-      "frame": "D0 42 A1 BA",
-      "full_stream_tone_fit": {
+      "first_8_symbol_tone_fit": {
         "distinct_codes": 16,
         "peak_hz": 1910,
         "peak_r2": 0.18884,
@@ -553,7 +965,20 @@
         "r2_2100": 0.043064,
         "samples": 64
       },
-      "pc129_visits": 24054,
+      "first_line_bytes": [
+        "F9",
+        "07"
+      ],
+      "frame": "D0 42 A1 BA",
+      "full_stream_tone_fit": {
+        "distinct_codes": 16,
+        "peak_hz": 1730,
+        "peak_r2": 0.107128,
+        "r2_1800": 0.012686,
+        "r2_2100": 0.010586,
+        "samples": 192
+      },
+      "pc129_visits": 72054,
       "pulse_d127_values": [
         "80",
         "90",
@@ -567,6 +992,14 @@
         "r2_1800": 0.146406,
         "r2_2100": 0.038647,
         "samples": 64
+      },
+      "reference_full_stream_tone_fit": {
+        "distinct_codes": 80,
+        "peak_hz": 1730,
+        "peak_r2": 0.260966,
+        "r2_1800": 0.026287,
+        "r2_2100": 0.013651,
+        "samples": 192
       },
       "selector": "40",
       "symbol_ends": [
@@ -617,12 +1050,135 @@
           "dibit": 0,
           "phase": "43",
           "symbol": 7
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 0,
+          "phase": "C3",
+          "symbol": 8
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "83",
+          "symbol": 9
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "83",
+          "symbol": 10
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 3,
+          "phase": "83",
+          "symbol": 11
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 12
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 13
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 1,
+          "phase": "43",
+          "symbol": 14
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 0,
+          "phase": "C3",
+          "symbol": 15
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 0,
+          "phase": "43",
+          "symbol": 16
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 3,
+          "phase": "43",
+          "symbol": 17
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 1,
+          "phase": "83",
+          "symbol": 18
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 19
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 0,
+          "phase": "83",
+          "symbol": 20
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 21
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 22
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 23
         }
       ],
-      "trace_digest": "c403f1679c296d08874a87cb6f55273e4398ef7f983bc88d0228557b9ecf39ae"
+      "trace_digest": "0e8f0d0b092f80bbec68f2e2c15d49bfa753e1dbe504429b3215e334de493906"
     },
     {
-      "dac_samples": 64,
+      "all_dibits": [
+        0,
+        2,
+        3,
+        3,
+        3,
+        1,
+        0,
+        0,
+        0,
+        2,
+        3,
+        3,
+        0,
+        3,
+        1,
+        2,
+        3,
+        3,
+        0,
+        0,
+        2,
+        0,
+        0,
+        3
+      ],
+      "dac_samples": 192,
+      "dsc_microinstructions": 288256,
       "first_16_dac_samples": [
         {
           "dac_code": "A9",
@@ -747,12 +1303,7 @@
         0,
         0
       ],
-      "first_line_bytes": [
-        "F8",
-        "07"
-      ],
-      "frame": "D0 42 A1 BA",
-      "full_stream_tone_fit": {
+      "first_8_symbol_tone_fit": {
         "distinct_codes": 16,
         "peak_hz": 2380,
         "peak_r2": 0.192292,
@@ -760,7 +1311,20 @@
         "r2_2100": 0.030289,
         "samples": 64
       },
-      "pc129_visits": 24054,
+      "first_line_bytes": [
+        "F8",
+        "07"
+      ],
+      "frame": "D0 42 A1 BA",
+      "full_stream_tone_fit": {
+        "distinct_codes": 16,
+        "peak_hz": 1720,
+        "peak_r2": 0.089535,
+        "r2_1800": 0.026646,
+        "r2_2100": 0.037976,
+        "samples": 192
+      },
+      "pc129_visits": 72054,
       "pulse_d127_values": [
         "80",
         "90",
@@ -774,6 +1338,14 @@
         "r2_1800": 0.128537,
         "r2_2100": 0.046037,
         "samples": 64
+      },
+      "reference_full_stream_tone_fit": {
+        "distinct_codes": 86,
+        "peak_hz": 1720,
+        "peak_r2": 0.271866,
+        "r2_1800": 0.055255,
+        "r2_2100": 0.056993,
+        "samples": 192
       },
       "selector": "60",
       "symbol_ends": [
@@ -824,9 +1396,105 @@
           "dibit": 0,
           "phase": "83",
           "symbol": 7
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 8
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 2,
+          "phase": "C3",
+          "symbol": 9
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 3,
+          "phase": "C3",
+          "symbol": 10
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 3,
+          "phase": "C3",
+          "symbol": 11
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 0,
+          "phase": "43",
+          "symbol": 12
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 3,
+          "phase": "43",
+          "symbol": 13
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 1,
+          "phase": "83",
+          "symbol": 14
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 2,
+          "phase": "43",
+          "symbol": 15
+        },
+        {
+          "cumulative_offset": "C0",
+          "dibit": 3,
+          "phase": "43",
+          "symbol": 16
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 3,
+          "phase": "43",
+          "symbol": 17
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 0,
+          "phase": "C3",
+          "symbol": 18
+        },
+        {
+          "cumulative_offset": "40",
+          "dibit": 0,
+          "phase": "43",
+          "symbol": 19
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 2,
+          "phase": "03",
+          "symbol": 20
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "83",
+          "symbol": 21
+        },
+        {
+          "cumulative_offset": "80",
+          "dibit": 0,
+          "phase": "03",
+          "symbol": 22
+        },
+        {
+          "cumulative_offset": "00",
+          "dibit": 3,
+          "phase": "03",
+          "symbol": 23
         }
       ],
-      "trace_digest": "e0371c4273e67ed90169783d4506af1732bebb312d717e0cf16ad273038b6dd9"
+      "trace_digest": "4d6189fb486a990319b7af28c3ef8ef0baeb4953dad551905f99ef2d7d621517"
     }
   ],
   "fixture": {
@@ -843,12 +1511,14 @@
   "limitations": [
     "The USART-to-parity/counter route, four-visit pulse, mode decoder, D127 path, DAC bus and capture clock are untraced hypotheses.",
     "Four visits is the smallest tested pulse yielding quadrature increments; no photographed net proves this width or gate polarity.",
-    "Only eight dibits per controller class are executed; the waveform is not pulse-shaped or established as the physical line output.",
+    "All 24 or 32 dibits from each 12-iteration controller fixture are executed, but this is not a natural-duration call. The waveform is not pulse-shaped or established as the physical line output.",
     "No 2100-Hz state is combined with the data run, and no receiver or echo-canceller behavior is demonstrated."
   ],
   "source_sha256": {
     "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
     "analysis/microcode/assumed/execute.py": "27f8ebeac11bee2ee8c3b0a1ffd4b2b7ea42d58adf4c922c4c3e26cab1e7638c",
+    "analysis/microcode/board/evidence/back-annotated.jpg": "82497d42a5f6a315b578481c3cd85cb881efabc632cbaa74011d0b7a481aaf7d",
+    "analysis/microcode/board/evidence/front-annotated.jpg": "880ff3742f2bdaaf3421a28d90bef1b4da89838971d376ab14cfbb874c225d34",
     "analysis/microcode/board/inventory.json": "7a3a60f886f2e786dae46cbcc1e618d154c2efde75f35dc29a638d916280e3a5",
     "analysis/microcode/g2/lower_i_command_data_mix.py": "4bbee6ff803a64cce2c524845b276dbcc915138144f675b315070a2f52f2bbe8",
     "analysis/microcode/g2/photo_a1_dynamic_mode_replay.py": "0527db2eb39197beea664ab3db4b929c7049d4a7df4d5cd59194a350b4c4b110",
@@ -856,7 +1526,7 @@
     "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
     "analysis/microcode/g2/photo_dac08_bus_order_screen.py": "e196857e0a8c14bb531cc974f5e71092662342f5bcca3985cfe2d3b717e91d01",
     "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
-    "analysis/microcode/g2/photo_main_dibit_pulse.py": "385f2a281332371f40c91abf658a326e2c9eaf31a639c4bb1ab4c0e36385fd8f",
+    "analysis/microcode/g2/photo_main_dibit_pulse.py": "bb3fb2177ff1ba806a01db7bf8db7f4d0a01e20f3d2f52d85b76840cd4ab1033",
     "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
     "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
     "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",

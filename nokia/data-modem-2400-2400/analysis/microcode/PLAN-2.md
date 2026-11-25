@@ -684,12 +684,14 @@ phases B–C turn "what" into "how".
   A [counter/parity pulse screen](g2/PHOTO-MAIN-DIBIT-PULSE.md) now tests one
   such explicitly hypothetical rule: four PC127 visits per 1,200-symbol/s
   dibit, with U1 parity and U24 counter roles suggested only by photographed
-  part markings. Four real USART streams drive 96,256-word uninterrupted
-  PROM runs; all four Gray-related phase offsets are retained, while the
-  candidate carrier step resumes between pulses. The gate and DAC capture
-  are untraced, no pulse shaping or line output is established, and the
-  eight-symbol spectra are not a C2 pass. Constrain the pulse and output
-  routes before assigning this the modem's data-transmitter function.
+  part markings. Four real USART streams drive 288,256–384,256-word
+  uninterrupted PROM runs across all 24/32 available dibits; all four
+  Gray-related phase offsets are retained, while the candidate carrier step
+  resumes between pulses. The gate and DAC capture are untraced, no pulse
+  shaping or line output is established, and one full-stream candidate DAC
+  spectrum disagrees with the same-input reference. This is not a C2 pass.
+  Constrain the pulse and output routes before assigning this the modem's
+  data-transmitter function.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)
   now prevents combining the two separate bit-swap leads as one fixed
   chip-1 connection. The ROM-executed A1-state `81` and main-frame `A1`

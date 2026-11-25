@@ -20,14 +20,16 @@ phase-index units, dibits `00`, `01`, `10`, `11` produce `00`, `C0`, `40`,
 `80`: the negative-phase orientation of the [reference model's](reference_modem.py)
 `00`, `40`, `C0`, `80` Gray order. The physical phase orientation is unverified.
 
-The unchanged DSC PROMs then run for 96,256 consecutive microinstructions
-for each of four real controller USART streams. Every run remains in the
-upper-bank PC127/129 loop and verifies all **24,054** selected PC129 ROM
-addresses, bytes and Am2901 Y values against the cumulative phase recurrence.
-Each of the first eight dibits gives the expected retained phase offset; all
-four dibit values occur in the real streams. The seven candidate DAC samples
-after each pulse keep the same per-sample phase increment `D0` (208 decimal),
-the aliased 1,800 Hz carrier step at 9,600 samples/s.
+The unchanged DSC PROMs then run through **every dibit** in each of the four
+recorded controller USART streams: 32 dibits in classes `00`/`20` and 24 in
+`40`/`60`. The runs execute 384,256 or 288,256 consecutive microinstructions
+and verify respectively **96,054 or 72,054** selected PC129 ROM addresses,
+bytes and Am2901 Y values against the cumulative phase recurrence. Every
+symbol retains its expected phase offset; all four dibit values occur in
+the real streams. The seven candidate DAC samples after each pulse keep the
+same per-sample phase increment `D0` (208 decimal), the aliased 1,800 Hz
+carrier step at 9,600 samples/s. The table shows the first eight symbols for
+orientation.
 
 | Controller selector | First eight dibits | Cumulative phase offset after each dibit |
 | --- | --- | --- |
@@ -36,23 +38,30 @@ the aliased 1,800 Hz carrier step at 9,600 samples/s.
 | `40` | `1 2 3 3 3 1 0 0` | `C0 00 80 00 80 40 40 40` |
 | `60` | `0 2 3 3 3 1 0 0` | `00 40 C0 40 C0 80 80 80` |
 
-The projected full DAC-code spectra over these **eight-symbol bursts** peak
-at 1,770, 2,050, 1,910 and 2,380 Hz, respectively. The independent
-raised-cosine reference on the same short dibits peaks at 1,770, 2,060,
-1,920 and 1,920 Hz. A short varying-data burst therefore cannot be used as
-a strict 1,800 Hz peak check; the fourth candidate also differs substantially
-from its reference. The candidate DAC bus and clock are untraced, and the
-four-visit rule makes abrupt phase jumps without a demonstrated pulse-shaping
-filter. This is a **conditional four-way phase lead**, not a C2 transmitter
-pass or a line-output waveform.
+| Controller selector | Dibits / candidate DAC samples | Candidate full-stream peak | Raised-cosine reference peak | Distinct candidate / reference codes |
+| --- | ---: | ---: | ---: | ---: |
+| `00` | 32 / 256 | 1,780 Hz | 1,780 Hz | 16 / 99 |
+| `20` | 32 / 256 | **2,390 Hz** | **1,560 Hz** | 16 / 104 |
+| `40` | 24 / 192 | 1,730 Hz | 1,730 Hz | 16 / 80 |
+| `60` | 24 / 192 | 1,720 Hz | 1,720 Hz | 16 / 86 |
+
+The shorter **eight-symbol prefixes** peak at 1,770/1,770, 2,050/2,060,
+1,910/1,920 and 2,380/1,920 Hz (candidate/reference). A varying-data
+burst cannot be judged by an exact 1,800 Hz peak alone; even the independent
+reference moves. The full-stream selector-`20` mismatch is nevertheless a
+specific failure of this candidate output route against that reference.
+The candidate DAC bus and clock are untraced, and the four-visit rule makes
+abrupt phase jumps without a demonstrated pulse-shaping filter. This is a
+**conditional four-way phase lead**, not a C2 transmitter pass or a
+line-output waveform.
 
 The [machine report](results/photo-main-dibit-pulse.json) records all four
 controller dibit sequences, phase checkpoints, first DAC codes, width screen,
-spectra and source hashes. Next constrain the pulse/gate wiring and sample
-capture from board evidence, then run a longer controller data interval and
-compare its candidate DAC bytes with the reference, including the required
-segment-1 180° reversals. Keep the receiver and echo paths open as separate
-G2 requirements.
+full-stream spectra and source hashes. The available board photos show U1
+and U24 but do not establish their proposed route. Next vary the candidate
+DAC bus, phase orientation and shaping route against the full-stream mismatch,
+then test the required segment-1 180° reversals. Keep the receiver and echo
+paths open as separate G2 requirements.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_pulse.py

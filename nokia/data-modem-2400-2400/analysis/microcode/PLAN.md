@@ -172,8 +172,9 @@ without calling this direct gate the modulator. A
 counter/parity-qualified alternative with real USART dibits. Four continuous
 PROM runs retain all four Gray-related quarter-cycle phase offsets while
 holding the carrier step outside each pulse. Its pulse gate, DAC clock and
-shaping path are untraced, so this is a conditional lead rather than a C2
-transmitter pass. The
+shaping path are untraced, and the full-stream candidate DAC spectrum differs
+from the reference in one controller class. Test alternate output/phase
+routes; this is a conditional lead rather than a C2 transmitter pass. The
 [joint state/data bus check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows
 that the separate A1 2,100 Hz and main-frame 1,800 Hz bit-swap leads cannot
 share one fixed chip-1 pin permutation, even with fixed inversions. Test
