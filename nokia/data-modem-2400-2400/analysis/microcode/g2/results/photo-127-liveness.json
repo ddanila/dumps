@@ -1,0 +1,91 @@
+{
+  "cases": [
+    {
+      "carry_ones_by_bank": {
+        "0": 174,
+        "256": 155
+      },
+      "cycles": 3000,
+      "increment": 1,
+      "pc128_retained_state_differences": 0,
+      "pc128_snapshots": 253,
+      "pc129_reads": 253,
+      "pc129_y_differences": 249,
+      "pc12a_y_differences": 69,
+      "selected_rom_byte_differences": 249,
+      "trace_digests_by_bank": {
+        "0": "002abc41ee1c9aa319622cadab4b63c88759c10b60a0cbde0566f41d138ceca0",
+        "256": "60772e3708ff6d4355a82d4c23657fdb6f8d90f4d3b290af99831805d312e6ef"
+      }
+    },
+    {
+      "carry_ones_by_bank": {
+        "0": 463,
+        "256": 416
+      },
+      "cycles": 3000,
+      "increment": 48,
+      "pc128_retained_state_differences": 0,
+      "pc128_snapshots": 740,
+      "pc129_reads": 740,
+      "pc129_y_differences": 694,
+      "pc12a_y_differences": 233,
+      "selected_rom_byte_differences": 694,
+      "trace_digests_by_bank": {
+        "0": "fca022491f478cbd0510ce018ff3b6c7f07d3489143b471c2e78b35eac69cbc7",
+        "256": "038560f9fa99d8e48467883750f6488329eb6df8e9627d1c82edd8e592e3862e"
+      }
+    },
+    {
+      "carry_ones_by_bank": {
+        "0": 486,
+        "256": 438
+      },
+      "cycles": 3000,
+      "increment": 56,
+      "pc128_retained_state_differences": 0,
+      "pc128_snapshots": 740,
+      "pc129_reads": 740,
+      "pc129_y_differences": 717,
+      "pc12a_y_differences": 232,
+      "selected_rom_byte_differences": 717,
+      "trace_digests_by_bank": {
+        "0": "77e436a41e7c4b3b4b66d03f88c77cdf439490a6c9aa66d4854f79c839d80d94",
+        "256": "86639261e18d76590db26d6315a8f6f9e5b9b46feaec2f9d5d9ff8ef1a9eadf0"
+      }
+    }
+  ],
+  "fixture": {
+    "changed_input": "Am27S31 A8 only at PC129",
+    "cycles": 3000,
+    "d127_source": "held scenario value",
+    "held_i0": 1,
+    "initial_q": 0,
+    "mapping": "q3"
+  },
+  "limitations": [
+    "Only q3, Q=0, zero RAM, held I0 and three D127 constants are tested.",
+    "The selected ROM byte changes transient R0/ALU values; no DAC sampling phase or latch clock is traced.",
+    "Equal PC128 snapshots rule out retained effects in this fixture, not externally sampled effects at PC129 or PC12A.",
+    "D127 source and bank driver are scenario assumptions."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "03561a0a6c05cbe20332910f9e199f4d05db7e72cea89e24b09377e6a158b09a",
+    "analysis/microcode/g2/photo_127_liveness.py": "cbab4e70ffe97b579d833b5e27751593d206f7459d962f525f730f52c875b33a",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "PC129 operand-liveness diagnostic, not a traced DAC path",
+  "verified_relations": [
+    "phase_n=(3+n*D127) mod 256; n starts at 1",
+    "Y129=(phase_n-ROM[bank+phase_n]) mod 256",
+    "carry129=1 iff phase_n >= ROM[bank+phase_n]",
+    "Y12A=(phase_n+1+carry129) mod 256",
+    "PC128, PC129 and PC12A write R0 conditionally; PC128 ALU F is zero before the selected read"
+  ]
+}

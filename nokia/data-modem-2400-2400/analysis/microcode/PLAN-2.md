@@ -122,6 +122,13 @@ phases B–C turn "what" into "how".
   peak at the chosen 1800/2100 Hz step frequencies, but the same peak follows
   seven other tested step values. This is a ROM harmonic under assumed timing,
   not yet a carrier sample stream or recovered address-folding circuit.
+  A [paired A8 liveness check](g2/PHOTO-127-LIVENESS.md) now isolates the
+  `129` operand: changing its bank changes 249/253, 694/740 and 717/740
+  selected bytes for D127=1, 48 and 56, respectively. The following `12A`
+  ALU value changes less often, and every paired post-`128` RAM/Q/flag/stack
+  checkpoint is identical. Under this fixture the ROM effect is transient;
+  test a photo-compatible latch phase at `129`/`12A` or another retained ROM
+  route, without treating the missing trace as a blocker.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:
