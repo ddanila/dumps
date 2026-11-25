@@ -186,7 +186,10 @@ routes; this is a conditional lead rather than a C2 transmitter pass. The
 [DAC bus/decoder screen](g2/PHOTO-MAIN-DIBIT-DAC-DECODE.md) finds that one
 simple photo-B5-compatible full bus lets an independent reference receiver
 recover 103/104 real controller dibits, versus 30 or more errors under each
-other tested bus. That strengthens the conditional phase-modulator lead, but
+of its five other simple orders. The later
+[exhaustive bus screen](g2/PHOTO-DAC-BUS-PERMUTATIONS.md) finds 12 zero-error
+orders among all 5,040 photo-B5-compatible permutations, so that byte order
+is not unique. This supports conditional phase information, but
 the pulse gate, latch clock, line route and DSC receive/echo path remain
 unverified. The
 [joint state/data bus check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md) shows

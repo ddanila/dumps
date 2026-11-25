@@ -28,8 +28,9 @@ the Nokia DSC receiver.
 
 The Q4/Q5 bus has one error in 30 decisions for selector `00`, at the first
 decision near the start of the finite stream. It has **zero errors in 74
-held-out decisions** from selectors `20`, `40` and `60`. Selecting the bus
-using only `00` picks this same mapping. With the selected bus but **no dibit
+held-out decisions** from selectors `20`, `40` and `60`. Selecting among
+these six buses using only `00` picks this same mapping; the later exhaustive
+screen finds many other compatible buses. With the selected bus but **no dibit
 pulses**, the same decoder makes 74 errors in 104 decisions and emits zero
 dibits. Thus the recovered data depends on the controller-driven phase
 changes, not merely on the carrier or reference decoder.
@@ -42,9 +43,15 @@ rather than a single isolated alignment. The
 records every bus/class decision count, mismatch index, timing result,
 correlation and source hash.
 
-This is strong **conditional transmitter evidence**: one simple,
+This is **conditional transmitter evidence**: one simple,
 photo-compatible output mapping carries nearly all real controller dibits
-in a form independently decodable as differential phase. It does not prove
+in a form independently decodable as differential phase. The later
+[exhaustive seven-bit screen](PHOTO-DAC-BUS-PERMUTATIONS.md) corrects the
+bus-selection inference: among 5,040 mappings preserving the same photographed
+Q4→B5 segment, **12 decode all 104 decisions correctly**, and the Q4/Q5 swap
+is one of 172 with one error. Its 0.701 waveform correlation is below the
+0.757–0.801 range of the 12 perfect-decision mappings. The six-order screen
+therefore does not recover the physical byte order. It does not prove
 the four-visit USART pulse, the seven other DAC wires, the LS273 clock, the
 analog line route, pulse shaping, or segment-1 reversals. The reference
 receiver result does not satisfy G2's DSC receive/echo requirement. Next

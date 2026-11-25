@@ -713,6 +713,14 @@ phases B–C turn "what" into "how".
   The decoder is a known-carrier reference tool, not the DSC receiver, and
   the pulse, DAC clock and analog route remain assumed. Keep C2 and C3/C4
   open while tracing or otherwise constraining those physical paths.
+  An [exhaustive B5-compatible bus screen](g2/PHOTO-DAC-BUS-PERMUTATIONS.md)
+  corrects the six-order selection claim: 12 of all 5,040 seven-bit
+  permutations decode all 104 dibits, and 172 have one error. The earlier
+  Q4/Q5 swap is among the latter and has lower reference-waveform
+  correlation than every perfect-decision order. The signal carries
+  conditional phase information, but the full DAC bus is not identified;
+  constrain another bit or the latch/analog path before treating it as
+  line output.
   An [extended 8031 polling-loop replay](g2/MAIN-LOOP-LONG.md) now supplies a
   real controller frame toggle to test for segment-1 reversals: on the B4
   branch, the third frame byte alternates `81`/`C1` every four forced-timer
