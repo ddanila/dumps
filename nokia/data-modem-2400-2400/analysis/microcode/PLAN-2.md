@@ -453,6 +453,14 @@ phases B–C turn "what" into "how".
   photo-candidate DAC08 B5 a 1,800 Hz peak under both levels. This rules
   out those **direct** latch fixtures, while a staged data path, other
   clock/source or mapping remains open without waiting for pin traces.
+  The [all-live-nibble continuation](g2/LOWER-I-LIVE-NIBBLE-DAC-SPECTRUM.md)
+  extends that direct-latch test to every one of the ten D3F8 levels that
+  sustains the ROM loop, both 187/188 sample-clock orderings, 188 offsets,
+  and all four candidate data bytes. No full-byte or photo-candidate B5
+  window has a 1,800 Hz peak. A few 32-sample windows show a 2,100 Hz bin
+  for held `3`/`7`, but their exact 14-sample cycle has a dominant third
+  harmonic at 2,057.14 Hz. This prunes the tested direct byte routes;
+  constrain the output latch data/clock or seek another mapped signal path.
   An [exit-path comparison](g2/LOWER-I-EXIT-PATH.md) follows the D3F8-sensitive
   branch: under previous-flag timing, `3FA` zero releases `3ED`, `3EE` returns
   to `18D`, and all six impulse/controller cases eventually repeat `1E9/1EA`
