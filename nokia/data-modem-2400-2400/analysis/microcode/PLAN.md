@@ -24,6 +24,11 @@ successful route remains conditional until its physical path and USART
 receive behavior are established. Keep C3 open and G2 active while those
 tests or other independent C2/C4 experiments remain possible; do not wait
 for continuity measurements or new photos to choose the next test.
+The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
+shows why: `FF` fill permits a clean candidate byte schedule, but eight
+leading-bit/hunt-start pairs align the data under its explicit model. Carry
+those alternatives into the photo-compatible RxD/RxC test instead of
+treating the unknown character phase as a blocker or as a proven alignment.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.

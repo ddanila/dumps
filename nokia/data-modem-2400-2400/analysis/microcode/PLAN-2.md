@@ -1244,6 +1244,15 @@ phases B–C turn "what" into "how".
   serial candidate at 6,000 cycles/bit. The oscillator ratio, RxC phase,
   8251A character alignment and DSC-to-RxD connection remain hypotheses.
   Test sync-hunt and pin routing next; this progress does not pass C3.
+  The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
+  groups those recovered bits under a simplified external `FF`-hunt model.
+  Supplying the first unmeasured `11` dibit and starting hunt at bit zero
+  gives seven further `FF` characters followed by four correctly aligned
+  data bytes in all four traces. Across eight leading-bit and eight
+  hunt-start choices, eight pairs align the data and 56 do not. Repeated
+  `FF` fill therefore cannot establish the physical RxC phase or data-byte
+  boundary alone. Test a photo-compatible RxD/RxC route and executed USART
+  consumer; keep C3 open and G2 active without waiting for net continuity.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
