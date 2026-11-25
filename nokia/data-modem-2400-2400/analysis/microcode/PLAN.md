@@ -17,10 +17,17 @@ state its unseen nets and timing explicitly, and run it with the real PROMs
 and relevant controller traffic. Test a few alternatives that could change
 the result, and keep failed outcomes attached to their exact fixtures. If a
 candidate fails, revise that route or pursue an independent program or signal
-constraint. Keep G2 active while such experiments are possible; an unmet C2,
-C3 or C4 acceptance check remains open, and a plausible waveform or decoded
-bitstream does not by itself verify a physical connection. Do not wait for
-continuity measurements or new photographs to choose the next experiment.
+constraint. In each progress report, name the current assumption, the result
+that would distinguish it, and the next test; record missing continuity as
+uncertainty, not as a request to pause. For the present C2 case, test a
+photo-compatible higher-weight DAC input or analog output route after the
+single B5 bit failed to carry the expected tone. For C3, test a
+photo-compatible consumer of the executed `3ED` row bytes through RxD/RxC
+and external SYNDET, including carrier-phase variants. Keep G2 active while
+such experiments are possible. An unmet C2, C3 or C4 acceptance check stays
+open, and a plausible waveform or decoded bitstream does not by itself verify
+a physical connection. Do not wait for continuity measurements or new
+photographs to choose the next experiment.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
@@ -550,11 +557,13 @@ phases; continue with a labelled alternative and a DAC-latch check.
 An unknown physical net is never, by itself, a G2 blocker. If the available
 photo-compatible candidates all fail, record what each run excluded and pivot
 to a new mapping, timing model, stimulus or independent program/signal clue.
-Only consider a goal-level blocker after showing that no such experiment can
-advance the acceptance checks. Before calling something blocked, write down
-the concrete next experiment attempted, its result and why no alternative
-candidate, stimulus or independent analysis remains. A failed candidate or a
-missing continuity measurement does not meet that test.
+Keep the status **active, with the relevant acceptance check open**, while any
+such experiment remains. Only consider a goal-level blocker after showing
+that no available experiment can advance the acceptance checks. Before calling
+something blocked, write down the concrete next experiment attempted, its
+result and why no alternative candidate, stimulus or independent analysis
+remains. A failed candidate or a missing continuity measurement does not meet
+that test.
 
 Apply this rule to the U9 enable/address-bus idea as well. A hypothesised
 external driver can be modelled from the chip's documented pin behavior and
