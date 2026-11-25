@@ -494,6 +494,18 @@ phases B–C turn "what" into "how".
   A time-reversed control survives 133 visits, showing ordering sensitivity
   but not a physical receiver. Change the input mapping/timing hypothesis
   or follow an independent signal path; these fixtures do not meet C2/C3.
+  The [held D3F8 history test](g2/LOWER-I-D3F8-HELD-HISTORY.md) now uses
+  the loop's measured eight-instruction visit spacing and a 9,600 Hz
+  candidate sample schedule of alternating 188/187 visits at `k=1`. Among
+  64 biased odd-nibble transitions, 28 remain on the same long PC path as
+  their steady later-byte controls and 19 retain different final states.
+  In the `01→03` versus steady-`03` witness, both receive the same byte
+  from visit 188 and reach 745 selected visits, yet differ through visit
+  744, including 1,034/1,112 later ROM-address events. This is persistent
+  internal input history under a labelled D3F8 mapping, not a decoded ADC
+  waveform or USART receive bit. Next use a continuous complementary ADC
+  sample stream with an explicit D0 bias/mapping and a phase or time-reversed
+  control; keep C3 open.
   A [held-byte classification](g2/LOWER-I-HELD-NIBBLE-CYCLES.md) finds that
   only D3F8's low nibble affects this candidate loop: all 16 high-nibble
   choices share one full trace. Ten low nibbles sustain exact recurring
