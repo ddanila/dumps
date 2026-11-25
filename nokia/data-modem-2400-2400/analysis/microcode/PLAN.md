@@ -135,6 +135,10 @@ as a separate, untraced input hypothesis in the next state-sensitive test. The
 [second-loop ROM liveness test](g2/PHOTO-12C-ROM-LIVENESS.md) shows that the
 ROM-bank effect is erased by `12D` in the tested q3 loop, so a candidate DAC
 latch must sample before that point. The
+[A0/A1 edge screen](g2/PHOTO-12C-PROM-EDGE-LATCH.md) finds a raw U18 D1
+edge at every A1 `12E` visit but not in the recurring A0 loop; test a
+labelled divider/clock route rather than treating that correlation as a
+traced DAC strobe. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

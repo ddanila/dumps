@@ -802,3 +802,8 @@ hundreds of changed `12E` operands but identical full modeled state after
 each next `12D` for four held D12C inputs. The ROM effect is transient under
 this q3 fixture, narrowing any DAC latch hypothesis to the `12E`/`12F`/preclear
 `12C` window without establishing the physical clock or output bus.
+The [A0/A1 raw-edge screen](PHOTO-12C-PROM-EDGE-LATCH.md) finds U18 D1 rising
+at every A1 `12E` visit and never in A0's recurring first loop under one
+CD4094 order. It could mark a mode-qualified transient sampling window, but
+an unqualified edge is 0.9–3.6 MHz under the tested clock ratios and no
+clock wire or full DAC byte route is traced.

@@ -620,6 +620,13 @@ phases B–C turn "what" into "how".
   using the ROM shape must sample `12E`, `12F` or the following preclear
   `12C` window; a later state consumer cannot recover it. Test a qualified
   latch clock in that window under explicit chip/timing assumptions.
+  The [A0/A1 PROM-edge screen](g2/PHOTO-12C-PROM-EDGE-LATCH.md) finds one
+  raw rising bit, U18 D1, that fires at all 613 A1 `12E` visits and never
+  in the recurring A0 first loop for three held CD4094 phase bytes. If it
+  clocked a Y-fed latch, A1 would produce changing codes, but the edge runs
+  at 0.9–3.6 MHz under the tested fast-clock ratios. U18 D1 is also a
+  tentative register-address bit. Test a photo-compatible divided/qualified
+  clock and full DAC byte route before assigning output function.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
