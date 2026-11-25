@@ -24,8 +24,8 @@ are also hypotheses.
 | Isolated A1 send | `81` | 1 / 0 | `88` | 2,100 Hz |
 | Isolated A2 send | `88` | 0 / 0 | `88` | no hypothetical capture |
 | Four main-loop first-line frame classes | `A1` | 1 / 1 | `B0` | 1,800 Hz |
-| **Preserved-chain A1 sends** | **`A1`** | **1 / 1** | **`B0`** | **1,800 Hz** |
-| Preserved-chain A2 sends | `A8` | 0 / 1 | `B0` | no hypothetical capture |
+| **Preserved main-loop A1 sends** | **`A1`** | **1 / 1** | **`B0`** | **1,800 Hz** |
+| Preserved main-loop A2 sends | `A8` | 0 / 1 | `B0` | no hypothetical capture |
 
 The first four rows look like a possible tone/data selector. The last two
 are the necessary check: across all 256 selector runs in the uninterrupted
@@ -38,6 +38,14 @@ two executed fixtures. The main-loop fixture preserves controller RAM across
 iterations but uses synthetic receive events and forced timer underflow; it
 does not represent a full natural-duration call. The A1=2,100 Hz command
 interpretation remains provisional.
+
+The subsequent [A1 counter-phase replay](A1-COUNTER-PHASE.md) finds that the
+main loop enters its **first** A1 output build with flag24.5 set, producing
+`A1` and loading counter49=10. The isolated A1 send has the flag clear and
+produces `81`. After one reload, directed repeated A1 sends eventually emit
+`81`, then `C1`. Thus bit 5 changes with controller counter state even while
+the named state remains A1; the first main-loop `A1` cannot be explained as a
+later state-only tone/data switch.
 
 All nine distinct source/mode replays execute 3,000 real-PROM
 microinstructions cleanly. Every run selects 740 upper-bank PC129 values and
