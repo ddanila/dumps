@@ -1155,6 +1155,14 @@ phases B–C turn "what" into "how".
   Test a generalizing receive decision on this interleaved schedule, then
   constrain its counter/buffer index and output routes; the two-row sequence
   is still an explicit hypothesis, not recovered board wiring or a C3 pass.
+  The [two-row receive-decision screens](g2/RECEIVER-TWO-ROW-DECISION.md)
+  now run seven independent streams through that same schedule. No direct
+  Y/Q/RAM bit, previous-symbol byte difference, small byte codebook or ALU
+  flag fits the 36-bit training set exactly at any of 750 fixed phases;
+  the nearest state-bit fit has 27/48 holdout errors. Seek an
+  instruction-motivated multi-sample decision or separately clocked output
+  site, and require a generalizing bit plus a candidate USART RxD route
+  before calling C3 passed.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
