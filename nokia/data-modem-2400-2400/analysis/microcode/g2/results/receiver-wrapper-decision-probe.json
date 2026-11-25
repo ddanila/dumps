@@ -1,0 +1,265 @@
+{
+  "comparison": {
+    "3EA": {
+      "alu.carry": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.overflow": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.sign": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.y": {
+        "changing_unique": 2,
+        "constant_unique": 2,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.zero": {
+        "changing_unique": 2,
+        "constant_unique": 2,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "next_pc": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "q": {
+        "changing_unique": 16,
+        "constant_unique": 14,
+        "differing_visits": 4137,
+        "first_difference": 190
+      },
+      "test": {
+        "changing_unique": 2,
+        "constant_unique": 2,
+        "differing_visits": 0,
+        "first_difference": null
+      }
+    },
+    "3EB": {
+      "alu.carry": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.overflow": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.sign": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.y": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.zero": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "next_pc": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "q": {
+        "changing_unique": 16,
+        "constant_unique": 14,
+        "differing_visits": 4137,
+        "first_difference": 190
+      },
+      "test": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      }
+    },
+    "3EC": {
+      "alu.carry": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.overflow": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.sign": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.y": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.zero": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "next_pc": {
+        "changing_unique": 2,
+        "constant_unique": 2,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "q": {
+        "changing_unique": 16,
+        "constant_unique": 14,
+        "differing_visits": 4137,
+        "first_difference": 190
+      },
+      "test": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      }
+    },
+    "3ED": {
+      "alu.carry": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.overflow": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.sign": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.y": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "alu.zero": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "next_pc": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      },
+      "q": {
+        "changing_unique": 16,
+        "constant_unique": 14,
+        "differing_visits": 4137,
+        "first_difference": 189
+      },
+      "test": {
+        "changing_unique": 1,
+        "constant_unique": 1,
+        "differing_visits": 0,
+        "first_difference": null
+      }
+    }
+  },
+  "experiment": "receive-wrapper output comparison, changing versus constant ADC",
+  "fixture": {
+    "adc": "complementary 127-PCM at 3F8; 94/94/94/93 visits per sample",
+    "adc_visits": 3000,
+    "cycles": 48047,
+    "dispatch": "scenario sequence [0,2] at 3EC",
+    "fields": [
+      "test",
+      "next_pc",
+      "q",
+      "alu.y",
+      "alu.sign",
+      "alu.zero",
+      "alu.carry",
+      "alu.overflow"
+    ],
+    "mapping": "joint upper-source mask 08"
+  },
+  "interpretation": "Wrapper TEST/next-PC and ALU Y/flags do not differ between these streams; Q does. This fixture has no ADC-dependent decision at the four wrapper words.",
+  "limitations": "Only this 32-sample pair, 0/2 dispatch, assumed mapping and ADC site are tested; no claim about a physical RxD route or other receive routines.",
+  "source_sha256": "d52bef11181a41ae484db40133334bbe55547b60869f2f27bc75782abb8c0a32",
+  "streams": [
+    {
+      "first_adc_codes": [
+        "00",
+        "59",
+        "D7",
+        "BE",
+        "40",
+        "36",
+        "BD",
+        "F6"
+      ],
+      "pattern": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "trace_digest": "c311c80a1b92d9fcaa04b12a51488e9b8a156cdfd4062c35c5c45315f98eed4d"
+    },
+    {
+      "first_adc_codes": [
+        "00",
+        "4E",
+        "D9",
+        "F4",
+        "7F",
+        "0A",
+        "25",
+        "B0"
+      ],
+      "pattern": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "trace_digest": "39e249b9906e65cd2fe9a3eff4aa5143d788d72fb8891d6c59ff33c624e69deb"
+    }
+  ]
+}

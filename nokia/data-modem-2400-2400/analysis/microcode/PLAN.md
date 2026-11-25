@@ -445,16 +445,19 @@ not a receive advance. Change the high-slice timing/condition, dispatch or
 output hypothesis next instead of widening that inert lane test.
 
 The [raw-PROM ADC-enable phase screen](g2/RECEIVER-PROM-ADC-ENABLE-PHASE.md)
-provides a concrete next connection hypothesis: a one-cycle-delayed decode of
+provides a concrete connection hypothesis: a one-cycle-delayed decode of
 `!U10.D1 & U10.D3 & U10.D7` enables the candidate ADC byte at every `3F8`
 visit without also feeding it to wrapper `3EB` or high-slice `3FA`. Its
 3,000-visit trace matches the earlier PC-qualified fixture, but the decode,
-latch phase and buffer wiring are still assumptions. Keep C3 **open and G2
-active**. Inspect the executed wrapper and receive-loop state for an
-input-dependent decision, then test a photo-compatible route from that
-decision to USART 01 RxD. If this gate or readout fails, revise the enable
-phase, dispatch source or output route and run the next bounded candidate;
-do not wait for a continuity measurement to proceed.
+latch phase and buffer wiring are still assumptions. The
+[wrapper decision probe](g2/RECEIVER-WRAPPER-DECISION-PROBE.md) finds no
+ADC-dependent TEST, branch, Y or ALU flag at `3EA`–`3ED` when comparing a
+changing-dibit waveform with an all-zero-dibit control, even though Q changes
+at 4,137 visits to each wrapper word. Keep C3 **open and G2 active**. Inspect
+where Q/RAM state is consumed in the receive rows or an output latch, then
+test a photo-compatible route to USART 01 RxD. If that readout fails, revise
+the enable phase, dispatch source or output route and run the next bounded
+candidate; do not wait for a continuity measurement to proceed.
 
 ## Steps
 
