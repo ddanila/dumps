@@ -1,0 +1,152 @@
+{
+  "cases": [
+    {
+      "byte": "22",
+      "fast_clock_phase_rates": {
+        "1": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 1875.0,
+          "phase_step": 206
+        },
+        "3": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 3825.0,
+          "phase_step": 154
+        }
+      },
+      "first_wait_cycle": null,
+      "parity": "even",
+      "pc12c_visits": 614,
+      "pc12e_rom_reads": 613,
+      "trace_digest": "8a109c9419133eb0308b6a8a77cb9334c49697304cc94e366ac289cf05b2250d"
+    },
+    {
+      "byte": "42",
+      "fast_clock_phase_rates": {
+        "1": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 3075.0,
+          "phase_step": 174
+        },
+        "3": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 2175.0,
+          "phase_step": 58
+        }
+      },
+      "first_wait_cycle": null,
+      "parity": "even",
+      "pc12c_visits": 614,
+      "pc12e_rom_reads": 613,
+      "trace_digest": "5e8b491ded84b82104212295a0e3482884b97089f02f11a6884bd769745b4e63"
+    },
+    {
+      "byte": "47",
+      "fast_clock_phase_rates": {},
+      "first_wait_cycle": 1162,
+      "parity": "odd",
+      "pc12c_visits": 137,
+      "pc12e_rom_reads": 137,
+      "trace_digest": "e7cee7b669477d27dcc5c864cd136a5a0b1fde12afd7a7c3573fd60397b0a5e5"
+    },
+    {
+      "byte": "A1",
+      "fast_clock_phase_rates": {},
+      "first_wait_cycle": 1250,
+      "parity": "odd",
+      "pc12c_visits": 159,
+      "pc12e_rom_reads": 159,
+      "trace_digest": "3b61d525ee55160287f7f588e3ef983c5643de3306e6a574fae08228d57c4f24"
+    },
+    {
+      "byte": "BA",
+      "fast_clock_phase_rates": {
+        "1": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 4425.0,
+          "phase_step": 118
+        },
+        "3": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 1725.0,
+          "phase_step": 210
+        }
+      },
+      "first_wait_cycle": null,
+      "parity": "even",
+      "pc12c_visits": 614,
+      "pc12e_rom_reads": 613,
+      "trace_digest": "9d2bd1166b270cc17117a3805d3d0db0450bf9d5b54672b6654fd1ac95e62133"
+    },
+    {
+      "byte": "D0",
+      "fast_clock_phase_rates": {
+        "1": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 3000.0,
+          "phase_step": 176
+        },
+        "3": {
+          "exact_1800_or_2100": false,
+          "folded_phase_hz": 4200.0,
+          "phase_step": 144
+        }
+      },
+      "first_wait_cycle": null,
+      "parity": "even",
+      "pc12c_visits": 614,
+      "pc12e_rom_reads": 613,
+      "trace_digest": "606cef2c38d96575d57d6e5da5a5540067d117832d9b0686de1924aca115db42"
+    }
+  ],
+  "fixture": {
+    "assumed_d12c_route": "one held controller frame lane",
+    "cycles_per_byte": 3000,
+    "frame_lanes_by_selector": {
+      "00": [
+        "D0",
+        "47",
+        "A1",
+        "22"
+      ],
+      "20": [
+        "D0",
+        "47",
+        "A1",
+        "22"
+      ],
+      "40": [
+        "D0",
+        "42",
+        "A1",
+        "BA"
+      ],
+      "60": [
+        "D0",
+        "42",
+        "A1",
+        "BA"
+      ]
+    },
+    "held_d127": "81",
+    "hypothetical_sample_rate_hz": 9600,
+    "mapping": "q3 photo-swapped",
+    "microcycle_divisors": [
+      1,
+      3
+    ],
+    "oscillator_hz": 14400000,
+    "q": 0
+  },
+  "limitations": [
+    "The controller frame lanes are ROM-executed, but their route to PC12C is untraced.",
+    "The q3 mapping, D127=81 entry, ROM bank, held I0 and clock divisors are hypotheses.",
+    "Folded phase rate is a modular arithmetic diagnostic, not a DAC sample or analog tone.",
+    "A transformed, changing or differently clocked controller input is not excluded."
+  ],
+  "totals": {
+    "exact_target_steps": 0,
+    "sustained_even_bytes": 4,
+    "unique_frame_bytes": 6
+  }
+}

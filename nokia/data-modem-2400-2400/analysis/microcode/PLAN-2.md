@@ -558,6 +558,22 @@ phases B–C turn "what" into "how".
   power. Continue by finding a decoded quarter-wave or other retained
   ROM-to-latch data path and controller-selected phase steps; the pin route
   remains an assumption, not a blocker.
+  A [controller-frame step check](g2/PHOTO-12C-CONTROLLER-FRAME-STEPS.md)
+  tests all six distinct bytes in the executed 8031 four-byte frames as
+  held D12C inputs. Four even bytes sustain the second ROM loop and two odd
+  bytes exit; none supplies the exact ±48/±56 sampled phase step for
+  1,800/2,100 Hz at the tested integer clock ratios. This prunes a direct
+  frame-lane-to-phase-step connection without excluding a decoded or
+  changing controller input or identifying the DAC route.
+  A [joint frame/line execution](g2/PHOTO-127-FRAME-LINE-JOINT.md) then
+  offers the real 8031 main-loop frame lane 1 at D127 and its USART bits at
+  D12C. Under q3, held `47` enters the second phase loop after 155 first-
+  loop ROM reads and consumes the bits; held `42` stays in the first loop
+  for 1,040 reads and consumes none. At eight visits per bit, the `20`
+  selector stream drives phase to zero and exits to `084`, while `00`
+  consumes all 64 bits and continues. This is a conditional controller-
+  driven phase/control witness under two untraced input routes, with no
+  DAC-bound byte or receiver result yet.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
