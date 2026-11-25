@@ -1090,6 +1090,13 @@ phases B–C turn "what" into "how".
   peak and 0/62 independent A3/A4 data errors. C2 is still conditional on
   the untraced latch, DAC bus and analog path. Keep G2 active and seek a
   generalizing receive decision and USART RxD/echo route on this map.
+  The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
+  then run seven periodic/nonperiodic reference streams for 24,000 ADC
+  visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,
+  nor any one-byte codebook of at most 16 values using current, XOR or
+  symbol-difference state, fits even the 36-dibit training set exactly.
+  Seek a microinstruction-motivated multi-sample or separately latched
+  decision; input-sensitive ROM addresses alone do not pass C3.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
