@@ -1174,6 +1174,12 @@ phases B–C turn "what" into "how".
   [third-row latch screen](g2/RECEIVER-FOUR-ROW-LATCH-SCREEN.md) finds no
   fixed-phase direct Y/flag bit that generalizes as a received dibit;
   C3 remains open.
+  A [byte-wide sampled-state screen](g2/RECEIVER-FOUR-ROW-SAMPLED-STATE-DPSK.md)
+  tests Y, Q and four RAM bytes as candidate received samples on that full
+  path. Twenty of 1,200 external-decoder readouts fit the training dibits,
+  but none also fits holdout. The best has 7/48 holdout and 12/48 fresh
+  validation errors. This narrows simple output-latch hypotheses; it is
+  not an executed DSC decision or a USART RxD result.
   The [raw-PROM ADC enable-phase screen](g2/RECEIVER-PROM-ADC-ENABLE-PHASE.md)
   finds a concrete buffer-gate hypothesis for that same path. A one-cycle
   latched `!U10.D1 & U10.D3 & U10.D7` level enables only `3F8` on all

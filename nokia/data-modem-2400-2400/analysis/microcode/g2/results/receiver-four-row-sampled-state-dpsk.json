@@ -1,0 +1,133 @@
+{
+  "best": {
+    "channel": "Y3F8",
+    "coding": "offset_binary",
+    "holdout_errors": 7,
+    "phase_offset": 1,
+    "site": "end",
+    "symbol_lag": 0,
+    "training_errors": 0
+  },
+  "exact_training": 20,
+  "exact_training_and_holdout": 0,
+  "experiment": "byte-wide sampled-state external DPSK diagnostic on full four-row path",
+  "fixture": {
+    "adc": "complementary 127-PCM, 47/46 visits per sample",
+    "channels": [
+      "Y3F8",
+      "Y3F9",
+      "Y3FA",
+      "Q",
+      "R10",
+      "R11",
+      "R12",
+      "R13"
+    ],
+    "codings": [
+      "offset_binary",
+      "twos_complement"
+    ],
+    "condition": "inverted previous overflow at select 0",
+    "dispatch": "scenario [0,1,2,3]",
+    "holdout_indexes": [
+      2,
+      7,
+      8,
+      9
+    ],
+    "lags": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "mapping": "joint upper-source mask 08",
+    "phase_offsets": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "sites": [
+      "start",
+      "center",
+      "end"
+    ],
+    "symbol_indexes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "train_indexes": [
+      0,
+      1,
+      6
+    ]
+  },
+  "invalid": 0,
+  "limitations": [
+    "The fixed reference receiver is an external diagnostic, not executed DSC decision code.",
+    "Only byte-wide Y, Q and four RAM readouts at three phases and small offsets are tested.",
+    "The four-row dispatch, TEST, ADC bus, sample clock, output latch and USART route are untraced."
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/receiver_four_row_sampled_state_dpsk.py": "96fc872f2e7c74ed91390222ed1b900e1156c32aa91e520b8aa225cb25190ec7",
+    "analysis/microcode/g2/receiver_two_row_sampled_state_dpsk.py": "c6d6da9fdc13b08426712c0540bf458aaccd73a1316fdee87b4f45a065076da8",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "tested": 1200,
+  "trace_digests": {
+    "0": "ac8cd080a619cee6c53c70fe67935c2ce00c09972614ab6ed24f15c3e90aa124",
+    "1": "0393b311b20c55b10f221b3ccf40501af6843215d5a730a982918465a0ffd7f3",
+    "2": "da5cfe68fd4cc7dce6d4ff7906291108e62ac738b2576226c21024e9e86647ed",
+    "6": "2398d168addae70038fa884ec55a4e43d583c089186fea320329ff814957e852",
+    "7": "62f9cfe05e456abf221225dab1c07e219fed707ccd1fcf0a41458b1997c1967a",
+    "8": "b894c5a0f573dfdfb4b5b8fdf5040691c9f17fe1677a8428c506e7c01c29540f",
+    "9": "a0dfb48601e04633c63637afa960fd8f7af661b0747dd2b9f731e3ffdd151c64"
+  },
+  "validation": [
+    {
+      "errors": 1,
+      "reference_errors": 0,
+      "seed": 9249,
+      "trace_digest": "2f8763b9cf1a9839e442e9e0f99720f9e13ef670da2565706cd2ffb0aa19d387"
+    },
+    {
+      "errors": 4,
+      "reference_errors": 0,
+      "seed": 9217,
+      "trace_digest": "206acc8f2754f7f6c41e80d5375b1fad320b070a22865555810636fc1171f060"
+    },
+    {
+      "errors": 2,
+      "reference_errors": 0,
+      "seed": 9889,
+      "trace_digest": "f79503792c3ccc1958a55b678fd645f6c6b5011a9f0c4e54182a03ec899fa793"
+    },
+    {
+      "errors": 5,
+      "reference_errors": 0,
+      "seed": 13251,
+      "trace_digest": "967a830e7536cbe1d5672983f255885acfe2fed4ea30e2476e9b16e0fe8d2328"
+    }
+  ]
+}
