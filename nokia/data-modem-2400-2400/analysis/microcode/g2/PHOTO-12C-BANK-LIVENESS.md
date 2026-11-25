@@ -29,6 +29,8 @@ exclude a physical latch sampling PC12E or PC12F. No controller-to-D12C
 connection, DAC clock or analog output is shown. The
 [machine report](results/photo-12c-bank-liveness.json) records counts,
 checkpoints, trace digests and source hashes.
+The [latch-site tone screen](PHOTO-12C-LATCH-TONE.md) tests that transient
+sampling hypothesis under explicit clock and DAC-bit assumptions.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_12c_bank_liveness.py

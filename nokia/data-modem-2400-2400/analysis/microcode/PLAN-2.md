@@ -206,6 +206,13 @@ phases B–C turn "what" into "how".
   difference; none reaches `392`/`39E`. Revisit the input route, mapping
   or a photo-compatible latch clock rather than treating this fixture as
   a transmitter demonstration.
+  A [PC12E/PC12F latch-site screen](g2/PHOTO-12C-LATCH-TONE.md) executes
+  all eight fast-step candidates in the second loop. Under a hypothetical
+  Y7→LS273-D4, 9,600 Hz gated clock, both sites' B5 bits peak at the chosen
+  1,800/2,100 Hz rate. PC12F's raw Y byte fits those bins almost exactly as
+  well as the plain phase ramp, so the bit peak does not establish a DAC
+  carrier. Resolve a plausible full-byte route and controller-selected step
+  before treating either transient site as the transmitter output.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:
