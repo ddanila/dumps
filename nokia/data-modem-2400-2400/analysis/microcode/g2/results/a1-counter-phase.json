@@ -1,9 +1,1096 @@
 {
   "controller_rom_sha256": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
-  "finding": "Main-loop A1 enters output32 with flag24.5=1, producing A1 and loading counter49=10; the next A1 build has flag24.5=0 and decrements to 9. Isolated A1 enters with flag24.5=0 and produces 81. Under directed repeated A1 sends after one reload, bit5 clears at call 11 (81), and bit6 then toggles at call 12 (C1). The byte is counter-phase dependent, not a state-only mode code.",
+  "finding": "Main-loop A1 enters output32 with flag24.5=1, producing A1 and loading counter49=10; the next A1 build has flag24.5=0 and decrements to 9. Isolated A1 enters with flag24.5=0 and produces 81. With the same polling loop held in A1, all four selector classes reach 81 at iteration 11. Under directed repeated A1 sends after one reload, bit6 then toggles at call 12 (C1). The byte is counter-phase dependent, not a state-only mode code.",
+  "held_a1": [
+    {
+      "frames": [
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          129,
+          122
+        ]
+      ],
+      "phases": [
+        {
+          "action": "reload-ten",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 32,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 10,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 0,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 9,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 10,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 8,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 9,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 7,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 8,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 6,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 7,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 5,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 6,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 5,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 3,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 4,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 2,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 3,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 1,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 2,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 0,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 1,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "table-reload",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 129,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        }
+      ],
+      "selector": "00"
+    },
+    {
+      "frames": [
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          129,
+          122
+        ]
+      ],
+      "phases": [
+        {
+          "action": "reload-ten",
+          "flag22": 21,
+          "flag23": 10,
+          "flag24": 32,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 10,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 0,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 9,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 10,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 8,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 9,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 7,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 8,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 6,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 7,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 5,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 6,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 5,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 3,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 4,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 2,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 3,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 1,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 2,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 0,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 1,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "table-reload",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 129,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        }
+      ],
+      "selector": "20"
+    },
+    {
+      "frames": [
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          129,
+          122
+        ]
+      ],
+      "phases": [
+        {
+          "action": "reload-ten",
+          "flag22": 21,
+          "flag23": 8,
+          "flag24": 32,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 10,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 0,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 9,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 10,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 8,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 9,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 7,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 8,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 6,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 7,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 5,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 6,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 5,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 3,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 4,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 2,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 3,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 1,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 2,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 0,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 1,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "table-reload",
+          "flag22": 20,
+          "flag23": 8,
+          "flag24": 2,
+          "input2c": 0,
+          "out32": 129,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        }
+      ],
+      "selector": "40"
+    },
+    {
+      "frames": [
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          161,
+          122
+        ],
+        [
+          128,
+          2,
+          129,
+          122
+        ]
+      ],
+      "phases": [
+        {
+          "action": "reload-ten",
+          "flag22": 21,
+          "flag23": 10,
+          "flag24": 32,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 10,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 0,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 9,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 10,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 8,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 9,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 7,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 8,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 6,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 7,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 5,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 6,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 5,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 3,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 4,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 2,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 3,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 1,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 2,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "hold-countdown",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 161,
+          "out49": 0,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 1,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        },
+        {
+          "action": "table-reload",
+          "flag22": 20,
+          "flag23": 10,
+          "flag24": 1,
+          "input2c": 0,
+          "out32": 129,
+          "out49": 4,
+          "out4a": 0,
+          "out65": 0,
+          "prior32": 161,
+          "prior49": 0,
+          "prior4a": 0,
+          "prior65": 0,
+          "state": 161
+        }
+      ],
+      "selector": "60"
+    }
+  ],
+  "held_a1_fixture": "Same uninterrupted polling loop and four selector classes, but the harness clears the externally supplied RAM17.7 underflow bit at each A1 loop entry. Interrupts remain disabled, so this is a held-state diagnostic, not natural timer duration.",
   "limitations": [
     "The repeated send calls and one flag clear are harness-directed; their call count is not an A1 duration.",
-    "The main-loop fixture forces timer underflow and inserts receive events, so it does not establish the natural A1 tone waveform.",
+    "The main-loop fixture forces timer underflow and inserts receive events; the held-state variant suppresses only the artificial underflow. Neither establishes natural A1 duration or tone waveform.",
     "No electrical frame destination, DAC latch, clock, or line signal is proved."
   ],
   "main_loop": [
@@ -2210,9 +3297,9 @@
   "source_sha256": {
     "nokia/data-modem-2400-2400/analysis/controller_output.py": "ffe0d96f44367a908c8a7c9334e1fe2044e9242ca51f2f2ff9a100090ecfcd28",
     "nokia/data-modem-2400-2400/analysis/interface_probe.c": "9dcda6531bb853652c89c253ad557ee85c6f2855c2d77379b706a48f9becdd2b",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/a1_counter_phase.py": "d738c971abd702d9212e2753473ed4a9424a993e2a67e85086e43e648db013eb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/a1_counter_phase.py": "1c16d359cd246e98214ad3e8fdda6025d2e961e54d2e9dcaa8563adaf1aa7384",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/a1_counter_phase_probe.c": "71653d7124d0c89d1fa0a2151d04e0f5ce022ecd696690820837e03b700c5c9b",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/a1_main_loop_phase_probe.c": "9bea146c5cb0b0c4b78c4256324be8aec2687d00d1aec7b279579babf46901cf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/a1_main_loop_phase_probe.c": "2d3828fa4068c3a9c6210d829d5a5981314a66662785697960e23cf867a2b2bc",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_probe.c": "5c2ed6612890c4484ba81858356cbff76fdb9420a74eade23ce1215e65147ed1",
     "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
     "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",

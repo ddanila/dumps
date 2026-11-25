@@ -183,9 +183,11 @@ separate DAC hypotheses, without blocking on physical net ambiguity. The
 the main loop sets flag24.5 before its first A1 output build, yielding `A1`
 and reloading counter49, while the isolated fixture starts with that flag
 clear and yields `81`. A directed preserved-state replay later yields `81`
-and `C1` as the counter advances. Hold A1 without forced expiry next and test
-the resulting frames through labelled photo-compatible decoder and DAC
-routes. No new photograph is needed to run those candidates. The
+and `C1` as the counter advances. An uninterrupted polling-loop fixture held
+in A1 now emits `A1` for eleven iterations, then `81`, in four controller
+selector classes. Replay that changing sequence through labelled
+photo-compatible decoder and DAC routes, and test the timer-driven A1
+duration. No new photograph is needed to run those candidates. The
 [line-rate hold test](g2/PHOTO-127-LINE-RATE-HOLDS.md)
 also shows that raw USART bits at D12C leave the proposed phase loop before a
 sustained 2,400-bit/s stream under four assumed clock divisors. Treat that as

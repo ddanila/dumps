@@ -45,7 +45,11 @@ main loop enters its **first** A1 output build with flag24.5 set, producing
 produces `81`. After one reload, directed repeated A1 sends eventually emit
 `81`, then `C1`. Thus bit 5 changes with controller counter state even while
 the named state remains A1; the first main-loop `A1` cannot be explained as a
-later state-only tone/data switch.
+later state-only tone/data switch. An uninterrupted polling-loop variant held
+in A1 confirms `A1` on iterations 0–10 and `81` on iteration 11 for all four
+tested selector classes. Under this candidate decode, that would change D127
+from `B0` to `88` while still in A1; the DAC output and physical mode command
+remain unproved.
 
 All nine distinct source/mode replays execute 3,000 real-PROM
 microinstructions cleanly. Every run selects 740 upper-bank PC129 values and
@@ -60,10 +64,10 @@ controller-frame counts, nine trace digests, projections and source hashes.
 This fixed decode **cannot be promoted as a state-to-tone explanation** from
 the isolated A1 result. A later counter phase in A1, another frame bit,
 mode-dependent logic, or an entirely different DAC path could still be
-responsible. Next test how controller output32 bit 5 evolves over a realistic
-A1 interval and which frame signals persist across the A1→A2→data transition;
-do not block on untraced nets or assume the first isolated A1 frame is the
-physical tone command.
+responsible. Next replay the held-A1 changing frame sequence through the
+candidate DSC decoder and DAC capture, then establish the actual A1 interval
+using timer events; do not block on untraced nets or assume the isolated A1
+frame is the physical tone command.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_controller_mode_decode.py

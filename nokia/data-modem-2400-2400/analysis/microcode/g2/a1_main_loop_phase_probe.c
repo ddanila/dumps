@@ -12,8 +12,11 @@ struct phase_row {
 };
 static struct phase_row phases[32];
 static unsigned phase_count, pending;
+static unsigned hold_a1;
 
 void sat_trace(struct em8051 *c) {
+    if (hold_a1 && c->mPC==0x1ed3 && c->mLowerData[0x34]==0xa1)
+        c->mLowerData[0x17]&=(unsigned char)~0x80;
     main_loop_original_trace(c);
     if (c->mPC==0x12f) {
         if (phase_count>=32 || pending) { errors++; return; }
@@ -40,6 +43,11 @@ void sat_trace(struct em8051 *c) {
 }
 
 int main(int argc, char **argv) {
+    if (argc==6) {
+        hold_a1=strtoul(argv[5],0,0);
+        if (hold_a1!=1) return 2;
+        argc--;
+    }
     int result=main_loop_original_main(argc,argv);
     if (pending || phase_count<12) return 6;
     fprintf(stderr,"{\"phases\":[");

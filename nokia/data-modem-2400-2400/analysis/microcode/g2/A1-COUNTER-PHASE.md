@@ -23,6 +23,16 @@ compared as if state A1 alone selected the byte. The `A1` value is already
 present at the **first** A1 main-loop build because of flag24.5; it is not
 evidence of a later tone-to-data state transition.
 
+The same polling-loop fixture was then rerun with its artificial timer
+underflow bit cleared at each A1 loop entry. It keeps executing the controller
+ROM's receive, output-build and serial-send paths with RAM/SFR state preserved.
+All four selector classes stay in A1 for 12 iterations and produce the same
+third-byte sequence: `A1` on iterations 0–10, then `81` on iteration 11.
+RAM49 counts from 10 to 0 before the last frame, when the ROM-table reload
+sets it to 4. This is a sustained-A1 **diagnostic fixture**: interrupts are
+disabled, and the harness suppresses the supplied expiry event. It does not
+measure the real 2.6-second interval or the analog tone.
+
 To see the full local counter trajectory, a second probe preserves the 8031
 RAM/SFR image across 20 directed A1 send calls. Starting from the isolated
 zero fixture, all 20 sends emit `81`. Starting after a forced A0→A1 expiry
@@ -38,22 +48,24 @@ as observed between its first two iterations:
 | 12 | `C1` | 3 | Toggle bit 6 |
 | 13–19 | `C1` | 2→0, then held | Final countdown |
 
-The [machine report](results/a1-counter-phase.json) contains all 48
-main-loop observations, 60 repeated-send observations, the exact fixtures,
+The [machine report](results/a1-counter-phase.json) contains 48 forced-expiry
+main-loop observations, 48 held-A1 observations, 60 repeated-send
+observations, the exact fixtures,
 ROM/source hashes, and per-build comparisons against the independently
 validated [output32 reference](../../controller/OUTPUT32.md). Every observed
 third serial byte equals the builder's RAM32 output; execution and reference
 agree on RAM32/49/4A/65 in every case.
 
 The repeated sends and one flag clear are harness-directed. Their call count
-is not a measured A1 duration. The main loop still uses synthetic receive
-events and forced timer underflow. No physical CD4094-to-DSC route, DAC clock,
-or line waveform follows from these bytes alone. The simple bit-5 tone/data
-decode in [the earlier candidate](PHOTO-CONTROLLER-MODE-DECODE.md) therefore
-remains unproved, and its first-main-loop-A1 prediction conflicts with a
-state-only 2,100 Hz interpretation. Next hold A1 for a realistic controller
-interval without forcing expiry, record the frame and counter history, and
-test other photo-compatible state, enable, and DAC routes.
+is not a measured A1 duration. Both main-loop variants still use synthetic
+receive events. No physical CD4094-to-DSC route, DAC clock, or line waveform
+follows from these bytes alone. The simple bit-5 tone/data decode in
+[the earlier candidate](PHOTO-CONTROLLER-MODE-DECODE.md) would change its
+candidate output during A1, from `B0` to `88`, after the eleventh held
+iteration. That delayed change may be a useful hypothesis to test, but it is
+not yet a demonstrated 2,100 Hz tone. Next replay the changing frame sequence
+through candidate DSC input and DAC routes, and establish the A1 duration
+with controller timer events rather than the held-state fixture.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/a1_counter_phase.py
