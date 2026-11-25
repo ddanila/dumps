@@ -256,6 +256,16 @@ phases B–C turn "what" into "how".
   instead change the `39E` ALU result one loop later under the upper-B
   variant. Keep the actual D-bus lane and DAC clock open; this bounded bit
   forwarding is still not a transmitter.
+  A [U8 instruction sensitivity screen](g2/UPPER-I-FIELD-SENSITIVITY.md)
+  exposes a duplicated U18.6 source in the translated upper field: it
+  supplies both U8 I2 and I7 without a traced fan-out. Replacing either
+  source with any other direct U18 bit removes the D4→`39E` pulse effect;
+  some replacements stop selecting D altogether. A single I0 polarity flip
+  raises selected ROM reads to 390 and changes three pulse-dependent ROM
+  addresses, but state reconverges within two input checkpoints and `39E`
+  stays fixed. Treat the earlier D-lane byte rule as conditional on these
+  unresolved instruction nets, and score future mappings by retained signal
+  behavior rather than read count.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,

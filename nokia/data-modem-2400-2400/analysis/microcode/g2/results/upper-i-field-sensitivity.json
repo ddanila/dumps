@@ -1,0 +1,789 @@
+{
+  "baseline_duplicate": "U18.6 drives both U8 I2 and U8 I7 in the translated mapping",
+  "fixture": {
+    "controller_bits": 128,
+    "cycles": 1580,
+    "high_slice_crosslinks": "I4<-low I1; I6<-low I2",
+    "initial_q": 5,
+    "initial_ram": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "input_bit_lane": "D4",
+    "input_pc": "38E",
+    "mapping": "separated instruction, upper B variant",
+    "pulse_visit": 20
+  },
+  "limitations": [
+    "Each polarity flip is a diagnostic alternative; no inverter on that specific U8 input net is traced.",
+    "U18 source substitutions are diagnostic alternatives; a fan-out from U18.6 is possible but unverified.",
+    "Only one upper bit at a time, Q=5, zero RAM and the upper-B mapping are tested.",
+    "39E is a candidate ALU output, not a traced DAC latch or line signal.",
+    "Controller bits use an assumed D4 source at 38E, not a measured board route."
+  ],
+  "polarity_cases": [
+    {
+      "distinct_rom_addresses": 3,
+      "flipped_upper_i_bit": null,
+      "input_visits": 128,
+      "new_token": null,
+      "original_token": null,
+      "output_controller_distinct_after_8": [
+        27,
+        59
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        27,
+        27,
+        27
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [
+        21
+      ],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "trace_digests": {
+        "controller": "2d1e3e419d499ac93d27307811fedf458349f60a1c0bf7faad3a107639226177",
+        "pulse": "8b383e983cd02d6ab84f1f2dad40efbca78988ef2776785e866396679748d2d6",
+        "zero": "ac3c67e54722e50a946c321bdfd7b828943deb61355b0929a82a1dec5a7b0f2a"
+      }
+    },
+    {
+      "distinct_rom_addresses": 12,
+      "flipped_upper_i_bit": 0,
+      "input_visits": 128,
+      "new_token": "!17.5",
+      "original_token": "17.5",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [
+        70,
+        72,
+        73
+      ],
+      "pulse_rom_difference_indexes": [
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 390,
+      "trace_digests": {
+        "controller": "ceb10c196e5e3dd43e343a4f8796834c0d56298aee97494fb0949d2410d895b3",
+        "pulse": "2e867b63cac1b4e3908e17116ab7400a9b8c2aaebae2c78ab22fd03df7e4b2e3",
+        "zero": "499740a3157c62cf364b6a53135a1c8157ae35d4156ec379b23c59bb25cafffa"
+      }
+    },
+    {
+      "distinct_rom_addresses": 11,
+      "flipped_upper_i_bit": 1,
+      "input_visits": 128,
+      "new_token": "!18.3",
+      "original_token": "18.3",
+      "output_controller_distinct_after_8": [
+        235
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        235,
+        235,
+        235
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 388,
+      "trace_digests": {
+        "controller": "8ebc1ca1ca5efadba28ac3011170bdc9d1dd1fa378980ac3bf91b0c356878266",
+        "pulse": "6196a2d111b4d2675045136ca3c548197498ebf32f9f5de317534b4342b95c1d",
+        "zero": "2f2ec2b6548d4b6b0eec11d92e7b73bf8393e791d6842643b0abdc70bbef0f68"
+      }
+    },
+    {
+      "distinct_rom_addresses": 9,
+      "flipped_upper_i_bit": 2,
+      "input_visits": 128,
+      "new_token": "!18.6",
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 0,
+      "selected_rom_reads": 386,
+      "trace_digests": {
+        "controller": "b2d1090b7615f8b9ab3042372b9a43d5a5820242b47bac043263041a6ba2adaf",
+        "pulse": "b2d1090b7615f8b9ab3042372b9a43d5a5820242b47bac043263041a6ba2adaf",
+        "zero": "b2d1090b7615f8b9ab3042372b9a43d5a5820242b47bac043263041a6ba2adaf"
+      }
+    },
+    {
+      "distinct_rom_addresses": 2,
+      "flipped_upper_i_bit": 3,
+      "input_visits": 128,
+      "new_token": "!17.2",
+      "original_token": "17.2",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "trace_digests": {
+        "controller": "d20b43fc9b1b25bbc8f69553a13c5bc0a1ec585cde7f8f2849134dced3352046",
+        "pulse": "7a48bf826d63d48b7ff0d8aaa3f93fbd79d99df1f78927ca14a34b20663c1a28",
+        "zero": "9fa20cdb68a3cdc20fd2266386668ff03f479d7066565071b9fd584b08aa7b93"
+      }
+    },
+    {
+      "distinct_rom_addresses": 1,
+      "flipped_upper_i_bit": 5,
+      "input_visits": 0,
+      "new_token": "17.0",
+      "original_token": "!17.0",
+      "output_controller_distinct_after_8": [],
+      "output_visits": 0,
+      "output_zero_tail": [],
+      "pulse_boundary_difference_indexes": [],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 0,
+      "selected_rom_reads": 1,
+      "trace_digests": {
+        "controller": "b141096ea6bb3d710dd2acdcb5d3f09bf49f75d50756220fae04753a7cc3a51f",
+        "pulse": "b141096ea6bb3d710dd2acdcb5d3f09bf49f75d50756220fae04753a7cc3a51f",
+        "zero": "b141096ea6bb3d710dd2acdcb5d3f09bf49f75d50756220fae04753a7cc3a51f"
+      }
+    },
+    {
+      "distinct_rom_addresses": 2,
+      "flipped_upper_i_bit": 7,
+      "input_visits": 128,
+      "new_token": "!18.6",
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "trace_digests": {
+        "controller": "dae9aac6107b68d065f613cbd927b463c5d80b2b3d8c2e8e3e279b64fd9e2721",
+        "pulse": "79dd02a4c134a8a26eeda2f9d5f0cb1865250b490ed20ee9f1ee71596cfe7fc2",
+        "zero": "08b1a16b6d88661c1a238f8281c3c3051b84b57fd280838b5cdfbac2f4ee9de0"
+      }
+    },
+    {
+      "distinct_rom_addresses": 2,
+      "flipped_upper_i_bit": 8,
+      "input_visits": 128,
+      "new_token": "!18.5",
+      "original_token": "18.5",
+      "output_controller_distinct_after_8": [
+        11,
+        43
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [
+        21
+      ],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "trace_digests": {
+        "controller": "19527fe8b98cad54f9084e2d1e4582174ba4ec52c836accf337bc1c6b30abdca",
+        "pulse": "c490bfd429a78ed17a96cc23ee9522c07d50773612d0c0b2d925d91c57a9718e",
+        "zero": "09c496816d5be580449dda8aa8dd7248d491f4321edb846a4d8030047c8d856f"
+      }
+    }
+  ],
+  "source_cases": [
+    {
+      "distinct_rom_addresses": 6,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        91
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        91,
+        91,
+        91
+      ],
+      "pulse_boundary_difference_indexes": [],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 0,
+      "selected_rom_reads": 258,
+      "source_token": "18.0",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "a50f4192e50d05871e7c6124ce386d642741969f9940bf1a486b04cd04087e56",
+        "pulse": "a50f4192e50d05871e7c6124ce386d642741969f9940bf1a486b04cd04087e56",
+        "zero": "a50f4192e50d05871e7c6124ce386d642741969f9940bf1a486b04cd04087e56"
+      }
+    },
+    {
+      "distinct_rom_addresses": 2,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 0,
+      "selected_rom_reads": 129,
+      "source_token": "18.1",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "0cbf554536041c2078c52e37f8eef1178f17fb21d44384b03d82d9c34bff0772",
+        "pulse": "0cbf554536041c2078c52e37f8eef1178f17fb21d44384b03d82d9c34bff0772",
+        "zero": "0cbf554536041c2078c52e37f8eef1178f17fb21d44384b03d82d9c34bff0772"
+      }
+    },
+    {
+      "distinct_rom_addresses": 4,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        43
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        43,
+        43,
+        43
+      ],
+      "pulse_boundary_difference_indexes": [],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 0,
+      "selected_rom_reads": 129,
+      "source_token": "18.2",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "91aab85f43620035f244c5ad635c09047a7ab6ca01d20e44c2d369db2cbaf002",
+        "pulse": "91aab85f43620035f244c5ad635c09047a7ab6ca01d20e44c2d369db2cbaf002",
+        "zero": "91aab85f43620035f244c5ad635c09047a7ab6ca01d20e44c2d369db2cbaf002"
+      }
+    },
+    {
+      "distinct_rom_addresses": 5,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.3",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "39636a4b02e53427c84dddcad5ce61636a18676e1fbff8dccb58ba68e82325d1",
+        "pulse": "89d86e29c5e174da0dd3d53b927c74c0e568c6c20e35b5f80576f726a7711833",
+        "zero": "5fdb5519a5778d96f62210298f764bf6e670e50bc1a478d4417f1eb4bc149416"
+      }
+    },
+    {
+      "distinct_rom_addresses": 4,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 0,
+      "selected_rom_reads": 129,
+      "source_token": "18.4",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "6aeafe279d4a43d11d59b0676ed4f5c9558802ad6ed68520fb65a94a4962640b",
+        "pulse": "6aeafe279d4a43d11d59b0676ed4f5c9558802ad6ed68520fb65a94a4962640b",
+        "zero": "6aeafe279d4a43d11d59b0676ed4f5c9558802ad6ed68520fb65a94a4962640b"
+      }
+    },
+    {
+      "distinct_rom_addresses": 4,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        22
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 129,
+      "source_token": "18.5",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "c43fc3983e6507f8e99af7a8bb8af694825daa272482974e5eda1a18a9737beb",
+        "pulse": "8a9fd68b7069d1641778078439ee140208c87e38f183f724c69989a319ad15a1",
+        "zero": "c4036c138f81869762557e0867a2077b2b826cfe23910a8aa2a3bb9b63967b04"
+      }
+    },
+    {
+      "distinct_rom_addresses": 3,
+      "duplicated_source": true,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        27,
+        59
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        27,
+        27,
+        27
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [
+        21
+      ],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.6",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "2d1e3e419d499ac93d27307811fedf458349f60a1c0bf7faad3a107639226177",
+        "pulse": "8b383e983cd02d6ab84f1f2dad40efbca78988ef2776785e866396679748d2d6",
+        "zero": "ac3c67e54722e50a946c321bdfd7b828943deb61355b0929a82a1dec5a7b0f2a"
+      }
+    },
+    {
+      "distinct_rom_addresses": 1,
+      "duplicated_source": false,
+      "input_visits": 0,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [],
+      "output_visits": 0,
+      "output_zero_tail": [],
+      "pulse_boundary_difference_indexes": [],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 0,
+      "selected_rom_reads": 1,
+      "source_token": "18.7",
+      "target_upper_i_bit": 2,
+      "trace_digests": {
+        "controller": "145d9c94a20f248a05d423a0474a715f2e1bfdccda4425949cb39a8efff92c9a",
+        "pulse": "145d9c94a20f248a05d423a0474a715f2e1bfdccda4425949cb39a8efff92c9a",
+        "zero": "145d9c94a20f248a05d423a0474a715f2e1bfdccda4425949cb39a8efff92c9a"
+      }
+    },
+    {
+      "distinct_rom_addresses": 4,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        139
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        139,
+        139,
+        139
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.0",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "ff855987631f20a83fce16b3a8c7fbba53007611634dc182c433ff198b4941aa",
+        "pulse": "89152c4a6c5a039122bf488652f56f6f7f70eeb8e2f96f386f4352fb3365346e",
+        "zero": "f67ecb750e0be5c180b9ae02aa2330cfa54115cf45e1a3283046cf745ebce655"
+      }
+    },
+    {
+      "distinct_rom_addresses": 4,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.1",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "0b2a129507bf15fc5279342e651a146114720f494aa17e5cf65f12b4950055e9",
+        "pulse": "ecddcfbe7b2dd36f2f6b203661830d28459459907ba002db306b0563b4ea496d",
+        "zero": "566cfcb5f3dfdf5bfb0dab38c952d820716f8f4b60d313cd3370862908dc09b5"
+      }
+    },
+    {
+      "distinct_rom_addresses": 2,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.2",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "495b128566fac545005ad151b451ae42e396e984486959072228f13cf96ec489",
+        "pulse": "ba8b5cde15f700506e551a88638355108386094402fd19b4f799644484a48fdc",
+        "zero": "3b00c7e3543cb1a08b8b90fba855a4ba9d9b2c8881aeb8e1d0c281929f6d5e7a"
+      }
+    },
+    {
+      "distinct_rom_addresses": 3,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.3",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "cf7d9023a70cfcc4cfc4921b96e9a593dbc6c2bed0dd152313dbf706efafe923",
+        "pulse": "bda5c30055771ac39c4753e7a99787026930a48fbb71b411ee904e94cd57f3e4",
+        "zero": "bff22f180e6e3ea91dc9d1a683dafae51c7a6f9e2b51ef0d701d76d20820ef50"
+      }
+    },
+    {
+      "distinct_rom_addresses": 2,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.4",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "eaaaad01c92d68ec614d9aa6ae3994d92e1d2f43778be1e2ade180e18b5a82b0",
+        "pulse": "7e6c007a76884d299b1b88bf1616ff3a470b4da87aace020eb472ba6de5be6b7",
+        "zero": "40c52f40e84b1f5f396101ebba5f27ee6bd45e9dbaa3f4db459185dcd38261be"
+      }
+    },
+    {
+      "distinct_rom_addresses": 4,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        11
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        11,
+        11,
+        11
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.5",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "19a54ed03bcbed135ae2c2f19d5cb0a5ed127d0a74b713b64bea175a7fe005eb",
+        "pulse": "6b247cbb0d1c4afabb97153ba27766b0cc3341b1c87558e8d688b29eed309a40",
+        "zero": "0a18532147ae758cfdc61556cf82c2d9abad82ba4d6b03a6928375717b2cdde4"
+      }
+    },
+    {
+      "distinct_rom_addresses": 3,
+      "duplicated_source": true,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        27,
+        59
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        27,
+        27,
+        27
+      ],
+      "pulse_boundary_difference_indexes": [
+        20,
+        21
+      ],
+      "pulse_output_difference_indexes": [
+        21
+      ],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [
+        24
+      ],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.6",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "2d1e3e419d499ac93d27307811fedf458349f60a1c0bf7faad3a107639226177",
+        "pulse": "8b383e983cd02d6ab84f1f2dad40efbca78988ef2776785e866396679748d2d6",
+        "zero": "ac3c67e54722e50a946c321bdfd7b828943deb61355b0929a82a1dec5a7b0f2a"
+      }
+    },
+    {
+      "distinct_rom_addresses": 4,
+      "duplicated_source": false,
+      "input_visits": 128,
+      "original_token": "18.6",
+      "output_controller_distinct_after_8": [
+        139
+      ],
+      "output_visits": 128,
+      "output_zero_tail": [
+        139,
+        139,
+        139
+      ],
+      "pulse_boundary_difference_indexes": [
+        20
+      ],
+      "pulse_output_difference_indexes": [],
+      "pulse_rom_address_difference_indexes": [],
+      "pulse_rom_difference_indexes": [],
+      "selected_input_visits": 128,
+      "selected_rom_reads": 131,
+      "source_token": "18.7",
+      "target_upper_i_bit": 7,
+      "trace_digests": {
+        "controller": "02c7012fb5520c17d0f9a61c6f5a50d65f7019f64408889a9a9a38f3f282a512",
+        "pulse": "323733224275b6e4e22ff16aa5f4b2d784ac98e3378ca3cd5d9c0d91ab150a2b",
+        "zero": "2d2c54b6e10875acdfb94f85c6734429b6ff6c48d847d6c7c7a28a7313309336"
+      }
+    }
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "03561a0a6c05cbe20332910f9e199f4d05db7e72cea89e24b09377e6a158b09a",
+    "analysis/microcode/g2/controller_bit_dispatch.py": "51ad9285977c4fd7d265ab910813ed40abd7bbf7d8c60f515f857b8de0464e4c",
+    "analysis/microcode/g2/independent_slice_addresses.py": "44179df43940e338b22839d0b00b3a6f3c9b1e9b19623accd1a8020e9a4a9a3e",
+    "analysis/microcode/g2/independent_slice_fields.py": "b5a2807b47b5a47dcd6f8aa42f6876d0f5ace0d9c035bdd8c4bf17883de7c946",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/split_slice_probe.py": "e4e799d2ac6bdd5cf9395a59d28ebf8b5cf64916e7133a6575cb1684baa866a7",
+    "analysis/microcode/g2/upper_i_field_sensitivity.py": "3987d4bd4815f01c5b1ea66b23c41e306668631197ac013a9f3b3690db5f70c7",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "upper instruction field sensitivity, not recovered wiring"
+}
