@@ -877,6 +877,20 @@ phases B–C turn "what" into "how".
   flag, not a state-only mode bit. Treat A1 tone semantics and this decoder
   as unresolved; trace the counter phase and actual frame chronology before
   promoting either spectrum to the physical operating sequence.
+  The [joined tone/training/data replay](g2/PHOTO-JOINT-TONE-TRAINING-DATA.md)
+  now uses that chronology: after 11 early `A1` frames, the Timer-1-paced
+  controller emits `81` once and predominantly `C1` in A1. A fixed,
+  **assumed** decode of the third and fourth frame bytes selects D127=`88`
+  for late A1, disables a candidate output gate in A2, and selects `B0` in
+  A3/A4. Two uninterrupted 1,248,256-word real-PROM runs carry a 2,100 Hz
+  candidate-code peak, alternating A3 carrier-relative half-turns, and the
+  actual GPC/GPA segment-2 bits with 0/62 external-decoder errors across all
+  12 surviving DAC bus orders. This resolves the earlier frame-chronology
+  contradiction for this *candidate*, but does not prove the frame decoder,
+  A2 analog silence, DAC clock/bus or line output. The tone and silence
+  windows are diagnostic excerpts, not natural handshake durations. Next
+  test a photo-compatible latch/output route; keep C2 open until its line
+  output conditions are met, and continue C3/C4 independently.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
