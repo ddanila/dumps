@@ -18,6 +18,35 @@ class AssumedTests(unittest.TestCase):
         self.mapping=read(HERE/'sequencer.json')
         self.scenario=read(HERE/'baseline.json')
 
+    def test_pc_bit_overrides_take_precedence_and_require_provenance(self):
+        fixture_root=Path(__file__).resolve().parent/'g2/results/swapped-sine-loop'
+        mapping=read(fixture_root/'phase-20-mapping.json')
+        scenario=read(fixture_root/'phase-20-scenario.json')
+        policy=lambda value:dict(value=value,status='hypothesis',
+                                  evidence='Diagnostic per-word latch phase')
+        scenario['inputs']['instruction_bit_overrides']={'0':policy(0)}
+        scenario['inputs']['instruction_bit_overrides_by_pc']={'1':{'0':policy(1)}}
+        scenario['inputs']['register_address_bit_overrides']={'a':{'0':policy(0)}}
+        scenario['inputs']['register_address_bit_overrides_by_pc']={
+            '1':{'a':{'0':policy(1)}}}
+        validate_scenario(scenario)
+        with tempfile.TemporaryDirectory() as temporary:
+            execute(mapping,scenario,2,mode='integrated',out=temporary,trace_limit=2)
+            rows=[json.loads(line) for line in
+                  (Path(temporary)/'trace.jsonl').read_text().splitlines()]
+        self.assertEqual([row['pc'] for row in rows],[0,1])
+        self.assertEqual([row['instruction_i'] & 1 for row in rows],[0,1])
+        self.assertEqual([row['register_address_a'] & 1 for row in rows],[0,1])
+        invalid=copy.deepcopy(scenario)
+        invalid['inputs']['instruction_bit_overrides_by_pc']['01']={
+            '0':policy(1)}
+        with self.assertRaisesRegex(ValueError,'PC instruction overrides'):
+            validate_scenario(invalid)
+        invalid=copy.deepcopy(scenario)
+        invalid['inputs']['register_address_bit_overrides_by_pc']['1']['a']['0'].pop('evidence')
+        with self.assertRaisesRegex(ValueError,'PC register address overrides'):
+            validate_scenario(invalid)
+
     def test_paired_components_nonzero_first_high_byte(self):
         from paired_components_study import scenario_for, inspect
         from defined_condition_fit import load_trace

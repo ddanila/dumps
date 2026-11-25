@@ -47,6 +47,18 @@ def validate_scenario(s):
             or not policy.get('evidence')
             for bit, policy in overrides.items())):
         raise ValueError('instruction bit overrides require indexed, provenance-owned constant bits')
+    instruction_overrides_by_pc = s['inputs'].get('instruction_bit_overrides_by_pc', {})
+    if (not isinstance(instruction_overrides_by_pc, dict) or any(
+            not isinstance(pc, str) or not pc.isdecimal() or str(int(pc)) != pc
+            or not 0 <= int(pc) < 1024 or not isinstance(bits, dict) or any(
+                not isinstance(bit, str) or not bit.isdecimal() or str(int(bit)) != bit
+                or not 0 <= int(bit) <= 8 or not isinstance(policy, dict)
+                or type(policy.get('value')) is not int or policy['value'] not in (0, 1)
+                or policy.get('status') not in ('hypothesis', 'stub', 'recovered-from-data')
+                or not policy.get('evidence')
+                for bit, policy in bits.items())
+            for pc, bits in instruction_overrides_by_pc.items())):
+        raise ValueError('PC instruction overrides require indexed, provenance-owned constant bits')
     address_overrides = s['inputs'].get('register_address_bit_overrides', {})
     if (not isinstance(address_overrides, dict) or any(
             field not in ('a', 'b') or not isinstance(bits, dict) or any(
@@ -58,6 +70,21 @@ def validate_scenario(s):
                 for bit, policy in bits.items())
             for field, bits in address_overrides.items())):
         raise ValueError('register address overrides require indexed, provenance-owned constant bits')
+    address_overrides_by_pc = s['inputs'].get('register_address_bit_overrides_by_pc', {})
+    if (not isinstance(address_overrides_by_pc, dict) or any(
+            not isinstance(pc, str) or not pc.isdecimal() or str(int(pc)) != pc
+            or not 0 <= int(pc) < 1024 or not isinstance(fields, dict) or any(
+                field not in ('a', 'b') or not isinstance(bits, dict) or any(
+                    not isinstance(bit, str) or not bit.isdecimal() or
+                    str(int(bit)) != bit or not 0 <= int(bit) < 4 or
+                    not isinstance(policy, dict) or
+                    type(policy.get('value')) is not int or policy['value'] not in (0, 1) or
+                    policy.get('status') not in ('hypothesis', 'stub', 'recovered-from-data') or
+                    not policy.get('evidence')
+                    for bit, policy in bits.items())
+                for field, bits in fields.items())
+            for pc, fields in address_overrides_by_pc.items())):
+        raise ValueError('PC register address overrides require indexed, provenance-owned constant bits')
     logic_flags=s['inputs'].get('logic_flags')
     if 'logic_flags' in s['inputs']:
         if (not isinstance(logic_flags,dict) or logic_flags.get('mode') not in ('unknown','am2901b-ripple')
@@ -249,8 +276,15 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
     read_counts=Counter();selected_reads=0;sequence_visits=Counter()
     instruction_overrides={int(bit): policy['value'] for bit, policy in
                            inputs.get('instruction_bit_overrides', {}).items()}
+    instruction_overrides_by_pc={int(pc): {
+        int(bit): policy['value'] for bit, policy in bits.items()}
+        for pc, bits in inputs.get('instruction_bit_overrides_by_pc', {}).items()}
     address_overrides={field: {int(bit): policy['value'] for bit, policy in bits.items()}
                        for field, bits in inputs.get('register_address_bit_overrides', {}).items()}
+    address_overrides_by_pc={int(pc): {
+        field: {int(bit): policy['value'] for bit, policy in bits.items()}
+        for field, bits in fields.items()}
+        for pc, fields in inputs.get('register_address_bit_overrides_by_pc', {}).items()}
     writes={int(w['pc']):w for w in scenario['io']['writes']}
     trace_count=0;io_count=0;dispatch_counts=Counter();register_changes=0
     routine_entries={r['branch'] for r in rows if r['command']==4 and r['direct']}
@@ -269,6 +303,9 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
             for bit, value in instruction_overrides.items():
                 instruction=(instruction & ~(1 << bit)) | (value << bit)
                 assumptions[f'instruction I{bit} scenario constant {value}']+=1
+            for bit, value in instruction_overrides_by_pc.get(pc, {}).items():
+                instruction=(instruction & ~(1 << bit)) | (value << bit)
+                assumptions[f'instruction I{bit} PC {pc:03X} scenario {value}']+=1
             high_instruction = (cpu.high_instruction(instruction, r.get('i_high'))
                                 if slice_instruction is not None else instruction)
             selects_d = ((instruction & 7) in (5, 6, 7) or
@@ -281,6 +318,10 @@ def _execute(mapping, scenario, cycles, seed, mode, out, trace_limit, sinks):
                 for bit, value in bits.items():
                     register_address[field]=(register_address[field] & ~(1 << bit)) | (value << bit)
                     assumptions[f'register {field.upper()}{bit} scenario constant {value}']+=1
+            for field, bits in address_overrides_by_pc.get(pc, {}).items():
+                for bit, value in bits.items():
+                    register_address[field]=(register_address[field] & ~(1 << bit)) | (value << bit)
+                    assumptions[f'register {field.upper()}{bit} PC {pc:03X} scenario {value}']+=1
             d=r.get('d',source_read['value'])
             if 'd' not in r: assumptions['address-word D fallback']+=1
             if source_read['mode']=='pc_sequence' and read_policy is not None and pc in read_policy['pcs']:

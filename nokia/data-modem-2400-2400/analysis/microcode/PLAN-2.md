@@ -300,6 +300,15 @@ phases B–C turn "what" into "how".
   flags, Q and PC path stay equal; one changed ROM byte is overwritten at the
   next `3F7` visit. The next mapping/timing candidate must carry R10 or the
   table byte into a later output or decision path.
+  A [same-net E4/E2 phase candidate](g2/LOWER-I-ADDRESS-PHASE.md) does carry
+  the `3F7` table byte into later ALU values and a branch: changing only the
+  21st upper-bank byte `44→33` changes `3F9` Y and sends `3ED` to `3EE`
+  instead of `3EA`. This requires I7/A0 and I0/A1 to take `0/1` together at
+  `3F9/3FA`, with `1/0` elsewhere; the clock and levels are untraced.
+  Its upper-bank run makes 59 selected `3F7` reads and changing internal Y
+  values, but D38E is absent and no DAC sample is established. Constrain the
+  timing and output continuation without treating the missing trace as a
+  blocker.
   A [direct LS273 clock replay](g2/SPLIT-DAC-CLOCK-SCREEN.md) holds each
   controller bit for eight loop visits and samples ALU Y at `38E` or `39E`.
   Both candidate clocks yield constant codes under constant-symbol controls,
