@@ -115,6 +115,12 @@ phases B–C turn "what" into "how".
     and 56 = 2100 Hz per 256-step phase at 9600 Hz; byte 0x34 = 0x30.
   - Record negative results as well.
 
+  The [shape-control comparison](g2/README.md#first-independent-rom-constraint)
+  finds a high wide-rate RRC fit at 40 samples/symbol, but a free sine fits
+  the same `16F–1CF` bytes equally well and neither reproduces a quarter of
+  the rounded values exactly. Do not identify this region as a pulse filter
+  from shape alone; find its actual address sequence and arithmetic consumer.
+
   The [D127 two-bank execution](g2/PHOTO-127-BANK-COMPARE.md) tests the
   tempting 16-point-sine path directly: lower-bank reads leave addresses
   `000–00F` after four D127=3 steps, and the upper-bank read traverses its

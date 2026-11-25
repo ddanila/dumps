@@ -253,6 +253,17 @@ nothing decisive about split, polyphase or transformed tables, whose indexing
 and physical clock are still unknown. The [report](results/pulse-fit.json)
 retains the full signed bytes, search domain and fit parameters.
 
+An [exploratory shape control](pulse_shape_controls.py) expands the search
+to 16–64 samples/symbol. Its best root-raised-cosine fit is R² 0.951 at 40
+samples/symbol, but a freely phased sine over the same bytes fits slightly
+better (R² 0.9514). They reproduce only 21 and 23 of the 97 rounded ROM
+bytes exactly. The wide-rate pulse fit was selected after inspecting this
+window, and the 40-sample rate has no established board-clock or address
+relationship. The smooth shape alone therefore does not identify a pulse
+filter; a microcode address sequence and consumer are needed. The
+[saved comparison](results/pulse-shape-controls.json) records both families,
+the sine control, search domains and source hashes.
+
 The adjacent 141–16E segment is a separate monotone 46-byte decline from
 30 to 13, ending just before the signed jump to −8 at 16F. A
 [scoped shape comparison](decay_fit.py) gives affine exponential R² 0.982,
