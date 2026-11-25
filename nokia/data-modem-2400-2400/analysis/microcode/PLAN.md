@@ -12,22 +12,23 @@
 
 **Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART and
 analog-line connections are *open wiring hypotheses*, not a stop condition.
-Use the existing photos to choose the simplest pin-compatible continuation,
-state its unseen nets and timing explicitly, and run it with the real PROMs
-and relevant controller traffic. Test a few alternatives that could change
-the result, and keep failed outcomes attached to their exact fixtures. If a
-candidate fails, revise that route or pursue an independent program or signal
-constraint. In each progress report, name the current assumption, the result
-that would distinguish it, and the next test; record missing continuity as
-uncertainty, not as a request to pause. For the present C2 case, test a
-photo-compatible higher-weight DAC input or analog output route after the
-single B5 bit failed to carry the expected tone. For C3, test a
-photo-compatible consumer of the executed `3ED` row bytes through RxD/RxC
-and external SYNDET, including carrier-phase variants. Keep G2 active while
-such experiments are possible. An unmet C2, C3 or C4 acceptance check stays
-open, and a plausible waveform or decoded bitstream does not by itself verify
-a physical connection. Do not wait for continuity measurements or new
-photographs to choose the next experiment.
+When a photo shows only part of a net, choose the simplest pin-compatible
+continuation as the working assumption, label every unseen segment, inversion
+and clock/latch phase, and run the real PROMs with relevant controller traffic.
+Compare a few alternatives that could change the result and retain a control
+with the same input and startup state. A failure rejects only the stated
+fixture; select another photo-compatible route or independent program/signal
+constraint. A success remains conditional until the physical route is
+independently constrained. Report the working assumption, its distinguishing
+result and the next executable test; do not request continuity measurements
+or new photographs as a prerequisite. For C2, test the candidate Y7-to-latch-
+to-DAC08 MSB and analog-output route identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
+For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
+including intermediate carrier phases, then its RxD/RxC and external SYNDET
+route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
+is a conditional grid baseline. Keep G2 active while such experiments are
+possible. Unmet C2, C3 and C4 checks stay open; a plausible waveform or
+decoded bitstream does not by itself verify a physical connection.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
