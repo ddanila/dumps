@@ -17,6 +17,11 @@ variants of the separated-pair instruction layout with the real PROMs:
 The A variant tests a mirrored U17→U29→U8 route for the upper A bits. The B
 variant tests a U18→U30→U8 bundle. These are **wiring assumptions** suggested
 by component placement, not pin-level traces; the bit order remains unknown.
+The [upper PROM-to-latch photo screen](PHOTO-UPPER-BUNDLE.md) makes this
+distinction sharper: visible U18→U30 tracks motivate a high-bit-source test,
+and all 24 tested U18 bits 4–7 B-field orders hold the candidate output fixed.
+That does not validate or rule out the earlier bits 1–4 choice, because the
+U30 latch outputs toward U8 have not been traced.
 The U2 fields and U8 I4/I6 crosslinks retain their earlier hypotheses.
 
 All four Q=5 variants complete 1,580 cycles with 128 D38E visits that select

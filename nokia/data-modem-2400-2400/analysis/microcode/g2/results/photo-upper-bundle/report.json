@@ -1,0 +1,59 @@
+{
+  "status": "photo-visible PROM-to-latch bundle candidates",
+  "photo": "../../../photos/PXL_20261123_114926601.jpg",
+  "front_sha256": "9f15c0ee40fa352a7c123975e83753a7f073320d7bc8971dc9c282358c06f7b2",
+  "rectified_size": [
+    4000,
+    2000
+  ],
+  "threshold": "G>115 and B>115 and G>1.05*R, four-neighbour",
+  "tracks": [
+    {
+      "name": "U17-to-U29",
+      "seed": [
+        1311,
+        430
+      ],
+      "component_pixels": 1371,
+      "bounds": [
+        1220,
+        373,
+        1322,
+        603
+      ],
+      "crop": [
+        1100,
+        330,
+        1410,
+        710
+      ],
+      "observation": "Single visible component approaches U29 and U17 pad regions."
+    },
+    {
+      "name": "U18-to-U30",
+      "seed": [
+        652,
+        430
+      ],
+      "component_pixels": 3529,
+      "bounds": [
+        542,
+        361,
+        662,
+        609
+      ],
+      "crop": [
+        450,
+        330,
+        760,
+        710
+      ],
+      "observation": "Threshold component merges two parallel tracks near U30 pads."
+    }
+  ],
+  "limitations": [
+    "Dim gaps remain at the PROM pad ends; no pin-to-pin continuity was measured.",
+    "The U18 component merges two tracks at the threshold, so it is not a single net.",
+    "The latch output routes to U8 and their bit order are not established by this overlay."
+  ]
+}

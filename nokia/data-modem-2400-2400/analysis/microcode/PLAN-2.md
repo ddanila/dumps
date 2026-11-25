@@ -210,6 +210,12 @@ phases B–C turn "what" into "how".
   Both candidate clocks yield constant codes under constant-symbol controls,
   and neither meets the carrier-sample test. This narrows those explicit
   output scenarios without requiring a complete pin trace.
+  A [front-photo upper-bundle screen](g2/PHOTO-UPPER-BUNDLE.md) now highlights
+  U17/U18-to-U29/U30 track candidates and tests all 24 orders of U18 bits
+  4–7 as the upper B field. Every order keeps reached `39E`/`39F` output
+  fixed under D4 zero/one, although internal state responds. The U30-to-U8
+  continuation is untraced, so this prunes a tested field family rather than
+  proving the earlier low-bit field or blocking further runs.
   Neither the arithmetic identity nor the short dibit run is a transmitter.
 
   Mappings that cannot express the transmitter's minimum operations are
