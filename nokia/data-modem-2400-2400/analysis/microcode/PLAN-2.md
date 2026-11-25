@@ -763,6 +763,14 @@ phases B–C turn "what" into "how".
   phase offset `128/0` every symbol; all 12 surviving DAC bus projections
   decode the 30 aligned transitions as `11` with zero errors. This proves
   candidate-path capability, not a controller-sourced segment-1 run or C2.
+  A [direct controller-stream screen](g2/CONTROLLER-SEGMENT1-STREAM-SCREEN.md)
+  checks all four executed 64-iteration port-01 byte streams under both
+  serial bit orders and dibit alignments. Their longest identical-dibit run
+  is at most six symbols, so fixed two-lane swaps/inversions cannot turn
+  those scrambled writes into the 32 repeated `11` dibits of segment 1.
+  This narrows the direct-port-01 hypothesis only; the pre-scrambler source,
+  DSP-side generation/descrambling, state commands and untested timings stay
+  open.
   Seek the actual segment-1 source or an independently supported control
   route without treating unknown nets as a blocker.
   A [joint state/data wiring check](g2/PHOTO-STATE-DATA-BUS-COMPATIBILITY.md)

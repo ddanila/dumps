@@ -1,0 +1,211 @@
+{
+  "fixture": {
+    "bit_orders": [
+      "lsb_first",
+      "msb_first"
+    ],
+    "byte_stream": "all recorded port-01 writes, including state boundaries",
+    "controller": "unchanged ROM 64-iteration forced-timer polling-loop run",
+    "symbol_bit_offsets": [
+      0,
+      1
+    ]
+  },
+  "limitations": [
+    "The 8031 timer expiry, serial ready/receive events and selector are diagnostic fixtures.",
+    "This excludes only direct contiguous two-bit grouping of the recorded port-01 bytes with fixed lane permutation/inversion; a descrambler, autonomous DSP pattern, or different data path is not screened.",
+    "No physical route from port 01 to the DSC2847 or line output is established."
+  ],
+  "results": [
+    {
+      "cases": [
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 1,
+            "first_symbol": 118,
+            "length": 5
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 240
+        },
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 1,
+            "length": 4
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 239
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 124,
+            "length": 6
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 240
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 124,
+            "length": 6
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 239
+        }
+      ],
+      "line_bytes": 60,
+      "selector": "00"
+    },
+    {
+      "cases": [
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 3,
+            "first_symbol": 198,
+            "length": 4
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 240
+        },
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 37,
+            "length": 4
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 239
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 3,
+            "first_symbol": 217,
+            "length": 6
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 240
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 3,
+            "first_symbol": 216,
+            "length": 6
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 239
+        }
+      ],
+      "line_bytes": 60,
+      "selector": "20"
+    },
+    {
+      "cases": [
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 119,
+            "length": 4
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 216
+        },
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 3,
+            "first_symbol": 1,
+            "length": 4
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 215
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 3,
+            "first_symbol": 7,
+            "length": 3
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 216
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 3,
+            "first_symbol": 6,
+            "length": 4
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 215
+        }
+      ],
+      "line_bytes": 54,
+      "selector": "40"
+    },
+    {
+      "cases": [
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 147,
+            "length": 5
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 216
+        },
+        {
+          "bit_order": "lsb_first",
+          "longest_identical": {
+            "dibit": 3,
+            "first_symbol": 1,
+            "length": 4
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 215
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 147,
+            "length": 6
+          },
+          "symbol_offset_bits": 0,
+          "symbols": 216
+        },
+        {
+          "bit_order": "msb_first",
+          "longest_identical": {
+            "dibit": 0,
+            "first_symbol": 147,
+            "length": 6
+          },
+          "symbol_offset_bits": 1,
+          "symbols": 215
+        }
+      ],
+      "line_bytes": 54,
+      "selector": "60"
+    }
+  ],
+  "source_sha256": {
+    "analysis/microcode/g2/controller_segment1_stream_screen.py": "276d4399b1c9cbcc908ee915d836bf381525ce326b349d3cc358e9b3dcecd43c",
+    "analysis/microcode/g2/results/main-loop-long.json": "fce0c72f99791de8d855cbaa2711f190edd3a99431c92273648ea2f8b64e0403"
+  },
+  "status": "direct two-bit grouping of recorded scrambled port-01 bytes cannot supply segment 1 in this fixture",
+  "target": "32 consecutive identical 180-degree dibits; any fixed invert/swap of the two bit lanes preserves equal-dibit run length"
+}

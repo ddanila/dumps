@@ -28,5 +28,8 @@ This establishes **capacity of the candidate microcode path** to carry the
 segment-1 phase trajectory. It does not identify the controller source of
 those 32 repeated dibits, prove the four-visit D127 pulse circuit, choose a
 physical DAC bus, or show analog line output. Segment 1 is still open under
-C2. The [machine report](results/photo-segment1-repeated-dibit.json)
+C2. The [direct port-01 screen](CONTROLLER-SEGMENT1-STREAM-SCREEN.md) now
+shows that the executed scrambled controller bytes do not themselves carry
+a 32-identical-dibit run under contiguous two-bit grouping. The
+[machine report](results/photo-segment1-repeated-dibit.json)
 contains the phase checkpoints, bus decisions, trace digest and source hashes.

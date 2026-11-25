@@ -22,14 +22,18 @@ concrete controller-controlled, repeated toggle to test as a possible DSP
 phase-control signal. Its physical destination and meaning are not established.
 The line-side port-01 bytes are scrambled and do not themselves demonstrate
 the repeated `11` dibits required for the segment-1 reference signature.
+The [direct-stream screen](CONTROLLER-SEGMENT1-STREAM-SCREEN.md) now checks
+both serial bit orders and both dibit alignments across the full recorded
+streams; no identical-dibit run exceeds six symbols. This excludes a direct
+32-symbol segment-1 source under those tested groupings.
 
 This fixture starts at A0 with specified RAM and USART-ready responses, injects
 the same seven receive bytes on every polling pass, and forces timer17's high
 bit at each loop boundary. The iteration spacing is therefore **not** a
 measured time interval; a four-iteration toggle cannot be assigned a symbol
-or phase-reversal rate from this run. The next discriminating test is to feed
-the observed `81`/`C1` frame sequence through a photo-compatible held-frame
-route while preserving the real port-01 stream, then check whether candidate
-DAC samples show 180° reversals. Compare with a control that holds bit 6
-fixed. A matched waveform remains conditional until the frame destination,
-DAC latch and analog output route are independently constrained.
+or phase-reversal rate from this run. The subsequent
+[frame-edge experiment](PHOTO-FRAME-TOGGLE-EDGE-PULSE.md) showed conditional
+half-turns but placed them 16 symbols apart under its explicit byte/symbol
+alignment, too sparse for direct segment-1 reversals. The next test should
+seek a controller command or DSC-side pattern source while keeping the frame
+destination and analog output route explicit.
