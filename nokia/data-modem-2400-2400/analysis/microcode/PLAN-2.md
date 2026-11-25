@@ -1163,6 +1163,16 @@ phases B–C turn "what" into "how".
   instruction-motivated multi-sample decision or separately clocked output
   site, and require a generalizing bit plus a candidate USART RxD route
   before calling C3 passed.
+  A [two-row ADC pulse replay](g2/RECEIVER-TWO-ROW-PULSE-MEMORY.md) now
+  shows why a single-site readout can miss useful state: one changed high
+  nibble on the interleaved path leaves one of four late Q/ROM-address
+  offset classes. Eleven of fifteen tested high-nibble values retain a
+  difference through 3,000 ADC visits, including two sample-length holds;
+  the other four reconverge within two visits. The controller input,
+  dispatch index and output route remain hypotheses. Use this quantized
+  state response to design a multi-sample receive decision and validate it
+  on independent symbol streams; do not equate a persistent offset with a
+  recovered dibit or echo cancellation.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
