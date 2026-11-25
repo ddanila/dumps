@@ -134,6 +134,20 @@ instruction fields and to the DAC input path: a missing pin-level trace does
 not halt implementation or analysis. Do not wait for new photos or continuity
 measurements to make the next move, and do not promote an assumed connection
 to a board fact just because it produces a plausible run.
+
+For the current transmitter test, apply the same rule to the untraced
+8251A TxRDY/TxD-to-DSC input gate and DSC-to-DAC latch, bus and clock. The
+photographs and executed controller traffic are enough to define candidate
+routes; exact net continuity is not a prerequisite for running them. Start
+with the observed A1/A3/A4 frame changes, the 8251A `FF` sync fill and the
+TxRDY-paced nine-byte stream. State each assumed gate, bit alignment and DAC
+sample rule, then run tone, segment-1 reversals and segment-2 data through one
+uninterrupted real-PROM trace. Compare it with nearby bit offsets and simpler
+control inputs. A match advances a *conditional* transmitter explanation;
+the line waveform and physical routing remain separate acceptance evidence.
+If the candidate fails, revise the gate, timing or output route and continue
+with another bounded test. Neither outcome makes missing continuity a goal
+blocker while runnable candidates or independent analyses remain.
 The [D349 source-update experiment](g2/PHOTO-TABLE-SOURCE-UPDATE.md) is a
 concrete example: after two restart fixtures gave fixed table sources, four
 other photo-compatible scenarios found an input-sensitive R5 write before
