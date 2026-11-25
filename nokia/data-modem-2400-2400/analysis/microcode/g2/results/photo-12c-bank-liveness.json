@@ -1,0 +1,71 @@
+{
+  "fixture": {
+    "changed_input": "PC12E Am27S31 A8 lower versus upper",
+    "cycles_per_case": 3000,
+    "held_d127": "81",
+    "held_d12c": "01",
+    "initial_q": 0,
+    "mapping": "q3"
+  },
+  "limitations": [
+    "The ROM bank select, mapping, D inputs and held-I0 route are scenario hypotheses.",
+    "PC12E ROM byte changes transient R0 and the following PC12F carry result, but the tested retained state matches after PC12D.",
+    "A latch could sample a transient value; the DAC data and clock routes are untraced.",
+    "No controller frame or physical line output is demonstrated."
+  ],
+  "result": {
+    "checkpoints": {
+      "084": {
+        "differing_ram_registers": [],
+        "differing_retained_states": 0,
+        "visits": 1366
+      },
+      "12C": {
+        "differing_ram_registers": [
+          0
+        ],
+        "differing_retained_states": 69,
+        "visits": 255
+      },
+      "12D": {
+        "differing_ram_registers": [],
+        "differing_retained_states": 0,
+        "visits": 255
+      },
+      "12E": {
+        "differing_ram_registers": [
+          0
+        ],
+        "differing_retained_states": 251,
+        "visits": 255
+      },
+      "12F": {
+        "differing_ram_registers": [
+          0
+        ],
+        "differing_retained_states": 69,
+        "visits": 255
+      }
+    },
+    "pc12e_y_differences": 251,
+    "pc12f_y_differences": 69,
+    "selected_rom_byte_differences": 251,
+    "trace_digests": {
+      "lower": "f606c091927d429464b2ae25a4468028b98858fac3fe295bd11e4fb1a3d700fb",
+      "upper": "1db3515e6ae11dcb79a15ad486c591e2bb00467a3d994bee6bb0584ea1b90404"
+    }
+  },
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "26789430ee6f5a1029eadc15cbc91f277ae8a186eea8248d46a0bc636d9669d3",
+    "analysis/microcode/g2/photo_127_liveness.py": "cbab4e70ffe97b579d833b5e27751593d206f7459d962f525f730f52c875b33a",
+    "analysis/microcode/g2/photo_12c_bank_liveness.py": "fd41b3f28b183f337857219b74e5d5b2bda5a1fd99a0fa12cb0f474e97e48467",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "paired PC12E bank liveness, not physical DAC output"
+}

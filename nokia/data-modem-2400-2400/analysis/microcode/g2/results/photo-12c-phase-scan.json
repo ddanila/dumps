@@ -1,0 +1,5147 @@
+{
+  "even": {
+    "count": 128,
+    "exits_to_wait": false,
+    "reads_per_run": 613
+  },
+  "fixture": {
+    "cycles_per_case": 3000,
+    "d127": "81 held",
+    "d12c_source": "held scenario byte",
+    "d12f_source": "scenario constant 1",
+    "initial_q": 0,
+    "mapping": "q3",
+    "pc12e_rom_bank": 256
+  },
+  "limitations": [
+    "D127=81 and D12C are imposed scenario bytes; no controller-frame or physical input route is traced.",
+    "The q3 mapping, held-I0 level, Q=0, ROM gate and PC12F constant-one input remain hypotheses.",
+    "The 3000-instruction even-byte runs do not exclude later external input changes.",
+    "No candidate DAC output word 392 or 39E is reached; transient ALU outputs are not physical DAC samples."
+  ],
+  "odd": {
+    "count": 128,
+    "exits_to_wait": true,
+    "reads": "odd n in 1..255 solving 1+n*D12C=0 mod 256"
+  },
+  "relation": "PC12E address=100+((1+n*D12C) mod 256); n starts at 1",
+  "rows": [
+    {
+      "candidate_output_visits": 0,
+      "d12c": "00",
+      "distinct_rom_addresses": 1,
+      "first_rom_addresses": [
+        "101",
+        "101",
+        "101",
+        "101",
+        "101",
+        "101",
+        "101",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "101",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "96d33b362c1c18c1d4c6a52a62a6c83622eed56afd46d40a99847c194f1e6fb9"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "01",
+      "distinct_rom_addresses": 255,
+      "first_rom_addresses": [
+        "102",
+        "103",
+        "104",
+        "105",
+        "106",
+        "107",
+        "108",
+        "109"
+      ],
+      "first_wait_cycle": 1634,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 255,
+      "trace_digest": "1db3515e6ae11dcb79a15ad486c591e2bb00467a3d994bee6bb0584ea1b90404"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "02",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "103",
+        "105",
+        "107",
+        "109",
+        "10B",
+        "10D",
+        "10F",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1CB",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "6884537424840288cd2e380c716352fc9d895a25b570c5636b04c5825f6ed2a9"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "03",
+      "distinct_rom_addresses": 85,
+      "first_rom_addresses": [
+        "104",
+        "107",
+        "10A",
+        "10D",
+        "110",
+        "113",
+        "116",
+        "119"
+      ],
+      "first_wait_cycle": 954,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 85,
+      "trace_digest": "e248108fa0fa4dcac73e579fff45fb89ff998851916d9f3967591d2221c1372d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "04",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "105",
+        "109",
+        "10D",
+        "111",
+        "115",
+        "119",
+        "11D",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "195",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "f6cd9170a254928d44243142d8e88a0d9eaed6c62ce87bdc4ddc823a8ecae7a8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "05",
+      "distinct_rom_addresses": 51,
+      "first_rom_addresses": [
+        "106",
+        "10B",
+        "110",
+        "115",
+        "11A",
+        "11F",
+        "124",
+        "129"
+      ],
+      "first_wait_cycle": 818,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 51,
+      "trace_digest": "908dae883dfb20e619a01cf37ee2fa9dd1ca6d989e7b6f64ea12f1a6f7cb43ed"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "06",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "107",
+        "10D",
+        "113",
+        "119",
+        "11F",
+        "125",
+        "12B",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "15F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "83f9c76c1186d6e4d3fc099851d16a20859b50f33896e32be66263e1d4ae0033"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "07",
+      "distinct_rom_addresses": 73,
+      "first_rom_addresses": [
+        "108",
+        "10F",
+        "116",
+        "11D",
+        "124",
+        "12B",
+        "132",
+        "139"
+      ],
+      "first_wait_cycle": 906,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 73,
+      "trace_digest": "c98968a053ec7c6a8071ffa250e25b4d895b56ed8ad22ffd832177be65775abb"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "08",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "109",
+        "111",
+        "119",
+        "121",
+        "129",
+        "131",
+        "139",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "129",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "bc57ea964745eb3c7ccad79841482f084b604dfffae35fd0040c1bc75aa2abdd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "09",
+      "distinct_rom_addresses": 199,
+      "first_rom_addresses": [
+        "10A",
+        "113",
+        "11C",
+        "125",
+        "12E",
+        "137",
+        "140",
+        "149"
+      ],
+      "first_wait_cycle": 1410,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 199,
+      "trace_digest": "87633c38aa7f955bbc795434fb419e4cf16a8342f3fb011e787cb84802edbce3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "0A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "10B",
+        "115",
+        "11F",
+        "129",
+        "133",
+        "13D",
+        "147",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1F3",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e9ae98df59f79794bc504825b1b1ea5d3d926fc345bf28c374347b1927b655b6"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "0B",
+      "distinct_rom_addresses": 93,
+      "first_rom_addresses": [
+        "10C",
+        "117",
+        "122",
+        "12D",
+        "138",
+        "143",
+        "14E",
+        "159"
+      ],
+      "first_wait_cycle": 986,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 93,
+      "trace_digest": "4aa197119f6219b4f974e827daf55dd6bdab56e34b7d8d1a418ede9954cc8632"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "0C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "10D",
+        "119",
+        "125",
+        "131",
+        "13D",
+        "149",
+        "155",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1BD",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "45ac9b3d3a07285fb559ae0815f95e1dcc90521e3d627e9a1a9cdf936fb5c319"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "0D",
+      "distinct_rom_addresses": 59,
+      "first_rom_addresses": [
+        "10E",
+        "11B",
+        "128",
+        "135",
+        "142",
+        "14F",
+        "15C",
+        "169"
+      ],
+      "first_wait_cycle": 850,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 59,
+      "trace_digest": "0dcc30ec8491c63169480cf069a59709096aaaa0776adfd054a0960915229307"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "0E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "10F",
+        "11D",
+        "12B",
+        "139",
+        "147",
+        "155",
+        "163",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "187",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "377da9b7a70ddd2d1b2ac20eed35437def3cceab5bf5937d4eb1ed584f353745"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "0F",
+      "distinct_rom_addresses": 17,
+      "first_rom_addresses": [
+        "110",
+        "11F",
+        "12E",
+        "13D",
+        "14C",
+        "15B",
+        "16A",
+        "179"
+      ],
+      "first_wait_cycle": 682,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 17,
+      "trace_digest": "b3b04290fdd7d4396ca88b5ced0f48331497e51361a9e0c91f2bdefe3b626cea"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "10",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "111",
+        "121",
+        "131",
+        "141",
+        "151",
+        "161",
+        "171",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "151",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "b4de0713b48d92507febbd4eabc5df5626032cdbcf7f1fd2b7ab1d64d35026fa"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "11",
+      "distinct_rom_addresses": 15,
+      "first_rom_addresses": [
+        "112",
+        "123",
+        "134",
+        "145",
+        "156",
+        "167",
+        "178",
+        "189"
+      ],
+      "first_wait_cycle": 674,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 15,
+      "trace_digest": "29f941932e4afb04d748c3e22eb3ffd86277d1338885b16afe30239d5d902371"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "12",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "113",
+        "125",
+        "137",
+        "149",
+        "15B",
+        "16D",
+        "17F",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "11B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "a687a8084e0be0687e36b6fa53cf195725ff3e696a07c1d44096310b66ac09a0"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "13",
+      "distinct_rom_addresses": 229,
+      "first_rom_addresses": [
+        "114",
+        "127",
+        "13A",
+        "14D",
+        "160",
+        "173",
+        "186",
+        "199"
+      ],
+      "first_wait_cycle": 1530,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 229,
+      "trace_digest": "834ea8454dc9d4fb8493b1e32ef94e6987479116daa45058599970e65e7cf27c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "14",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "115",
+        "129",
+        "13D",
+        "151",
+        "165",
+        "179",
+        "18D",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1E5",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "9cd6fcabd16ffcc92198779428bf5ac877f5056673988f9b3bb7d5517e69ccb2"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "15",
+      "distinct_rom_addresses": 195,
+      "first_rom_addresses": [
+        "116",
+        "12B",
+        "140",
+        "155",
+        "16A",
+        "17F",
+        "194",
+        "1A9"
+      ],
+      "first_wait_cycle": 1394,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 195,
+      "trace_digest": "030ca180a777d0b52f8094bc376e2cd133a45a60b1d0a43d482fc3f0d15e5736"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "16",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "117",
+        "12D",
+        "143",
+        "159",
+        "16F",
+        "185",
+        "19B",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1AF",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "4436b0daf832645e246d0878ca6f9c51a175487eac91546249c09d9b8a351eb2"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "17",
+      "distinct_rom_addresses": 89,
+      "first_rom_addresses": [
+        "118",
+        "12F",
+        "146",
+        "15D",
+        "174",
+        "18B",
+        "1A2",
+        "1B9"
+      ],
+      "first_wait_cycle": 970,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 89,
+      "trace_digest": "706054e14f3873b4b1862ecf167c1f4c0926216aa2800179c201c1f4afb80abd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "18",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "119",
+        "131",
+        "149",
+        "161",
+        "179",
+        "191",
+        "1A9",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "179",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "a2693243e1e4607e864cd92d3a678164e71fb3f39347b26bd040c971f9cabd34"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "19",
+      "distinct_rom_addresses": 215,
+      "first_rom_addresses": [
+        "11A",
+        "133",
+        "14C",
+        "165",
+        "17E",
+        "197",
+        "1B0",
+        "1C9"
+      ],
+      "first_wait_cycle": 1474,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 215,
+      "trace_digest": "6de3b153d7b3a844f85d2eef419b58f6fdf8abf05808e427e27ee1de0d83fa63"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "1A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "11B",
+        "135",
+        "14F",
+        "169",
+        "183",
+        "19D",
+        "1B7",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "143",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "8d2e50324853b54f1dd5e917ad29d6f3544069f3f133abad2b2872c1ff500a53"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "1B",
+      "distinct_rom_addresses": 237,
+      "first_rom_addresses": [
+        "11C",
+        "137",
+        "152",
+        "16D",
+        "188",
+        "1A3",
+        "1BE",
+        "1D9"
+      ],
+      "first_wait_cycle": 1562,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 237,
+      "trace_digest": "55b876f52a6fc47c6ffe94b30c58d02920b3922713b81f18ecf199ef9f8eff9b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "1C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "11D",
+        "139",
+        "155",
+        "171",
+        "18D",
+        "1A9",
+        "1C5",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "10D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "130beb0b4825a81ac2868c26b7e16476860fbf755ae063c3075e981d2ff71e37"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "1D",
+      "distinct_rom_addresses": 203,
+      "first_rom_addresses": [
+        "11E",
+        "13B",
+        "158",
+        "175",
+        "192",
+        "1AF",
+        "1CC",
+        "1E9"
+      ],
+      "first_wait_cycle": 1426,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 203,
+      "trace_digest": "8d79f2fb856f42f5a7d19fe3f47164135bca43edcaa5d0951521a9ac633286d0"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "1E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "11F",
+        "13D",
+        "15B",
+        "179",
+        "197",
+        "1B5",
+        "1D3",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1D7",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "20f73d5d2070e61bdf7d83e7acbd04de9110d1aba11eb516d92a5458e159891a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "1F",
+      "distinct_rom_addresses": 33,
+      "first_rom_addresses": [
+        "120",
+        "13F",
+        "15E",
+        "17D",
+        "19C",
+        "1BB",
+        "1DA",
+        "1F9"
+      ],
+      "first_wait_cycle": 746,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 33,
+      "trace_digest": "cb941fa04a6ea2619a3b5721846c6b9636df3b90c90fe1820a26ff7d7d933f98"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "20",
+      "distinct_rom_addresses": 8,
+      "first_rom_addresses": [
+        "121",
+        "141",
+        "161",
+        "181",
+        "1A1",
+        "1C1",
+        "1E1",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1A1",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "94238fff61589c7a0883825065a69a1fdd1a11439061fe2c2d6bd108e3024256"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "21",
+      "distinct_rom_addresses": 31,
+      "first_rom_addresses": [
+        "122",
+        "143",
+        "164",
+        "185",
+        "1A6",
+        "1C7",
+        "1E8",
+        "109"
+      ],
+      "first_wait_cycle": 738,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 31,
+      "trace_digest": "d593965ddacc4d08b8e68215b1f4834abbe4722e07cf6dcfbd6417b1a7a27800"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "22",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "123",
+        "145",
+        "167",
+        "189",
+        "1AB",
+        "1CD",
+        "1EF",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "16B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "8a109c9419133eb0308b6a8a77cb9334c49697304cc94e366ac289cf05b2250d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "23",
+      "distinct_rom_addresses": 117,
+      "first_rom_addresses": [
+        "124",
+        "147",
+        "16A",
+        "18D",
+        "1B0",
+        "1D3",
+        "1F6",
+        "119"
+      ],
+      "first_wait_cycle": 1082,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 117,
+      "trace_digest": "30c4b03f81132bce078313faac00df1c4bef6f9235637c43ff4a2178f356a575"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "24",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "125",
+        "149",
+        "16D",
+        "191",
+        "1B5",
+        "1D9",
+        "1FD",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "135",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "cf401a44813affe5f2f42daaa3fb80a0cb8ac0ebc25a44f7be11b615f7b2ad6a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "25",
+      "distinct_rom_addresses": 83,
+      "first_rom_addresses": [
+        "126",
+        "14B",
+        "170",
+        "195",
+        "1BA",
+        "1DF",
+        "104",
+        "129"
+      ],
+      "first_wait_cycle": 946,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 83,
+      "trace_digest": "10e0d423854e39b67b9cb14af7617bb4f7417141c36d0a6457142a3e1ef8f048"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "26",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "127",
+        "14D",
+        "173",
+        "199",
+        "1BF",
+        "1E5",
+        "10B",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1FF",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "4ef40b49dcf73a997b9e97386f0faa7fb41337986ce7c07b9331209700c5e1c8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "27",
+      "distinct_rom_addresses": 105,
+      "first_rom_addresses": [
+        "128",
+        "14F",
+        "176",
+        "19D",
+        "1C4",
+        "1EB",
+        "112",
+        "139"
+      ],
+      "first_wait_cycle": 1034,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 105,
+      "trace_digest": "f2265fc9a1ac1c9afdabd4de5957899a2bd96b0ed2f03419e1c207c9b3e747b6"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "28",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "129",
+        "151",
+        "179",
+        "1A1",
+        "1C9",
+        "1F1",
+        "119",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1C9",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "b9eaafe68e8e3f882de0bf89f53f1ee95224586c58912006e31f94455b3a5147"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "29",
+      "distinct_rom_addresses": 231,
+      "first_rom_addresses": [
+        "12A",
+        "153",
+        "17C",
+        "1A5",
+        "1CE",
+        "1F7",
+        "120",
+        "149"
+      ],
+      "first_wait_cycle": 1538,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 231,
+      "trace_digest": "a45631bc8845190bd83e03b1d595f450fcd6c78ba7ac72f8a3ce4a4a0545edca"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "2A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "12B",
+        "155",
+        "17F",
+        "1A9",
+        "1D3",
+        "1FD",
+        "127",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "193",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "7d58c1c0515459cb05fa97040c6b0625b04b760ef0a7832e5c87e227d8390d3c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "2B",
+      "distinct_rom_addresses": 125,
+      "first_rom_addresses": [
+        "12C",
+        "157",
+        "182",
+        "1AD",
+        "1D8",
+        "103",
+        "12E",
+        "159"
+      ],
+      "first_wait_cycle": 1114,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 125,
+      "trace_digest": "307d65a1de80d82efdf611c828abdb8d1f18d13a1f0df11620ba507b9dde9e2a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "2C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "12D",
+        "159",
+        "185",
+        "1B1",
+        "1DD",
+        "109",
+        "135",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "15D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "ae4e862c15b910713f8e43b73711584e3eba187cf59b9851ed1a9c9a27e2fbce"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "2D",
+      "distinct_rom_addresses": 91,
+      "first_rom_addresses": [
+        "12E",
+        "15B",
+        "188",
+        "1B5",
+        "1E2",
+        "10F",
+        "13C",
+        "169"
+      ],
+      "first_wait_cycle": 978,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 91,
+      "trace_digest": "f71e5d6102552d6bdca71fb151ded169f9bd81209008caec9a0742d0d9e92b50"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "2E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "12F",
+        "15D",
+        "18B",
+        "1B9",
+        "1E7",
+        "115",
+        "143",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "127",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e645adcdfad918a977808580c61b1a29d8728a3b12f4c4e403ee9c9a0083b1d7"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "2F",
+      "distinct_rom_addresses": 49,
+      "first_rom_addresses": [
+        "130",
+        "15F",
+        "18E",
+        "1BD",
+        "1EC",
+        "11B",
+        "14A",
+        "179"
+      ],
+      "first_wait_cycle": 810,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 49,
+      "trace_digest": "7e77b17590a3835224f47fb2a40f37341ad65ecaa72d720ed583b96883db0ac8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "30",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "131",
+        "161",
+        "191",
+        "1C1",
+        "1F1",
+        "121",
+        "151",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1F1",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "8a688f853bf26720f10a2580a8444572a97b0c398f4eb3a6283ff95dfe0a9d64"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "31",
+      "distinct_rom_addresses": 47,
+      "first_rom_addresses": [
+        "132",
+        "163",
+        "194",
+        "1C5",
+        "1F6",
+        "127",
+        "158",
+        "189"
+      ],
+      "first_wait_cycle": 802,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 47,
+      "trace_digest": "f4e94cb0ddce528c28bf61c82dce81b0d8f40e27d076b0afc22b6c6d31c0517e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "32",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "133",
+        "165",
+        "197",
+        "1C9",
+        "1FB",
+        "12D",
+        "15F",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1BB",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "1dff82073ebc210b9e244ebd89821af36e67f8013c43aae0ad98b2d1800f5635"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "33",
+      "distinct_rom_addresses": 5,
+      "first_rom_addresses": [
+        "134",
+        "167",
+        "19A",
+        "1CD",
+        "100"
+      ],
+      "first_wait_cycle": 634,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 5,
+      "trace_digest": "13d83314dfb42614beda3531bdd75c3a17ee5a9e8a199350a9203452c7a91e89"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "34",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "135",
+        "169",
+        "19D",
+        "1D1",
+        "105",
+        "139",
+        "16D",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "185",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "0f4b831637f2cea11b1c1fe53b52df6406c97519937514a48576efe364c64f99"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "35",
+      "distinct_rom_addresses": 227,
+      "first_rom_addresses": [
+        "136",
+        "16B",
+        "1A0",
+        "1D5",
+        "10A",
+        "13F",
+        "174",
+        "1A9"
+      ],
+      "first_wait_cycle": 1522,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 227,
+      "trace_digest": "4fa061fd556f374f199f0b8689f25df1fe06e35b15a125ce406aa9f854521696"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "36",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "137",
+        "16D",
+        "1A3",
+        "1D9",
+        "10F",
+        "145",
+        "17B",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "14F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "63fa4dca3b7216960b58d4bf7797aaa6585bdc178efeb802709304917fe3e802"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "37",
+      "distinct_rom_addresses": 121,
+      "first_rom_addresses": [
+        "138",
+        "16F",
+        "1A6",
+        "1DD",
+        "114",
+        "14B",
+        "182",
+        "1B9"
+      ],
+      "first_wait_cycle": 1098,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 121,
+      "trace_digest": "40e2f21a875ddef1136bf1a35e33439e097e79c812477ed86f227042b6608429"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "38",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "139",
+        "171",
+        "1A9",
+        "1E1",
+        "119",
+        "151",
+        "189",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "119",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "59eb6c627b52bc48f6c8081540c7d2112d720030a06c1a4aca3a8b5e194adceb"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "39",
+      "distinct_rom_addresses": 247,
+      "first_rom_addresses": [
+        "13A",
+        "173",
+        "1AC",
+        "1E5",
+        "11E",
+        "157",
+        "190",
+        "1C9"
+      ],
+      "first_wait_cycle": 1602,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 247,
+      "trace_digest": "d9e880d1d0e8baa24a064094267508ce214aa4619ffb9ea11bb17f553c090e97"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "3A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "13B",
+        "175",
+        "1AF",
+        "1E9",
+        "123",
+        "15D",
+        "197",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1E3",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "c07487755ee61897e802b900c9600f9919c07535ab6f152de675cae24c2da88b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "3B",
+      "distinct_rom_addresses": 13,
+      "first_rom_addresses": [
+        "13C",
+        "177",
+        "1B2",
+        "1ED",
+        "128",
+        "163",
+        "19E",
+        "1D9"
+      ],
+      "first_wait_cycle": 666,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 13,
+      "trace_digest": "ece8fb11acd068d7ae0785a94e920d02c43df12d55d771dc7ad9189db6681ece"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "3C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "13D",
+        "179",
+        "1B5",
+        "1F1",
+        "12D",
+        "169",
+        "1A5",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1AD",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "25bcdf0723d2755ab57ddc4b388fd0995e38b962eca143a600408b7f5fa5e31e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "3D",
+      "distinct_rom_addresses": 235,
+      "first_rom_addresses": [
+        "13E",
+        "17B",
+        "1B8",
+        "1F5",
+        "132",
+        "16F",
+        "1AC",
+        "1E9"
+      ],
+      "first_wait_cycle": 1554,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 235,
+      "trace_digest": "325099ab84dd69f19268d50c0cb3f1885c17db2c76748d08cbbc8939321872ef"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "3E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "13F",
+        "17D",
+        "1BB",
+        "1F9",
+        "137",
+        "175",
+        "1B3",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "177",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "451328dbaec8f2d29837f34c92934c4b3549f5bc3eb4e004251f03c0a33c5eba"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "3F",
+      "distinct_rom_addresses": 65,
+      "first_rom_addresses": [
+        "140",
+        "17F",
+        "1BE",
+        "1FD",
+        "13C",
+        "17B",
+        "1BA",
+        "1F9"
+      ],
+      "first_wait_cycle": 874,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 65,
+      "trace_digest": "883690d815e007826d59c999101917290cc5f5e9802177ca2383e5bc6ac871e4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "40",
+      "distinct_rom_addresses": 4,
+      "first_rom_addresses": [
+        "141",
+        "181",
+        "1C1",
+        "101",
+        "141",
+        "181",
+        "1C1",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "141",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "20803527a5328260ae4acda1e98735516189d1b597a5fad8253173b57ba4328f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "41",
+      "distinct_rom_addresses": 63,
+      "first_rom_addresses": [
+        "142",
+        "183",
+        "1C4",
+        "105",
+        "146",
+        "187",
+        "1C8",
+        "109"
+      ],
+      "first_wait_cycle": 866,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 63,
+      "trace_digest": "979a79a1f83920ec2d653d214d97559927119961ecd3ba620f014473e9be6127"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "42",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "143",
+        "185",
+        "1C7",
+        "109",
+        "14B",
+        "18D",
+        "1CF",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "10B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "5e8b491ded84b82104212295a0e3482884b97089f02f11a6884bd769745b4e63"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "43",
+      "distinct_rom_addresses": 149,
+      "first_rom_addresses": [
+        "144",
+        "187",
+        "1CA",
+        "10D",
+        "150",
+        "193",
+        "1D6",
+        "119"
+      ],
+      "first_wait_cycle": 1210,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 149,
+      "trace_digest": "d4eab7f28da2b29d03741e00607ea4a684124662ade9376ec7f0dcb73da7818c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "44",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "145",
+        "189",
+        "1CD",
+        "111",
+        "155",
+        "199",
+        "1DD",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1D5",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "c2d564585f213b1b39f769461b64d04cc60bbe19d2752a2f2d101347f672870c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "45",
+      "distinct_rom_addresses": 115,
+      "first_rom_addresses": [
+        "146",
+        "18B",
+        "1D0",
+        "115",
+        "15A",
+        "19F",
+        "1E4",
+        "129"
+      ],
+      "first_wait_cycle": 1074,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 115,
+      "trace_digest": "be6ce177d94720befdf41c1a379b113170ccfad28df14052bfb1ecbf41efa5f8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "46",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "147",
+        "18D",
+        "1D3",
+        "119",
+        "15F",
+        "1A5",
+        "1EB",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "19F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "bd5ba9df76c7c7f0c8a8909862f3582fde4afe522e0b7afccaefb4d48b0f603b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "47",
+      "distinct_rom_addresses": 137,
+      "first_rom_addresses": [
+        "148",
+        "18F",
+        "1D6",
+        "11D",
+        "164",
+        "1AB",
+        "1F2",
+        "139"
+      ],
+      "first_wait_cycle": 1162,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 137,
+      "trace_digest": "e7cee7b669477d27dcc5c864cd136a5a0b1fde12afd7a7c3573fd60397b0a5e5"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "48",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "149",
+        "191",
+        "1D9",
+        "121",
+        "169",
+        "1B1",
+        "1F9",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "169",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "87b6ed55cac921c8345dc6d09c6d8f106d2bce7aae7d8bf0f86213af20b59bff"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "49",
+      "distinct_rom_addresses": 7,
+      "first_rom_addresses": [
+        "14A",
+        "193",
+        "1DC",
+        "125",
+        "16E",
+        "1B7",
+        "100"
+      ],
+      "first_wait_cycle": 642,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 7,
+      "trace_digest": "f549f556b348c61a5b29661baee25a6d367fe9bf1ea3449192731a2557fc7f1f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "4A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "14B",
+        "195",
+        "1DF",
+        "129",
+        "173",
+        "1BD",
+        "107",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "133",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "0db760efa807c6c5632108490618e3ad10401103379fbd16d62e294fa0dd36be"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "4B",
+      "distinct_rom_addresses": 157,
+      "first_rom_addresses": [
+        "14C",
+        "197",
+        "1E2",
+        "12D",
+        "178",
+        "1C3",
+        "10E",
+        "159"
+      ],
+      "first_wait_cycle": 1242,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 157,
+      "trace_digest": "a98ae1e9aeb3be6f0b18533a73915bd578173a497805b456fa62839e4af6023b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "4C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "14D",
+        "199",
+        "1E5",
+        "131",
+        "17D",
+        "1C9",
+        "115",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1FD",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "57928cba4675a5542d2a9d8bb73441768825237ed00ec06631a9d74780ca39be"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "4D",
+      "distinct_rom_addresses": 123,
+      "first_rom_addresses": [
+        "14E",
+        "19B",
+        "1E8",
+        "135",
+        "182",
+        "1CF",
+        "11C",
+        "169"
+      ],
+      "first_wait_cycle": 1106,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 123,
+      "trace_digest": "935c1817bcfb8b98d13f00615544cb487cc6c5e2d655ab7ef8f7f9af83a30617"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "4E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "14F",
+        "19D",
+        "1EB",
+        "139",
+        "187",
+        "1D5",
+        "123",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1C7",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "07fa9f107fe72e95bab841cd0e03fd1c3d9b2b2f44c575e86b25be198a4caf67"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "4F",
+      "distinct_rom_addresses": 81,
+      "first_rom_addresses": [
+        "150",
+        "19F",
+        "1EE",
+        "13D",
+        "18C",
+        "1DB",
+        "12A",
+        "179"
+      ],
+      "first_wait_cycle": 938,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 81,
+      "trace_digest": "7a6e16d53c73db4602f89e94fa7d221c14eb346f259322531e4fb36a5e9e26a6"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "50",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "151",
+        "1A1",
+        "1F1",
+        "141",
+        "191",
+        "1E1",
+        "131",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "191",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "241681550d9b031dbbfbb936450d764d28a53918d467ba26e2a55ca9d65e68cd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "51",
+      "distinct_rom_addresses": 79,
+      "first_rom_addresses": [
+        "152",
+        "1A3",
+        "1F4",
+        "145",
+        "196",
+        "1E7",
+        "138",
+        "189"
+      ],
+      "first_wait_cycle": 930,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 79,
+      "trace_digest": "16e57278a08f6efa1381bb945384883f31776ff65dbf169c0a05084242e1ffd3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "52",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "153",
+        "1A5",
+        "1F7",
+        "149",
+        "19B",
+        "1ED",
+        "13F",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "15B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e08dc2941542f9c62b4b52dada1b25409cdbc133a413e895323765e73f28e188"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "53",
+      "distinct_rom_addresses": 37,
+      "first_rom_addresses": [
+        "154",
+        "1A7",
+        "1FA",
+        "14D",
+        "1A0",
+        "1F3",
+        "146",
+        "199"
+      ],
+      "first_wait_cycle": 762,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 37,
+      "trace_digest": "acff77e862e9d2890f4494569092d8f6dfd155b56a65d8600abbc86f7dbe4886"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "54",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "155",
+        "1A9",
+        "1FD",
+        "151",
+        "1A5",
+        "1F9",
+        "14D",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "125",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "51c6dd8805100292e45110b3faae29357932f1db084ec8cf3d220b654fe31417"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "55",
+      "distinct_rom_addresses": 3,
+      "first_rom_addresses": [
+        "156",
+        "1AB",
+        "100"
+      ],
+      "first_wait_cycle": 626,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 3,
+      "trace_digest": "abd9daa40c53318e37ce01f111590cd4b58aa6e2287685ccffa2bc3df7bb1622"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "56",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "157",
+        "1AD",
+        "103",
+        "159",
+        "1AF",
+        "105",
+        "15B",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1EF",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "ae5445bf1a92a95fb1e9d3cf1c5e34c0feccd01e332a8750db938ce1823f6355"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "57",
+      "distinct_rom_addresses": 153,
+      "first_rom_addresses": [
+        "158",
+        "1AF",
+        "106",
+        "15D",
+        "1B4",
+        "10B",
+        "162",
+        "1B9"
+      ],
+      "first_wait_cycle": 1226,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 153,
+      "trace_digest": "be7503c56d026e85a9bba7e1a3bf4acafa68f82f8035a701f3c1d5b5f5e0dcc4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "58",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "159",
+        "1B1",
+        "109",
+        "161",
+        "1B9",
+        "111",
+        "169",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1B9",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "4d08569569c945934e2eb658882cbc8000f0a4979af17f3cfb61db9164820a83"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "59",
+      "distinct_rom_addresses": 23,
+      "first_rom_addresses": [
+        "15A",
+        "1B3",
+        "10C",
+        "165",
+        "1BE",
+        "117",
+        "170",
+        "1C9"
+      ],
+      "first_wait_cycle": 706,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 23,
+      "trace_digest": "14486db49eacac65647e9ddbffb8500a29370e2e39525a23d9a528195b6dc7f0"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "5A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "15B",
+        "1B5",
+        "10F",
+        "169",
+        "1C3",
+        "11D",
+        "177",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "183",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e1b3ca28178018868e8ea88c20151e97d8e3dc014d360fb218134662715b0bfd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "5B",
+      "distinct_rom_addresses": 45,
+      "first_rom_addresses": [
+        "15C",
+        "1B7",
+        "112",
+        "16D",
+        "1C8",
+        "123",
+        "17E",
+        "1D9"
+      ],
+      "first_wait_cycle": 794,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 45,
+      "trace_digest": "8acf4fe0de93b65b7e5fea7a3699f675a6c772b73c29db7209e169b7cb75f7ce"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "5C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "15D",
+        "1B9",
+        "115",
+        "171",
+        "1CD",
+        "129",
+        "185",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "14D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "33135f9b43aa3394da9a730e50ed4fdbc7ff5c616fa8fa66f601831bcf829905"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "5D",
+      "distinct_rom_addresses": 11,
+      "first_rom_addresses": [
+        "15E",
+        "1BB",
+        "118",
+        "175",
+        "1D2",
+        "12F",
+        "18C",
+        "1E9"
+      ],
+      "first_wait_cycle": 658,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 11,
+      "trace_digest": "e4e11e8b2d2a58952c36263642df3a1c4d385a6ed758d7a17aa2b1492608fae8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "5E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "15F",
+        "1BD",
+        "11B",
+        "179",
+        "1D7",
+        "135",
+        "193",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "117",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "16c17d5a1b8a6c38f1e8e80d0b61e5de89a87976b5d78f8c99a6ad389dde6c22"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "5F",
+      "distinct_rom_addresses": 97,
+      "first_rom_addresses": [
+        "160",
+        "1BF",
+        "11E",
+        "17D",
+        "1DC",
+        "13B",
+        "19A",
+        "1F9"
+      ],
+      "first_wait_cycle": 1002,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 97,
+      "trace_digest": "04ebe5bbe3ba8bf5af8c6f0660d567c8bbd7065970f8ff4e97819afd8dce9f95"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "60",
+      "distinct_rom_addresses": 8,
+      "first_rom_addresses": [
+        "161",
+        "1C1",
+        "121",
+        "181",
+        "1E1",
+        "141",
+        "1A1",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1E1",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "a378bf8881dc582bac0218fbca7925fe4e9b66973cb943f912af53a6e6c8b4a4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "61",
+      "distinct_rom_addresses": 95,
+      "first_rom_addresses": [
+        "162",
+        "1C3",
+        "124",
+        "185",
+        "1E6",
+        "147",
+        "1A8",
+        "109"
+      ],
+      "first_wait_cycle": 994,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 95,
+      "trace_digest": "2f1fe1d776ba2c4b36e10f603c4a285c418438796a18a3fb0163866534ffc4d4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "62",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "163",
+        "1C5",
+        "127",
+        "189",
+        "1EB",
+        "14D",
+        "1AF",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1AB",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "a1c0777da0bb552f2a5835892814551c1dd93dd0658d7ecbaa7a3f51bc4dc50a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "63",
+      "distinct_rom_addresses": 181,
+      "first_rom_addresses": [
+        "164",
+        "1C7",
+        "12A",
+        "18D",
+        "1F0",
+        "153",
+        "1B6",
+        "119"
+      ],
+      "first_wait_cycle": 1338,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 181,
+      "trace_digest": "8ac1c9f8cedd8fe3f7f50636c422610623c497f1f32768b0ad7d3ea27566b05e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "64",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "165",
+        "1C9",
+        "12D",
+        "191",
+        "1F5",
+        "159",
+        "1BD",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "175",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "3ea96d1bd6eca7516656706a3b6d2ba93b57daaaf397ba480c96cbec4cf178cd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "65",
+      "distinct_rom_addresses": 147,
+      "first_rom_addresses": [
+        "166",
+        "1CB",
+        "130",
+        "195",
+        "1FA",
+        "15F",
+        "1C4",
+        "129"
+      ],
+      "first_wait_cycle": 1202,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 147,
+      "trace_digest": "4f344780c2456c5439cbb1079607be15228c8ededec2762d74505ebf7cc1992e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "66",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "167",
+        "1CD",
+        "133",
+        "199",
+        "1FF",
+        "165",
+        "1CB",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "13F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "77c0c040387653f966d380b1f45fbda60eefd3d2c877534109a91885e7c2c260"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "67",
+      "distinct_rom_addresses": 169,
+      "first_rom_addresses": [
+        "168",
+        "1CF",
+        "136",
+        "19D",
+        "104",
+        "16B",
+        "1D2",
+        "139"
+      ],
+      "first_wait_cycle": 1290,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 169,
+      "trace_digest": "063a0add2fa8c2fe000a144575b775ca6eba9edb7b39a96fdab43c8dd48cc0dd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "68",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "169",
+        "1D1",
+        "139",
+        "1A1",
+        "109",
+        "171",
+        "1D9",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "109",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "eaa99c1144fe980404d693c973e7e90b5e93c0c90c635cea059bdb51d222ab6d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "69",
+      "distinct_rom_addresses": 39,
+      "first_rom_addresses": [
+        "16A",
+        "1D3",
+        "13C",
+        "1A5",
+        "10E",
+        "177",
+        "1E0",
+        "149"
+      ],
+      "first_wait_cycle": 770,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 39,
+      "trace_digest": "bdd5e7c89c3a7e2e3e2a54aca00d6787f6b6be01ae9f0efbf6f25468bd29d805"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "6A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "16B",
+        "1D5",
+        "13F",
+        "1A9",
+        "113",
+        "17D",
+        "1E7",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1D3",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "8c457e54bcaff8e0a9cc33742a9092dc48b21f8bb637c7f5b2a4beb5124b278c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "6B",
+      "distinct_rom_addresses": 189,
+      "first_rom_addresses": [
+        "16C",
+        "1D7",
+        "142",
+        "1AD",
+        "118",
+        "183",
+        "1EE",
+        "159"
+      ],
+      "first_wait_cycle": 1370,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 189,
+      "trace_digest": "d96a592835500712a562bf7079fbdd07f5926aa76726b1ac317c4413ec354d0d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "6C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "16D",
+        "1D9",
+        "145",
+        "1B1",
+        "11D",
+        "189",
+        "1F5",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "19D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "d957075fae99115b13c2ca18f6a3043cda2c34ceea7b330a9cdd9f3d78743d6d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "6D",
+      "distinct_rom_addresses": 155,
+      "first_rom_addresses": [
+        "16E",
+        "1DB",
+        "148",
+        "1B5",
+        "122",
+        "18F",
+        "1FC",
+        "169"
+      ],
+      "first_wait_cycle": 1234,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 155,
+      "trace_digest": "12f82bf04394629ef4c331b16e63bd8af2fad4adf4a4b14e8d083bd8bba2b4f4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "6E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "16F",
+        "1DD",
+        "14B",
+        "1B9",
+        "127",
+        "195",
+        "103",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "167",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "0b54595772c37061da9a2e5173f6aae3b3a8d644fd909f8bf202437623aede15"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "6F",
+      "distinct_rom_addresses": 113,
+      "first_rom_addresses": [
+        "170",
+        "1DF",
+        "14E",
+        "1BD",
+        "12C",
+        "19B",
+        "10A",
+        "179"
+      ],
+      "first_wait_cycle": 1066,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 113,
+      "trace_digest": "425b5b489cb5b151942c4c25ee604d4ead79c061735353656a68cc46a6c25675"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "70",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "171",
+        "1E1",
+        "151",
+        "1C1",
+        "131",
+        "1A1",
+        "111",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "131",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "ac8aa7c20c24aec76fc33fe92528d3913bb1ee92f3d2e2bcae3099e745f95ea7"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "71",
+      "distinct_rom_addresses": 111,
+      "first_rom_addresses": [
+        "172",
+        "1E3",
+        "154",
+        "1C5",
+        "136",
+        "1A7",
+        "118",
+        "189"
+      ],
+      "first_wait_cycle": 1058,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 111,
+      "trace_digest": "65d61e05a4619fcdd0fac24b814fa098212f7394ba5cfa714093c162b739b0fa"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "72",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "173",
+        "1E5",
+        "157",
+        "1C9",
+        "13B",
+        "1AD",
+        "11F",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1FB",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "5aa37a2e7c4d0ec243647ba86e5ba100fbf3a33270cfc51649426a2aa103a813"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "73",
+      "distinct_rom_addresses": 69,
+      "first_rom_addresses": [
+        "174",
+        "1E7",
+        "15A",
+        "1CD",
+        "140",
+        "1B3",
+        "126",
+        "199"
+      ],
+      "first_wait_cycle": 890,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 69,
+      "trace_digest": "9266727a3017b45f6f756617dbd9b3ce1701860f34cb7fdc058c0ff2f68de870"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "74",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "175",
+        "1E9",
+        "15D",
+        "1D1",
+        "145",
+        "1B9",
+        "12D",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1C5",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "701c310cc038d674ea0720edcd7004d2e5c69b07ca47104d819e6084e9d872af"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "75",
+      "distinct_rom_addresses": 35,
+      "first_rom_addresses": [
+        "176",
+        "1EB",
+        "160",
+        "1D5",
+        "14A",
+        "1BF",
+        "134",
+        "1A9"
+      ],
+      "first_wait_cycle": 754,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 35,
+      "trace_digest": "98f582b1eb486aa8489d7a4dfc08787a4f16d801103df5a7b1384f4cc6cb1f5b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "76",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "177",
+        "1ED",
+        "163",
+        "1D9",
+        "14F",
+        "1C5",
+        "13B",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "18F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "8c87cba125ed23b4fc73ede3c991a2bd118adcafc600c9660829878d2dd12ba8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "77",
+      "distinct_rom_addresses": 185,
+      "first_rom_addresses": [
+        "178",
+        "1EF",
+        "166",
+        "1DD",
+        "154",
+        "1CB",
+        "142",
+        "1B9"
+      ],
+      "first_wait_cycle": 1354,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 185,
+      "trace_digest": "3db372b714e45d11e3c6ad870266f9513ad7480de1489e756a0d2e87fd999d1b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "78",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "179",
+        "1F1",
+        "169",
+        "1E1",
+        "159",
+        "1D1",
+        "149",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "159",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "c43ba4ca9bf3834a0341d83915420e5b7f746537e7850ba5fc47b2b4ef071de5"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "79",
+      "distinct_rom_addresses": 55,
+      "first_rom_addresses": [
+        "17A",
+        "1F3",
+        "16C",
+        "1E5",
+        "15E",
+        "1D7",
+        "150",
+        "1C9"
+      ],
+      "first_wait_cycle": 834,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 55,
+      "trace_digest": "79a728699305f75f981afd8f23d89c4161f6bb211d66199f8f97326e2d549d0f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "7A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "17B",
+        "1F5",
+        "16F",
+        "1E9",
+        "163",
+        "1DD",
+        "157",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "123",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "0e0c998579012a6dfc90b695ab53421ee7a4376035aab71e78a4c7a698d73c4c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "7B",
+      "distinct_rom_addresses": 77,
+      "first_rom_addresses": [
+        "17C",
+        "1F7",
+        "172",
+        "1ED",
+        "168",
+        "1E3",
+        "15E",
+        "1D9"
+      ],
+      "first_wait_cycle": 922,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 77,
+      "trace_digest": "e2e156e7e5eb2977b038a26a73956a708a55f57ea9295cbc8cf29a1a06c8b9e6"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "7C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "17D",
+        "1F9",
+        "175",
+        "1F1",
+        "16D",
+        "1E9",
+        "165",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1ED",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "67aaca62e12f71442f1329cfec06c7e00561c7005264aff880999c6bf43a2512"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "7D",
+      "distinct_rom_addresses": 43,
+      "first_rom_addresses": [
+        "17E",
+        "1FB",
+        "178",
+        "1F5",
+        "172",
+        "1EF",
+        "16C",
+        "1E9"
+      ],
+      "first_wait_cycle": 786,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 43,
+      "trace_digest": "c2682c00f2fd706f6644999e946f087fae3ffa9a288b42a6dffa1f7f9298798a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "7E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "17F",
+        "1FD",
+        "17B",
+        "1F9",
+        "177",
+        "1F5",
+        "173",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1B7",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "6df81cb2892529239bdb244fcf8729f9af5401d017878a7467aa79e7e9909590"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "7F",
+      "distinct_rom_addresses": 129,
+      "first_rom_addresses": [
+        "180",
+        "1FF",
+        "17E",
+        "1FD",
+        "17C",
+        "1FB",
+        "17A",
+        "1F9"
+      ],
+      "first_wait_cycle": 1130,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 129,
+      "trace_digest": "af5f200e7a9b86e052115db9b2ffcab9e1388b89c08194eb0f92bcc81a6a9b5f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "80",
+      "distinct_rom_addresses": 2,
+      "first_rom_addresses": [
+        "181",
+        "101",
+        "181",
+        "101",
+        "181",
+        "101",
+        "181",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "181",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e220c6c5f8cf1838290d28fb8da010df9c0e54a49cf005909dfd46d7abfb7bd6"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "81",
+      "distinct_rom_addresses": 127,
+      "first_rom_addresses": [
+        "182",
+        "103",
+        "184",
+        "105",
+        "186",
+        "107",
+        "188",
+        "109"
+      ],
+      "first_wait_cycle": 1122,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 127,
+      "trace_digest": "cfef81b8f56c801f9b1e11ff76c46797fba6cff677798a90dfbc4faf1fe1c67f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "82",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "183",
+        "105",
+        "187",
+        "109",
+        "18B",
+        "10D",
+        "18F",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "14B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "30577759793ae2d7de7e3f13abc1124b232aa7de94515f0d5efb97150e1dc83f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "83",
+      "distinct_rom_addresses": 213,
+      "first_rom_addresses": [
+        "184",
+        "107",
+        "18A",
+        "10D",
+        "190",
+        "113",
+        "196",
+        "119"
+      ],
+      "first_wait_cycle": 1466,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 213,
+      "trace_digest": "b71bb2a7ac0036d4bf041dac06ae812e91ffba22851ccdff0cc455419f599781"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "84",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "185",
+        "109",
+        "18D",
+        "111",
+        "195",
+        "119",
+        "19D",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "115",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e253a7679ee95c4ea924be4930622072299200403133d534214a11d0fb43325b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "85",
+      "distinct_rom_addresses": 179,
+      "first_rom_addresses": [
+        "186",
+        "10B",
+        "190",
+        "115",
+        "19A",
+        "11F",
+        "1A4",
+        "129"
+      ],
+      "first_wait_cycle": 1330,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 179,
+      "trace_digest": "927aa6d2025be496f25aadf391443719d06ca924ad65dd9a824ee05160e82378"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "86",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "187",
+        "10D",
+        "193",
+        "119",
+        "19F",
+        "125",
+        "1AB",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1DF",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e59e29843d6ff9cc0acefd90beef652bd718c6c972296a673a421bb275e2aba4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "87",
+      "distinct_rom_addresses": 201,
+      "first_rom_addresses": [
+        "188",
+        "10F",
+        "196",
+        "11D",
+        "1A4",
+        "12B",
+        "1B2",
+        "139"
+      ],
+      "first_wait_cycle": 1418,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 201,
+      "trace_digest": "fa26a04b61cc860c50c94e908ab3f648f1b7851bf2985be2093309a9c2b3ee8a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "88",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "189",
+        "111",
+        "199",
+        "121",
+        "1A9",
+        "131",
+        "1B9",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1A9",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "eb0d982cdf6e61738fa9d7aa0a0f5e16bdec119772ecb28273958552e1c0b9d8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "89",
+      "distinct_rom_addresses": 71,
+      "first_rom_addresses": [
+        "18A",
+        "113",
+        "19C",
+        "125",
+        "1AE",
+        "137",
+        "1C0",
+        "149"
+      ],
+      "first_wait_cycle": 898,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 71,
+      "trace_digest": "56d2d82af15c5fcf11d53bde0e5a2a76f1f4d2e6712e47a7be818a565105c57d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "8A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "18B",
+        "115",
+        "19F",
+        "129",
+        "1B3",
+        "13D",
+        "1C7",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "173",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "c30dfa3cb3cdcc2637ad1e16aebad4840d9f986426d39421d44a324bd36d295b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "8B",
+      "distinct_rom_addresses": 221,
+      "first_rom_addresses": [
+        "18C",
+        "117",
+        "1A2",
+        "12D",
+        "1B8",
+        "143",
+        "1CE",
+        "159"
+      ],
+      "first_wait_cycle": 1498,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 221,
+      "trace_digest": "33ca0fa29854da0773ce70a65e527f7d9506d87d59f187c9062d2ae217ab9a34"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "8C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "18D",
+        "119",
+        "1A5",
+        "131",
+        "1BD",
+        "149",
+        "1D5",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "13D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "3fb298757282a660bfe90b51172b63db4d2ce4f88da48c9645d99a58e54fc4a6"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "8D",
+      "distinct_rom_addresses": 187,
+      "first_rom_addresses": [
+        "18E",
+        "11B",
+        "1A8",
+        "135",
+        "1C2",
+        "14F",
+        "1DC",
+        "169"
+      ],
+      "first_wait_cycle": 1362,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 187,
+      "trace_digest": "3eb01cedd907fb16187130f0614990e1110ccb3909535f272b576f6b0d391575"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "8E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "18F",
+        "11D",
+        "1AB",
+        "139",
+        "1C7",
+        "155",
+        "1E3",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "107",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "7f1947702ad04979c8117cd79a795914dd828393eb91a28359f80d5e2b377062"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "8F",
+      "distinct_rom_addresses": 145,
+      "first_rom_addresses": [
+        "190",
+        "11F",
+        "1AE",
+        "13D",
+        "1CC",
+        "15B",
+        "1EA",
+        "179"
+      ],
+      "first_wait_cycle": 1194,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 145,
+      "trace_digest": "576b3baf6d679c4f583e90be08b5075194c75a14604c7e9bb095afdf83f5925e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "90",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "191",
+        "121",
+        "1B1",
+        "141",
+        "1D1",
+        "161",
+        "1F1",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1D1",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "af6cedbd26faa1e56094f56b919697ea7252fd14d14c84e4a17be64e02016fcb"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "91",
+      "distinct_rom_addresses": 143,
+      "first_rom_addresses": [
+        "192",
+        "123",
+        "1B4",
+        "145",
+        "1D6",
+        "167",
+        "1F8",
+        "189"
+      ],
+      "first_wait_cycle": 1186,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 143,
+      "trace_digest": "4e6db537e421704f848d46e879457f580a5ae0c53da827f52e82fb54e6f4756c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "92",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "193",
+        "125",
+        "1B7",
+        "149",
+        "1DB",
+        "16D",
+        "1FF",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "19B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "4bac69ce01b923b02544653984a7a1f3f4ca0ce4f40f6973e6f36a5bd4ad86f1"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "93",
+      "distinct_rom_addresses": 101,
+      "first_rom_addresses": [
+        "194",
+        "127",
+        "1BA",
+        "14D",
+        "1E0",
+        "173",
+        "106",
+        "199"
+      ],
+      "first_wait_cycle": 1018,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 101,
+      "trace_digest": "b1eb19db9ab58da0ea6f60e2a1a5810dac882deaec275195bac96d3195043f5b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "94",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "195",
+        "129",
+        "1BD",
+        "151",
+        "1E5",
+        "179",
+        "10D",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "165",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "ea0bcc6a40d17d34d468876e9b0774e904dff660262225e1cc4d4d9ad39a9dde"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "95",
+      "distinct_rom_addresses": 67,
+      "first_rom_addresses": [
+        "196",
+        "12B",
+        "1C0",
+        "155",
+        "1EA",
+        "17F",
+        "114",
+        "1A9"
+      ],
+      "first_wait_cycle": 882,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 67,
+      "trace_digest": "c725c9c32b12f07cdecdfca1d54087364ab33fb7318598b3ab154d46e8f7195a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "96",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "197",
+        "12D",
+        "1C3",
+        "159",
+        "1EF",
+        "185",
+        "11B",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "12F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "7994134e3fe8ce2474018ca12feb7815ca7dda5c02c771234b29b56df33b463e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "97",
+      "distinct_rom_addresses": 217,
+      "first_rom_addresses": [
+        "198",
+        "12F",
+        "1C6",
+        "15D",
+        "1F4",
+        "18B",
+        "122",
+        "1B9"
+      ],
+      "first_wait_cycle": 1482,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 217,
+      "trace_digest": "b4bdac8b7aebbfb86a4fe08b9cb98dfbbca179a9842728b88bff1b34128581bf"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "98",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "199",
+        "131",
+        "1C9",
+        "161",
+        "1F9",
+        "191",
+        "129",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1F9",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "3333c784cecff811990c14f3e002e514777aa03158503f6ca2bacdece818853a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "99",
+      "distinct_rom_addresses": 87,
+      "first_rom_addresses": [
+        "19A",
+        "133",
+        "1CC",
+        "165",
+        "1FE",
+        "197",
+        "130",
+        "1C9"
+      ],
+      "first_wait_cycle": 962,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 87,
+      "trace_digest": "1b8bb096eb7ab393cf7c573cb25298eecdf283087c50a91563635d19118a3ea3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "9A",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "19B",
+        "135",
+        "1CF",
+        "169",
+        "103",
+        "19D",
+        "137",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1C3",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "e4ee7ea563ffa225f20f01494f6c5a232b31f4af5b0479f600352806feff5900"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "9B",
+      "distinct_rom_addresses": 109,
+      "first_rom_addresses": [
+        "19C",
+        "137",
+        "1D2",
+        "16D",
+        "108",
+        "1A3",
+        "13E",
+        "1D9"
+      ],
+      "first_wait_cycle": 1050,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 109,
+      "trace_digest": "9bdd2323ce9f50b6dc2526d96e30543ebd107900d7db1a87d7f231937f963492"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "9C",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "19D",
+        "139",
+        "1D5",
+        "171",
+        "10D",
+        "1A9",
+        "145",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "18D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "81a495398f00ffb32a2041485fb1eeb474185267f60e3bf9d319b267fe7af936"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "9D",
+      "distinct_rom_addresses": 75,
+      "first_rom_addresses": [
+        "19E",
+        "13B",
+        "1D8",
+        "175",
+        "112",
+        "1AF",
+        "14C",
+        "1E9"
+      ],
+      "first_wait_cycle": 914,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 75,
+      "trace_digest": "cfdc81124a8227bbbc3c0eb8a46223b3e6c8607eac58077ff194cd7b7c14b891"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "9E",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "19F",
+        "13D",
+        "1DB",
+        "179",
+        "117",
+        "1B5",
+        "153",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "157",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "5160caaa349306e7b5566fb43940c075c95c90807c690b73f578ee16f41a84a1"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "9F",
+      "distinct_rom_addresses": 161,
+      "first_rom_addresses": [
+        "1A0",
+        "13F",
+        "1DE",
+        "17D",
+        "11C",
+        "1BB",
+        "15A",
+        "1F9"
+      ],
+      "first_wait_cycle": 1258,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 161,
+      "trace_digest": "a74b8804690618d3c4e74b45276774441f0e43b1a92e9739425f27122c1d3137"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A0",
+      "distinct_rom_addresses": 8,
+      "first_rom_addresses": [
+        "1A1",
+        "141",
+        "1E1",
+        "181",
+        "121",
+        "1C1",
+        "161",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "121",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "5f203a4b1b7c5d474fbe9cc15eb9ccf0fd4228f94093e875315eea7729dc4274"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A1",
+      "distinct_rom_addresses": 159,
+      "first_rom_addresses": [
+        "1A2",
+        "143",
+        "1E4",
+        "185",
+        "126",
+        "1C7",
+        "168",
+        "109"
+      ],
+      "first_wait_cycle": 1250,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 159,
+      "trace_digest": "3b61d525ee55160287f7f588e3ef983c5643de3306e6a574fae08228d57c4f24"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A2",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1A3",
+        "145",
+        "1E7",
+        "189",
+        "12B",
+        "1CD",
+        "16F",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1EB",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "261dd676d3dda394d173aac2bf909dc71423f6f15c61a1efa9c6d1cdf36905f3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A3",
+      "distinct_rom_addresses": 245,
+      "first_rom_addresses": [
+        "1A4",
+        "147",
+        "1EA",
+        "18D",
+        "130",
+        "1D3",
+        "176",
+        "119"
+      ],
+      "first_wait_cycle": 1594,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 245,
+      "trace_digest": "51e573c1573425ccc6aa0306ed1d9d07d94f89ad5bf446e9084959f03e9ae7d3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A4",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1A5",
+        "149",
+        "1ED",
+        "191",
+        "135",
+        "1D9",
+        "17D",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1B5",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "720cfb759c745381aca0bb580200faaafca74afaf17d8a136c5121a23228c60a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A5",
+      "distinct_rom_addresses": 211,
+      "first_rom_addresses": [
+        "1A6",
+        "14B",
+        "1F0",
+        "195",
+        "13A",
+        "1DF",
+        "184",
+        "129"
+      ],
+      "first_wait_cycle": 1458,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 211,
+      "trace_digest": "725d70b8d5863960df0a46b532c6eb4e4873f43c0ee66ff33a369cae8dcb70b8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A6",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1A7",
+        "14D",
+        "1F3",
+        "199",
+        "13F",
+        "1E5",
+        "18B",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "17F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "ff49e54b70715db323cfbaa3c603244d5491cc6cdaefe5250cc3d56848227447"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A7",
+      "distinct_rom_addresses": 233,
+      "first_rom_addresses": [
+        "1A8",
+        "14F",
+        "1F6",
+        "19D",
+        "144",
+        "1EB",
+        "192",
+        "139"
+      ],
+      "first_wait_cycle": 1546,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 233,
+      "trace_digest": "16e33b7ee5b17a5752bd4ee1e0153b3625b72e9c0923b713d76a3be7c0bd0f8e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A8",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "1A9",
+        "151",
+        "1F9",
+        "1A1",
+        "149",
+        "1F1",
+        "199",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "149",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "5b6d2700769e1608fdc4b4f393bd0b9604b9e037c1053d519f075f6e1329f6d2"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "A9",
+      "distinct_rom_addresses": 103,
+      "first_rom_addresses": [
+        "1AA",
+        "153",
+        "1FC",
+        "1A5",
+        "14E",
+        "1F7",
+        "1A0",
+        "149"
+      ],
+      "first_wait_cycle": 1026,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 103,
+      "trace_digest": "c55678f29e8a81b427e0ad2fb2f0801d1b42c62bbd9bc9f43857f49fd60a148b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "AA",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1AB",
+        "155",
+        "1FF",
+        "1A9",
+        "153",
+        "1FD",
+        "1A7",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "113",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "c5fe96d88476505fe878f94ff82b4301747c2236e3e189d6d7ffce5536b171ca"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "AB",
+      "distinct_rom_addresses": 253,
+      "first_rom_addresses": [
+        "1AC",
+        "157",
+        "102",
+        "1AD",
+        "158",
+        "103",
+        "1AE",
+        "159"
+      ],
+      "first_wait_cycle": 1626,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 253,
+      "trace_digest": "ee0a2954130299474c13de3e3314dc6d0a3479cfab73f6458cdcc62a1b218b97"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "AC",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1AD",
+        "159",
+        "105",
+        "1B1",
+        "15D",
+        "109",
+        "1B5",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1DD",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "f6b2a6695e43c701125f1303ca6a10015c7bfee8a52f5f595b562f6e9cf92e9d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "AD",
+      "distinct_rom_addresses": 219,
+      "first_rom_addresses": [
+        "1AE",
+        "15B",
+        "108",
+        "1B5",
+        "162",
+        "10F",
+        "1BC",
+        "169"
+      ],
+      "first_wait_cycle": 1490,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 219,
+      "trace_digest": "813aefe00309738e83fe533ffc7c7b7c6cb3149957a9280de7576e1d34bbdd8d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "AE",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1AF",
+        "15D",
+        "10B",
+        "1B9",
+        "167",
+        "115",
+        "1C3",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1A7",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "67acfbe67c4b673df8eef742c88ae979b0c3c624fd3cbd233ad18509a224c843"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "AF",
+      "distinct_rom_addresses": 177,
+      "first_rom_addresses": [
+        "1B0",
+        "15F",
+        "10E",
+        "1BD",
+        "16C",
+        "11B",
+        "1CA",
+        "179"
+      ],
+      "first_wait_cycle": 1322,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 177,
+      "trace_digest": "e6247487f716e107c26678aef26e99bbef27fb31ba68fb7811c4d1d152fc4d7a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B0",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "1B1",
+        "161",
+        "111",
+        "1C1",
+        "171",
+        "121",
+        "1D1",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "171",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "b6122875d7a7a560b1fe107159f61a26ef68fc0f09e07d1c6da0c79f058a5e0d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B1",
+      "distinct_rom_addresses": 175,
+      "first_rom_addresses": [
+        "1B2",
+        "163",
+        "114",
+        "1C5",
+        "176",
+        "127",
+        "1D8",
+        "189"
+      ],
+      "first_wait_cycle": 1314,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 175,
+      "trace_digest": "bdf3d9c5365080042ef39428b91b3ae4e21c6a0ea228e96bda3a4e54beef9ea4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B2",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1B3",
+        "165",
+        "117",
+        "1C9",
+        "17B",
+        "12D",
+        "1DF",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "13B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "2cb89439d7d06ebee77673090ccc2c73deb391b175b404482b93ff8796723500"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B3",
+      "distinct_rom_addresses": 133,
+      "first_rom_addresses": [
+        "1B4",
+        "167",
+        "11A",
+        "1CD",
+        "180",
+        "133",
+        "1E6",
+        "199"
+      ],
+      "first_wait_cycle": 1146,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 133,
+      "trace_digest": "2713be2f2b0579dac6bf4942c977f09edfef48ac5458cac71831f2d849c0b1b2"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B4",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1B5",
+        "169",
+        "11D",
+        "1D1",
+        "185",
+        "139",
+        "1ED",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "105",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "aa1dfa41bd9c8a69387b6cb1c8042b65ce036fed621327ab4d711ba43cee70e4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B5",
+      "distinct_rom_addresses": 99,
+      "first_rom_addresses": [
+        "1B6",
+        "16B",
+        "120",
+        "1D5",
+        "18A",
+        "13F",
+        "1F4",
+        "1A9"
+      ],
+      "first_wait_cycle": 1010,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 99,
+      "trace_digest": "5c963900fa9b5ddf1f916839c0c4e8e4e19003fb073baa5c85cd16ccb5abe79d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B6",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1B7",
+        "16D",
+        "123",
+        "1D9",
+        "18F",
+        "145",
+        "1FB",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1CF",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "c80f8f1e1bf3ed751415ebcfbdf22174dbae5c648bb23d0c4868fd9b9768fdcd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B7",
+      "distinct_rom_addresses": 249,
+      "first_rom_addresses": [
+        "1B8",
+        "16F",
+        "126",
+        "1DD",
+        "194",
+        "14B",
+        "102",
+        "1B9"
+      ],
+      "first_wait_cycle": 1610,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 249,
+      "trace_digest": "b798e5282433ba8783f084d6f12fd5f74fa86b4927848e1a1b1914a59461d264"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B8",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "1B9",
+        "171",
+        "129",
+        "1E1",
+        "199",
+        "151",
+        "109",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "199",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "6245723e5d03881ea1a3224840f299192d28cabd439c8047cc6e03dbe9d03797"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "B9",
+      "distinct_rom_addresses": 119,
+      "first_rom_addresses": [
+        "1BA",
+        "173",
+        "12C",
+        "1E5",
+        "19E",
+        "157",
+        "110",
+        "1C9"
+      ],
+      "first_wait_cycle": 1090,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 119,
+      "trace_digest": "fec984cf4676e597850a0eafbc8a8e5ab613dc1c0445976e029dce435fb308d8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "BA",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1BB",
+        "175",
+        "12F",
+        "1E9",
+        "1A3",
+        "15D",
+        "117",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "163",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "9d2bd1166b270cc17117a3805d3d0db0450bf9d5b54672b6654fd1ac95e62133"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "BB",
+      "distinct_rom_addresses": 141,
+      "first_rom_addresses": [
+        "1BC",
+        "177",
+        "132",
+        "1ED",
+        "1A8",
+        "163",
+        "11E",
+        "1D9"
+      ],
+      "first_wait_cycle": 1178,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 141,
+      "trace_digest": "96942b7136a5148119246db9cb9fbac6e9e49dea40fa1cb6c2296dd328d28225"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "BC",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1BD",
+        "179",
+        "135",
+        "1F1",
+        "1AD",
+        "169",
+        "125",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "12D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "573588084ff6d19742f85e2666b0a9d563e7904b976ebe8705f64b3d9e055878"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "BD",
+      "distinct_rom_addresses": 107,
+      "first_rom_addresses": [
+        "1BE",
+        "17B",
+        "138",
+        "1F5",
+        "1B2",
+        "16F",
+        "12C",
+        "1E9"
+      ],
+      "first_wait_cycle": 1042,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 107,
+      "trace_digest": "c409443603641fb88ee099d7bd7b1bb85f9c0b079aa48b77b2bb2611a77bb5fc"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "BE",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1BF",
+        "17D",
+        "13B",
+        "1F9",
+        "1B7",
+        "175",
+        "133",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1F7",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "bacfd3f2e9cc72f79fa1e798b47384607ea289c5d13059c3d06a094f49b56737"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "BF",
+      "distinct_rom_addresses": 193,
+      "first_rom_addresses": [
+        "1C0",
+        "17F",
+        "13E",
+        "1FD",
+        "1BC",
+        "17B",
+        "13A",
+        "1F9"
+      ],
+      "first_wait_cycle": 1386,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 193,
+      "trace_digest": "ae1cc8ac93ce9cd7dc0d04a5b36fa67f37cdf42348ce62193fd7778084895fea"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C0",
+      "distinct_rom_addresses": 4,
+      "first_rom_addresses": [
+        "1C1",
+        "181",
+        "141",
+        "101",
+        "1C1",
+        "181",
+        "141",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1C1",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "7102e70d95dbc987ce81a3b8ae02bd7427c448600d0fefa37007f48ee2661a08"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C1",
+      "distinct_rom_addresses": 191,
+      "first_rom_addresses": [
+        "1C2",
+        "183",
+        "144",
+        "105",
+        "1C6",
+        "187",
+        "148",
+        "109"
+      ],
+      "first_wait_cycle": 1378,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 191,
+      "trace_digest": "3f967fd216e307768f9c272e6250b429bc50201b0aadba96ccd94ad81e16a22c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C2",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1C3",
+        "185",
+        "147",
+        "109",
+        "1CB",
+        "18D",
+        "14F",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "18B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "59209912205b05a72a5049a24e3952ba556acd840ed6e869c6305e62924a7d99"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C3",
+      "distinct_rom_addresses": 21,
+      "first_rom_addresses": [
+        "1C4",
+        "187",
+        "14A",
+        "10D",
+        "1D0",
+        "193",
+        "156",
+        "119"
+      ],
+      "first_wait_cycle": 698,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 21,
+      "trace_digest": "83818434893c5b5a868d3140fff838f9afe4d468ee0b3c15c23f956641763214"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C4",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1C5",
+        "189",
+        "14D",
+        "111",
+        "1D5",
+        "199",
+        "15D",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "155",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "70140156bf3cdfca6d2a5ac24869d6986b788fb7a1a460dc8f252e98e49135b0"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C5",
+      "distinct_rom_addresses": 243,
+      "first_rom_addresses": [
+        "1C6",
+        "18B",
+        "150",
+        "115",
+        "1DA",
+        "19F",
+        "164",
+        "129"
+      ],
+      "first_wait_cycle": 1586,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 243,
+      "trace_digest": "05923ec833694b17f71423b1541eec5dcfac5520cbfa3709e7933d340e4d313e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C6",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1C7",
+        "18D",
+        "153",
+        "119",
+        "1DF",
+        "1A5",
+        "16B",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "11F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "b9b18a8b96d2a1745c43618694e87239274853d7a64a33203b21daf5f8119f55"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C7",
+      "distinct_rom_addresses": 9,
+      "first_rom_addresses": [
+        "1C8",
+        "18F",
+        "156",
+        "11D",
+        "1E4",
+        "1AB",
+        "172",
+        "139"
+      ],
+      "first_wait_cycle": 650,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 9,
+      "trace_digest": "a498906bf3d6066b08a6299b39bed79de73ef6417d8bd17f707e9500d0324e58"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C8",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "1C9",
+        "191",
+        "159",
+        "121",
+        "1E9",
+        "1B1",
+        "179",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1E9",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "99d8a72bc1d929baf306973adfc1ea4ea7fe43d1b23a1a9b6791f6e60697980b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "C9",
+      "distinct_rom_addresses": 135,
+      "first_rom_addresses": [
+        "1CA",
+        "193",
+        "15C",
+        "125",
+        "1EE",
+        "1B7",
+        "180",
+        "149"
+      ],
+      "first_wait_cycle": 1154,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 135,
+      "trace_digest": "9201805eb25d429ebc710312840b5038aa445bf3d946464a571ff92edbd9c2d3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "CA",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1CB",
+        "195",
+        "15F",
+        "129",
+        "1F3",
+        "1BD",
+        "187",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1B3",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "23bf899f87121db53d0f49e38527af9014e3d6df2d0f507ce97dcff5c5e0d49f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "CB",
+      "distinct_rom_addresses": 29,
+      "first_rom_addresses": [
+        "1CC",
+        "197",
+        "162",
+        "12D",
+        "1F8",
+        "1C3",
+        "18E",
+        "159"
+      ],
+      "first_wait_cycle": 730,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 29,
+      "trace_digest": "faa697966347538fe62ca82cfbc9c8f3c534ddcd22b1e901834825edb9d649ae"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "CC",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1CD",
+        "199",
+        "165",
+        "131",
+        "1FD",
+        "1C9",
+        "195",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "17D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "a76720168ef566df5e3f6adae48982b2c5ee6c38882cda5d413b81918af59826"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "CD",
+      "distinct_rom_addresses": 251,
+      "first_rom_addresses": [
+        "1CE",
+        "19B",
+        "168",
+        "135",
+        "102",
+        "1CF",
+        "19C",
+        "169"
+      ],
+      "first_wait_cycle": 1618,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 251,
+      "trace_digest": "206b9750cd93c26fc095bf8943a4efe538e47f852cbfb26464486eee15935fa9"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "CE",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1CF",
+        "19D",
+        "16B",
+        "139",
+        "107",
+        "1D5",
+        "1A3",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "147",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "7ceae73abd62e9f9c422c63ffb422a0fb468f1cd1388ebb08642e79e3020d05e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "CF",
+      "distinct_rom_addresses": 209,
+      "first_rom_addresses": [
+        "1D0",
+        "19F",
+        "16E",
+        "13D",
+        "10C",
+        "1DB",
+        "1AA",
+        "179"
+      ],
+      "first_wait_cycle": 1450,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 209,
+      "trace_digest": "9e789f36b8303fe8fb14f49a2c401a3891482a92aab1220b709461a4f29d2c5f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D0",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "1D1",
+        "1A1",
+        "171",
+        "141",
+        "111",
+        "1E1",
+        "1B1",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "111",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "606cef2c38d96575d57d6e5da5a5540067d117832d9b0686de1924aca115db42"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D1",
+      "distinct_rom_addresses": 207,
+      "first_rom_addresses": [
+        "1D2",
+        "1A3",
+        "174",
+        "145",
+        "116",
+        "1E7",
+        "1B8",
+        "189"
+      ],
+      "first_wait_cycle": 1442,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 207,
+      "trace_digest": "dfb08c7855256e9801537c933686c450283575031497fcb3d374f3e1d78546ea"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D2",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1D3",
+        "1A5",
+        "177",
+        "149",
+        "11B",
+        "1ED",
+        "1BF",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1DB",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "56a0b7009d195147df41213de0fd3d99f60477bc799065744dc1340d58d01239"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D3",
+      "distinct_rom_addresses": 165,
+      "first_rom_addresses": [
+        "1D4",
+        "1A7",
+        "17A",
+        "14D",
+        "120",
+        "1F3",
+        "1C6",
+        "199"
+      ],
+      "first_wait_cycle": 1274,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 165,
+      "trace_digest": "c32dd9834682e752c07e4f3d80970dc90b879ec5ab511e279dd1681b04c3359e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D4",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1D5",
+        "1A9",
+        "17D",
+        "151",
+        "125",
+        "1F9",
+        "1CD",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1A5",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "a58f10f451d88a2ba186bc0dd1a1b74853b6060ec11c040d8a035458711ac03d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D5",
+      "distinct_rom_addresses": 131,
+      "first_rom_addresses": [
+        "1D6",
+        "1AB",
+        "180",
+        "155",
+        "12A",
+        "1FF",
+        "1D4",
+        "1A9"
+      ],
+      "first_wait_cycle": 1138,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 131,
+      "trace_digest": "1ad9dad0baea391b648762fbdc150ed4106a6c8ca78ee9ce6ebdde53f4c70ab0"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D6",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1D7",
+        "1AD",
+        "183",
+        "159",
+        "12F",
+        "105",
+        "1DB",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "16F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "53cbeb2e2b4dd76865de4a4fb4b3e108a5b257d8093031825c682b03adc8abbb"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D7",
+      "distinct_rom_addresses": 25,
+      "first_rom_addresses": [
+        "1D8",
+        "1AF",
+        "186",
+        "15D",
+        "134",
+        "10B",
+        "1E2",
+        "1B9"
+      ],
+      "first_wait_cycle": 714,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 25,
+      "trace_digest": "4ef04413ed4c65884a2de585f8b958161d76b456785932ce2a0b149c4b93e2ba"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D8",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "1D9",
+        "1B1",
+        "189",
+        "161",
+        "139",
+        "111",
+        "1E9",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "139",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "81acb8f6f9181277dcb1c358bb0eb45e7771396e82d8ca69e82375307c6facde"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "D9",
+      "distinct_rom_addresses": 151,
+      "first_rom_addresses": [
+        "1DA",
+        "1B3",
+        "18C",
+        "165",
+        "13E",
+        "117",
+        "1F0",
+        "1C9"
+      ],
+      "first_wait_cycle": 1218,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 151,
+      "trace_digest": "1963e221e83011ef1d6a8ba90e89ef3350aae2ff0c69dec162e245c0944da9b5"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "DA",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1DB",
+        "1B5",
+        "18F",
+        "169",
+        "143",
+        "11D",
+        "1F7",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "103",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "360934cc032ae03130e501c3c9e8ea645f43c7bbf53d8773d13b3b700c3d5cb8"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "DB",
+      "distinct_rom_addresses": 173,
+      "first_rom_addresses": [
+        "1DC",
+        "1B7",
+        "192",
+        "16D",
+        "148",
+        "123",
+        "1FE",
+        "1D9"
+      ],
+      "first_wait_cycle": 1306,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 173,
+      "trace_digest": "2a622966e200864afafc3828e06416012851d0df9a9d354e5eab71123ee795fd"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "DC",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1DD",
+        "1B9",
+        "195",
+        "171",
+        "14D",
+        "129",
+        "105",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1CD",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "452a67ce63a57a31d2024bfbbc6ff28c827a57149162c7388ae6a9d3449fbe84"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "DD",
+      "distinct_rom_addresses": 139,
+      "first_rom_addresses": [
+        "1DE",
+        "1BB",
+        "198",
+        "175",
+        "152",
+        "12F",
+        "10C",
+        "1E9"
+      ],
+      "first_wait_cycle": 1170,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 139,
+      "trace_digest": "c3336c6332435f6af98a7112a29cfb1c9af116e15fefd7ab04ccef817d3feebe"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "DE",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1DF",
+        "1BD",
+        "19B",
+        "179",
+        "157",
+        "135",
+        "113",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "197",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "394a1d8824bad57e0a06ea1bfa48df71d859cd4b6b24c86166eff70f6ed84a0f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "DF",
+      "distinct_rom_addresses": 225,
+      "first_rom_addresses": [
+        "1E0",
+        "1BF",
+        "19E",
+        "17D",
+        "15C",
+        "13B",
+        "11A",
+        "1F9"
+      ],
+      "first_wait_cycle": 1514,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 225,
+      "trace_digest": "d1923e8f390f18d8fc3cc1590809ed0064528f275c3d0e75da48722eff4edcd4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E0",
+      "distinct_rom_addresses": 8,
+      "first_rom_addresses": [
+        "1E1",
+        "1C1",
+        "1A1",
+        "181",
+        "161",
+        "141",
+        "121",
+        "101"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "161",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "c2aa5a7e79b4c68173838f00c0bdde7a6785b9d386043693d99c45574387bdf2"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E1",
+      "distinct_rom_addresses": 223,
+      "first_rom_addresses": [
+        "1E2",
+        "1C3",
+        "1A4",
+        "185",
+        "166",
+        "147",
+        "128",
+        "109"
+      ],
+      "first_wait_cycle": 1506,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 223,
+      "trace_digest": "add1862796094503ed0a6dc7d8b94450743da973a8d8c57191d75b0fa5bd6417"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E2",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1E3",
+        "1C5",
+        "1A7",
+        "189",
+        "16B",
+        "14D",
+        "12F",
+        "111"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "12B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "2ff522d77da29c502288346af997a1c903ba17c1cfc57e1b79310877789b28ed"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E3",
+      "distinct_rom_addresses": 53,
+      "first_rom_addresses": [
+        "1E4",
+        "1C7",
+        "1AA",
+        "18D",
+        "170",
+        "153",
+        "136",
+        "119"
+      ],
+      "first_wait_cycle": 826,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 53,
+      "trace_digest": "fb1fe1a09b35536fe1fb216caaee857a64e4c27ae3ed4af5b70d2a92a70a2f5f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E4",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1E5",
+        "1C9",
+        "1AD",
+        "191",
+        "175",
+        "159",
+        "13D",
+        "121"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1F5",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "56f84f5a098698cec0e5d14bad132c9ae2ec73b1373042286c7a099d1ffba21f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E5",
+      "distinct_rom_addresses": 19,
+      "first_rom_addresses": [
+        "1E6",
+        "1CB",
+        "1B0",
+        "195",
+        "17A",
+        "15F",
+        "144",
+        "129"
+      ],
+      "first_wait_cycle": 690,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 19,
+      "trace_digest": "a8644a6ee4bbe106c362e7ba46ef05d5cbdeebe4027f72a69faf1027e8cbaf32"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E6",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1E7",
+        "1CD",
+        "1B3",
+        "199",
+        "17F",
+        "165",
+        "14B",
+        "131"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1BF",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "66263080cd3971d85c087d256a2e51ef88ba0747d67046c2e23a0b983214ba73"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E7",
+      "distinct_rom_addresses": 41,
+      "first_rom_addresses": [
+        "1E8",
+        "1CF",
+        "1B6",
+        "19D",
+        "184",
+        "16B",
+        "152",
+        "139"
+      ],
+      "first_wait_cycle": 778,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 41,
+      "trace_digest": "d5245326329f066272bd96682cab4dcaa744897ed7e5d4f6ae554a99e32cf6d4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E8",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "1E9",
+        "1D1",
+        "1B9",
+        "1A1",
+        "189",
+        "171",
+        "159",
+        "141"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "189",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "f9b6c6480ca9995da74507fe4f906859e4da8ba11b63e89c75879dff2fc8e706"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "E9",
+      "distinct_rom_addresses": 167,
+      "first_rom_addresses": [
+        "1EA",
+        "1D3",
+        "1BC",
+        "1A5",
+        "18E",
+        "177",
+        "160",
+        "149"
+      ],
+      "first_wait_cycle": 1282,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 167,
+      "trace_digest": "176d325391b084077451fa9977435d32efcc61c969212a5338295904ef9466ef"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "EA",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1EB",
+        "1D5",
+        "1BF",
+        "1A9",
+        "193",
+        "17D",
+        "167",
+        "151"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "153",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "aa020dbc25b7c88d45c341b8c2b7063fdfcd2884efe9e2b6f1479da25e091f49"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "EB",
+      "distinct_rom_addresses": 61,
+      "first_rom_addresses": [
+        "1EC",
+        "1D7",
+        "1C2",
+        "1AD",
+        "198",
+        "183",
+        "16E",
+        "159"
+      ],
+      "first_wait_cycle": 858,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 61,
+      "trace_digest": "6368dd7a3eecb6006f010c1fd87cda0bee1252b9800c33162724b4ba331335c0"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "EC",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1ED",
+        "1D9",
+        "1C5",
+        "1B1",
+        "19D",
+        "189",
+        "175",
+        "161"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "11D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "41bf1cd95f702b354f636eec0411280ce9e01f8abca7e21540e5dfe72046aeea"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "ED",
+      "distinct_rom_addresses": 27,
+      "first_rom_addresses": [
+        "1EE",
+        "1DB",
+        "1C8",
+        "1B5",
+        "1A2",
+        "18F",
+        "17C",
+        "169"
+      ],
+      "first_wait_cycle": 722,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 27,
+      "trace_digest": "c7019f3bf24b06a1a8ee2a9222835e89d50c6955bdcd13987229f970cb796452"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "EE",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1EF",
+        "1DD",
+        "1CB",
+        "1B9",
+        "1A7",
+        "195",
+        "183",
+        "171"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1E7",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "fd47b808fa94d8df0c648e98a4842983a2ab1e10714bc86e7f5eb47f65bc28d4"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "EF",
+      "distinct_rom_addresses": 241,
+      "first_rom_addresses": [
+        "1F0",
+        "1DF",
+        "1CE",
+        "1BD",
+        "1AC",
+        "19B",
+        "18A",
+        "179"
+      ],
+      "first_wait_cycle": 1578,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 241,
+      "trace_digest": "9a3cffbdf5e026594c622847d25cdaf72ef5e4d282561bfb8ce6d9e99052240c"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F0",
+      "distinct_rom_addresses": 16,
+      "first_rom_addresses": [
+        "1F1",
+        "1E1",
+        "1D1",
+        "1C1",
+        "1B1",
+        "1A1",
+        "191",
+        "181"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1B1",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "1cd7672f1304ce1e44e4aa8336380233dfcc519064dcac3859c4913315b5407e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F1",
+      "distinct_rom_addresses": 239,
+      "first_rom_addresses": [
+        "1F2",
+        "1E3",
+        "1D4",
+        "1C5",
+        "1B6",
+        "1A7",
+        "198",
+        "189"
+      ],
+      "first_wait_cycle": 1570,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 239,
+      "trace_digest": "ee4b166c725aa6a8e08251431fb763da48540cffa55c54bd0b00f148fd6b126f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F2",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1F3",
+        "1E5",
+        "1D7",
+        "1C9",
+        "1BB",
+        "1AD",
+        "19F",
+        "191"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "17B",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "4a09b79ed572f082645d607df96fe193e1eb1a3714affe7b2a2580a55cca17f1"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F3",
+      "distinct_rom_addresses": 197,
+      "first_rom_addresses": [
+        "1F4",
+        "1E7",
+        "1DA",
+        "1CD",
+        "1C0",
+        "1B3",
+        "1A6",
+        "199"
+      ],
+      "first_wait_cycle": 1402,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 197,
+      "trace_digest": "26ebbdbeb7210fd4100e2cca863a82732b2b534d29083cca1de4bbed3f0f60c9"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F4",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1F5",
+        "1E9",
+        "1DD",
+        "1D1",
+        "1C5",
+        "1B9",
+        "1AD",
+        "1A1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "145",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "1fe008f823c195dc0a8585c1b3404d9a35a303359b9c4f44c147cc4e7a798b7f"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F5",
+      "distinct_rom_addresses": 163,
+      "first_rom_addresses": [
+        "1F6",
+        "1EB",
+        "1E0",
+        "1D5",
+        "1CA",
+        "1BF",
+        "1B4",
+        "1A9"
+      ],
+      "first_wait_cycle": 1266,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 163,
+      "trace_digest": "d897a820863e8ecf9cf99df56f9d8a5418b6b04c5b82945c6bd5bd3656b1a79d"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F6",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1F7",
+        "1ED",
+        "1E3",
+        "1D9",
+        "1CF",
+        "1C5",
+        "1BB",
+        "1B1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "10F",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "16ac1912975ad4d17f96f2bcfc18ae75eb2f80838d9bf9a59bf3cd91ffcb8190"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F7",
+      "distinct_rom_addresses": 57,
+      "first_rom_addresses": [
+        "1F8",
+        "1EF",
+        "1E6",
+        "1DD",
+        "1D4",
+        "1CB",
+        "1C2",
+        "1B9"
+      ],
+      "first_wait_cycle": 842,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 57,
+      "trace_digest": "4a32d8cf9cb0623b1a9c41e5b90024568715f12fcb8065b6c096675a4fd4996b"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F8",
+      "distinct_rom_addresses": 32,
+      "first_rom_addresses": [
+        "1F9",
+        "1F1",
+        "1E9",
+        "1E1",
+        "1D9",
+        "1D1",
+        "1C9",
+        "1C1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1D9",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "53afbff059d2cb8c5c64b25824b78484e63d5e435f4d134aa803220912a2f3f3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "F9",
+      "distinct_rom_addresses": 183,
+      "first_rom_addresses": [
+        "1FA",
+        "1F3",
+        "1EC",
+        "1E5",
+        "1DE",
+        "1D7",
+        "1D0",
+        "1C9"
+      ],
+      "first_wait_cycle": 1346,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 183,
+      "trace_digest": "9e9c424d8c17cadea1113a3d156914cbd1d1f495f3985a1c0ec49e91f941afad"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "FA",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1FB",
+        "1F5",
+        "1EF",
+        "1E9",
+        "1E3",
+        "1DD",
+        "1D7",
+        "1D1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "1A3",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "2861d55bb953f6dd8d9de89a1427ee4dd7b5c31426d0090fcb1ac378b614da4a"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "FB",
+      "distinct_rom_addresses": 205,
+      "first_rom_addresses": [
+        "1FC",
+        "1F7",
+        "1F2",
+        "1ED",
+        "1E8",
+        "1E3",
+        "1DE",
+        "1D9"
+      ],
+      "first_wait_cycle": 1434,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 205,
+      "trace_digest": "27480a06bd57219a5cbed0f009a80176b47d5dc2d37cf379b0686bd39b72ee84"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "FC",
+      "distinct_rom_addresses": 64,
+      "first_rom_addresses": [
+        "1FD",
+        "1F9",
+        "1F5",
+        "1F1",
+        "1ED",
+        "1E9",
+        "1E5",
+        "1E1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "16D",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "92bd3d8cbc5951ad43e24e08a47e3a8588b8a852b511254ec51b550c760d2931"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "FD",
+      "distinct_rom_addresses": 171,
+      "first_rom_addresses": [
+        "1FE",
+        "1FB",
+        "1F8",
+        "1F5",
+        "1F2",
+        "1EF",
+        "1EC",
+        "1E9"
+      ],
+      "first_wait_cycle": 1298,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 171,
+      "trace_digest": "d72d8162c9015210842533b190601bcd7df8d13fc8ca96dc3d06ca7f9e8f63a3"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "FE",
+      "distinct_rom_addresses": 128,
+      "first_rom_addresses": [
+        "1FF",
+        "1FD",
+        "1FB",
+        "1F9",
+        "1F7",
+        "1F5",
+        "1F3",
+        "1F1"
+      ],
+      "first_wait_cycle": null,
+      "last_rom_address": "137",
+      "parity": "even",
+      "pc12e_rom_reads": 613,
+      "trace_digest": "fe2929e0de0690e6aa6445f8069601a7ea13060a3a031c2dbdf3d247a2a5345e"
+    },
+    {
+      "candidate_output_visits": 0,
+      "d12c": "FF",
+      "distinct_rom_addresses": 1,
+      "first_rom_addresses": [
+        "100"
+      ],
+      "first_wait_cycle": 618,
+      "last_rom_address": "100",
+      "parity": "odd",
+      "pc12e_rom_reads": 1,
+      "trace_digest": "dbb6b981c06262c4091e8591d81d257be35cd75a0b76c2501552ce44d463018d"
+    }
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/assumed/execute.py": "26789430ee6f5a1029eadc15cbc91f277ae8a186eea8248d46a0bc636d9669d3",
+    "analysis/microcode/g2/photo_127_liveness.py": "cbab4e70ffe97b579d833b5e27751593d206f7459d962f525f730f52c875b33a",
+    "analysis/microcode/g2/photo_12c_phase_scan.py": "ec0322d4b839cbcc8ce27d4f051eaa4c9ecfd521353a78741cd31462ec45ad6f",
+    "analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf"
+  },
+  "status": "all 256 PC12C held inputs executed after D127=81 exit"
+}

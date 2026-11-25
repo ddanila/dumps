@@ -187,6 +187,17 @@ phases B–C turn "what" into "how".
   every even byte stays in the PC127 loop for the tested 3,000 instructions.
   The PC12C input is a constant scenario stub, so vary that source and the
   controller-frame selector before assigning these paths modem roles.
+  A [PC12C all-byte run](g2/PHOTO-12C-PHASE-SCAN.md) now shows a second exact
+  input-stepped ROM-address recurrence after the `81` exit. All odd held
+  PC12C bytes finish at phase zero and wait at 084; all even bytes keep the
+  second loop active for the 3,000-instruction fixture. No candidate output
+  word is reached. Feed a changing controller-derived PC12C source and trace
+  whether the selected ROM byte survives to state or an output latch.
+  A [paired PC12E bank test](g2/PHOTO-12C-BANK-LIVENESS.md) shows 251
+  different selected ROM/Y values and 69 carry-dependent R0 values, but
+  no state difference after the next PC12D. A changing PC12C input alone
+  therefore does not establish retained ROM feedback in this fixture;
+  test a photo-compatible latch at the transient site or another mapping.
 - **A4 Turn the reference algorithm into microcode signatures and re-score
   mappings.** For each candidate mapping, and for new ones the search may
   revive, test whether the microprogram contains:

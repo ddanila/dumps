@@ -38,6 +38,8 @@ the executed controller frames is a concrete candidate for switching from
 a sustained PC127 walk to a finite ROM scan. The next test should vary
 the PC12C input source and controller-frame-to-D127 selection while looking
 for a reached, changing DAC-bound byte; the present run has no such output.
+The [all-byte PC12C screen](PHOTO-12C-PHASE-SCAN.md) follows that input
+variation and finds a second input-stepped ROM-address recurrence.
 
 ```sh
 python3 nokia/data-modem-2400-2400/analysis/microcode/g2/photo_127_parity_exit.py
