@@ -1136,6 +1136,17 @@ phases B–C turn "what" into "how".
   narrows direct-byte residual sites under the fixed 128-sample fixture;
   next test a justified mode-controlled or separately latched receive route,
   and keep C3/C4 open without waiting for a physical continuity trace.
+  A [computed-call source screen](g2/RECEIVER-DISPATCH-SOURCE.md) now exposes
+  another fixture dependency: the long `D3F8` receive loop uses a constant
+  scenario index of 2 at `3EC`. Under the same map and seed, modeled Y or
+  previous-Y indices never visit `D3F8`, while a Q-derived index visits it
+  1,001 times for held `09` but only once for held `59`. On two complete
+  reference ADC streams, Q-derived dispatch also exits after one visit,
+  versus 24,000 visits under constant index 2. Before treating the
+  loop as a continuous receiver, constrain the `3EC` B-input source and
+  rerun nonperiodic samples under a surviving dispatch schedule. Keep the
+  constant-index results as conditional algorithm probes, not a physical
+  receiver or echo-canceller demonstration.
 
   Mappings that cannot express the transmitter's minimum operations are
   dropped. *This is the key change:* fields get scored by algorithmic meaning
