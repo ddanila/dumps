@@ -30,14 +30,18 @@ half-turns in the aligned decision window.
 
 This is evidence that one *candidate* microcode path can carry both training
 segments continuously under the stated inputs. The controller does not emit
-the hypothetical A3 dibits in port-01 writes. Their source and exact
-32-symbol duration, the D127 pulse gate, DAC latch clock/bus and analog line
-route remain assumptions. The matched-filter decisions are made by an
+the hypothetical A3 dibits in port-01 writes. The
+[8251A sync-fill audit](USART-SYNC-FILL-SEGMENT1.md) now gives a concrete
+candidate source: programmed `FF` sync characters automatically transmitted
+while the USART data buffer is empty. **This replay omitted the first A4
+serial bit** between its 64-bit fill and standard segment-2 windows, so it
+does not prove raw TxD continuity at the boundary. The actual fill duration,
+D127 pulse gate, DAC latch clock/bus and analog line route remain assumptions.
+The matched-filter decisions are made by an
 independent reference decoder, not the DSC receiver. C2, C3 and C4 remain
-open. The next test should seek a state-dependent idle source or decoder
-consistent with the photographed logic and the observed A3 frame, then
-exercise its actual timing against the same continuous PROM path. Missing
-net continuity does not block that experiment. The
+open. The next test should resolve the bridge bit's symbol timing and
+candidate input pairing, with the `FF`-fill USART behavior made explicit.
+Missing net continuity does not block that experiment. The
 [machine report](results/photo-segment1-to-segment2-continuous.json) records
 the four traces, sample digests, phase checkpoints, bus scores and source
 hashes.

@@ -1,0 +1,171 @@
+{
+  "cases": [
+    {
+      "a4_bytes": [
+        "F9",
+        "07",
+        "F8",
+        "1C",
+        "1C",
+        "F0",
+        "81",
+        "31"
+      ],
+      "executed_a3_port01_writes": 0,
+      "executed_port05_reprogramming_writes": 0,
+      "fill_characters": 8,
+      "fill_symbol_count": 32,
+      "first_a4_bit_bridge": 1,
+      "first_a5_byte": "FC",
+      "polynomial": "GPC",
+      "prior_dsc_replay_omits_bridge_bit": true,
+      "raw_pairing_projections": [
+        {
+          "errors_by_12_candidate_buses": [
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15
+          ],
+          "first_bit_offset": 0,
+          "input_dibit_mismatches": 15
+        },
+        {
+          "errors_by_12_candidate_buses": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "first_bit_offset": 1,
+          "input_dibit_mismatches": 0,
+          "real_prom_microinstructions": 768256,
+          "real_prom_pc129_visits": 192054,
+          "real_prom_selected_bus_sample_sha256": "514483a6f882133ee0900c8c1b37a6ff926a2f8c58775d63c467f68dd8ac2385",
+          "real_prom_trace_digest": "a44ac1b639548c1b899248ab7e092469f6e2798f8391d3f2abffdf84f90317e5"
+        }
+      ],
+      "segment1_ones": 64,
+      "selector": "40",
+      "standard_segment2_bits": 64,
+      "standard_segment2_starts_at_stream_bit": 65
+    },
+    {
+      "a4_bytes": [
+        "F8",
+        "07",
+        "F8",
+        "9C",
+        "0F",
+        "C2",
+        "09",
+        "D9"
+      ],
+      "executed_a3_port01_writes": 0,
+      "executed_port05_reprogramming_writes": 0,
+      "fill_characters": 8,
+      "fill_symbol_count": 32,
+      "first_a4_bit_bridge": 0,
+      "first_a5_byte": "D9",
+      "polynomial": "GPA",
+      "prior_dsc_replay_omits_bridge_bit": true,
+      "raw_pairing_projections": [
+        {
+          "errors_by_12_candidate_buses": [
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "first_bit_offset": 0,
+          "input_dibit_mismatches": 16
+        },
+        {
+          "errors_by_12_candidate_buses": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "first_bit_offset": 1,
+          "input_dibit_mismatches": 1,
+          "real_prom_microinstructions": 768256,
+          "real_prom_pc129_visits": 192054,
+          "real_prom_selected_bus_sample_sha256": "afb0897145538a6754304d0535beaabde67ffc0853513c6074ec3f722daa6726",
+          "real_prom_trace_digest": "114afffa9526c0e30401e01a8a038842a7d264c3a6d0fb06bda2ce8798483a06"
+        }
+      ],
+      "segment1_ones": 64,
+      "selector": "60",
+      "standard_segment2_bits": 64,
+      "standard_segment2_starts_at_stream_bit": 65
+    }
+  ],
+  "datasheet": "Intel 8251A datasheet, synchronous-mode transmission and mode/command formats; CTS and Tx clock are assumed active",
+  "limitations": [
+    "The main-loop fixture starts after startup; it verifies no later port-05 writes but does not itself execute the startup USART configuration.",
+    "8251A CTS level, Tx clock, actual A3 fill duration and physical TxD-to-DSC route are not traced.",
+    "The prior 64-symbol DSC replay concatenates the FF-fill and standard segment-2 windows while omitting the first A4 bit; it is a conditional input test, not an exact raw TxD replay.",
+    "Raw bit pairing is a model projection at a fixed offset. The offset-1 GPA case is executed through the real PROM; the offset-0 cases are reconstructed from a previously validated q3 ROM/Y model."
+  ],
+  "source_sha256": {
+    "am27s31dc-prom/nokia-modem-am27s31dc.bin": "312fa21f50203c7b84ec0a4b4aea62ca343b2a579c38687111342368b1f04d58",
+    "analysis/microcode/g2/controller_segment2_pattern.py": "3a547b9b4104fa940ec835dc13c1a2e4b624def72164107720bcb0b56b62ecf9",
+    "analysis/microcode/g2/main_loop_probe.c": "5c2ed6612890c4484ba81858356cbff76fdb9420a74eade23ce1215e65147ed1",
+    "analysis/microcode/g2/main_loop_timer1_segment2.py": "8cfdbfe692955c88ee84572913099a83ade444fa67bad64f6bda5543cc90c335",
+    "analysis/microcode/g2/photo_dac_bus_permutations.py": "7032d9a809229467df736d417d5c2a36a9ff6d04a0f83c9271627f106507f4ab",
+    "analysis/microcode/g2/photo_mapping_q_sweep.py": "7ced3da6148d712bffc2cfba0bcf705c699f13f7405e69c81a93f70de99f9b26",
+    "analysis/microcode/g2/photo_mapping_stream_screen.py": "bbd1032dc0a1f627b39dc092845ae5cae2ef675772c9def73dd7cd719e9aa1b0",
+    "analysis/microcode/g2/photo_segment1_to_segment2_continuous.py": "9b0a456f1912af006902e98408f0e35a6963b2275f95e44e1ed3d3b8b294868c",
+    "analysis/microcode/g2/results/main-loop-timer1-segment2.json": "d52207b59024b1d6da3618bf4bce778d6b27df8b717b74c1d440deef44c78adc",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/photo-segment1-to-segment2-continuous.json": "28573e3d354cf5abf445953a6916c8e18705bb4397bc14f2937ffd3089e40de2",
+    "analysis/microcode/g2/usart_sync_fill_segment1.py": "a5d0a0dd1c10cb5d09684aa045e153dba11e8817da5237b3f7e0ec310de6191a",
+    "analysis/results/controller-linear.asm": "24a79b7ee8562f340255869e8287fb62c9c4906dcf833e49d5cea2957668cc30",
+    "analysis/results/controller-program-study/report.json": "c8f23b3b786235ee2765e2972d4cfacf72ec7aa1a4b15a91583e1ac2aa8eb3fa",
+    "controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038"
+  },
+  "startup_configuration": {
+    "command": "15",
+    "control_address": "05",
+    "eight_data_bits": true,
+    "mode": "CC",
+    "one_sync_character": true,
+    "sync_character": "FF",
+    "sync_mode": true,
+    "transmit_enabled": true
+  },
+  "status": "8251A automatic FF sync fill is a concrete candidate source for A3 repeated-11 dibits; the first A4 bit remains a boundary bridge absent from prior DSC replay"
+}

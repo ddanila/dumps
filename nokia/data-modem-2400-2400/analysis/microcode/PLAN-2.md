@@ -115,8 +115,19 @@ phases B–C turn "what" into "how".
   decode 62/62 aligned decisions, with the required A3 half-turns and no
   phase reset at A4. An unmodulated `00` control misses 31 decisions.
   This demonstrates conditional continuity, not the physical A3 source or
-  line output. Next seek a photo-compatible state-dependent idle source or
-  decoder and test its timing in the same uninterrupted path; G2 stays active.
+  line output. The [8251A sync-fill audit](g2/USART-SYNC-FILL-SEGMENT1.md)
+  supplies a concrete source for the assumed `11` dibits: the controller
+  programs `FF` as the synchronous USART's single fill character, and the
+  8251A sends it automatically when no data character is available. The
+  executed A3 interval has no data writes or USART reprogramming. Its first
+  A4 byte contributes one extra bit (`1` for GPC, `0` for GPA) before the
+  exact segment-2 window; the prior DSC replay omitted that bridge bit.
+  A raw-bit pairing screen gives 0/62 aligned errors for GPC at bit offset 1,
+  but **1/62 for GPA** at that offset; offset 0 gives 15 and 16 errors.
+  The GPA offset-1 input was checked in a fresh 768,256-word PROM run.
+  Next test the bridge's symbol timing or a photo-compatible decoder rather
+  than silently dropping it. CTS, Tx clock and the physical DSC route remain
+  assumptions; G2 stays active.
 - **A2 Define the controller-to-DSP command interface.**
   - Decide what tells the DSP "send 2100 Hz", "send reversals", "send data at
     1200/2400", "train/freeze echo canceller" and "call/answer". The leading
