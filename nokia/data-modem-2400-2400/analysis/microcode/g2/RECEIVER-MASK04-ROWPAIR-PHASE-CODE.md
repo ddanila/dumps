@@ -55,6 +55,10 @@ The quadrant lookup and differential subtraction in this experiment are
 external diagnostics; no executed DSC instruction or photographed logic
 has yet been shown to turn these two bytes into USART-01 RxD. Nor has the
 ADC path or U19/U12 latch wiring been continuity-verified. C3 remains open.
+The [changed-input-level replay](RECEIVER-MASK04-ROWPAIR-LEVEL-CHECK.md)
+shows that this frozen eight-state lookup does not generalize to a 0.75-gain
+waveform that the independent receiver still decodes. It is a phase-state
+lead at one input level, not a complete decision rule.
 The next test is to identify an executed or photo-compatible consumer of
 the row-0/row-3 state and test its bit at USART timing, including a changed
 input-level fixture. The [machine report](results/receiver-mask04-rowpair-phase-code.json)

@@ -551,6 +551,12 @@ labelled mask-`04` receive fixture. The lookup and subtraction are external;
 find a photo-compatible or executed consumer and its USART timing before
 claiming C3. Test another input level rather than treating the untraced
 consumer as a blocker.
+The [changed-level check](g2/RECEIVER-MASK04-ROWPAIR-LEVEL-CHECK.md) now
+does that input test: a 0.75-gain, unclipped reference waveform remains
+decodable, but the frozen eight-state lookup recognizes only 2/24 paired
+transitions and gets both wrong. Seek an executed threshold/gain-control
+consumer or a generalizing stateful decision; do not treat the original
+0/96 error result as a C3 pass.
 The [phase-nibble follow-up](g2/RECEIVER-MASK04-LATCHED-NIBBLE-PHASE.md)
 also fails to decode the captured Y[3:0] as a fixed-phase differential
 symbol across independent streams. Keep the conditional latch experiment,

@@ -1,0 +1,155 @@
+{
+  "cases": [
+    {
+      "bias": 0,
+      "captured_sha256": "c0f25ac131169a8e9f3b681c9cd19cabdf6ae585eecbfa627ff0f220d905c58a",
+      "clipped_pcm_samples": 0,
+      "distinct_row_pairs": 34,
+      "gain": 0.75,
+      "input_adc_sha256": "b9e17fa8bb56a2e1aaa34748d72c8471558a48e078e99c3a31ea0f7c7b155f3d",
+      "row1_nonzero": 0,
+      "row2_nonzero": 0,
+      "score": {
+        "checks": 12,
+        "errors": 2,
+        "known": 2,
+        "unknown": 10
+      },
+      "stream_index": 0,
+      "trace_digest": "139561575f04e861f1cdf9ad502dee342abff15df67a8e41dc3b1c5c3f9aba7b"
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "102df65cd54ff14caf6a352480dcaf027c8a4f3a57562c2c3f91be9914072a1f",
+      "clipped_pcm_samples": 0,
+      "distinct_row_pairs": 36,
+      "gain": 0.75,
+      "input_adc_sha256": "e6cccbd88cd341f7bcc106974d67fa8a6af755c0096c086e9b8c99d9203a1c7d",
+      "row1_nonzero": 0,
+      "row2_nonzero": 0,
+      "score": {
+        "checks": 12,
+        "errors": 0,
+        "known": 0,
+        "unknown": 12
+      },
+      "stream_index": 6,
+      "trace_digest": "10a713a649ef6903eb1b7dffdd47abe818bd87d5012a32a80371dba10804d3c0"
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "6f9987fd0424ab7aff3868e3dadb6d92a0ee993b6a347f851a100d96ac1bb256",
+      "clipped_pcm_samples": 78,
+      "distinct_row_pairs": 34,
+      "gain": 1.25,
+      "input_adc_sha256": "e3dc78a2d8ad0e4a1d9b1e404e6be883d9430df18dbfb0525a38e31c13ac6d4c",
+      "row1_nonzero": 0,
+      "row2_nonzero": 0,
+      "score": {
+        "checks": 12,
+        "errors": 0,
+        "known": 10,
+        "unknown": 2
+      },
+      "stream_index": 0,
+      "trace_digest": "515acc0b4e994575bc44563c2a44a82e7843cbcfd414c049082db8cc41b890dc"
+    },
+    {
+      "bias": 0,
+      "captured_sha256": "695a947bbe98c5b869f582fedd706511ed77514426d7bfbfc872e51f845c4ccc",
+      "clipped_pcm_samples": 78,
+      "distinct_row_pairs": 35,
+      "gain": 1.25,
+      "input_adc_sha256": "151483ee43a0cd579b22392398728f759db6feee8aba29a110781f8e08c9440a",
+      "row1_nonzero": 0,
+      "row2_nonzero": 0,
+      "score": {
+        "checks": 12,
+        "errors": 0,
+        "known": 11,
+        "unknown": 1
+      },
+      "stream_index": 6,
+      "trace_digest": "5852aa13a680d51041e4692e15c158714dfb5897198f6c0043fe5a36719cfb72"
+    },
+    {
+      "bias": 16,
+      "captured_sha256": "27b45f23ccb839cdff4e1717e8ad97fa0f89b8691027417f977ae3ecefaf1a58",
+      "clipped_pcm_samples": 35,
+      "distinct_row_pairs": 41,
+      "gain": 1.0,
+      "input_adc_sha256": "23df2d4e342a6f6bf7198c6462dd77254a753a269f87a5fdf7ea24a26a445cac",
+      "row1_nonzero": 0,
+      "row2_nonzero": 0,
+      "score": {
+        "checks": 12,
+        "errors": 4,
+        "known": 6,
+        "unknown": 6
+      },
+      "stream_index": 0,
+      "trace_digest": "c7bc012b340d3372d3154022bb5e6c7eaad4b0919f1805c86dee244868bc8593"
+    },
+    {
+      "bias": 16,
+      "captured_sha256": "d771b6768fa4b0149b6ff5b14ba63042e8c43cbdb7d2be87b941a8deda0654b0",
+      "clipped_pcm_samples": 37,
+      "distinct_row_pairs": 43,
+      "gain": 1.0,
+      "input_adc_sha256": "bf6d592271ccaa28461285e46cc57d5c9c7bb6e8644968735f838bfdc54ce2ee",
+      "row1_nonzero": 0,
+      "row2_nonzero": 0,
+      "score": {
+        "checks": 12,
+        "errors": 0,
+        "known": 4,
+        "unknown": 8
+      },
+      "stream_index": 6,
+      "trace_digest": "e6cb618aba67804334de12cc4ae31cb67e1e8ca10ccb8b1fb8f53c3ad59766c9"
+    }
+  ],
+  "experiment": "frozen mask-04 row-pair phase-code readout under gain and bias changes",
+  "fixture": {
+    "adc": "complement of changed signed PCM, 47/46 visits per sample",
+    "full_prom_cycles_per_case": 192047,
+    "gains_and_biases": [
+      [
+        0.75,
+        0
+      ],
+      [
+        1.25,
+        0
+      ],
+      [
+        1.0,
+        16
+      ]
+    ],
+    "stream_indexes": [
+      0,
+      6
+    ],
+    "training": "eight-state phase codebook from the prior unmodified-level three-stream training only"
+  },
+  "limitations": [
+    "The reference matched filter proves the changed-level stimuli remain decodable, not that the DSC output reaches USART RxD.",
+    "The eight-state codebook and differential decision are external; no gain adaptation is modeled.",
+    "ADC routing, four-row dispatch, PROM latch and physical output remain assumptions."
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "analysis/microcode/g2/receiver_mask04_3ed_prom_latch.py": "105ea21dd5061074aaa66453d82821a5961722ef008f91354c98ab5502befa72",
+    "analysis/microcode/g2/receiver_mask04_rowpair_level_check.py": "a4725926e28b6351f976f0f55716e3dc0549ab6994a163a66efac2cbc6143bd2",
+    "analysis/microcode/g2/receiver_mask04_rowpair_phase_code.py": "c69e2637d54d3e6e3bc105fa9746172d06cf42d333e062cee66d7af4b97e40a2",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/receiver-mask04-rowpair-phase-code.json": "fede476155873cf3a95cfc6e0e8cd83f0fe9e17e7d31aa599c6a00833d58fc87",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

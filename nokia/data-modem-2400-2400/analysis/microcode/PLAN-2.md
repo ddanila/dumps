@@ -1158,6 +1158,13 @@ phases B–C turn "what" into "how".
   lookup/subtraction is external and no USART RxD consumer is identified.
   Test an executed or photo-compatible row-pair consumer and input-level
   variation before passing C3; G2 remains active.
+  The [changed-level receive replay](g2/RECEIVER-MASK04-ROWPAIR-LEVEL-CHECK.md)
+  tests the frozen eight-state lookup in six more full-PROM runs. At 0.75
+  gain, with no clipped PCM samples, it recognizes only 2/24 transitions
+  and both decisions are wrong, although the independent reference receiver
+  still decodes the waveforms. The lookup is therefore specific to its
+  original ADC level. Seek an executed adaptation/decision or a separately
+  validated normalized readout; C3 remains open without blocking on wiring.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
