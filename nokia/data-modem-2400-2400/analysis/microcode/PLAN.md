@@ -59,6 +59,12 @@ external lookup still leaves five fresh data transitions unknown. Keep
 those as explicit missing cases, and test an executed or small
 photo-compatible consumer of the two captures before treating this as a
 USART bit route. The missing net trace does not pause that experiment.
+The [phase-state audit](g2/RECEIVER-MASK04-PHASE-STATE-AUDIT.md) rules out
+one tempting small consumer: a fixed phase label for each four-bit state
+plus a constant symbol advance. Self-transitions force a 180° advance,
+but an observed three-edge cycle contradicts that model. Seek direct
+pair-to-dibit logic or additional retained/timing state; do not infer a
+simple absolute-phase latch from the transition lookup.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase

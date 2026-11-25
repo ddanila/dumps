@@ -1299,6 +1299,12 @@ phases B–C turn "what" into "how".
   external and the five unseen transitions are unresolved. Seek an
   executed or small photo-compatible consumer before repeating the USART
   handoff; C3 remains open and G2 active without a continuity prerequisite.
+  The [fixed-phase-state audit](g2/RECEIVER-MASK04-PHASE-STATE-AUDIT.md)
+  excludes a 16-entry absolute-phase table plus constant advance: 696
+  same-state `11` reversals force a two-quadrant advance, while observed
+  transitions `0→4→8→0` require a nonzero net state-phase change. A
+  direct transition decision or extra retained/timing state remains
+  testable; this negative result does not block C3.
   A [mask-04 TEST-source audit](g2/RECEIVER-MASK04-FLAG-CONDITION.md) checks
   all 16 zero/sign/carry/overflow, current/previous and polarity choices.
   Only inverted previous sign, carry and overflow sustain all four rows
