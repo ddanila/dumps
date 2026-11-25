@@ -46,6 +46,8 @@ without losing the tested full transmitter behavior under this field map.
 
 The receive comparison also records 234 changed TEST values at `3EA`
 under mask `04`, but no changed TEST at looping `3ED` and no changed PC.
+The executed `3EA` command is PLP (`5`), which does not branch on TEST in
+the sequencer model; those changed levels are not a receive decision.
 It has not recovered a bit or an echo-cancelled residual. The DAC clock,
 bus and analog line path remain candidates, so C2 is still conditional;
 the ADC route, TEST wiring, decision readout and USART RxD route keep C3

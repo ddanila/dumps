@@ -30,6 +30,13 @@ external diagnostics, not executed DSC code. The U19/U12 pins and USART
 four-row arithmetic or another photo-compatible output path rather than
 assigning this nibble a demodulator role from its shape alone.
 
+The related 234 changed TEST levels at `3EA` in the
+[joint-map comparison](JOINT-FOUR-ROW-RETENTION-TX.md) do not supply the
+missing decision: `3EA` executes PLP (`5`), whose next PC does not depend
+on TEST. The conditional loop word `3ED` had no TEST difference between
+the paired waveforms. This makes an output latch or a different
+condition/input mapping the relevant next path to test.
+
 The [machine report](results/receiver-mask04-latched-nibble-phase.json)
 records the search, trace and capture hashes, holdout/fresh scores and
 source hashes. Reproduce with
