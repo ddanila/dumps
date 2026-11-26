@@ -42,6 +42,12 @@ hashes and all tone/data scores are identical. Do not treat upper-bank
 where `129` first affects retained state or a selected operand next while
 keeping the DAC line path open. The separate `12E` bank control makes no
 difference because `12E` is never visited in these sustained streams.
+The [first-difference trace](g2/JOINT-MASK04-TX-ROM-IMPACT.md) shows
+1,014 changed selected `129` ROM bytes in 4,096 executed tone-loop
+cycles. They change ALU `f` and register writes, plus 221 transient
+`12A` Y lower bytes; Y7, Q and PC path remain equal. Do not describe
+the ROM as ignored. Seek the actual latch source or a mode where the
+changed internal state reaches a measured output.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)

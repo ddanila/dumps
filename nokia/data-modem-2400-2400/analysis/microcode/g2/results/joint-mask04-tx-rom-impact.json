@@ -1,0 +1,260 @@
+{
+  "differences": {
+    "alu_f": {
+      "by_pc": {
+        "129": 951,
+        "12A": 221
+      },
+      "count": 1172,
+      "first_cycles": [
+        42,
+        46,
+        50,
+        54,
+        58,
+        62,
+        66,
+        70
+      ]
+    },
+    "alu_y": {
+      "by_pc": {
+        "12A": 221
+      },
+      "count": 221,
+      "first_cycles": [
+        71,
+        75,
+        83,
+        103,
+        143,
+        155,
+        159,
+        199
+      ]
+    },
+    "alu_y7": {
+      "by_pc": {},
+      "count": 0,
+      "first_cycles": []
+    },
+    "flags": {
+      "by_pc": {
+        "129": 474
+      },
+      "count": 474,
+      "first_cycles": [
+        62,
+        66,
+        70,
+        74,
+        82,
+        102,
+        114,
+        122
+      ]
+    },
+    "next_pc": {
+      "by_pc": {},
+      "count": 0,
+      "first_cycles": []
+    },
+    "pc": {
+      "by_pc": {},
+      "count": 0,
+      "first_cycles": []
+    },
+    "q": {
+      "by_pc": {},
+      "count": 0,
+      "first_cycles": []
+    },
+    "registers": {
+      "by_pc": {
+        "128": 221,
+        "129": 951,
+        "12A": 221
+      },
+      "count": 1393,
+      "first_cycles": [
+        42,
+        46,
+        50,
+        54,
+        58,
+        62,
+        66,
+        70
+      ]
+    },
+    "rom_byte": {
+      "by_pc": {
+        "129": 1014
+      },
+      "count": 1014,
+      "first_cycles": [
+        42,
+        46,
+        50,
+        54,
+        58,
+        62,
+        66,
+        70
+      ]
+    }
+  },
+  "experiment": "first selected-ROM-bank effect in the joint mask04 transmitter",
+  "final_states": {
+    "lower": {
+      "pc": 295,
+      "previous_y": 161,
+      "q": 128,
+      "ram": [
+        177,
+        162,
+        112,
+        0,
+        246,
+        0,
+        0,
+        0,
+        0,
+        254,
+        240,
+        255,
+        0,
+        0,
+        0,
+        81
+      ],
+      "sp": 1,
+      "stack": [
+        null,
+        284,
+        295,
+        null
+      ]
+    },
+    "upper": {
+      "pc": 295,
+      "previous_y": 161,
+      "q": 128,
+      "ram": [
+        177,
+        162,
+        112,
+        0,
+        246,
+        0,
+        0,
+        0,
+        0,
+        254,
+        240,
+        255,
+        0,
+        0,
+        0,
+        81
+      ],
+      "sp": 1,
+      "stack": [
+        null,
+        284,
+        295,
+        null
+      ]
+    }
+  },
+  "first_difference": {
+    "cycle": 42,
+    "lower": {
+      "alu": {
+        "carry": 1,
+        "f": 86,
+        "overflow": 0,
+        "sign": 0,
+        "y": 118,
+        "zero": 0
+      },
+      "registers": {
+        "0": 86
+      },
+      "rom": {
+        "address": 122,
+        "selected_by_alu": true,
+        "status": "hypothesis",
+        "value": 22
+      }
+    },
+    "pc": "129",
+    "upper": {
+      "alu": {
+        "carry": 1,
+        "f": 102,
+        "overflow": 0,
+        "sign": 0,
+        "y": 118,
+        "zero": 0
+      },
+      "registers": {
+        "0": 102
+      },
+      "rom": {
+        "address": 378,
+        "selected_by_alu": true,
+        "status": "hypothesis",
+        "value": 4
+      }
+    }
+  },
+  "fixture": {
+    "bank_lower": 0,
+    "bank_upper": 256,
+    "cycles": 4096,
+    "offered_tone_visits": 1200,
+    "pc127_tone_byte": 136,
+    "pc12e_bank": 256
+  },
+  "free_clock_sample_window": {
+    "0": {
+      "visits": 3,
+      "y_differences": 0
+    },
+    "1": {
+      "visits": 3,
+      "y_differences": 0
+    },
+    "2": {
+      "visits": 3,
+      "y_differences": 0
+    },
+    "3": {
+      "visits": 3,
+      "y_differences": 0
+    }
+  },
+  "limitations": [
+    "This is the first 4,096 cycles of an assumed controller-fed tone-mode route.",
+    "It tests a selected ROM-bank intervention, not the physical A8 net or DAC path."
+  ],
+  "selected_pc129_reads": 1014,
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_four_row_retention_tx.py": "58c1024ab797271fa9a810423538339d871e22c3ee3683d1e1b62f6771988970",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_rom_impact.py": "4c2bfde8f126b1fad3becb9f44a4ced6a8d868c5afae310eeeef707f48196d0c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_controller_path.py": "b4f4ef84ddce54e77913c85b4be248a5dca10fb09bc56700c172af253ca0fe32",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_i0_hold_screen.py": "2abe0168bff2de8693b44960af4987f4aaa9c43a715e524510056c871cf7767c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/split_slice_probe.py": "b327f3193df6b72d79d57906f76aedf6877dd39da65fb57f4de91ecae21538f1",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "traces": {
+    "lower": "9041d7fc0ee14ce7c2296435455f067888e8176bbd75d9e36e2e782a84c4c7ac",
+    "upper": "862719cb678afbc43de3b7a9490d66a5897775cf8abb35c67b45d815ecb82c81"
+  }
+}

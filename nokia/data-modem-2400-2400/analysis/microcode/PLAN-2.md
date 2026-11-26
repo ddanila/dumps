@@ -1858,6 +1858,12 @@ Listed in order of value per effort:
   candidate waveform. Inspect where a changed `129` operand first reaches
   retained state before attributing carrier generation to that ROM region;
   C2 remains open pending a constrained DAC/line route.
+  The [short differential trace](g2/JOINT-MASK04-TX-ROM-IMPACT.md)
+  establishes why: all 1,014 selected `129` ROM values change in a
+  4,096-cycle tone-window test, changing ALU `f` and temporary writes,
+  while Y7 and the program path do not. Transient `12A` Y lower bits do
+  change, so the operand is active internally; the tested candidate
+  MSB output is simply insensitive to this bank choice.
 - **C3 Receive test.** Encode reference line samples as ADC0800 complementary
   bytes under an explicit reference range and conversion schedule, feed them
   through the identified input path, and check that recovered bits reach the

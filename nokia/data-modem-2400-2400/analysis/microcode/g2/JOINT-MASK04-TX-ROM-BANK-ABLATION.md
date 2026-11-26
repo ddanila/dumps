@@ -25,6 +25,11 @@ its unchanged trace is not evidence about `12E`'s function in another
 mode. This does not show that the Am27S31 as a whole is irrelevant:
 the choice of address, timing and other microcode operations can still
 affect the output. The DAC clock, bus and analog line route remain assumed.
+The [first-difference trace](JOINT-MASK04-TX-ROM-IMPACT.md) shows that
+the selected `129` byte does change ALU `f`, register writes and some
+transient `12A` Y lower bits. Y7 and the proposed sampled Y bytes stay
+unchanged. The ROM operand is active internally even though this
+candidate output is insensitive to the bank switch.
 
 The result narrows the C2 mechanism before further physical-route work.
 Next inspect where the `129` operand first affects internal state and

@@ -64,6 +64,12 @@ operand bank changes the executed trace but not one of the captured
 candidate Y samples in either full controller stream. The upper-bank
 choice is therefore not evidence that those ROM bytes generate the
 carrier in this fixture. `12E` has zero visits in these streams.
+The [first-difference trace](../g2/JOINT-MASK04-TX-ROM-IMPACT.md)
+confirms that each selected `129` byte changes, affects ALU `f` and
+temporary register writes, and sometimes changes `12A` Y lower bits.
+Y7 remains equal throughout the tested tone window. This preserves
+the distinction between active ROM arithmetic and the proposed output
+bit's insensitivity to that bank change.
 
 The [two-visit selector](../g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
 recovers the tested 45° grid streams from these receive-side outputs, but
