@@ -127,6 +127,17 @@ opposite-selector controls stay at `AF`. Freeze this fallback and test a
 separate non-zero payload holdout before claiming generalization. The
 DAC/ADC/decision/USART routes remain hypothetical, so C2/C3 stay open
 and G2 active.
+The [non-zero full-byte holdout](g2/JOINT-MASK04-FULL-BUS-PAYLOAD-HOLDOUT.md)
+now freezes that bus and fixed-first readout on two eight-byte streams
+recorded before the fallback was proposed. Both real-PROM Tx/Rx runs at
+both candidate latch words recover all 32 data dibits and exact bytes;
+the answer stream covers all 16 adjacent-dibit transitions. Fixed 46/93
+abstains twice for call and nine times for answer, while the margin
+selector's one answer error is overridden by a known fixed decision.
+This strengthens the conditional full-byte Tx/Rx dataflow, but the
+readout circuit, DAC/ADC wiring, clocks, analog line and USART path remain
+unverified. Test gain/phase robustness and photo-compatible decision
+hardware; C2/C3 stay open and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.

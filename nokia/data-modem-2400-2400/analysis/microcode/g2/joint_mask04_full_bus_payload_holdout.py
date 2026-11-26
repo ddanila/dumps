@@ -1,0 +1,138 @@
+"""Hold out non-zero payloads for the committed full-byte DAC/receive rule."""
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+from unittest.mock import patch
+
+HERE = Path(__file__).resolve().parent
+sys.path[:0] = [str(HERE.parent / 'assumed'), str(HERE)]
+
+from common import save
+import joint_mask04_buffered_dac_bus as bus
+import joint_mask04_buffered_full_bus_loopback as joined
+import joint_mask04_buffered_payload_challenge as payloads
+import joint_mask04_buffered_serial_handoff as buffered
+import joint_mask04_full_zero_handoff as full
+import joint_mask04_tx_rx_loopback as loopback
+from receiver_mask04_adc_margin_selector import PAIRS, select
+from receiver_mask04_dual_feature_consensus import consensus, decisions
+from receiver_mask04_dual_zero_handoff import frozen_tables
+from receiver_mask04_feature_choice import alternative_states
+from receiver_mask04_four_bit_transition import states_from_symbols
+from receiver_mask04_long_pair_union import classify
+from receiver_mask04_offset_visit_phase import project
+from receiver_mask04_serial_candidate import bytes_lsb_first
+from reference_modem import receive
+
+PRIOR = HERE / 'results/joint-mask04-buffered-payload-challenge.json'
+
+
+def bytes_from_decisions(decisions_):
+    data = decisions_[33:]
+    if len(data) != 32 or any(value is None for value in data):
+        return None
+    return bytes_lsb_first([
+        bit for symbol in data for bit in (symbol & 1, (symbol >> 1) & 1)])
+
+
+def run(out=HERE / 'results/joint-mask04-full-bus-payload-holdout.json'):
+    prior = json.loads(PRIOR.read_text())
+    primary, alternative = frozen_tables()
+    mapping = full.candidate(full.mapping_with_upper_source(0, '17.6'),
+                             full.mapped(full.MAPPINGS['q3']), 4)
+    _, base = full.fixture()
+    paths = (Path(__file__), PRIOR, Path(bus.__file__), Path(joined.__file__),
+             Path(payloads.__file__), Path(buffered.__file__),
+             Path(full.__file__), Path(loopback.__file__))
+    report = dict(experiment='independent non-zero payload holdout for full-DAC-byte joined PROM readout',
+                  fixture=dict(payloads='frozen in earlier one-bit-DAC challenge',
+                               permutation=joined.ORDER,
+                               sample_sites=('127', '129'),
+                               fallback='committed 46/93 when known, otherwise frozen margin selector',
+                               analog='same full-byte mid-code A2 gate, Q=1 filter, six-sample alignment',
+                               tx_cycles=buffered.TX_CYCLES,
+                               rx_cycles=buffered.RX_CYCLES),
+                  cases=[],
+                  limitations=[
+                      'The payloads are independent of full-byte fallback fitting but the two paths share the same modeled board and analog fixture.',
+                      'The physical DAC/ADC, latch clock, line filter, receiver decision circuit and USART route remain untraced.',
+                      'These arbitrary line bytes test Tx/Rx recovery, not a completed 8031 zero-run protocol handoff.'],
+                  source_sha256={str(path.relative_to(HERE.parents[4])):
+                                 hashlib.sha256(path.read_bytes()).hexdigest()
+                                 for path in paths})
+    for selector, offered in payloads.PAYLOADS:
+        prior_case = next(c for c in prior['cases'] if c['selector'] == selector)
+        if offered.hex(' ').upper() != prior_case['offered_line_bytes']:
+            raise ValueError('held-out payload changed')
+        tx, raw_by_site, dibits = bus.samples(mapping, base, offered)
+        if hashlib.sha256(bytes(value >> 7 for value in raw_by_site[0x127])).hexdigest() != prior_case['tx_y7_sha256']:
+            raise ValueError('full-byte run differs from saved one-bit Y7 source')
+        expected = [3] * 33 + dibits
+        for site in ('127', '129'):
+            raw = raw_by_site[int(site, 16)]
+            codes, pcm, gain = joined.analog(raw)
+            reference = receive(pcm)
+            if len(reference) != len(expected) - 1:
+                raise ValueError('reference decoder window incomplete')
+            reference_wrong = [index + 1 for index, (actual, want) in
+                               enumerate(zip(reference, expected[1:]))
+                               if actual != want]
+            with patch.object(loopback, 'DATA', buffered.PIPELINE_SYMBOLS +
+                              buffered.DATA_SYMBOLS), \
+                    patch.object(loopback, 'SYMBOLS', buffered.RX_SYMBOLS), \
+                    patch.object(loopback, 'ADC_VISITS', buffered.ADC_VISITS), \
+                    patch.object(loopback, 'CYCLES', buffered.RX_CYCLES):
+                rx, adc, symbols = loopback.capture(mapping, base, pcm, expected)
+            predictions = {}
+            for pair in PAIRS:
+                projected = project(symbols, *pair)
+                first = decisions(states_from_symbols(projected), primary)
+                second = decisions(alternative_states(projected), alternative)
+                predictions[pair] = consensus(first, second)
+            picked, selected = select(pcm, predictions)
+            fixed = predictions[(46, 93)]
+            fallback = [value if value is not None else picked[index]
+                        for index, value in enumerate(fixed)]
+            recovered = bytes_from_decisions(fallback)
+            scores = {f'{a}/{b}': classify(predictions[(a, b)], expected)
+                      for a, b in PAIRS}
+            margin = classify(picked, expected)
+            fallback_score = classify(fallback, expected)
+            case = dict(selector=selector, sample_site=site,
+                        offered_line_bytes=offered.hex(' ').upper(),
+                        tx_cycles=tx['completed_cycles'],
+                        tx_trace_digest=tx['trace_digest'],
+                        raw_y_sha256=hashlib.sha256(bytes(raw)).hexdigest(),
+                        dac_code_sha256=hashlib.sha256(bytes(codes)).hexdigest(),
+                        pcm_sha256=hashlib.sha256(bytes(value + 127 for value in pcm)).hexdigest(),
+                        pcm_gain=gain, reference_wrong_symbols=reference_wrong,
+                        rx_cycles=rx['completed_cycles'],
+                        rx_trace_digest=rx['trace_digest'],
+                        adc_sha256=hashlib.sha256(bytes(adc)).hexdigest(),
+                        frozen_pair_scores=scores,
+                        margin_score=margin,
+                        fallback_score=fallback_score,
+                        fallback_decisions=fallback,
+                        fallback_recovered_line_bytes=(
+                            bytes(recovered).hex(' ').upper()
+                            if recovered is not None else None),
+                        margin_selected_pairs=[
+                            None if pair is None else f'{pair[0]}/{pair[1]}'
+                            for pair in selected])
+            report['cases'].append(case)
+            save(out, report)
+            print(selector, site, 'reference wrong', len(reference_wrong),
+                  'fixed wrong/unknown', scores['46/93']['data_errors'],
+                  scores['46/93']['data_unknown'],
+                  'margin wrong/unknown', margin['data_errors'], margin['data_unknown'],
+                  'fallback wrong/unknown', fallback_score['data_errors'],
+                  fallback_score['data_unknown'],
+                  'bytes exact', recovered == list(offered) if recovered is not None else False,
+                  flush=True)
+    return report
+
+
+if __name__ == '__main__':
+    run()
