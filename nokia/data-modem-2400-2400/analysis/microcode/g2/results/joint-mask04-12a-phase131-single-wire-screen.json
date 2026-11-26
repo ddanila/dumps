@@ -1,0 +1,137 @@
+{
+  "experiment": "one-wire capture substitution screen on frozen package circuit",
+  "fixture": {
+    "prior_cases": 16,
+    "gain_cases": 6,
+    "decisions_per_case": 64,
+    "candidate_sources": "both visits 46/93, Y3F8/row0, bits 0..7, either polarity",
+    "changed_outputs": "one of seven captured state bits; all other wiring and logic frozen"
+  },
+  "original_errors": {
+    "prior": 0,
+    "gain": 72
+  },
+  "candidates": 448,
+  "prior_preserving_candidates": 137,
+  "minimum_gain_errors_given_zero_prior_errors": 72,
+  "best_total_candidates": [
+    {
+      "target_state_bit": 0,
+      "visit": "46",
+      "site": "y3f8",
+      "source_bit": 6,
+      "inverted": true,
+      "prior_errors": 66,
+      "gain_errors": 0,
+      "total_errors": 66
+    },
+    {
+      "target_state_bit": 0,
+      "visit": "46",
+      "site": "y3f8",
+      "source_bit": 5,
+      "inverted": false,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 1,
+      "visit": "46",
+      "site": "y3f8",
+      "source_bit": 6,
+      "inverted": false,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 1,
+      "visit": "93",
+      "site": "row0",
+      "source_bit": 0,
+      "inverted": true,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 1,
+      "visit": "93",
+      "site": "row0",
+      "source_bit": 4,
+      "inverted": true,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 2,
+      "visit": "46",
+      "site": "y3f8",
+      "source_bit": 7,
+      "inverted": false,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 3,
+      "visit": "93",
+      "site": "y3f8",
+      "source_bit": 7,
+      "inverted": false,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 4,
+      "visit": "46",
+      "site": "row0",
+      "source_bit": 0,
+      "inverted": false,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 4,
+      "visit": "46",
+      "site": "row0",
+      "source_bit": 0,
+      "inverted": true,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    },
+    {
+      "target_state_bit": 4,
+      "visit": "46",
+      "site": "row0",
+      "source_bit": 1,
+      "inverted": false,
+      "prior_errors": 0,
+      "gain_errors": 72,
+      "total_errors": 72
+    }
+  ],
+  "minimum_prior_errors_given_zero_gain_errors": 66,
+  "limitations": [
+    "This is a replay of saved real-PROM snapshots; it does not rerun the PROMs or sample a different capture edge.",
+    "Only one captured bit source or polarity changes at a time; multiwire logic and unrecorded visits are outside the screen.",
+    "A candidate is judged by the frozen external circuit, not by an independently synthesized decision function."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phase131_single_wire_screen.py": "f17aef2ea078344ac14ef39260ec66e95d04567a078b1fe3e954f11551406d19",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_u19_u21_phase_route.py": "5f5e1b3ee93000a22f02729b7d46302289589e9d0e94af17b78ef3bcf693895d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty-fresh-88.json": "dca71095e6bdb6109e08759388f108da88162af3ad6f2cf8be2c5a565cbebd49",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-twelve-holdout.json": "b1de84f88f03fe4d898831d9f487167ed0761a9b53e33643670cae503204cd0b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase128-challenge.json": "739dfd53b026d438cbe5db35992e6a0e75557255c7c3d936ed8430ec28878703",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase125-challenge.json": "1dfe7be587057beb82a898ab371525e47cd0b58ec346041d669a9ec2d321b5d2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-baseline-control.json": "d9ffb252f9d77a5b74a3baf2e4fb75c3b8a64e18918b66570390c09cd49274a9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-intermediate-gain.json": "ead545793e4636d2ee31c14f9602346f1a8485b84adb3cf59568af60592956c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-boundary.json": "fd3d6c22f34a56d30083c052c077fa0b663b06ef8fe7742fe85b39f718f54bc2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-challenge.json": "ad5ed303e0cd7f82689ad746bf95791c58c330e514e0665c329224f56757c099"
+  }
+}

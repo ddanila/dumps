@@ -2104,6 +2104,14 @@ Listed in order of value per effort:
   mislabels at `48` and `2F`; phase bit 1 still agrees. Test an
   alternate capture bit/edge or a revised multistage bit-0 path
   against this fixed waveform, with a fresh holdout afterward.
+  The [capture controls](g2/JOINT-MASK04-12A-PHASE131-CAPTURE-CONTROLS.md)
+  screen 448 one-bit source/polarity substitutions across 22 saved
+  real-PROM cases. Every one of 137 prior-preserving choices leaves
+  all 72 higher-gain errors. On an identical unclipped 1.150× PCM,
+  eight one-visit capture combinations (`46/47`, `93/94`) retain the
+  same 12/64 call and 11/64 answer wrong indices. Move to a labelled
+  multistage phase-bit-0 correction for `48`/`2F`, then challenge it
+  on a new real-PROM gain/phase fixture. C3 remains open.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

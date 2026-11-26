@@ -144,6 +144,14 @@ conflicts; only `48` and `2F` disagree with the frozen circuit, both
 on phase bit 0, and every wrong transition crosses one of them.
 This localizes the next test to an alternate capture bit/edge or
 multistage phase-bit-0 path under the same line input; C3/G2 stay open.
+The [capture-wire and adjacent-visit controls](g2/JOINT-MASK04-12A-PHASE131-CAPTURE-CONTROLS.md)
+now screen 448 one-bit substitutions on 22 saved real-PROM cases.
+All 137 changes preserving zero errors on 16 prior cases leave the
+same 72 higher-gain errors. Re-executing the 1.150× receiver with
+visits `46/47` and `93/94` yields eight capture timings, all with
+the same 12/64 call and 11/64 answer wrong indices. Reject these
+simple wire/edge repairs and test explicit multistage phase-bit-0
+logic for `48` and `2F` on a fresh holdout; C3/G2 stay active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
