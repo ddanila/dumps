@@ -2124,6 +2124,16 @@ Listed in order of value per effort:
   unseen-state test. Assign any extra gate and mode route only as
   photo-compatible assumptions, test unseen predictions, and keep
   C3 open.
+  The [phase-133 low-gain matched control](g2/JOINT-MASK04-12A-PHASEBIT0-LOWGAIN-FAILURE.md)
+  now rejects unseen-state extrapolation of that frozen correction.
+  At identical carrier/payloads, original gain recovers exact bytes;
+  0.8× gain introduces new `1D`, and the veto misses 4/64 call and
+  7/64 answer dibits without modeled clipping. Eleven independent
+  adjacent constraints assign `1D` phase 0, while both the original
+  package circuit and veto assign 1. The transmitter bytes and
+  receiver PC path agree between gains. Test a richer capture state
+  or timing input across low/high gain and freeze it before another
+  real-PROM holdout; keep C3/G2 active.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

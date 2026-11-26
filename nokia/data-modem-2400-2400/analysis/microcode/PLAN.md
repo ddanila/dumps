@@ -164,6 +164,17 @@ modeled clipping; the 1.25× holdout has 4/2 clipped samples. No
 holdout reaches an unseen state and the extra veto package/nets are
 unassigned. Challenge unseen predictions and a photo-compatible
 gate realization; keep C3/G2 open.
+The [phase-133 matched low-gain challenge](g2/JOINT-MASK04-12A-PHASEBIT0-LOWGAIN-FAILURE.md)
+now finds a genuine unseen-state failure of that frozen veto. With
+identical real-PROM transmitter bytes and receiver PC path, calibrated
+gain avoids `1D` and recovers exact controller bytes; 0.8× gain visits
+`1D`, misses 4/64 call and 7/64 answer dibits, and delivers wrong
+bytes without clipping. Eleven adjacent transitions require `1D`
+phase 0, but the package/veto circuit assigns 1; the old cover
+happens to assign 0. Do not promote the two-term fix to C3. Test a
+richer photo-compatible state/timing input against both low- and
+high-gain fixtures, then challenge a frozen route on fresh real-PROM
+data. C3/G2 stay active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

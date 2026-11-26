@@ -1,0 +1,67 @@
+{
+  "experiment": "matched phase-133 calibrated versus 0.8x gain audit",
+  "cases": [
+    {
+      "selector": "40",
+      "same_payload_tx_raw_and_pc": true,
+      "changed_pcm_and_rx_trace": true,
+      "control_states": [
+        "09",
+        "12",
+        "1E",
+        "49",
+        "4C",
+        "5E"
+      ],
+      "attenuated_states": [
+        "02",
+        "09",
+        "1D",
+        "1E",
+        "49",
+        "4C"
+      ],
+      "control_veto_errors": 0,
+      "attenuated_veto_errors": 4,
+      "control_exact_controller_bytes": true,
+      "attenuated_exact_controller_bytes": false,
+      "clipping_at_either_gain": false
+    },
+    {
+      "selector": "60",
+      "same_payload_tx_raw_and_pc": true,
+      "changed_pcm_and_rx_trace": true,
+      "control_states": [
+        "09",
+        "12",
+        "1E",
+        "49",
+        "4C",
+        "5E"
+      ],
+      "attenuated_states": [
+        "02",
+        "09",
+        "1D",
+        "1E",
+        "49",
+        "4C"
+      ],
+      "control_veto_errors": 0,
+      "attenuated_veto_errors": 7,
+      "control_exact_controller_bytes": true,
+      "attenuated_exact_controller_bytes": false,
+      "clipping_at_either_gain": false
+    }
+  ],
+  "limitations": [
+    "The gain is a modeled receive-line scaling, not a measured modem adjustment.",
+    "The matched control attributes the capture-family and candidate-readout change to the gain setting under the stated assumed circuit; it does not identify the physical ADC or logic nets."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_matched_audit.py": "ce814bb39d554eaf333ab01e9905956c6cc9fd3e5d32f30de87f24a632dc23b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phasebit0-veto-baseline133-control.json": "e794f7da40e31c89f085d0d4092bd57da8252990bc2df5ba714da50add5d5c68",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phasebit0-veto-lowgain133-challenge.json": "92f2d202197d2cdbdf12f6be7d49b5c50a2c35e1d88e1cd0d2670d69ce9fbcac",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phasebit0-veto-lowgain133-audit.json": "f50c5dad2aa0e5c115210d197fc8fe57eebbe77c97e65d6a7c219122773dd9d8"
+  }
+}

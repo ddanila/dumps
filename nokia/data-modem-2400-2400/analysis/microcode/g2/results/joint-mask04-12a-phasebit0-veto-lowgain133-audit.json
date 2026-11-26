@@ -1,0 +1,52 @@
+{
+  "experiment": "unseen 1D low-gain frozen-veto failure audit",
+  "cases": [
+    {
+      "selector": "40",
+      "new_state": "1D",
+      "anchor_constraints": 4,
+      "reference_errors": 3,
+      "old_12_state_cover_errors": 0,
+      "original_package_errors": 4,
+      "veto_errors": 4,
+      "clipped_samples": 0,
+      "wrong_line_and_controller_bytes": true
+    },
+    {
+      "selector": "60",
+      "new_state": "1D",
+      "anchor_constraints": 7,
+      "reference_errors": 0,
+      "old_12_state_cover_errors": 0,
+      "original_package_errors": 7,
+      "veto_errors": 7,
+      "clipped_samples": 0,
+      "wrong_line_and_controller_bytes": true
+    }
+  ],
+  "inferred_1d_phase": 0,
+  "independent_anchor_constraints": 11,
+  "original_package_1d_phase": 1,
+  "veto_1d_phase": 1,
+  "old_12_state_cover_1d_phase": 0,
+  "shortest_isolating_direct_cube_width": 4,
+  "shortest_isolating_direct_cubes": [
+    "***1100*",
+    "**1*100*",
+    "*0**100*",
+    "1***100*"
+  ],
+  "limitations": [
+    "The 1D phase inference uses offered dibits and prior labels under the assumed line and capture route; it does not identify physical nets.",
+    "The shortest-cube search only describes direct state-plus-mode input terms that clear 1D without disturbing previously correct observed bit-0 labels.",
+    "A further fitted term is not implemented here; the negative holdout remains intact."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_audit.py": "a2e37ab25c2079f347e2b1fcffd3731839f4aecea0e8e1b69d23b2f714392f02",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phasebit0-veto-lowgain133-challenge.json": "92f2d202197d2cdbdf12f6be7d49b5c50a2c35e1d88e1cd0d2670d69ce9fbcac",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-graph-audit.json": "9821384d640a8b020d1e4c18ef4081997d762574191e7b8ba860c5714c6e3a9e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto.py": "a6ceaca1ee003b20bd6c09d4556c7312a4536211d8dbcd833603c2df9666ea55"
+  }
+}
