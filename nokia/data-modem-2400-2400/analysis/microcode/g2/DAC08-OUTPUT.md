@@ -35,6 +35,11 @@ buffers nearby. The [TI SN74LS373 datasheet](https://www.ti.com/lit/ds/symlink/s
 identifies it as an octal transparent latch with three-state outputs. This
 suggests another possible data-hold stage, but the photo alone does not show
 which device drives which bus or establish either latch's control signal.
+The later [pixel audit](PHOTO-DED-LATCH-BUS.md) counts eight separate,
+threshold-stable front-side tracks across the gap between their pad banks.
+It does not resolve pad continuity, signal direction or a serial Q→D
+connection; shared-bus wiring remains an alternative to an upstream
+74LS373 hold stage.
 
 This changes the emulator target. A useful transmitter test should capture
 the eight bytes presented to that external latch under a proposed strobe,

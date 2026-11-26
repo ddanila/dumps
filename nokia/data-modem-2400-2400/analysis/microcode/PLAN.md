@@ -113,6 +113,14 @@ control retains none. The proposed 127 decode has seven full-store hits,
 so it is mode-specific. This supplies a concrete late-clock circuit
 hypothesis without identifying the latch pins, divider, DAC or analog route.
 Test those photo-compatible nets and timing alternatives; C2/G2 stay active.
+The [DED latch-bus photo audit](g2/PHOTO-DED-LATCH-BUS.md) now finds eight
+threshold-stable visible front-side tracks between the 74LS273 and
+74LS373 pad banks. The image does not establish their pad continuity,
+direction or Q→D staging. Keep the serial 74LS373→74LS273 hold and a
+shared Y-input/tri-state-output bus as competing hypotheses; run both
+with the same real-PROM `12A` stream and a timing control before assigning
+the photographed bundle to either route. The ambiguous tracks do not
+block C2 work.
 The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
 now substitutes the `12A` latch into the full controller-bit/PROM path.
 At the existing six-sample alignment, an independent line decoder gives

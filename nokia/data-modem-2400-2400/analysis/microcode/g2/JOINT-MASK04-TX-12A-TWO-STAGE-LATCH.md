@@ -36,6 +36,11 @@ segment-1 reversals and dibit phases are those measured in the
 an independent signal validation or a C2 pass: the 74LS373 D/LE/Q pins,
 74LS273 D/CLK pins, divider, DAC08 bus and analog line path remain untraced.
 Different propagation or output-enable timing may reject this route.
+The later [front-photo bus audit](PHOTO-DED-LATCH-BUS.md) finds eight
+visible tracks between the 74LS373 and 74LS273 pad banks, but no
+pin-level Q→D continuity or direction. Those tracks are compatible with
+other shared-bus uses of the chips, so chip adjacency does not favor
+this serial hold stage over them.
 
 The [machine report](results/joint-mask04-tx-12a-two-stage-latch.json)
 contains the gate census, all trace and sample hashes, ROM-bank contrasts
