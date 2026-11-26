@@ -34,6 +34,11 @@ executed code after writes freeze, but it is not evidence of frozen
 canceller weights. In this address schedule, only the first three tail
 samples revisit written addresses, which explains the 141-visit
 same-input tail effect.
+The [word-level arithmetic audit](JOINT-MASK04-RAM-CARRY-ARITHMETIC.md)
+checks all 24,000 training `3FA` calculations and finds R10=`10` at
+every operand read. Its Y high nibble is the returned D high nibble plus
+two modulo sixteen; the low bit is the current carry input. R10 changes
+elsewhere in the loop, but supplies no varying estimate at this site.
 
 The TEST mux, RAM bus/counter/write/read pins, ADC and analog output
 remain explicit photo-compatible assumptions. The prior-overflow

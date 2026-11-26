@@ -1448,6 +1448,14 @@ with feedback, with 658→1,312 differing visits. Frozen RAM affects
 the first three common-tail samples but this is not selective echo
 attenuation. Keep TEST and RAM wiring assumed; try a signed or
 mode-qualified return or another output site with the same controls.
+The [training arithmetic audit](g2/JOINT-MASK04-RAM-CARRY-ARITHMETIC.md)
+checks every one of 24,000 reached `3FA` words in those four feedback
+runs. Pre-word R10 is always `10` at this site, although it changes
+elsewhere; with RAM D low nibble forced to `1`, the executed output is
+`Yhi=(Dhi+2)&15`, `Ylo=carry_in`. The stored high nibble and current
+carry explain this candidate output without a varying R10 estimate.
+Seek a mode or feedback timing that puts trained state into a consumed
+operand, or inspect another executed output before inferring cancellation.
 C4 stays open and G2 active.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`

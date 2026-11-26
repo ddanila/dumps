@@ -134,6 +134,13 @@ high return for 3,000 ADC visits. It also sustains the subsequent
 but `3FA` code-space differences grow late rather than selectively
 falling for the own echo. The condition mux and RAM return remain
 untraced; this is an active but non-cancelling candidate, not C4.
+The [24,000-word arithmetic audit](../g2/JOINT-MASK04-RAM-CARRY-ARITHMETIC.md)
+finds R10=`10` at every `3FA` operand read across the four training
+inputs, even though R10 changes elsewhere in the loop. With the
+assumed RAM D low nibble forced to `1`, this site's executed output
+reduces to `Yhi=(Dhi+2)&15`, `Ylo=carry_in`. That is a delayed input
+code plus current carry at this proposed output site, not a varying
+trained R10 estimate.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127

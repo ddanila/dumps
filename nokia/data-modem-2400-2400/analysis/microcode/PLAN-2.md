@@ -1913,6 +1913,9 @@ Listed in order of value per effort:
   sustains the same high return, but the
   [own/remote/mixed challenge](g2/JOINT-MASK04-RAM-CARRY-ECHO-SCREEN.md)
   increases rather than attenuates the late `3FA` own-echo code proxy.
+  Its [arithmetic audit](g2/JOINT-MASK04-RAM-CARRY-ARITHMETIC.md)
+  finds R10 fixed at `10` at every tested `3FA` operand read, so that
+  output's high nibble is the delayed return high nibble plus two.
   Try a signed or mode-qualified return or another output site; no
   tested RAM output is yet a measured or selectively falling echo residual.
 
