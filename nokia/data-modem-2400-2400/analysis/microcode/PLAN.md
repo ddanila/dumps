@@ -12,6 +12,9 @@
 
 **Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART or
 analog-line connections are *open wiring hypotheses*, not a reason to pause G2.
+If an experiment can run with a labelled assumption, run it now; physical
+continuity is a later validation step, not a prerequisite for progress. A
+failed candidate closes that experiment, not the goal.
 Use the photographs already available to build the simplest complete,
 pin-compatible route, including plausible continuations where a trace
 disappears or its destination is uncertain. Assume the needed connection,
