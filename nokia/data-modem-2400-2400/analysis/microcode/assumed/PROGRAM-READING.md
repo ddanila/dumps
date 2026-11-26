@@ -118,6 +118,12 @@ matched baseline/pulse cycles leave Q and the written R13 identical.
 The generated `joint_mask04_operation` listing describes the low-slice
 operation; it must not be read as a full-byte subtraction or an
 identified echo residual. The RAM wiring and Y consumer remain open.
+The [high-nibble `3FA` return control](../g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
+puts `3F9` or `3FA` Y's high nibble into a sample-paced hypothetical
+external RAM and returns it at `3FA`. Unlike write-only or read-only
+controls, both feedback variants leave the four-row loop at `3ED→3EE`
+before the offered sample-25 pulse. This is an executed control-flow
+effect of the assumed return, not evidence of useful echo adaptation.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127

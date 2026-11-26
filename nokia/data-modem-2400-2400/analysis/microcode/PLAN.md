@@ -1425,9 +1425,16 @@ ADC visit; its earlier claimed sample-paced timing was invalid. With
 and frozen RAM affects `3FA` in the common tail. `3F8` and `3F9` stay
 unchanged, while the late `3FA` own-echo proxy grows rather than shrinks.
 With `3EB` return, complete PROM trace digests still match no-feedback
-controls. These routes do not demonstrate echo cancellation. Try a
-mode-qualified or differently timed return, high-nibble route or a
-distinct output latch with the same controls; C4 stays open and G2 active.
+controls. These routes do not demonstrate echo cancellation. The
+[high-nibble `3FA` return test](g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
+now tests that alternative with the corrected sample-paced write gate:
+write-only and read-only controls complete 3,000 ADC visits, but
+`3F9`-latched and `3FA`-latched high feedback leave the four-row loop
+after 939 and 423 visits. Both exits occur before the sample-25 pulse;
+the `3F9` pulse and baseline traces are identical. Reject these two
+specific high-return routes as sustained receive/echo models, then try
+a mode-qualified or differently timed return and distinct output site
+with own/remote/mixed and no-write controls. C4 stays open and G2 active.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`
 values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.

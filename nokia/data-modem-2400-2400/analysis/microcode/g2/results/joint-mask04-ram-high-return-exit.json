@@ -1,0 +1,144 @@
+{
+  "experiment": "high-lane external RAM return at 3FA in real-PROM receive loop",
+  "fixture": {
+    "adc_samples": 64,
+    "adc_visits": 3000,
+    "cycles": 96047,
+    "pulse_sample": 25,
+    "pulse_adc": "51 to B1",
+    "address": "one 3EA tick per held ADC sample",
+    "memory": "hypothetical 256x8 initially 01, high-nibble Y latch, 3EC writes",
+    "return_path": "RAM address minus three samples into 3FA D high nibble, D0 forced 1",
+    "freeze": "writes stop after sample 25"
+  },
+  "cases": [
+    {
+      "name": "write_only_3f9",
+      "latch_pc": "3F9",
+      "feedback": false,
+      "write": true,
+      "pulse": false,
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "trace_digest": "f6fb964a6ec32323bb2a2ed1444163947df213e04d0ef34c2984cf2f2ef23606",
+      "clean": true,
+      "completed_cycles": 96047,
+      "adc_visits": 3000,
+      "loop_exits": 0,
+      "first_changed_read": null,
+      "writes": 4876,
+      "reads": 0,
+      "exit_events": [],
+      "final_pc": "3F0"
+    },
+    {
+      "name": "read_only",
+      "latch_pc": "3F9",
+      "feedback": true,
+      "write": false,
+      "pulse": false,
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "trace_digest": "f6fb964a6ec32323bb2a2ed1444163947df213e04d0ef34c2984cf2f2ef23606",
+      "clean": true,
+      "completed_cycles": 96047,
+      "adc_visits": 3000,
+      "loop_exits": 0,
+      "first_changed_read": null,
+      "writes": 0,
+      "reads": 3000,
+      "exit_events": [],
+      "final_pc": "3F0"
+    },
+    {
+      "name": "feedback_3f9",
+      "latch_pc": "3F9",
+      "feedback": true,
+      "write": true,
+      "pulse": false,
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "trace_digest": "e35de17b3c4eda367be132284f5e3d26a3608adf0d0769c00cb7f69e04bd22c7",
+      "clean": true,
+      "completed_cycles": 96047,
+      "adc_visits": 939,
+      "loop_exits": 1,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "writes": 3755,
+      "reads": 939,
+      "exit_events": [
+        {
+          "cycle": 30082,
+          "test": 0,
+          "q": 142,
+          "y": 0
+        }
+      ],
+      "final_pc": "1EA"
+    },
+    {
+      "name": "feedback_3fa",
+      "latch_pc": "3FA",
+      "feedback": true,
+      "write": true,
+      "pulse": false,
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "trace_digest": "009e5363e21b6b407912a82f53037bf7ce69aa1a2fda68b2d4a16edfedd50776",
+      "clean": true,
+      "completed_cycles": 96047,
+      "adc_visits": 423,
+      "loop_exits": 1,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "writes": 1691,
+      "reads": 423,
+      "exit_events": [
+        {
+          "cycle": 13570,
+          "test": 0,
+          "q": 139,
+          "y": 0
+        }
+      ],
+      "final_pc": "1EA"
+    },
+    {
+      "name": "feedback_3f9_pulse",
+      "latch_pc": "3F9",
+      "feedback": true,
+      "write": true,
+      "pulse": true,
+      "adc_sha256": "fd4cc2155c754360922c1cf2e6d9d96de991b0b370a5f70d28ace960f3430dab",
+      "trace_digest": "e35de17b3c4eda367be132284f5e3d26a3608adf0d0769c00cb7f69e04bd22c7",
+      "clean": true,
+      "completed_cycles": 96047,
+      "adc_visits": 939,
+      "loop_exits": 1,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "writes": 3755,
+      "reads": 939,
+      "exit_events": [
+        {
+          "cycle": 30082,
+          "test": 0,
+          "q": 142,
+          "y": 0
+        }
+      ],
+      "final_pc": "1EA"
+    }
+  ],
+  "limitations": [
+    "The high-nibble RAM data, address, write gate and 3FA return are photo-compatible hypotheses, not traced wires.",
+    "The exit rejects these specific routes as sustained receive-loop models; it does not exclude other RAM modes or a separate echo canceller.",
+    "No analog echo residual or received bit is measured."
+  ]
+}

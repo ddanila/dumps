@@ -1896,11 +1896,21 @@ Listed in order of value per effort:
   raw-PROM gate: the qualified latch holds the previous nibble at row 3
   after internal DSC state rejoins. The existing fixed Boolean consumer
   fails at 45° carrier phase, and the U12/USART wiring is untraced.
-  Test a photo-compatible phase-tracking consumer on new payloads and
-  carrier phases before treating this as recovered-bit evidence.
+  The [U12 collision](g2/JOINT-MASK04-U12-CODE-COLLISION.md) shows that
+  its assumed row-pair stream loses a controlled `1F`/`6F` sample
+  distinction. The [history scan](g2/JOINT-MASK04-RECEIVE-HISTORY-SCAN.md)
+  finds only R12/R13 carryover for two words after the next ADC selection
+  in five legal waveforms. Test a preselection latch or a changed
+  mode/feedback path on fresh legal symbol transitions and then seek a
+  causal bit route to USART-01; do not promote the U12-only Boolean rule.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
-  when it is commanded off.
+  when it is commanded off. The
+  [sample-paced high-nibble return test](g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
+  exits the receive loop for both `3F9` and `3FA` Y latches, while its
+  write-only and read-only controls sustain it. Try a mode-qualified or
+  differently timed route; no tested RAM output is yet a measured or
+  selectively falling echo residual.
 
 ## 3. Acceptance for G2
 
