@@ -32,6 +32,11 @@ are still photo-compatible assumptions. C2/C3/G2 remain open. Test
 fresh data and carrier phase with the frozen seven-state rule, then
 constrain a circuit and timing path without waiting for continuity.
 
+The [subsequent fresh-payload replay](JOINT-MASK04-Q05-FRESH-PAYLOAD-LEVELS.md)
+passes two previously unused eight-byte data streams at all three
+levels under this frozen rule; carrier-phase and physical-route tests
+remain open.
+
 The [machine report](results/joint-mask04-q05-phase-level-map.json)
 records the learned phase assignments, six decoded streams and
 controller controls. Reproduce with

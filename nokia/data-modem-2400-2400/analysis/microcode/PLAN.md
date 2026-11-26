@@ -160,6 +160,16 @@ all six level/mode cases. The two selectors use different scrambled
 line streams but the same decoded payload. Challenge the frozen seven-
 state rule on fresh payloads and phase starts, then constrain its
 photo-compatible logic and serial timing; C3 remains open.
+The [fresh-payload level replay](g2/JOINT-MASK04-Q05-FRESH-PAYLOAD-LEVELS.md)
+now freezes that seven-state rule and tests one previously unused
+eight-byte payload per selector, each at 75%, 100% and 125% fixed
+zero-run gain. All six real-PROM Tx→line→Rx runs recover 64/64
+dibits and eight exact line bytes; the modeled 8251/8031 descrambles
+each payload only with aligned assumed SYNDET. Both fresh data streams
+exercise all four dibits. This strengthens the conditional C2/C3
+chain but does not identify the physical DAC/ADC, phase combinator,
+capture/serializer or RxD/RxC/SYNDET route. Next test rotated carrier
+phase and photo-compatible circuit timing; keep C2/C3/G2 open.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data

@@ -1936,7 +1936,13 @@ Listed in order of value per effort:
   trained on call-side changed levels only, predicts every dibit and
   aligned modeled controller byte on the answer-side changed levels.
   The decoded payload is shared across selectors, so test fresh data
-  and carrier phase before identifying a physical C3 consumer.
+  and carrier phase before identifying a physical C3 consumer. The
+  [fresh-payload challenge](g2/JOINT-MASK04-Q05-FRESH-PAYLOAD-LEVELS.md)
+  now freezes the seven-state rule on one new eight-byte payload per
+  selector at three levels. All six executed Tx→Rx runs recover every
+  dibit and the modeled aligned 8251/8031 handoff decodes the exact
+  new payload. This is conditional on the untraced analog, capture,
+  phase-logic, clock and SYNDET routes; C3 remains open.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3
