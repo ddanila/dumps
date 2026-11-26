@@ -188,9 +188,17 @@ phase labels, but the independently known 32-dibit V.26 ter A4 pattern
 selects one of 64 maps for the offset-`20` receiver. Without using
 fresh-payload answers, that A4-trained map recovers 64/64 dibits and
 exact modeled controller payloads in both saved call/answer runs.
-Next join actual controller A3/A4 timing and later data in one
-uninterrupted replay, and test a photo-compatible ADC/latch/clock
-mechanism that chooses quadrant labels across carrier starts.
+The [joined A4/data replay](g2/JOINT-MASK04-12A-JOINED-A4-DATA.md)
+now runs the known 32-dibit A4 pattern followed by 32 fresh data
+dibits in one continuous real-PROM transmitter and receiver line
+fixture per selector. Each A4 segment alone selects one of 64 phase
+maps; it decodes the immediately following data 32/32 and recovers
+all eight line bytes without payload-label fitting. The controller
+A4 and payload bytes still came from separate fixtures, and a
+16-byte 8251/8031 handoff was not run. Next join actual controller
+A3/A4 timing and later data in one uninterrupted controller-driven
+replay, and test a photo-compatible ADC/latch/clock mechanism that
+chooses quadrant labels across carrier starts.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
