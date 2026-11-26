@@ -1,0 +1,286 @@
+{
+  "cases": [
+    {
+      "adc_stream_sha256": "ebdc5bd4d19c92e78c42f6c2faea931d3d15e3ce4c40bf503d1a36329668c361",
+      "degrees": 75,
+      "offset_hz": 7,
+      "trace_digest": "bad7262a3aba1a23b4c9c144344ac8a7fb8184f463c36b48bf9dd1cd566e593f",
+      "variants": [
+        {
+          "alternative": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 5
+          },
+          "conflicts": 0,
+          "consensus": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 2
+          },
+          "primary": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 3
+          },
+          "visits": [
+            46,
+            93
+          ]
+        },
+        {
+          "alternative": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 3,
+            "errors": 0,
+            "unknown": 5
+          },
+          "conflicts": 0,
+          "consensus": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2
+          },
+          "primary": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2
+          },
+          "visits": [
+            47,
+            94
+          ]
+        },
+        {
+          "alternative": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 3,
+            "errors": 0,
+            "unknown": 5
+          },
+          "conflicts": 0,
+          "consensus": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2
+          },
+          "primary": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2
+          },
+          "visits": [
+            48,
+            95
+          ]
+        }
+      ]
+    },
+    {
+      "adc_stream_sha256": "f68b4910ff2069bd6d01b39276584c304464079ed6d8eb18dbe3f058642b974c",
+      "degrees": 165,
+      "offset_hz": 7,
+      "trace_digest": "28db576f21e71c1a2754b50c6169fc9b91335c71f5d813d02657271ed33c0d7d",
+      "variants": [
+        {
+          "alternative": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 9
+          },
+          "conflicts": 0,
+          "consensus": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0
+          },
+          "primary": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0
+          },
+          "visits": [
+            46,
+            93
+          ]
+        },
+        {
+          "alternative": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 3,
+            "errors": 0,
+            "unknown": 8
+          },
+          "conflicts": 0,
+          "consensus": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 4
+          },
+          "primary": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 4
+          },
+          "visits": [
+            47,
+            94
+          ]
+        },
+        {
+          "alternative": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 3,
+            "errors": 0,
+            "unknown": 8
+          },
+          "conflicts": 0,
+          "consensus": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 4
+          },
+          "primary": {
+            "checks": 47,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 4
+          },
+          "visits": [
+            48,
+            95
+          ]
+        }
+      ]
+    }
+  ],
+  "experiment": "frozen receive readout at adjacent assumed capture phases",
+  "fixture": {
+    "adc": "complementary PCM, 47/46 visits per sample",
+    "data_dibits": [
+      1,
+      0,
+      3,
+      0,
+      1,
+      2,
+      1,
+      0,
+      1,
+      2,
+      2,
+      3,
+      1,
+      1,
+      3,
+      3
+    ],
+    "degrees": [
+      75,
+      165
+    ],
+    "mapping": "joint upper-source mask 04",
+    "offsets_hz": [
+      7
+    ],
+    "seed": 43476,
+    "visit_pairs": [
+      [
+        46,
+        93
+      ],
+      [
+        47,
+        94
+      ],
+      [
+        48,
+        95
+      ]
+    ]
+  },
+  "limitations": [
+    "The decision tables are frozen; the adjacent clock phases are exploratory alternatives, not established latch edges.",
+    "Each case uses an explicit ADC and symbol-clock fixture; no physical receive or USART path is established.",
+    "A zero-error variant on this seed does not establish arbitrary carrier-offset tolerance."
+  ],
+  "source_sha256": {
+    "analysis/microcode/g2/receiver_mask04_dual_feature_consensus.py": "63775d74108ba4632ad64cd53f4acc6f12a8149eee49669ea0924ea282d0ada0",
+    "analysis/microcode/g2/receiver_mask04_dual_zero_handoff.py": "787d2a3c9c9c4a691eacb19a014299f8e541b23adfca037469a8dc9c35e5515e",
+    "analysis/microcode/g2/receiver_mask04_feature_choice.py": "e5e26a591a72f796d53be44d5fdd732ec6e6b86dea61eb8e75d6b5f4aadac1dd",
+    "analysis/microcode/g2/receiver_mask04_four_bit_transition.py": "e10cf6e16e4ee30cf49f317f0a16604c93b44ef3ead707c1537460bded168c14",
+    "analysis/microcode/g2/receiver_mask04_frequency_offset.py": "fb41eb44476cfa2aed2d98d6930f7635a61d46e16d1fc213e0bdb533e47cd3ed",
+    "analysis/microcode/g2/receiver_mask04_multivisit_capture.py": "46f01b7e6df20ce5558102b3ad6ff179a1c8975a7eb704b30cc97a7b936cfcbd",
+    "analysis/microcode/g2/receiver_mask04_offset_visit_phase.py": "e6df02d7bd94385c54c2a80814972263751e6b22c22cccfed5dcdbf90eddeea6",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/receiver-mask04-feature-choice.json": "05b0a0e9798c8cdc0237ede08b27f260355f6c3ddb1f3e26803410151b09743a",
+    "analysis/microcode/g2/results/receiver-mask04-four-bit-transition.json": "2cf720fb9d51e90cf90c1df8e7835a51aab08f8d80030f33932a71f797edc972",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "summary": {
+    "46/93": {
+      "7": {
+        "checks": 94,
+        "conflicts": 0,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 2
+      }
+    },
+    "47/94": {
+      "7": {
+        "checks": 94,
+        "conflicts": 0,
+        "data_errors": 0,
+        "data_unknown": 3,
+        "errors": 0,
+        "unknown": 6
+      }
+    },
+    "48/95": {
+      "7": {
+        "checks": 94,
+        "conflicts": 0,
+        "data_errors": 0,
+        "data_unknown": 3,
+        "errors": 0,
+        "unknown": 6
+      }
+    }
+  }
+}

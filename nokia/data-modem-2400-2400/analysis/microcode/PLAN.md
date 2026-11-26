@@ -38,9 +38,14 @@ decoded bitstream does not by itself verify a physical connection.
 The [frozen frequency-offset replay](g2/RECEIVER-MASK04-FREQUENCY-OFFSET.md)
 now tests −7, 0 and +7 Hz on six real-PROM streams. It makes no wrong known
 decisions, but leaves three data dibits unknown at +7 Hz across the two
-phases. Test additional executed capture visits and a frozen multi-visit
-consumer on fresh offset/data fixtures; keep C3 open rather than assuming
-the missing decisions or waiting for a physical phase-tracker trace.
+phases. The [adjacent-visit replay](g2/RECEIVER-MASK04-OFFSET-VISIT-PHASE.md)
+captures both sides of the ADC sample boundaries with the same frozen
+readout. Visit pair 46/93 recovers all 64 data dibits at +7 Hz across two
+seeds, where 47/94 leaves seven unknown, but two preamble dibits per seed
+remain unknown and the physical capture edge is unverified. Carry 46/93 as
+a working sampling hypothesis into longer, fresh-offset streams and test
+the preamble acquisition and USART route; keep C3 open rather than filling
+missing decisions or waiting for a physical phase-tracker trace.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled

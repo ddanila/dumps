@@ -1357,6 +1357,15 @@ phases B–C turn "what" into "how".
   selector controls remain at `AF`. Capture, serial, sync and ADC paths
   are still assumed, so this is not a C3 pass. Test photo-compatible
   latch/clock/USART routes and naturally timed controller behavior next.
+  A [carrier-offset replay](g2/RECEIVER-MASK04-FREQUENCY-OFFSET.md) finds
+  0 wrong but three unknown data dibits at +7 Hz with visits 47/94. The
+  [adjacent-visit follow-up](g2/RECEIVER-MASK04-OFFSET-VISIT-PHASE.md)
+  captures visits 46–48 and 93–95 without refitting either readout.
+  Pair 46/93 recovers all 64 +7 Hz data dibits across two seeds, while
+  47/94 leaves seven unknown. Two preamble decisions per seed remain
+  unknown, and the earlier sample edge is only a working hypothesis.
+  Test longer streams, preamble acquisition and a photo-compatible
+  latch/USART route before claiming C3.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
