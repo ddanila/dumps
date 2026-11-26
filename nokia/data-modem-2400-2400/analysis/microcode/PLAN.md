@@ -959,6 +959,15 @@ shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under
 this direct input route. Revise the mode lane or output hypothesis and
 keep C4 active.
+The [frame-byte receive-decision replay](g2/RECEIVER-MASK04-FRAME-MODE-DECISIONS.md)
+now tests that same direct `3EB` hypothesis against the frozen two-visit
+readout. At 75° and 165°, held `01`, held `81`, held `A1` and a boundary
+`81→A1` edge give different full-PROM traces but identical Y5–Y7
+capture features and 15/15 known dibits in each case. This does not
+establish the physical frame route or echo freeze; it shows that those
+controller bytes need not disrupt the candidate C3 readout under the
+tested stimulus. Challenge longer streams and the USART handoff while
+seeking a separate mode-qualified residual path for C4.
 For the next G2 runs, carry the six surviving photo-compatible DAC byte orders
 as separate transmitter hypotheses and test their sample/latch timing against
 the executed A1–A4 trace. On receive, test a stateful decision/output route

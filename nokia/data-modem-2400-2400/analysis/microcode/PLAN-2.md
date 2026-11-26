@@ -1588,6 +1588,14 @@ phases B–C turn "what" into "how".
   counts remain unchanged. That active direct-byte route does not show
   training memory or freeze under this fixture. Try another mode lane
   or output path for C4; do not treat the missing wire as a blocker.
+  The [frame-byte receive-decision replay](g2/RECEIVER-MASK04-FRAME-MODE-DECISIONS.md)
+  uses the same direct `3EB` hypothesis in eight 192,047-word PROM runs.
+  Held `01`, `81`, `A1` and a boundary `81→A1` edge change the full trace
+  but leave all selected Y5–Y7 captures and 15/15 frozen receive decisions
+  identical at both 75° and 165°. The direct frame route is compatible
+  with this conditional C3 readout, but remains untraced and supplies no
+  C4 train/freeze evidence. Test a longer mode-qualified handoff and a
+  different residual/output route.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,
