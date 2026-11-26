@@ -126,6 +126,15 @@ distinct executed states. Test more `3F9` bits or short history on
 independent gain/phase-varied carriers, freeze the rule, and challenge
 fresh buffered payloads. Treat the line and output circuit as explicit
 assumptions; do not block G2 or relax C3.
+The [full-byte `3F9` screen](g2/RECEIVER-MASK04-3F9-FULLBYTE-SCREEN.md)
+now tests that next diagnostic on real-PROM carriers. A current-symbol
+full-byte pair abstains on 27/44 training and 34/44 independent holdout
+dibits. Including the preceding symbol fits all 44 training dibits,
+but misses 9/44 independent holdout dibits and 8/31 call plus 16/31
+answer buffered data dibits. This rejects the selected nearest-vector
+readout, not all differential consumers of `3F9`. Inspect the executed
+`3F9` arithmetic/ROM operands and build a circuit-like temporal decision
+before a fresh line/USART replay. C3 and G2 remain open.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop

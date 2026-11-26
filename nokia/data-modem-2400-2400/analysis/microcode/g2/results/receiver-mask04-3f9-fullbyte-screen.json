@@ -1,0 +1,2050 @@
+{
+  "experiment": "independent 3F9 byte projection and nearest-vector screen",
+  "fixture": {
+    "phases": [
+      46,
+      93
+    ],
+    "training_variant": [
+      0.85,
+      1
+    ],
+    "holdout_seeds": [
+      30373,
+      9889
+    ],
+    "evaluated_symbols": "second through last saved row per stream, so previous full Y is available",
+    "model_selection": "maximum independent holdout coverage, then minimum wrong; diagnostic only",
+    "buffered_line": "saved, untouched ROM-sensitive 12A audit"
+  },
+  "training": [
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "82286e34703a324fc4323221662836047c25e2bc30f0cfc64040fb61a6b3b2a4",
+      "rows": [
+        {
+          "symbol": 2,
+          "wanted": 1,
+          "adc_octet": [
+            217,
+            242,
+            145,
+            61,
+            37,
+            61,
+            146,
+            242
+          ],
+          "y3f9_at_phases": [
+            49,
+            43
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 15,
+          "current_state": 14,
+          "key": 254,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 3,
+          "wanted": 2,
+          "adc_octet": [
+            217,
+            77,
+            19,
+            129,
+            217,
+            130,
+            15,
+            72
+          ],
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 14,
+          "current_state": 15,
+          "key": 239,
+          "frozen_label": 2,
+          "key_in_training": true
+        },
+        {
+          "symbol": 4,
+          "wanted": 1,
+          "adc_octet": [
+            217,
+            231,
+            125,
+            84,
+            127,
+            110,
+            41,
+            81
+          ],
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 15,
+          "current_state": 14,
+          "key": 254,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 5,
+          "wanted": 3,
+          "adc_octet": [
+            217,
+            240,
+            105,
+            29,
+            127,
+            221,
+            147,
+            20
+          ],
+          "y3f9_at_phases": [
+            49,
+            43
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 14,
+          "current_state": 14,
+          "key": 238,
+          "frozen_label": 3,
+          "key_in_training": true
+        },
+        {
+          "symbol": 6,
+          "wanted": 1,
+          "adc_octet": [
+            37,
+            179,
+            254,
+            175,
+            37,
+            10,
+            127,
+            244
+          ],
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ],
+          "previous_state": 14,
+          "current_state": 5,
+          "key": 229,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 7,
+          "wanted": 0,
+          "adc_octet": [
+            217,
+            79,
+            1,
+            78,
+            217,
+            245,
+            124,
+            6
+          ],
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 5,
+          "current_state": 15,
+          "key": 95,
+          "frozen_label": 0,
+          "key_in_training": true
+        },
+        {
+          "symbol": 8,
+          "wanted": 0,
+          "adc_octet": [
+            37,
+            165,
+            232,
+            197,
+            127,
+            56,
+            19,
+            86
+          ],
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 15,
+          "current_state": 6,
+          "key": 246,
+          "frozen_label": 0,
+          "key_in_training": true
+        },
+        {
+          "symbol": 9,
+          "wanted": 2,
+          "adc_octet": [
+            217,
+            238,
+            110,
+            32,
+            127,
+            225,
+            149,
+            14
+          ],
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 6,
+          "current_state": 14,
+          "key": 110,
+          "frozen_label": 2,
+          "key_in_training": true
+        },
+        {
+          "symbol": 10,
+          "wanted": 1,
+          "adc_octet": [
+            37,
+            174,
+            213,
+            143,
+            127,
+            171,
+            126,
+            19
+          ],
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 14,
+          "current_state": 6,
+          "key": 230,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 11,
+          "wanted": 3,
+          "adc_octet": [
+            37,
+            171,
+            217,
+            147,
+            127,
+            172,
+            130,
+            22
+          ],
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 6,
+          "current_state": 6,
+          "key": 102,
+          "frozen_label": 3,
+          "key_in_training": true
+        },
+        {
+          "symbol": 12,
+          "wanted": 3,
+          "adc_octet": [
+            37,
+            182,
+            237,
+            123,
+            37,
+            122,
+            235,
+            183
+          ],
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ],
+          "previous_state": 6,
+          "current_state": 5,
+          "key": 101,
+          "frozen_label": 3,
+          "key_in_training": true
+        },
+        {
+          "symbol": 13,
+          "wanted": 1,
+          "adc_octet": [
+            37,
+            18,
+            150,
+            223,
+            127,
+            30,
+            105,
+            240
+          ],
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 5,
+          "current_state": 7,
+          "key": 87,
+          "frozen_label": 1,
+          "key_in_training": true
+        }
+      ]
+    },
+    {
+      "seed": 23063,
+      "degrees": 135,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "71cb068f922ee421df8bc6e4675b4d19b5a5cf73b8d6326437c86418fabba238",
+      "rows": [
+        {
+          "symbol": 2,
+          "wanted": 1,
+          "adc_octet": [
+            217,
+            85,
+            19,
+            57,
+            127,
+            197,
+            236,
+            169
+          ],
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 7,
+          "current_state": 15,
+          "key": 127,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 3,
+          "wanted": 2,
+          "adc_octet": [
+            37,
+            16,
+            144,
+            222,
+            127,
+            29,
+            106,
+            240
+          ],
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 15,
+          "current_state": 7,
+          "key": 247,
+          "frozen_label": 2,
+          "key_in_training": true
+        },
+        {
+          "symbol": 4,
+          "wanted": 1,
+          "adc_octet": [
+            217,
+            81,
+            41,
+            110,
+            127,
+            84,
+            124,
+            231
+          ],
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 7,
+          "current_state": 15,
+          "key": 127,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 5,
+          "wanted": 3,
+          "adc_octet": [
+            217,
+            71,
+            16,
+            131,
+            217,
+            131,
+            22,
+            75
+          ],
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 15,
+          "current_state": 15,
+          "key": 255,
+          "frozen_label": 3,
+          "key_in_training": true
+        },
+        {
+          "symbol": 6,
+          "wanted": 1,
+          "adc_octet": [
+            217,
+            247,
+            125,
+            8,
+            37,
+            175,
+            253,
+            175
+          ],
+          "y3f9_at_phases": [
+            49,
+            43
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 15,
+          "current_state": 14,
+          "key": 254,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 7,
+          "wanted": 0,
+          "adc_octet": [
+            37,
+            10,
+            126,
+            243,
+            217,
+            76,
+            0,
+            80
+          ],
+          "y3f9_at_phases": [
+            148,
+            78
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 14,
+          "current_state": 4,
+          "key": 228,
+          "frozen_label": 0,
+          "key_in_training": true
+        },
+        {
+          "symbol": 8,
+          "wanted": 0,
+          "adc_octet": [
+            217,
+            240,
+            148,
+            63,
+            37,
+            62,
+            147,
+            242
+          ],
+          "y3f9_at_phases": [
+            49,
+            43
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 4,
+          "current_state": 14,
+          "key": 78,
+          "frozen_label": 0,
+          "key_in_training": true
+        },
+        {
+          "symbol": 9,
+          "wanted": 2,
+          "adc_octet": [
+            217,
+            77,
+            19,
+            129,
+            217,
+            130,
+            15,
+            72
+          ],
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 14,
+          "current_state": 15,
+          "key": 239,
+          "frozen_label": 2,
+          "key_in_training": true
+        },
+        {
+          "symbol": 10,
+          "wanted": 1,
+          "adc_octet": [
+            217,
+            231,
+            124,
+            83,
+            127,
+            108,
+            38,
+            83
+          ],
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 15,
+          "current_state": 14,
+          "key": 254,
+          "frozen_label": 1,
+          "key_in_training": true
+        },
+        {
+          "symbol": 11,
+          "wanted": 3,
+          "adc_octet": [
+            217,
+            236,
+            128,
+            83,
+            127,
+            110,
+            39,
+            80
+          ],
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 14,
+          "current_state": 14,
+          "key": 238,
+          "frozen_label": 3,
+          "key_in_training": true
+        },
+        {
+          "symbol": 12,
+          "wanted": 3,
+          "adc_octet": [
+            217,
+            239,
+            105,
+            30,
+            127,
+            223,
+            150,
+            18
+          ],
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ],
+          "previous_state": 14,
+          "current_state": 14,
+          "key": 238,
+          "frozen_label": 3,
+          "key_in_training": true
+        },
+        {
+          "symbol": 13,
+          "wanted": 1,
+          "adc_octet": [
+            37,
+            183,
+            235,
+            123,
+            37,
+            123,
+            238,
+            182
+          ],
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ],
+          "previous_state": 14,
+          "current_state": 5,
+          "key": 229,
+          "frozen_label": 1,
+          "key_in_training": true
+        }
+      ]
+    },
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "gain": 0.85,
+      "offset": 1,
+      "trace_digest": "6b8ee321d994205609529c8d7b449a1b438fdb2c337a7a53690b11f82fcfa8d2",
+      "adc_sha256": "02a43ebac51f19ca160a97673ab030386285b1c82a6f797c20e82b70bf3c54e4",
+      "rows": [
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            45,
+            47
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            48,
+            148
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            40
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            24
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            36,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            48,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            49,
+            49
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            49,
+            40
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            36,
+            27
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            36,
+            27
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            36,
+            49
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            49
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 23063,
+      "degrees": 135,
+      "gain": 0.85,
+      "offset": 1,
+      "trace_digest": "e84afb651301d50539e94ab7ca9a5b7dda14213392a9582c54e9bb859d516cde",
+      "adc_sha256": "af61377c3a70726770aef140a4afea30b30d06b215d2d4ad83f88ac40cf34d89",
+      "rows": [
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            48,
+            148
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            148,
+            47
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            48,
+            159
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            55,
+            148
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            45,
+            40
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            120,
+            40
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            49,
+            49
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            48,
+            148
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            40
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            47
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            24
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            36,
+            49
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        }
+      ]
+    }
+  ],
+  "holdout": [
+    {
+      "seed": 30373,
+      "degrees": 45,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "15ea76f465b126f7662b7e1cb78c940948c558048f665669152cbd31f21c191f",
+      "adc_sha256": "28de907658fe3194feeded695f808903ac3336fb7274eba27c9e123a4650dd53",
+      "rows": [
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            78
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            49,
+            43
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            43
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            148,
+            78
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "712b6616926d01c0333f508c688c68209071c669c83cd09b8a9c989471f785b9",
+      "adc_sha256": "1d6b3ebcd7a55d491c81da8423a38aaf11969df110228d2333d1d9ffa8be5d29",
+      "rows": [
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            78
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 9889,
+      "degrees": 45,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "dc59bd76580b96cb57234e628b2f588062f5252039addb91afd65a2d594b3d94",
+      "adc_sha256": "3eb65f89c20809ac13007f3031b35d3d14b305335384855986325d06dee8f4ea",
+      "rows": [
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            78
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            48
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 9889,
+      "degrees": 135,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "7b426063381742c906fc82cb1a2496c5fbb6c3baeadecc973e3fbfb2372b4310",
+      "adc_sha256": "3b1bdd1e50f24ab7d80712928febe5c77249b6b1d7e25ea1f310f5b05fe129f9",
+      "rows": [
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            49,
+            55
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 2,
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            30
+          ],
+          "y3fa_at_phases": [
+            32,
+            33
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            120
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 3,
+          "y3f9_at_phases": [
+            148,
+            78
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 0,
+          "y3f9_at_phases": [
+            49,
+            45
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        },
+        {
+          "wanted": 1,
+          "y3f9_at_phases": [
+            148,
+            36
+          ],
+          "y3fa_at_phases": [
+            32,
+            32
+          ]
+        }
+      ]
+    }
+  ],
+  "screens": [
+    {
+      "feature": "high2",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 42
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 44
+      },
+      "conflicting_exact_vectors": 4,
+      "unique_vectors": 6
+    },
+    {
+      "feature": "high2",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 42
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 44
+      },
+      "conflicting_exact_vectors": 4,
+      "unique_vectors": 6
+    },
+    {
+      "feature": "low2",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 43
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 44
+      },
+      "conflicting_exact_vectors": 7,
+      "unique_vectors": 8
+    },
+    {
+      "feature": "low2",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 43
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 44
+      },
+      "conflicting_exact_vectors": 7,
+      "unique_vectors": 8
+    },
+    {
+      "feature": "high4",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 36
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 4,
+        "unknown": 40
+      },
+      "conflicting_exact_vectors": 8,
+      "unique_vectors": 14
+    },
+    {
+      "feature": "high4",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 36
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 4,
+        "unknown": 40
+      },
+      "conflicting_exact_vectors": 8,
+      "unique_vectors": 14
+    },
+    {
+      "feature": "low4",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 31
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 4,
+        "unknown": 38
+      },
+      "conflicting_exact_vectors": 9,
+      "unique_vectors": 20
+    },
+    {
+      "feature": "low4",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 31
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 4,
+        "unknown": 38
+      },
+      "conflicting_exact_vectors": 9,
+      "unique_vectors": 20
+    },
+    {
+      "feature": "full8",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 27
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 8,
+        "unknown": 34
+      },
+      "conflicting_exact_vectors": 9,
+      "unique_vectors": 23
+    },
+    {
+      "feature": "full8",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 27
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 8,
+        "unknown": 34
+      },
+      "conflicting_exact_vectors": 9,
+      "unique_vectors": 23
+    },
+    {
+      "feature": "high4_with_3fa",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 36
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 4,
+        "unknown": 40
+      },
+      "conflicting_exact_vectors": 8,
+      "unique_vectors": 14
+    },
+    {
+      "feature": "high4_with_3fa",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 36
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 4,
+        "unknown": 40
+      },
+      "conflicting_exact_vectors": 8,
+      "unique_vectors": 14
+    },
+    {
+      "feature": "full8_with_3fa",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 27
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 8,
+        "unknown": 34
+      },
+      "conflicting_exact_vectors": 9,
+      "unique_vectors": 23
+    },
+    {
+      "feature": "full8_with_3fa",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 27
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 8,
+        "unknown": 34
+      },
+      "conflicting_exact_vectors": 9,
+      "unique_vectors": 23
+    },
+    {
+      "feature": "high4_transition",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 4
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 10,
+        "unknown": 7
+      },
+      "conflicting_exact_vectors": 1,
+      "unique_vectors": 34
+    },
+    {
+      "feature": "high4_transition",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 4
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 9,
+        "unknown": 8
+      },
+      "conflicting_exact_vectors": 1,
+      "unique_vectors": 34
+    },
+    {
+      "feature": "low4_transition",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 2
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 6,
+        "unknown": 12
+      },
+      "conflicting_exact_vectors": 1,
+      "unique_vectors": 39
+    },
+    {
+      "feature": "low4_transition",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 2
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 13,
+        "unknown": 7
+      },
+      "conflicting_exact_vectors": 1,
+      "unique_vectors": 39
+    },
+    {
+      "feature": "full8_transition",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 0
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 9,
+        "unknown": 7
+      },
+      "conflicting_exact_vectors": 0,
+      "unique_vectors": 40
+    },
+    {
+      "feature": "full8_transition",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 0
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 9,
+        "unknown": 0
+      },
+      "conflicting_exact_vectors": 0,
+      "unique_vectors": 40
+    },
+    {
+      "feature": "full8_transition_with_3fa",
+      "metric": "hamming",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 0
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 9,
+        "unknown": 7
+      },
+      "conflicting_exact_vectors": 0,
+      "unique_vectors": 40
+    },
+    {
+      "feature": "full8_transition_with_3fa",
+      "metric": "absolute",
+      "training": {
+        "checks": 44,
+        "wrong": 0,
+        "unknown": 0
+      },
+      "holdout": {
+        "checks": 44,
+        "wrong": 9,
+        "unknown": 0
+      },
+      "conflicting_exact_vectors": 0,
+      "unique_vectors": 40
+    }
+  ],
+  "selected": {
+    "feature": "full8_transition",
+    "metric": "absolute",
+    "training": {
+      "checks": 44,
+      "wrong": 0,
+      "unknown": 0
+    },
+    "holdout": {
+      "checks": 44,
+      "wrong": 9,
+      "unknown": 0
+    },
+    "conflicting_exact_vectors": 0,
+    "unique_vectors": 40
+  },
+  "buffered": [
+    {
+      "selector": "40",
+      "score": {
+        "checks": 31,
+        "wrong": 8,
+        "unknown": 0
+      },
+      "predictions": [
+        2,
+        2,
+        1,
+        2,
+        3,
+        1,
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        3,
+        3,
+        3,
+        0,
+        3,
+        3,
+        1,
+        3,
+        3,
+        1,
+        3,
+        0,
+        1,
+        2,
+        3,
+        2,
+        2,
+        2,
+        3
+      ],
+      "original_gaps": [
+        {
+          "index": 8,
+          "wanted": 1,
+          "predicted": 3
+        },
+        {
+          "index": 14,
+          "wanted": 1,
+          "predicted": 3
+        },
+        {
+          "index": 29,
+          "wanted": 0,
+          "predicted": 2
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "score": {
+        "checks": 31,
+        "wrong": 16,
+        "unknown": 0
+      },
+      "predictions": [
+        3,
+        3,
+        2,
+        2,
+        2,
+        0,
+        3,
+        2,
+        3,
+        0,
+        1,
+        1,
+        1,
+        3,
+        0,
+        0,
+        2,
+        1,
+        3,
+        3,
+        0,
+        0,
+        3,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        3,
+        2
+      ],
+      "original_gaps": [
+        {
+          "index": 10,
+          "wanted": 0,
+          "predicted": 0
+        },
+        {
+          "index": 12,
+          "wanted": 0,
+          "predicted": 1
+        },
+        {
+          "index": 13,
+          "wanted": 2,
+          "predicted": 1
+        },
+        {
+          "index": 17,
+          "wanted": 0,
+          "predicted": 2
+        },
+        {
+          "index": 31,
+          "wanted": 2,
+          "predicted": 2
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_3f9_fullbyte_screen.py": "b886eec267cd00a85fd925075126d35caf264819c645a2674cb65c231ad3ca9b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-3f9-key-audit.json": "04c2e58ea5842c5325d4d7ed93a0d4a56f294967074afd1e5fe0639455f66e44",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/receiver-mask04-3f9-3fa-feature-screen.json": "0076a33e90538f473fd78924929d0f6f11bf2ae96fc4d609aa526901aaa42dfa"
+  },
+  "limitations": [
+    "The independent holdout selects the model; its score is not an unbiased final validation.",
+    "Nearest-vector decoding is an external diagnostic, not a traced board circuit.",
+    "The buffered fixture retains assumed DAC, ADC, analog and RxD connections."
+  ]
+}
