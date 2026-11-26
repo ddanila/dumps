@@ -116,6 +116,16 @@ Inspect ADC quantization and `3F9`/`3FA` keys at those gaps, then test
 a photo-compatible gain/phase or multi-sample circuit on fresh data.
 This result rejects only that fixed lookup under its declared fixture;
 C3 and G2 remain open.
+The [paired `3F9` key audit](g2/JOINT-MASK04-12A-3F9-KEY-AUDIT.md)
+matches independent training and buffered-loopback traces, then shows
+that 24/32 data symbols per selector use transition keys absent from
+training. Familiar keys also give 3 call and 7 answer wrong labels;
+answer gap 10 shares key `110` with training but has different full
+`3F9` bytes and a different dibit. The two-bit projection aliases
+distinct executed states. Test more `3F9` bits or short history on
+independent gain/phase-varied carriers, freeze the rule, and challenge
+fresh buffered payloads. Treat the line and output circuit as explicit
+assumptions; do not block G2 or relax C3.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
