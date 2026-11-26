@@ -84,6 +84,16 @@ data errors and the other 47 each miss one decision at the same index.
 This makes the carrier candidate robust to loop-visit clock phase while
 leaving the exact latch edge and receiver alignment unresolved. Do not
 promote this projected phase sweep to a traced C2 output route.
+The [executed Tx→Rx loopback](g2/JOINT-MASK04-TX-RX-LOOPBACK.md) now
+feeds each saved controller-derived real-PROM Y7 stream through the
+declared B5, A2-gate, analog-filter and complementary-ADC fixture into
+a separate 756,047-instruction real-PROM receive run. Both selectors
+yield 0 wrong and 0 unknown among 62 measurable A3/A4 dibits with the
+frozen readout; the opposite-selector control gives ten wrong data
+dibits. This links the candidate transmitter and receiver behaviors,
+but the physical bridge, decision circuit, final A4 dibit and USART
+handoff remain open. Extend the transmitter capture for the six samples
+lost to alignment, then test the complete line-byte handoff.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
