@@ -349,6 +349,19 @@ are now development evidence: any revised gates require untouched
 data/gain validation. Test a photo-compatible level or carrier-state
 signal and the actual row-latch/serial route. C3/G2 stay open; missing
 net continuity is not a blocker.
+The [20-state row-gate holdout](g2/JOINT-MASK04-12A-ROW0-TWENTY-STATE.md)
+now treats those six gain runs as development. Its connected phase
+graph has 20 observed states and zero conflicts. One extra two-literal
+term in phase bit 0 repairs state `52`; phase bit 1 is unchanged.
+Frozen before a seventh payload pair, the revised gates recover 64/64
+receive decisions and eight exact line bytes in all six real-PROM
+Tx→line→Rx runs at R1 offset 88 and 75/100/125% level. Aligned modeled
+8251/8031 handoff returns each exact eight-byte source payload with
+zero errors/overruns; early and late SYNDET controls fail. The
+independent reference is exact. All holdout states are among the 20
+development states, so unseen-state and carrier-drift robustness
+remain open. Test those with the gates frozen and a photo-compatible
+row latch/serializer route; retain C3/G2 as active, not blocked.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
