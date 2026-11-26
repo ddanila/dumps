@@ -72,6 +72,15 @@ dibits, while the earlier two-pair control leaves two unknown. This is
 a successful **conditional readout**, not an identified Nokia circuit.
 Constrain the capture/selector/USART route and challenge the rule on
 additional phase, noise and controller-timing fixtures; keep C3 open.
+The [offset zero-run handoff](g2/RECEIVER-MASK04-MARGIN-ZERO-HANDOFF.md)
+now feeds the controller's actual scrambled eight-zero-octet streams
+through four ±7 Hz real-PROM runs and the frozen margin readout. Each
+recovers all 63 measurable dibits and eight line bytes; at the assumed
+416-tick RxC rate, only the aligned external SYNDET pulse drives the
+preserved 8031 ROM from `AF` to `B0`. The photos show the candidate ADC
+and line-side USART packages but do not trace the inter-board serial
+route. Continue testing its latch/selector, timing and sync source under
+labelled assumptions; this conditional handoff does not close C3.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled

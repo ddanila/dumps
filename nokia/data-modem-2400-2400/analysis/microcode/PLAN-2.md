@@ -1398,6 +1398,16 @@ phases B–C turn "what" into "how".
   not physical capture/selector/USART wiring. Constrain those routes
   and challenge intermediate offsets, noise and controller timing;
   C3 remains open.
+  The [offset zero-run handoff](g2/RECEIVER-MASK04-MARGIN-ZERO-HANDOFF.md)
+  feeds the 8031's actual eight scrambled line octets through four
+  ±7 Hz PROM streams. The frozen margin readout recovers all 63
+  measurable dibits and exact line bytes in each. At the assumed
+  416-tick RxC pace, an aligned external SYNDET pulse alone takes the
+  preserved 8031 ROM `AF→B0`; early, late, absent and opposite-selector
+  controls stay at `AF`. The candidate ADC and line-side 8251A are
+  pictured on separate boards, but the inter-board net, three capture
+  clocks and selector remain untraced. This is a conditional handoff,
+  not a C3 pass; test those routes and naturally timed CPU events next.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
