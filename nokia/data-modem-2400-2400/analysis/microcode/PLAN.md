@@ -19,10 +19,12 @@ A failed run rejects only its stated wiring, timing and input fixture. Try the
 next photo-compatible route, changed stimulus or independent microcode/signal
 test; do not wait for new photos, continuity checks or user confirmation before
 running an explicit assumption. Keep G2 **active** and C2/C3/C4 **open** while
-experiments remain possible. A plausible execution is conditional evidence,
-not proof of the physical circuit or an automatic acceptance pass. Consider a
-goal-level blocker only after documenting why no remaining runnable experiment
-can advance an open check and what specific external observation is required.
+experiments remain possible. Record missing physical continuity as an open
+validation question, not a stop condition for simulation. A plausible execution
+is conditional evidence, not proof of the physical circuit or an automatic
+acceptance pass. Consider a goal-level blocker only after documenting why no
+remaining runnable experiment can advance an open check and what specific
+external observation is required.
 
 For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
 identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
