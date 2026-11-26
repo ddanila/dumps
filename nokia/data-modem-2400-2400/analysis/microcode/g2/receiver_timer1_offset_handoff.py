@@ -17,6 +17,8 @@ from zero_run_detector import CORE, HISTORY, ROM
 PRIOR = HERE / 'results/receiver-mask04-margin-zero-handoff.json'
 SOURCE = HERE / 'receiver_timed_controller_probe.c'
 PULSES = (63, 64, 65, 128)
+RAM15_RELOAD_SITES = (0x04B1, 0x117C, 0x1396, 0x1476)
+RAM15_RELOAD_BYTES = bytes.fromhex('75 15 75 75 14 30')
 
 
 def timer_source():
@@ -32,6 +34,8 @@ def timer_source():
          'c.mSFR[REG_TL1]=0x21; c.mSFR[REG_TCON]=0x40;'),
         ('return errors?3:0;',
          'fprintf(stderr,"TIMER1_IRQS=%u\\n",timer1_irqs); '
+         'fprintf(stderr,"RAM15=%u RAM14=%u\\n",'
+         'c.mLowerData[0x15],c.mLowerData[0x14]); '
          'return errors?3:0;'),
     ]
     for old, new in changes:
@@ -46,6 +50,14 @@ def unheld_source(source):
     if source.count(old) != 1:
         raise ValueError('RAM15 gate hook changed')
     return source.replace(old, '/* RAM15 retains its preserved value */')
+
+
+def seeded_source(source):
+    old = 'c.mLowerData[0x34]=0xAF;c.mLowerData[0x22]=0x10;'
+    if source.count(old) != 1:
+        raise ValueError('AF state initializer changed')
+    return source.replace(
+        old, old + ' c.mLowerData[0x15]=0x75; c.mLowerData[0x14]=0x30;')
 
 
 def compile_probe(source, directory, name):
@@ -78,6 +90,13 @@ def probe(exe, delay, selector, pulse, values, timer):
         if len(lines) != 1:
             raise ValueError(('timer interrupt count missing', process.stderr))
         result['timer1_irqs'] = int(lines[0][len(marker):])
+        countdown = [line for line in process.stderr.splitlines()
+                     if line.startswith('RAM15=')]
+        if len(countdown) != 1:
+            raise ValueError(('timer countdown missing', process.stderr))
+        high, low = countdown[0].split()
+        result['ram15'] = int(high.split('=')[1])
+        result['ram14'] = int(low.split('=')[1])
     else:
         if process.returncode or process.stderr:
             raise ValueError(('baseline controller failed', process.stderr))
@@ -87,8 +106,13 @@ def probe(exe, delay, selector, pulse, values, timer):
 
 def run(out=HERE / 'results/receiver-timer1-offset-handoff.json'):
     prior = json.loads(PRIOR.read_text())
+    rom = ROM.read_bytes()
+    if any(rom[site:site + len(RAM15_RELOAD_BYTES)] != RAM15_RELOAD_BYTES
+           for site in RAM15_RELOAD_SITES):
+        raise ValueError('controller RAM15:RAM14 reload literals changed')
     source, keys = timer_source()
     unheld = unheld_source(source)
+    seeded = seeded_source(unheld)
     unique = {}
     for row in prior['cases']:
         unique.setdefault(row['polynomial_delay'], row)
@@ -100,6 +124,7 @@ def run(out=HERE / 'results/receiver-timer1-offset-handoff.json'):
         baseline_exe = compile_probe(SOURCE.read_text(), directory, 'baseline')
         timer_exe = compile_probe(source, directory, 'timer1')
         unheld_exe = compile_probe(unheld, directory, 'timer1-unheld-ram15')
+        seeded_exe = compile_probe(seeded, directory, 'timer1-seeded-ram15')
         for delay in (5, 18):
             prior_row = unique[delay]
             values = [int(value, 16)
@@ -121,6 +146,8 @@ def run(out=HERE / 'results/receiver-timer1-offset-handoff.json'):
                              64, values, True)
             unheld_gate = probe(unheld_exe, delay, selector,
                                 64, values, True)
+            seeded_gate = probe(seeded_exe, delay, selector,
+                                64, values, True)
             aligned = pulse_cases[1]['timer1']
             if (aligned['state'] != 0xB0 or
                     aligned['zero_octets'] != 8 or
@@ -137,14 +164,23 @@ def run(out=HERE / 'results/receiver-timer1-offset-handoff.json'):
                     unheld_gate['state'] != 0 or
                     unheld_gate['consumed'] != 0 or
                     unheld_gate['overruns'] != 7 or
-                    unheld_gate['timer1_irqs'] != 57):
+                    unheld_gate['timer1_irqs'] != 57 or
+                    seeded_gate['state'] != 0xB0 or
+                    seeded_gate['zero_octets'] != 8 or
+                    seeded_gate['consumed_bytes'] != values or
+                    seeded_gate['decoded_bytes'] != [0] * 8 or
+                    seeded_gate['overruns'] or seeded_gate['errors'] or
+                    seeded_gate['timer1_irqs'] != 57 or
+                    (seeded_gate['ram15'], seeded_gate['ram14']) !=
+                    (0x74, 0xF7)):
                 raise ValueError(('Timer 1 handoff controls changed', delay))
             cases.append(dict(polynomial_delay=delay,
                               selected_prom_trace_digest=prior_row['trace_digest'],
                               line_bytes=prior_row['recovered_line_bytes'],
                               pulse_cases=pulse_cases,
                               opposite_selector_timer1=opposite,
-                              unheld_ram15_control=unheld_gate))
+                              unheld_ram15_control=unheld_gate,
+                              rom_literal_seed_control=seeded_gate))
             print(delay,
                   [(item['pulse'], item['timer1']['state'],
                     item['timer1']['zero_octets'],
@@ -152,6 +188,7 @@ def run(out=HERE / 'results/receiver-timer1-offset-handoff.json'):
                     item['timer1']['errors']) for item in pulse_cases],
                   'opposite', opposite['state'], flush=True)
     paths = [Path(__file__), PRIOR, SOURCE,
+             HERE.parents[1] / 'results/controller-linear.asm',
              HERE / 'receiver_mask04_margin_zero_handoff.py',
              HERE / 'receiver_timed_controller_handoff.py',
              HERE / 'zero_run_detector.py', ROM,
@@ -167,16 +204,21 @@ def run(out=HERE / 'results/receiver-timer1-offset-handoff.json'):
                                receive='narrow external-sync 8251A model',
                                bit_ticks=BIT_TICKS,
                                pulse_indices=PULSES,
+                               ram15_reload_sites=[f'{site:04X}'
+                                                   for site in RAM15_RELOAD_SITES],
+                               ram15_reload_bytes=RAM15_RELOAD_BYTES.hex(' '),
                                generated_source_replacement_keys=keys,
                                generated_source_sha256=hashlib.sha256(
                                    source.encode()).hexdigest(),
                                unheld_source_sha256=hashlib.sha256(
-                                   unheld.encode()).hexdigest()),
+                                   unheld.encode()).hexdigest(),
+                               rom_literal_seed_source_sha256=hashlib.sha256(
+                                   seeded.encode()).hexdigest()),
                   cases=cases,
                   limitations=[
                       'The data bytes come from saved offset-PROM executions; DSC and 8031 are not run simultaneously.',
-                      'Timer 1 is enabled from a synthetic preserved AF state, without reconstructing the full entry countdown.',
-                      'DTE receive, mode-0 serial completion, RxD/RxC/SYNDET and the RAM15 gate remain fixtures or wiring hypotheses.'],
+                      'The 75:30 countdown is a ROM-derived candidate seeded at synthetic AF entry; its natural inheritance from an earlier state is unproven.',
+                      'DTE receive, mode-0 serial completion, RxD/RxC/SYNDET and RAM15 initialization remain fixtures or wiring hypotheses.'],
                   source_sha256={str(path.relative_to(HERE.parents[4])):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in paths})

@@ -1412,12 +1412,16 @@ phases B–C turn "what" into "how".
   `TMOD=15 TH1=FC TL1=21 TCON=40 IE=88` in the same paced 8031 probe.
   Both delay cases execute 57 timer interrupts; byte consumption has no
   overrun or emulator error, and only the aligned pulse reaches `B0`.
-  An unheld-RAM15 control drops to state `00`, consumes no bytes and
-  overruns seven characters in both delays. The held-positive gate is
-  essential to this synthetic `AF` fixture. Derive its source and the
-  `AF` entry/sync timing from preceding ROM execution; DTE input,
-  mode-0 completion and the serial route are still assumed. C3 remains
-  open.
+  A zero-seeded, unheld-RAM15 control drops to state `00`, consumes no
+  bytes and overruns seven characters: Timer 1 decrements bank-2
+  `R5:R4` at RAM15:RAM14, so zero underflows on its first interrupt.
+  A one-time `75:30` seed from four literal ROM reload sites, with no
+  per-dispatch gate force, survives the 57 interrupts and again reaches
+  `B0` with eight exact bytes; RAM15:RAM14 ends at `74:F7`. This shows
+  the forced gate is unnecessary for a plausible inherited countdown,
+  but does not establish that `AF` naturally inherits that value.
+  Execute the preceding state transition and sync timing next; DTE
+  input, mode-0 completion and the serial route remain assumed. C3 open.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero

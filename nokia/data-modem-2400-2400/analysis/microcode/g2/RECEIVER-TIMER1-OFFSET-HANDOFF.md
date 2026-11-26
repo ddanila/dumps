@@ -7,8 +7,8 @@ enables the same emulator Timer 1 configuration used by the earlier
 [interrupt-paced controller run](MAIN-LOOP-TIMER1-SEGMENT2.md):
 `TMOD=15`, `TH1=FC`, `TL1=21`, `TCON=40`, `IE=88`. It keeps the saved
 real-PROM line bytes, 416 modeled 8031 ticks per RxC bit, initial `AF`
-state, synthetic DTE input, held-positive RAM15 gate and narrow external
-SYNDET/8251A model unchanged. A separately compiled timer-disabled probe
+state, synthetic DTE input and narrow external SYNDET/8251A model
+unchanged. A separately compiled timer-disabled probe
 reproduces the saved handoff outputs exactly before comparison. One saved
 −7 Hz PROM trace is selected for each delay; its recovered line bytes
 also match the corresponding +7 Hz trace.
@@ -32,23 +32,37 @@ receive-byte completion-to-read latency among the tested timer runs is
 therefore tolerates modeled timer interrupts during this conditional
 receive sequence.
 
-The **unheld-RAM15 control** keeps Timer 1 active and uses the aligned
-pulse, but no longer forces RAM15 positive at state dispatch. In both
-delays it falls to state `00`, consumes no receive bytes, and records
-seven USART overruns while eight characters complete. The positive
-RAM15 gate is therefore necessary for this synthetic `AF` fixture;
-the timer result does not establish that the real modem supplies it.
+The zero-initialized **unheld-RAM15 control** keeps Timer 1 active and
+uses the aligned pulse, but no longer forces RAM15 positive at state
+dispatch. In both delays it falls to state `00`, consumes no receive
+bytes, and records seven USART overruns while eight characters complete.
+The ROM explains why: Timer 1's ISR at `07D7–07F8` selects register bank 2
+and decrements `R5:R4`, which occupy RAM15:RAM14. Starting both at zero
+underflows the high byte to `FF` on the first interrupt. The state
+dispatcher at `1024–1029` treats that negative high byte as a reason to
+clear the state.
 
-This still does not reconstruct the actual entry into `AF` or its
-countdown: the probe starts from a preserved synthetic state. DTE input,
+The unchanged ROM contains `MOV 15h,#75h; MOV 14h,#30h` at `04B1`, `117C`,
+`1396` and `1476`. A third probe seeds that **ROM-literal `75:30` countdown
+once at the synthetic `AF` entry**, then removes the per-dispatch RAM15
+force. Both delays consume eight exact bytes without overrun, decode eight
+zeros and reach `B0` after 57 Timer 1 interrupts. Their final
+RAM15:RAM14 is `74:F7`, exactly the expected countdown after 57
+decrements; `B0` occurs at ticks 53,253 and 53,243. Thus a one-time
+positive countdown is sufficient for this 57 ms handoff, and the
+zero-seeded failure does not imply the physical board needs a continuously
+forced gate.
+
+The probe still starts from a preserved synthetic `AF` state. The ROM
+literal's **actual inheritance path into `AF` is not yet shown**; another
+routine could reset or alter the countdown before that state. DTE input,
 mode-0 serial completion, RxD/RxC/SYNDET route and pulse source remain
-assumed; DSC and 8031 execute sequentially. C3 stays open. The next
-useful timing test should derive both the RAM15 gate and `AF` entry from
-the controller's preceding executed state, then test the sync event
-without placing it directly, while retaining the same PROM receive data
-and early/late controls.
+assumed; DSC and 8031 execute sequentially. C3 stays open. Next execute
+the preceding state transition into `AF` and inspect RAM15:RAM14 there,
+then test the sync event without placing it directly while retaining the
+same PROM receive data and early/late controls.
 
 The [machine report](results/receiver-timer1-offset-handoff.json)
-includes all byte timings, ISR counts, frames, the unheld-gate control,
-source hashes and the exact generated C-source transformations. Reproduce from the
+includes all byte timings, ISR counts, frames, zero and ROM-literal seed
+controls, source hashes and the exact generated C-source transformations. Reproduce from the
 microcode directory with `python3 g2/receiver_timer1_offset_handoff.py`.

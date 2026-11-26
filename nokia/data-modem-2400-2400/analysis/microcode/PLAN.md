@@ -87,10 +87,14 @@ cases execute 57 timer interrupts with no receive overrun or emulator
 error; only the aligned SYNDET pulse reaches `B0`. This removes one
 timing shortcut, but an unheld-RAM15 control drops to state `00`,
 consumes no bytes and overruns seven characters in both delays. The
-positive RAM15 gate is essential to this synthetic `AF` fixture; its
-physical source, the state entry, DTE/serial events and receive route
-stay open. Next derive the gate, `AF` entry and sync event from the
-preceding controller execution under labelled assumptions.
+ROM shows why: Timer 1 decrements bank-2 `R5:R4` at RAM15:RAM14, and
+the zero synthetic seed underflows the high byte. A one-time
+ROM-literal `75:30` seed, with no per-dispatch force, survives all 57
+interrupts and again reaches `B0` with eight exact bytes; the final
+countdown is `74:F7`. This removes the continuously held gate from the
+successful fixture but does not prove how that countdown enters `AF`.
+Execute the preceding state transition, then constrain the sync source,
+DTE/serial events and receive route under labelled assumptions.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
