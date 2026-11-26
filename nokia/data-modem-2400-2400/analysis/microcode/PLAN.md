@@ -210,7 +210,14 @@ equal the controller writes, and TxD bits 1–128 exactly equal the
 write-versus-shift gap, while TxD-to-DSC wiring and bit alignment
 remain assumptions. Next feed the paced bit events with timing into
 a photo-compatible DSC serial-input circuit, and test a plausible
-ADC/latch/clock phase-decision path and reverse 8251/8031 handoff.
+ADC/latch/clock phase-decision path. The [16-character reverse handoff](g2/JOINT-MASK04-12A-16BYTE-REVERSE-HANDOFF.md)
+now reads all 64 joined dibits from the executed DSC receiver states,
+then clocks their exact 16 bytes through a one-byte-buffer 8251 model
+to the unchanged 8031. Aligned SYNDET consumes all 16 with no
+overrun and independent descrambler agreement; early and late pulses
+misalign. This establishes the modeled reverse path under its stated
+timing, while the physical DSC-to-RxD/RxC/SYNDET logic and a natural
+8031 A3/A4 receive-state transition remain open C3 hypotheses.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
