@@ -1,0 +1,2137 @@
+{
+  "experiment": "extended ROM-sensitive 12A line alignment",
+  "fixture": {
+    "original_samples": 846,
+    "extra_held_end_samples": 6,
+    "extended_samples": 852,
+    "tx_cycles": 1278256,
+    "shifts": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "analog": "same DAC bus, A2 mid-code gate and causal bandpass as saved fixture"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "tx_trace_digest": "62a02e380d850861c1a69cac07f2b387b00f27f0eac62d4b11cda3c2368c072d",
+      "original_samples_sha256": "c262bd1a5eb536d56601523e3476c47ca227680083b6a1f2699410f38153e37a",
+      "extended_samples_sha256": "97b397d57c29231fd62babdd3358898b6ca9d5035893e6e984fff81af3ce5808",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 8,
+              "wrong_indices": [
+                35,
+                36,
+                38,
+                54,
+                59,
+                60,
+                61,
+                63
+              ],
+              "pcm_sha256": "64346f78e78a7182d3b43bece2995997d28f38ac44851bc162f184ae6bf4f1d3"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                36
+              ],
+              "pcm_sha256": "47884b4efbbf961cc2a13c46458d2282a21ad0ee67c89c7571d6d719791d8f5f"
+            },
+            {
+              "shift": 6,
+              "wrong": 1,
+              "wrong_indices": [
+                35
+              ],
+              "pcm_sha256": "73093fbca3c6739f818c4a6b00e0d54b392e67a3abaeb749f4d556a8219b9661"
+            },
+            {
+              "shift": 7,
+              "wrong": 2,
+              "wrong_indices": [
+                46,
+                51
+              ],
+              "pcm_sha256": "65dabd0ae50a77c6edaab22dbd9639b39576a2ede4280a042d353ee55172b5a3"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                42,
+                46,
+                47,
+                51,
+                57,
+                58,
+                62
+              ],
+              "pcm_sha256": "60fcd04010398071050a3a756d8ec46d08f995e142415b2c1a5ba761ab7ac573"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                42,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                62,
+                63
+              ],
+              "pcm_sha256": "d9872d82be5f84b3faee82663001d5d9e4900cd0208b6367ab9e43b6a231e08b"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                38,
+                39,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                59,
+                62,
+                63
+              ],
+              "pcm_sha256": "177947875033841c777db79d89ad4e91870607577f588045795ad451aac865cb"
+            },
+            {
+              "shift": 11,
+              "wrong": 25,
+              "wrong_indices": [
+                0,
+                32,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "55600fea9270ef13f0ef4c00279d1f74710717e67eaa04b667654769942565b7"
+            },
+            {
+              "shift": 12,
+              "wrong": 26,
+              "wrong_indices": [
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "b0d98d780a94496e159c9811ebd9db73a33d5fe8a66c57fa90d7e5b1d61efe79"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 1,
+            "wrong_indices": [
+              35
+            ],
+            "pcm_sha256": "73093fbca3c6739f818c4a6b00e0d54b392e67a3abaeb749f4d556a8219b9661"
+          }
+        },
+        {
+          "bus_index": 1,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 8,
+              "wrong_indices": [
+                35,
+                36,
+                38,
+                54,
+                59,
+                60,
+                61,
+                63
+              ],
+              "pcm_sha256": "337279004a036dc5906518661b2ba11e823b5b86bfae24519a41b4b5aeb9b05f"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                36
+              ],
+              "pcm_sha256": "ae9b73db3c8472b0cac4beb9e7b0e4b51941fa5980a0d7bfb6363cd1c9cbb9a1"
+            },
+            {
+              "shift": 6,
+              "wrong": 1,
+              "wrong_indices": [
+                35
+              ],
+              "pcm_sha256": "a406a28e46ccf61130208dac2f32ed0bd214f0da40c7db8993e47291a48df89e"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                46
+              ],
+              "pcm_sha256": "16f38ac4f3114c8ffa74b0792a3eb51ac371c9e0a8d77e3cdc653bf88e826cdd"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                42,
+                46,
+                47,
+                51,
+                57,
+                58,
+                62
+              ],
+              "pcm_sha256": "6d28820d5c315df0bcd6e9ebcce9cc6c3f8184e3b1ade4b72184dc99c9007300"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                42,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                62,
+                63
+              ],
+              "pcm_sha256": "0e2b2b796bea79fc60cae0d494888171f3afa2d142ad8bc4af86e713f8a5d22e"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                38,
+                39,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                59,
+                62,
+                63
+              ],
+              "pcm_sha256": "2ac916b9843275b287e4b8114738ee120e23d4a706b842061e67e0b8d63fd253"
+            },
+            {
+              "shift": 11,
+              "wrong": 25,
+              "wrong_indices": [
+                0,
+                32,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "06b326f4049fe6fe8031fb7d3ed20635097cab91ba444f15afc394967832ceec"
+            },
+            {
+              "shift": 12,
+              "wrong": 26,
+              "wrong_indices": [
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "7f4801e8428e2c6f96c22daaaa39419599139f701579cc77533d15b5af22ee31"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 1,
+            "wrong_indices": [
+              35
+            ],
+            "pcm_sha256": "a406a28e46ccf61130208dac2f32ed0bd214f0da40c7db8993e47291a48df89e"
+          }
+        },
+        {
+          "bus_index": 2,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 8,
+              "wrong_indices": [
+                35,
+                36,
+                38,
+                54,
+                59,
+                60,
+                61,
+                63
+              ],
+              "pcm_sha256": "64346f78e78a7182d3b43bece2995997d28f38ac44851bc162f184ae6bf4f1d3"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                36
+              ],
+              "pcm_sha256": "47884b4efbbf961cc2a13c46458d2282a21ad0ee67c89c7571d6d719791d8f5f"
+            },
+            {
+              "shift": 6,
+              "wrong": 1,
+              "wrong_indices": [
+                35
+              ],
+              "pcm_sha256": "73093fbca3c6739f818c4a6b00e0d54b392e67a3abaeb749f4d556a8219b9661"
+            },
+            {
+              "shift": 7,
+              "wrong": 2,
+              "wrong_indices": [
+                46,
+                51
+              ],
+              "pcm_sha256": "65dabd0ae50a77c6edaab22dbd9639b39576a2ede4280a042d353ee55172b5a3"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                42,
+                46,
+                47,
+                51,
+                57,
+                58,
+                62
+              ],
+              "pcm_sha256": "60fcd04010398071050a3a756d8ec46d08f995e142415b2c1a5ba761ab7ac573"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                42,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                62,
+                63
+              ],
+              "pcm_sha256": "d9872d82be5f84b3faee82663001d5d9e4900cd0208b6367ab9e43b6a231e08b"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                38,
+                39,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                59,
+                62,
+                63
+              ],
+              "pcm_sha256": "177947875033841c777db79d89ad4e91870607577f588045795ad451aac865cb"
+            },
+            {
+              "shift": 11,
+              "wrong": 25,
+              "wrong_indices": [
+                0,
+                32,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "55600fea9270ef13f0ef4c00279d1f74710717e67eaa04b667654769942565b7"
+            },
+            {
+              "shift": 12,
+              "wrong": 26,
+              "wrong_indices": [
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "b0d98d780a94496e159c9811ebd9db73a33d5fe8a66c57fa90d7e5b1d61efe79"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 1,
+            "wrong_indices": [
+              35
+            ],
+            "pcm_sha256": "73093fbca3c6739f818c4a6b00e0d54b392e67a3abaeb749f4d556a8219b9661"
+          }
+        },
+        {
+          "bus_index": 3,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 8,
+              "wrong_indices": [
+                35,
+                36,
+                38,
+                54,
+                59,
+                60,
+                61,
+                63
+              ],
+              "pcm_sha256": "a226e8d459131033b17bac1bdde5be04d4d8bad129833bb95ddbc426c1e265c1"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                36
+              ],
+              "pcm_sha256": "4dce319f47d52b07dfe4145a9010e68456e6e0584ca2d1c9389f28951e460418"
+            },
+            {
+              "shift": 6,
+              "wrong": 1,
+              "wrong_indices": [
+                35
+              ],
+              "pcm_sha256": "208afd675d85e12f9d636dea70550ec66a0f6ef29eebc16a40d7f3bba5b76c7d"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                46
+              ],
+              "pcm_sha256": "c29e023ec027fba4ff106b73f52d79f5c8eff63757d49636d956f2270ab88b2e"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                42,
+                46,
+                47,
+                51,
+                57,
+                58,
+                62
+              ],
+              "pcm_sha256": "a282753dd0170684388a5e0815ebe283062565ace3915bf052a5f453298d1c8c"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                42,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                62,
+                63
+              ],
+              "pcm_sha256": "307d43a84cfd6de126871155b8bf934d103672807f12ce432b616c9ef8322a36"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                38,
+                39,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                59,
+                62,
+                63
+              ],
+              "pcm_sha256": "ed85680ff406a686a37e759042fab7789208694ecbf4dd8b04a3f2dfc0faafdc"
+            },
+            {
+              "shift": 11,
+              "wrong": 25,
+              "wrong_indices": [
+                0,
+                32,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "7703f007587f4802fcff6cba652c0e51bee478ce3dce6ec57f9e7faa1896b1af"
+            },
+            {
+              "shift": 12,
+              "wrong": 26,
+              "wrong_indices": [
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "fdf0c2769875d5ad7d213b69f496dd89ffc1581ec7b9b48766f507ef760ca655"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 1,
+            "wrong_indices": [
+              35
+            ],
+            "pcm_sha256": "208afd675d85e12f9d636dea70550ec66a0f6ef29eebc16a40d7f3bba5b76c7d"
+          }
+        },
+        {
+          "bus_index": 4,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 8,
+              "wrong_indices": [
+                35,
+                36,
+                38,
+                54,
+                59,
+                60,
+                61,
+                63
+              ],
+              "pcm_sha256": "337279004a036dc5906518661b2ba11e823b5b86bfae24519a41b4b5aeb9b05f"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                36
+              ],
+              "pcm_sha256": "ae9b73db3c8472b0cac4beb9e7b0e4b51941fa5980a0d7bfb6363cd1c9cbb9a1"
+            },
+            {
+              "shift": 6,
+              "wrong": 1,
+              "wrong_indices": [
+                35
+              ],
+              "pcm_sha256": "a406a28e46ccf61130208dac2f32ed0bd214f0da40c7db8993e47291a48df89e"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                46
+              ],
+              "pcm_sha256": "16f38ac4f3114c8ffa74b0792a3eb51ac371c9e0a8d77e3cdc653bf88e826cdd"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                42,
+                46,
+                47,
+                51,
+                57,
+                58,
+                62
+              ],
+              "pcm_sha256": "6d28820d5c315df0bcd6e9ebcce9cc6c3f8184e3b1ade4b72184dc99c9007300"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                42,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                62,
+                63
+              ],
+              "pcm_sha256": "0e2b2b796bea79fc60cae0d494888171f3afa2d142ad8bc4af86e713f8a5d22e"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                38,
+                39,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                59,
+                62,
+                63
+              ],
+              "pcm_sha256": "2ac916b9843275b287e4b8114738ee120e23d4a706b842061e67e0b8d63fd253"
+            },
+            {
+              "shift": 11,
+              "wrong": 25,
+              "wrong_indices": [
+                0,
+                32,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "06b326f4049fe6fe8031fb7d3ed20635097cab91ba444f15afc394967832ceec"
+            },
+            {
+              "shift": 12,
+              "wrong": 26,
+              "wrong_indices": [
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "7f4801e8428e2c6f96c22daaaa39419599139f701579cc77533d15b5af22ee31"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 1,
+            "wrong_indices": [
+              35
+            ],
+            "pcm_sha256": "a406a28e46ccf61130208dac2f32ed0bd214f0da40c7db8993e47291a48df89e"
+          }
+        },
+        {
+          "bus_index": 5,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 8,
+              "wrong_indices": [
+                35,
+                36,
+                38,
+                54,
+                59,
+                60,
+                61,
+                63
+              ],
+              "pcm_sha256": "a226e8d459131033b17bac1bdde5be04d4d8bad129833bb95ddbc426c1e265c1"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                36
+              ],
+              "pcm_sha256": "4dce319f47d52b07dfe4145a9010e68456e6e0584ca2d1c9389f28951e460418"
+            },
+            {
+              "shift": 6,
+              "wrong": 1,
+              "wrong_indices": [
+                35
+              ],
+              "pcm_sha256": "208afd675d85e12f9d636dea70550ec66a0f6ef29eebc16a40d7f3bba5b76c7d"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                46
+              ],
+              "pcm_sha256": "c29e023ec027fba4ff106b73f52d79f5c8eff63757d49636d956f2270ab88b2e"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                42,
+                46,
+                47,
+                51,
+                57,
+                58,
+                62
+              ],
+              "pcm_sha256": "a282753dd0170684388a5e0815ebe283062565ace3915bf052a5f453298d1c8c"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                42,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                62,
+                63
+              ],
+              "pcm_sha256": "307d43a84cfd6de126871155b8bf934d103672807f12ce432b616c9ef8322a36"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                34,
+                35,
+                37,
+                38,
+                39,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                51,
+                53,
+                57,
+                58,
+                59,
+                62,
+                63
+              ],
+              "pcm_sha256": "ed85680ff406a686a37e759042fab7789208694ecbf4dd8b04a3f2dfc0faafdc"
+            },
+            {
+              "shift": 11,
+              "wrong": 25,
+              "wrong_indices": [
+                0,
+                32,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "7703f007587f4802fcff6cba652c0e51bee478ce3dce6ec57f9e7faa1896b1af"
+            },
+            {
+              "shift": 12,
+              "wrong": 26,
+              "wrong_indices": [
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                50,
+                51,
+                53,
+                57,
+                58,
+                59,
+                61,
+                62,
+                63
+              ],
+              "pcm_sha256": "fdf0c2769875d5ad7d213b69f496dd89ffc1581ec7b9b48766f507ef760ca655"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 1,
+            "wrong_indices": [
+              35
+            ],
+            "pcm_sha256": "208afd675d85e12f9d636dea70550ec66a0f6ef29eebc16a40d7f3bba5b76c7d"
+          }
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "tx_trace_digest": "91ab8c95c6f81b6476859001ac531a63c1bd9f1f122ed88b0b9488840397531e",
+      "original_samples_sha256": "d81856e4670f3ae431ddb7f5668b0f463bd5289960ff0360b5536e30bbd07d5c",
+      "extended_samples_sha256": "bc85088ba236ca8adf9a71cb7d2bdfde9735116b8d16a84ef40e916d3ac3e66d",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 7,
+              "wrong_indices": [
+                32,
+                35,
+                48,
+                49,
+                52,
+                53,
+                63
+              ],
+              "pcm_sha256": "0c9134247047d6af3f649433f9f2e20fcc5b139a73d8e8de230e734dff789e36"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                48
+              ],
+              "pcm_sha256": "00d0d820523a6feea94e20f5b7b51efb5f8177e7d5fd46ee452e91df78a79638"
+            },
+            {
+              "shift": 6,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "c810867bff590aeba6f818b229837132bc3bc7d4595343eef6d8ae90563f5c6d"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                58
+              ],
+              "pcm_sha256": "a57c52f0b4ff38c1a849fdeb2e32daefb7ce798615fe70e0a379f47d0d02e128"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                33,
+                42,
+                44,
+                45,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "0c0e59f17c06a701cd6fc0fbf6f746abb3ebb2c9bfdd3bf45778b7804fe4890f"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "5abaf426e03d2b4b8d8e2a720f6b7b95ad3c2e8aac504c75047dfe709606d849"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                52,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "5f35a41b5e6d9e143615797a6f160498dedf863d9169124410011ee8418af8dc"
+            },
+            {
+              "shift": 11,
+              "wrong": 22,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                51,
+                52,
+                54,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "bb626aa498d2790169d584d93ab4df503813cd9a42e1c17be5adfd88b6091a14"
+            },
+            {
+              "shift": 12,
+              "wrong": 24,
+              "wrong_indices": [
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                49,
+                51,
+                52,
+                53,
+                54,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62
+              ],
+              "pcm_sha256": "b8745347aaf662b117f755b414fa84eb2730605ce750f9176c6849f6bb768f3f"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 0,
+            "wrong_indices": [],
+            "pcm_sha256": "c810867bff590aeba6f818b229837132bc3bc7d4595343eef6d8ae90563f5c6d"
+          }
+        },
+        {
+          "bus_index": 1,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 7,
+              "wrong_indices": [
+                32,
+                35,
+                48,
+                49,
+                52,
+                53,
+                63
+              ],
+              "pcm_sha256": "8c9eff38620471c4b60a06083446b461875d8cae0a274ef209c7f0f761ceebdc"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                48
+              ],
+              "pcm_sha256": "75d262705c962f851e6f1e63a245831058a38537b608429982d8b56b660d773c"
+            },
+            {
+              "shift": 6,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "235b2beb5a9ae1a902635a505312f18bd5dad778465613038b7007ba9cfda594"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                58
+              ],
+              "pcm_sha256": "a45f8b6d0e4d71291a232f9f34c04913f2910aa413ccd0285d4c1001f1dd12ea"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                33,
+                42,
+                44,
+                45,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "e835b2af6822c114bd1e0cc23a5106bdd720bffa5b1537a3782b5586a5d93d7d"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "2ae0242fe5ccd36d9357c1487492cc5bed3aba8e245652b583604c10ad3a3f1b"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                52,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "ea64ba1fd08d193b82fb790eee86412c13c7aebbe241f6d7f018e6dbdcaaa15e"
+            },
+            {
+              "shift": 11,
+              "wrong": 22,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                51,
+                52,
+                54,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "1ad818f0344ce4ac1c9ae2e56ccae588bda4696d85aa03fcbaadda70bbe4ea15"
+            },
+            {
+              "shift": 12,
+              "wrong": 24,
+              "wrong_indices": [
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                49,
+                51,
+                52,
+                53,
+                54,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62
+              ],
+              "pcm_sha256": "28d6846c263838f55f9a580c791a0d674428d48df05fefabfaa79967a03ca559"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 0,
+            "wrong_indices": [],
+            "pcm_sha256": "235b2beb5a9ae1a902635a505312f18bd5dad778465613038b7007ba9cfda594"
+          }
+        },
+        {
+          "bus_index": 2,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 7,
+              "wrong_indices": [
+                32,
+                35,
+                48,
+                49,
+                52,
+                53,
+                63
+              ],
+              "pcm_sha256": "0c9134247047d6af3f649433f9f2e20fcc5b139a73d8e8de230e734dff789e36"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                48
+              ],
+              "pcm_sha256": "00d0d820523a6feea94e20f5b7b51efb5f8177e7d5fd46ee452e91df78a79638"
+            },
+            {
+              "shift": 6,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "c810867bff590aeba6f818b229837132bc3bc7d4595343eef6d8ae90563f5c6d"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                58
+              ],
+              "pcm_sha256": "a57c52f0b4ff38c1a849fdeb2e32daefb7ce798615fe70e0a379f47d0d02e128"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                33,
+                42,
+                44,
+                45,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "0c0e59f17c06a701cd6fc0fbf6f746abb3ebb2c9bfdd3bf45778b7804fe4890f"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "5abaf426e03d2b4b8d8e2a720f6b7b95ad3c2e8aac504c75047dfe709606d849"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                52,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "5f35a41b5e6d9e143615797a6f160498dedf863d9169124410011ee8418af8dc"
+            },
+            {
+              "shift": 11,
+              "wrong": 22,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                51,
+                52,
+                54,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "bb626aa498d2790169d584d93ab4df503813cd9a42e1c17be5adfd88b6091a14"
+            },
+            {
+              "shift": 12,
+              "wrong": 24,
+              "wrong_indices": [
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                49,
+                51,
+                52,
+                53,
+                54,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62
+              ],
+              "pcm_sha256": "b8745347aaf662b117f755b414fa84eb2730605ce750f9176c6849f6bb768f3f"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 0,
+            "wrong_indices": [],
+            "pcm_sha256": "c810867bff590aeba6f818b229837132bc3bc7d4595343eef6d8ae90563f5c6d"
+          }
+        },
+        {
+          "bus_index": 3,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 7,
+              "wrong_indices": [
+                32,
+                35,
+                48,
+                49,
+                52,
+                53,
+                63
+              ],
+              "pcm_sha256": "2c1b773e29e30de369da92dbea13314040eb0ceaae32f2c1b758328ffb970743"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                48
+              ],
+              "pcm_sha256": "0a37230eb4562b684cb35716e6e359a2eb8dca56891a066cbf35318c0713b8c3"
+            },
+            {
+              "shift": 6,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "4c82ab4599e419389b8f3a9c05ff7a48bc55826098cacb4fc724e27a3b832eb6"
+            },
+            {
+              "shift": 7,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "9e484bf344aa70b043c97c71672c3c5efe0fdc392ad76328ca4eb51a6937889f"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                33,
+                42,
+                44,
+                45,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "e3209599a8ad1c8b7d40bf4849bdd955c566d593bfb52faaa269ba869f99d113"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "bfb7ccbee4d2abda3c6acd451e90f62bba19b9e19d5eda5e79edb258e68044ab"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                52,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "8258ecdf6760ffb3961f6ae94d9dc215c167d6c2c8c5562fa049b926edcdd95d"
+            },
+            {
+              "shift": 11,
+              "wrong": 22,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                51,
+                52,
+                54,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "fc382c71cb451c883717272d5d7575396c076e1a8ee0960592ea1b10f8815aeb"
+            },
+            {
+              "shift": 12,
+              "wrong": 24,
+              "wrong_indices": [
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                49,
+                51,
+                52,
+                53,
+                54,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62
+              ],
+              "pcm_sha256": "6a03f7022d5b785c642baa18d52398cf989f0a8d5e98e5ca723334214e474e77"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 0,
+            "wrong_indices": [],
+            "pcm_sha256": "4c82ab4599e419389b8f3a9c05ff7a48bc55826098cacb4fc724e27a3b832eb6"
+          }
+        },
+        {
+          "bus_index": 4,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 7,
+              "wrong_indices": [
+                32,
+                35,
+                48,
+                49,
+                52,
+                53,
+                63
+              ],
+              "pcm_sha256": "8c9eff38620471c4b60a06083446b461875d8cae0a274ef209c7f0f761ceebdc"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                48
+              ],
+              "pcm_sha256": "75d262705c962f851e6f1e63a245831058a38537b608429982d8b56b660d773c"
+            },
+            {
+              "shift": 6,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "235b2beb5a9ae1a902635a505312f18bd5dad778465613038b7007ba9cfda594"
+            },
+            {
+              "shift": 7,
+              "wrong": 1,
+              "wrong_indices": [
+                58
+              ],
+              "pcm_sha256": "a45f8b6d0e4d71291a232f9f34c04913f2910aa413ccd0285d4c1001f1dd12ea"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                33,
+                42,
+                44,
+                45,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "e835b2af6822c114bd1e0cc23a5106bdd720bffa5b1537a3782b5586a5d93d7d"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "2ae0242fe5ccd36d9357c1487492cc5bed3aba8e245652b583604c10ad3a3f1b"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                52,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "ea64ba1fd08d193b82fb790eee86412c13c7aebbe241f6d7f018e6dbdcaaa15e"
+            },
+            {
+              "shift": 11,
+              "wrong": 22,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                51,
+                52,
+                54,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "1ad818f0344ce4ac1c9ae2e56ccae588bda4696d85aa03fcbaadda70bbe4ea15"
+            },
+            {
+              "shift": 12,
+              "wrong": 24,
+              "wrong_indices": [
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                49,
+                51,
+                52,
+                53,
+                54,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62
+              ],
+              "pcm_sha256": "28d6846c263838f55f9a580c791a0d674428d48df05fefabfaa79967a03ca559"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 0,
+            "wrong_indices": [],
+            "pcm_sha256": "235b2beb5a9ae1a902635a505312f18bd5dad778465613038b7007ba9cfda594"
+          }
+        },
+        {
+          "bus_index": 5,
+          "scores": [
+            {
+              "shift": 4,
+              "wrong": 7,
+              "wrong_indices": [
+                32,
+                35,
+                48,
+                49,
+                52,
+                53,
+                63
+              ],
+              "pcm_sha256": "2c1b773e29e30de369da92dbea13314040eb0ceaae32f2c1b758328ffb970743"
+            },
+            {
+              "shift": 5,
+              "wrong": 2,
+              "wrong_indices": [
+                35,
+                48
+              ],
+              "pcm_sha256": "0a37230eb4562b684cb35716e6e359a2eb8dca56891a066cbf35318c0713b8c3"
+            },
+            {
+              "shift": 6,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "4c82ab4599e419389b8f3a9c05ff7a48bc55826098cacb4fc724e27a3b832eb6"
+            },
+            {
+              "shift": 7,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "9e484bf344aa70b043c97c71672c3c5efe0fdc392ad76328ca4eb51a6937889f"
+            },
+            {
+              "shift": 8,
+              "wrong": 7,
+              "wrong_indices": [
+                33,
+                42,
+                44,
+                45,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "e3209599a8ad1c8b7d40bf4849bdd955c566d593bfb52faaa269ba869f99d113"
+            },
+            {
+              "shift": 9,
+              "wrong": 14,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                57,
+                58,
+                59
+              ],
+              "pcm_sha256": "bfb7ccbee4d2abda3c6acd451e90f62bba19b9e19d5eda5e79edb258e68044ab"
+            },
+            {
+              "shift": 10,
+              "wrong": 19,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                51,
+                52,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "8258ecdf6760ffb3961f6ae94d9dc215c167d6c2c8c5562fa049b926edcdd95d"
+            },
+            {
+              "shift": 11,
+              "wrong": 22,
+              "wrong_indices": [
+                0,
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                51,
+                52,
+                54,
+                57,
+                58,
+                59,
+                61,
+                62
+              ],
+              "pcm_sha256": "fc382c71cb451c883717272d5d7575396c076e1a8ee0960592ea1b10f8815aeb"
+            },
+            {
+              "shift": 12,
+              "wrong": 24,
+              "wrong_indices": [
+                31,
+                33,
+                34,
+                36,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                47,
+                49,
+                51,
+                52,
+                53,
+                54,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62
+              ],
+              "pcm_sha256": "6a03f7022d5b785c642baa18d52398cf989f0a8d5e98e5ca723334214e474e77"
+            }
+          ],
+          "best": {
+            "shift": 6,
+            "wrong": 0,
+            "wrong_indices": [],
+            "pcm_sha256": "4c82ab4599e419389b8f3a9c05ff7a48bc55826098cacb4fc724e27a3b832eb6"
+          }
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_extended_shift.py": "d45b169bec19db05c2f1ee98e33160d7fe0aed37925472c4529f532be137a5c2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-buffered-line.json": "a0381e6ddeada346754be5f1d16867423594af9b4303c9dcb54f426a79a8d60d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_buffered_line.py": "cb80559269af717d2318e6ac9f8e67245b7aeb54e811eaa43f87a193e2b37fdf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  },
+  "limitations": [
+    "The extra tail is a held-data extension, not additional controller bytes.",
+    "DAC bus, latch clock, A2 gate, analog filter and physical line are assumed.",
+    "A known-carrier reference decoder score does not establish a DSC receiver or USART route."
+  ]
+}

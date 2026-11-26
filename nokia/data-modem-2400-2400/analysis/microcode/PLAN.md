@@ -26,6 +26,11 @@ that dependency with a labelled, photo-compatible wiring scenario and run it.
 Defer only the physical measurement itself. Do not wait for a new photograph,
 measurement or user confirmation before running another explicit hypothesis.
 Request physical evidence later when it can distinguish surviving candidates.
+For each open C2/C3/C4 item, leave a runnable next experiment in the plan:
+name the assumed pins and timing, the real-ROM/controller stimulus, a control,
+and the observation that would reject or favor the route. When a test fails,
+replace its specific assumption or vary the stimulus and run the follow-up;
+do not turn an uncertain connection into an indefinite dependency on photos.
 
 Keep G2 **active** and C2/C3/C4 **open** while these tests continue. A plausible
 run remains conditional until the physical route is independently constrained;
@@ -96,6 +101,15 @@ ROM-sensitive route. Develop a new receiver readout on independent data
 and retest here; constrain the call-line decision and physical DAC route.
 C2/C3 stay open, and these incomplete connections remain runnable
 assumptions rather than goal blockers.
+The [extended alignment test](g2/JOINT-MASK04-12A-EXTENDED-SHIFT.md)
+preserves the original 846 `12A` samples, adds six held-tail samples, and
+tests offsets +4 through +12. No added offset makes the call reference
+decoder exact on any of the six candidate DAC buses: +6 has one error at
+index 35, and +7 still has one or two errors at other indices. Keep the
+call-line discrepancy open and test photo-compatible analog gain/filter
+and latch-phase alternatives with independent data; another tail-only
+alignment sweep is not the next dependency. The missing DAC/analog trace
+is a labelled assumption, not a blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data
