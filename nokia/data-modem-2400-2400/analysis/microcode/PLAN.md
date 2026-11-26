@@ -1381,6 +1381,16 @@ explanation under that one edge timing, not a paced controller gate or
 physical RAM circuit. Next test a candidate write-enable or return
 route under paced controller traffic against own/remote/mixed controls;
 keep C4 and G2 active.
+The [delayed-return arithmetic check](g2/JOINT-MASK04-RAM-RETURN-ARITHMETIC.md)
+then verifies all 282 reached `3FA` words while the changed RAM address
+is read under `01` at three- and sixteen-sample lags and `A1` at three.
+The actual split instructions are `55/C5`: low D-minus-R10 arithmetic,
+high D-plus-R10 arithmetic, with only R13's high nibble written. The
+stored pulse changes Y's low nibble but leaves matched Q and written
+R13 identical. This candidate output is a transient mixed-nibble
+calculation, not a demonstrated full-byte echo residual or receive
+decision; keep C3/C4 open and seek a functional consumer or alternate
+return rather than inferring cancellation from RAM activity.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under

@@ -78,6 +78,16 @@ Holding the controller's observed `81` or `A1` frame byte at the
 also leaves no post-pulse captured difference on the varying waveform.
 That constrains the direct frame-byte lane, not an untraced external
 RAM return or a different mode gate.
+The [delayed RAM-return trace](../g2/JOINT-MASK04-RAM-RETURN-ARITHMETIC.md)
+now resolves `3FA` more precisely under one assumed external return.
+Its executed low/high Am2901 instructions are `55/C5`: the low nibble
+forms `Dlo + ~R10lo + carry`, while the high nibble forms
+`Dhi + R10hi + low_carry`. Only R13's high nibble is written. A stored
+`01→0F` byte changes Y `20→2E` or `30→3E` for the delayed read, but
+matched baseline/pulse cycles leave Q and the written R13 identical.
+The generated `joint_mask04_operation` listing describes the low-slice
+operation; it must not be read as a full-byte subtraction or an
+identified echo residual. The RAM wiring and Y consumer remain open.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127

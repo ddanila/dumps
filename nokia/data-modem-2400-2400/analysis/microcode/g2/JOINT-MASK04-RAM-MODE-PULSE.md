@@ -34,6 +34,9 @@ boundary where the independent RAM write gate freezes; it also preserves
 the delayed response. The `81` and `A1` cases have different complete trace
 digests from `01`; equal pulse windows do not imply that all their
 executed arithmetic is identical.
+The [split-slice trace](JOINT-MASK04-RAM-RETURN-ARITHMETIC.md) checks
+the `3FA` operation itself and shows why the RAM byte changes Y while
+the written R13 and Q remain identical across matched pulse controls.
 
 This rejects a **simple direct-`3EB` gate**, held or switched at this
 one boundary, for this specific RAM return. It does not reject a

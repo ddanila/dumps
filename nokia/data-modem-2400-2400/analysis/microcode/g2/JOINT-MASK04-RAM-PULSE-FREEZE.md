@@ -44,8 +44,12 @@ residual, or that the microprogram cancels echo or decides received
 bits. The corrected [own/remote/mixed screen](JOINT-MASK04-EXTERNAL-RAM-ECHO-SCREEN.md)
 shows that this same return **increases** the late mixed-versus-remote
 `3FA` difference, so C4 remains open. C3 and G2 remain open and active.
-The next useful test should change the mode or return/output site and
-require selective residual reduction or a downstream receive decision,
+The [mode comparison](JOINT-MASK04-RAM-MODE-PULSE.md) finds that held
+`01/81/A1` and a synthetic `81→A1` edge preserve the delayed pulse.
+The [split-arithmetic trace](JOINT-MASK04-RAM-RETURN-ARITHMETIC.md)
+identifies the exact transient `3FA` calculation. The next functional
+test should change the return/output site or controller-timed write gate
+and require selective residual reduction or a downstream receive decision,
 with write-only and no-write controls retained.
 
 Run `python3 g2/joint_mask04_ram_pulse_freeze.py` from the microcode
