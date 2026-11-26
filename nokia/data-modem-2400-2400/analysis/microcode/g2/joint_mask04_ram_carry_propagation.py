@@ -43,7 +43,8 @@ def fixtures():
     )
 
 
-def paired_case(execute, mapping, base, name, adc, starts, writes, cycles, visits):
+def paired_case(execute, mapping, base, name, adc, starts, writes, cycles, visits,
+                read_pc=0x3FA):
     with tempfile.TemporaryDirectory() as tmp:
         paths = []
         results = []
@@ -53,7 +54,7 @@ def paired_case(execute, mapping, base, name, adc, starts, writes, cycles, visit
             scenario.update(external_ram_feedback=feedback,
                             external_ram_write=True, external_ram_lane='high',
                             external_ram_latch_pc=0x3F9,
-                            external_ram_read_pc=0x3FA,
+                            external_ram_read_pc=read_pc,
                             external_ram_read_offset=-3,
                             external_ram_write_until=writes,
                             external_ram_address_tick_visits=[4 * tick for tick in starts])

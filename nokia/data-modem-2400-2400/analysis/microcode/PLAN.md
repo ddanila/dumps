@@ -1477,6 +1477,14 @@ byte. Late mixed-versus-remote code difference is 0.4375 in the control
 and 17.8125 with return at every phase; a phase choice cannot rescue
 this particular residual proxy. Seek a consumed trained operand or an
 explicit photo-compatible analog output circuit next; keep C4 open.
+The [alternative `3FC` RAM return](g2/JOINT-MASK04-RAM-CARRY-3FC-PROPAGATION.md)
+does reach another executed operation: on both legal streams it changes
+`3FD` arithmetic and its Am27S31 read (1,219 and 6,000 visits), while
+the four-row PC path, Q and TEST remain equal to write-only controls.
+R10/R13 state then rejoins, with no later changed ALU site. Compare
+`3FD` Y across own, remote, mixed and zero training/freeze controls
+before treating it as an echo residual. Keep the `3FC` RAM mux and output
+latch explicitly assumed; neither is a goal blocker.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`
 values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.

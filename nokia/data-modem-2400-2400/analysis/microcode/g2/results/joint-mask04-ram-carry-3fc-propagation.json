@@ -1,0 +1,247 @@
+{
+  "experiment": "full-word propagation of previous-carry high-RAM return at 3FC",
+  "fixture": {
+    "condition": "previous carry, polarity 1",
+    "route": "3F9 Y high nibble -> sample-paced RAM -> -3 sample 3FC D high nibble",
+    "control": "same writes and address clock without readback",
+    "contrast": "3FB is a reached Am27S31 read; 3FC is a scenario D read"
+  },
+  "cases": [
+    {
+      "name": "varying_64",
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "cycles": 96047,
+      "visits": 3000,
+      "trace_digests": [
+        "1a28c27d4af709f18aa537490bb184623c675fba973c228bbeb38e8a17cbeefe",
+        "964bf7e8ff1ed3f5ffb86f0caaba89b4bf68cfbfe960d942111a003f201de03d"
+      ],
+      "pc_digest": "f1c0edc9e235e70e6534f88c452725b4798b35c6afbeb22a5a5ce92e076a2b42",
+      "differences": {
+        "alu": {
+          "by_pc": {
+            "3FC": 1219,
+            "3FD": 1219
+          },
+          "total": 2438,
+          "first": {
+            "cycle": 4583,
+            "pc": "3FC"
+          }
+        },
+        "q": {
+          "by_pc": {},
+          "total": 0,
+          "first": null
+        },
+        "registers": {
+          "by_pc": {
+            "3EF": 140,
+            "3F2": 188,
+            "3FC": 1219,
+            "3FD": 1219
+          },
+          "total": 2766,
+          "first": {
+            "cycle": 4583,
+            "pc": "3FC"
+          }
+        },
+        "test": {
+          "by_pc": {},
+          "total": 0,
+          "first": null
+        },
+        "external_read": {
+          "by_pc": {
+            "3FC": 3000,
+            "3FD": 1219
+          },
+          "total": 4219,
+          "first": {
+            "cycle": 71,
+            "pc": "3FC"
+          }
+        }
+      },
+      "ram_difference_cycles": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7314,
+        0,
+        0,
+        12190,
+        0,
+        0
+      ],
+      "r13_span_lengths": {
+        "10": 1219
+      },
+      "r13_rejoin_pcs": {
+        "3F2": 1219
+      },
+      "r13_first_spans": [
+        {
+          "first": 4583,
+          "last": 4592,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4615,
+          "last": 4624,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4647,
+          "last": 4656,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4679,
+          "last": 4688,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4711,
+          "last": 4720,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        }
+      ],
+      "final_internal_ram_equal": true,
+      "final_q_equal": true
+    },
+    {
+      "name": "mixed_192",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "cycles": 288047,
+      "visits": 9000,
+      "trace_digests": [
+        "87ee9711a01cc186259f71440f5334f182dc2536f3cb9395a4e5e79111f1fdb7",
+        "3f027044dae033c3f3454d12b559beb68403fab43fced296199e4e42b8816f8d"
+      ],
+      "pc_digest": "49ee3f7b2bfebb9b1a1e61008a51228225656b7a225262835d55622d72b216d8",
+      "differences": {
+        "alu": {
+          "by_pc": {
+            "3FC": 6000,
+            "3FD": 6000
+          },
+          "total": 12000,
+          "first": {
+            "cycle": 4583,
+            "pc": "3FC"
+          }
+        },
+        "q": {
+          "by_pc": {},
+          "total": 0,
+          "first": null
+        },
+        "registers": {
+          "by_pc": {
+            "3F2": 94,
+            "3FC": 6000,
+            "3FD": 6000
+          },
+          "total": 12094,
+          "first": {
+            "cycle": 4583,
+            "pc": "3FC"
+          }
+        },
+        "test": {
+          "by_pc": {},
+          "total": 0,
+          "first": null
+        },
+        "external_read": {
+          "by_pc": {
+            "3FC": 9000,
+            "3FD": 6000
+          },
+          "total": 15000,
+          "first": {
+            "cycle": 71,
+            "pc": "3FC"
+          }
+        }
+      },
+      "ram_difference_cycles": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        36000,
+        0,
+        0,
+        60000,
+        0,
+        0
+      ],
+      "r13_span_lengths": {
+        "10": 6000
+      },
+      "r13_rejoin_pcs": {
+        "3F2": 6000
+      },
+      "r13_first_spans": [
+        {
+          "first": 4583,
+          "last": 4592,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4615,
+          "last": 4624,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4647,
+          "last": 4656,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4679,
+          "last": 4688,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        },
+        {
+          "first": 4711,
+          "last": 4720,
+          "length": 10,
+          "rejoin_pc": "3F2"
+        }
+      ],
+      "final_internal_ram_equal": true,
+      "final_q_equal": true
+    }
+  ],
+  "limitations": [
+    "The RAM-to-D mux, TEST source and output wiring are photo-compatible hypotheses.",
+    "Propagation into later PROM arithmetic does not establish a falling echo residual.",
+    "Only the varying 64-sample and mixed 192-sample legal streams are tested here."
+  ]
+}

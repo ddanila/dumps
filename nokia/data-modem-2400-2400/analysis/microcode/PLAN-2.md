@@ -1925,6 +1925,10 @@ Listed in order of value per effort:
   finds `3FA` Y constant within every held ADC sample on all eight controls;
   all 46 fixed phases preserve the larger late echo code contrast.
   A phase choice at this output site therefore does not rescue this route.
+  An [alternative `3FC` return](g2/JOINT-MASK04-RAM-CARRY-3FC-PROPAGATION.md)
+  changes the following `3FD` ROM calculation on both legal streams while
+  sustaining the loop. Test that new output site on the four echo controls;
+  the changed state still rejoins and does not yet prove cancellation.
   No tested RAM output is yet a measured or selectively falling echo residual.
 
 ## 3. Acceptance for G2

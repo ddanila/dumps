@@ -155,6 +155,13 @@ shows that `3FA` Y itself is constant over each held ADC sample on all
 four inputs with and without high RAM return. Every one of 46 candidate
 fixed latch phases therefore captures the same per-sample code; none
 turns this tested code-space echo response into selective attenuation.
+Moving the same hypothetical return to the other stub D site, `3FC`,
+has a [different executed effect](../g2/JOINT-MASK04-RAM-CARRY-3FC-PROPAGATION.md):
+its changed Y changes the `3FD` ROM address/read and ALU Y on both a
+64-sample varying and a 192-sample mixed stream. R10/R13 change briefly,
+but Q, TEST, PC path and all ALU sites after `3FD` agree with write-only
+controls. This is a candidate delayed-input transform, still lacking a
+line-output connection or selective echo-residual test.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127
