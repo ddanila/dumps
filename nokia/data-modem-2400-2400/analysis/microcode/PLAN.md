@@ -8,7 +8,8 @@
 > mark G2 blocked; unresolved acceptance checks stay open while experiments
 > continue. Treat each failed candidate as a result about its stated wiring,
 > timing and inputs, then test another photo-compatible route or independent
-> program/signal constraint.
+> program/signal constraint. Do not wait for new photos or continuity checks
+> before running an explicit assumption from the photos already available.
 
 ## Uncertainty is a reason to experiment, not a goal blocker
 
@@ -27,6 +28,14 @@ blocker only if no photo-compatible assumption, changed stimulus or independent
 microcode/signal test can still advance an open acceptance check. The need to
 confirm a surviving circuit physically belongs in that check, not in the goal
 status.
+For each ambiguous route, record a small experiment card in the relevant
+C2/C3/C4 section: visible endpoints; assumed missing nets, direction and
+clock/latch phase; the real-PROM/controller input; a changed-route or timing
+control; the predicted discriminating observation; and the next candidate if
+it fails. A result may narrow the candidates without identifying the actual
+board wiring. Keep that distinction explicit in both the result and the
+acceptance status.
+
 Use the photographs already available to build the simplest complete,
 pin-compatible route, including plausible continuations where a trace
 disappears or its destination is uncertain. Assume the needed connection,
