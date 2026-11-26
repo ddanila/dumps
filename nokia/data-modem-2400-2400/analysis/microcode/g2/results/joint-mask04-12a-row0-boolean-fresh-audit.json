@@ -1,0 +1,223 @@
+{
+  "experiment": "frozen row-0 Boolean gates on unseen phase state",
+  "fixture": {
+    "development_cases": 16,
+    "holdout_cases": 4,
+    "decisions_per_case": 64,
+    "payload_dibits_per_case": 32,
+    "phase_feature": [
+      "46",
+      "row0",
+      0
+    ],
+    "development_states": 14,
+    "holdout_states": 15,
+    "newly_observed_states": [
+      "6C"
+    ]
+  },
+  "unseen_state_phase": {
+    "6C": {
+      "gate": 1,
+      "post_hoc_graph": 1
+    }
+  },
+  "outcomes": [
+    {
+      "offset": 24,
+      "selector": "40",
+      "payload": [
+        "8C",
+        "13",
+        "E7",
+        "5A",
+        "20",
+        "D9",
+        "46",
+        "BF"
+      ],
+      "new_states": [
+        "6C"
+      ],
+      "Boolean_wrong_indices": [],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "6E",
+        "8C",
+        "2C",
+        "68",
+        "0B",
+        "0E",
+        "93",
+        "A8"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        140,
+        19,
+        231,
+        90,
+        32,
+        217,
+        70,
+        191
+      ],
+      "aligned_completed": 8,
+      "aligned_consumed": 8,
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    },
+    {
+      "offset": 24,
+      "selector": "60",
+      "payload": [
+        "31",
+        "C6",
+        "0B",
+        "F4",
+        "A8",
+        "57",
+        "DE",
+        "92"
+      ],
+      "new_states": [
+        "6C"
+      ],
+      "Boolean_wrong_indices": [],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "94",
+        "04",
+        "03",
+        "AC",
+        "26",
+        "E6",
+        "12",
+        "19"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        49,
+        198,
+        11,
+        244,
+        168,
+        87,
+        222,
+        146
+      ],
+      "aligned_completed": 8,
+      "aligned_consumed": 8,
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    },
+    {
+      "offset": 88,
+      "selector": "40",
+      "payload": [
+        "8C",
+        "13",
+        "E7",
+        "5A",
+        "20",
+        "D9",
+        "46",
+        "BF"
+      ],
+      "new_states": [
+        "6C"
+      ],
+      "Boolean_wrong_indices": [],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "6E",
+        "8C",
+        "2C",
+        "68",
+        "0B",
+        "0E",
+        "93",
+        "A8"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        140,
+        19,
+        231,
+        90,
+        32,
+        217,
+        70,
+        191
+      ],
+      "aligned_completed": 8,
+      "aligned_consumed": 8,
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    },
+    {
+      "offset": 88,
+      "selector": "60",
+      "payload": [
+        "31",
+        "C6",
+        "0B",
+        "F4",
+        "A8",
+        "57",
+        "DE",
+        "92"
+      ],
+      "new_states": [
+        "6C"
+      ],
+      "Boolean_wrong_indices": [],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "94",
+        "04",
+        "03",
+        "AC",
+        "26",
+        "E6",
+        "12",
+        "19"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        49,
+        198,
+        11,
+        244,
+        168,
+        87,
+        222,
+        146
+      ],
+      "aligned_completed": 8,
+      "aligned_consumed": 8,
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    }
+  ],
+  "limitations": [
+    "The gates were fitted to 14 development states; the holdout exercises one new state, not all 114 unobserved input combinations.",
+    "The ADC, row-0 capture, external phase logic and USART wiring remain untraced.",
+    "The R1 offsets are diagnostic interventions, not identified controller commands."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean_fresh_audit.py": "5d76547b8dde234f009a5fedc31d998d7de5d4d69419b4c7496752728f51d827",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean.json": "f4f9f2970d1679049e544f3ffc9c5ce1181b774597490db65be1d0c127664f2f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-32.json": "c15cbc7eaa085f9cc90fcba4da965d51ebcdfd71be41097f802785b201c0011c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-96.json": "ab1d1d5ded31b4bddd15f5953fcd59d0d50a3237a034ceab27be995c0ae49e65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-16.json": "0accdbc1a5648d04aa707ef077a4a2d1f511f000c73c68bb243b3ef61dddaf6e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-80.json": "5b88ec1341651d6266cda8c8df1942f7eb3c11abb944071b3534e316f023728a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-low-gain.json": "92cf37d849db200dec0f6a35d2f22f2447702c4a8861b8d02a0f1611640098aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-0.json": "92a292afd429e3bdae7f03b9fc5ab18c9b276cec5853bf5a3892948babf939b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-64.json": "06d3470ae85db0531ca1d6bff35bc7f00b369eaab0d2a83d9d8021871c73de87",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-24.json": "0172a68f1808f5687839c68658fe3345e2293a3246ae47ebbc3bd1ee1cc97a5c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-88.json": "2a484f74fd095714e3ee88afac4f281b299113d82afe395717c5235f364fd064",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean.py": "e9a3cedabb9654a2d98cca71c8d2a305261387dd4b112f93d7ece2001d78219b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean_fresh.py": "a4d0288fb0c5e972145f7d33d1e3d45b8a2a95b515bf9bd6807086d683ecd79c"
+  }
+}

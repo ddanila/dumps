@@ -321,6 +321,21 @@ after a post-hoc 14-state extension, but that extension is a new fit,
 not validation. Seek a photo-compatible latch/timing or carrier-state
 rule that predicts new states, then use untouched payloads and starts.
 Do not treat the missing net continuity as a G2 blocker.
+The [frozen row-0 Boolean holdout](g2/JOINT-MASK04-12A-ROW0-BOOLEAN-HOLDOUT.md)
+uses those offset-0/64 failures as explicit development, then fits a
+small four-phase decoder to 14 observed states: phase bit 0 needs two
+three-literal products and phase bit 1 is `!s6 | !s2`, where `s6` is
+the executed `3ED` row-0 bit 0 at visit 46. Frozen before a fifth
+payload pair and new R1 offsets 24/88, the gates predict all 64/64
+receive decisions in each of four real-PROM Tx→line→Rx runs, including
+new state `6C`. Each run recovers eight exact line bytes and the
+aligned modeled 8251/8031 decodes the exact eight source bytes with
+zero errors/overruns. The old six-bit table leaves all 64 decisions
+unknown on each run; an independent reference is exact. This is one
+unseen-state success under assumed ADC, latch, analog and serial
+routes, not a physical C3 pass. Freeze the gates for gain/drift and
+new-data tests, and test a photo-compatible row-latch/serializer path
+to USART-01 without waiting for continuity measurements.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
