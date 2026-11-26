@@ -189,6 +189,16 @@ visit, including 18/32 and 20/32 in the two zero-offset controls. Two
 correct gap snapshots were not representative. Capture complete full-byte
 row-byte sequences for a new causal development/holdout readout, or test
 another photo-compatible ADC/latch route; C3 remains open and G2 active.
+The [complete full-byte receive-state corpus](g2/JOINT-MASK04-FULL-BUS-RECEIVE-STATES.md)
+now retains `3F8` and `3ED` Y bytes at ten visits for all 65 symbols in
+each of the six hash-matched real-PROM runs. A bounded transfer test fits
+two existing four-bit transition readouts on only the zero-offset call
+and answer streams. The `47/94` table has no training conflicts but
+recognizes only 26/128 shifted data dibits; `46/93` recognizes 38/128
+and gets one wrong. Do not fit a new rule to these already inspected
+offset cases and call them a blind holdout. Use the corpus to specify
+a causal multi-sample hypothesis, then challenge it with new payloads
+and phase starts; C3 remains open and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
