@@ -1587,6 +1587,13 @@ XOR, fits even the 36 training dibits exactly. This rejects that simple
 output-latch readout under the declared four-row fixture, not the ADC or all
 receiver architectures. Continue with a multi-bit/stateful output candidate
 or a different photo-compatible mapping; keep G2 active and C3 open.
+The [mask-04 `3FA` capture replay](g2/JOINT-MASK04-3FA-GATE-COLLISION.md)
+finds that either three-literal raw-PROM decode can clock a candidate latch
+at all 3,000 `3FA→3ED` receive transitions. It preserves the `1F`/`6F`
+one-sample distinction lost by the proposed U12 row pair (`20` versus
+`21` on 47 held visits), while a legal rotated eight-symbol stream yields
+only those two latch bytes. Test a temporal or multi-signal consumer and
+serial route next; the untraced nets are assumptions to test, not blockers.
 
 ## Steps
 

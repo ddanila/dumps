@@ -1,0 +1,124 @@
+{
+  "experiment": "mask04 raw-PROM 3FA latch on collision and legal carrier",
+  "fixture": {
+    "adc_visits": 3000,
+    "cycles_per_run": 96047,
+    "edge": "3FA->3ED",
+    "gates": [
+      [
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          6,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ]
+    ],
+    "legal_dibits": [
+      1,
+      1,
+      2,
+      3,
+      0,
+      0,
+      3,
+      2
+    ],
+    "legal_rotation_degrees": 75
+  },
+  "legal_case": {
+    "adc_sha256": "1e92ce6fa9b6e0cad2c228c51b377120c23167c7c1eab454d97289c1fbaa878c",
+    "bit0_ones": 375,
+    "distinct_bytes": [
+      32,
+      33
+    ],
+    "latched_y_sha256": "693ab3d1591364d7e96625a9f17619251da51b9eafcbacee955efdfec4c92a36",
+    "selected_y": {
+      "47": [
+        33,
+        32,
+        33,
+        32,
+        32,
+        33,
+        32,
+        32
+      ],
+      "94": [
+        32,
+        32,
+        32,
+        32,
+        33,
+        32,
+        32,
+        32
+      ]
+    },
+    "trace_digest": "369a0304ad4e11c7e7013080dcde936d606adf9b56807cf751612a3e9af110a3"
+  },
+  "limitations": [
+    "The 1F/6F pair is an artificial one-sample pulse, not two legal dibits.",
+    "The legal stream tests signal variation, not a recovered dibit decision.",
+    "The PROM-to-NAND, NAND-to-latch, Y-bus and downstream serial connections remain untraced assumptions."
+  ],
+  "paired_cases": {
+    "1F": {
+      "adc_sha256": "f09c0661475e0e77c2c2f61cb2d478082608cecc451dcae0348eeeb29a3d3984",
+      "latched_y_sha256": "fd6e385d5624d139c6240f6de3510fe921a52d7bbbdd75f1fb73c44c3e3cfb39",
+      "trace_digest": "e48f62b0381dfb7a32eeb780f4f353933ed560f71bec75ed2241f74368475dc3"
+    },
+    "6F": {
+      "adc_sha256": "1883904a41476c19ee86842b9ef9bed7bd5e77e52610bc64aa395b4773de07a4",
+      "latched_y_sha256": "bd1045f26d2790138babbbdf62a72ed81e3ac8cde8fe4e8db3df80832b18996b",
+      "trace_digest": "354f787b60e15fb54cbdbdffb0942763d1c6bfde987f3e83ea13be1484f8eba6"
+    }
+  },
+  "paired_difference": {
+    "count": 47,
+    "first": 1172,
+    "last": 1218,
+    "value_pairs": {
+      "20->21": 47
+    }
+  },
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_3fa_gate_collision.py": "73fb72c1b8f3699fe6f9f0a867ab5a6406316fbc302138e17b2d421f71cc5066",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_receive_impulse_memory.py": "5493f40252c5200a9fe82a9a164ba7894de6a0d69eb095ac1c6340d9c843be65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_carrier_phase_screen.py": "c8e9524f385d07a4016fce6959ca4393f0ccb9d7a0212c86729db3ae5c5e5264",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_prom_row_latch_gate.py": "ea5c46d53f49ec7fdd5481255f448289fab02567e7e8f810bb02d38146ddfd3a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}
