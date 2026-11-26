@@ -386,6 +386,16 @@ timing variant fails, change that specific assumption or input condition and
 run the next variant. These are circuit hypotheses, even when they produce
 exact payloads; C3 passes only when the ADC and USART route is independently
 constrained as required in [PLAN-2.md](PLAN-2.md#goal-g2).
+The [row-capture/serial timing replay](g2/JOINT-MASK04-12A-ROW0-SERIAL-TIMING.md)
+now applies that schedule to the six saved real-PROM holdout traces. At the
+assumed 6,000-cycle RxC edge, the second `3F8` capture has 2,961 cycles of
+setup; all six streams yield exact line and 8031-decoded source bytes. The
+row-0 bit tolerates a one-visit-late capture, but a row-3 substitution or a
+one-visit-late first or second Y makes 6–25 decision errors per stream. An
+RxC edge before the second Y leaves 64 first-bit edges unavailable. The
+replay narrows capture timing under labelled storage/clock/serial wiring; it
+does not trace those pins or pass C3. Next capture all four `3ED` rows in a
+real-PROM run and compare an every-row latch clock with row-0 qualification.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)

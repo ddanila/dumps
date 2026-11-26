@@ -1,0 +1,5019 @@
+{
+  "experiment": "candidate row/first/second capture timing into RxD/RxC and modeled 8251/8031",
+  "fixture": {
+    "real_prom_cases": 6,
+    "visits_per_symbol": 375,
+    "cycles_per_visit": 32,
+    "assumed_row0_first_cycle": 50,
+    "assumed_y3f8_first_cycle": 63,
+    "bit_cycles": 6000,
+    "external_syndet_at_bit": 66,
+    "assumed_first_dibit": 3,
+    "variants": {
+      "aligned": {
+        "row_visit": "46",
+        "row_site": "row0",
+        "first_visit": "46",
+        "second_visit": "93",
+        "first_rxc_cycle": 6000
+      },
+      "row_one_visit_late": {
+        "row_visit": "47",
+        "row_site": "row0",
+        "first_visit": "46",
+        "second_visit": "93",
+        "first_rxc_cycle": 6000
+      },
+      "row3_substitution": {
+        "row_visit": "46",
+        "row_site": "row3",
+        "first_visit": "46",
+        "second_visit": "93",
+        "first_rxc_cycle": 6000
+      },
+      "first_y_one_visit_late": {
+        "row_visit": "46",
+        "row_site": "row0",
+        "first_visit": "47",
+        "second_visit": "93",
+        "first_rxc_cycle": 6000
+      },
+      "second_y_one_visit_late": {
+        "row_visit": "46",
+        "row_site": "row0",
+        "first_visit": "46",
+        "second_visit": "94",
+        "first_rxc_cycle": 6000
+      },
+      "rxc_before_second_capture": {
+        "row_visit": "46",
+        "row_site": "row0",
+        "first_visit": "46",
+        "second_visit": "93",
+        "first_rxc_cycle": 3000
+      }
+    },
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "level": 0.75,
+      "payload": [
+        "62",
+        "E5",
+        "19",
+        "A7",
+        "D0",
+        "3B",
+        "8F",
+        "54"
+      ],
+      "rx_trace_digest": "d22d964b11c1ca83d0ff716570c2fb8d972fb6cad8c7d77b84a22288ee5ca5f0",
+      "variants": {
+        "aligned": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "40",
+            "1F",
+            "40",
+            "EF",
+            "82",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            64,
+            31,
+            64,
+            239,
+            130,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            98,
+            229,
+            25,
+            167,
+            208,
+            59,
+            143,
+            84
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row_one_visit_late": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "40",
+            "1F",
+            "40",
+            "EF",
+            "82",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            64,
+            31,
+            64,
+            239,
+            130,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            98,
+            229,
+            25,
+            167,
+            208,
+            59,
+            143,
+            84
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row3_substitution": {
+          "wrong_decision_indices": [
+            36,
+            39,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            57,
+            58,
+            60,
+            61
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "80",
+            "2F",
+            "C0",
+            "FF",
+            "59",
+            "F3",
+            "C3",
+            "3C"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            128,
+            47,
+            192,
+            255,
+            89,
+            243,
+            195,
+            60
+          ],
+          "controller_decoded_bytes": [
+            162,
+            205,
+            159,
+            199,
+            113,
+            120,
+            66,
+            8
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "first_y_one_visit_late": {
+          "wrong_decision_indices": [
+            36,
+            39,
+            49,
+            50,
+            51,
+            52
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "C0",
+            "0F",
+            "40",
+            "EF",
+            "D8",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            192,
+            15,
+            64,
+            239,
+            216,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            226,
+            229,
+            27,
+            231,
+            194,
+            48,
+            143,
+            121
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "51",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "51",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "5D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "5D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "second_y_one_visit_late": {
+          "wrong_decision_indices": [
+            36,
+            39,
+            44,
+            47,
+            49,
+            52,
+            54,
+            55,
+            57,
+            58,
+            60,
+            61
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "00",
+            "3F",
+            "00",
+            "CF",
+            "03",
+            "CF",
+            "0C",
+            "3F"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            0,
+            63,
+            0,
+            207,
+            3,
+            207,
+            12,
+            63
+          ],
+          "controller_decoded_bytes": [
+            34,
+            205,
+            93,
+            175,
+            101,
+            175,
+            114,
+            95
+          ],
+          "minimum_setup_cycles": 2929,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "5A",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "5A",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "rxc_before_second_capture": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62,
+            64,
+            66,
+            68,
+            70,
+            72,
+            74,
+            76,
+            78,
+            80,
+            82,
+            84,
+            86,
+            88,
+            90,
+            92,
+            94,
+            96,
+            98,
+            100,
+            102,
+            104,
+            106,
+            108,
+            110,
+            112,
+            114,
+            116,
+            118,
+            120,
+            122,
+            124,
+            126,
+            128
+          ],
+          "recovered_line_bytes": null,
+          "recovered_matches_offered": null,
+          "controller_state": null,
+          "controller_errors": null,
+          "controller_overruns": null,
+          "controller_consumed_bytes": null,
+          "controller_decoded_bytes": null,
+          "minimum_setup_cycles": -39,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 3000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 9000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 15000,
+              "rxd": null
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 21000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 387000,
+              "rxd": null
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 393000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 399000,
+              "rxd": null
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 405000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 771000,
+              "rxd": null
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 777000,
+              "rxd": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "selector": "40",
+      "level": 1.0,
+      "payload": [
+        "62",
+        "E5",
+        "19",
+        "A7",
+        "D0",
+        "3B",
+        "8F",
+        "54"
+      ],
+      "rx_trace_digest": "3226683b18a59c96f314825869be4ef99e6e83c2b922c319f174a44ff6e65a50",
+      "variants": {
+        "aligned": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "40",
+            "1F",
+            "40",
+            "EF",
+            "82",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            64,
+            31,
+            64,
+            239,
+            130,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            98,
+            229,
+            25,
+            167,
+            208,
+            59,
+            143,
+            84
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row_one_visit_late": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "40",
+            "1F",
+            "40",
+            "EF",
+            "82",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            64,
+            31,
+            64,
+            239,
+            130,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            98,
+            229,
+            25,
+            167,
+            208,
+            59,
+            143,
+            84
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row3_substitution": {
+          "wrong_decision_indices": [
+            36,
+            39,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            57,
+            58,
+            60,
+            61
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "80",
+            "2F",
+            "C0",
+            "FF",
+            "59",
+            "F3",
+            "C3",
+            "3C"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            128,
+            47,
+            192,
+            255,
+            89,
+            243,
+            195,
+            60
+          ],
+          "controller_decoded_bytes": [
+            162,
+            205,
+            159,
+            199,
+            113,
+            120,
+            66,
+            8
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "41",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "41",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "first_y_one_visit_late": {
+          "wrong_decision_indices": [
+            36,
+            39,
+            49,
+            50,
+            51,
+            52
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "C0",
+            "0F",
+            "40",
+            "EF",
+            "D8",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            192,
+            15,
+            64,
+            239,
+            216,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            226,
+            229,
+            27,
+            231,
+            194,
+            48,
+            143,
+            121
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "6E",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "6E",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "second_y_one_visit_late": {
+          "wrong_decision_indices": [
+            35,
+            39,
+            44,
+            47,
+            49,
+            55,
+            57,
+            58,
+            60,
+            63
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "60",
+            "3F",
+            "00",
+            "CF",
+            "83",
+            "CB",
+            "0C",
+            "2D"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            96,
+            63,
+            0,
+            207,
+            131,
+            203,
+            12,
+            45
+          ],
+          "controller_decoded_bytes": [
+            66,
+            193,
+            93,
+            159,
+            229,
+            59,
+            114,
+            77
+          ],
+          "minimum_setup_cycles": 2929,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "74",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "74",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "74",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "74",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "74",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "74",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "19",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "19",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "74",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "74",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "rxc_before_second_capture": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62,
+            64,
+            66,
+            68,
+            70,
+            72,
+            74,
+            76,
+            78,
+            80,
+            82,
+            84,
+            86,
+            88,
+            90,
+            92,
+            94,
+            96,
+            98,
+            100,
+            102,
+            104,
+            106,
+            108,
+            110,
+            112,
+            114,
+            116,
+            118,
+            120,
+            122,
+            124,
+            126,
+            128
+          ],
+          "recovered_line_bytes": null,
+          "recovered_matches_offered": null,
+          "controller_state": null,
+          "controller_errors": null,
+          "controller_overruns": null,
+          "controller_consumed_bytes": null,
+          "controller_decoded_bytes": null,
+          "minimum_setup_cycles": -39,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 3000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 9000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 15000,
+              "rxd": null
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 21000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 387000,
+              "rxd": null
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 393000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 399000,
+              "rxd": null
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 405000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 771000,
+              "rxd": null
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 777000,
+              "rxd": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "selector": "40",
+      "level": 1.25,
+      "payload": [
+        "62",
+        "E5",
+        "19",
+        "A7",
+        "D0",
+        "3B",
+        "8F",
+        "54"
+      ],
+      "rx_trace_digest": "50ff556a1bfcdd4fd1f65e0a6c7d5b27fb61894500c65f946d1b42cbebe600e3",
+      "variants": {
+        "aligned": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "40",
+            "1F",
+            "40",
+            "EF",
+            "82",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            64,
+            31,
+            64,
+            239,
+            130,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            98,
+            229,
+            25,
+            167,
+            208,
+            59,
+            143,
+            84
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row_one_visit_late": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "40",
+            "1F",
+            "40",
+            "EF",
+            "82",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            64,
+            31,
+            64,
+            239,
+            130,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            98,
+            229,
+            25,
+            167,
+            208,
+            59,
+            143,
+            84
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row3_substitution": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            35,
+            36,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            61,
+            64
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "99",
+            "7F",
+            "A6",
+            "DF",
+            "5B",
+            "D3",
+            "A2",
+            "BC"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            153,
+            127,
+            166,
+            223,
+            91,
+            211,
+            162,
+            188
+          ],
+          "controller_decoded_bytes": [
+            155,
+            158,
+            179,
+            231,
+            31,
+            107,
+            23,
+            133
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "3D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "3D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "3D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "3D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "3D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "3D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "3D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "3D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 1
+            }
+          ]
+        },
+        "first_y_one_visit_late": {
+          "wrong_decision_indices": [
+            36,
+            39,
+            49,
+            50,
+            51,
+            52
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "C0",
+            "0F",
+            "40",
+            "EF",
+            "D8",
+            "EB",
+            "45",
+            "3D"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            192,
+            15,
+            64,
+            239,
+            216,
+            235,
+            69,
+            61
+          ],
+          "controller_decoded_bytes": [
+            226,
+            229,
+            27,
+            231,
+            194,
+            48,
+            143,
+            121
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "7E",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "7E",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "second_y_one_visit_late": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            35,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            47,
+            49,
+            55,
+            57,
+            59,
+            60,
+            64
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "66",
+            "BF",
+            "19",
+            "CF",
+            "83",
+            "CB",
+            "14",
+            "7D"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            102,
+            191,
+            25,
+            207,
+            131,
+            203,
+            20,
+            125
+          ],
+          "controller_decoded_bytes": [
+            132,
+            65,
+            116,
+            159,
+            37,
+            55,
+            106,
+            30
+          ],
+          "minimum_setup_cycles": 2929,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "65",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "65",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "65",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "65",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "65",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "65",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "08",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "08",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 408000,
+              "rxd": 1
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "65",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 774000,
+              "rxd": 1
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "65",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "rxc_before_second_capture": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62,
+            64,
+            66,
+            68,
+            70,
+            72,
+            74,
+            76,
+            78,
+            80,
+            82,
+            84,
+            86,
+            88,
+            90,
+            92,
+            94,
+            96,
+            98,
+            100,
+            102,
+            104,
+            106,
+            108,
+            110,
+            112,
+            114,
+            116,
+            118,
+            120,
+            122,
+            124,
+            126,
+            128
+          ],
+          "recovered_line_bytes": null,
+          "recovered_matches_offered": null,
+          "controller_state": null,
+          "controller_errors": null,
+          "controller_overruns": null,
+          "controller_consumed_bytes": null,
+          "controller_decoded_bytes": null,
+          "minimum_setup_cycles": -39,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 3000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 9000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 15000,
+              "rxd": null
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 21000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 387000,
+              "rxd": null
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 393000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 399000,
+              "rxd": null
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 405000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 771000,
+              "rxd": null
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 777000,
+              "rxd": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "selector": "60",
+      "level": 0.75,
+      "payload": [
+        "9C",
+        "41",
+        "F6",
+        "28",
+        "B3",
+        "0D",
+        "75",
+        "EA"
+      ],
+      "rx_trace_digest": "3e948787231287e5a0f3b2e92616874b44f88d42dde32cf69800c8e75b88bce0",
+      "variants": {
+        "aligned": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "CA",
+            "B8",
+            "D8",
+            "8B",
+            "4B",
+            "29"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            202,
+            184,
+            216,
+            139,
+            75,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            246,
+            40,
+            179,
+            13,
+            117,
+            234
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "0C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "0C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row_one_visit_late": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "CA",
+            "B8",
+            "D8",
+            "8B",
+            "4B",
+            "29"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            202,
+            184,
+            216,
+            139,
+            75,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            246,
+            40,
+            179,
+            13,
+            117,
+            234
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "0C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "0C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row3_substitution": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            40,
+            41,
+            42,
+            43,
+            45,
+            46,
+            48,
+            49,
+            50,
+            51,
+            54,
+            56,
+            58,
+            60,
+            61,
+            62,
+            63
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "3F",
+            "03",
+            "E7",
+            "35",
+            "E5",
+            "47",
+            "C7",
+            "30"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            63,
+            3,
+            231,
+            53,
+            229,
+            71,
+            199,
+            48
+          ],
+          "controller_decoded_bytes": [
+            154,
+            193,
+            195,
+            166,
+            248,
+            99,
+            201,
+            221
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "4C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "4C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 1
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "first_y_one_visit_late": {
+          "wrong_decision_indices": [
+            42,
+            43,
+            45,
+            46,
+            49,
+            50,
+            51,
+            54,
+            56,
+            58
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "E2",
+            "BD",
+            "FD",
+            "0F",
+            "4F",
+            "29"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            226,
+            189,
+            253,
+            15,
+            79,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            222,
+            45,
+            54,
+            9,
+            103,
+            232
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "0D",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "0D",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "51",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "51",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "second_y_one_visit_late": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            40,
+            41,
+            42,
+            46,
+            48,
+            50,
+            51,
+            54,
+            56,
+            58,
+            60,
+            61,
+            62,
+            63
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "30",
+            "C3",
+            "CC",
+            "F0",
+            "C0",
+            "C3",
+            "03",
+            "0F"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            48,
+            195,
+            204,
+            240,
+            192,
+            195,
+            3,
+            15
+          ],
+          "controller_decoded_bytes": [
+            149,
+            1,
+            84,
+            100,
+            146,
+            102,
+            120,
+            224
+          ],
+          "minimum_setup_cycles": 2929,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "5A",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "5A",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "rxc_before_second_capture": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62,
+            64,
+            66,
+            68,
+            70,
+            72,
+            74,
+            76,
+            78,
+            80,
+            82,
+            84,
+            86,
+            88,
+            90,
+            92,
+            94,
+            96,
+            98,
+            100,
+            102,
+            104,
+            106,
+            108,
+            110,
+            112,
+            114,
+            116,
+            118,
+            120,
+            122,
+            124,
+            126,
+            128
+          ],
+          "recovered_line_bytes": null,
+          "recovered_matches_offered": null,
+          "controller_state": null,
+          "controller_errors": null,
+          "controller_overruns": null,
+          "controller_consumed_bytes": null,
+          "controller_decoded_bytes": null,
+          "minimum_setup_cycles": -39,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 3000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 9000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 15000,
+              "rxd": null
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 21000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 387000,
+              "rxd": null
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 393000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "0C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 399000,
+              "rxd": null
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "0C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 405000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 771000,
+              "rxd": null
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "52",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 777000,
+              "rxd": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "selector": "60",
+      "level": 1.0,
+      "payload": [
+        "9C",
+        "41",
+        "F6",
+        "28",
+        "B3",
+        "0D",
+        "75",
+        "EA"
+      ],
+      "rx_trace_digest": "0789ebb4d7145210a6b7ac9a8e1c2641b7b49c926d394251cc67166a266cf816",
+      "variants": {
+        "aligned": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "CA",
+            "B8",
+            "D8",
+            "8B",
+            "4B",
+            "29"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            202,
+            184,
+            216,
+            139,
+            75,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            246,
+            40,
+            179,
+            13,
+            117,
+            234
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row_one_visit_late": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "CA",
+            "B8",
+            "D8",
+            "8B",
+            "4B",
+            "29"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            202,
+            184,
+            216,
+            139,
+            75,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            246,
+            40,
+            179,
+            13,
+            117,
+            234
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row3_substitution": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            40,
+            41,
+            42,
+            43,
+            45,
+            46,
+            48,
+            49,
+            50,
+            51,
+            54,
+            56,
+            58,
+            60,
+            61,
+            62,
+            63
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "3F",
+            "03",
+            "E7",
+            "35",
+            "E5",
+            "47",
+            "C7",
+            "30"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            63,
+            3,
+            231,
+            53,
+            229,
+            71,
+            199,
+            48
+          ],
+          "controller_decoded_bytes": [
+            154,
+            193,
+            195,
+            166,
+            248,
+            99,
+            201,
+            221
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "5C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "5C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 1
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "41",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "41",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "first_y_one_visit_late": {
+          "wrong_decision_indices": [
+            42,
+            43,
+            45,
+            46,
+            49,
+            50,
+            51,
+            54,
+            56,
+            58
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "E2",
+            "BD",
+            "FD",
+            "0F",
+            "4F",
+            "29"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            226,
+            189,
+            253,
+            15,
+            79,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            222,
+            45,
+            54,
+            9,
+            103,
+            232
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "1D",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "1D",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "second_y_one_visit_late": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            36,
+            37,
+            39,
+            41,
+            42,
+            54,
+            56,
+            58,
+            60,
+            63
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "B0",
+            "A2",
+            "CC",
+            "B8",
+            "D8",
+            "C3",
+            "03",
+            "09"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            176,
+            162,
+            204,
+            184,
+            216,
+            195,
+            3,
+            9
+          ],
+          "controller_decoded_bytes": [
+            21,
+            96,
+            84,
+            106,
+            187,
+            70,
+            61,
+            234
+          ],
+          "minimum_setup_cycles": 2929,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "74",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "74",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "74",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "74",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "64",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "64",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "3C",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "3C",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "19",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "19",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "rxc_before_second_capture": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62,
+            64,
+            66,
+            68,
+            70,
+            72,
+            74,
+            76,
+            78,
+            80,
+            82,
+            84,
+            86,
+            88,
+            90,
+            92,
+            94,
+            96,
+            98,
+            100,
+            102,
+            104,
+            106,
+            108,
+            110,
+            112,
+            114,
+            116,
+            118,
+            120,
+            122,
+            124,
+            126,
+            128
+          ],
+          "recovered_line_bytes": null,
+          "recovered_matches_offered": null,
+          "controller_state": null,
+          "controller_errors": null,
+          "controller_overruns": null,
+          "controller_consumed_bytes": null,
+          "controller_decoded_bytes": null,
+          "minimum_setup_cycles": -39,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 3000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 9000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 15000,
+              "rxd": null
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 21000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 387000,
+              "rxd": null
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 393000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 399000,
+              "rxd": null
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "1C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 405000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 771000,
+              "rxd": null
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "01",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 777000,
+              "rxd": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "selector": "60",
+      "level": 1.25,
+      "payload": [
+        "9C",
+        "41",
+        "F6",
+        "28",
+        "B3",
+        "0D",
+        "75",
+        "EA"
+      ],
+      "rx_trace_digest": "ebe9dbdae2fc0bda940286ce214c0a7febe4bb04a4bc6637f0643ff669c1d8d8",
+      "variants": {
+        "aligned": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "CA",
+            "B8",
+            "D8",
+            "8B",
+            "4B",
+            "29"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            202,
+            184,
+            216,
+            139,
+            75,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            246,
+            40,
+            179,
+            13,
+            117,
+            234
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row_one_visit_late": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "CA",
+            "B8",
+            "D8",
+            "8B",
+            "4B",
+            "29"
+          ],
+          "recovered_matches_offered": true,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            202,
+            184,
+            216,
+            139,
+            75,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            246,
+            40,
+            179,
+            13,
+            117,
+            234
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "row3_substitution": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            36,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            45,
+            46,
+            48,
+            49,
+            50,
+            51,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "76",
+            "1B",
+            "ED",
+            "35",
+            "E5",
+            "E7",
+            "A7",
+            "50"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            118,
+            27,
+            237,
+            53,
+            229,
+            231,
+            167,
+            80
+          ],
+          "controller_decoded_bytes": [
+            211,
+            217,
+            109,
+            227,
+            220,
+            198,
+            169,
+            61
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "3D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "3D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "3D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "3D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "3D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "3D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "6C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "6C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 1
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 1
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "first_y_one_visit_late": {
+          "wrong_decision_indices": [
+            42,
+            43,
+            45,
+            46,
+            49,
+            50,
+            51,
+            54,
+            56,
+            58
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "39",
+            "83",
+            "E2",
+            "BD",
+            "FD",
+            "0F",
+            "4F",
+            "29"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            57,
+            131,
+            226,
+            189,
+            253,
+            15,
+            79,
+            41
+          ],
+          "controller_decoded_bytes": [
+            156,
+            65,
+            222,
+            45,
+            54,
+            9,
+            103,
+            232
+          ],
+          "minimum_setup_cycles": 2961,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7E",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7E",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7E",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "2E",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 402000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "2E",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 780000,
+              "rxd": 0
+            }
+          ]
+        },
+        "second_y_one_visit_late": {
+          "wrong_decision_indices": [
+            33,
+            34,
+            36,
+            38,
+            39,
+            41,
+            42,
+            55,
+            56,
+            59,
+            60,
+            63,
+            64
+          ],
+          "unknown_rxc_edges": [],
+          "recovered_line_bytes": [
+            "B0",
+            "A7",
+            "CC",
+            "B8",
+            "D8",
+            "DB",
+            "1B",
+            "89"
+          ],
+          "recovered_matches_offered": false,
+          "controller_state": "AF",
+          "controller_errors": 0,
+          "controller_overruns": 0,
+          "controller_consumed_bytes": [
+            176,
+            167,
+            204,
+            184,
+            216,
+            219,
+            27,
+            137
+          ],
+          "controller_decoded_bytes": [
+            21,
+            101,
+            84,
+            254,
+            185,
+            94,
+            37,
+            10
+          ],
+          "minimum_setup_cycles": 2929,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "65",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 6000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "65",
+              "phase_ready_cycle": 3071,
+              "rxc_rising_cycle": 12000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "65",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 18000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "65",
+              "phase_ready_cycle": 15071,
+              "rxc_rising_cycle": 24000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "75",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 390000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "75",
+              "phase_ready_cycle": 387071,
+              "rxc_rising_cycle": 396000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 402000,
+              "rxd": 0
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399071,
+              "rxc_rising_cycle": 408000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "08",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 774000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "08",
+              "phase_ready_cycle": 771071,
+              "rxc_rising_cycle": 780000,
+              "rxd": 1
+            }
+          ]
+        },
+        "rxc_before_second_capture": {
+          "wrong_decision_indices": [],
+          "unknown_rxc_edges": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40,
+            42,
+            44,
+            46,
+            48,
+            50,
+            52,
+            54,
+            56,
+            58,
+            60,
+            62,
+            64,
+            66,
+            68,
+            70,
+            72,
+            74,
+            76,
+            78,
+            80,
+            82,
+            84,
+            86,
+            88,
+            90,
+            92,
+            94,
+            96,
+            98,
+            100,
+            102,
+            104,
+            106,
+            108,
+            110,
+            112,
+            114,
+            116,
+            118,
+            120,
+            122,
+            124,
+            126,
+            128
+          ],
+          "recovered_line_bytes": null,
+          "recovered_matches_offered": null,
+          "controller_state": null,
+          "controller_errors": null,
+          "controller_overruns": null,
+          "controller_consumed_bytes": null,
+          "controller_decoded_bytes": null,
+          "minimum_setup_cycles": -39,
+          "selected_events": [
+            {
+              "symbol": 0,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 3000,
+              "rxd": 1
+            },
+            {
+              "symbol": 0,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 3039,
+              "rxc_rising_cycle": 9000,
+              "rxd": 1
+            },
+            {
+              "symbol": 1,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 15000,
+              "rxd": null
+            },
+            {
+              "symbol": 1,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 15039,
+              "rxc_rising_cycle": 21000,
+              "rxd": 1
+            },
+            {
+              "symbol": 32,
+              "bit": 0,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 387000,
+              "rxd": null
+            },
+            {
+              "symbol": 32,
+              "bit": 1,
+              "captured_state": "7D",
+              "phase_ready_cycle": 387039,
+              "rxc_rising_cycle": 393000,
+              "rxd": 1
+            },
+            {
+              "symbol": 33,
+              "bit": 0,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 399000,
+              "rxd": null
+            },
+            {
+              "symbol": 33,
+              "bit": 1,
+              "captured_state": "2C",
+              "phase_ready_cycle": 399039,
+              "rxc_rising_cycle": 405000,
+              "rxd": 0
+            },
+            {
+              "symbol": 64,
+              "bit": 0,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 771000,
+              "rxd": null
+            },
+            {
+              "symbol": 64,
+              "bit": 1,
+              "captured_state": "00",
+              "phase_ready_cycle": 771039,
+              "rxc_rising_cycle": 777000,
+              "rxd": 0
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "This event replay uses snapshots from earlier real-PROM executions, not a traced physical latch or new PROM execution.",
+    "U12 has four storage bits; this seven-bit state requires additional untraced storage and capture qualification.",
+    "ADC, capture clock, phase gates, RxD/RxC and SYNDET connections remain labelled circuit assumptions.",
+    "The 8251 model covers external-sync receive and immediate reads; it is not the complete device."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_serial_timing.py": "c2e899943aae7aca3638ffb34eeb1ff09f406541e2a497057cd87da4679ebbef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty-fresh-88.json": "dca71095e6bdb6109e08759388f108da88162af3ad6f2cf8be2c5a565cbebd49",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty.json": "e447f0c27daaadfad9773cf3f757f63073ceecdff427b4490fc7f5ce36fbfe89",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean.py": "e9a3cedabb9654a2d98cca71c8d2a305261387dd4b112f93d7ece2001d78219b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_external_sync_handoff.py": "3d97ea3406d3a8edda4c1b0870368d2afe970156db5e9d0a7c84d49ea06ddacb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_serial_handoff.py": "05ee8d7c35ee975c853cefede9987b995dcf93bcd81ee36bef5f0239c31563b4"
+  }
+}
