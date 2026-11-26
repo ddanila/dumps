@@ -1,0 +1,41 @@
+{
+  "experiment": "frozen 12-state changed-mode gate phase-128 holdout audit",
+  "fixture": {
+    "R1_offset": 128,
+    "assumed_mode": "81-to-A1 at D3EB",
+    "frozen_line_shift": 5,
+    "cases": 2
+  },
+  "outcomes": [
+    {
+      "selector": "40",
+      "state_09_symbols": 32,
+      "observed_states": 6,
+      "unseen_states": 0,
+      "reference_errors": 0,
+      "gate_errors": 0,
+      "exact_line_bytes": true,
+      "exact_controller_bytes": true
+    },
+    {
+      "selector": "60",
+      "state_09_symbols": 32,
+      "observed_states": 6,
+      "unseen_states": 0,
+      "reference_errors": 0,
+      "gate_errors": 0,
+      "exact_line_bytes": true,
+      "exact_controller_bytes": true
+    }
+  ],
+  "limitations": [
+    "The phase-128 streams visit only previously labeled states, so this does not test Boolean extrapolation.",
+    "The line, mode, latch, logic and USART routes remain assumed; no physical serial net is identified."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_phase128_audit.py": "407a35a44c909a3c0fc579b4c267ccb1564877f5b21e7d59c643d97c5da85fa3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase128-challenge.json": "739dfd53b026d438cbe5db35992e6a0e75557255c7c3d936ed8430ec28878703",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_multivisit_phase_screen.py": "57f86789b6c2620499c57a8e152b2dd415ea8facf90b646dfe95f315e199d387"
+  }
+}

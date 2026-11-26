@@ -135,6 +135,14 @@ payloads on a separate new pair. The answer-side reference decoder
 misses two dibits, and the holdout adds no unseen states. Keep the
 external logic, mode route and serial nets conditional; test another
 phase/gain fixture and keep C3/G2 active.
+The [phase-128 changed-mode holdout](g2/JOINT-MASK04-12A-MODE-PHASE128.md)
+keeps those 12-state gates frozen on two more controller-fed payloads
+and a new R1 carrier start. Both full real-PROM receiver runs recover
+all 64 dibits, exact line bytes and exact modeled USART/executed
+controller source bytes. They use only known states, including
+mode-sensitive `09`, so they validate this carrier transfer without
+resolving unobserved states or the physical mode/serial route. Keep
+C3/G2 active and challenge a distinct state family next.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

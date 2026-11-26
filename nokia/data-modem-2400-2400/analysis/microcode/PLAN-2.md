@@ -2052,6 +2052,13 @@ Listed in order of value per effort:
   holdout has no unseen states and physical mode/serial nets remain
   assumed; test another carrier/gain fixture and a concrete route
   before passing C3.
+  The [phase-128 changed-mode holdout](g2/JOINT-MASK04-12A-MODE-PHASE128.md)
+  now freezes the 12-state gates and +5 line shift on another carrier
+  start and two fresh payloads. Both real-PROM paths make 0/64
+  reference and gate errors, recover exact line and modeled
+  8251/executed 8031 source bytes, and visit state `09` in 32/65
+  symbols each. No new state appears, so test a more distinct phase
+  or gain and the mode-selector/serial wiring before passing C3.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3
