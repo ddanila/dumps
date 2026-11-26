@@ -1611,6 +1611,14 @@ one-sample distinction lost by the proposed U12 row pair (`20` versus
 `21` on 47 held visits), while a legal rotated eight-symbol stream yields
 only those two latch bytes. Test a temporal or multi-signal consumer and
 serial route next; the untraced nets are assumptions to test, not blockers.
+The [two-visit `3FA` Y0 screen](g2/RECEIVER-MASK04-3FA-TWO-VISIT-BITS.md)
+now runs six legal rotated-carrier PROM streams and tests all 70,125
+fixed visit pairs against independent dibits. None yields a fully known,
+unambiguous training lookup; the best knows 11/24 training dibits, and
+the frozen choice makes 1/24 and 3/24 wrong decisions on two new seeds.
+This rejects only the specified one-bit/two-visit candidate. Continue
+with a photo-compatible multi-signal consumer or longer phase-aware
+history; C3 and G2 remain open.
 
 ## Steps
 
