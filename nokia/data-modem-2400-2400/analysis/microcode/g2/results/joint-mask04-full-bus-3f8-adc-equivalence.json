@@ -1,0 +1,124 @@
+{
+  "cases": [
+    {
+      "adc_sha256": "a29b5fa3e5c66ec2dacdb5068a1358267d9b47f1fff8e1bbc334c71a468a668e",
+      "captures_checked": 650,
+      "mismatches": [],
+      "offset_hz": -7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "0c091e781ea0150bff03eb0b92b9e091982c5680a930828874a3e0854950d2bd",
+      "selector": "40",
+      "sign_pair_mismatches": [],
+      "tx_cycles": 1269256
+    },
+    {
+      "adc_sha256": "8554b652a9d62fa59b70bd9aaad6f27a56905abfc9725946c8cb1ca4ed9e9c84",
+      "captures_checked": 650,
+      "mismatches": [],
+      "offset_hz": 0,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "2ef61fc7b61a9f9b68ae4d18751f9abfa2ad7b9ea8b15d6c7fdfaa5ca7910f82",
+      "selector": "40",
+      "sign_pair_mismatches": [],
+      "tx_cycles": 1269256
+    },
+    {
+      "adc_sha256": "291b178cb0f98e2e4962dd4ae0e06ef22be0913a3fd5014e505d43a715bfcf2b",
+      "captures_checked": 650,
+      "mismatches": [],
+      "offset_hz": 7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "72907ff4002ab5f140f3f8d62b26dbd9f3173b410f19b84fadfd7aaab3b539c9",
+      "selector": "40",
+      "sign_pair_mismatches": [],
+      "tx_cycles": 1269256
+    },
+    {
+      "adc_sha256": "958c9a3bcbd0e3c36f59413614cecd50b28dd220a10b2dc9409e1af16835f3cd",
+      "captures_checked": 650,
+      "mismatches": [],
+      "offset_hz": -7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "cba1df3e82b7ae8b995823e038e47b1b29de097cc7e978f3593d9d4caa29106b",
+      "selector": "60",
+      "sign_pair_mismatches": [],
+      "tx_cycles": 1269256
+    },
+    {
+      "adc_sha256": "55099d349d79a759b5bdba5208289bba3a0d955864a9e56f984f0e76ec6c750f",
+      "captures_checked": 650,
+      "mismatches": [],
+      "offset_hz": 0,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "32bd365388aa8884b559f1c65453830b0264cfead0c5bc087dcef7b979c77fdd",
+      "selector": "60",
+      "sign_pair_mismatches": [],
+      "tx_cycles": 1269256
+    },
+    {
+      "adc_sha256": "fd5cee3a2f17b3c380f0eb30cdb5697fb8e6852292f2b9976f7b08bcb4b54394",
+      "captures_checked": 650,
+      "mismatches": [],
+      "offset_hz": 7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "aa4b4295d03eb9e4c4d02cd5b926e9a1655a07466f4d6b9948eacddfb7c40801",
+      "selector": "60",
+      "sign_pair_mismatches": [],
+      "tx_cycles": 1269256
+    }
+  ],
+  "experiment": "captured 3F8 Y versus modeled ADC high nibble on full-byte DSC streams",
+  "fixture": {
+    "ADC": "127 - corrected signed PCM; 47/46 visits per sample",
+    "DAC_order": [
+      4,
+      0,
+      6,
+      1,
+      3,
+      2,
+      5,
+      7
+    ],
+    "capture_phases": [
+      45,
+      46,
+      47,
+      48,
+      92,
+      93,
+      94,
+      95,
+      140,
+      141
+    ],
+    "checked_identity": "Y3F8 == (ADC & 0xF0) | 0x0F",
+    "sample_site": "127",
+    "sign_pair": [
+      47,
+      94
+    ],
+    "source": "joint-mask04-full-bus-receive-states.json"
+  },
+  "limitations": [
+    "The equality is checked at the ten captured visits per symbol, not every 3F8 visit in the receive run.",
+    "ADC/DAC, AGC, filter and clock routes remain model assumptions.",
+    "3F8 still performs an executed ROM-index calculation; direct quantizer equivalence at Y does not characterize later state or 3ED output.",
+    "A decoder using only these Y3F8 bytes cannot distinguish the modeled PROM from the same ADC high-nibble stream."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md": "41aab1fc29020f543c39d2537b7da3465e3122374e6b7ec55ee6f13cb92a8063",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_dac_bus.py": "79d64f830a377b2231f6c1463361c5538ec92cc7521e701d10140802abdb0609",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_full_bus_loopback.py": "5fb2b83df13368b36f4441d5fc8e56b977f92206d9bc92bebc46ba31274b6f69",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_payload_challenge.py": "af21157ace28e997d7a4fcf09c2ec805fb9e4609e5e097662dbc38615a36f2e3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_3f8_adc_equivalence.py": "a3b3fa314045ed8364d17a7c2abe1e46e5891d808e54a7f1d077edb34fc8c973",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_agc_candidate.py": "aa283c128b2caac38822fcd521bc7e147dda23c63591682db083ef90817d7378",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_carrier_offset.py": "1cc9b458fa646a22ae4c01993dfaf14ec33571f60cc9a1e878b0a8e4ce70883e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_receive_states.py": "0bf8ea27023a1d84230005f3fcaadef7cd4b1a3726f2509d725318654ec27428",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_zero_handoff.py": "f33d2d115c4e542e908d6da4b4261fafa12420ddd9a76dfc243f0a3cbc8b865d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_holdout_gap_audit.py": "958b11b1123b52dc896d34f47bd025374762ec818231668948527b13712564cb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-bus-agc-candidate.json": "495a61bb76bdbcaa3b565245adac4c24968478eaabaffb9ae74f2a61f06df833",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-bus-carrier-offset.json": "22bd578b1194a5d2be36606b06f41981255918bf16602ef8ce1fda829c14f9e2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-bus-receive-states.json": "05e483397fd00c8c431c968f3b31ffecc8744067b298b884e45c1d8573162465"
+  }
+}

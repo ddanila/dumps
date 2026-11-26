@@ -58,6 +58,16 @@ linked G2 experiments; they do not revise the older profiles.
 | 3F8–3FE | Candidate ADC-table receive update: the assumed ADC high nibble affects 3F8 Y, 3F9 reads the real ROM at `0x100 + Y`, and the four-row cycle retains input-dependent Q/RAM state. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | ADC ingress, row dispatch and any recovered-bit consumer; C3 stays open. |
 | 3EB–3ED | Candidate receive-state byte exposure: 3EB writes R1 from Q's low nibble and 3ED exposes that R1 byte on Y. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | Capture, phase decision and USART RxD/RxC/SYNDET route; C3 stays open. |
 
+The [full-byte sampled-byte audit](../g2/JOINT-MASK04-FULL-BUS-ADC-ROW-IDENTITY.md)
+qualifies these receive names. At all 3,900 captured `3F8` visits in six
+real-PROM streams, Y equals the modeled ADC high nibble with low bits `F`.
+At three sample boundaries per symbol, the observed `3ED` row-0 byte is a
+codebook of the preceding ADC high nibble, and row-3 is a codebook of the
+current one. These outputs expose quantized input samples; a dibit decoded
+externally from them is not yet an executed microprogram decision. The
+`3F9` ROM read and retained Q/RAM updates still merit a downstream-output
+test before naming a receive-demodulation routine or passing C3.
+
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127
 step modulo 256 at each visit, and Y7 exposes its high bit throughout

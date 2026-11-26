@@ -1,0 +1,403 @@
+{
+  "current_ADC_bins": 15,
+  "distinct_adjacent_sample_pairs": 126,
+  "experiment": "executed 3ED row bytes versus adjacent ADC nibbles at sample boundaries",
+  "fixture": {
+    "ADC_equivalence": "previous report proved captured 3F8 Y high nibble equals modeled ADC high nibble",
+    "boundaries": [
+      [
+        46,
+        47
+      ],
+      [
+        93,
+        94
+      ],
+      [
+        140,
+        141
+      ]
+    ],
+    "capture": "row0 and row3 of 3ED at first visit after each boundary",
+    "current_sample": "3F8 Y high nibble at first visit after boundary",
+    "previous_sample": "3F8 Y high nibble at final visit before boundary"
+  },
+  "following_bins_per_previous": [
+    6,
+    11
+  ],
+  "limitations": [
+    "The codebooks cover only the ADC nibbles observed in six modeled line fixtures and three boundary positions.",
+    "An observed functional map does not prove that the same row bytes are history-free for all inputs, modes or clock phases.",
+    "The ROM lookup and row calculations are executed, but using these two bytes as a dibit decision remains an external hypothesis.",
+    "The physical ADC, latch, clock and USART routes are untraced."
+  ],
+  "maps": {
+    "row0_from_current": {
+      "codebook": {
+        "0": [
+          "00",
+          "F2"
+        ],
+        "1": [
+          "00",
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "2": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5"
+        ],
+        "3": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5"
+        ],
+        "4": [
+          "00",
+          "F2",
+          "F3",
+          "F5",
+          "FD"
+        ],
+        "5": [
+          "00",
+          "F2",
+          "F3",
+          "F5",
+          "FD"
+        ],
+        "6": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5",
+          "FD"
+        ],
+        "7": [
+          "00",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "FD"
+        ],
+        "8": [
+          "00",
+          "F3",
+          "F4",
+          "F5",
+          "FD"
+        ],
+        "9": [
+          "00",
+          "F1",
+          "F3",
+          "F4",
+          "F5",
+          "FD"
+        ],
+        "A": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "FD"
+        ],
+        "B": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "FD"
+        ],
+        "C": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "FD"
+        ],
+        "D": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5",
+          "FD"
+        ],
+        "E": [
+          "00",
+          "F2",
+          "F3",
+          "F5",
+          "FD"
+        ]
+      },
+      "conflicting_inputs": 15,
+      "input_codes": 15,
+      "max_outputs_per_input": 7
+    },
+    "row0_from_previous": {
+      "codebook": {
+        "1": [
+          "F2"
+        ],
+        "2": [
+          "F3"
+        ],
+        "3": [
+          "00"
+        ],
+        "4": [
+          "F1"
+        ],
+        "5": [
+          "00"
+        ],
+        "6": [
+          "F2"
+        ],
+        "7": [
+          "F2"
+        ],
+        "8": [
+          "00"
+        ],
+        "9": [
+          "F5"
+        ],
+        "A": [
+          "F3"
+        ],
+        "B": [
+          "F5"
+        ],
+        "C": [
+          "FD"
+        ],
+        "D": [
+          "F5"
+        ],
+        "E": [
+          "F4"
+        ]
+      },
+      "conflicting_inputs": 0,
+      "input_codes": 14,
+      "max_outputs_per_input": 1
+    },
+    "row3_from_current": {
+      "codebook": {
+        "0": [
+          "F2"
+        ],
+        "1": [
+          "F8"
+        ],
+        "2": [
+          "FC"
+        ],
+        "3": [
+          "F1"
+        ],
+        "4": [
+          "F9"
+        ],
+        "5": [
+          "00"
+        ],
+        "6": [
+          "F8"
+        ],
+        "7": [
+          "F8"
+        ],
+        "8": [
+          "F1"
+        ],
+        "9": [
+          "FF"
+        ],
+        "A": [
+          "FC"
+        ],
+        "B": [
+          "F2"
+        ],
+        "C": [
+          "F5"
+        ],
+        "D": [
+          "FF"
+        ],
+        "E": [
+          "F3"
+        ]
+      },
+      "conflicting_inputs": 0,
+      "input_codes": 15,
+      "max_outputs_per_input": 1
+    },
+    "row3_from_previous": {
+      "codebook": {
+        "1": [
+          "00",
+          "F1",
+          "F2",
+          "F8",
+          "F9",
+          "FC"
+        ],
+        "2": [
+          "00",
+          "F1",
+          "F2",
+          "F8",
+          "F9",
+          "FC",
+          "FF"
+        ],
+        "3": [
+          "00",
+          "F1",
+          "F2",
+          "F8",
+          "F9",
+          "FC",
+          "FF"
+        ],
+        "4": [
+          "F1",
+          "F2",
+          "F5",
+          "F8",
+          "FC",
+          "FF"
+        ],
+        "5": [
+          "00",
+          "F1",
+          "F2",
+          "F5",
+          "F8",
+          "F9",
+          "FC",
+          "FF"
+        ],
+        "6": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5",
+          "F8",
+          "FC",
+          "FF"
+        ],
+        "7": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5",
+          "F8",
+          "F9",
+          "FC",
+          "FF"
+        ],
+        "8": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5",
+          "F8",
+          "FC",
+          "FF"
+        ],
+        "9": [
+          "00",
+          "F1",
+          "F3",
+          "F5",
+          "FC",
+          "FF"
+        ],
+        "A": [
+          "F1",
+          "F3",
+          "F5",
+          "F8",
+          "F9",
+          "FC",
+          "FF"
+        ],
+        "B": [
+          "00",
+          "F1",
+          "F3",
+          "F5",
+          "F8",
+          "F9",
+          "FF"
+        ],
+        "C": [
+          "00",
+          "F1",
+          "F2",
+          "F3",
+          "F5",
+          "F8",
+          "F9",
+          "FC",
+          "FF"
+        ],
+        "D": [
+          "00",
+          "F1",
+          "F2",
+          "F5",
+          "F8",
+          "FC",
+          "FF"
+        ],
+        "E": [
+          "F1",
+          "F2",
+          "F5",
+          "F8",
+          "FC",
+          "FF"
+        ]
+      },
+      "conflicting_inputs": 14,
+      "input_codes": 14,
+      "max_outputs_per_input": 9
+    }
+  },
+  "observations": 1170,
+  "preceding_bins_per_current": [
+    2,
+    11
+  ],
+  "previous_ADC_bins": 14,
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_row_boundary_map.py": "328ed3919d8fd700dbf7a1eaca215e21245ff094e860d9e72a6fb50ea58b5429",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-bus-3f8-adc-equivalence.json": "d40d1c8ae364db0f02f7e463afce2dd70f09360b1e59e6c603dbecf817c756e3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-bus-receive-states.json": "05e483397fd00c8c431c968f3b31ffecc8744067b298b884e45c1d8573162465"
+  }
+}

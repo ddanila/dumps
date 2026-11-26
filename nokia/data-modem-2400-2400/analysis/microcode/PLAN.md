@@ -199,6 +199,15 @@ and gets one wrong. Do not fit a new rule to these already inspected
 offset cases and call them a blind holdout. Use the corpus to specify
 a causal multi-sample hypothesis, then challenge it with new payloads
 and phase starts; C3 remains open and G2 active.
+The [sampled-byte identity audit](g2/JOINT-MASK04-FULL-BUS-ADC-ROW-IDENTITY.md)
+now gives a stronger interpretation of those Y captures: all 3,900
+sampled `3F8` Y bytes equal `(ADC & F0) | 0F`. At 1,170 sample boundaries,
+`3ED` row-0 Y is an observed one-input codebook of the preceding ADC
+high nibble, and row-3 Y of the current nibble, with no contradictions
+across six streams. The direct `3F8` and two-row readouts therefore
+carry quantized input samples, not independent evidence that DSC made
+a dibit decision. Seek a downstream retained-state/output consumer
+and a USART bit route; do not promote external sample slicers to C3.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
