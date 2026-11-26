@@ -12,6 +12,12 @@
 
 **Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART and
 analog-line connections are *open wiring hypotheses*, not a stop condition.
+Treat missing physical evidence as a limit on what a run can prove, not on
+whether the next run can start. Keep the relevant acceptance check open and
+continue with an explicit candidate connection or independent PROM, controller
+or signal constraint. If several candidates remain indistinguishable, report
+that ambiguity and pursue a different discriminating test; do not wait for a
+photograph or continuity measurement to resolve it.
 When a photo shows only part of a net, choose the simplest pin-compatible
 continuation as the working assumption, label every unseen segment, inversion
 and clock/latch phase, and run the real PROMs with relevant controller traffic.
@@ -311,9 +317,11 @@ bounded experiment whenever a photo-supported connection, timing or input
 hypothesis can still be tested. A failed run closes that hypothesis under its
 recorded fixture; it does not block G2. Reserve "blocked" for the case where
 the available evidence supports no runnable candidate and no independent
-controller, PROM or signal analysis can advance an acceptance check. Do not
-ask for more photos or continuity measurements as a prerequisite while those
-routes remain open.
+controller, PROM or signal analysis can advance an acceptance check. Before
+using that status, record the candidates already tried, why each remaining
+avenue cannot run, and the exact outside input needed. An unverified physical
+connection by itself never satisfies this rule. Do not ask for more photos or
+continuity measurements as a prerequisite while executable routes remain open.
 
 Do not convert an unmet acceptance check into a goal blocker: keep its status
 open, record which physical claim is still unverified, and run the next
