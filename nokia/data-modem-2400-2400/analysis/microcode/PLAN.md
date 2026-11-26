@@ -174,10 +174,18 @@ R1 seed does not alter sampled `12A` output, while a one-time `40`
 offset during data changes all 65 executed receive phase states in
 each mode. The frozen rule still recovers 64/64 dibits and exact
 modeled controller payloads without refitting. A `20` offset makes
-one to three reference errors at the first data boundary. Next vary
-that boundary timing and test photo-compatible phase-decision and
-serial circuits; keep C2/C3/G2 open. These untraced connections are
-explicit, runnable assumptions, not a goal blocker.
+one to three reference errors at the first data boundary. The
+[half-quadrant timing test](g2/JOINT-MASK04-12A-PHASE-TIMING.md) moves
+that `20` step into the muted interval, but the same reference errors
+remain. Its frozen seven-state receive rule fails on the new `2,6,9,D`
+state family. A unique call-constrained four-state relabeling recovers
+64/64 dibits, exact line bytes and both modeled controller payloads on
+the answer holdout without refitting; no executed or photographed
+phase-normalization mechanism has been identified. Next test a
+photo-compatible ADC/latch/clock path that chooses quadrant labels
+across carrier starts, then freeze it on new payloads and levels.
+Keep C2/C3/G2 open. These untraced connections are explicit, runnable
+assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data
