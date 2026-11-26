@@ -28,6 +28,8 @@ few meaningful alternatives if the result depends on the inference. Record
 what each run supports or excludes and name the next runnable test. Keep G2
 **active** and the affected acceptance check **open** while such tests exist.
 Never use missing photo detail or continuity alone as a blocker.
+Use the photos already available to start these tests; request new physical
+evidence only when a specific result would distinguish surviving candidates.
 Success remains conditional until the physical route is independently
 constrained; failure rejects only the stated wiring, timing and input fixture.
 For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
@@ -152,13 +154,19 @@ decoder, CD4094-to-receiver connection and timing as assumptions; the photos
 do not establish those nets. The [instruction-level timing probe](g2/CONTROLLER-SYNDET-EDGE-TIMING.md)
 shows the controller writes that frame 150/124 emulator ticks before its
 first line-data byte in the call/answer fixtures; synthetic serial completion
-means this is not a physical SYNDET timing measurement. Compare this candidate
-with no pulse, an
-unqualified bit-5 rise, and pulses one bit or one byte away, using the same
-PROM-derived input and controller state. If the candidate misses the required
-edge or the controller signature, revise the decoder or clock alignment and
-continue with another photo-compatible route. Do not mark G2 blocked because
-SYNDET continuity or the physical pulse timing is unknown.
+means this is not a physical SYNDET timing measurement. The first port-01
+write is local transmit traffic; its time does not identify the first
+arriving remote bit. Keep the frame decoder as a conditional candidate
+until a receive-side timing relationship is shown. Compare it with no
+pulse, an unqualified bit-5 rise and pulses one bit or one byte away;
+if it misses the controller signature, revise the route. The
+[first-non-`11` SYNDET screen](g2/RECEIVER-SYNDET-PREAMBLE-TRANSITION.md)
+rules out a simpler data-dependent trigger: for both controller
+scrambler delays, 64/256 possible first payload octets keep dibit `11`
+past the true data boundary, and a representative late pulse shifts the
+paced USART byte. Seek a payload-independent receive boundary event or
+photo-compatible sync connection; C3 and G2 remain active without waiting
+for continuity.
 
 The [controller zero-run handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
 now joins a longer real-PROM receive trace to the 8031's executed `AF→B0`

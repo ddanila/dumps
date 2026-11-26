@@ -1524,6 +1524,15 @@ phases B–C turn "what" into "how".
   controls remain at `AF`. This removes the immediate-read shortcut but not
   the assumed SYNDET source, RxD/RxC wiring or synthetic controller inputs.
   Keep C3 open.
+  The [first-non-`11` SYNDET screen](g2/RECEIVER-SYNDET-PREAMBLE-TRANSITION.md)
+  rejects a data-dependent shortcut: under either modeled controller
+  scrambler delay, 64 of 256 possible first payload octets retain an
+  initial `11` dibit after the true data boundary. Pulsing on the first
+  non-`11` dibit then shifts the paced USART byte in representative
+  fixtures. The [A3→A4 frame edge](g2/CONTROLLER-SYNDET-EDGE-TIMING.md)
+  precedes a *local transmit* write, not an observed remote bit. Seek a
+  payload-independent receive boundary event or photo-compatible sync
+  route before treating aligned SYNDET as explained; C3 stays open.
   The [four-bit phase readout](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md)
   combines row-0 `3ED` Y bits 0/1/3 with transient `3F8` Y7 in one
   frozen seven-entry table. Two new continuous preamble/data streams at
