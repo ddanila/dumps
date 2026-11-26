@@ -2068,6 +2068,23 @@ Listed in order of value per effort:
   The inventory now records U15 as 14 pins. Test a labelled
   U15/U21/U19 multistage route rather than assuming U15 alone solves
   the phase/serial output. C3 remains open.
+  The [package-budgeted U13/U15/U19/U21 route](g2/PHOTO-U15-U19-U21-PHASE-ROUTE.md)
+  now gives explicit two-output gate equations, using all six U13
+  inverters, one U15, two U19 NANDs and three U21 NORs. It matches
+  34 observed mode-conditioned labels and all 640 dibits across ten
+  saved real-PROM receive streams. Every replay state was previously
+  labeled, so freeze these equations and seek a new carrier/gain
+  stimulus with unseen states. The assumed nets and USART handoff
+  still keep C3 open; their ambiguity does not block the next run.
+  The [phase-125 circuit challenge](g2/JOINT-MASK04-12A-MODE-PHASE125-CIRCUIT.md)
+  now runs new call/answer payloads through both real PROMs and the
+  modeled 8251/executed 8031 handoff. Both reach unseen state `3D`;
+  14/8 neighboring transitions independently require phase 1. The
+  prior cover predicts 0 and misses 14/64 and 8/64 dibits, while the
+  frozen package circuit predicts 1, makes 0/64 errors in each run,
+  and recovers exact line and controller bytes. Test another unseen
+  state family or changed gain/clock; retain the physical mode/serial
+  routes as assumptions and C3 as open.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

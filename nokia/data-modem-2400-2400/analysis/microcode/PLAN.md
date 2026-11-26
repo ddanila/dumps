@@ -111,6 +111,20 @@ phase labels. It can express one combined phase bit, but not the other
 in either output polarity from direct state-plus-mode inputs. A
 photo-compatible multistage gate path remains to test; the physical
 phase/USART nets and C3/G2 remain open.
+The [U13/U15/U19/U21 candidate circuit](g2/PHOTO-U15-U19-U21-PHASE-ROUTE.md)
+uses the photographed package gate budgets to implement both observed
+mode-conditioned phase outputs. It reproduces all 34 fitted labels and
+0/640 dibit errors across ten saved real-PROM receive streams. Those
+streams contain no unseen states, and the gate nets remain assumed;
+freeze this circuit for a new carrier/gain fixture and keep C3/G2 open.
+The [phase-125 unseen-state challenge](g2/JOINT-MASK04-12A-MODE-PHASE125-CIRCUIT.md)
+now freezes that circuit on two new full real-PROM call/answer runs.
+Both visit new state `3D`, whose phase is independently constrained to
+1 by 14 and 8 adjacent transitions. The prior cover predicts 0 and
+misses 14/64 and 8/64 dibits; the package circuit predicts 1 and
+recovers 0/64 errors plus exact modeled serial/executed controller
+bytes in both runs. This tests one new state under assumed wiring;
+challenge another gain/clock fixture and keep C3/G2 open.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

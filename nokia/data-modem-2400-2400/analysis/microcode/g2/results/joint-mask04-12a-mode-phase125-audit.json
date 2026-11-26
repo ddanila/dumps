@@ -1,0 +1,39 @@
+{
+  "experiment": "new-state 3D independent phase and serial audit",
+  "cases": [
+    {
+      "selector": "40",
+      "new_state": "3D",
+      "independent_anchor_constraints": 14,
+      "inferred_phase": 1,
+      "frozen_cover_phase": 0,
+      "package_circuit_phase": 1,
+      "old_cover_errors": 14,
+      "package_circuit_errors": 0,
+      "reference_errors": 0,
+      "exact_line_and_controller_bytes": true
+    },
+    {
+      "selector": "60",
+      "new_state": "3D",
+      "independent_anchor_constraints": 8,
+      "inferred_phase": 1,
+      "frozen_cover_phase": 0,
+      "package_circuit_phase": 1,
+      "old_cover_errors": 8,
+      "package_circuit_errors": 0,
+      "reference_errors": 0,
+      "exact_line_and_controller_bytes": true
+    }
+  ],
+  "limitations": [
+    "The reference dibits and previous state labels infer phase 1 for 3D under the existing phase convention; this is still a model of the assumed board route.",
+    "The package equations have not been traced to physical pins and remain untested on further unseen states or a measured line."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_phase125_audit.py": "f9cb29b6e861038686c29ba61925019e7ea5e2260ee977f77b989dbae6545990",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase125-challenge.json": "1dfe7be587057beb82a898ab371525e47cd0b58ec346041d669a9ec2d321b5d2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_u19_u21_phase_route.py": "5f5e1b3ee93000a22f02729b7d46302289589e9d0e94af17b78ef3bcf693895d"
+  }
+}

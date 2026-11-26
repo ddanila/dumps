@@ -1,0 +1,168 @@
+{
+  "experiment": "photographed package-budgeted phase circuit replay",
+  "fixture": {
+    "inputs": "seven assumed U12/U14/U3 state bits plus assumed D3EB mode bit",
+    "mode_mapping": {
+      "01": 0,
+      "81/A1": 1
+    },
+    "u15_terms": [
+      "~s1 & ~s2 & ~s6 & ~mode",
+      "~s0 & ~s1 & s6",
+      "s0 & s2 & s3 (precomputed)",
+      "~s0 & ~s2"
+    ],
+    "outputs": [
+      "phase bit 0 = inverted U15 Y",
+      "phase bit 1 = NAND(s2, OR(mode, s6))"
+    ],
+    "package_use": {
+      "U13 six inverters": "four state complements, U19 preterm, U15 output",
+      "U15 one S64 AOI": "all four terms",
+      "U19 two of three triple NANDs": "preterm and phase bit 1",
+      "U21 three of four NORs": "mode inversion, NOR(mode,s6), tied-input NOR inverter"
+    },
+    "unused_inputs": "tied high; photographed electrical nets untraced"
+  },
+  "observed_labels": {
+    "mode01": 22,
+    "mode81_A1": 12,
+    "errors": []
+  },
+  "saved_real_prom_replays": [
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "mode": 0,
+      "selector": "40",
+      "level": 0.75,
+      "states": 65,
+      "distinct_states": 4,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "d22d964b11c1ca83d0ff716570c2fb8d972fb6cad8c7d77b84a22288ee5ca5f0"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "mode": 0,
+      "selector": "40",
+      "level": 1.0,
+      "states": 65,
+      "distinct_states": 4,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "3226683b18a59c96f314825869be4ef99e6e83c2b922c319f174a44ff6e65a50"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "mode": 0,
+      "selector": "40",
+      "level": 1.25,
+      "states": 65,
+      "distinct_states": 4,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "50ff556a1bfcdd4fd1f65e0a6c7d5b27fb61894500c65f946d1b42cbebe600e3"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "mode": 0,
+      "selector": "60",
+      "level": 0.75,
+      "states": 65,
+      "distinct_states": 4,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "3e948787231287e5a0f3b2e92616874b44f88d42dde32cf69800c8e75b88bce0"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "mode": 0,
+      "selector": "60",
+      "level": 1.0,
+      "states": 65,
+      "distinct_states": 4,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "0789ebb4d7145210a6b7ac9a8e1c2641b7b49c926d394251cc67166a266cf816"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "mode": 0,
+      "selector": "60",
+      "level": 1.25,
+      "states": 65,
+      "distinct_states": 4,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "ebe9dbdae2fc0bda940286ce214c0a7febe4bb04a4bc6637f0643ff669c1d8d8"
+    },
+    {
+      "source": "joint-mask04-12a-mode-twelve-holdout.json",
+      "mode": 1,
+      "selector": "40",
+      "level": null,
+      "states": 65,
+      "distinct_states": 5,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "fb172ac34636ae43b151748f299a42fdd36c83bdc91175909bf2f211b33e7ebb"
+    },
+    {
+      "source": "joint-mask04-12a-mode-twelve-holdout.json",
+      "mode": 1,
+      "selector": "60",
+      "level": null,
+      "states": 65,
+      "distinct_states": 5,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "4afe72e7a08b97abe38863f7df69ff6433b4e68dd5d816186eafdb85080431ac"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase128-challenge.json",
+      "mode": 1,
+      "selector": "40",
+      "level": null,
+      "states": 65,
+      "distinct_states": 6,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "4a3cd462c20c576ac05191e781440e5b5f116794f5db0a34cea9b5c94f8ac941"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase128-challenge.json",
+      "mode": 1,
+      "selector": "60",
+      "level": null,
+      "states": 65,
+      "distinct_states": 6,
+      "unseen_states": [],
+      "errors": 0,
+      "wrong_indices": [],
+      "source_rx_trace_digest": "c76fcabec6a6b20eb2c225aaeea7df83d2d15f9803bfb3d071cace4b747190a8"
+    }
+  ],
+  "limitations": [
+    "This is a package-capacity circuit under explicit, untraced board connections; it does not identify U13/U15/U19/U21 actual nets.",
+    "Saved real-PROM runs are replayed from captured states, not rerun here; the circuit was selected using the combined observed labels.",
+    "Passing streams that contain only labeled states does not establish unseen-state or new carrier/gain transfer, nor a physical USART route."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_u19_u21_phase_route.py": "5f5e1b3ee93000a22f02729b7d46302289589e9d0e94af17b78ef3bcf693895d",
+    "nokia/data-modem-2400-2400/analysis/microcode/board/inventory.json": "1c2b07b8e377c2b646fdaff6e20f74065128351d90f41b68609cbd4616ad14e9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty-fresh-88.json": "dca71095e6bdb6109e08759388f108da88162af3ad6f2cf8be2c5a565cbebd49",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-twelve-holdout.json": "b1de84f88f03fe4d898831d9f487167ed0761a9b53e33643670cae503204cd0b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase128-challenge.json": "739dfd53b026d438cbe5db35992e6a0e75557255c7c3d936ed8430ec28878703"
+  }
+}
