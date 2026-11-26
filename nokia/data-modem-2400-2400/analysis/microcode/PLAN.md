@@ -112,6 +112,19 @@ without logical phase drift, and the checked values agree with the
 earlier all-row capture. U24 reset phase, actual gate wiring and
 electrical timing are still assumptions. Test counter initialization
 under a natural mode transition; keep C3/G2 active.
+The [full mode-edge phase holdout](g2/JOINT-MASK04-12A-MODE-PHASE-HOLDOUT.md)
+tests that transition through the real-PROM receiver with an assumed
+controller `81→A1` input at `3EB`. The PC path and two-edge row clock
+survive, but the old `01`-trained phase gate fails. A gate frozen on the
+call-side changed-mode states recovers exact dibits, line bytes and
+modeled USART/executed controller payloads on answer-side held-`81`
+and edge mode-condition holdouts. Their bytes appeared in earlier
+`01`-mode development, but the changed-mode executions did not. State
+`09` requires different labels across
+the earlier `01` and new `81` development graphs; a conditional mode
+selector is therefore required for this seven-bit readout. Its physical
+source and the serial path are still assumptions. Challenge fresh
+mode/phase data; keep C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

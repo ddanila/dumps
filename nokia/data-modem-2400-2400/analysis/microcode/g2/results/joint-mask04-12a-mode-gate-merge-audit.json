@@ -1,0 +1,135 @@
+{
+  "experiment": "mode-bit-gated phase readout consistency across saved PROM streams",
+  "fixture": {
+    "mode_flag": "assumed D3EB bit7: 01=0, 81/A1=1",
+    "mode0_gate": "joint-mask04-12a-row0-boolean-twentytwo.json",
+    "mode1_gate": "joint-mask04-12a-mode-phase-holdout.json",
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ]
+  },
+  "label_conflicts_without_mode_bit": {
+    "09": {
+      "mode01": 3,
+      "mode81": 2
+    }
+  },
+  "baseline_mode01": [
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "40",
+      "level": 0.75,
+      "wrong_indices": [],
+      "state09_visits": 0
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "40",
+      "level": 1.0,
+      "wrong_indices": [],
+      "state09_visits": 0
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "40",
+      "level": 1.25,
+      "wrong_indices": [],
+      "state09_visits": 0
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "60",
+      "level": 0.75,
+      "wrong_indices": [],
+      "state09_visits": 0
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "60",
+      "level": 1.0,
+      "wrong_indices": [],
+      "state09_visits": 0
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "60",
+      "level": 1.25,
+      "wrong_indices": [],
+      "state09_visits": 0
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-phase112.json",
+      "selector": "40",
+      "level": 1.0,
+      "wrong_indices": [],
+      "state09_visits": 0
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-phase112.json",
+      "selector": "60",
+      "level": 1.0,
+      "wrong_indices": [],
+      "state09_visits": 0
+    }
+  ],
+  "call_mode81_A1": [
+    {
+      "mode": "held_81",
+      "wrong_indices": [],
+      "state09_visits": 5
+    },
+    {
+      "mode": "edge_81_A1",
+      "wrong_indices": [],
+      "state09_visits": 0
+    }
+  ],
+  "answer_mode81_A1_holdout": [
+    {
+      "mode": "held_81",
+      "wrong_indices": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        214,
+        9,
+        123,
+        164,
+        33,
+        254,
+        88,
+        195
+      ]
+    },
+    {
+      "mode": "edge_81_A1",
+      "wrong_indices": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        214,
+        9,
+        123,
+        164,
+        33,
+        254,
+        88,
+        195
+      ]
+    }
+  ],
+  "limitations": [
+    "This is a conditional mux of two external Boolean readouts, not an identified DSC instruction or photographed mode connection.",
+    "The answer-side rows are verified from the prior full-PROM holdout report; no new PROM execution occurs in this audit.",
+    "A carrier-offset change may also require a distinct gate; only the saved mode-01 and phase-112 mode-81/A1 fixtures are covered."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_gate_merge_audit.py": "01137697e1050f3fa65fbef491c6a706f5815f83a5249b76cba660896a8354da",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-holdout.json": "0584b2c3928e262760cac71ad69cdf68ae6d3765fa9be50687b1abc17e250226",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row-mode-edge.json": "9dde00d75c5099ba075f5f371bf6343675cfada9fa86e757b9eaa2aba348eeef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty-fresh-88.json": "dca71095e6bdb6109e08759388f108da88162af3ad6f2cf8be2c5a565cbebd49",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-phase112.json": "921b2ed60bb521170404303d6c2a4cc445332550ab2a614a5300596c66313cb9"
+  }
+}

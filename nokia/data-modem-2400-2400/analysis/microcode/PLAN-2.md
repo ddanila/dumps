@@ -2027,6 +2027,19 @@ Listed in order of value per effort:
   snapshots. U24 entry/reset phase and electrical gate timing remain
   assumptions. Test initialization across a natural mode transition;
   the serial route and C3 acceptance remain open.
+  The [full mode-edge phase holdout](g2/JOINT-MASK04-12A-MODE-PHASE-HOLDOUT.md)
+  now injects the candidate controller `81→A1` frame byte at `3EB` on
+  phase-112 real-PROM receive runs. The row-clock cadence and PC path
+  survive, but the old `01`-trained gate misses 21/13 call decisions.
+  A call-frozen eight-state gate then recovers 0/64 dibit errors, exact
+  line bytes and exact modeled 8251/executed 8031 source bytes on both
+  answer-side held-`81` and edge mode-condition holdouts. The payload
+  appeared earlier in `01`-mode gate development, but these changed-mode
+  executions did not. State `09` has
+  incompatible phase labels in earlier `01` and new `81` data, so the
+  seven-bit gate is condition-dependent; an assumed `3EB` bit-7 mux
+  covers the tested streams but is not traced. Test new mode/phase data
+  and a concrete bit-7-to-serial route before passing C3.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

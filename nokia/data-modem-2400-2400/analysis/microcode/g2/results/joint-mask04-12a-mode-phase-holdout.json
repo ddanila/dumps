@@ -1,0 +1,158 @@
+{
+  "experiment": "call-frozen mode-aware phase gates on answer-side full-PROM receive",
+  "fixture": {
+    "development": "call 01, held 81, 81-to-A1 edge at offset 112",
+    "holdout": "answer held 81 and 81-to-A1 on untouched payload",
+    "assumed_D3EB_mode_edge": 48001,
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e",
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ]
+  },
+  "trained_state_phase": {
+    "09": 2,
+    "0D": 1,
+    "12": 3,
+    "1E": 0,
+    "49": 2,
+    "4D": 1,
+    "52": 3,
+    "5E": 0
+  },
+  "baseline_states": [
+    "12",
+    "49",
+    "4D",
+    "5E"
+  ],
+  "phase_bits": [
+    {
+      "bit": 0,
+      "product_terms": 2,
+      "literals": 3,
+      "cubes": [
+        "***0***",
+        "**1*0**"
+      ]
+    },
+    {
+      "bit": 1,
+      "product_terms": 1,
+      "literals": 1,
+      "cubes": [
+        "**0****"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "mode": "held_81",
+      "rx_trace_digest": "28f59f6084afefb811a9130f8f6a69f4f9f469d5c2f1eabfd3e1081f0c6666e5",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "gate_edges": [
+        97500,
+        97501
+      ],
+      "observed_states": [
+        "09",
+        "0D",
+        "1E",
+        "52"
+      ],
+      "unseen_states": [],
+      "frozen_gate_wrong_indices": [],
+      "prior_gate_wrong_indices": [
+        34,
+        36,
+        38,
+        39,
+        43,
+        44,
+        45,
+        46,
+        48,
+        50,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        60,
+        63
+      ],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        214,
+        9,
+        123,
+        164,
+        33,
+        254,
+        88,
+        195
+      ],
+      "controller_errors": 0,
+      "minimum_setup_cycles": 2961
+    },
+    {
+      "mode": "edge_81_A1",
+      "rx_trace_digest": "f29d8597a19c7c97b064812d7cb00c95d53319d1a03e5139adda34404d2ca25d",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "gate_edges": [
+        97500,
+        97501
+      ],
+      "observed_states": [
+        "0D",
+        "12",
+        "1E",
+        "49",
+        "4D"
+      ],
+      "unseen_states": [],
+      "frozen_gate_wrong_indices": [],
+      "prior_gate_wrong_indices": [
+        32,
+        36,
+        38,
+        43,
+        44,
+        54,
+        55,
+        56,
+        57,
+        63
+      ],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        214,
+        9,
+        123,
+        164,
+        33,
+        254,
+        88,
+        195
+      ],
+      "controller_errors": 0,
+      "minimum_setup_cycles": 2961
+    }
+  ],
+  "limitations": [
+    "Call-side mode states and their known dibits are development data; only answer-side streams are holdouts.",
+    "The frame byte to D3EB route, U24 reset and all latch/USART nets remain assumptions.",
+    "Unseen states receive Boolean extrapolations; the gates are not identified DSC instructions."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_phase_holdout.py": "d8ce3f6833032b45fc588298189a1155d3cebb432eb081cdca307130abceec4e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-phase112.json": "921b2ed60bb521170404303d6c2a4cc445332550ab2a614a5300596c66313cb9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row-mode-edge.json": "9dde00d75c5099ba075f5f371bf6343675cfada9fa86e757b9eaa2aba348eeef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306"
+  }
+}
