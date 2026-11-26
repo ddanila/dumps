@@ -37,6 +37,12 @@
       "dsc_microinstructions": 1248256,
       "late_a2_to_late_a1_rms": 1.5775307303499504e-08,
       "packed_y7_sha256": "adac19d44f3ce58f6c188f9f57f1801133ed4f94ea86120fe8912ad68e86c588",
+      "possible_b6_shared_input": {
+        "assumed_combined_dac_weight": 12,
+        "data_decisions": 62,
+        "data_errors": 0,
+        "tone_peak_hz": 2100
+      },
       "prom_trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd",
       "raw_phase": {
         "data_max_phase_error_degrees": 40.289913533710376,
@@ -96,6 +102,12 @@
       "dsc_microinstructions": 1248256,
       "late_a2_to_late_a1_rms": 1.5775307303499504e-08,
       "packed_y7_sha256": "182432a04b46a8a4ed8efd77fd6d7ab211e1be75f95546e72724139b7c94d1dd",
+      "possible_b6_shared_input": {
+        "assumed_combined_dac_weight": 12,
+        "data_decisions": 62,
+        "data_errors": 0,
+        "tone_peak_hz": 2100
+      },
       "prom_trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5",
       "raw_phase": {
         "data_max_phase_error_degrees": 40.28991353371342,
@@ -132,13 +144,14 @@
   },
   "limitations": [
     "Only Q4-to-B5 is photo-suggested; Y7-to-D4, latch clock and analog output route are untraced.",
+    "The possible D4-to-adjacent-DAC-input route is not a traced net; the B5+B6 calculation only tests its gain effect when both bits carry identical Y7 samples.",
     "This B5-only alternative does not establish the other seven DAC bit connections or coexistence with the earlier Y7-to-B1 bus orders.",
     "A2 mid-code gate and analog bandpass are external hypotheses, not measured components."
   ],
   "source_sha256": {
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_msb_data_phase.py": "3fd8cf663f3d5839e797cee3f80c9903203f53d70ca75c025d7cb239d3aaec0d",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_msb_segment1_phase.py": "9e80bc46c6024d0fe78cb402daefe88c9dd9c77beb838c55fd13a3179e6d4b35",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_photo_b5_y7_route.py": "8c7619bc109ed45c3307206ab2dd6c29ed14abbdfd4d5a6b543e64132b9401f1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_photo_b5_y7_route.py": "d8b08860f086611e1a8578ed18666c23c0af79dc48d35f9aefb31187a585d7d8",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_a1_dynamic_mode_replay.py": "0527db2eb39197beea664ab3db4b929c7049d4a7df4d5cd59194a350b4c4b110",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",

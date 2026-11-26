@@ -69,6 +69,13 @@ tone, A3 half-turns and 0/62 filtered A3/A4 errors after an assumed
 A2 gate and Q=1 line stage. This is a photo-compatible alternative to
 the Y7→B1/MSB bus family, not independent waveform evidence or a C2
 pass. Test Y7→D4 and the analog output route next.
+The [adjacent D4-track screen](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md#adjacent-d4-track-and-b6-sensitivity)
+adds a tentative D4→DAC08 B6 segment: the front track runs toward that
+pad region, but its endpoint is obscured. If Y7 occupies both B5 and B6
+at the sample edge, the executed-stream replay still gives 2,100 Hz and
+0/62 filtered errors per selector. Treat this as gain sensitivity, not
+net verification; resolve the D4 source/adjacent pad timing while continuing
+other runnable C2/C3 tests.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)

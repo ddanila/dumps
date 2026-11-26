@@ -92,6 +92,21 @@ def run(out=HERE / 'results/joint-mask04-photo-b5-y7-route.json'):
         tone = tone_summary(line[64:TONE_END])
         data = decision_result([value + 128 for value in line[SILENCE_END:]],
                                symbols, sample_shift=6)
+        # Photo-visible copper near D4 also heads toward the adjacent DAC
+        # input region. Bound the effect if it shares B6 with the B5 latch
+        # output; this is a route sensitivity, not an established net.
+        neighbor_weight = DAC_B5_WEIGHT + 4
+        neighbor_mid = neighbor_weight // 2
+        neighbor_codes = [neighbor_weight * bit for bit in bits]
+        neighbor_gated = (neighbor_codes[:TONE_END] +
+                          [neighbor_mid] * (SILENCE_END - TONE_END) +
+                          neighbor_codes[SILENCE_END:])
+        neighbor_line = bandpass([code - neighbor_mid for code in neighbor_gated],
+                                 1.0)
+        neighbor_tone = tone_summary(neighbor_line[64:TONE_END])
+        neighbor_data = decision_result(
+            [value + 128 for value in neighbor_line[SILENCE_END:]],
+            symbols, sample_shift=6)
         silence_ratio = rms(line[SILENCE_END - 32:SILENCE_END]) / \
             rms(line[TONE_END - 32:TONE_END])
         cases.append(dict(selector=selector, dsc_microinstructions=case['dsc_microinstructions'],
@@ -99,6 +114,11 @@ def run(out=HERE / 'results/joint-mask04-photo-b5-y7-route.json'):
                           packed_y7_sha256=hashlib.sha256(bytes(bits)).hexdigest(),
                           b5_code_sha256=hashlib.sha256(bytes(codes)).hexdigest(),
                           tone=tone, data=data, raw_phase=raw_phase,
+                          possible_b6_shared_input=dict(
+                              assumed_combined_dac_weight=neighbor_weight,
+                              tone_peak_hz=neighbor_tone['peak_hz'],
+                              data_errors=neighbor_data['errors'],
+                              data_decisions=neighbor_data['decisions']),
                           late_a2_to_late_a1_rms=silence_ratio,
                           source_sites=[site['pc'] for site in case['sites']]))
         print(selector, tone['peak_hz'], data['errors'],
@@ -123,6 +143,7 @@ def run(out=HERE / 'results/joint-mask04-photo-b5-y7-route.json'):
                                negative_control='earlier Y4-to-D4-to-B5 held-tone replay has zero power at 2100 Hz'),
                   cases=cases,
                   limitations=['Only Q4-to-B5 is photo-suggested; Y7-to-D4, latch clock and analog output route are untraced.',
+                               'The possible D4-to-adjacent-DAC-input route is not a traced net; the B5+B6 calculation only tests its gain effect when both bits carry identical Y7 samples.',
                                'This B5-only alternative does not establish the other seven DAC bit connections or coexistence with the earlier Y7-to-B1 bus orders.',
                                'A2 mid-code gate and analog bandpass are external hypotheses, not measured components.'],
                   source_sha256={str(path.relative_to(HERE.parents[4])):

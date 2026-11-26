@@ -36,6 +36,27 @@ untraced. C2 remains open. A next photo-compatible test should constrain
 the Y7-to-latch data path or the DAC output node and distinguish B1 from
 B5 assignment without assuming the result.
 
+## Adjacent D4 track and B6 sensitivity
+
+Closer inspection of the [original front photo](../../../photos/PXL_20261123_114854803.jpg)
+shows a separate front-side track leaving the 74LS273 D4 pin-8 pad to the
+left, toward the DAC08 pad region next to the Q4→B5 candidate. It may
+reach DAC08 pin 10 (B6, four-count weight), but the pad/lead area obscures
+the endpoint; the back photo does not resolve the upstream source. This is
+therefore a **D4→B6 candidate**, not an established net. The track is a
+constraint on any future Y7→D4 route: the B5-only calculation could omit
+an adjacent DAC contribution if that candidate is true.
+
+As a bounded control, the replay now assigns each saved Y7 sample to both
+B5 and B6, for a combined 12-count weight, and centers the assumed A2
+gate accordingly. Both complete selector streams still peak at 2,100 Hz
+and give 0/62 filtered A3/A4 errors. This only checks the gain change
+when D4 and Q4 carry identical values at the sample edge; a real latch
+delay, different D4 source or a different B6 net could change the result.
+The next useful route test is to identify the D4 source and the adjacent
+DAC pad, then test their timing together. Missing continuity does not stop
+the remaining C2 and C3 experiments.
+
 The [machine report](results/joint-mask04-photo-b5-y7-route.json)
 contains the PROM sample hashes, tone and phase metrics, receive scores,
 photo/source hashes and explicit limitations. Reproduce from the
