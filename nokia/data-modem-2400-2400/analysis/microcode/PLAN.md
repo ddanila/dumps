@@ -1370,6 +1370,17 @@ With `3EB` return, complete PROM trace digests still match no-feedback
 controls. These routes do not demonstrate echo cancellation. Try a
 mode-qualified or differently timed return, high-nibble route or a
 distinct output latch with the same controls; C4 stays open and G2 active.
+The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
+combines that corrected sample-paced memory route with candidate `D3EB`
+values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.
+All four preserve the same one-byte RAM change and a 47-visit delayed
+`3FA` pulse; their write-only controls
+have no delayed pulse. `A1` shifts the `3FA` upper nibble but does not
+gate the stored low-nibble response. This narrows a simple held-mode
+explanation under that one edge timing, not a paced controller gate or
+physical RAM circuit. Next test a candidate write-enable or return
+route under paced controller traffic against own/remote/mixed controls;
+keep C4 and G2 active.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under
