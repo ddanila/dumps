@@ -197,6 +197,17 @@ evidence: visit-`94` storage, extra gates and the serial/line nets are
 still assumptions, and the holdout reached no other unseen state. Test
 package-compatible capture/logic and a further unseen-state gain/carrier
 family before C3 acceptance; keep G2 active.
+The [staged U14/U12/U3 capture replay](g2/JOINT-MASK04-12A-VISIT94-LATCH-ROUTE.md)
+now supplies one photo-package-compatible storage schedule. U14's
+independent latch pairs hold first Y5/Y7 while first Y6 is copied to
+U12 at visit `47`; U14 then reuses its Y6 latch at visit `94`, and U3
+holds the visit-`93` bits. Across ten saved real-PROM streams and 650
+symbols, the staged state, decisions and controller bytes match the
+earlier candidate; row-0 Y0 is stable from visits `46` to `47`.
+A common-enable overwrite of U14's first Y5/Y7 at visit `94` causes
+22–29 dibit errors per stream, so the independent pair enables matter.
+The specific data/enable nets and full phase-gate package budget remain
+unknown, so keep C3/G2 open and test them as explicit assumptions.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
