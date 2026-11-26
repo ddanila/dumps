@@ -1533,6 +1533,12 @@ phases B–C turn "what" into "how".
   precedes a *local transmit* write, not an observed remote bit. Seek a
   payload-independent receive boundary event or photo-compatible sync
   route before treating aligned SYNDET as explained; C3 stays open.
+  The [nonzero frame-mode handoff](g2/RECEIVER-MASK04-NONZERO-FRAME-HANDOFF.md)
+  carries representative late-trigger payloads through two 768,047-word
+  PROM runs and the paced controller. Both recover 63/63 measurable dibits,
+  eight line octets and the exact nonzero first payload; a bit-66 SYNDET
+  pulse changes USART byte alignment. This extends the conditional C3
+  result but does not identify the physical sync source or serial route.
   The [four-bit phase readout](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md)
   combines row-0 `3ED` Y bits 0/1/3 with transient `3F8` Y7 in one
   frozen seven-entry table. Two new continuous preamble/data streams at
