@@ -105,6 +105,16 @@ unknowns on these streams, but it failed once on the nominal zero-run.
 Treat both readouts as timing-dependent diagnostics and test a physically
 plausible sample/decision circuit with gain and phase controls. Neither
 the untraced clock nor this narrow abstention is a G2 blocker.
+The [buffered full-DAC-bus screen](g2/JOINT-MASK04-BUFFERED-DAC-BUS.md)
+tests the 12 previously frozen Q4→B5-compatible byte orders against actual
+`127` and `129` Y bytes from both complete real-PROM transmitter runs.
+Six orders at either latch word produce the modeled 2,100 Hz A1 tone,
+quiet gated A2 interval and 0/64 A3/A4 differential errors per selector;
+the other six miss one call symbol. The two latch words produce distinct
+byte streams, yet these decisions do not distinguish them. Carry the six
+full-byte routes as explicit C2 candidates and seek a second DAC pin or
+sample-clock/output-node constraint; do not promote the assumed bus, gate
+or filter to verified physical wiring. Keep C2 open and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
