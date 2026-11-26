@@ -157,6 +157,15 @@ eight line bytes with the unchanged frozen readout. This is a sufficient
 **external analog-stage hypothesis** for those affine changes, not an
 identified DSC AGC algorithm or photographed circuit. Freeze it for a
 separate non-zero payload and phase/noise holdout; keep C3 and G2 active.
+The [non-zero AGC holdout](g2/JOINT-MASK04-FULL-BUS-AGC-HOLDOUT.md)
+now keeps that fixed target, 128-sample acquisition window, full-byte DAC
+order and receive rule on two previously recorded non-zero streams. All
+four 0.75-gain/±16 real-PROM Tx/Rx cases recover the exact eight bytes;
+the answer stream covers all 16 adjacent-dibit transitions. This supports
+the conditional AGC-plus-PROM dataflow over data and affine level changes,
+but the AGC stage remains external and hypothetical. Test carrier phase,
+noise and photo-compatible gain/decision circuits without treating those
+untraced nets as a G2 blocker; C2/C3 stay open.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
