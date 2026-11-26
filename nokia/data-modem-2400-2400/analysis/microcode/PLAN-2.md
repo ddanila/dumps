@@ -2008,6 +2008,15 @@ Listed in order of value per effort:
   capacity objection for the stated circuit, but its nets, gate enables
   and serial wiring remain assumed. C3 stays open; test row-clock
   qualification on a new PROM trace with all four row values saved.
+  The [phase-112 all-row execution](g2/JOINT-MASK04-12A-ALL-ROW-PHASE112.md)
+  performs that test on both fresh call and answer payloads with the
+  frozen 22-state gates. Their complete real-PROM receiver traces match
+  the saved captures; row 0 gives 0/64 errors in each, while an
+  unqualified every-row clock leaves row 3 and gives 19/64 and 15/64.
+  Rows 1 and 2 also fail. The candidate therefore needs a row-0
+  qualifier or another hold path across carrier offsets. Test a
+  photo-compatible U24/raw-PROM gate timing next; C3 stays open because
+  its physical clock and USART nets are unverified.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

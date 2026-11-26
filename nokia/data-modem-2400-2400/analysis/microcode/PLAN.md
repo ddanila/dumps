@@ -98,6 +98,12 @@ captures and an early RxC provide discriminating controls. This is a
 conditional circuit capacity and timing result, not identified wiring or a
 C3 pass. Next test raw row-clock qualification on a fresh all-row PROM
 capture while keeping the latch/serial nets assumed and G2 active.
+The [phase-112 all-row execution](g2/JOINT-MASK04-12A-ALL-ROW-PHASE112.md)
+now performs that changed-carrier test with the frozen 22-state gates:
+both mode traces match saved real-PROM hashes, row-0 qualification is exact,
+and an unqualified every-row clock leaves row 3 with 19/64 and 15/64
+errors. This narrows the required logical clock selection, not the actual
+U24/U12 nets. Test a photo-compatible raw-PROM gate timing next.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
