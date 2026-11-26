@@ -34,6 +34,14 @@ Success remains conditional until the physical route is independently
 constrained; failure rejects only the stated wiring, timing and input fixture.
 For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
 identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
+The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
+now changes only Am27S31 A8 at `129` in both full controller-fed A1–A4
+runs. Their internal trace digests change, but their candidate Y sample
+hashes and all tone/data scores are identical. Do not treat upper-bank
+`129` selection as evidence for carrier synthesis on this route. Test
+where `129` first affects retained state or a selected operand next while
+keeping the DAC line path open. The separate `12E` bank control makes no
+difference because `12E` is never visited in these sustained streams.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)

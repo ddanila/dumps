@@ -1848,6 +1848,16 @@ Listed in order of value per effort:
   - the phase steps follow the dibits;
   - "segment 1" yields 180° reversals;
   - the 2100 Hz state yields a tone.
+  The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
+  holds the full controller-fed fixture fixed and switches just the
+  Am27S31 `129` A8 bank. Both call and answer runs have changed full
+  trace digests but identical 832-byte candidate Y samples and the same
+  tone/data scores. A separate `12E` bank switch is a null control: that
+  address has zero visits in the sustained `127–12A` loop. Therefore
+  upper-bank `129` selection is not established as the source of this
+  candidate waveform. Inspect where a changed `129` operand first reaches
+  retained state before attributing carrier generation to that ROM region;
+  C2 remains open pending a constrained DAC/line route.
 - **C3 Receive test.** Encode reference line samples as ADC0800 complementary
   bytes under an explicit reference range and conversion schedule, feed them
   through the identified input path, and check that recovered bits reach the
