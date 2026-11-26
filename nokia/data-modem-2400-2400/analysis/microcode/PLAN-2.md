@@ -2112,6 +2112,18 @@ Listed in order of value per effort:
   same 12/64 call and 11/64 answer wrong indices. Move to a labelled
   multistage phase-bit-0 correction for `48`/`2F`, then challenge it
   on a new real-PROM gain/phase fixture. C3 remains open.
+  The [two-term phase-bit-0 veto](g2/JOINT-MASK04-12A-PHASEBIT0-VETO.md)
+  now corrects the photographed-package candidate's `48`/`2F`
+  mislabels and leaves phase bit 1 unchanged. It matches all 42
+  observed mode-conditioned labels and 22 development streams.
+  Four new two-selector real-PROM fixtures recover exact line and
+  modeled 8251/executed 8031 bytes. Phase-137/139 transfers never
+  activate the veto; fresh phase-131 payloads at 1.15×/1.25× do,
+  changing original circuit errors 17/12 and 15/17 to zero in both
+  selectors. These are active holdouts on known states, not an
+  unseen-state test. Assign any extra gate and mode route only as
+  photo-compatible assumptions, test unseen predictions, and keep
+  C3 open.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

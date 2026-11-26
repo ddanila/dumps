@@ -1,0 +1,238 @@
+{
+  "experiment": "frozen two-term external phase-bit-0 veto",
+  "fixture": {
+    "original": "photo_u15_u19_u21_phase_route.py",
+    "mode": "only assumed 81/A1 mode bit",
+    "veto_2f": "s0 AND s1",
+    "veto_48": "NOT s1 AND NOT s2 AND s6",
+    "corrected": "P0 = original P0 AND NOT(mode AND (veto_2f OR veto_48)); P1 unchanged"
+  },
+  "observed_labels": {
+    "mode01": 22,
+    "mode81_A1": 20,
+    "errors": []
+  },
+  "saved_real_prom_replays": [
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "40",
+      "mode": 0,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "d22d964b11c1ca83d0ff716570c2fb8d972fb6cad8c7d77b84a22288ee5ca5f0"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "40",
+      "mode": 0,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "3226683b18a59c96f314825869be4ef99e6e83c2b922c319f174a44ff6e65a50"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "40",
+      "mode": 0,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "50ff556a1bfcdd4fd1f65e0a6c7d5b27fb61894500c65f946d1b42cbebe600e3"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "60",
+      "mode": 0,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "3e948787231287e5a0f3b2e92616874b44f88d42dde32cf69800c8e75b88bce0"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "60",
+      "mode": 0,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "0789ebb4d7145210a6b7ac9a8e1c2641b7b49c926d394251cc67166a266cf816"
+    },
+    {
+      "source": "joint-mask04-12a-row0-boolean-twenty-fresh-88.json",
+      "selector": "60",
+      "mode": 0,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "ebe9dbdae2fc0bda940286ce214c0a7febe4bb04a4bc6637f0643ff669c1d8d8"
+    },
+    {
+      "source": "joint-mask04-12a-mode-twelve-holdout.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": null,
+      "states": 5,
+      "errors": 0,
+      "rx_trace_digest": "fb172ac34636ae43b151748f299a42fdd36c83bdc91175909bf2f211b33e7ebb"
+    },
+    {
+      "source": "joint-mask04-12a-mode-twelve-holdout.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": null,
+      "states": 5,
+      "errors": 0,
+      "rx_trace_digest": "4afe72e7a08b97abe38863f7df69ff6433b4e68dd5d816186eafdb85080431ac"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase128-challenge.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": null,
+      "states": 6,
+      "errors": 0,
+      "rx_trace_digest": "4a3cd462c20c576ac05191e781440e5b5f116794f5db0a34cea9b5c94f8ac941"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase128-challenge.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": null,
+      "states": 6,
+      "errors": 0,
+      "rx_trace_digest": "c76fcabec6a6b20eb2c225aaeea7df83d2d15f9803bfb3d071cace4b747190a8"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase125-challenge.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": null,
+      "states": 5,
+      "errors": 0,
+      "rx_trace_digest": "c635e273aa3d57288556706d9d23ab6a286bf3db8f8a34a1f21cad14276dd17d"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase125-challenge.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": null,
+      "states": 6,
+      "errors": 0,
+      "rx_trace_digest": "d881280cb5b8b40ff74b00486cb060732eca2666838edd9555689d4340fc36e2"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-baseline-control.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": null,
+      "states": 7,
+      "errors": 0,
+      "rx_trace_digest": "d2b45b4899bba7f2515737282fb4f9ba3f85b69c67ba6cf0a5b54cf30ec51c28"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-baseline-control.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": null,
+      "states": 7,
+      "errors": 0,
+      "rx_trace_digest": "157c55996be4cdaa2abe7547ba9a59dd13d4c1bb903f0fbbc2348a13b5412b90"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-intermediate-gain.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": null,
+      "states": 5,
+      "errors": 0,
+      "rx_trace_digest": "f9a9a908b4794614846ec1e9da8dd89ebea2ab7a7691daab49c3dad991595e5e"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-intermediate-gain.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": null,
+      "states": 5,
+      "errors": 0,
+      "rx_trace_digest": "a694ede1a4bb266646b46edfe3ce091fd880d6a53dca18f18020e8bb39f89fd6"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-gain-boundary.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": 1.15,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "2047b452e2f780df84f4fe779d102db59da021a7450a011a0ffa647da39892af"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-gain-boundary.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": 1.15,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "4634e0f2cb6394f0483711160b6865c5c806297dbca14b1f1da02e463f860779"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-gain-boundary.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": 1.175,
+      "states": 5,
+      "errors": 0,
+      "rx_trace_digest": "51a7b5fd0e951502ae2669e93880e91b4405c674d5b8212531d306caf9b6f9b7"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-gain-boundary.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": 1.175,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "f7d1b265d089752b2e10c877e9e8cf1dd48c4a23f9ef4e11cfba2c331a45747c"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-gain-challenge.json",
+      "selector": "40",
+      "mode": 1,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "e8f4daa4c744a2b5112e377c10f34e6d2d74b10ec57d0df58ab8416b4ad9ce62"
+    },
+    {
+      "source": "joint-mask04-12a-mode-phase131-gain-challenge.json",
+      "selector": "60",
+      "mode": 1,
+      "gain": null,
+      "states": 4,
+      "errors": 0,
+      "rx_trace_digest": "a1b433bc149491c6a20cb0a0455c82ded7a39a885cc8acfb0e1c06310aadad8d"
+    }
+  ],
+  "changed_unobserved_code_counts": {
+    "0": 0,
+    "1": 16
+  },
+  "limitations": [
+    "The two veto terms were selected using the same gain runs they repair; these 22 replays are development evidence, not a holdout.",
+    "The correction is a logical external gate hypothesis. No photographed package budget, fan-out, timing or board net is established for the extra mode-qualified veto.",
+    "It changes predictions for unobserved mode-81 states; a fresh real-PROM phase/gain/payload challenge is required."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto.py": "a6ceaca1ee003b20bd6c09d4556c7312a4536211d8dbcd833603c2df9666ea55",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-graph-audit.json": "9821384d640a8b020d1e4c18ef4081997d762574191e7b8ba860c5714c6e3a9e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_u19_u21_phase_route.py": "5f5e1b3ee93000a22f02729b7d46302289589e9d0e94af17b78ef3bcf693895d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty-fresh-88.json": "dca71095e6bdb6109e08759388f108da88162af3ad6f2cf8be2c5a565cbebd49",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-twelve-holdout.json": "b1de84f88f03fe4d898831d9f487167ed0761a9b53e33643670cae503204cd0b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase128-challenge.json": "739dfd53b026d438cbe5db35992e6a0e75557255c7c3d936ed8430ec28878703",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase125-challenge.json": "1dfe7be587057beb82a898ab371525e47cd0b58ec346041d669a9ec2d321b5d2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-baseline-control.json": "d9ffb252f9d77a5b74a3baf2e4fb75c3b8a64e18918b66570390c09cd49274a9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-intermediate-gain.json": "ead545793e4636d2ee31c14f9602346f1a8485b84adb3cf59568af60592956c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-boundary.json": "fd3d6c22f34a56d30083c052c077fa0b663b06ef8fe7742fe85b39f718f54bc2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-challenge.json": "ad5ed303e0cd7f82689ad746bf95791c58c330e514e0665c329224f56757c099"
+  }
+}

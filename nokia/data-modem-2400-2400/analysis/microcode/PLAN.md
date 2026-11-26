@@ -152,6 +152,18 @@ visits `46/47` and `93/94` yields eight capture timings, all with
 the same 12/64 call and 11/64 answer wrong indices. Reject these
 simple wire/edge repairs and test explicit multistage phase-bit-0
 logic for `48` and `2F` on a fresh holdout; C3/G2 stay active.
+The [mode-qualified phase-bit-0 veto](g2/JOINT-MASK04-12A-PHASEBIT0-VETO.md)
+now clears the original gate's false bit 0 at `48`/`2F` with two
+explicit terms. It fits 42 observed mode-conditioned labels and all
+22 development streams. Four new real-PROM call/answer fixtures
+recover exact modeled serial/executed controller bytes: phase-137/139
+carrier transfers do not activate the veto, while new phase-131
+payloads at 1.15× and 1.25× do, changing original 17/12 and 15/17
+dibit errors to 0/64 in each selector. The 1.15× holdout has no
+modeled clipping; the 1.25× holdout has 4/2 clipped samples. No
+holdout reaches an unseen state and the extra veto package/nets are
+unassigned. Challenge unseen predictions and a photo-compatible
+gate realization; keep C3/G2 open.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
