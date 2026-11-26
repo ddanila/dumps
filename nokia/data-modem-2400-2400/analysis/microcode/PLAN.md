@@ -113,8 +113,13 @@ find a fixed 1950 Hz, Q=0.5, peak-110, +6-sample line candidate with
 0/64 call and 0/64 answer reference errors on all six buses. Four new
 nonzero controller-fed streams also give 0/64 each on all six buses;
 the prior Q=1 control fails two streams. This resolves the call-line
-reference discrepancy for a conditional analog route. Next, challenge
-the frozen candidate with varied sample phase, gain and carrier offset,
+reference discrepancy for a conditional analog route. The
+[fixed-gain phase check](g2/JOINT-MASK04-12A-FIXED-GAIN-PHASE.md)
+calibrates gain on the zero-run only, then keeps it across both saved
+nonzero payloads per selector. At +6, all 24 bus/payload streams are
+exact at 75%, 100% and 125% of that gain. At +5, six stream/bus cases
+miss one answer dibit; +7 fails all 24. Constrain the latch/sample
+alignment and test carrier offset without refitting,
 and seek a photo-compatible line/ADC and DSC-to-USART consumer. The
 external known-carrier decoder does not establish physical filter Q or
 complete C2/C3.

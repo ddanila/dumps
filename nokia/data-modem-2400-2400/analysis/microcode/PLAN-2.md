@@ -1848,6 +1848,14 @@ Listed in order of value per effort:
   - the phase steps follow the dibits;
   - "segment 1" yields 180° reversals;
   - the 2100 Hz state yields a tone.
+  The [ROM-sensitive `12A` fixed-gain challenge](g2/JOINT-MASK04-12A-FIXED-GAIN-PHASE.md)
+  calibrates a Q=0.5 candidate line stage on zero-run call/answer data,
+  then keeps that gain for two nonzero payloads per selector. All 24
+  bus/payload reference scores are exact at the +6 sample phase over
+  75–125% level. The adjacent +5 phase fails six scores, and +7 fails
+  all 24, so the capture clock is a specific unresolved C2 constraint.
+  No DAC/analog trace or onboard receive decision is established by
+  this external reference decoder.
   The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
   holds the full controller-fed fixture fixed and switches just the
   Am27S31 `129` A8 bank. Both call and answer runs have changed full
