@@ -30,16 +30,21 @@ def instrumented_execute():
         ("    source_read=scenario['io']['read'];table=source_read['table'];rom_hash=None",
          "    source_read=scenario['io']['read'];table=source_read['table'];rom_hash=None\n"
          "    external_ram=[1]*256; external_address=0; external_latch=1\n"
-         "    external_writes=0; external_reads=0; external_first_changed_read=None"),
+         "    external_writes=0; external_reads=0; external_first_changed_read=None\n"
+         "    external_loop_visits=0\n"
+         "    external_ticks=(set(scenario['external_ram_address_tick_visits']) "
+         "if 'external_ram_address_tick_visits' in scenario else None)\n"
+         "    external_y={0x3F8:[],0x3F9:[],0x3FA:[]}"),
         ("            carry=carry_input.resolve(r)",
          "            if pc==scenario.get('external_ram_read_pc',0x3EB) and scenario.get('external_ram_feedback'):\n"
          "                lane=scenario.get('external_ram_lane','high')\n"
-         "                d=((external_ram[external_address]&0xF0) if lane=='high' "
-         "else (external_ram[external_address]&0x0E))|1\n"
+         "                external_read_address=(external_address+scenario.get('external_ram_read_offset',0))&255\n"
+         "                d=((external_ram[external_read_address]&0xF0) if lane=='high' "
+         "else (external_ram[external_read_address]&0x0E))|1\n"
          "                external_reads+=1\n"
          "                if d!=1 and external_first_changed_read is None:\n"
-         "                    external_first_changed_read=dict(cycle=cycle,address=external_address,value=d)\n"
-         "                read_event=dict(value=d,source='assumed_93422_ram',address=external_address,"
+         "                    external_first_changed_read=dict(cycle=cycle,address=external_read_address,value=d)\n"
+         "                read_event=dict(value=d,source='assumed_93422_ram',address=external_read_address,"
          "selected_by_alu=selects_d,status='hypothesis')\n"
          "            carry=carry_input.resolve(r)"),
         ("            carry_input.observe(result)",
@@ -52,13 +57,18 @@ def instrumented_execute():
          "                lane=scenario.get('external_ram_lane','high')\n"
          "                external_latch=((result['y']&0xF0) if lane=='high' "
          "else (result['y']&0x0E))|1\n"
+         "            if pc in external_y:\n"
+         "                external_y[pc].append(result['y'])\n"
          "            if pc==0x3EA:\n"
-         "                external_address=(external_address+1)&255\n"
+         "                if external_ticks is None or external_loop_visits in external_ticks:\n"
+         "                    external_address=(external_address+1)&255\n"
+         "                external_loop_visits+=1\n"
          "            carry_input.observe(result)"),
         ("    if source_read['mode']=='pc_sequence':summary['read_sequence_visits']=dict(sequence_visits)",
          "    summary['external_ram_candidate']=dict(address=external_address,latch=external_latch,"
          "writes=external_writes,reads=external_reads,bytes=external_ram,"
-         "first_changed_read=external_first_changed_read)\n"
+         "first_changed_read=external_first_changed_read,loop_visits=external_loop_visits,"
+         "y_by_pc=external_y)\n"
          "    if source_read['mode']=='pc_sequence':summary['read_sequence_visits']=dict(sequence_visits)"),
     )
     for old, new in patches:
