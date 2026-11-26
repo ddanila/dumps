@@ -208,6 +208,17 @@ across six streams. The direct `3F8` and two-row readouts therefore
 carry quantized input samples, not independent evidence that DSC made
 a dibit decision. Seek a downstream retained-state/output consumer
 and a USART bit route; do not promote external sample slicers to C3.
+The [mask-04 receive impulse test](g2/JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md)
+now changes one ADC sample on a constant stream and on a varying
+reference waveform, with common tails and low-nibble controls. Six
+96,047-instruction PROM runs share the same PC path. High-nibble changes
+affect `3F8`/`3F9`/`3FA` Y and Q/R1 (plus R12 on the varying stream)
+for exactly the 47 held visits, then all captured channels reconverge
+on the first restored-input visit. Low-nibble changes leave captured
+state and executor trace digests identical. This four-row `D3EB=01`
+fixture shows no tested cross-sample
+memory; try a labelled mode-qualified or external-RAM feedback route
+with matched-prefix/common-tail controls. C3/C4 remain open, G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.

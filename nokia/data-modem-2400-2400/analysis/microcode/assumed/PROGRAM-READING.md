@@ -55,7 +55,7 @@ linked G2 experiments; they do not revise the older profiles.
 | Addresses | Executed role | What remains assumed |
 | --- | --- | --- |
 | 127–12A | Candidate DPSK transmit sample loop: controller-derived input sustains the loop and PC 129 selects the upper Am27S31 bank. The raw candidate DAC MSB holds the A1 tone phase, reverses 180° at all 31 A3 boundaries, follows the call/answer A4 dibits, and follows two fresh 32-dibit streams made by ROM-executing the 8031 scrambler on nonzero data. [Training phases](../g2/JOINT-MASK04-MSB-DATA-PHASE.md); [fresh data](../g2/JOINT-MASK04-FRESH-CONTROLLER-PAYLOAD.md) | D127 input rule, one-bit alignment, latch clock, Y7→DAC08 B1 and analog line output; C2 stays open. |
-| 3F8–3FE | Candidate ADC-table receive update: the assumed ADC high nibble affects 3F8 Y, 3F9 reads the real ROM at `0x100 + Y`, and the four-row cycle retains input-dependent Q/RAM state. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | ADC ingress, row dispatch and any recovered-bit consumer; C3 stays open. |
+| 3F8–3FE | Candidate ADC-table receive update: the assumed ADC high nibble affects 3F8 Y, 3F9 reads the real ROM at `0x100 + Y`, and the four-row cycle computes input-dependent Q/RAM state. A one-sample impulse changes the tested state only while that sample is held. [Arithmetic](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md); [impulse](../g2/JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md) | ADC ingress, row dispatch, mode/feedback path and any recovered-bit consumer; C3 stays open. |
 | 3EB–3ED | Candidate receive-state byte exposure: 3EB writes R1 from Q's low nibble and 3ED exposes that R1 byte on Y. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | Capture, phase decision and USART RxD/RxC/SYNDET route; C3 stays open. |
 
 The [full-byte sampled-byte audit](../g2/JOINT-MASK04-FULL-BUS-ADC-ROW-IDENTITY.md)
@@ -67,6 +67,12 @@ current one. These outputs expose quantized input samples; a dibit decoded
 externally from them is not yet an executed microprogram decision. The
 `3F9` ROM read and retained Q/RAM updates still merit a downstream-output
 test before naming a receive-demodulation routine or passing C3.
+The [matched-tail impulse test](../g2/JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md)
+adds a time limit to that statement: under the tested four-row `D3EB=01`
+fixture, one changed ADC high nibble affects Q/RAM and intermediate Y
+only during its held sample. The first identical-input ADC visit after
+the pulse has no captured difference, on either a constant or varying
+waveform. No cross-sample memory is demonstrated on this route.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127

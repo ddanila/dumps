@@ -1,0 +1,756 @@
+{
+  "cases": [
+    {
+      "adc_sha256": "e0494a1c81fcd0838ef37291f8357e5f314d3cdd6d814cb07181c60bc111c11d",
+      "completed_cycles": 96047,
+      "fixture": "constant",
+      "name": "baseline",
+      "pc_digest": "f1c0edc9e235e70e6534f88c452725b4798b35c6afbeb22a5a5ce92e076a2b42",
+      "pulse_adc": null,
+      "pulse_sample": 24,
+      "row_sha256": "4cc1ca4bb3b26516cf0c1a455b87488855923d8209552023661b5ea336776ae2",
+      "trace_digest": "52adc8068d4d99c478f48a202a9490f25847e89a1a81a5913530718bd510ab16"
+    },
+    {
+      "adc_sha256": "0a8cd6488951df81ab2e74a573988bd611aa10875caed38980d414fae5679cc8",
+      "completed_cycles": 96047,
+      "fixture": "constant",
+      "name": "high_nibble_pulse",
+      "pc_digest": "f1c0edc9e235e70e6534f88c452725b4798b35c6afbeb22a5a5ce92e076a2b42",
+      "pulse_adc": 191,
+      "pulse_sample": 24,
+      "row_sha256": "4d39a90a55b01d65c51a9f17e4fe7fe14be415dca2ac2d2e2984c917af104d5f",
+      "trace_digest": "9a21c9a312f9a10357d8da08566d83233addf028cdc53a9e0cc9408712d119de"
+    },
+    {
+      "adc_sha256": "81d7fd9f126324fcdef7289d97ba1ed61f99d51dcb551a9198f70e9432400ac4",
+      "completed_cycles": 96047,
+      "fixture": "constant",
+      "name": "low_nibble_pulse",
+      "pc_digest": "f1c0edc9e235e70e6534f88c452725b4798b35c6afbeb22a5a5ce92e076a2b42",
+      "pulse_adc": 112,
+      "pulse_sample": 24,
+      "row_sha256": "4cc1ca4bb3b26516cf0c1a455b87488855923d8209552023661b5ea336776ae2",
+      "trace_digest": "52adc8068d4d99c478f48a202a9490f25847e89a1a81a5913530718bd510ab16"
+    },
+    {
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "completed_cycles": 96047,
+      "fixture": "varying",
+      "name": "baseline",
+      "pc_digest": "f1c0edc9e235e70e6534f88c452725b4798b35c6afbeb22a5a5ce92e076a2b42",
+      "pulse_adc": null,
+      "pulse_sample": 25,
+      "row_sha256": "0b441e05151e9a7cbe356d75a1f48954dad96beb769338d5ea24ee3ee4ceeb6b",
+      "trace_digest": "f6fb964a6ec32323bb2a2ed1444163947df213e04d0ef34c2984cf2f2ef23606"
+    },
+    {
+      "adc_sha256": "fd4cc2155c754360922c1cf2e6d9d96de991b0b370a5f70d28ace960f3430dab",
+      "completed_cycles": 96047,
+      "fixture": "varying",
+      "name": "high_nibble_pulse",
+      "pc_digest": "f1c0edc9e235e70e6534f88c452725b4798b35c6afbeb22a5a5ce92e076a2b42",
+      "pulse_adc": 177,
+      "pulse_sample": 25,
+      "row_sha256": "59bd1a4f1e110140b649bb3b1adf968a0a1f270256c95b0f9dde051f48679084",
+      "trace_digest": "4dc8964fbe565ee1ae16b23345ac1b62a286127b8bc140e8621b219cdc769bae"
+    },
+    {
+      "adc_sha256": "d6c9344899168d2a485ae58710faf52f1f1a6f87ff07cf46582ca93245c662ff",
+      "completed_cycles": 96047,
+      "fixture": "varying",
+      "name": "low_nibble_pulse",
+      "pc_digest": "f1c0edc9e235e70e6534f88c452725b4798b35c6afbeb22a5a5ce92e076a2b42",
+      "pulse_adc": 94,
+      "pulse_sample": 25,
+      "row_sha256": "0b441e05151e9a7cbe356d75a1f48954dad96beb769338d5ea24ee3ee4ceeb6b",
+      "trace_digest": "f6fb964a6ec32323bb2a2ed1444163947df213e04d0ef34c2984cf2f2ef23606"
+    }
+  ],
+  "comparisons": {
+    "constant": {
+      "high_nibble_pulse": {
+        "after_pulse_visit": 1172,
+        "channels": {
+          "q": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1125,
+            "last_difference": 1171,
+            "last_difference_after_pulse": null
+          },
+          "r0": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r1": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1125,
+            "last_difference": 1171,
+            "last_difference_after_pulse": null
+          },
+          "r10": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r11": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r12": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r13": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r14": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r15": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r2": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r3": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r4": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r5": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r6": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r7": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3ed": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3f8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1125,
+            "last_difference": 1171,
+            "last_difference_after_pulse": null
+          },
+          "y3f9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1125,
+            "last_difference": 1171,
+            "last_difference_after_pulse": null
+          },
+          "y3fa": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1125,
+            "last_difference": 1171,
+            "last_difference_after_pulse": null
+          }
+        },
+        "first_pulse_visit": 1125
+      },
+      "low_nibble_pulse": {
+        "after_pulse_visit": 1172,
+        "channels": {
+          "q": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r0": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r1": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r10": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r11": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r12": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r13": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r14": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r15": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r2": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r3": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r4": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r5": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r6": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r7": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3ed": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3f8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3f9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3fa": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          }
+        },
+        "first_pulse_visit": 1125
+      }
+    },
+    "varying": {
+      "high_nibble_pulse": {
+        "after_pulse_visit": 1219,
+        "channels": {
+          "q": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1172,
+            "last_difference": 1218,
+            "last_difference_after_pulse": null
+          },
+          "r0": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r1": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1172,
+            "last_difference": 1218,
+            "last_difference_after_pulse": null
+          },
+          "r10": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r11": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r12": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1172,
+            "last_difference": 1218,
+            "last_difference_after_pulse": null
+          },
+          "r13": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r14": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r15": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r2": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r3": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r4": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r5": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r6": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r7": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3ed": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3f8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1172,
+            "last_difference": 1218,
+            "last_difference_after_pulse": null
+          },
+          "y3f9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1172,
+            "last_difference": 1218,
+            "last_difference_after_pulse": null
+          },
+          "y3fa": {
+            "differences_after_pulse": 0,
+            "differing_visits": 47,
+            "first_difference": 1172,
+            "last_difference": 1218,
+            "last_difference_after_pulse": null
+          }
+        },
+        "first_pulse_visit": 1172
+      },
+      "low_nibble_pulse": {
+        "after_pulse_visit": 1219,
+        "channels": {
+          "q": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r0": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r1": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r10": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r11": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r12": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r13": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r14": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r15": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r2": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r3": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r4": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r5": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r6": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r7": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "r9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3ed": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3f8": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3f9": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          },
+          "y3fa": {
+            "differences_after_pulse": 0,
+            "differing_visits": 0,
+            "first_difference": null,
+            "last_difference": null,
+            "last_difference_after_pulse": null
+          }
+        },
+        "first_pulse_visit": 1172
+      }
+    }
+  },
+  "experiment": "mask-04 downstream state response to one held ADC sample perturbation",
+  "fixture": {
+    "adc_visits": 3000,
+    "base_adc": 127,
+    "channels": [
+      "y3f8",
+      "y3f9",
+      "y3fa",
+      "y3ed",
+      "q",
+      "r0",
+      "r1",
+      "r2",
+      "r3",
+      "r4",
+      "r5",
+      "r6",
+      "r7",
+      "r8",
+      "r9",
+      "r10",
+      "r11",
+      "r12",
+      "r13",
+      "r14",
+      "r15"
+    ],
+    "cycles": 96047,
+    "dispatch": "four-row; previous overflow; D3EB=01",
+    "high_pulse_adc": 191,
+    "low_pulse_adc": 112,
+    "mapping": "joint upper-source mask 04",
+    "pulse_sample": 24,
+    "samples": 64,
+    "varying_base_adc": 81,
+    "varying_dibits": [
+      3,
+      1,
+      0,
+      2,
+      3,
+      2,
+      1,
+      0
+    ],
+    "varying_high_pulse_adc": 177,
+    "varying_low_pulse_adc": 94,
+    "varying_pulse_sample": 25,
+    "visits_per_symbol": 375
+  },
+  "limitations": [
+    "The constant and reference-waveform ADC inputs isolate state memory; they are not measured line signals.",
+    "Two single-sample pulse positions and values do not characterize all receiver modes or inputs.",
+    "The ADC path, row dispatch, TEST source and D3EB level are assumed.",
+    "A persistent register difference is not yet a decoded bit or an echo-cancellation residual."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_adc_rom_wrapper_rule.py": "a05df62ca27efb9af301d52b3e2665ee1ab2e2b22b360d736fc5a529522bafcf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_receive_impulse_memory.py": "5493f40252c5200a9fe82a9a164ba7894de6a0d69eb095ac1c6340d9c843be65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}
