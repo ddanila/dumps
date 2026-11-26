@@ -1,4 +1,4 @@
-# PC129 ROM-bank choice does not drive the candidate transmit samples
+# PC129 ROM-bank choice does not drive the `129`-phase candidate samples
 
 The joint mask-`04` transmitter configures the Am27S31 upper bank at
 both `129` and `12E`. This [causal replay](joint_mask04_tx_rom_bank_ablation.py)
@@ -32,9 +32,14 @@ unchanged. The ROM operand is active internally even though this
 candidate output is insensitive to the bank switch.
 
 The result narrows the C2 mechanism before further physical-route work.
-Next inspect where the `129` operand first affects internal state and
-test a specific changing byte there. A separate A1 fixture that actually
-reaches `12E` is needed to test that operand. Keep C2 open and G2 active;
+The later [full-stream `12A` phase screen](JOINT-MASK04-TX-BANK-PHASE.md)
+finds that the bank switch **does** change a candidate output sampled
+one word later: 198/202 of 832 phase-0 call/answer Y bytes differ,
+while tone and data scores survive. This ablation's negative conclusion
+is specific to the `129` sample phase, not every possible DAC clock edge.
+Next constrain which of those bytes can reach the latch. A separate A1
+fixture that actually reaches `12E` is needed to test that operand.
+Keep C2 open and G2 active;
 an untraced wire is not a blocker.
 
 The [machine report](results/joint-mask04-tx-rom-bank-ablation.json)

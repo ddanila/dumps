@@ -29,11 +29,12 @@ sample identity to all 832 phase-`129` candidate samples per selector.
 This establishes a narrower mechanism than “the ROM is ignored.” The
 selected operand participates in arithmetic and temporary state, but
 the tested bank change does not alter Y7 or the proposed 9,600 Hz
-output samples. It does not rule out effects from individual ROM bytes,
-other operating modes, different latch phases, or another output node.
-C2 remains open. The next experiment should trace the physical latch
-source or perturb a specific `129` byte while inspecting a later
-mode/output path.
+`129`-phase output samples. The later
+[full-stream `12A` phase screen](JOINT-MASK04-TX-BANK-PHASE.md) finds
+that one word later, Y bit 0 changes on about 75,000 raw visits per
+selector and 198/202 phase-0 output samples. That supplies a distinct
+ROM-sensitive latch hypothesis without proving the physical route.
+C2 remains open; constrain the latch source and analog output node.
 
 The [machine report](results/joint-mask04-tx-rom-impact.json) contains
 the first differing instruction, per-field and per-PC counts, final

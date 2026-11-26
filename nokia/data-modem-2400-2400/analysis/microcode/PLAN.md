@@ -39,9 +39,10 @@ identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
 The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
 now changes only Am27S31 A8 at `129` in both full controller-fed A1–A4
 runs. Their internal trace digests change, but their candidate Y sample
-hashes and all tone/data scores are identical. Do not treat upper-bank
-`129` selection as evidence for carrier synthesis on this route. Test
-where `129` first affects retained state or a selected operand next while
+hashes and all tone/data scores are identical at the `129` sample phase.
+Do not treat upper-bank `129` selection as evidence for carrier synthesis
+on that route. Test where `129` first affects retained state or a
+different output phase while
 keeping the DAC line path open. The separate `12E` bank control makes no
 difference because `12E` is never visited in these sustained streams.
 The [first-difference trace](g2/JOINT-MASK04-TX-ROM-IMPACT.md) shows
@@ -50,6 +51,15 @@ cycles. They change ALU `f` and register writes, plus 221 transient
 `12A` Y lower bytes; Y7, Q and PC path remain equal. Do not describe
 the ROM as ignored. Seek the actual latch source or a mode where the
 changed internal state reaches a measured output.
+The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
+now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
+visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
+phases captures changed bytes. At phase 0, 198/202 of 832 candidate
+samples differ by 16 DAC counts in all six surviving bus orders, while
+both banks retain the 2,100 Hz tone and 0/62 filtered A3/A4 errors.
+This supplies a ROM-sensitive `12A` output hypothesis; constrain the
+latch edge, Y data path and analog node before treating it as the line.
+Keep C2 open and G2 active.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop

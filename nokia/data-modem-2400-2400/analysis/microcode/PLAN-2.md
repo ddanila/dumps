@@ -1851,8 +1851,8 @@ Listed in order of value per effort:
   The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
   holds the full controller-fed fixture fixed and switches just the
   Am27S31 `129` A8 bank. Both call and answer runs have changed full
-  trace digests but identical 832-byte candidate Y samples and the same
-  tone/data scores. A separate `12E` bank switch is a null control: that
+  trace digests but identical 832-byte candidate Y samples at `129` and
+  the same tone/data scores. A separate `12E` bank switch is a null control: that
   address has zero visits in the sustained `127–12A` loop. Therefore
   upper-bank `129` selection is not established as the source of this
   candidate waveform. Inspect where a changed `129` operand first reaches
@@ -1864,6 +1864,14 @@ Listed in order of value per effort:
   while Y7 and the program path do not. Transient `12A` Y lower bits do
   change, so the operand is active internally; the tested candidate
   MSB output is simply insensitive to this bank choice.
+  The [full controller-fed phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
+  checks the adjacent `12A` Y site on both selectors. Changing `129` A8
+  changes only `12A` Y0 on 75,012/75,018 loop visits; all 375 divided
+  clock phases see at least one changed sample. Phase 0 captures 198/202
+  changed bytes out of 832, each worth 16 DAC counts on the six surviving
+  bus orders, yet both banks retain a 2,100 Hz tone and 0/62 A3/A4
+  filtered data errors. This is a specific ROM-sensitive output candidate,
+  still conditional on the latch, DAC and analog route.
   The [R1/Y7 phase replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
   then verifies the executed mechanism over the first 18 continuous
   controller-derived A4 dibits of both selectors: R1 advances by D127

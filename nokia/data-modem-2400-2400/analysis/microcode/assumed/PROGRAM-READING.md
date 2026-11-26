@@ -184,6 +184,14 @@ the loop. In the labelled controller-to-D127 pulse fixture, `88` and
 `B0` yield the 2,100 Hz and magnitude-1,800 Hz phase steps at the
 assumed 9,600 Hz sample clock; four-visit dibit pulses shift the phase
 by quadrants. The physical output route remains unverified.
+The [full controller-fed bank-phase replay](../g2/JOINT-MASK04-TX-BANK-PHASE.md)
+adds a separate `12A` result: changing only Am27S31 A8 at `129`
+changes `12A` Y bit 0 on about 75,000 raw visits per selector and on
+198/202 of 832 phase-0 candidate DAC samples. The six surviving bus
+orders map that bit to a 16-count code step. Both bank choices retain
+the 2,100 Hz tone and zero filtered A3/A4 data errors in this fixture;
+the `129` Y site remains unchanged. This narrows where ROM data could
+reach a DAC latch without verifying that physical connection.
 The [photo-B5 alternative](../g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 projects those same executed Y7 samples through an assumed LS273 D4
 input and the photo-suggested Q4→DAC08 B5 segment. It preserves the
