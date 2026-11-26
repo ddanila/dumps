@@ -1001,7 +1001,14 @@ PROM bit is active low at just one loop word; U18 D2/D4 pulse high at
 `3EC` and U18 D7 at `3EA`. The DSC 3557 photo places a 74LS163 counter
 and 74LS157 mux near four MCM93422 RAMs. Test an explicitly labelled
 external counter/mux, inverted or decoded write strobe, data latch and
-RAM-to-DSC return route; do not infer those nets from proximity alone.
+RAM-to-DSC return route. Start with a photo-compatible counter address,
+one candidate latch/write edge and one RAM readback input; compare write
+enabled, write disabled and no-feedback runs from the same initial RAM
+contents and PROM input. Vary the plausible strobe polarity or latch edge
+if the result depends on it. Record the assumed pins and timing, the RAM
+state after training and whether a common zero tail preserves any echo
+history. Proximity does not establish a net, but the missing net trace does
+not defer this experiment or make C4 a goal blocker.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under
