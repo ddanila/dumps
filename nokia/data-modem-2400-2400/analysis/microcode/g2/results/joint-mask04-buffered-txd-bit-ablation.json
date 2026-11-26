@@ -1,0 +1,155 @@
+{
+  "experiment": "one real controller TxD bit through buffered D127 and executed R1/Y7",
+  "fixture": {
+    "controller_bit_zero_based": 40,
+    "line_bit_rate_hz": 2400,
+    "buffered_symbol_rate_hz": 1200,
+    "one_symbol_pipeline": true,
+    "pulse_width_visits": 4,
+    "predicted_phase_before_input": 242,
+    "samples": 846,
+    "sample_divisor_visits": 375
+  },
+  "independent_nonzero_stream_controls": [
+    {
+      "selector": "40",
+      "saved_prom_y7_sha256": "a7c0d6cbdb0a1d84c169788c641acf3fa83c707110539821cd8eec4449486cd0",
+      "recurrence_matches": true
+    },
+    {
+      "selector": "60",
+      "saved_prom_y7_sha256": "87054c980e16d4f9f071e04325ef772060f6253b2a73e1922e9be1d18aed8d25",
+      "recurrence_matches": true
+    }
+  ],
+  "cases": [
+    {
+      "selector": "40",
+      "original_offered_line_bytes": [
+        "62",
+        "DE",
+        "61",
+        "9D",
+        "7C",
+        "5F",
+        "E5",
+        "E2"
+      ],
+      "flipped_offered_line_bytes": [
+        "62",
+        "DE",
+        "61",
+        "9D",
+        "7C",
+        "5E",
+        "E5",
+        "E2"
+      ],
+      "original_bit": 1,
+      "changed_bit": 0,
+      "original_pair": {
+        "symbol": 20,
+        "first_bit": 1,
+        "second_bit": 1,
+        "second_bit_visit": 61500,
+        "pulse_visit": 63000,
+        "d127": 144
+      },
+      "changed_pair": {
+        "symbol": 20,
+        "first_bit": 0,
+        "second_bit": 1,
+        "second_bit_visit": 61500,
+        "pulse_visit": 63000,
+        "d127": 128
+      },
+      "changed_d127_full_visits": [
+        279000,
+        279001,
+        279002,
+        279003
+      ],
+      "persistent_r1_phase_delta": 192,
+      "first_changed_y7_sample": 744,
+      "changed_y7_samples": 51,
+      "baseline_y7_sha256": "3e39081b7c9e1e96cf8429436df695c0aedc42f75528a7490478fd9f773d043c",
+      "mutant_y7_sha256": "e1591b7a3fad1e3c650aeec80927dd44c648cd357caa6af4b5a36874772b967c",
+      "mutant_trace_digest": "5329024082a0c137cc0d4aef734cd2f01ec57ebf285768deda468ddfe5b9d5b6",
+      "executed_matches_recurrence": true
+    },
+    {
+      "selector": "60",
+      "original_offered_line_bytes": [
+        "A5",
+        "C2",
+        "4C",
+        "58",
+        "52",
+        "47",
+        "65",
+        "B4"
+      ],
+      "flipped_offered_line_bytes": [
+        "A5",
+        "C2",
+        "4C",
+        "58",
+        "52",
+        "46",
+        "65",
+        "B4"
+      ],
+      "original_bit": 1,
+      "changed_bit": 0,
+      "original_pair": {
+        "symbol": 20,
+        "first_bit": 1,
+        "second_bit": 1,
+        "second_bit_visit": 61500,
+        "pulse_visit": 63000,
+        "d127": 144
+      },
+      "changed_pair": {
+        "symbol": 20,
+        "first_bit": 0,
+        "second_bit": 1,
+        "second_bit_visit": 61500,
+        "pulse_visit": 63000,
+        "d127": 128
+      },
+      "changed_d127_full_visits": [
+        279000,
+        279001,
+        279002,
+        279003
+      ],
+      "persistent_r1_phase_delta": 192,
+      "first_changed_y7_sample": 744,
+      "changed_y7_samples": 51,
+      "baseline_y7_sha256": "cd17d2e6f01d1a2de342bbc8562459f1c21a24fcddbb09efae516a48667975e3",
+      "mutant_y7_sha256": "7033ceea9c6ba01424d692cfd703bdc4f939a49415420d5063ca1a2e4a250a25",
+      "mutant_trace_digest": "dd214afbd6eb42ef55a38f9d70e9d3fb6fe5efc56968f6c6745c0eec655b1071",
+      "executed_matches_recurrence": true
+    }
+  ],
+  "limitations": [
+    "The original serial bits are real 8031/8251 outputs, but the one-bit mutant is a controlled counterfactual.",
+    "The paired-bit latch, symbol boundary, D127 mask, clock divider and DAC path are untraced board hypotheses.",
+    "The recurrence verifies digital Y7 output under those hypotheses, not measured DAC08 current or a line signal."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_txd_bit_ablation.py": "acd749f62b8e60f3858d4431e8d73a3e36f3b76f310b90ff3f0f1b0906c53a88",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-buffered-serial-handoff.json": "5628aafefd90f886d987f1e00c54c1ec3c0cf28afb22137fe863f9e8473ce488",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-buffered-payload-challenge.json": "953f6c8dcc859532467c69029ba849f11f89a65dfa65ba5647df5355d0837ba8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_serial_handoff.py": "05ee8d7c35ee975c853cefede9987b995dcf93bcd81ee36bef5f0239c31563b4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_zero_handoff.py": "f33d2d115c4e542e908d6da4b4261fafa12420ddd9a76dfc243f0a3cbc8b865d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}

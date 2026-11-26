@@ -655,6 +655,17 @@ sync source are untraced. Keep G2 active and C2/C3 open; test those paths
 under photo-compatible alternatives and new timing/data fixtures. The
 frozen margin selector makes one call error here, so use the exact 46/93
 result only for its stated fixture rather than assuming readout robustness.
+The [buffered TxD-bit intervention](g2/JOINT-MASK04-BUFFERED-TXD-BIT-ABLATION.md)
+now checks the candidate input link causally. The R1 recurrence
+reconstructs all 846 executed Y7 samples in four saved buffered
+real-PROM streams. Flipping controller TxD bit 40 in a controlled
+counterfactual changes only four D127 visits at the next symbol
+boundary and predicts a −90° phase step; two fresh 1,269,256-word
+PROM runs first change Y7 at sample 744 and match the recurrence on
+all 846 samples. This narrows the buffered pulse timing under its
+explicit circuit assumption. Constrain the pair latch, D127 gate and
+Y7/DAC path independently before passing C2; missing pin continuity
+is not a G2 blocker.
 The [non-zero buffered-payload challenge](g2/JOINT-MASK04-BUFFERED-PAYLOAD-CHALLENGE.md)
 keeps the same frozen 46/93 rule and real-PROM Tx/Rx runs but changes the
 eight line bytes twice. Both selectors recover all 32 data dibits and the

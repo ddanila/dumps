@@ -231,6 +231,14 @@ with `B0` leaves prior symbol phases unchanged and offsets all later
 symbol ends by 128/256 in both modes. That directly ties one offered
 controller dibit pulse to persistent executed carrier phase under the
 assumed input route, without identifying its physical DAC output.
+The [buffered TxD-bit intervention](../g2/JOINT-MASK04-BUFFERED-TXD-BIT-ABLATION.md)
+then starts one step earlier in that assumed route: it flips an actual
+8031/8251 TxD stream bit in a controlled counterfactual, buffers the
+completed pair to the next symbol boundary, and changes four D127
+visits. Both full real-PROM mutant streams match the R1/Y7 recurrence
+at all 846 output samples, with no Y7 change before the buffered pulse.
+This constrains the causal digital path while leaving the external
+pair latch, gate and DAC line physically unidentified.
 The [full controller-fed bank-phase replay](../g2/JOINT-MASK04-TX-BANK-PHASE.md)
 adds a separate `12A` result: changing only Am27S31 A8 at `129`
 changes `12A` Y bit 0 on about 75,000 raw visits per selector and on
