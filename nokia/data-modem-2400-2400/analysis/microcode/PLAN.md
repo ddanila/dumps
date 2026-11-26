@@ -135,6 +135,15 @@ answer buffered data dibits. This rejects the selected nearest-vector
 readout, not all differential consumers of `3F9`. Inspect the executed
 `3F9` arithmetic/ROM operands and build a circuit-like temporal decision
 before a fresh line/USART replay. C3 and G2 remain open.
+The [cross-fixture ADC equivalence check](g2/RECEIVER-MASK04-3F9-ADC-EQUIVALENCE.md)
+matches all 640 saved `3F9`/`3FA` Y bytes at visits 46/93 to the prior
+executed codebook of the **current ADC high nibble**, across 320 samples
+and ten PROM traces. Every nibble occurs; `9` and `D` collapse to the
+same `31/20` pair. Fixed-pair Y decoding is therefore an external
+sample-processing hypothesis under these fixtures, not evidence of an
+onboard recovered-bit output. Trace post-`3F9` Q/RAM history and a
+later/mode-qualified consumer next. Keep C3/G2 active and the physical
+connections explicit assumptions.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop

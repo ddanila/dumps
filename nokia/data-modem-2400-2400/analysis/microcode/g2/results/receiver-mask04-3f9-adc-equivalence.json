@@ -1,0 +1,250 @@
+{
+  "experiment": "executed 3F9/3FA fixed-phase output versus current ADC high nibble",
+  "fixture": {
+    "phases": [
+      46,
+      93
+    ],
+    "sites": [
+      "3F9",
+      "3FA"
+    ],
+    "codebook": "prior three legal carrier phases; no refit"
+  },
+  "cases": [
+    {
+      "kind": "independent",
+      "seed": 23063,
+      "degrees": 45,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "82286e34703a324fc4323221662836047c25e2bc30f0cfc64040fb61a6b3b2a4",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "independent",
+      "seed": 23063,
+      "degrees": 135,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "71cb068f922ee421df8bc6e4675b4d19b5a5cf73b8d6326437c86418fabba238",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "independent",
+      "seed": 23063,
+      "degrees": 45,
+      "gain": 0.85,
+      "offset": 1,
+      "trace_digest": "6b8ee321d994205609529c8d7b449a1b438fdb2c337a7a53690b11f82fcfa8d2",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "independent",
+      "seed": 23063,
+      "degrees": 135,
+      "gain": 0.85,
+      "offset": 1,
+      "trace_digest": "e84afb651301d50539e94ab7ca9a5b7dda14213392a9582c54e9bb859d516cde",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "independent",
+      "seed": 30373,
+      "degrees": 45,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "15ea76f465b126f7662b7e1cb78c940948c558048f665669152cbd31f21c191f",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "independent",
+      "seed": 30373,
+      "degrees": 135,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "712b6616926d01c0333f508c688c68209071c669c83cd09b8a9c989471f785b9",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "independent",
+      "seed": 9889,
+      "degrees": 45,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "dc59bd76580b96cb57234e628b2f588062f5252039addb91afd65a2d594b3d94",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "independent",
+      "seed": 9889,
+      "degrees": 135,
+      "gain": 1.0,
+      "offset": 0,
+      "trace_digest": "7b426063381742c906fc82cb1a2496c5fbb6c3baeadecc973e3fbfb2372b4310",
+      "checked_phase_samples": 24,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "buffered",
+      "selector": "40",
+      "trace_digest": "c9c450d3724edff743326a9a91c3cdbe4b997e5676c45f6867976a55ff99782f",
+      "checked_phase_samples": 64,
+      "y_mismatches": 0
+    },
+    {
+      "kind": "buffered",
+      "selector": "60",
+      "trace_digest": "fb02b1a9cf319fac5b8f47430d1e17c88b5ceb1bc3b70dc6595e0f706f0413fe",
+      "checked_phase_samples": 64,
+      "y_mismatches": 0
+    }
+  ],
+  "checked_phase_samples": 320,
+  "checked_y_bytes": 640,
+  "adc_high_nibble_counts": {
+    "0": 6,
+    "1": 24,
+    "2": 69,
+    "3": 4,
+    "4": 10,
+    "5": 13,
+    "6": 2,
+    "7": 32,
+    "8": 9,
+    "9": 6,
+    "A": 46,
+    "B": 22,
+    "C": 15,
+    "D": 43,
+    "E": 13,
+    "F": 6
+  },
+  "distinct_high_nibbles": 16,
+  "indistinguishable_adc_high_nibble_pairs": [
+    [
+      "9",
+      "D"
+    ]
+  ],
+  "observed_y_by_adc_high_nibble": {
+    "3F9": {
+      "0": [
+        "4E"
+      ],
+      "1": [
+        "78"
+      ],
+      "2": [
+        "94"
+      ],
+      "3": [
+        "9F"
+      ],
+      "4": [
+        "37"
+      ],
+      "5": [
+        "30"
+      ],
+      "6": [
+        "18"
+      ],
+      "7": [
+        "28"
+      ],
+      "8": [
+        "2F"
+      ],
+      "9": [
+        "31"
+      ],
+      "A": [
+        "24"
+      ],
+      "B": [
+        "1E"
+      ],
+      "C": [
+        "1B"
+      ],
+      "D": [
+        "31"
+      ],
+      "E": [
+        "2D"
+      ],
+      "F": [
+        "2B"
+      ]
+    },
+    "3FA": {
+      "0": [
+        "20"
+      ],
+      "1": [
+        "20"
+      ],
+      "2": [
+        "20"
+      ],
+      "3": [
+        "20"
+      ],
+      "4": [
+        "20"
+      ],
+      "5": [
+        "20"
+      ],
+      "6": [
+        "21"
+      ],
+      "7": [
+        "20"
+      ],
+      "8": [
+        "20"
+      ],
+      "9": [
+        "20"
+      ],
+      "A": [
+        "20"
+      ],
+      "B": [
+        "21"
+      ],
+      "C": [
+        "21"
+      ],
+      "D": [
+        "20"
+      ],
+      "E": [
+        "20"
+      ],
+      "F": [
+        "20"
+      ]
+    }
+  },
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_3f9_adc_equivalence.py": "2bc78e107a1aaafb7a3717df1daabbb5cc8b29454a567ddf5bb9679cfa18a66a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-receive-3f9-3fa-codebook.json": "fc4b1031a80a5e54ab8b531c893573c8d80d38244c8a38d5648e47fccb8ee4be",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-3f9-key-audit.json": "04c2e58ea5842c5325d4d7ed93a0d4a56f294967074afd1e5fe0639455f66e44",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/receiver-mask04-3f9-fullbyte-screen.json": "c6d481f9765933b1776ded49a9b7d65f2980b86b6c7e7a5e5e93ab9d62c122dc"
+  },
+  "limitations": [
+    "The check covers only the two frozen capture visits per symbol, not every executed visit.",
+    "The ADC pin mapping, symbol clock and analog line remain modeled assumptions.",
+    "Functional equivalence at these sites does not identify the physical receiver output circuit."
+  ]
+}
