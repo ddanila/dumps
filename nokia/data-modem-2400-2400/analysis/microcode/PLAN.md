@@ -85,6 +85,17 @@ A1 peak plus 0/62 A3/A4 errors on all six bus orders. Capturing settled
 errors, depending on selector and bus. The early gate/Y ordering is now
 a precise conditional C2 requirement; test its timing or the predicted
 16-count output-code contrast, and keep C2 open until the route is constrained.
+The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
+now substitutes the `12A` latch into the full controller-bit/PROM path.
+At the existing six-sample alignment, an independent line decoder gives
+1/64 call and 0/64 answer errors on all six photo-compatible DAC buses.
+Separate real-PROM receiver runs sustain both streams, but all three
+frozen fixed-pair readouts and the frozen margin selector leave wrong or
+unknown data dibits, so no full eight-byte USART handoff occurs on this
+ROM-sensitive route. Develop a new receiver readout on independent data
+and retest here; constrain the call-line decision and physical DAC route.
+C2/C3 stay open, and these incomplete connections remain runnable
+assumptions rather than goal blockers.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
