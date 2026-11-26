@@ -1,0 +1,612 @@
+{
+  "cases": [
+    {
+      "adc_sha256": "4f81fc198c7b5697540850ed3e5fe2c4f147ddae9ed25adfe0c0dfa7047f49bc",
+      "baseline_pcm_gain": 21.929250451127746,
+      "gain_scale": 0.75,
+      "margin_score": {
+        "checks": 63,
+        "data_errors": 1,
+        "data_unknown": 4,
+        "errors": 1,
+        "unknown": 4,
+        "unknown_symbols": [
+          41,
+          56,
+          60,
+          61
+        ],
+        "wrong_symbols": [
+          36
+        ]
+      },
+      "margin_wrong_pairs": [
+        {
+          "decoded": 3,
+          "expected": 2,
+          "pair": "94/141",
+          "symbol": 36
+        }
+      ],
+      "offered_bytes": [
+        "62",
+        "DE",
+        "61",
+        "9D",
+        "7C",
+        "5F",
+        "E5",
+        "E2"
+      ],
+      "pcm_bias": 16,
+      "pcm_sha256": "a434068e2af35b9546e07fb6725dc0d60bf02c54d7312fc71e23de0fdff6d7b1",
+      "recovered_46_93_bytes": null,
+      "reference_errors": [],
+      "rx_cycles": 768047,
+      "rx_trace_digest": "f32b7909c6efa870d839a7079c57b0982af370393c820d7cb41707f988bcce52",
+      "scores": {
+        "46/93": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 14,
+          "errors": 0,
+          "unknown": 14,
+          "unknown_symbols": [
+            35,
+            36,
+            38,
+            40,
+            41,
+            44,
+            46,
+            47,
+            48,
+            54,
+            55,
+            56,
+            60,
+            61
+          ],
+          "wrong_symbols": []
+        },
+        "47/94": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 16,
+          "errors": 0,
+          "unknown": 16,
+          "unknown_symbols": [
+            32,
+            33,
+            40,
+            41,
+            42,
+            43,
+            46,
+            47,
+            51,
+            55,
+            56,
+            57,
+            58,
+            60,
+            61,
+            62
+          ],
+          "wrong_symbols": []
+        },
+        "94/141": {
+          "checks": 63,
+          "data_errors": 6,
+          "data_unknown": 13,
+          "errors": 6,
+          "unknown": 14,
+          "unknown_symbols": [
+            31,
+            33,
+            37,
+            38,
+            41,
+            43,
+            44,
+            48,
+            51,
+            53,
+            54,
+            56,
+            60,
+            61
+          ],
+          "wrong_symbols": [
+            32,
+            36,
+            42,
+            57,
+            58,
+            62
+          ]
+        }
+      },
+      "selector": "40",
+      "tx_y7_sha256": "435fc55de882d2bdf00185e4075fe1d5bfaf78d79705cc5c411b41b24a749c8a",
+      "variant": "gain_0p75_bias_plus16"
+    },
+    {
+      "adc_sha256": "f871381300584afd2437052c59864c5f7f4806273d75c351e0d116be80508b7e",
+      "baseline_pcm_gain": 21.929250451127746,
+      "gain_scale": 0.75,
+      "margin_score": {
+        "checks": 63,
+        "data_errors": 1,
+        "data_unknown": 7,
+        "errors": 1,
+        "unknown": 7,
+        "unknown_symbols": [
+          35,
+          36,
+          38,
+          41,
+          44,
+          54,
+          61
+        ],
+        "wrong_symbols": [
+          33
+        ]
+      },
+      "margin_wrong_pairs": [
+        {
+          "decoded": 1,
+          "expected": 0,
+          "pair": "46/93",
+          "symbol": 33
+        }
+      ],
+      "offered_bytes": [
+        "62",
+        "DE",
+        "61",
+        "9D",
+        "7C",
+        "5F",
+        "E5",
+        "E2"
+      ],
+      "pcm_bias": -16,
+      "pcm_sha256": "2801b0f3ff03f3baf368fb6e74918376f0189a9f04230ad1b4fcbbe4a58ad508",
+      "recovered_46_93_bytes": null,
+      "reference_errors": [],
+      "rx_cycles": 768047,
+      "rx_trace_digest": "4ff823d38ffd6c611674d3a3bdcc3d2994f799c96d3cc46e5d438d424f719ecf",
+      "scores": {
+        "46/93": {
+          "checks": 63,
+          "data_errors": 1,
+          "data_unknown": 17,
+          "errors": 1,
+          "unknown": 17,
+          "unknown_symbols": [
+            32,
+            35,
+            36,
+            38,
+            41,
+            42,
+            43,
+            44,
+            49,
+            51,
+            54,
+            56,
+            57,
+            58,
+            60,
+            61,
+            62
+          ],
+          "wrong_symbols": [
+            33
+          ]
+        },
+        "47/94": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 20,
+          "errors": 0,
+          "unknown": 20,
+          "unknown_symbols": [
+            32,
+            34,
+            35,
+            36,
+            38,
+            40,
+            41,
+            42,
+            43,
+            44,
+            46,
+            47,
+            48,
+            51,
+            54,
+            55,
+            57,
+            58,
+            61,
+            62
+          ],
+          "wrong_symbols": []
+        },
+        "94/141": {
+          "checks": 63,
+          "data_errors": 2,
+          "data_unknown": 13,
+          "errors": 2,
+          "unknown": 13,
+          "unknown_symbols": [
+            33,
+            34,
+            35,
+            36,
+            38,
+            40,
+            41,
+            44,
+            48,
+            54,
+            55,
+            56,
+            61
+          ],
+          "wrong_symbols": [
+            46,
+            47
+          ]
+        }
+      },
+      "selector": "40",
+      "tx_y7_sha256": "435fc55de882d2bdf00185e4075fe1d5bfaf78d79705cc5c411b41b24a749c8a",
+      "variant": "gain_0p75_bias_minus16"
+    },
+    {
+      "adc_sha256": "2b49bab9a57c36668c6535e5dacb639ac8de04b92d707a5bee42afc9b9947f72",
+      "baseline_pcm_gain": 21.908221552364388,
+      "gain_scale": 0.75,
+      "margin_score": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 9,
+        "errors": 0,
+        "unknown": 9,
+        "unknown_symbols": [
+          44,
+          47,
+          48,
+          49,
+          53,
+          56,
+          60,
+          61,
+          63
+        ],
+        "wrong_symbols": []
+      },
+      "margin_wrong_pairs": [],
+      "offered_bytes": [
+        "A5",
+        "C2",
+        "4C",
+        "58",
+        "52",
+        "47",
+        "65",
+        "B4"
+      ],
+      "pcm_bias": 16,
+      "pcm_sha256": "ccb66ed43f93a0502d6f3962257569ba012f1a61d93265a989c0bc749b481829",
+      "recovered_46_93_bytes": null,
+      "reference_errors": [],
+      "rx_cycles": 768047,
+      "rx_trace_digest": "5ff6807169ad48e110c5aff27a54cdcae33b77c0ba649eef39f6ca51806f5113",
+      "scores": {
+        "46/93": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 19,
+          "errors": 0,
+          "unknown": 19,
+          "unknown_symbols": [
+            32,
+            33,
+            34,
+            35,
+            41,
+            42,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            53,
+            56,
+            60,
+            61,
+            63
+          ],
+          "wrong_symbols": []
+        },
+        "47/94": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 23,
+          "errors": 0,
+          "unknown": 23,
+          "unknown_symbols": [
+            33,
+            34,
+            36,
+            37,
+            40,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            51,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            63
+          ],
+          "wrong_symbols": []
+        },
+        "94/141": {
+          "checks": 63,
+          "data_errors": 3,
+          "data_unknown": 19,
+          "errors": 3,
+          "unknown": 20,
+          "unknown_symbols": [
+            31,
+            32,
+            35,
+            37,
+            38,
+            40,
+            42,
+            43,
+            44,
+            47,
+            48,
+            49,
+            50,
+            53,
+            54,
+            56,
+            59,
+            60,
+            61,
+            63
+          ],
+          "wrong_symbols": [
+            36,
+            57,
+            58
+          ]
+        }
+      },
+      "selector": "60",
+      "tx_y7_sha256": "c56b29c83ede3bbc16cb369901665b1c36078422e7608e6d6b58b64b0a5db3e8",
+      "variant": "gain_0p75_bias_plus16"
+    },
+    {
+      "adc_sha256": "c8f4d8b76b8a53bc59d7b0c1dff20945293034f685828e12ba508a5475f018be",
+      "baseline_pcm_gain": 21.908221552364388,
+      "gain_scale": 0.75,
+      "margin_score": {
+        "checks": 63,
+        "data_errors": 3,
+        "data_unknown": 6,
+        "errors": 3,
+        "unknown": 6,
+        "unknown_symbols": [
+          32,
+          35,
+          44,
+          49,
+          50,
+          60
+        ],
+        "wrong_symbols": [
+          37,
+          40,
+          54
+        ]
+      },
+      "margin_wrong_pairs": [
+        {
+          "decoded": 1,
+          "expected": 0,
+          "pair": "46/93",
+          "symbol": 37
+        },
+        {
+          "decoded": 1,
+          "expected": 0,
+          "pair": "46/93",
+          "symbol": 40
+        },
+        {
+          "decoded": 1,
+          "expected": 0,
+          "pair": "46/93",
+          "symbol": 54
+        }
+      ],
+      "offered_bytes": [
+        "A5",
+        "C2",
+        "4C",
+        "58",
+        "52",
+        "47",
+        "65",
+        "B4"
+      ],
+      "pcm_bias": -16,
+      "pcm_sha256": "71797c854299a2fcff56aabb431f5e96e5b171caf8a6ffad2793bf0cbd8e0d9e",
+      "recovered_46_93_bytes": null,
+      "reference_errors": [],
+      "rx_cycles": 768047,
+      "rx_trace_digest": "0b0c996efa62124d04ca9bf7453ebf2608b828160f4df8ea614394fd3649ef57",
+      "scores": {
+        "46/93": {
+          "checks": 63,
+          "data_errors": 3,
+          "data_unknown": 17,
+          "errors": 3,
+          "unknown": 17,
+          "unknown_symbols": [
+            32,
+            35,
+            36,
+            39,
+            44,
+            47,
+            48,
+            49,
+            50,
+            53,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            63
+          ],
+          "wrong_symbols": [
+            37,
+            40,
+            54
+          ]
+        },
+        "47/94": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 19,
+          "errors": 0,
+          "unknown": 19,
+          "unknown_symbols": [
+            32,
+            33,
+            34,
+            35,
+            36,
+            38,
+            42,
+            43,
+            44,
+            45,
+            46,
+            49,
+            50,
+            51,
+            55,
+            57,
+            58,
+            59,
+            60
+          ],
+          "wrong_symbols": []
+        },
+        "94/141": {
+          "checks": 63,
+          "data_errors": 3,
+          "data_unknown": 17,
+          "errors": 3,
+          "unknown": 17,
+          "unknown_symbols": [
+            32,
+            35,
+            37,
+            38,
+            40,
+            42,
+            44,
+            46,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            56,
+            60,
+            61
+          ],
+          "wrong_symbols": [
+            33,
+            34,
+            45
+          ]
+        }
+      },
+      "selector": "60",
+      "tx_y7_sha256": "c56b29c83ede3bbc16cb369901665b1c36078422e7608e6d6b58b64b0a5db3e8",
+      "variant": "gain_0p75_bias_minus16"
+    }
+  ],
+  "experiment": "executed-transmitter zero-run receive gain and ADC-bias challenge",
+  "fixture": {
+    "adc_visits": 24000,
+    "analog": "baseline B5, A2 gate and Q=1 filter; PCM gain and bias varied before complementary ADC",
+    "readout": "previously frozen pairs and ADC-margin selector",
+    "rx_cycles": 768047,
+    "source": "phase recurrence hash-checked against all 838 Y7 samples of each real-PROM transmitter run",
+    "variants": [
+      [
+        "gain_0p75_bias_plus16",
+        0.75,
+        16
+      ],
+      [
+        "gain_0p75_bias_minus16",
+        0.75,
+        -16
+      ]
+    ]
+  },
+  "limitations": [
+    "The PCM variations are separate hypothetical analog/ADC fixtures, not measured board conditions.",
+    "The D127, DAC, ADC, receive latch and USART routes remain untraced.",
+    "The source waveform is reconstructed from the verified R1 recurrence and byte-for-byte hash-matched to the executed Y7 transmitter; the variant receiver runs execute the real PROM."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_zero_analog_variants.py": "b359106e3438e4d02f9463b708390282856418e857c0a8d643c9a1800bd1edf3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_zero_handoff.py": "f33d2d115c4e542e908d6da4b4261fafa12420ddd9a76dfc243f0a3cbc8b865d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_rx_loopback.py": "ff921fbbe50d3df024f869a86e1c40ced92c6dfef4840afaebda27cea1c32877",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_adc_margin_selector.py": "3f7c9a9c0b63241ab4d7379fb606d4f9edfdfa8488f69e3b5a66bf995a0cc643",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_dual_zero_handoff.py": "31d77df30a45a96663a1781fc64d0fc1e75a030ceeea3f7fc02773ab14139684",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-zero-handoff.json": "fb09e59297600b888ed03013afea9a5e2f5d16e5ef377025a5c4e7598ac5aba1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

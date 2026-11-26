@@ -106,6 +106,15 @@ ADC margin alone as a general selector for this joined waveform, while
 the successful fixed pair remains a conditional external readout.
 Continue testing the phase/decision source and physical serial route;
 the modeled analog and inter-board links do not close C2 or C3.
+The [joined gain/bias challenge](g2/JOINT-MASK04-FULL-ZERO-ANALOG-VARIANTS.md)
+hash-matches the reconstructed Y7 and nominal PCM to those executed
+full-chain runs, then feeds four 0.75-gain, ±16-count PCM variants into
+new real-PROM receive executions. The independent reference decoder
+remains error-free, but frozen 46/93 leaves 14–19 data dibits unknown
+and up to three wrong; the margin selector also fails. Do not generalize
+the nominal controller handoff to altered input levels. Seek an executed
+gain/midpoint or adaptive decision state and test it on fresh fixtures;
+continue C2/C4 work in parallel with this open C3 question.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
