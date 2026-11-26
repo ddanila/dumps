@@ -1,68 +1,29 @@
 # DSC2847 microcode emulation plan
 
 > **Status:** G1 complete ([final review](assumed/FINAL-REVIEW.md)); **G2 active**
-> in [PLAN-2.md](PLAN-2.md#goal-g2). G2 remains active when a
-> photographed connection is ambiguous: model the plausible connections as
-> labelled assumptions, run them, and use the results to choose the next test.
-> Missing continuity data or an untraced board connection is not a reason to
-> mark G2 blocked; unresolved acceptance checks stay open while experiments
-> continue. Treat each failed candidate as a result about its stated wiring,
-> timing and inputs, then test another photo-compatible route or independent
-> program/signal constraint. Do not wait for new photos or continuity checks
-> before running an explicit assumption from the photos already available.
+> in [PLAN-2.md](PLAN-2.md#goal-g2). Ambiguous photographed connections are
+> testable assumptions, not G2 blockers. Run photo-compatible hypotheses with
+> the available dumps and keep physical confirmation as a separate acceptance
+> question.
 
 ## Uncertainty is a reason to experiment, not a goal blocker
 
-Missing DAC, ADC, latch, clock, DSC-to-USART or
-analog-line connections are *open wiring hypotheses*, not a reason to pause G2.
-If an experiment can run with a labelled assumption, run it now; physical
-continuity is a later validation step, not a prerequisite for progress. A
-failed candidate closes that experiment, not the goal.
-For each candidate, keep three claims separate: what the photograph actually
-shows, the continuation assumed to make a complete circuit, and what the
-real-ROM execution demonstrates under that circuit. Use a pin-compatible
-baseline first, then a control that changes the disputed wire, polarity or
-clock edge. Preserve negative results and move to the next runnable candidate;
-do not convert a failed assumption into a request for more photos. Mark a G2
-blocker only if no photo-compatible assumption, changed stimulus or independent
-microcode/signal test can still advance an open acceptance check. The need to
-confirm a surviving circuit physically belongs in that check, not in the goal
-status.
-For each ambiguous route, record a small experiment card in the relevant
-C2/C3/C4 section: visible endpoints; assumed missing nets, direction and
-clock/latch phase; the real-PROM/controller input; a changed-route or timing
-control; the predicted discriminating observation; and the next candidate if
-it fails. A result may narrow the candidates without identifying the actual
-board wiring. Keep that distinction explicit in both the result and the
-acceptance status.
+Use the existing photographs to build the simplest pin-compatible route for
+each missing DAC, ADC, latch, clock, DSC-to-USART or analog-line connection.
+Record what is visible separately from each assumed net, polarity, enable and
+clock/latch phase. Run the real-ROM/controller stimulus under that assumption,
+with a control that changes the disputed connection or timing. Record the
+observation that would favor or reject the route and the next runnable candidate.
 
-Use the photographs already available to build the simplest complete,
-pin-compatible route, including plausible continuations where a trace
-disappears or its destination is uncertain. Assume the needed connection,
-polarity, enable/latch edge and clock division explicitly; distinguish those
-assumptions from visible endpoints. Run the route with the real dumps and a
-control, then test a few meaningful alternatives where the inference affects
-the result. Do not require a pin-level trace before trying a candidate.
-A failed run rejects only its stated wiring, timing and input fixture: record
-it, then run the next candidate or an independent PROM/controller/signal test.
-If a proposed simulation seems to need unavailable continuity data, replace
-that dependency with a labelled, photo-compatible wiring scenario and run it.
-Defer only the physical measurement itself. Do not wait for a new photograph,
-measurement or user confirmation before running another explicit hypothesis.
-Request physical evidence later when it can distinguish surviving candidates.
-For each open C2/C3/C4 item, leave a runnable next experiment in the plan:
-name the assumed pins and timing, the real-ROM/controller stimulus, a control,
-and the observation that would reject or favor the route. When a test fails,
-replace its specific assumption or vary the stimulus and run the follow-up;
-do not turn an uncertain connection into an indefinite dependency on photos.
+A failed run rejects only its stated wiring, timing and input fixture. Try the
+next photo-compatible route, changed stimulus or independent microcode/signal
+test; do not wait for new photos, continuity checks or user confirmation before
+running an explicit assumption. Keep G2 **active** and C2/C3/C4 **open** while
+experiments remain possible. A plausible execution is conditional evidence,
+not proof of the physical circuit or an automatic acceptance pass. Consider a
+goal-level blocker only after documenting why no remaining runnable experiment
+can advance an open check and what specific external observation is required.
 
-Keep G2 **active** and C2/C3/C4 **open** while these tests continue. A plausible
-run remains conditional until the physical route is independently constrained;
-it does not by itself pass an acceptance check. An unsuccessful model or unmet
-check does not make the goal blocked. Only consider a goal-level blocker after
-recording why every remaining candidate, changed stimulus or timing, and
-independent analysis cannot advance the work, and the exact outside observation
-required to resume. Until then, each result must name the next runnable test.
 For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
 identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
 The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
@@ -143,6 +104,13 @@ controller source bytes. They use only known states, including
 mode-sensitive `09`, so they validate this carrier transfer without
 resolving unobserved states or the physical mode/serial route. Keep
 C3/G2 active and challenge a distinct state family next.
+The [U15 phase-gate capacity audit](g2/PHOTO-U15-PHASE-GATE-CAPACITY.md)
+corrects the photographed S64 package to 14 pins and exhausts its
+fixed 4-2-3-2 AOI structure against 34 observed mode-conditioned
+phase labels. It can express one combined phase bit, but not the other
+in either output polarity from direct state-plus-mode inputs. A
+photo-compatible multistage gate path remains to test; the physical
+phase/USART nets and C3/G2 remain open.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

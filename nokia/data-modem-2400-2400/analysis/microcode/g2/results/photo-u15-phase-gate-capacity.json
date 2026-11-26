@@ -1,0 +1,495 @@
+{
+  "experiment": "exhaustive S64 AOI capacity screen for observed mode-conditioned phase labels",
+  "fixture": {
+    "part": "U15 SN74S64J, photographed 14 pins",
+    "logic": "Y=NOT(ABCD+EF+GHI+JK)",
+    "group_capacities": [
+      4,
+      2,
+      3,
+      2
+    ],
+    "input_bits": "seven captured state bits plus assumed D3EB bit7 as bit7",
+    "candidate_cubes": "all 8-bit cubes with 1\u20134 literals; no observed opposite-label hit",
+    "unused_groups": "assumed tied low",
+    "unused_inputs_in_active_group": "assumed tied high",
+    "datasheet": "https://www.ti.com/lit/ds/symlink/sn54s64.pdf"
+  },
+  "screens": [
+    {
+      "scope": "mode01",
+      "phase_bit": 0,
+      "examples": 22,
+      "direct": {
+        "output_relation": "direct",
+        "target_examples": 10,
+        "candidate_masks_by_capacity": {
+          "2": 9,
+          "3": 23,
+          "4": 25
+        },
+        "fit": {
+          "total_literals": 9,
+          "active_terms": 4,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 2,
+              "cube": "**1***0*"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 2,
+              "cube": "**10****"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 3,
+              "cube": "**0*0*1*"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 2,
+              "cube": "*1*1****"
+            }
+          ]
+        }
+      },
+      "output_inverted": {
+        "output_relation": "S64 output inverted by another gate",
+        "target_examples": 12,
+        "candidate_masks_by_capacity": {
+          "2": 5,
+          "3": 30,
+          "4": 40
+        },
+        "fit": {
+          "total_literals": 9,
+          "active_terms": 3,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 2,
+              "cube": "**00****"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 3,
+              "cube": "**0*0*0*"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 4,
+              "cube": "*011**1*"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "scope": "mode01",
+      "phase_bit": 1,
+      "examples": 22,
+      "direct": {
+        "output_relation": "direct",
+        "target_examples": 10,
+        "candidate_masks_by_capacity": {
+          "2": 10,
+          "3": 41,
+          "4": 56
+        },
+        "fit": {
+          "total_literals": 2,
+          "active_terms": 1,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 2,
+              "cube": "**1***1*"
+            }
+          ]
+        }
+      },
+      "output_inverted": {
+        "output_relation": "S64 output inverted by another gate",
+        "target_examples": 12,
+        "candidate_masks_by_capacity": {
+          "2": 26,
+          "3": 68,
+          "4": 81
+        },
+        "fit": {
+          "total_literals": 2,
+          "active_terms": 2,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 1,
+              "cube": "******0*"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 1,
+              "cube": "**0*****"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "scope": "mode81_A1",
+      "phase_bit": 0,
+      "examples": 12,
+      "direct": {
+        "output_relation": "direct",
+        "target_examples": 7,
+        "candidate_masks_by_capacity": {
+          "2": 8,
+          "3": 19,
+          "4": 19
+        },
+        "fit": {
+          "total_literals": 4,
+          "active_terms": 2,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 2,
+              "cube": "**01****"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 2,
+              "cube": "**1*1***"
+            }
+          ]
+        }
+      },
+      "output_inverted": {
+        "output_relation": "S64 output inverted by another gate",
+        "target_examples": 5,
+        "candidate_masks_by_capacity": {
+          "2": 5,
+          "3": 9,
+          "4": 10
+        },
+        "fit": {
+          "total_literals": 4,
+          "active_terms": 2,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 2,
+              "cube": "***0*0**"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 2,
+              "cube": "**1*0***"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "scope": "mode81_A1",
+      "phase_bit": 1,
+      "examples": 12,
+      "direct": {
+        "output_relation": "direct",
+        "target_examples": 6,
+        "candidate_masks_by_capacity": {
+          "2": 12,
+          "3": 20,
+          "4": 21
+        },
+        "fit": {
+          "total_literals": 1,
+          "active_terms": 1,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 1,
+              "cube": "**1*****"
+            }
+          ]
+        }
+      },
+      "output_inverted": {
+        "output_relation": "S64 output inverted by another gate",
+        "target_examples": 6,
+        "candidate_masks_by_capacity": {
+          "2": 10,
+          "3": 19,
+          "4": 19
+        },
+        "fit": {
+          "total_literals": 1,
+          "active_terms": 1,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 1,
+              "cube": "**0*****"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "scope": "combined_with_mode_bit7",
+      "phase_bit": 0,
+      "examples": 34,
+      "direct": {
+        "output_relation": "direct",
+        "target_examples": 17,
+        "candidate_masks_by_capacity": {
+          "2": 7,
+          "3": 43,
+          "4": 69
+        },
+        "fit": null
+      },
+      "output_inverted": {
+        "output_relation": "S64 output inverted by another gate",
+        "target_examples": 17,
+        "candidate_masks_by_capacity": {
+          "2": 4,
+          "3": 32,
+          "4": 61
+        },
+        "fit": null
+      }
+    },
+    {
+      "scope": "combined_with_mode_bit7",
+      "phase_bit": 1,
+      "examples": 34,
+      "direct": {
+        "output_relation": "direct",
+        "target_examples": 16,
+        "candidate_masks_by_capacity": {
+          "2": 12,
+          "3": 63,
+          "4": 105
+        },
+        "fit": {
+          "total_literals": 4,
+          "active_terms": 2,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 2,
+              "cube": "**1****1"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 2,
+              "cube": "**1***1*"
+            }
+          ]
+        }
+      },
+      "output_inverted": {
+        "output_relation": "S64 output inverted by another gate",
+        "target_examples": 18,
+        "candidate_masks_by_capacity": {
+          "2": 17,
+          "3": 82,
+          "4": 140
+        },
+        "fit": {
+          "total_literals": 3,
+          "active_terms": 2,
+          "slots": [
+            {
+              "group": "EF",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "JK",
+              "capacity": 2,
+              "literals": 0,
+              "cube": "GROUND"
+            },
+            {
+              "group": "GHI",
+              "capacity": 3,
+              "literals": 2,
+              "cube": "******00"
+            },
+            {
+              "group": "ABCD",
+              "capacity": 4,
+              "literals": 1,
+              "cube": "**0*****"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "unrestricted_combined_bit0": {
+    "direct": {
+      "terms": 5,
+      "literals": 13,
+      "cubes": [
+        "**0*0*1*",
+        "**01***1",
+        "**1***00",
+        "**10****",
+        "*1*1****"
+      ]
+    },
+    "output_inverted": {
+      "terms": 4,
+      "literals": 12,
+      "cubes": [
+        "**0*0*00",
+        "**00****",
+        "00****1*",
+        "1*11****"
+      ]
+    }
+  },
+  "limitations": [
+    "This is a Boolean capacity test on 34 observed labels, not a traced connection or proof U15 is available for phase logic.",
+    "The bit-0 no-fit result assumes only the seven state wires and one mode bit feed U15 directly; preprocessing or additional gates can change it.",
+    "Unobserved states are don\u2019t-cares, and electrical fan-out, polarity, delays and unused-input ties are not verified."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_phase_gate_capacity.py": "825624f5a06ccd802cca7c57d9785b5144e32379bea0d23bf0bacb5063136a77",
+    "nokia/data-modem-2400-2400/analysis/microcode/board/inventory.json": "1c2b07b8e377c2b646fdaff6e20f74065128351d90f41b68609cbd4616ad14e9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114926601.jpg": "9f15c0ee40fa352a7c123975e83753a7f073320d7bc8971dc9c282358c06f7b2"
+  }
+}

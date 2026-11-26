@@ -2059,6 +2059,15 @@ Listed in order of value per effort:
   8251/executed 8031 source bytes, and visit state `09` in 32/65
   symbols each. No new state appears, so test a more distinct phase
   or gain and the mode-selector/serial wiring before passing C3.
+  The [U15 capacity audit](g2/PHOTO-U15-PHASE-GATE-CAPACITY.md) uses
+  the photographed `SN74S64J` and its documented 4-2-3-2 AOI groups
+  to test the observed 22 `01`-mode and 12 `81/A1`-mode phase labels.
+  One combined phase output fits in two two-input terms, but the other
+  cannot fit a single U15 in either output polarity with the seven
+  captured bits plus mode bit as direct inputs. Each mode alone fits.
+  The inventory now records U15 as 14 pins. Test a labelled
+  U15/U21/U19 multistage route rather than assuming U15 alone solves
+  the phase/serial output. C3 remains open.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3
