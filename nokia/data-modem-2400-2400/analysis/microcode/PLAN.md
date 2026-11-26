@@ -90,6 +90,14 @@ exactly those `12A` Y bytes change, always by XOR `01`, while R1
 and entering R0lo agree. This is executed arithmetic evidence for a
 ROM-dependent candidate DAC byte, conditional on the bank select and
 post-`12A` capture route. Keep C2/G2 active.
+For C3, the [photo-latch capacity replay](g2/JOINT-MASK04-12A-ROW0-PHOTO-LATCHES.md)
+tests an explicit U12/U14/U3 seven-bit capture route against eight saved
+real-PROM receive streams. The aligned, frozen 22-state gate replays exact
+modeled USART and executed controller bytes in every run; changed row/Y
+captures and an early RxC provide discriminating controls. This is a
+conditional circuit capacity and timing result, not identified wiring or a
+C3 pass. Next test raw row-clock qualification on a fresh all-row PROM
+capture while keeping the latch/serial nets assumed and G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

@@ -1998,6 +1998,16 @@ Listed in order of value per effort:
   phase matches the frozen gate, with zero graph conflicts. This
   strengthens conditional transfer but still lacks an identified
   executed DSC bit decision and physical RxD/RxC/SYNDET route.
+  The [photo-latch capacity replay](g2/JOINT-MASK04-12A-ROW0-PHOTO-LATCHES.md)
+  now assigns the seven captured state bits to candidate U12/U14/U3
+  storage and replays the frozen 22-state gates into modeled 8251 and
+  executed 8031 receive paths on eight saved real-PROM streams. Every
+  aligned run recovers exact line and source bytes with 2,961 cycles of
+  setup; row-3 and one-visit-late Y controls fail, whereas a one-visit-
+  late row-0 capture remains equivalent. This removes the U12-only
+  capacity objection for the stated circuit, but its nets, gate enables
+  and serial wiring remain assumed. C3 stays open; test row-clock
+  qualification on a new PROM trace with all four row values saved.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3
