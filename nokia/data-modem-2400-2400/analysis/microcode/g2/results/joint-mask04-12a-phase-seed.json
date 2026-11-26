@@ -1,0 +1,136 @@
+{
+  "experiment": "initial R1 phase seed on ROM-sensitive 12A line",
+  "fixture": {
+    "seeds_r1": [
+      0,
+      32,
+      64
+    ],
+    "line": "Q=0.5, 1950 Hz, bus 0, shift +6, zero-run fixed gain",
+    "selectors": [
+      "40",
+      "60"
+    ],
+    "data": "two fresh nonzero eight-byte payloads"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "payload": [
+        "D3",
+        "26",
+        "91",
+        "4E",
+        "B8",
+        "07",
+        "5C",
+        "EA"
+      ],
+      "offered_line_bytes": [
+        "D1",
+        "EE",
+        "96",
+        "B4",
+        "F9",
+        "33",
+        "80",
+        "C6"
+      ],
+      "fixed_zero_run_gain": 0.943293613,
+      "seeds": [
+        {
+          "seed_r1": 0,
+          "tx_trace_digest": "1e22f0cf2864664bcdace627015d4f79b8562fd09213dccd967b3d4c87429e4b",
+          "raw_sha256": "0e43a15d71e49f35e8be487c6bd88d7d8facecca9cc3f041c141c82a2f2c119d",
+          "pcm_sha256": "80eebdc31da123cdc6ca2255e9d98f877c1c9aa774355d3975f101d4bd67a26d",
+          "reference_wrong_indices": [],
+          "changed_raw_samples_vs_seed0": 0,
+          "changed_data_samples_vs_seed0": 0
+        },
+        {
+          "seed_r1": 32,
+          "tx_trace_digest": "0c52559745be50a6cef7a07178de1397da3b5ddf1939c0fdd396428783cb3bad",
+          "raw_sha256": "0e43a15d71e49f35e8be487c6bd88d7d8facecca9cc3f041c141c82a2f2c119d",
+          "pcm_sha256": "80eebdc31da123cdc6ca2255e9d98f877c1c9aa774355d3975f101d4bd67a26d",
+          "reference_wrong_indices": [],
+          "changed_raw_samples_vs_seed0": 0,
+          "changed_data_samples_vs_seed0": 0
+        },
+        {
+          "seed_r1": 64,
+          "tx_trace_digest": "d4413cc5abcad080ec14c14c048f466dcdae0a9ef15c22d4a564cf8d2ac0f283",
+          "raw_sha256": "0e43a15d71e49f35e8be487c6bd88d7d8facecca9cc3f041c141c82a2f2c119d",
+          "pcm_sha256": "80eebdc31da123cdc6ca2255e9d98f877c1c9aa774355d3975f101d4bd67a26d",
+          "reference_wrong_indices": [],
+          "changed_raw_samples_vs_seed0": 0,
+          "changed_data_samples_vs_seed0": 0
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "payload": [
+        "6A",
+        "D5",
+        "02",
+        "B9",
+        "40",
+        "EF",
+        "73",
+        "1C"
+      ],
+      "offered_line_bytes": [
+        "CF",
+        "17",
+        "E6",
+        "01",
+        "D3",
+        "1B",
+        "BF",
+        "9A"
+      ],
+      "fixed_zero_run_gain": 0.943293613,
+      "seeds": [
+        {
+          "seed_r1": 0,
+          "tx_trace_digest": "e7fa1dfbc122d31c0fed78d23a3547c29c8565a024da226f57eaa2eaaddb6bb5",
+          "raw_sha256": "561bf91ec7c55ad92dec58759cdfb4ea70308519cad849eb5b3c9922c2614cf2",
+          "pcm_sha256": "c3a7c7386a3ead77d785e9e6396a703bb8edef952dc60be0f2ce28caeec98ac6",
+          "reference_wrong_indices": [],
+          "changed_raw_samples_vs_seed0": 0,
+          "changed_data_samples_vs_seed0": 0
+        },
+        {
+          "seed_r1": 32,
+          "tx_trace_digest": "8a6b67fa34bc6855f7edc4a99edbdc9c19d5b49445bea46a9c7fc860ef1e88a1",
+          "raw_sha256": "561bf91ec7c55ad92dec58759cdfb4ea70308519cad849eb5b3c9922c2614cf2",
+          "pcm_sha256": "c3a7c7386a3ead77d785e9e6396a703bb8edef952dc60be0f2ce28caeec98ac6",
+          "reference_wrong_indices": [],
+          "changed_raw_samples_vs_seed0": 0,
+          "changed_data_samples_vs_seed0": 0
+        },
+        {
+          "seed_r1": 64,
+          "tx_trace_digest": "38d30db73bdeebf00d55fe2230639ecc43adfedce4336cbb3dd0a2bd705314ef",
+          "raw_sha256": "561bf91ec7c55ad92dec58759cdfb4ea70308519cad849eb5b3c9922c2614cf2",
+          "pcm_sha256": "c3a7c7386a3ead77d785e9e6396a703bb8edef952dc60be0f2ce28caeec98ac6",
+          "reference_wrong_indices": [],
+          "changed_raw_samples_vs_seed0": 0,
+          "changed_data_samples_vs_seed0": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Changing initial R1 is a diagnostic seed perturbation, not an observed board command.",
+    "The line and decoder are photo-compatible/external hypotheses; no physical carrier phase is measured.",
+    "Reference decisions do not establish the executed DSC receiver or USART path."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phase_seed.py": "817c6eeac335c3dbc3d513656fe89ce05928cdbbace914cedd73ee2114522a9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-q05-fresh-payload-levels.json": "2a4c6018cfd8038c89a2b4edd887f3ca40bb7c35026ac2523b77fcd458d671e0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_buffered_line.py": "cb80559269af717d2318e6ac9f8e67245b7aeb54e811eaa43f87a193e2b37fdf",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  }
+}

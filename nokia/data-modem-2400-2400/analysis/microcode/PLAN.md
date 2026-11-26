@@ -168,8 +168,16 @@ dibits and eight exact line bytes; the modeled 8251/8031 descrambles
 each payload only with aligned assumed SYNDET. Both fresh data streams
 exercise all four dibits. This strengthens the conditional C2/C3
 chain but does not identify the physical DAC/ADC, phase combinator,
-capture/serializer or RxD/RxC/SYNDET route. Next test rotated carrier
-phase and photo-compatible circuit timing; keep C2/C3/G2 open.
+capture/serializer or RxD/RxC/SYNDET route. The [running R1 phase
+challenge](g2/JOINT-MASK04-12A-RUNNING-PHASE.md) shows that an initial
+R1 seed does not alter sampled `12A` output, while a one-time `40`
+offset during data changes all 65 executed receive phase states in
+each mode. The frozen rule still recovers 64/64 dibits and exact
+modeled controller payloads without refitting. A `20` offset makes
+one to three reference errors at the first data boundary. Next vary
+that boundary timing and test photo-compatible phase-decision and
+serial circuits; keep C2/C3/G2 open. These untraced connections are
+explicit, runnable assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data

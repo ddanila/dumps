@@ -24,7 +24,7 @@ PRIOR = HERE / 'results/joint-mask04-tx-bank-phase.json'
 SITES = (0x127, 0x12A)
 
 
-def capturing_execute():
+def capturing_execute(phase_poke=None):
     source = EXECUTE.read_text()
     patches = (
         ("    trace_count=0;io_count=0;dispatch_counts=Counter();register_changes=0",
@@ -40,6 +40,16 @@ def capturing_execute():
     for old, new in patches:
         if source.count(old) != 1:
             raise ValueError(('emulator injection point moved', old))
+        source = source.replace(old, new)
+    if phase_poke is not None:
+        visit, offset = phase_poke
+        if visit < 1 or not 0 <= offset <= 255:
+            raise ValueError('invalid phase poke')
+        old = "            carry=carry_input.resolve(r)"
+        new = ("            if pc==0x127 and sequence_visits[0x127]=="
+               f"{visit}:cpu.ram[1]=(cpu.ram[1]+{offset})&255\n" + old)
+        if source.count(old) != 1:
+            raise ValueError('phase poke injection point moved')
         source = source.replace(old, new)
     scope = {'__name__': 'joint_mask04_tx_12a_delay_instrumented',
              '__file__': str(EXECUTE)}
