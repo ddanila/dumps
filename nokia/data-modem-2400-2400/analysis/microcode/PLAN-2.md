@@ -1920,10 +1920,16 @@ Listed in order of value per effort:
   feeds two new nonzero controller-derived payloads into the executed
   mask-04 receiver after their line PCM passes all 64 reference dibits.
   The frozen 46/93 rule leaves 27/32 call and 22/32 answer data dibits
-  unknown; the margin rule makes wrong decisions. No complete receive
-  byte reaches the modeled USART/8031. This keeps C3 open and directs
-  the next test to a multi-sample consumer or different assumed RxD
-  route, without waiting for a physical pin trace.
+  unknown; the margin rule makes wrong decisions. A later
+  [key-collision audit](g2/JOINT-MASK04-Q05-RECEIVE-KEY-COLLISIONS.md)
+  finds a four-state, conflict-free alternative at visits 46/93. The
+  [frozen holdout](g2/JOINT-MASK04-Q05-PHASE-STATE-HOLDOUT.md) uses its
+  phase-difference rule to recover both previously untouched nonzero
+  payloads: all 128 dibits, sixteen line bytes and exact aligned-pulse
+  8031 descrambling in the modeled 8251 handoff. This is a much stronger
+  conditional C3 chain, but its phase logic, capture/serializer, ADC,
+  RxD/RxC and SYNDET nets remain assumptions. Test photo-compatible
+  hardware alternatives and timing before passing C3.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

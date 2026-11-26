@@ -24,6 +24,14 @@ cannot fill those positions; a new executed feature or decision route
 is required. The earlier line-level reference error is therefore not
 the cause of this readout gap on these two fresh streams.
 
+The [later key audit](JOINT-MASK04-Q05-RECEIVE-KEY-COLLISIONS.md) found
+that the primary 46/93 four-bit feature collides on these data, while
+an alternate four-bit capture at the same visits forms four consistent
+phase states. Its [frozen phase rule](JOINT-MASK04-Q05-PHASE-STATE-HOLDOUT.md)
+recovers both second-payload holdouts and reaches the modeled 8031
+handoff. The failed frozen rules above remain useful controls; the
+new phase rule is still an external circuit hypothesis.
+
 The DAC, filter, ADC timing and receiver input path remain labelled
 photo-compatible assumptions. The readouts are external rules and the
 board's RxD wire is untraced. C3 remains open and G2 active. The next

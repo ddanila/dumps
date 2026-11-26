@@ -135,9 +135,18 @@ receiver, using the exact line PCM hashes that scored 0/64 in the
 independent reference decoder. All four frozen readouts remain
 incomplete: the no-wrong 46/93 rule has 27/32 call and 22/32 answer
 data dibits unknown; the margin rule has fewer unknowns but wrong
-decisions. No complete byte reaches the modeled USART/8031 handoff.
-Seek a causal photo-compatible multi-sample decision/serial route on
-fresh legal data; do not reinterpret reference line success as C3.
+decisions. The [executed-key audit](g2/JOINT-MASK04-Q05-RECEIVE-KEY-COLLISIONS.md)
+finds five conflicting primary 46/93 keys on those 64 data dibits,
+but sixteen conflict-free alternate 46/93 transition keys forming
+four phase states. A [frozen four-state rule](g2/JOINT-MASK04-Q05-PHASE-STATE-HOLDOUT.md)
+then decodes the *second* nonzero payload in each mode: 128/128
+holdout dibits, all sixteen line bytes, and the exact eight decoded
+controller payload bytes per mode with aligned assumed SYNDET. Early
+and late pulses fail their controls. This joins the ROM-sensitive Tx,
+real-PROM Rx and unchanged 8031 on fresh data under a compact external
+consumer. C3 stays open: identify or test a photo-compatible phase
+logic, latch, RxD/RxC and SYNDET route, rather than treating that
+consumer as an executed DSC instruction or verified wiring.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data
