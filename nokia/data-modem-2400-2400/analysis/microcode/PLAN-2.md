@@ -1365,6 +1365,16 @@ phases B–C turn "what" into "how".
   `3C` case. Both tables, capture clocks and symbol memory remain external
   hypotheses. Test serial timing and the USART receive path next; C3
   remains open until that handoff is supported.
+  The [extra-capture-bit screen](g2/RECEIVER-MASK04-EXTRA-CAPTURE-BIT-SCREEN.md)
+  reanalyzes eight saved development PROM traces and a separate
+  13-angle seed. Adding Y4 or Y5 from either visit as a fifth symbol-state
+  bit leaves 122–196 unknown of 611 held-out decisions, versus 84 for
+  the four-bit baseline under the same smaller training set. None gives
+  a consistent quadratic transition rule across all saved captures.
+  This does not reject the dual-feature consensus, which uses more
+  development data. Next test the raw-PROM `3F8→3F9` clock candidate
+  as an explicit one-bit latch with its startup edge and later `3ED`
+  consumer, rather than adding arbitrary Y bits.
   The [two-visit zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
   now feeds the controller's actual scrambled eight-zero-octet streams
   through two continuous mask-`04` PROM runs at 75° and 165°. The frozen

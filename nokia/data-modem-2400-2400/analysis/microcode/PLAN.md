@@ -21,14 +21,17 @@ photograph or continuity measurement to resolve it.
 **Default action for an ambiguous photo:** infer the simplest connection
 compatible with the visible pins, chip directions and nearby parts; label its
 unseen segments and timing as assumptions; run it with the real dumps and a
-control. Try a few meaningful alternatives if the result depends on the
-inference. Record what each run supports or excludes and name the next runnable
-test. Keep G2 **active** and the affected acceptance check **open** while such
-tests exist. Never use missing photo detail or continuity alone as a blocker.
+control. For each proposed route, record the visible endpoints, assumed
+source-to-destination pins, polarity, enable or latch edge, and any clock
+division; identify at least one alternative when the photos admit it. Try a
+few meaningful alternatives if the result depends on the inference. Record
+what each run supports or excludes and name the next runnable test. Keep G2
+**active** and the affected acceptance check **open** while such tests exist.
+Never use missing photo detail or continuity alone as a blocker.
 Success remains conditional until the physical route is independently
 constrained; failure rejects only the stated wiring, timing and input fixture.
-For C2, test the candidate Y7-to-latch-
-to-DAC08 MSB and analog-output route identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
+For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
+identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
@@ -226,6 +229,16 @@ resolves the primary rule's `3C` gap without fitting that held-out answer.
 This is a conditional external consumer, not a traced Nokia decoder;
 test the latch/serial/USART handoff and new phase/data cases, keeping C3
 open without waiting for continuity.
+The [extra-capture-bit screen](g2/RECEIVER-MASK04-EXTRA-CAPTURE-BIT-SCREEN.md)
+tests Y4 or Y5 from either visit as a fifth bit on eight development
+PROM traces, then scores a separate 13-angle seed. Every added bit
+leaves more unknown decisions than the four-bit baseline (122–196
+versus 84 of 611), and none gives a consistent quadratic transition
+rule across the combined captures. This scopes out simple bit addition,
+not the complementary dual-feature rule. Test the raw-PROM `3F8→3F9`
+clock candidate as an explicit one-bit latch, including its startup
+edge and later `3ED` consumer, instead of adding arbitrary Y bits;
+keep C3 open and G2 active.
 The [dual-feature zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
 now runs two 768,047-word real-PROM receive traces at 75°/165° through
 32 `11` preamble symbols and eight controller-scrambled zero octets.

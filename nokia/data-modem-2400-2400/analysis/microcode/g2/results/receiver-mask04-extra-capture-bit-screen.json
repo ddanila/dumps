@@ -1,0 +1,297 @@
+{
+  "experiment": "one-extra-bit receiver transition screen on saved real-PROM captures",
+  "fixture": {
+    "independent_checks": 611,
+    "independent_seed": 57879,
+    "independent_traces": [
+      "32ada6eb13ca05fcb1017b7775300cb4c8b3d841b12ceaf822ebb7e098aeca85",
+      "3e12b3a02002944ac1b7ca8612dd875ece9e0ed45c9833b011f68af54e4d8c88",
+      "efbeaab82bd45087ef4495f0eb0b7e6070f6f410ee7bbd454dc5d9d1ae00d16e",
+      "5e372598c8a6c31f07e6f34131b0b72e42d8fa9e7f57602fb033e94d34aa4406",
+      "9f5c6ca671f693dff49d25d6d424b3b51c942d5a9323234f40de5fd9171436d4",
+      "2a33ffe947e84403ffc2387350637bb7b02215d008b42299db47bb91d04a18bf",
+      "fb9248ae0a8513b230476b8e30e4de7c397fa07b916baa870320e58377998200",
+      "24ed62c61ddf2a995d7f060b9abb92f0fcb4bd56dfb2a6cb3c4c9e3aa1d9c462",
+      "a3e0938aefb5e2e2c1fc986a8d53b92d673a663f3a0ca17a3899c220106317ce",
+      "45839efcb875fb84d950494e625d96cf3cf09a640542188a4ecb1f7255f56abf",
+      "74e007a3391904d080774ab720fd5cc0331e0e8745999ee4d2a99f2d10f9f3d6",
+      "7d0b7130bdbcf58db0b55965ba61afc4396c419d17bb17add30323d9335896a6",
+      "b9700d30e3fbef6eb01ac975565d178a93ed9745d8ad5faa8f6968c58df755e9"
+    ],
+    "state": "Y6/Y7 at visits 47 and 94; optional fifth Y bit",
+    "training_seed": 29292,
+    "training_traces": [
+      "45721cb2201cd85b1e50440a7388301150600216784dd63604bfc5f509b73469",
+      "0767d82e1b72c11a73b660f84c8b2496725a6758670d7c2669a609b49abc1723",
+      "4aa33119668440db1930719fcb772fdfa0914c06225486df4831dfcb5817f3ba",
+      "67f8abbf37407dcacb36dbd188ab87e9afb34ec56f541962dbb32a3d03389cd5",
+      "8beaa03d6718ea661a11f5ec6da7f7dfa7777645813fb6b4edcf0537770b9f60",
+      "d789eeac9f9ded08f92e4867a8de689bde25d8e704072254dae4a7b14fc761c8",
+      "2b2794fab405e5d0f04f6c353aca3f767de3af8ab6e29e71dcd506f6a56d5caa",
+      "96fe96fb22cdb92b8aba60de8d3277f7093082a931ac3a74ea87b0d057839495"
+    ],
+    "transition": "previous/current 4- or 5-bit state"
+  },
+  "limitations": [
+    "This reanalysis uses saved executed PROM captures; it does not run new microinstructions.",
+    "The four-bit and five-bit states are external capture hypotheses, not identified Nokia latches or receive decisions.",
+    "The combined quadratic screen includes the independent traces and is only a structural description, not a held-out score."
+  ],
+  "rows": [
+    {
+      "combined_keys": 86,
+      "combined_quadratic": {
+        "contradictions": [
+          116,
+          119,
+          120,
+          126,
+          135,
+          140,
+          143,
+          155,
+          157,
+          159,
+          177,
+          180,
+          183,
+          187,
+          189,
+          190,
+          191,
+          199,
+          210,
+          212,
+          214,
+          219,
+          221,
+          223,
+          225,
+          228,
+          231,
+          235,
+          238,
+          242,
+          244,
+          246,
+          247,
+          248,
+          255
+        ],
+        "rank": 37,
+        "terms": 37
+      },
+      "extra_bit": null,
+      "feature": "Y6/Y7 at visits 47 and 94",
+      "independent": {
+        "checks": 611,
+        "data_unknown": 42,
+        "data_wrong": 0,
+        "unknown": 84,
+        "wrong": 0
+      },
+      "training_cubic": {
+        "contradictions": [],
+        "rank": 55,
+        "terms": 93
+      },
+      "training_keys": 58
+    },
+    {
+      "combined_keys": 166,
+      "combined_quadratic": {
+        "contradictions": [
+          375,
+          648,
+          664,
+          740,
+          756,
+          772
+        ],
+        "rank": 56,
+        "terms": 56
+      },
+      "extra_bit": {
+        "visit": 47,
+        "y_bit": 4
+      },
+      "feature": "visit47_Y4",
+      "independent": {
+        "checks": 611,
+        "data_unknown": 93,
+        "data_wrong": 0,
+        "unknown": 169,
+        "wrong": 0
+      },
+      "training_cubic": {
+        "contradictions": [],
+        "rank": 92,
+        "terms": 176
+      },
+      "training_keys": 92
+    },
+    {
+      "combined_keys": 125,
+      "combined_quadratic": {
+        "contradictions": [
+          247,
+          443,
+          462,
+          465,
+          475,
+          496,
+          504,
+          511,
+          535,
+          740,
+          744,
+          752,
+          760,
+          766,
+          776,
+          784,
+          792,
+          796,
+          864,
+          865,
+          868,
+          877,
+          878,
+          887,
+          891,
+          895,
+          896,
+          903,
+          930,
+          932,
+          957,
+          990,
+          992,
+          996,
+          1001,
+          1010,
+          1014
+        ],
+        "rank": 55,
+        "terms": 56
+      },
+      "extra_bit": {
+        "visit": 47,
+        "y_bit": 5
+      },
+      "feature": "visit47_Y5",
+      "independent": {
+        "checks": 611,
+        "data_unknown": 74,
+        "data_wrong": 0,
+        "unknown": 196,
+        "wrong": 0
+      },
+      "training_cubic": {
+        "contradictions": [],
+        "rank": 71,
+        "terms": 176
+      },
+      "training_keys": 72
+    },
+    {
+      "combined_keys": 170,
+      "combined_quadratic": {
+        "contradictions": [
+          268,
+          407,
+          616,
+          632,
+          755,
+          787
+        ],
+        "rank": 56,
+        "terms": 56
+      },
+      "extra_bit": {
+        "visit": 94,
+        "y_bit": 4
+      },
+      "feature": "visit94_Y4",
+      "independent": {
+        "checks": 611,
+        "data_unknown": 105,
+        "data_wrong": 0,
+        "unknown": 151,
+        "wrong": 0
+      },
+      "training_cubic": {
+        "contradictions": [],
+        "rank": 89,
+        "terms": 176
+      },
+      "training_keys": 89
+    },
+    {
+      "combined_keys": 142,
+      "combined_quadratic": {
+        "contradictions": [
+          366,
+          382,
+          391,
+          431,
+          432,
+          434,
+          459,
+          475,
+          484,
+          486,
+          527,
+          539,
+          591,
+          603,
+          632,
+          651,
+          756,
+          766,
+          783,
+          787,
+          792,
+          815,
+          825,
+          865,
+          877,
+          880,
+          881,
+          891,
+          980,
+          1000,
+          1011
+        ],
+        "rank": 56,
+        "terms": 56
+      },
+      "extra_bit": {
+        "visit": 94,
+        "y_bit": 5
+      },
+      "feature": "visit94_Y5",
+      "independent": {
+        "checks": 611,
+        "data_unknown": 80,
+        "data_wrong": 0,
+        "unknown": 122,
+        "wrong": 0
+      },
+      "training_cubic": {
+        "contradictions": [],
+        "rank": 84,
+        "terms": 176
+      },
+      "training_keys": 87
+    }
+  ],
+  "source_sha256": {
+    "analysis/microcode/g2/receiver_mask04_extra_capture_bit_screen.py": "ed6f5a110dab510b7f3f9fc90ccc0bcc9270e94b959e7ae4083501483a3aec91",
+    "analysis/microcode/g2/receiver_mask04_four_bit_transition.py": "e10cf6e16e4ee30cf49f317f0a16604c93b44ef3ead707c1537460bded168c14",
+    "analysis/microcode/g2/receiver_mask04_multivisit_capture.py": "46f01b7e6df20ce5558102b3ad6ff179a1c8975a7eb704b30cc97a7b936cfcbd",
+    "analysis/microcode/g2/receiver_mask04_three_bit_two_visit.py": "ca2d0453074daf8554907856916c245a0dd32cda932b9f3c884de07ac73bcd14",
+    "analysis/microcode/g2/results/receiver-mask04-multivisit-capture.json": "06920fc854266fbcc4cbfca6828c550327dd280f3495558e6bc2b13d8017903d",
+    "analysis/microcode/g2/results/receiver-mask04-three-bit-two-visit.json": "e4bcd4f52bed507fe043aa870eec4c6a4bcd9dfd7bbe2a75d1618f5940d8c021"
+  }
+}
