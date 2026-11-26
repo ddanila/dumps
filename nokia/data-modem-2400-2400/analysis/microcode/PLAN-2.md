@@ -1891,6 +1891,13 @@ Listed in order of value per effort:
   bytes under an explicit reference range and conversion schedule, feed them
   through the identified input path, and check that recovered bits reach the
   USART-01 receive side.
+  The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
+  establishes a conditional previous/current sample pair at an executed
+  raw-PROM gate: the qualified latch holds the previous nibble at row 3
+  after internal DSC state rejoins. The existing fixed Boolean consumer
+  fails at 45° carrier phase, and the U12/USART wiring is untraced.
+  Test a photo-compatible phase-tracking consumer on new payloads and
+  carrier phases before treating this as recovered-bit evidence.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off.

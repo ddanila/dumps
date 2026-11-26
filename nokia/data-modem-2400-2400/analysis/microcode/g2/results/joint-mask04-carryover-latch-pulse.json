@@ -1,0 +1,194 @@
+{
+  "cases": [
+    {
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "cycles": 96047,
+      "first_rows": [
+        {
+          "live_row3": 5,
+          "qualified_row0": 1,
+          "row0_edge_cycle": 50,
+          "row3_edge_cycle": 74,
+          "unqualified_before_row3": 0,
+          "visit": 0
+        },
+        {
+          "live_row3": 5,
+          "qualified_row0": 13,
+          "row0_edge_cycle": 82,
+          "row3_edge_cycle": 106,
+          "unqualified_before_row3": 0,
+          "visit": 1
+        }
+      ],
+      "input": "baseline",
+      "raw_edges": 12000,
+      "row_sha256": "0419273ecbcdef77adc7730f91698d47a8d6efb6d08cff1f9bd11523d7451b7c",
+      "trace_digest": "f6fb964a6ec32323bb2a2ed1444163947df213e04d0ef34c2984cf2f2ef23606",
+      "unqualified_values": [
+        0
+      ]
+    },
+    {
+      "adc_sha256": "fd4cc2155c754360922c1cf2e6d9d96de991b0b370a5f70d28ace960f3430dab",
+      "cycles": 96047,
+      "first_rows": [
+        {
+          "live_row3": 5,
+          "qualified_row0": 1,
+          "row0_edge_cycle": 50,
+          "row3_edge_cycle": 74,
+          "unqualified_before_row3": 0,
+          "visit": 0
+        },
+        {
+          "live_row3": 5,
+          "qualified_row0": 13,
+          "row0_edge_cycle": 82,
+          "row3_edge_cycle": 106,
+          "unqualified_before_row3": 0,
+          "visit": 1
+        }
+      ],
+      "input": "pulse",
+      "raw_edges": 12000,
+      "row_sha256": "a77b5933af3d914a653a98c180b19c12cbff6b7662a6e0c6b2cd45b49a0858ce",
+      "trace_digest": "4dc8964fbe565ee1ae16b23345ac1b62a286127b8bc140e8621b219cdc769bae",
+      "unqualified_values": [
+        0
+      ]
+    }
+  ],
+  "comparisons": {
+    "live_row3": {
+      "first_restored_visit": {
+        "count": 0,
+        "first": null,
+        "first_values": null,
+        "last": null
+      },
+      "later_tail": {
+        "count": 0,
+        "first": null,
+        "first_values": null,
+        "last": null
+      },
+      "pulse": {
+        "count": 47,
+        "first": 1172,
+        "first_values": [
+          0,
+          2
+        ],
+        "last": 1218
+      }
+    },
+    "qualified_row0": {
+      "first_restored_visit": {
+        "count": 1,
+        "first": 1219,
+        "first_values": [
+          0,
+          5
+        ],
+        "last": 1219
+      },
+      "later_tail": {
+        "count": 0,
+        "first": null,
+        "first_values": null,
+        "last": null
+      },
+      "pulse": {
+        "count": 46,
+        "first": 1173,
+        "first_values": [
+          0,
+          5
+        ],
+        "last": 1218
+      }
+    },
+    "unqualified_before_row3": {
+      "first_restored_visit": {
+        "count": 0,
+        "first": null,
+        "first_values": null,
+        "last": null
+      },
+      "later_tail": {
+        "count": 0,
+        "first": null,
+        "first_values": null,
+        "last": null
+      },
+      "pulse": {
+        "count": 0,
+        "first": null,
+        "first_values": null,
+        "last": null
+      }
+    }
+  },
+  "experiment": "candidate raw-PROM row-0 latch of a prior ADC pulse",
+  "first_restored_visit": {
+    "baseline": {
+      "live_row3": 2,
+      "qualified_row0": 0,
+      "row0_edge_cycle": 39058,
+      "row3_edge_cycle": 39082,
+      "unqualified_before_row3": 0,
+      "visit": 1219
+    },
+    "pulse": {
+      "live_row3": 2,
+      "qualified_row0": 5,
+      "row0_edge_cycle": 39058,
+      "row3_edge_cycle": 39082,
+      "unqualified_before_row3": 0,
+      "visit": 1219
+    }
+  },
+  "fixture": {
+    "adc_visits": 3000,
+    "base_adc": 81,
+    "control": "U12 clocked on every 3ED edge",
+    "cycles": 96047,
+    "gate": "three-bit U11.D7 & U17.D3 & U18.D5 decode, NAND rise after 3ED",
+    "pulse_adc": 177,
+    "pulse_sample": 25,
+    "qualified_latch": "assumed U12 low four Y bits on row-0 edge only",
+    "windows": {
+      "first_restored_visit": [
+        1219,
+        1220
+      ],
+      "later_tail": [
+        1220,
+        3000
+      ],
+      "pulse": [
+        1172,
+        1219
+      ]
+    }
+  },
+  "limitations": [
+    "PROM-to-NAND, NAND-to-U12, Y-to-U12, row qualifier and U12 consumer are untraced hypotheses.",
+    "A retained previous-sample nibble is not a recovered dibit or USART RxD connection.",
+    "The pulse is artificial; this does not establish robustness on a natural carrier offset."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_carryover_latch_pulse.py": "550d544f98859460d982f1d3de133a6c7fb12160f17c8479d84be4f83700bb9f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_receive_impulse_memory.py": "5493f40252c5200a9fe82a9a164ba7894de6a0d69eb095ac1c6340d9c843be65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_3ed_prom_latch.py": "105ea21dd5061074aaa66453d82821a5961722ef008f91354c98ab5502befa72",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

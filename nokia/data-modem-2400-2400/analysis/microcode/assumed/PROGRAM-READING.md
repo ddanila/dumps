@@ -78,6 +78,14 @@ finds a shorter history window that the captures missed: 21 executed
 words before the next `3F8` read still differ in Y, Q, register writes
 or ROM reads; the whole state rejoins at the next `3FA` word. This is
 previous-sample carryover, not a retained symbol decision.
+The [raw-PROM U19/U12 replay](../g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
+then shows a conditional external memory of that transient: a row-0-only
+`3ED` edge captures the previous-sample low nibble, and a modeled U12
+still holds it at row 3 after the DSC state rejoins. At the first
+restored-input visit, held `0/5` accompanies identical live row-3
+Y[2:0]=`2`. The unqualified every-row clock instead overwrites the
+value with zero. The gate and U12 data/consumer wires remain assumed;
+the earlier 45° decoder failure keeps this from being a C3 decision.
 Holding the controller's observed `81` or `A1` frame byte at the
 [candidate `3EB` D input](../g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 also leaves no post-pulse captured difference on the varying waveform.

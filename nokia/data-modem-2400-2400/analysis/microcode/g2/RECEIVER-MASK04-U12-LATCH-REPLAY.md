@@ -40,3 +40,11 @@ phases, event counts and source hashes are in the
 [machine report](results/receiver-mask04-u12-latch-replay.json). Reproduce
 from the microcode directory with
 `python3 g2/receiver_mask04_u12_latch_replay.py`.
+
+The later [matched-tail pulse replay](JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
+checks this exact raw `3ED` edge schedule on a varying ADC waveform.
+The row-0 qualifier retains a changed previous-sample nibble through
+the next row-3 edge even after the DSC's own state rejoins; the every-row
+clock control holds zero. This confirms the candidate latch's causal
+delay role under the stated wiring, while the 45° decision failure
+still prevents a C3 pass.

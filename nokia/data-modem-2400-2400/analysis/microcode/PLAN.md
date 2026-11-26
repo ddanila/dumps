@@ -230,6 +230,14 @@ microinstructions before the next identical ADC byte reaches `3F8`.
 The complete modeled state rejoins at the following `3FA` word.
 Search for a photo-compatible consumer of this short previous-sample
 window; it is not itself a received-bit decision or C3 pass.
+The [U19/U12 carryover replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
+now tests one such consumer against the same matched-tail pulse. The
+raw-PROM `3ED` gate gives 12,000 edges per run; an assumed row-0-only
+U12 clock holds prior Y's low nibble as `0/5` at the first restored
+visit's row-3 edge, where live Y[2:0] is `2/2`. The unqualified
+every-row latch holds zero. This supplies a conditional previous/current
+sample pair after the DSC state rejoins, but the earlier 45° U12
+decoder fails, so C3 still needs a phase-robust consumer and USART path.
 The [held controller-mode impulse](g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 now repeats the varying-waveform pulse under candidate `3EB` D bytes
 `01`, `81` and `A1`. Nine real-PROM runs complete the same PC path;
