@@ -201,12 +201,16 @@ now takes the first 129 bits of consecutive A4/A5 port-01 writes from
 one unchanged 8031 run, aligned at the independently verified
 segment-2 bit. Both sustained real-PROM DSC Tx→line→Rx replays learn
 one map from A4 and recover the next eight A5-derived bytes exactly.
-That controller fixture forces timer expiry and USART-ready status;
-only its first nine TxD bytes have been checked under paced 8251
-timing. Next extend that paced transmit model through at least 17
-characters, then feed the actually shifted bits to DSC and test a
-photo-compatible ADC/latch/clock mechanism that chooses quadrant
-labels across carrier starts.
+That controller fixture forces timer expiry and USART-ready status.
+The [17-character paced TxD replay](g2/MAIN-LOOP-USART-TXREADY-17.md)
+now uses the Timer-1/one-byte-8251 model instead: across both selectors
+and all eight sampled Tx clock phases, its first 17 **shifted** bytes
+equal the controller writes, and TxD bits 1–128 exactly equal the
+16-byte input of the joined DSC replay. This closes the modeled
+write-versus-shift gap, while TxD-to-DSC wiring and bit alignment
+remain assumptions. Next feed the paced bit events with timing into
+a photo-compatible DSC serial-input circuit, and test a plausible
+ADC/latch/clock phase-decision path and reverse 8251/8031 handoff.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
