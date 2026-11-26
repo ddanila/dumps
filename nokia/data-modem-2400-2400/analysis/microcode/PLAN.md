@@ -305,6 +305,22 @@ feature candidate, explicitly move these failures into development
 before any refit, and validate on fresh payloads/starts. In parallel,
 test a photo-compatible third capture or carrier-history signal that
 predicts unseen states without fitting their labels. C3 stays open.
+The [multi-visit row-phase test](g2/JOINT-MASK04-12A-MULTIVISIT-PHASE.md)
+reruns the conflicting offset-16/80, baseline offset-32/96 and 75%-gain
+fixtures with real-PROM snapshots at visits 46/47/93/94/141. Across
+12 cases the six-bit state has 40 phase-graph conflicts. A 120-candidate
+single-bit screen finds 42 zero-conflict alternatives, but no
+visit-141 bit removes the conflicts. A concrete `3ED` row-0 bit-0
+candidate at visit 46 yields one connected 11-state phase map and is
+distinct from the earlier Y bits. Frozen on new payloads at offsets
+0/64, it makes no known-state errors but leaves 28–63 of 64 decisions
+unknown because states `08`, `0C` and `55` were absent from training;
+the old six-bit lookup and independent reference are exact on those
+particular runs. The row candidate remains structurally consistent
+after a post-hoc 14-state extension, but that extension is a new fit,
+not validation. Seek a photo-compatible latch/timing or carrier-state
+rule that predicts new states, then use untouched payloads and starts.
+Do not treat the missing net continuity as a G2 blocker.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
