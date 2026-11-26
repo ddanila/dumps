@@ -259,10 +259,18 @@ executes once per ADC visit, while `3ED` executes four times. Across
 single-valued by the current ADC high nibble over 110 observed adjacent
 sample pairs. Thus these Y taps expose current-sample recodings in this
 fixture, not an observed received-bit decision or carrier-history state.
-Next test the transient Q/RAM or mode/feedback route at actual symbol
-transitions, then follow any candidate bit to controller/USART RxD. The
-direct `3F8` Y nibble merely copies quantized ADC data. Keep candidate
-wiring labelled, C3 open and G2 active.
+The [32-word receive history scan](g2/JOINT-MASK04-RECEIVE-HISTORY-SCAN.md)
+now tests that question on five legal rotated-payload runs and 131
+observed adjacent ADC-nibble pairs. Across 14,990 complete visits,
+Y and Q at every offset depend only on the currently selected nibble.
+Only R12/R13 at `3F8` and R13 at `3F9` retain previous-nibble
+dependence; RAM rejoins at `3FA`. The earlier transient Y/Q carryover
+occurs before the next `3F8` selection, not after it. Next challenge a
+photo-compatible latch on that preselection interval with legal symbol
+transitions and rotated phases, or change the assumed mode/feedback and
+repeat the history scan. Follow any candidate bit to controller/USART
+RxD. The direct `3F8` Y nibble merely copies quantized ADC data. Keep
+candidate wiring labelled, C3 open and G2 active.
 The [held controller-mode impulse](g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 now repeats the varying-waveform pulse under candidate `3EB` D bytes
 `01`, `81` and `A1`. Nine real-PROM runs complete the same PC path;

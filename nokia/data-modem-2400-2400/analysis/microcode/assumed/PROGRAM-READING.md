@@ -76,6 +76,14 @@ and 110 observed adjacent-sample pairs. `3F9` has 15 output values;
 recoding, not evidence that either word emits a received bit. The
 transient Q/RAM, external feedback and downstream physical route remain
 open C3 candidates.
+The [full 32-word history scan](../g2/JOINT-MASK04-RECEIVE-HISTORY-SCAN.md)
+checks all Y, Q and RAM sites in five legal rotated-payload streams.
+After current ADC selection, Y/Q at every word are single-valued by
+that current high nibble. R12/R13 still vary with the previous high
+nibble at `3F8`, R13 at `3F9`, and no RAM byte varies with it from
+`3FA` onward. This aligns the prior pulse trace's carryover with the
+**preselection** prefix and narrows any direct-mode C3 consumer to
+that window or a different mode/feedback path.
 The [matched-tail impulse test](../g2/JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md)
 adds a time limit to that statement: under the tested four-row `D3EB=01`
 fixture, one changed ADC high nibble affects Q/RAM and intermediate Y
