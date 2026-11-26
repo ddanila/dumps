@@ -1,0 +1,215 @@
+{
+  "cases": [
+    {
+      "adc_sha256": "5f2fe5b4cc018e6de70f52f5ea99850255509e3752cfc2cb97b6072e42b84281",
+      "fixed_pair_scores": {
+        "46/93": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 0,
+          "errors": 0,
+          "unknown": 0,
+          "unknown_symbols": [],
+          "wrong_symbols": []
+        },
+        "47/94": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 5,
+          "errors": 0,
+          "unknown": 5,
+          "unknown_symbols": [
+            32,
+            42,
+            47,
+            58,
+            62
+          ],
+          "wrong_symbols": []
+        },
+        "94/141": {
+          "checks": 63,
+          "data_errors": 3,
+          "data_unknown": 9,
+          "errors": 3,
+          "unknown": 10,
+          "unknown_symbols": [
+            31,
+            37,
+            38,
+            40,
+            41,
+            44,
+            53,
+            54,
+            55,
+            61
+          ],
+          "wrong_symbols": [
+            36,
+            51,
+            56
+          ]
+        }
+      },
+      "inverted_pcm_sha256": "84fa2cd5f0e6c2ff95e3efab1f14e7a2430ffdc745b086f1f5797107087aa51b",
+      "margin_score": {
+        "checks": 63,
+        "data_errors": 1,
+        "data_unknown": 0,
+        "errors": 1,
+        "unknown": 0,
+        "unknown_symbols": [],
+        "wrong_symbols": [
+          56
+        ]
+      },
+      "margin_wrong_pairs": [
+        {
+          "actual": 3,
+          "expected": 1,
+          "pair": "94/141",
+          "symbol": 56
+        }
+      ],
+      "nominal_pcm_sha256": "83270686e4e71cc6ff1e1da3d667eddc23b30d135b862a6f4d95ba660dce8e56",
+      "offered_bytes": [
+        "62",
+        "DE",
+        "61",
+        "9D",
+        "7C",
+        "5F",
+        "E5",
+        "E2"
+      ],
+      "recovered_46_93_bytes": [
+        "62",
+        "DE",
+        "61",
+        "9D",
+        "7C",
+        "5F",
+        "E5",
+        "E2"
+      ],
+      "reference_errors": [],
+      "rx_cycles": 768047,
+      "rx_trace_digest": "b2170d9358036c7cb7490245538ffc4ead9fb5b91ee92a8a92a953ef6af3e97c",
+      "selector": "40",
+      "tx_y7_sha256": "435fc55de882d2bdf00185e4075fe1d5bfaf78d79705cc5c411b41b24a749c8a"
+    },
+    {
+      "adc_sha256": "ac35eab373a786da96e2a34f1ffadb2f501a9939475cc0385d60a01d97f1061c",
+      "fixed_pair_scores": {
+        "46/93": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 0,
+          "errors": 0,
+          "unknown": 0,
+          "unknown_symbols": [],
+          "wrong_symbols": []
+        },
+        "47/94": {
+          "checks": 63,
+          "data_errors": 0,
+          "data_unknown": 4,
+          "errors": 0,
+          "unknown": 4,
+          "unknown_symbols": [
+            34,
+            36,
+            45,
+            58
+          ],
+          "wrong_symbols": []
+        },
+        "94/141": {
+          "checks": 63,
+          "data_errors": 1,
+          "data_unknown": 6,
+          "errors": 1,
+          "unknown": 7,
+          "unknown_symbols": [
+            31,
+            32,
+            44,
+            50,
+            52,
+            56,
+            61
+          ],
+          "wrong_symbols": [
+            51
+          ]
+        }
+      },
+      "inverted_pcm_sha256": "feca56f5a220dfce569ab8a92607db642f5cfa815e1a55fb62d0d87f72f1453b",
+      "margin_score": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0,
+        "unknown_symbols": [],
+        "wrong_symbols": []
+      },
+      "margin_wrong_pairs": [],
+      "nominal_pcm_sha256": "ab74fdfb3f964611b0d5fea3e51498ea759da4736b7cec30a1df5ce4241138c6",
+      "offered_bytes": [
+        "A5",
+        "C2",
+        "4C",
+        "58",
+        "52",
+        "47",
+        "65",
+        "B4"
+      ],
+      "recovered_46_93_bytes": [
+        "A5",
+        "C2",
+        "4C",
+        "58",
+        "52",
+        "47",
+        "65",
+        "B4"
+      ],
+      "reference_errors": [],
+      "rx_cycles": 768047,
+      "rx_trace_digest": "ae291ec21b6f0d7cb7fe15d5538c5bdcd2f42f40a10dca43f89d4943b1aae6e7",
+      "selector": "60",
+      "tx_y7_sha256": "c56b29c83ede3bbc16cb369901665b1c36078422e7608e6d6b58b64b0a5db3e8"
+    }
+  ],
+  "experiment": "joined executed-transmitter PCM with opposite candidate DAC current-output polarity",
+  "fixture": {
+    "inversion": "multiply centered analog PCM by minus one before complementary ADC",
+    "readout": "frozen capture pairs and ADC-margin selector",
+    "rx_cycles": 768047,
+    "selector_count": 2,
+    "source": "reconstructed Y7/B5 PCM hash-matched to full real-PROM transmitter"
+  },
+  "limitations": [
+    "A DAC08 pin-2 versus pin-4 output choice is a polarity hypothesis; downstream amplification can also invert it.",
+    "The actual current-output and line route are not continuity-traced.",
+    "The receiver and controller links remain modeled; this test does not identify onboard phase or decision logic."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_dac_output_polarity.py": "538933275d8cd69aa68244ee7235e6f5ae1776dd70709d1be6171a5efd3b782d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_zero_analog_variants.py": "b359106e3438e4d02f9463b708390282856418e857c0a8d643c9a1800bd1edf3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_rx_loopback.py": "ff921fbbe50d3df024f869a86e1c40ced92c6dfef4840afaebda27cea1c32877",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_adc_margin_selector.py": "3f7c9a9c0b63241ab4d7379fb606d4f9edfdfa8488f69e3b5a66bf995a0cc643",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_dual_zero_handoff.py": "31d77df30a45a96663a1781fc64d0fc1e75a030ceeea3f7fc02773ab14139684",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-zero-handoff.json": "fb09e59297600b888ed03013afea9a5e2f5d16e5ef377025a5c4e7598ac5aba1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d"
+  }
+}

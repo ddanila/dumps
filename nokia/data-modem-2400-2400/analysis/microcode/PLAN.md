@@ -106,6 +106,13 @@ ADC margin alone as a general selector for this joined waveform, while
 the successful fixed pair remains a conditional external readout.
 Continue testing the phase/decision source and physical serial route;
 the modeled analog and inter-board links do not close C2 or C3.
+The [complementary DAC-output test](g2/JOINT-MASK04-DAC-OUTPUT-POLARITY.md)
+inverts the hash-matched full-stream B5/filter PCM as a pin-2 versus
+pin-4 current-output hypothesis. New real-PROM receive runs keep 0/63
+errors and recover the same eight line bytes per selector under the
+frozen 46/93 readout. The board output polarity and downstream analog
+path remain unresolved, but polarity alone does not distinguish the
+candidate digital handoff in this fixture.
 The [joined gain/bias challenge](g2/JOINT-MASK04-FULL-ZERO-ANALOG-VARIANTS.md)
 hash-matches the reconstructed Y7 and nominal PCM to those executed
 full-chain runs, then feeds four 0.75-gain, ±16-count PCM variants into
