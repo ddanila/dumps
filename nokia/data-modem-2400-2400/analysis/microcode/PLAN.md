@@ -202,6 +202,15 @@ also scores R² 0.909/0.900 in call/answer, above the full-code bus ranges
 Y7 through the sample latch to DAC08 B1/pin 5 and the analog output;
 keep C2 open until that route and the line signal are independently
 established. The existing photos do not settle the back-side continuation.
+The [joint-map free-clock screen](g2/JOINT-MASK04-FREE-CLOCK-MSB.md) now
+tests a simpler periodic latch at each of `127`–`12A` on the same two
+controller-derived 1,248,256-word PROM streams. All four phases, six
+DAC bus orders and both selectors keep the 2,100 Hz A1 peak and 0/62
+A3/A4 decisions with either full codes or Y7/MSB alone. Their byte
+hashes differ, so the signal metrics do not identify the physical edge.
+The 375-PROM-edge divider is not required for this conditional result;
+test an independently constrained clock or analog node next and keep
+C2 open without waiting for a new photograph.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.

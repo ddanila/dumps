@@ -1175,6 +1175,15 @@ phases B–C turn "what" into "how".
   six full-code ranges 0.834–0.838/0.810–0.815. This is conditional on
   the external bandpass and reference. Y7→latch→DAC08 B1/pin 5 and the
   analog line path remain untraced, so C2 remains open.
+  The [joint-map free-clock screen](g2/JOINT-MASK04-FREE-CLOCK-MSB.md)
+  replays those same two full PROM streams with a periodic sample every
+  1,500 microinstructions at each of `127`–`12A`. All four phases give
+  a 2,100 Hz A1 peak and 0/62 A3/A4 errors for both full-code and
+  MSB-only candidates across the six bus orders and both selectors.
+  Distinct byte hashes show that the tone/decision checks do not choose
+  the latch phase. A 375-edge PROM divider is not required in this
+  conditional fixture; the free-running clock, DAC and analog routes
+  remain hypotheses, so C2 stays open.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,
