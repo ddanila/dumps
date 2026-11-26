@@ -115,6 +115,18 @@ byte streams, yet these decisions do not distinguish them. Carry the six
 full-byte routes as explicit C2 candidates and seek a second DAC pin or
 sample-clock/output-node constraint; do not promote the assumed bus, gate
 or filter to verified physical wiring. Keep C2 open and G2 active.
+The [full-byte buffered Tx→Rx→8031 replay](g2/JOINT-MASK04-BUFFERED-FULL-BUS-LOOPBACK.md)
+now takes the previously frozen top-correlation Q4→B5-compatible DAC order
+through real-PROM transmit and receive runs at both candidate latch words.
+The independent decoder is exact; the frozen 46/93 readout makes no wrong
+decisions but abstains on three call or five answer data dibits. A new
+fixed-first fallback to the previously frozen margin selector fills those
+abstentions and recovers all eight line bytes in the **same inspected
+fixture**. Aligned assumed SYNDET reaches controller `B0`; early, late and
+opposite-selector controls stay at `AF`. Freeze this fallback and test a
+separate non-zero payload holdout before claiming generalization. The
+DAC/ADC/decision/USART routes remain hypothetical, so C2/C3 stay open
+and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
