@@ -57,6 +57,15 @@ The next useful route test is to identify the D4 source and the adjacent
 DAC pad, then test their timing together. Missing continuity does not stop
 the remaining C2 and C3 experiments.
 
+The [controller-duration A2 hold replay](JOINT-MASK04-A2-LE-TIMED.md#photo-suggested-b5-path-under-the-same-controller-hold)
+now carries this B5-only route and the possible shared B5+B6 weight
+through two uninterrupted 2,040,256-word PROM runs. For both controller
+selectors, both raw-PROM clock phases and three release offsets, all 24
+photo-bit cases retain a 2,100 Hz tone, modeled A2 silence and 0/62
+filtered A3/A4 errors. The two phases yield identical Y7 sample hashes.
+This strengthens the conditional timing result; it does not trace the
+Y7→D4, controller gate or analog output nets.
+
 The [machine report](results/joint-mask04-photo-b5-y7-route.json)
 contains the PROM sample hashes, tone and phase metrics, receive scores,
 photo/source hashes and explicit limitations. Reproduce from the

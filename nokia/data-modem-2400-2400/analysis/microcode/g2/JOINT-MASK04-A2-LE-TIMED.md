@@ -34,15 +34,44 @@ carry tone, silence, reversals and data through one uninterrupted PROM run
 under all tested DAC bus and latch-phase variants. A changing-code pass-through
 control remains nearly as loud in A2 as A1.
 
+## Photo-suggested B5 path under the same controller hold
+
+The same two real-PROM runs now also project executed Y7 through an assumed
+Y7→74LS273 D4 input and the [photo-suggested Q4→DAC08 B5 segment](JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md).
+Each candidate DAC sample uses B5's eight-count weight. A separate
+sensitivity case uses a twelve-count B5+B6 weight if the adjacent
+D4-to-B6 candidate carries the same held bit. The controller-derived
+74LS373 hold is applied to both candidates; this assumes any shared B6
+input is held by the same upstream stage. The two U10 D2 clock phases
+give **identical 1,360-bit Y7 sample hashes** within each selector,
+although their complete byte captures differ.
+
+| B5/B5+B6 result, 2 selectors × 2 clock phases × 2 weights × 3 release offsets | Observed |
+| --- | ---: |
+| A1 spectral peak | 2,100 Hz in all 24 cases |
+| Late-A2 RMS / late-A1 RMS, changing-code pass-through | 0.991974 |
+| Late-A2 RMS / late-A1 RMS, controller-timed hold | 0.000000 at reported precision |
+| A3/A4 reference decisions after hold | **0/62 errors per case** |
+
+Both selectors still hold the first four or two A3 samples, respectively,
+and all release offsets of ±1 sample retain the same decoder result.
+This joins the earlier short B5 direct-phase check to the longer
+controller-duration A2 interval without changing the underlying real-PROM
+trace. It is one conditional Y7 witness projected through two possible
+DAC weights, not two independent transmitters.
+
 This is not a measured Nokia line output. The CD4094-to-74LS373 enable wire,
 74LS373 data route, 74LS273 strobe, DAC08 bus, analog filter and connector
 route remain untraced. The controller and DSC are not executed on a shared
 instruction clock; their frame event is projected onto the DSC schedule by
 the assumed oscillator dividers and an aligned A2 start. The 1,950 Hz Q=1
-bandpass and independent reference decoder are external models. C2 and G2
+bandpass and independent reference decoder are external models. The B5
+projection additionally assumes Y7 reaches D4; only Q4→B5 is suggested
+by the photo. C2 and G2
 remain open until the output route is independently constrained and the
 remaining acceptance checks pass.
 
 The [machine report](results/joint-mask04-a2-le-timed.json) records all 72
-metrics and both PROM trace digests. Reproduce from the microcode directory
+full-byte and 24 B5/B6 metrics, Y7 hashes and both PROM trace digests.
+Reproduce from the microcode directory
 with `python3 g2/joint_mask04_a2_le_timed.py`.

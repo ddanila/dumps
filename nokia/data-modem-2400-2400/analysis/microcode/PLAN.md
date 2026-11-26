@@ -247,6 +247,15 @@ at the sample edge, the executed-stream replay still gives 2,100 Hz and
 0/62 filtered errors per selector. Treat this as gain sensitivity, not
 net verification; resolve the D4 source/adjacent pad timing while continuing
 other runnable C2/C3 tests.
+The [long controller-timed A2 replay](g2/JOINT-MASK04-A2-LE-TIMED.md#photo-suggested-b5-path-under-the-same-controller-hold)
+now combines that photo-suggested B5 segment with the executed 8031
+frame-hold duration in two uninterrupted 2,040,256-word mask-`04`
+PROM runs. All 24 B5/B5+B6 weight, latch-phase and gate-release cases
+have a 2,100 Hz candidate tone, quiet modeled A2 and 0/62 A3/A4
+filtered errors. Y7 samples match across the two raw-PROM latch phases.
+This is a stronger conditional C2 timing candidate, but Y7→D4,
+CD4094→74LS373, DAC current output and line wiring remain untraced;
+keep C2 open while testing those photo-compatible routes.
 The [latch-phase sweep](g2/JOINT-MASK04-LATCH-PHASE-SWEEP.md) anchors its
 zero-offset recurrence to all 832 Y7 samples in each complete call/answer
 PROM run, then projects all 375 possible sample-clock visit offsets. All

@@ -32,6 +32,9 @@ TXREADY = HERE / 'results/main-loop-usart-txready.json'
 A2_SYMBOLS = 74
 SAMPLES_PER_SYMBOL = 8
 CONTROLLER_TICKS_PER_DAC_SAMPLE = 104
+PHOTO_B5_WEIGHT = 8
+PHOTO_B5_B6_WEIGHT = 12
+PHOTO = HERE.parents[2] / 'photos/PXL_20261123_114854803.jpg'
 
 
 def replay(mapping, base, tx_case, gate_case, buses):
@@ -99,6 +102,38 @@ def replay(mapping, base, tx_case, gate_case, buses):
                                       tone_peak_hz=tone['peak_hz'],
                                       data_errors=score['errors'],
                                       data_decisions=score['decisions']))
+    photo_bit_cases = []
+    photo_y7_sha256 = {}
+    for phase in ('pre_rising', 'post_rom'):
+        y7 = [(value >> 7) & 1 for value in captured[phase]]
+        photo_y7_sha256[phase] = hashlib.sha256(bytes(y7)).hexdigest()
+        for weight in (PHOTO_B5_WEIGHT, PHOTO_B5_B6_WEIGHT):
+            codes = [weight * bit for bit in y7]
+            mid_code = weight // 2
+            pass_line = bandpass([value - mid_code for value in codes], 1.0)
+            pass_tone = rms(pass_line[64:tone_end])
+            pass_a2 = rms(pass_line[a2_end - 32:a2_end]) / pass_tone
+            for offset in (-1, 0, 1):
+                release = gate_high_sample + offset
+                gated = (codes[:tone_end] +
+                         [codes[tone_end - 1]] * (release - tone_end) +
+                         codes[release:])
+                line = bandpass([value - mid_code for value in gated], 1.0)
+                tone = tone_summary(line[64:tone_end])
+                score = decision_result([value + 128 for value in line[a2_end:]],
+                                        symbols, sample_shift=6)
+                photo_bit_cases.append(dict(phase=phase, weight=weight,
+                                            release_sample_offset=offset,
+                                            release_sample=release,
+                                            hold_code=codes[tone_end - 1],
+                                            pass_through_late_a2_to_a1_rms=round(
+                                                pass_a2, 6),
+                                            hold_late_a2_to_a1_rms=round(
+                                                rms(line[a2_end - 32:a2_end]) /
+                                                rms(line[64:tone_end]), 6),
+                                            tone_peak_hz=tone['peak_hz'],
+                                            data_errors=score['errors'],
+                                            data_decisions=score['decisions']))
     return dict(selector=selector, cycles=cycles,
                 trace_digest=result['trace_digest'],
                 raw_rising_edges=captured['raw_rising_edges'],
@@ -108,7 +143,9 @@ def replay(mapping, base, tx_case, gate_case, buses):
                 controller_gate_held_ticks=gate_ticks,
                 assumed_gate_high_sample=gate_high_sample,
                 a3_held_samples=gate_high_sample-a2_end,
-                bus_cases=bus_cases)
+                bus_cases=bus_cases,
+                photo_y7_sha256=photo_y7_sha256,
+                photo_bit_cases=photo_bit_cases)
 
 
 def run(out=HERE / 'results/joint-mask04-a2-le-timed.json'):
@@ -130,6 +167,7 @@ def run(out=HERE / 'results/joint-mask04-a2-le-timed.json'):
                             buses))
         print('completed', selector, flush=True)
     rows = [row for case in cases for row in case['bus_cases']]
+    photo_rows = [row for case in cases for row in case['photo_bit_cases']]
     report = dict(
         status='A real-PROM joint-map run extends A2 to the controller-derived hold duration and applies the candidate 74LS373 enable at the observed frame boundary.',
         fixture=dict(mapping='joint upper-source lower mask 04',
@@ -139,7 +177,7 @@ def run(out=HERE / 'results/joint-mask04-a2-le-timed.json'):
                      gate='third CD4094 frame byte bit 0 to assumed 74LS373 C/LE; active-high transparent, low holds last A1 code',
                      gate_fall='aligned to first A2 sample; release rounded from observed frame-latch hold ticks',
                      release_offsets_tested=[-1, 0, 1],
-                     dac='two U10 D2 latch phases and six photo-compatible DAC buses',
+                     dac='two U10 D2 latch phases and six photo-compatible DAC buses; separate Y7-to-LS273-D4/Q4-to-DAC08-B5 candidate, with possible D4-to-B6 shared input',
                      analog='assumed 1950 Hz Q=1 bandpass'),
         cases=cases,
         summary=dict(cases=len(rows),
@@ -149,15 +187,24 @@ def run(out=HERE / 'results/joint-mask04-a2-le-timed.json'):
                      hold_a2_rms_range=[min(row['hold_late_a2_to_a1_rms'] for row in rows),
                                         max(row['hold_late_a2_to_a1_rms'] for row in rows)],
                      data_error_range=[min(row['data_errors'] for row in rows),
-                                       max(row['data_errors'] for row in rows)]),
+                                       max(row['data_errors'] for row in rows)],
+                     photo_bit_cases=len(photo_rows),
+                     photo_bit_tone_peaks_hz=sorted({row['tone_peak_hz'] for row in photo_rows}),
+                     photo_bit_pass_a2_rms_range=[min(row['pass_through_late_a2_to_a1_rms'] for row in photo_rows),
+                                                   max(row['pass_through_late_a2_to_a1_rms'] for row in photo_rows)],
+                     photo_bit_hold_a2_rms_range=[min(row['hold_late_a2_to_a1_rms'] for row in photo_rows),
+                                                   max(row['hold_late_a2_to_a1_rms'] for row in photo_rows)],
+                     photo_bit_data_error_range=[min(row['data_errors'] for row in photo_rows),
+                                                 max(row['data_errors'] for row in photo_rows)]),
         limitations=[
             'The DSC executes an extended A2 fixture, but its controller input schedule is reconstructed rather than co-simulated instruction by instruction.',
             'The A2 gate fall is aligned to an assumed sample phase; release is rounded to a DAC sample and tested at ±1 sample.',
             'CD4094-to-74LS373, latch data, DAC bus, analog filter and physical line connections remain untraced.',
+            'Only the LS273 Q4-to-DAC08 B5 segment is photo-suggested; Y7-to-D4 and the possible D4-to-B6 segment remain hypotheses.',
             'An independent reference decoder scores the candidate waveform; this does not establish a physical line output or pass C2.'],
         source_sha256={str(path.relative_to(HERE.parents[2])):
                        hashlib.sha256(path.read_bytes()).hexdigest()
-                       for path in [Path(__file__), TIMING, TXREADY, BUSES,
+                       for path in [Path(__file__), TIMING, TXREADY, BUSES, PHOTO,
                                     HERE / 'joint_four_row_retention_tx.py',
                                     HERE / 'photo_tx_divided_prom_clock.py',
                                     HERE.parent / 'assumed/execute.py', MAPPINGS['q3'],

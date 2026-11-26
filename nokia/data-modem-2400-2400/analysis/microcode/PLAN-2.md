@@ -1880,6 +1880,13 @@ Listed in order of value per effort:
   This is a scaled version of the existing Y7 waveform, not a second
   independent transmit witness or a physical C2 pass. The alternative
   B5 and B1 bus assignments need a distinguishing pin/output constraint.
+  The [controller-duration hold replay](g2/JOINT-MASK04-A2-LE-TIMED.md#photo-suggested-b5-path-under-the-same-controller-hold)
+  extends the photo-suggested B5 route to both uninterrupted
+  2,040,256-word selector runs. All 24 B5/B5+B6 timing cases retain a
+  2,100 Hz tone, modeled A2 silence and 0/62 A3/A4 filtered errors;
+  Y7 samples agree across the two tested raw-PROM latch phases. This
+  constrains a longer candidate timing path, while Y7→D4, the A2 hold
+  gate and the analog line route remain assumed, so C2 is still open.
 - **C3 Receive test.** Encode reference line samples as ADC0800 complementary
   bytes under an explicit reference range and conversion schedule, feed them
   through the identified input path, and check that recovered bits reach the
