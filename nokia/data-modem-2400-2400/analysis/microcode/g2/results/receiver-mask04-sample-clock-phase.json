@@ -1,0 +1,567 @@
+{
+  "clean_phases": [
+    -3,
+    -2,
+    -1
+  ],
+  "experiment": "sample-clock and 2,400-bit/s RxC phase on executed mask-04 receiver",
+  "first_3f8_cycle": 63,
+  "first_latch_edge": 64,
+  "fixture": {
+    "assumed_microcycles_per_oscillator_period": 1,
+    "degrees": 45,
+    "microcycles_per_sample": 1500,
+    "oscillator_hz": 14400000,
+    "sample_clock_phase": "relative to first 3F8->3F9 latch edge",
+    "samples_per_symbol": 8,
+    "seed": 19985
+  },
+  "limitations": [
+    "The 14.4 MHz oscillator-to-microinstruction route, 9.6 kHz divider, counter reset/phase, RxC driver and latch nets are untraced.",
+    "The 74LS161/74LS169 packages have counter capacity but no pin-level clock or output route is established.",
+    "The ADC sample hold schedule is a fixture assumption, not a measured sample clock."
+  ],
+  "receive_edges": 6000,
+  "rxc": [
+    {
+      "bit0_sample_index": 3,
+      "bit0_setup_microcycles": [
+        1478
+      ],
+      "bit1_sample_index": 7,
+      "bit_spacing_microcycles": 6000,
+      "sample_clock_phase": -3,
+      "sample_index_2_control_setup": [
+        -22
+      ]
+    },
+    {
+      "bit0_sample_index": 3,
+      "bit0_setup_microcycles": [
+        1479
+      ],
+      "bit1_sample_index": 7,
+      "bit_spacing_microcycles": 6000,
+      "sample_clock_phase": -2,
+      "sample_index_2_control_setup": [
+        -21
+      ]
+    },
+    {
+      "bit0_sample_index": 3,
+      "bit0_setup_microcycles": [
+        1480
+      ],
+      "bit1_sample_index": 7,
+      "bit_spacing_microcycles": 6000,
+      "sample_clock_phase": -1,
+      "sample_index_2_control_setup": [
+        -20
+      ]
+    }
+  ],
+  "sample_clock_phases": [
+    {
+      "mismatched_visits": 128,
+      "phase": -32,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": -31,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": -30,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": -29,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": -28,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": -27,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": -26,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": -25,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": -24,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": -23,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": -22,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": -21,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": -20,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": -19,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": -18,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": -17,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": -16,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": -15,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": -14,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": -13,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": -12,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": -11,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": -10,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": -9,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": -8,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": -7,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": -6,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": -5,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": -4,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 0,
+      "phase": -3,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 0,
+      "phase": -2,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 0,
+      "phase": -1,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 0,
+      "phase": 0,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": 1,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": 2,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": 3,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 16,
+      "phase": 4,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": 5,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": 6,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": 7,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 32,
+      "phase": 8,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": 9,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": 10,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": 11,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 48,
+      "phase": 12,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": 13,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": 14,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": 15,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 64,
+      "phase": 16,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": 17,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": 18,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": 19,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 80,
+      "phase": 20,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": 21,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": 22,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": 23,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 96,
+      "phase": 24,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": 25,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": 26,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": 27,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 112,
+      "phase": 28,
+      "same_cycle_sample_and_latch": 16
+    },
+    {
+      "mismatched_visits": 128,
+      "phase": 29,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 128,
+      "phase": 30,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 128,
+      "phase": 31,
+      "same_cycle_sample_and_latch": 0
+    },
+    {
+      "mismatched_visits": 128,
+      "phase": 32,
+      "same_cycle_sample_and_latch": 16
+    }
+  ],
+  "selected_row3": [
+    {
+      "cycle": 1578,
+      "symbol": 0,
+      "visit": 47
+    },
+    {
+      "cycle": 3082,
+      "symbol": 0,
+      "visit": 94
+    },
+    {
+      "cycle": 13578,
+      "symbol": 1,
+      "visit": 47
+    },
+    {
+      "cycle": 15082,
+      "symbol": 1,
+      "visit": 94
+    },
+    {
+      "cycle": 25578,
+      "symbol": 2,
+      "visit": 47
+    },
+    {
+      "cycle": 27082,
+      "symbol": 2,
+      "visit": 94
+    },
+    {
+      "cycle": 37578,
+      "symbol": 3,
+      "visit": 47
+    },
+    {
+      "cycle": 39082,
+      "symbol": 3,
+      "visit": 94
+    },
+    {
+      "cycle": 49578,
+      "symbol": 4,
+      "visit": 47
+    },
+    {
+      "cycle": 51082,
+      "symbol": 4,
+      "visit": 94
+    },
+    {
+      "cycle": 61578,
+      "symbol": 5,
+      "visit": 47
+    },
+    {
+      "cycle": 63082,
+      "symbol": 5,
+      "visit": 94
+    },
+    {
+      "cycle": 73578,
+      "symbol": 6,
+      "visit": 47
+    },
+    {
+      "cycle": 75082,
+      "symbol": 6,
+      "visit": 94
+    },
+    {
+      "cycle": 85578,
+      "symbol": 7,
+      "visit": 47
+    },
+    {
+      "cycle": 87082,
+      "symbol": 7,
+      "visit": 94
+    },
+    {
+      "cycle": 97578,
+      "symbol": 8,
+      "visit": 47
+    },
+    {
+      "cycle": 99082,
+      "symbol": 8,
+      "visit": 94
+    },
+    {
+      "cycle": 109578,
+      "symbol": 9,
+      "visit": 47
+    },
+    {
+      "cycle": 111082,
+      "symbol": 9,
+      "visit": 94
+    },
+    {
+      "cycle": 121578,
+      "symbol": 10,
+      "visit": 47
+    },
+    {
+      "cycle": 123082,
+      "symbol": 10,
+      "visit": 94
+    },
+    {
+      "cycle": 133578,
+      "symbol": 11,
+      "visit": 47
+    },
+    {
+      "cycle": 135082,
+      "symbol": 11,
+      "visit": 94
+    },
+    {
+      "cycle": 145578,
+      "symbol": 12,
+      "visit": 47
+    },
+    {
+      "cycle": 147082,
+      "symbol": 12,
+      "visit": 94
+    },
+    {
+      "cycle": 157578,
+      "symbol": 13,
+      "visit": 47
+    },
+    {
+      "cycle": 159082,
+      "symbol": 13,
+      "visit": 94
+    },
+    {
+      "cycle": 169578,
+      "symbol": 14,
+      "visit": 47
+    },
+    {
+      "cycle": 171082,
+      "symbol": 14,
+      "visit": 94
+    },
+    {
+      "cycle": 181578,
+      "symbol": 15,
+      "visit": 47
+    },
+    {
+      "cycle": 183082,
+      "symbol": 15,
+      "visit": 94
+    }
+  ],
+  "source_sha256": {
+    "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "analysis/microcode/g2/receiver_mask04_3f8_gate_timing.py": "13ba60d0918f534d5af49398f41c9566349812b16aa45c1e568680b41a77a333",
+    "analysis/microcode/g2/receiver_mask04_carrier_phase_screen.py": "c8e9524f385d07a4016fce6959ca4393f0ccb9d7a0212c86729db3ae5c5e5264",
+    "analysis/microcode/g2/receiver_mask04_protocol_preamble.py": "4b6f149d8e1470fcc2c9e3fb83d17f44751e4aa072fb026a2c3e480c8d0a3020",
+    "analysis/microcode/g2/receiver_mask04_sample_clock_phase.py": "13bcdeed6ce7d5e5a048e475c5e3b862aa5e29198358749ca3db3ed90ab92215",
+    "analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  },
+  "startup_edges": 1,
+  "trace_digest": "b48bdf8e967a0ef97b55a6cc5554cf33d26d15770481e656a9fb10267f0b2a9c"
+}

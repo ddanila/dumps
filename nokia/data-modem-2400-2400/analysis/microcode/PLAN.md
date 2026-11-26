@@ -251,6 +251,16 @@ abstain (11/31). Both decode the unmodified stream, so the diagnostic
 does not identify the physical phase. Constrain the symbol clock from
 photo-compatible dividers or another natural phase-sensitive stimulus,
 then test the two-visit consumer and RxD/RxC route; keep C3 open and G2 active.
+The [sample-clock phase replay](g2/RECEIVER-MASK04-SAMPLE-CLOCK-PHASE.md)
+tests the photographed 14.4 MHz oscillator against all 6,000 executed
+receive visits. With one microinstruction per oscillator period and a
+9,600 Hz sample clock, only offsets −3, −2 and −1 microcycles from the
+first `3F8→3F9` latch edge match the 47/46-visit input schedule without
+a same-cycle race. A 2,400 Hz RxC edge at sample index 3 leaves
+1,478–1,480 cycles after the second capture; index 2 is 20–22 cycles
+too early. This constrains a runnable clock hypothesis, not the traced
+divider or physical phase. Test the oscillator/counter continuation and
+the two-visit symbol consumer next; C3 remains open.
 The [dual-feature zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
 now runs two 768,047-word real-PROM receive traces at 75°/165° through
 32 `11` preamble symbols and eight controller-scrambled zero octets.

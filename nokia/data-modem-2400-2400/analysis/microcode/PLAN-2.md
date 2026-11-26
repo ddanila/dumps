@@ -1387,6 +1387,15 @@ phases B–C turn "what" into "how".
   (13/31), whereas flips at 46/93 make only row 0 abstain (11/31).
   Both natural readouts still pass; use photo-compatible clock dividers
   or a natural phase-sensitive fixture to choose the board phase.
+  The [sample-clock phase replay](g2/RECEIVER-MASK04-SAMPLE-CLOCK-PHASE.md)
+  now verifies the exact 32-cycle receive-visit cadence across 6,000
+  executed visits. At an assumed 14.4 MHz microinstruction rate, a
+  1,500-cycle sample clock matches the offered 9,600 Hz ADC schedule
+  without an edge race only at offsets −3, −2 or −1 from the first
+  `3F8→3F9` latch edge. Candidate RxC sampling at sample index 3 has
+  1,478–1,480 cycles after visit-94 row 3; index 2 is too early.
+  The oscillator divider, counter assignments and physical clock phase
+  remain untraced; test those routes and the symbol-rate consumer.
   The [two-visit zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
   now feeds the controller's actual scrambled eight-zero-octet streams
   through two continuous mask-`04` PROM runs at 75° and 165°. The frozen
