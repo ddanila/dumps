@@ -225,6 +225,14 @@ adds the timing condition: the raw PROM bit rises at `129` and falls at
 `12A`, but preceding-word Y at both edges is bank-insensitive. The
 bank-dependent `12A` Y must settle before any candidate DAC latch
 captures it. No clock/data propagation order is established by the photos.
+The [two-stage hold replay](../g2/JOINT-MASK04-TX-12A-TWO-STAGE-LATCH.md)
+models the photographed 74LS373 as transparent during `12A`, closing at
+`12A→127`, and the nearby 74LS273 as clocked later by a possible
+`127→128` PROM decode. Across call/answer and both selected ROM banks,
+the held route preserves 198/202 bank-sensitive samples while a
+transparent-through-`127` control preserves none. This is a more explicit
+conditional output-timing route; neither chip's data/clock nets nor the
+DAC08 input byte has been identified electrically.
 The [photo-B5 alternative](../g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 projects those same executed Y7 samples through an assumed LS273 D4
 input and the photo-suggested Q4→DAC08 B5 segment. It preserves the

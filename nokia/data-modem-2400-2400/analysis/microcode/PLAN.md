@@ -101,8 +101,18 @@ Capturing preceding `12A` Y at every 375th NAND edge changes 198/202 of
 A1 peak plus 0/62 A3/A4 errors on all six bus orders. Capturing settled
 `127` Y after a later edge gives no bank-sensitive samples and 0–3 data
 errors, depending on selector and bus. The early gate/Y ordering is now
-a precise conditional C2 requirement; test its timing or the predicted
-16-count output-code contrast, and keep C2 open until the route is constrained.
+a precise requirement for a **direct** 74LS273 clock; test its timing or
+an intervening hold stage, and keep C2 open until the route is constrained.
+The [two-stage 74LS373→74LS273 replay](g2/JOINT-MASK04-TX-12A-TWO-STAGE-LATCH.md)
+now tests that alternative in four full call/answer × ROM-bank executions.
+An assumed 74LS373 transparent only at `12A` holds settled Y after its
+enable closes on `12A→127`; a three-bit raw-PROM decode can clock the
+74LS273 later at `127→128` in the tested loop. Every 375th held sample
+retains the 198/202 bank-sensitive bytes, while a transparent-through-`127`
+control retains none. The proposed 127 decode has seven full-store hits,
+so it is mode-specific. This supplies a concrete late-clock circuit
+hypothesis without identifying the latch pins, divider, DAC or analog route.
+Test those photo-compatible nets and timing alternatives; C2/G2 stay active.
 The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
 now substitutes the `12A` latch into the full controller-bit/PROM path.
 At the existing six-sample alignment, an independent line decoder gives

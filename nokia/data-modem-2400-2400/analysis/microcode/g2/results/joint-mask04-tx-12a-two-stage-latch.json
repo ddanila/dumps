@@ -1,0 +1,88 @@
+{
+  "experiment": "photo-compatible 74LS373 hold then 74LS273 delayed-clock candidate",
+  "fixture": {
+    "le373": "U11.D0 & U17.D1 high only at 12A in tested mode",
+    "le373_closes": "12A->127 after 12A Y settles",
+    "clk273": "NAND of U11.D6 & U17.D0 & U18.D2 rises at 127->128",
+    "clock_divisor": 375,
+    "selected_samples": 832,
+    "trace_cycles": 1248256,
+    "control": "LE373 stays transparent through new 127 Y"
+  },
+  "gate_screen": {
+    "reached_pc_count": 39,
+    "high_only_at": "127",
+    "nand_rising_edges": {
+      "127->128": 1014
+    },
+    "one_or_two_literal_127_decodes": 0,
+    "whole_store_high_addresses": [
+      "036",
+      "127",
+      "12C",
+      "187",
+      "1DF",
+      "29F",
+      "3FF"
+    ]
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "selected_latch_edges": 832,
+      "held_12a_bank_changed_samples": 198,
+      "transparent_127_bank_changed_samples": 0,
+      "banks": {
+        "256": {
+          "trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd",
+          "held_12a_sha256": "dd5791001161a79a04cceff06859ccb3831d2ec9003f6f7dbdd040798988f079",
+          "through_127_sha256": "c95156aec890499d5206724c348f8715be213a6f07303ebc7fef9c4ef473d6e6"
+        },
+        "0": {
+          "trace_digest": "acb3cb94d709e3a1e7ec1f066ab77c8d6b7fc62c0af2cddccfbcaac21e6b3025",
+          "held_12a_sha256": "eaab573216c63bb7b384c4aa751e576b7d43342e400341e9bb9e86b0809f6578",
+          "through_127_sha256": "c95156aec890499d5206724c348f8715be213a6f07303ebc7fef9c4ef473d6e6"
+        }
+      }
+    },
+    {
+      "selector": "60",
+      "selected_latch_edges": 832,
+      "held_12a_bank_changed_samples": 202,
+      "transparent_127_bank_changed_samples": 0,
+      "banks": {
+        "256": {
+          "trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5",
+          "held_12a_sha256": "c38f70fa11566fb3b0ce208a6a4865544fc1ba566ca39477abeae901378f1c03",
+          "through_127_sha256": "62102c6b9ce1a64622bfd550094b10c19c58244db4021b64b968e1facc336721"
+        },
+        "0": {
+          "trace_digest": "248a7a25012ca1226dd0291f10793ae11cabad36e6f07bc3af25d58eea68fdb8",
+          "held_12a_sha256": "f618ddbad81c91c2e7f987068ea3ad0e9da49b374aeff1026346c628942a9ad5",
+          "through_127_sha256": "62102c6b9ce1a64622bfd550094b10c19c58244db4021b64b968e1facc336721"
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "The 74LS373/74LS273 data and clock nets, counter division and relative propagation delays are not traced.",
+    "The 127 decode has seven whole-store hits and is exclusive only in the tested transmit-mode reached-PC set.",
+    "The hold-stage digital bytes are not identified DAC08 input bytes or measured line current."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_12a_two_stage_latch.py": "d35d43b1388bd8df42e494caf5df46ca265dd421831a9a7661459c33c34d0a34",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-12a-delayed-latch.json": "dd2a2dd6069e6f342298dc676c724e8da9da0912d6f6ddf28df47ce076c39cb2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-bank-phase.json": "9a0ba239192c94978a08cd8d8e34e69d4b9e1b5074f61d66e39abb2feb56b482",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-12a-gate.json": "c9014faa402fb32a2e5fbb99919504baa774254253e8a2c2b3117d2fc58acb8a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_rom_impact.py": "4c2bfde8f126b1fad3becb9f44a4ced6a8d868c5afae310eeeef707f48196d0c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_bank_phase.py": "7415192494eceaba3d31cad3171d947b7f7ee4718a54d6d13fb03b1bc69d8de0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_12a_delayed_latch.py": "7746afd7122cd0c007a7797374de29b6e61461ab7cf004dce81628aa017651cd",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}

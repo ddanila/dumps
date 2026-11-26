@@ -1897,6 +1897,14 @@ Listed in order of value per effort:
   misses the bank-dependent byte; only settled `12A` Y differs on
   221/1,014 falling-edge visits in the held-tone run. Constrain a
   post-`12A` capture phase before promoting this candidate to C2 evidence.
+  The [74LS373→74LS273 hold replay](g2/JOINT-MASK04-TX-12A-TWO-STAGE-LATCH.md)
+  supplies a later-clock alternative to a timing-critical direct latch.
+  The proposed 74LS373 enable is high at `12A` and closes at `127`;
+  an independent three-bit PROM decode can give a counter-qualified
+  74LS273 rising clock at `127→128`. In four full real-PROM runs the held
+  route preserves 198/202 ROM-bank-sensitive DAC candidates, while the
+  transparent-through-`127` control preserves none. Neither latch's pins,
+  divider or DAC/line net is traced; this remains conditional C2 evidence.
   The [R1/Y7 phase replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
   then verifies the executed mechanism over the first 18 continuous
   controller-derived A4 dibits of both selectors: R1 advances by D127
