@@ -1230,6 +1230,17 @@ not a measured line residual or a rejection of external echo RAM.
 Try another photo-compatible RAM return/output or controller mode path
 with the same own-echo, remote and zero controls; keep C4 open and G2
 active without waiting for a pin-level trace.
+The [expanded four-row RAM screen](g2/JOINT-MASK04-EXTERNAL-RAM-ECHO-SCREEN.md#other-executed-outputs-and-an-earlier-ram-return)
+now checks all three visited Y sites and a second low-nibble return at
+`3EB`. With `3FA` return, the RAM changes only early `Y3FA`; late
+own-echo and remote response is identical to no-feedback at `Y3F8`,
+`Y3F9` and `Y3FA`. With `3EB` return, all four stimuli sustain the
+receive loop and changed RAM bytes are read, but complete PROM trace
+digests match their no-feedback controls. The changed `3EB` D byte is
+selected by the ALU yet leaves F/Y unchanged in a differential trace.
+These two low-nibble routes do not demonstrate echo cancellation. Try a
+mode-qualified or differently timed return, high-nibble route or a
+distinct output latch with the same controls; C4 stays open and G2 active.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under

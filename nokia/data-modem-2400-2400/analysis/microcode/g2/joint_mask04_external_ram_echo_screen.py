@@ -29,10 +29,11 @@ ECHO_DELAY = 3
 ECHO_GAIN = 0.5
 REMOTE_GAIN = 0.25
 REMOTE_SEED = 0x3558
-ROUTES = (('3fa_low_no_feedback', False, 0x3FA),
-          ('3fa_low_read_previous_3', True, 0x3FA),
-          ('3f9_low_no_feedback', False, 0x3F9),
-          ('3f9_low_read_previous_3', True, 0x3F9))
+ROUTES = (('3fa_low_no_feedback', False, 0x3FA, 0x3FA),
+          ('3fa_low_read_previous_3', True, 0x3FA, 0x3FA),
+          ('3f9_low_no_feedback', False, 0x3F9, 0x3FA),
+          ('3f9_low_read_previous_3', True, 0x3F9, 0x3FA),
+          ('3f9_low_read_3eb_previous_3', True, 0x3F9, 0x3EB))
 BASELINES = {0x3FA: '3fa_low_no_feedback', 0x3F9: '3f9_low_no_feedback'}
 
 
@@ -88,13 +89,13 @@ def run(out=HERE / 'results/joint-mask04-external-ram-echo-screen.json'):
                for _ in range(47 if index % 8 < 7 else 46)]
         if len(adc) != VISITS:
             raise ValueError('held ADC visit count changed')
-        for route, feedback, latch_pc in ROUTES:
+        for route, feedback, latch_pc, read_pc in ROUTES:
             scenario = configured(base, adc, 'previous', 'overflow', 1)
             scenario.update(external_ram_feedback=feedback,
                             external_ram_write=True,
                             external_ram_lane='low',
                             external_ram_latch_pc=latch_pc,
-                            external_ram_read_pc=0x3FA,
+                            external_ram_read_pc=read_pc,
                             external_ram_read_offset=-3,
                             external_ram_write_until=TRAIN_VISITS,
                             external_ram_address_tick_visits=ticks)
@@ -104,6 +105,7 @@ def run(out=HERE / 'results/joint-mask04-external-ram-echo-screen.json'):
             observations[(name, route)] = memory['y_by_pc']
             rows.append(dict(stimulus=name, route=route,
                              latch_pc=f'{latch_pc:03X}',
+                             read_pc=f'{read_pc:03X}',
                              input_sha256=hashlib.sha256(bytes(offered)).hexdigest(),
                              adc_sha256=hashlib.sha256(bytes(adc)).hexdigest(),
                              clean=result['clean'],
@@ -121,33 +123,40 @@ def run(out=HERE / 'results/joint-mask04-external-ram-echo-screen.json'):
             print(name, route, rows[-1]['adc_visits'],
                   rows[-1]['loop_exits'], flush=True)
     by_key = {(row['stimulus'], row['route']): row for row in rows}
-    comparisons = {}
-    for route, _, _ in ROUTES:
-        channels = {name: observations[(name, route)][0x3FA]
-                    for name in inputs}
-        if any(len(values) != VISITS for values in channels.values()):
-            comparisons[route] = None
-            continue
-        windows = dict(early=slice(0, 32 * 375 // 8),
-                       late=slice(96 * 375 // 8, TRAIN_VISITS),
-                       tail=slice(TRAIN_VISITS, VISITS))
-        comparisons[route] = {}
-        for window, interval in windows.items():
-            take = lambda name: channels[name][interval]
-            comparisons[route][window] = dict(
-                own_vs_zero=mean_absolute_difference(take('own_echo'), take('zero')),
-                remote_vs_zero=mean_absolute_difference(take('independent_remote'), take('zero')),
-                mixed_vs_remote=mean_absolute_difference(take('remote_plus_echo'), take('independent_remote')),
-                mixed_vs_own=mean_absolute_difference(take('remote_plus_echo'), take('own_echo')))
+    comparisons_by_pc = {}
+    windows = dict(early=slice(0, 32 * 375 // 8),
+                   late=slice(96 * 375 // 8, TRAIN_VISITS),
+                   tail=slice(TRAIN_VISITS, VISITS))
+    for pc in (0x3F8, 0x3F9, 0x3FA):
+        site = f'{pc:03X}'
+        comparisons_by_pc[site] = {}
+        for route, _, _, _ in ROUTES:
+            channels = {name: observations[(name, route)][pc]
+                        for name in inputs}
+            if any(len(values) != VISITS for values in channels.values()):
+                comparisons_by_pc[site][route] = None
+                continue
+            comparisons_by_pc[site][route] = {}
+            for window, interval in windows.items():
+                take = lambda name: channels[name][interval]
+                comparisons_by_pc[site][route][window] = dict(
+                    own_vs_zero=mean_absolute_difference(take('own_echo'), take('zero')),
+                    remote_vs_zero=mean_absolute_difference(take('independent_remote'), take('zero')),
+                    mixed_vs_remote=mean_absolute_difference(take('remote_plus_echo'), take('independent_remote')),
+                    mixed_vs_own=mean_absolute_difference(take('remote_plus_echo'), take('own_echo')))
+    comparisons = comparisons_by_pc['3FA']
     for row in rows:
         control_name = BASELINES[int(row['latch_pc'], 16)]
         control = by_key[(row['stimulus'], control_name)]
         row['same_trace_as_no_feedback'] = row['trace_digest'] == control['trace_digest']
-        test = observations[(row['stimulus'], row['route'])][0x3FA]
-        baseline = observations[(row['stimulus'], control_name)][0x3FA]
-        row['tail_y3fa_changes_vs_control'] = (
-            sum(a != b for a, b in zip(test[TRAIN_VISITS:], baseline[TRAIN_VISITS:]))
-            if len(test) == len(baseline) == VISITS else None)
+        row['tail_y_changes_vs_control'] = {}
+        for pc in (0x3F8, 0x3F9, 0x3FA):
+            test = observations[(row['stimulus'], row['route'])][pc]
+            baseline = observations[(row['stimulus'], control_name)][pc]
+            row['tail_y_changes_vs_control'][f'{pc:03X}'] = (
+                sum(a != b for a, b in zip(test[TRAIN_VISITS:], baseline[TRAIN_VISITS:]))
+                if len(test) == len(baseline) == VISITS else None)
+        row['tail_y3fa_changes_vs_control'] = row['tail_y_changes_vs_control']['3FA']
     paths = (Path(__file__), PRIOR_TX,
              HERE / 'joint_mask04_full_zero_analog_variants.py',
              HERE / 'joint_upper_ram_feedback_screen.py',
@@ -162,9 +171,10 @@ def run(out=HERE / 'results/joint-mask04-external-ram-echo-screen.json'):
                                own_echo_gain=ECHO_GAIN, own_echo_delay=ECHO_DELAY,
                                remote_gain=REMOTE_GAIN, remote_seed=REMOTE_SEED,
                                ram='hypothetical 256x8, low-nibble 3FA or 3F9 Y latch written at 3EC, D0 forced high',
-                               read='3FA D low nibble from address minus three samples',
+                               read='3FA or 3EB D low nibble from address minus three samples',
                                freeze='after 128 held ADC samples'),
                   cases=rows, y3fa_code_space_comparisons=comparisons,
+                  y_by_pc_code_space_comparisons=comparisons_by_pc,
                   limitations=[
                       'RAM address, data, write gate and return route are assumptions; the model is not measured board wiring.',
                       'The Y3FA byte difference is a code-space diagnostic, not a physical analog residual.',

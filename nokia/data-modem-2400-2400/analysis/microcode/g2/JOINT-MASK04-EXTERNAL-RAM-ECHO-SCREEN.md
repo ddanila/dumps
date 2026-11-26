@@ -60,3 +60,35 @@ contains all trace and memory hashes, loop counts, first changed reads
 and early/late code-space comparisons. Reproduce with
 `python3 g2/joint_mask04_external_ram_echo_screen.py` from the microcode
 directory.
+
+## Other executed outputs and an earlier RAM return
+
+The expanded replay scores the same four stimuli at all three visited
+outputs, `Y3F8`, `Y3F9` and `Y3FA`. With the `3F9` latch and `3FA` low-nibble
+return, the feedback route leaves the first two output streams identical
+to the no-feedback control. At `Y3FA` it changes the early response but
+matches the control in the last 32 training samples and common zero tail:
+
+| Output | Late mixed-minus-remote, no feedback | Late mixed-minus-remote, `3FA` return | Late remote-minus-zero, both |
+| --- | ---: | ---: | ---: |
+| `Y3F8` | 22.027 | 22.027 | 17.504 |
+| `Y3F9` | 19.318 | 19.318 | 9.003 |
+| `Y3FA` | 0.439 | 0.439 | 0.313 |
+
+A second photo-compatible hypothesis returns the same frozen RAM low
+nibble at earlier `3EB` instead. All four cases complete 9,000 ADC visits,
+with no receive-loop exit, and the RAM holds 128/84/88/92 changed addresses
+after zero/own/remote/mixed training. The first changed read is real within
+the fixture: for zero and own echo, address 1 supplies `09` at cycle 1,172.
+Yet each complete PROM trace digest is **identical** to its no-feedback
+control; all three Y streams and the late code-space comparisons match.
+A short differential trace confirms that at cycle 1,172 the `3EB` external
+read is marked selected by the ALU, but changing D from `01` to `09` leaves
+ALU F=`00` and Y=`F2` in both runs. The selected low-nibble value is thus
+ineffective under this mapping and state at that point; the full-run digest
+shows no later effect in the tested fixture.
+
+Neither return produces a selective, sustained echo residual at these
+executed byte sites. This does not rule out a high-nibble or differently
+timed route, another output latch, or a mode-qualified training circuit.
+Keep C4 open and test one of those alternatives with the same controls.
