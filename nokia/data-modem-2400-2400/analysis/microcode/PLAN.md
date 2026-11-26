@@ -272,11 +272,24 @@ connected four-phase assignment under only two mirror-image dibit
 conventions. A frozen phase-difference decoder matches all 12
 third-payload holdouts at offsets 32/96 and 75/100/125% gain, 64/64
 dibits each. Separately minimized Boolean covers use three terms per
-phase bit and also matches those holdouts, but treats 46 unseen states
+phase bit and also match those holdouts, but treat 46 unseen states
 as don't-cares. At the one-visit-late edge it makes 19 call and 21
-answer errors, rejecting that clock for the compact circuit. Test a
-fresh unseen-state stimulus and compare the frozen logic with
-photo-compatible latch/gate routes; C3 remains open.
+answer errors, rejecting that clock for the compact circuit. It
+remained a candidate pending an unseen-state and carrier-start test.
+The [fresh phase-logic challenge](g2/JOINT-MASK04-12A-PHASE-LOGIC-FRESH.md)
+now supplies that test. New eight-byte payloads in both modes, at
+untrained running R1 offsets 16 and 80, make the frozen 91-key table
+leave 29–63 of 64 data transitions unknown. The frozen Boolean phase
+rule makes 19–24 wrong decisions per run, while an independent
+reference decoder is exact in all four. Two new six-bit states occur,
+but 16 of the Boolean errors across the four runs involve only
+previously known states. Adding either fresh offset to development
+leaves no consistent static four-phase assignment under any dibit
+convention. This rules out the **static six-bit/two-capture phase
+decoder** across these fixtures, not demodulation itself. Try a
+photo-compatible carrier/timing-history or extra-visit consumer,
+then freeze it for untouched data and phase starts; do not block on
+the untraced clock or logic route.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)

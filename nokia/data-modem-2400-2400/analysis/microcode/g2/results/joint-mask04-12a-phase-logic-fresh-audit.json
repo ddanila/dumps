@@ -1,0 +1,265 @@
+{
+  "experiment": "fresh-payload carrier-start audit of frozen six-bit phase logic",
+  "cases": {
+    "16": [
+      {
+        "selector": "40",
+        "payload": [
+          "53",
+          "A1",
+          "0C",
+          "F7",
+          "2D",
+          "84",
+          "B9",
+          "6E"
+        ],
+        "wrong": 19,
+        "known_state_transition_wrong_indices": [
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "new_state_transition_wrong_indices": [
+          33,
+          34,
+          35,
+          36,
+          42,
+          43,
+          44,
+          46,
+          48,
+          50,
+          53,
+          54,
+          57,
+          61
+        ],
+        "new_states": [
+          "01",
+          "35"
+        ],
+        "lookup_unknown": 63,
+        "lookup_new_keys": 13,
+        "reference_wrong": 0,
+        "line_bytes_recovered": null
+      },
+      {
+        "selector": "60",
+        "payload": [
+          "C4",
+          "37",
+          "9A",
+          "05",
+          "E2",
+          "71",
+          "8F",
+          "D0"
+        ],
+        "wrong": 24,
+        "known_state_transition_wrong_indices": [
+          55,
+          56,
+          63
+        ],
+        "new_state_transition_wrong_indices": [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          41,
+          42,
+          43,
+          45,
+          46,
+          47,
+          48,
+          50,
+          51,
+          52,
+          53,
+          54,
+          57,
+          62,
+          64
+        ],
+        "new_states": [
+          "01",
+          "35"
+        ],
+        "lookup_unknown": 62,
+        "lookup_new_keys": 14,
+        "reference_wrong": 0,
+        "line_bytes_recovered": null
+      }
+    ],
+    "80": [
+      {
+        "selector": "40",
+        "payload": [
+          "53",
+          "A1",
+          "0C",
+          "F7",
+          "2D",
+          "84",
+          "B9",
+          "6E"
+        ],
+        "wrong": 20,
+        "known_state_transition_wrong_indices": [
+          33,
+          36
+        ],
+        "new_state_transition_wrong_indices": [
+          35,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          50,
+          51,
+          52,
+          53,
+          54,
+          57,
+          61,
+          62,
+          64
+        ],
+        "new_states": [
+          "01",
+          "35"
+        ],
+        "lookup_unknown": 29,
+        "lookup_new_keys": 13,
+        "reference_wrong": 0,
+        "line_bytes_recovered": null
+      },
+      {
+        "selector": "60",
+        "payload": [
+          "C4",
+          "37",
+          "9A",
+          "05",
+          "E2",
+          "71",
+          "8F",
+          "D0"
+        ],
+        "wrong": 19,
+        "known_state_transition_wrong_indices": [
+          33,
+          38,
+          41,
+          42,
+          57,
+          62
+        ],
+        "new_state_transition_wrong_indices": [
+          35,
+          36,
+          37,
+          47,
+          48,
+          52,
+          53,
+          55,
+          56,
+          58,
+          60,
+          63,
+          64
+        ],
+        "new_states": [
+          "01",
+          "35"
+        ],
+        "lookup_unknown": 31,
+        "lookup_new_keys": 14,
+        "reference_wrong": 0,
+        "line_bytes_recovered": null
+      }
+    ]
+  },
+  "graph_compatibility": {
+    "16": {
+      "zero_conflict_conventions": 0,
+      "minimum_conflicts": 52,
+      "best_conventions": [
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ]
+      ]
+    },
+    "80": {
+      "zero_conflict_conventions": 0,
+      "minimum_conflicts": 40,
+      "best_conventions": [
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ]
+      ]
+    },
+    "combined": {
+      "zero_conflict_conventions": 0,
+      "minimum_conflicts": 92,
+      "best_conventions": [
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "limitations": [
+    "A graph contradiction excludes a static per-state phase rule for these exact six-bit captures; it does not exclude a receiver with additional carrier or timing state.",
+    "The carrier offsets and receive clock are diagnostic assumptions; physical routes remain untraced."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phase_logic_fresh_audit.py": "ff0c90e708aa496646b334e8745d7da1d0e08752fa025c644b8add047eaf29a1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phase-potential.json": "7dde6c467d5946823c5c8fd7696cbd83653bb26aeef3ecda8314b3614a038114",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fifth-receive-bit.json": "7163f685847fbf3c0e8c8060ae189d42a8c3aaf3844a22f866cd8db4e6ee3232",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-frozen-fifth-new-payloads.json": "988e4111a884eb8f7f17a9b564b61cfb4935aa02fd4acd067370913043976549",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phase-logic-fresh-16.json": "9b912f476ffdc55b8736e1baa26258e61ed1bd685c04e8ac70bc1adde76e1f19",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phase-logic-fresh-80.json": "41294843c388634afd1b6ecc3b579ee79ad31d29c6ea3f52ac1f87e7db804ecd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phase_potential.py": "42cad6d84b0fb7b66dbd2b5ce4e0702deac29f0854119f6cd029558db6f434de",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phase_logic_fresh.py": "3b6f0523cfbbd791c9cad8898dd8d16f6d8607a0d7ba86f0d9faefea6a9e8011"
+  }
+}
