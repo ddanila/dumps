@@ -195,10 +195,18 @@ fixture per selector. Each A4 segment alone selects one of 64 phase
 maps; it decodes the immediately following data 32/32 and recovers
 all eight line bytes without payload-label fitting. The controller
 A4 and payload bytes still came from separate fixtures, and a
-16-byte 8251/8031 handoff was not run. Next join actual controller
-A3/A4 timing and later data in one uninterrupted controller-driven
-replay, and test a photo-compatible ADC/latch/clock mechanism that
-chooses quadrant labels across carrier starts.
+16-byte 8251/8031 handoff was not run. The
+[controller continuation](g2/JOINT-MASK04-12A-CONTROLLER-CONTINUATION.md)
+now takes the first 129 bits of consecutive A4/A5 port-01 writes from
+one unchanged 8031 run, aligned at the independently verified
+segment-2 bit. Both sustained real-PROM DSC Tx→line→Rx replays learn
+one map from A4 and recover the next eight A5-derived bytes exactly.
+That controller fixture forces timer expiry and USART-ready status;
+only its first nine TxD bytes have been checked under paced 8251
+timing. Next extend that paced transmit model through at least 17
+characters, then feed the actually shifted bits to DSC and test a
+photo-compatible ADC/latch/clock mechanism that chooses quadrant
+labels across carrier starts.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
