@@ -234,9 +234,17 @@ unseen. No single added bit survives all 14 labeled development
 cases. Three six-bit two-capture features remove those collisions;
 the smallest uses first Y5–Y7 and second Y4, Y6, Y7, with 91 observed
 transition keys. Its controller A4/A5 check is reused evidence,
-not a fresh holdout. Freeze that rule next and challenge new combined
-gain/phase waveforms before claiming robust receive behavior; then
-test a photo-compatible latch/clock/decision implementation.
+not a fresh holdout. The [frozen six-bit holdout](g2/JOINT-MASK04-12A-FROZEN-SIXTH-HOLDOUT.md)
+now tests a third, previously unused eight-byte payload in each
+selector at 75/100/125% level with the half-quadrant start. All six
+real-PROM Tx→line→Rx replays recover 64/64 dibits and eight exact
+line bytes; aligned modeled 8251/8031 handoff returns each exact
+source payload without errors or overruns. Both streams contain all
+four dibits. All observed transition keys were already in the
+91-key development table, so unseen-key and different-start
+robustness remain unverified. Next vary carrier start and capture
+timing with the six-bit rule frozen, and test a photo-compatible
+latch/clock/decision implementation.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
