@@ -1,0 +1,868 @@
+{
+  "experiment": "A1-mode 3FC/3FD split-slice operand audit",
+  "fixture": {
+    "mode_3eb": "A1 held on 36,001 wrapper visits",
+    "ram_return": "3F9 Y high -> sample-paced RAM -> 3FC D high, offset -3",
+    "trace": "all 6,000 training visits at 3FC and 3FD for each of four inputs"
+  },
+  "cases": [
+    {
+      "stimulus": "zero",
+      "adc_sha256": "53641a2250ea360eaa29dcc786ecf422a0bb7be25249081e8aef488a012deb4a",
+      "trace_digest": "1d6e8d1f739b9ac174f34034cded9bc7b37d657ff3c77bf76196ed5cc2043f00",
+      "equations_checked": {
+        "3fc": 6000,
+        "3fd": 6000
+      },
+      "first_noninitial_read": {
+        "cycle": 4583,
+        "d": "31",
+        "r10": "20",
+        "carry": 0,
+        "y3fc": "51"
+      },
+      "codebook": [
+        {
+          "d3fc": "01",
+          "y3fc": "21",
+          "rom_address": "121",
+          "rom_byte": "5C",
+          "y3fd": "60",
+          "count": 141
+        },
+        {
+          "d3fc": "31",
+          "y3fc": "51",
+          "rom_address": "151",
+          "rom_byte": "15",
+          "y3fd": "20",
+          "count": 5859
+        }
+      ],
+      "windows": {
+        "training": {
+          "d3fc": {
+            "01": 141,
+            "31": 5859
+          },
+          "r10_pre3fc": {
+            "20": 6000
+          },
+          "carry3fc": {
+            "00": 6000
+          },
+          "y3fc": {
+            "21": 141,
+            "51": 5859
+          },
+          "rom_address": {
+            "121": 141,
+            "151": 5859
+          },
+          "rom_byte": {
+            "15": 5859,
+            "5C": 141
+          },
+          "r5_pre3fd": {
+            "00": 6000
+          },
+          "carry3fd": {
+            "01": 6000
+          },
+          "y3fd": {
+            "20": 5859,
+            "60": 141
+          }
+        },
+        "early": {
+          "d3fc": {
+            "01": 141,
+            "31": 1359
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "21": 141,
+            "51": 1359
+          },
+          "rom_address": {
+            "121": 141,
+            "151": 1359
+          },
+          "rom_byte": {
+            "15": 1359,
+            "5C": 141
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "20": 1359,
+            "60": 141
+          }
+        },
+        "late": {
+          "d3fc": {
+            "31": 1500
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "51": 1500
+          },
+          "rom_address": {
+            "151": 1500
+          },
+          "rom_byte": {
+            "15": 1500
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "20": 1500
+          }
+        }
+      }
+    },
+    {
+      "stimulus": "own_echo",
+      "adc_sha256": "8ba936575f42f975efba3862716309727c677f62c29ca284cb02349e0c0691f8",
+      "trace_digest": "ad128b8df498b1d81fb51386dbd00c228f3b5c50cef12148d59b05c3c12df095",
+      "equations_checked": {
+        "3fc": 6000,
+        "3fd": 6000
+      },
+      "first_noninitial_read": {
+        "cycle": 4583,
+        "d": "31",
+        "r10": "20",
+        "carry": 0,
+        "y3fc": "51"
+      },
+      "codebook": [
+        {
+          "d3fc": "01",
+          "y3fc": "21",
+          "rom_address": "121",
+          "rom_byte": "5C",
+          "y3fd": "60",
+          "count": 141
+        },
+        {
+          "d3fc": "31",
+          "y3fc": "51",
+          "rom_address": "151",
+          "rom_byte": "15",
+          "y3fd": "20",
+          "count": 3713
+        },
+        {
+          "d3fc": "41",
+          "y3fc": "61",
+          "rom_address": "161",
+          "rom_byte": "0F",
+          "y3fd": "10",
+          "count": 2146
+        }
+      ],
+      "windows": {
+        "training": {
+          "d3fc": {
+            "01": 141,
+            "31": 3713,
+            "41": 2146
+          },
+          "r10_pre3fc": {
+            "20": 6000
+          },
+          "carry3fc": {
+            "00": 6000
+          },
+          "y3fc": {
+            "21": 141,
+            "51": 3713,
+            "61": 2146
+          },
+          "rom_address": {
+            "121": 141,
+            "151": 3713,
+            "161": 2146
+          },
+          "rom_byte": {
+            "0F": 2146,
+            "15": 3713,
+            "5C": 141
+          },
+          "r5_pre3fd": {
+            "00": 6000
+          },
+          "carry3fd": {
+            "01": 6000
+          },
+          "y3fd": {
+            "10": 2146,
+            "20": 3713,
+            "60": 141
+          }
+        },
+        "early": {
+          "d3fc": {
+            "01": 141,
+            "31": 893,
+            "41": 466
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "21": 141,
+            "51": 893,
+            "61": 466
+          },
+          "rom_address": {
+            "121": 141,
+            "151": 893,
+            "161": 466
+          },
+          "rom_byte": {
+            "0F": 466,
+            "15": 893,
+            "5C": 141
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "10": 466,
+            "20": 893,
+            "60": 141
+          }
+        },
+        "late": {
+          "d3fc": {
+            "31": 940,
+            "41": 560
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "51": 940,
+            "61": 560
+          },
+          "rom_address": {
+            "151": 940,
+            "161": 560
+          },
+          "rom_byte": {
+            "0F": 560,
+            "15": 940
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "10": 560,
+            "20": 940
+          }
+        }
+      }
+    },
+    {
+      "stimulus": "independent_remote",
+      "adc_sha256": "984ffd1d64d55881e34c518408f5992cdba652fdcca44f14ea356a847e4a4a6f",
+      "trace_digest": "290b8ddffe244da39becb2af384653c66e0321f2d9c67306800b4b5f84ebaafe",
+      "equations_checked": {
+        "3fc": 6000,
+        "3fd": 6000
+      },
+      "first_noninitial_read": {
+        "cycle": 4583,
+        "d": "41",
+        "r10": "20",
+        "carry": 0,
+        "y3fc": "61"
+      },
+      "codebook": [
+        {
+          "d3fc": "01",
+          "y3fc": "21",
+          "rom_address": "121",
+          "rom_byte": "5C",
+          "y3fd": "60",
+          "count": 141
+        },
+        {
+          "d3fc": "21",
+          "y3fc": "41",
+          "rom_address": "141",
+          "rom_byte": "1E",
+          "y3fd": "20",
+          "count": 1219
+        },
+        {
+          "d3fc": "31",
+          "y3fc": "51",
+          "rom_address": "151",
+          "rom_byte": "15",
+          "y3fd": "20",
+          "count": 2996
+        },
+        {
+          "d3fc": "41",
+          "y3fc": "61",
+          "rom_address": "161",
+          "rom_byte": "0F",
+          "y3fd": "10",
+          "count": 1644
+        }
+      ],
+      "windows": {
+        "training": {
+          "d3fc": {
+            "01": 141,
+            "21": 1219,
+            "31": 2996,
+            "41": 1644
+          },
+          "r10_pre3fc": {
+            "20": 6000
+          },
+          "carry3fc": {
+            "00": 6000
+          },
+          "y3fc": {
+            "21": 141,
+            "41": 1219,
+            "51": 2996,
+            "61": 1644
+          },
+          "rom_address": {
+            "121": 141,
+            "141": 1219,
+            "151": 2996,
+            "161": 1644
+          },
+          "rom_byte": {
+            "0F": 1644,
+            "15": 2996,
+            "1E": 1219,
+            "5C": 141
+          },
+          "r5_pre3fd": {
+            "00": 6000
+          },
+          "carry3fd": {
+            "01": 6000
+          },
+          "y3fd": {
+            "10": 1644,
+            "20": 4215,
+            "60": 141
+          }
+        },
+        "early": {
+          "d3fc": {
+            "01": 141,
+            "21": 329,
+            "31": 654,
+            "41": 376
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "21": 141,
+            "41": 329,
+            "51": 654,
+            "61": 376
+          },
+          "rom_address": {
+            "121": 141,
+            "141": 329,
+            "151": 654,
+            "161": 376
+          },
+          "rom_byte": {
+            "0F": 376,
+            "15": 654,
+            "1E": 329,
+            "5C": 141
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "10": 376,
+            "20": 983,
+            "60": 141
+          }
+        },
+        "late": {
+          "d3fc": {
+            "21": 374,
+            "31": 704,
+            "41": 422
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "41": 374,
+            "51": 704,
+            "61": 422
+          },
+          "rom_address": {
+            "141": 374,
+            "151": 704,
+            "161": 422
+          },
+          "rom_byte": {
+            "0F": 422,
+            "15": 704,
+            "1E": 374
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "10": 422,
+            "20": 1078
+          }
+        }
+      }
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "trace_digest": "06b6d8bbc056f2896bfe263033825cb8f8cf1a8a8dc7a4bd18020163907fbd5c",
+      "equations_checked": {
+        "3fc": 6000,
+        "3fd": 6000
+      },
+      "first_noninitial_read": {
+        "cycle": 4583,
+        "d": "41",
+        "r10": "20",
+        "carry": 0,
+        "y3fc": "61"
+      },
+      "codebook": [
+        {
+          "d3fc": "01",
+          "y3fc": "21",
+          "rom_address": "121",
+          "rom_byte": "5C",
+          "y3fd": "60",
+          "count": 141
+        },
+        {
+          "d3fc": "21",
+          "y3fc": "41",
+          "rom_address": "141",
+          "rom_byte": "1E",
+          "y3fd": "20",
+          "count": 1644
+        },
+        {
+          "d3fc": "31",
+          "y3fc": "51",
+          "rom_address": "151",
+          "rom_byte": "15",
+          "y3fd": "20",
+          "count": 2396
+        },
+        {
+          "d3fc": "41",
+          "y3fc": "61",
+          "rom_address": "161",
+          "rom_byte": "0F",
+          "y3fd": "10",
+          "count": 1631
+        },
+        {
+          "d3fc": "A1",
+          "y3fc": "C1",
+          "rom_address": "1C1",
+          "rom_byte": "FD",
+          "y3fd": "00",
+          "count": 188
+        }
+      ],
+      "windows": {
+        "training": {
+          "d3fc": {
+            "01": 141,
+            "21": 1644,
+            "31": 2396,
+            "41": 1631,
+            "A1": 188
+          },
+          "r10_pre3fc": {
+            "20": 6000
+          },
+          "carry3fc": {
+            "00": 6000
+          },
+          "y3fc": {
+            "21": 141,
+            "41": 1644,
+            "51": 2396,
+            "61": 1631,
+            "C1": 188
+          },
+          "rom_address": {
+            "121": 141,
+            "141": 1644,
+            "151": 2396,
+            "161": 1631,
+            "1C1": 188
+          },
+          "rom_byte": {
+            "0F": 1631,
+            "15": 2396,
+            "1E": 1644,
+            "5C": 141,
+            "FD": 188
+          },
+          "r5_pre3fd": {
+            "00": 6000
+          },
+          "carry3fd": {
+            "01": 6000
+          },
+          "y3fd": {
+            "00": 188,
+            "10": 1631,
+            "20": 4040,
+            "60": 141
+          }
+        },
+        "early": {
+          "d3fc": {
+            "01": 141,
+            "21": 376,
+            "31": 517,
+            "41": 419,
+            "A1": 47
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "21": 141,
+            "41": 376,
+            "51": 517,
+            "61": 419,
+            "C1": 47
+          },
+          "rom_address": {
+            "121": 141,
+            "141": 376,
+            "151": 517,
+            "161": 419,
+            "1C1": 47
+          },
+          "rom_byte": {
+            "0F": 419,
+            "15": 517,
+            "1E": 376,
+            "5C": 141,
+            "FD": 47
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "00": 47,
+            "10": 419,
+            "20": 893,
+            "60": 141
+          }
+        },
+        "late": {
+          "d3fc": {
+            "21": 423,
+            "31": 657,
+            "41": 373,
+            "A1": 47
+          },
+          "r10_pre3fc": {
+            "20": 1500
+          },
+          "carry3fc": {
+            "00": 1500
+          },
+          "y3fc": {
+            "41": 423,
+            "51": 657,
+            "61": 373,
+            "C1": 47
+          },
+          "rom_address": {
+            "141": 423,
+            "151": 657,
+            "161": 373,
+            "1C1": 47
+          },
+          "rom_byte": {
+            "0F": 373,
+            "15": 657,
+            "1E": 423,
+            "FD": 47
+          },
+          "r5_pre3fd": {
+            "00": 1500
+          },
+          "carry3fd": {
+            "01": 1500
+          },
+          "y3fd": {
+            "00": 47,
+            "10": 373,
+            "20": 1080
+          }
+        }
+      }
+    }
+  ],
+  "operand_comparison": [
+    {
+      "stimulus": "zero",
+      "mode01": {
+        "r10_pre3fc": {
+          "10": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode_a1": {
+        "r10_pre3fc": {
+          "20": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode01_y3fd": {
+        "40": 141,
+        "80": 5859
+      },
+      "mode_a1_y3fd": {
+        "20": 5859,
+        "60": 141
+      }
+    },
+    {
+      "stimulus": "own_echo",
+      "mode01": {
+        "r10_pre3fc": {
+          "10": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode_a1": {
+        "r10_pre3fc": {
+          "20": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode01_y3fd": {
+        "20": 2146,
+        "40": 141,
+        "80": 3713
+      },
+      "mode_a1_y3fd": {
+        "10": 2146,
+        "20": 3713,
+        "60": 141
+      }
+    },
+    {
+      "stimulus": "independent_remote",
+      "mode01": {
+        "r10_pre3fc": {
+          "10": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode_a1": {
+        "r10_pre3fc": {
+          "20": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode01_y3fd": {
+        "20": 1644,
+        "40": 141,
+        "60": 1219,
+        "80": 2996
+      },
+      "mode_a1_y3fd": {
+        "10": 1644,
+        "20": 4215,
+        "60": 141
+      }
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "mode01": {
+        "r10_pre3fc": {
+          "10": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode_a1": {
+        "r10_pre3fc": {
+          "20": 6000
+        },
+        "carry3fc": {
+          "00": 6000
+        },
+        "r5_pre3fd": {
+          "00": 6000
+        },
+        "carry3fd": {
+          "01": 6000
+        }
+      },
+      "mode01_y3fd": {
+        "20": 1819,
+        "40": 141,
+        "60": 1644,
+        "80": 2396
+      },
+      "mode_a1_y3fd": {
+        "00": 188,
+        "10": 1631,
+        "20": 4040,
+        "60": 141
+      }
+    }
+  ],
+  "pooled_a1_operands": {
+    "r10_pre3fc": {
+      "20": 24000
+    },
+    "carry3fc": {
+      "00": 24000
+    },
+    "r5_pre3fd": {
+      "00": 24000
+    },
+    "carry3fd": {
+      "01": 24000
+    }
+  },
+  "limitations": [
+    "The A1 frame connection, RAM return, TEST and ADC schedule are assumptions.",
+    "Arithmetic operands and Y codes alone do not establish an analog echo residual.",
+    "The mode is held; a real controller train/freeze transition is not yet shown."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_a1_3fc_arithmetic.py": "08f8b5d45b6d6a33a5022fee6006533e6d1a24dbe56cdcad25bf36669fc5b489",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-a1-ram-3fc-echo.json": "b3c92bd670e792f5aa647d0e559e588fe64106b6abaf30a3e0fd62d08382100e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-ram-carry-3fc-arithmetic.json": "05e1b691e7a95902f50406f98d76ade23ed1625e39e43f2a64c47124a0074db0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_ram_carry_3fc_arithmetic.py": "156b50c392bbf5b4e4971e7340710b6316b6427365355877d309ffa995d91b52",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_upper_ram_feedback_screen.py": "0d174e64e2efd650d09211c74782a119f4ecd70beb98cb8354ba369b8db84383",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  }
+}

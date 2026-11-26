@@ -231,8 +231,13 @@ own/remote/mixed/zero and write-only/return runs sustain, but the
 late, and mixed-minus-remote rises from 7.48 to 8.48. All 46 latch
 phases show the same non-attenuating result. Held `A1` changes output
 scale relative to the prior `01` fixture but does not establish a
-trained coefficient or C4. Audit consumed `3FC`/`3FD` operands under
-`A1`, or test a distinct photo-compatible return/output route; the
+trained coefficient or C4. The [full arithmetic audit](g2/JOINT-MASK04-A1-3FC-ARITHMETIC.md)
+checks 24,000 visits each at `3FC` and `3FD`: `A1` fixes pre-`3FC`
+R10 at `20` (versus `10` in mode `01`), pre-`3FD` R5 at `00`, and both
+carry inputs at `0`/`1`. The return is recoded through a different ROM
+address, not combined with a varying consumed coefficient. Test a
+distinct photo-compatible return/output route or a controller mode
+transition with an identified trained operand; the
 untraced mode and RAM wires remain hypotheses, not blockers.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per

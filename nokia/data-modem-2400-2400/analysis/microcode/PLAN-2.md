@@ -1931,7 +1931,10 @@ Listed in order of value per effort:
   sustains eight own/remote/mixed/zero and write-only/return controls.
   Its `3FD` code contrasts rise rather than attenuate from early to late
   training at all 46 sample phases, so this combined mode/return/output
-  hypothesis does not satisfy C4. Inspect its consumed operands or
+  hypothesis does not satisfy C4. The [full operand audit](g2/JOINT-MASK04-A1-3FC-ARITHMETIC.md)
+  finds fixed R10=`20` at `3FC` and R5=`00` at `3FD` throughout all
+  24,000 training visits, explaining the mode's changed ROM codebook
+  without a varying consumed coefficient. Try
   another explicit photo-compatible route; no pin trace is needed to
   keep testing. The
   [sample-paced high-nibble return test](g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)

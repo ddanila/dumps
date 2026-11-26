@@ -34,9 +34,11 @@ attenuation at this candidate output.
 The frame-to-`3EB` connection, external RAM mux, TEST source, ADC
 clock and `3FD` output latch are untraced. Unsigned Y-byte contrast is
 a diagnostic, not an analog residual. This excludes C4 for the stated
-combined hypothesis only; C3/C4 and G2 remain open. Next audit the
-pre-`3FC` R10 and pre-`3FD` R5 operands in this `A1` run to see whether
-the mode introduces a varying consumed coefficient, or try another
+combined hypothesis only; C3/C4 and G2 remain open. The
+[subsequent operand audit](JOINT-MASK04-A1-3FC-ARITHMETIC.md) found
+R10 fixed at `20` and R5 fixed at `00` over all 24,000 training visits;
+the mode changes a constant ROM lookup offset, not a consumed trained
+coefficient on this path. Test a controller mode transition or another
 photo-compatible return/output path with the same controls.
 
 The [machine report](results/joint-mask04-a1-ram-3fc-echo.json)
