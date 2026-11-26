@@ -76,6 +76,14 @@ at the sample edge, the executed-stream replay still gives 2,100 Hz and
 0/62 filtered errors per selector. Treat this as gain sensitivity, not
 net verification; resolve the D4 source/adjacent pad timing while continuing
 other runnable C2/C3 tests.
+The [latch-phase sweep](g2/JOINT-MASK04-LATCH-PHASE-SWEEP.md) anchors its
+zero-offset recurrence to all 832 Y7 samples in each complete call/answer
+PROM run, then projects all 375 possible sample-clock visit offsets. All
+retain a 2,100 Hz tone peak; 328/375 per selector retain 0/62 filtered
+data errors and the other 47 each miss one decision at the same index.
+This makes the carrier candidate robust to loop-visit clock phase while
+leaving the exact latch edge and receiver alignment unresolved. Do not
+promote this projected phase sweep to a traced C2 output route.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
