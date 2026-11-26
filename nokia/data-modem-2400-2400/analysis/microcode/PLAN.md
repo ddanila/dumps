@@ -10,35 +10,24 @@
 > timing and inputs, then test another photo-compatible route or independent
 > program/signal constraint.
 
-**Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART and
-analog-line connections are *open wiring hypotheses*, not a stop condition.
-Keep G2 **active** and the affected C2/C3/C4 check **open** while testing
-photo-compatible connections, timing variants or independent PROM/controller
-constraints. Treat missing physical evidence as a limit on what a successful
-run proves, not on whether the next run can start. A failed fixture rejects
-only its stated assumptions; record the result and choose another runnable
-test. If several candidates remain indistinguishable, report the ambiguity
-and pursue a different discriminating test. If one experiment truly needs an
-unavailable measurement, defer that experiment only. Do not request new photos
-or continuity as a prerequisite to work that can run with the available ones.
-Only consider a goal-level blocker after recording why *every* remaining
-candidate and independent analysis cannot advance the work, together with
-the exact outside observation needed. An untraced net, an unpassed acceptance
-check or an unsuccessful model is not such a blocker.
-**Default action for an ambiguous photo:** infer the simplest connection
-compatible with the visible pins, chip directions and nearby parts; label its
-unseen segments and timing as assumptions; run it with the real dumps and a
-control. For each proposed route, record the visible endpoints, assumed
-source-to-destination pins, polarity, enable or latch edge, and any clock
-division; identify at least one alternative when the photos admit it. Try a
-few meaningful alternatives if the result depends on the inference. Record
-what each run supports or excludes and name the next runnable test. Keep G2
-**active** and the affected acceptance check **open** while such tests exist.
-Never use missing photo detail or continuity alone as a blocker.
-Use the photos already available to start these tests; request new physical
-evidence only when a specific result would distinguish surviving candidates.
-Success remains conditional until the physical route is independently
-constrained; failure rejects only the stated wiring, timing and input fixture.
+**Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART or
+analog-line connections are *open wiring hypotheses*, not a reason to pause G2.
+Use the photographs already available to choose the simplest pin-compatible
+route. Record visible endpoints separately from assumed connections, polarity,
+enable/latch edge and clock division; run that route with the real dumps and a
+control. Test a few meaningful alternatives when the inference affects the
+result. A failed run rejects only its stated wiring, timing and input fixture;
+record it and run the next candidate or an independent PROM/controller/signal
+test. If an experiment needs unavailable continuity data, defer that experiment
+alone. Request new physical evidence only to distinguish surviving candidates,
+never as a prerequisite to runnable work.
+
+Keep G2 **active** and C2/C3/C4 **open** while these tests continue. A plausible
+run remains conditional until the physical route is independently constrained;
+it does not by itself pass an acceptance check. An unsuccessful model or unmet
+check does not make the goal blocked. Only consider a goal-level blocker after
+recording why every remaining candidate and independent analysis cannot advance
+the work, and the exact outside observation required to resume.
 For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
 identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
 The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
