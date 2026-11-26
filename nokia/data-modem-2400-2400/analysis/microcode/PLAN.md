@@ -12,16 +12,19 @@
 
 **Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART and
 analog-line connections are *open wiring hypotheses*, not a stop condition.
-Treat missing physical evidence as a limit on what a run can prove, not on
-whether the next run can start. Keep the relevant acceptance check open and
-continue with an explicit candidate connection or independent PROM, controller
-or signal constraint. If several candidates remain indistinguishable, report
-that ambiguity and pursue a different discriminating test; do not wait for a
-photograph or continuity measurement to resolve it.
-If one proposed experiment truly needs an unavailable measurement, defer that
-experiment only and move to another runnable hypothesis. Mark G2 blocked only
-after checking the remaining candidate routes and independent tests, and
-recording the specific observation that no available test can replace.
+Keep G2 **active** and the affected C2/C3/C4 check **open** while testing
+photo-compatible connections, timing variants or independent PROM/controller
+constraints. Treat missing physical evidence as a limit on what a successful
+run proves, not on whether the next run can start. A failed fixture rejects
+only its stated assumptions; record the result and choose another runnable
+test. If several candidates remain indistinguishable, report the ambiguity
+and pursue a different discriminating test. If one experiment truly needs an
+unavailable measurement, defer that experiment only. Do not request new photos
+or continuity as a prerequisite to work that can run with the available ones.
+Only consider a goal-level blocker after recording why *every* remaining
+candidate and independent analysis cannot advance the work, together with
+the exact outside observation needed. An untraced net, an unpassed acceptance
+check or an unsuccessful model is not such a blocker.
 **Default action for an ambiguous photo:** infer the simplest connection
 compatible with the visible pins, chip directions and nearby parts; label its
 unseen segments and timing as assumptions; run it with the real dumps and a
@@ -71,6 +74,19 @@ shifts still has 2/62 each. This rules out only that immediate-edge
 pulse/analog fixture. Test a buffered symbol-boundary decoder or a
 different photo-compatible pulse timing without treating the untraced
 input logic as a blocker.
+The [one-symbol buffered serial handoff](g2/JOINT-MASK04-BUFFERED-SERIAL-HANDOFF.md)
+now tests that next decoder with the controller's actual paired TxD bits.
+Both full real-PROM transmitter and receiver runs preserve the training
+prefix, and the previously frozen 46/93 readout recovers all 32 data dibits
+and eight line bytes per selector. With the data window shifted from bit 64
+to 66, only aligned assumed SYNDET drives the paced 8251/8031 from `AF` to
+`B0`; early, late, absent-window and opposite-selector controls stay at
+`AF`. This is a causal, conditional zero-run route, not a physical C2/C3
+pass: the paired-bit buffer, pulse gate, converters, decision circuit and
+sync source are untraced. Keep G2 active and C2/C3 open; test those paths
+under photo-compatible alternatives and new timing/data fixtures. The
+frozen margin selector makes one call error here, so use the exact 46/93
+result only for its stated fixture rather than assuming readout robustness.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
