@@ -147,6 +147,19 @@ real-PROM Rx and unchanged 8031 on fresh data under a compact external
 consumer. C3 stays open: identify or test a photo-compatible phase
 logic, latch, RxD/RxC and SYNDET route, rather than treating that
 consumer as an executed DSC instruction or verified wiring.
+The [fixed-gain level challenge](g2/JOINT-MASK04-Q05-PHASE-LEVEL.md)
+shows why the first four-state rule was incomplete: at 75% line level
+new states `9/B` leave 17/32 data dibits unknown per selector, and at
+125% new state `6` leaves 14/32 call and 18/32 answer unknown, even
+though the independent line decoder stays exact. The executed
+transitions across all six runs admit consistent new phase labels
+`6→0`, `9→1`, `B→2` with no key collisions. A
+[call-trained, answer-held-out extension](g2/JOINT-MASK04-Q05-PHASE-LEVEL-MAP.md)
+recovers 64/64 dibits and exact aligned modeled 8031 payload bytes in
+all six level/mode cases. The two selectors use different scrambled
+line streams but the same decoded payload. Challenge the frozen seven-
+state rule on fresh payloads and phase starts, then constrain its
+photo-compatible logic and serial timing; C3 remains open.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data

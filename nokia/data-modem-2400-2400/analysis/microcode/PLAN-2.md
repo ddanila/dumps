@@ -1930,6 +1930,13 @@ Listed in order of value per effort:
   conditional C3 chain, but its phase logic, capture/serializer, ADC,
   RxD/RxC and SYNDET nets remain assumptions. Test photo-compatible
   hardware alternatives and timing before passing C3.
+  The [level challenge](g2/JOINT-MASK04-Q05-PHASE-LEVEL.md) makes the
+  original four-state rule abstain at 75% and 125% line level despite
+  exact reference decisions. A [seven-state extension](g2/JOINT-MASK04-Q05-PHASE-LEVEL-MAP.md),
+  trained on call-side changed levels only, predicts every dibit and
+  aligned modeled controller byte on the answer-side changed levels.
+  The decoded payload is shared across selectors, so test fresh data
+  and carrier phase before identifying a physical C3 consumer.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3
