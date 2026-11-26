@@ -48,8 +48,14 @@ five unknown data dibits across three ±7 Hz cases, despite zero incorrect
 known decisions and a complete zero-offset control. Thus 46/93 is a useful
 sampling hypothesis, not a complete offset-tolerant readout. Capture
 additional executed visits around those unknowns, then test a frozen
-phase-selection rule and the preamble/USART route on fresh streams; keep C3
-open rather than filling missing decisions or waiting for a physical trace.
+phase-selection rule and the preamble/USART route on fresh streams. The
+[two-pair long replay](g2/RECEIVER-MASK04-LONG-PAIR-UNION.md) finds that
+46/93 and 47/94 complement one another on the repeated 96-symbol streams,
+but a new four-case ±7 Hz seed leaves two data dibits unknown among 380:
+both pairs abstain once and disagree once. Inspect those executed symbols
+for a photo-compatible conflict/phase signal before another frozen holdout.
+Keep C3 open rather than filling missing decisions or waiting for a
+physical trace.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled

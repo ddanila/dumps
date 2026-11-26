@@ -1371,6 +1371,15 @@ phases B–C turn "what" into "how".
   shorter 46/93 fixtures. Capture additional executed visits around the
   unknowns and test a frozen phase consumer, preamble acquisition and a
   photo-compatible latch/USART route before claiming C3.
+  The [two-pair long replay](g2/RECEIVER-MASK04-LONG-PAIR-UNION.md)
+  combines 46/93 and 47/94 only when their known labels agree. It
+  recovers all 380 measurable dibits in the repeated four-case stream,
+  but a fresh four-case ±7 Hz seed leaves two data dibits unknown among
+  380: both pairs abstain at one symbol and disagree at another.
+  The latter 47/94 label is wrong, so an unconditional fallback is unsafe.
+  Inspect those executed symbols and freeze a photo-compatible conflict
+  or phase signal before another holdout; C3 and physical routing remain
+  open.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
