@@ -1,0 +1,156 @@
+{
+  "candidate_route": "Am2901 Y7 -> assumed LS273 D4 clocked at 9600 Hz -> LS273 Q4 pin 9 -> photo-suggested DAC08 B5 pin 9 -> assumed current conversion and Q=1 line bandpass",
+  "cases": [
+    {
+      "b5_code_sha256": "86e60aebf0809792969e89a7cb43a7d52dfe1e7f20861ce40cd54ffe29e37a5a",
+      "data": {
+        "decision_counts": {
+          "0": 14,
+          "1": 4,
+          "2": 2,
+          "3": 42
+        },
+        "decisions": 62,
+        "error_indices": [],
+        "errors": 0,
+        "first_8_decisions": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "first_8_expected": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "dsc_microinstructions": 1248256,
+      "late_a2_to_late_a1_rms": 1.5775307303499504e-08,
+      "packed_y7_sha256": "adac19d44f3ce58f6c188f9f57f1801133ed4f94ea86120fe8912ad68e86c588",
+      "prom_trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd",
+      "raw_phase": {
+        "data_max_phase_error_degrees": 40.289913533710376,
+        "data_wrong_quadrants": 0,
+        "tone_max_abs_phase_degrees": 7.003039616451451e-13,
+        "training_max_half_turn_error_degrees": 4.121147867408581e-12
+      },
+      "selector": "40",
+      "source_sites": [
+        "127",
+        "128",
+        "129",
+        "12A"
+      ],
+      "tone": {
+        "distinct_codes": 39,
+        "peak_hz": 2100,
+        "peak_r2": 0.958029,
+        "r2_1800": 0.0,
+        "r2_2100": 0.958029,
+        "samples": 192
+      }
+    },
+    {
+      "b5_code_sha256": "3244c1760ebca8514e94e15095489b3f342840ab1d7df28a596a49d086d71dc2",
+      "data": {
+        "decision_counts": {
+          "0": 12,
+          "1": 4,
+          "2": 4,
+          "3": 42
+        },
+        "decisions": 62,
+        "error_indices": [],
+        "errors": 0,
+        "first_8_decisions": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "first_8_expected": [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      "dsc_microinstructions": 1248256,
+      "late_a2_to_late_a1_rms": 1.5775307303499504e-08,
+      "packed_y7_sha256": "182432a04b46a8a4ed8efd77fd6d7ab211e1be75f95546e72724139b7c94d1dd",
+      "prom_trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5",
+      "raw_phase": {
+        "data_max_phase_error_degrees": 40.28991353371342,
+        "data_wrong_quadrants": 0,
+        "tone_max_abs_phase_degrees": 7.003039616451451e-13,
+        "training_max_half_turn_error_degrees": 4.121147867408581e-12
+      },
+      "selector": "60",
+      "source_sites": [
+        "127",
+        "128",
+        "129",
+        "12A"
+      ],
+      "tone": {
+        "distinct_codes": 39,
+        "peak_hz": 2100,
+        "peak_r2": 0.958029,
+        "r2_1800": 0.0,
+        "r2_2100": 0.958029,
+        "samples": 192
+      }
+    }
+  ],
+  "experiment": "executed Y7 through photo-suggested LS273 Q4 to DAC08 B5",
+  "fixture": {
+    "a2_gate_mid_code": 4,
+    "bandpass_center_hz": 1950,
+    "bandpass_q": 1,
+    "dac_bit_weight": 8,
+    "data_sample_shift": 6,
+    "negative_control": "earlier Y4-to-D4-to-B5 held-tone replay has zero power at 2100 Hz",
+    "sample_rate_hz": 9600
+  },
+  "limitations": [
+    "Only Q4-to-B5 is photo-suggested; Y7-to-D4, latch clock and analog output route are untraced.",
+    "This B5-only alternative does not establish the other seven DAC bit connections or coexistence with the earlier Y7-to-B1 bus orders.",
+    "A2 mid-code gate and analog bandpass are external hypotheses, not measured components."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_msb_data_phase.py": "3fd8cf663f3d5839e797cee3f80c9903203f53d70ca75c025d7cb239d3aaec0d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_msb_segment1_phase.py": "9e80bc46c6024d0fe78cb402daefe88c9dd9c77beb838c55fd13a3179e6d4b35",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_photo_b5_y7_route.py": "8c7619bc109ed45c3307206ab2dd6c29ed14abbdfd4d5a6b543e64132b9401f1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_a1_dynamic_mode_replay.py": "0527db2eb39197beea664ab3db4b929c7049d4a7df4d5cd59194a350b4c4b110",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_dac_decode.py": "2ee3fbba408bb144d07ee86a1cc748bf9b896713a80cc84c03658104313d00e8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-msb-data-phase.json": "cc5ff5c5378d7f224b1126159731bf895ede6ebbcb503c1a11cddd7f888d57d4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-photo-b5-tone.json": "e16578c6e01cbd67200e3bf75a85557a36ce8d0646b7d16bd08b711d531a265f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d"
+  }
+}

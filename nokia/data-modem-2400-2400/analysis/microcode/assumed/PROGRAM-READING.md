@@ -65,6 +65,11 @@ the loop. In the labelled controller-to-D127 pulse fixture, `88` and
 `B0` yield the 2,100 Hz and magnitude-1,800 Hz phase steps at the
 assumed 9,600 Hz sample clock; four-visit dibit pulses shift the phase
 by quadrants. The physical output route remains unverified.
+The [photo-B5 alternative](../g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
+projects those same executed Y7 samples through an assumed LS273 D4
+input and the photo-suggested Q4→DAC08 B5 segment. It preserves the
+conditional tone and dibit behavior, but does not establish whether
+the actual DAC assignment is B5, B1 or another route.
 
 The [transmit ROM-bank ablation](../g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
 qualifies the `127–12A` interpretation: switching the selected `129`

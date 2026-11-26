@@ -57,6 +57,14 @@ clock turns `88` into 2,100 Hz and `B0` into a magnitude-1,800 Hz
 carrier. This identifies an executed candidate digital modulation
 mechanism; the D127 pulse decoder and physical DAC/line route remain
 open C2 hypotheses, not goal blockers.
+The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
+reassigns the same executed Y7 samples to a different candidate latch
+input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
+At B5's eight-count weight, both call/answer streams retain 2,100 Hz
+tone, A3 half-turns and 0/62 filtered A3/A4 errors after an assumed
+A2 gate and Q=1 line stage. This is a photo-compatible alternative to
+the Y7→B1/MSB bus family, not independent waveform evidence or a C2
+pass. Test Y7→D4 and the analog output route next.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
