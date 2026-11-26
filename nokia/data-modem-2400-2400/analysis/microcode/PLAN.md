@@ -1009,6 +1009,15 @@ if the result depends on it. Record the assumed pins and timing, the RAM
 state after training and whether a common zero tail preserves any echo
 history. Proximity does not establish a net, but the missing net trace does
 not defer this experiment or make C4 a goal blocker.
+The [counter/RAM feedback screen](g2/JOINT-UPPER-RAM-FEEDBACK-SCREEN.md)
+now runs that declared route and its controls. A `3FA` high-nibble return
+first changes `3EB` D to `21` on a counter revisit and exits the fixed
+receive loop after 258 ADC visits; a `3F9` high-nibble latch also exits.
+Low-nibble return changes RAM but leaves the modeled Am2901 trace equal to
+the no-feedback control over 768 visits. These reject only the tested
+free-running write/read fixtures. Next try a photo-compatible training
+write gate and freeze, then compare retained RAM and line residual across
+own-echo, remote-only and zero-input runs. Keep C4 open and G2 active.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under
