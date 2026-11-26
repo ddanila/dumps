@@ -61,6 +61,16 @@ clock turns `88` into 2,100 Hz and `B0` into a magnitude-1,800 Hz
 carrier. This identifies an executed candidate digital modulation
 mechanism; the D127 pulse decoder and physical DAC/line route remain
 open C2 hypotheses, not goal blockers.
+The [causal serial-edge pulse screen](g2/JOINT-MASK04-SERIAL-EDGE-PULSE.md)
+now pairs the controller's actual 2,400-bit/s line bits and starts a
+16-microcycle D127 pulse on each pair's second bit edge, rather than
+offering the completed dibit at symbol start. Both full real-PROM
+transmitter runs complete, but the fixed receive alignment makes
+5/62 call and 3/62 answer reference errors; the best of eight sample
+shifts still has 2/62 each. This rules out only that immediate-edge
+pulse/analog fixture. Test a buffered symbol-boundary decoder or a
+different photo-compatible pulse timing without treating the untraced
+input logic as a blocker.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
