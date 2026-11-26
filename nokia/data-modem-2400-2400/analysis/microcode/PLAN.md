@@ -148,6 +148,15 @@ changes. Seek an executed or photo-compatible gain/midpoint/threshold
 path and freeze its rule before a fresh payload/phase challenge. This
 failed fixture narrows C3; it does not block G2 or erase the nominal
 conditional dataflow.
+The [preamble-calibrated AGC candidate](g2/JOINT-MASK04-FULL-BUS-AGC-CANDIDATE.md)
+now fixes a target midpoint/RMS from the nominal call's first 128 A3
+samples, estimates each altered stream's midpoint/RMS from only its own
+first 128 A3 samples and corrects later samples. Under the same four
+0.75-gain/±16 fixtures, all real-PROM receive runs recover the exact
+eight line bytes with the unchanged frozen readout. This is a sufficient
+**external analog-stage hypothesis** for those affine changes, not an
+identified DSC AGC algorithm or photographed circuit. Freeze it for a
+separate non-zero payload and phase/noise holdout; keep C3 and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
