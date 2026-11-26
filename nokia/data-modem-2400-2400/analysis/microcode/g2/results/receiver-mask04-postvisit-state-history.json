@@ -1,0 +1,785 @@
+{
+  "experiment": "matched-ADC post-3F9/3FA/3FE state history",
+  "fixture": {
+    "cases": [
+      {
+        "seed": 23063,
+        "degrees": 45
+      },
+      {
+        "seed": 30373,
+        "degrees": 135
+      }
+    ],
+    "matched_on": "exact current ADC byte and 0..7 sample position",
+    "eligible": "at least two occurrences with distinct preceding ADC bytes",
+    "captured_visit": "first of each 47/46-visit ADC hold"
+  },
+  "cases": [
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "trace_digest": "82286e34703a324fc4323221662836047c25e2bc30f0cfc64040fb61a6b3b2a4",
+      "samples": 128
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "trace_digest": "712b6616926d01c0333f508c688c68209071c669c83cd09b8a9c989471f785b9",
+      "samples": 128
+    }
+  ],
+  "total_groups": 161,
+  "eligible_groups": 21,
+  "summary": {
+    "3F9": {
+      "eligible_groups": 21,
+      "varying_group_counts": {
+        "pre_ram_C": 8,
+        "pre_ram_D": 8,
+        "post_ram_any": 8,
+        "post_ram_D": 8
+      },
+      "instruction_pairs": [
+        "15/C5"
+      ]
+    },
+    "3FA": {
+      "eligible_groups": 21,
+      "varying_group_counts": {
+        "pre_ram_D": 8
+      },
+      "instruction_pairs": [
+        "55/C5"
+      ]
+    },
+    "3FE": {
+      "eligible_groups": 21,
+      "varying_group_counts": {},
+      "instruction_pairs": [
+        "D4/C5"
+      ]
+    }
+  },
+  "witnesses": {
+    "3F9": [
+      {
+        "sample_phase": 0,
+        "adc_byte": 217,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 8,
+            "previous_adc": 242,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 80,
+            "post_r13": 80
+          },
+          {
+            "case": 0,
+            "sample": 16,
+            "previous_adc": 76,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 64
+          },
+          {
+            "case": 0,
+            "sample": 24,
+            "previous_adc": 242,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 80,
+            "post_r13": 80
+          },
+          {
+            "case": 0,
+            "sample": 32,
+            "previous_adc": 72,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 64
+          }
+        ]
+      },
+      {
+        "sample_phase": 4,
+        "adc_byte": 37,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 4,
+            "previous_adc": 60,
+            "rom_address": 303,
+            "y": 148,
+            "q": 132,
+            "pre_r13": 16,
+            "post_r13": 16
+          },
+          {
+            "case": 0,
+            "sample": 20,
+            "previous_adc": 61,
+            "rom_address": 303,
+            "y": 148,
+            "q": 132,
+            "pre_r13": 16,
+            "post_r13": 16
+          },
+          {
+            "case": 0,
+            "sample": 52,
+            "previous_adc": 175,
+            "rom_address": 303,
+            "y": 148,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 96
+          },
+          {
+            "case": 0,
+            "sample": 100,
+            "previous_adc": 123,
+            "rom_address": 303,
+            "y": 148,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 96
+          }
+        ]
+      },
+      {
+        "sample_phase": 4,
+        "adc_byte": 217,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 12,
+            "previous_adc": 130,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 16,
+            "post_r13": 16
+          },
+          {
+            "case": 0,
+            "sample": 28,
+            "previous_adc": 129,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 16,
+            "post_r13": 16
+          },
+          {
+            "case": 0,
+            "sample": 60,
+            "previous_adc": 78,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 64
+          },
+          {
+            "case": 0,
+            "sample": 124,
+            "previous_adc": 77,
+            "rom_address": 479,
+            "y": 49,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 64
+          }
+        ]
+      },
+      {
+        "sample_phase": 4,
+        "adc_byte": 127,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 36,
+            "previous_adc": 84,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 16,
+            "post_r13": 16
+          },
+          {
+            "case": 0,
+            "sample": 44,
+            "previous_adc": 29,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 96
+          },
+          {
+            "case": 0,
+            "sample": 68,
+            "previous_adc": 197,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 80,
+            "post_r13": 80
+          },
+          {
+            "case": 0,
+            "sample": 76,
+            "previous_adc": 32,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 96
+          }
+        ]
+      },
+      {
+        "sample_phase": 6,
+        "adc_byte": 127,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 54,
+            "previous_adc": 10,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 96
+          },
+          {
+            "case": 0,
+            "sample": 126,
+            "previous_adc": 242,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 80,
+            "post_r13": 80
+          },
+          {
+            "case": 1,
+            "sample": 22,
+            "previous_adc": 11,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 96
+          }
+        ]
+      },
+      {
+        "sample_phase": 6,
+        "adc_byte": 124,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 62,
+            "previous_adc": 245,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 80,
+            "post_r13": 80
+          },
+          {
+            "case": 1,
+            "sample": 110,
+            "previous_adc": 8,
+            "rom_address": 383,
+            "y": 40,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 96
+          }
+        ]
+      },
+      {
+        "sample_phase": 6,
+        "adc_byte": 130,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 94,
+            "previous_adc": 172,
+            "rom_address": 399,
+            "y": 47,
+            "q": 143,
+            "pre_r13": 96,
+            "post_r13": 96
+          },
+          {
+            "case": 1,
+            "sample": 30,
+            "previous_adc": 247,
+            "rom_address": 399,
+            "y": 47,
+            "q": 143,
+            "pre_r13": 80,
+            "post_r13": 80
+          }
+        ]
+      },
+      {
+        "sample_phase": 3,
+        "adc_byte": 172,
+        "differing_pre_ram": [
+          12,
+          13
+        ],
+        "differing_ram": [
+          13
+        ],
+        "rows": [
+          {
+            "case": 1,
+            "sample": 75,
+            "previous_adc": 126,
+            "rom_address": 431,
+            "y": 36,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 96
+          },
+          {
+            "case": 1,
+            "sample": 83,
+            "previous_adc": 127,
+            "rom_address": 431,
+            "y": 36,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 96
+          },
+          {
+            "case": 1,
+            "sample": 91,
+            "previous_adc": 128,
+            "rom_address": 431,
+            "y": 36,
+            "q": 132,
+            "pre_r13": 16,
+            "post_r13": 16
+          }
+        ]
+      }
+    ],
+    "3FA": [
+      {
+        "sample_phase": 0,
+        "adc_byte": 217,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 8,
+            "previous_adc": 242,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 80,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 16,
+            "previous_adc": 76,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 24,
+            "previous_adc": 242,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 80,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 32,
+            "previous_adc": 72,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 32
+          }
+        ]
+      },
+      {
+        "sample_phase": 4,
+        "adc_byte": 37,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 4,
+            "previous_adc": 60,
+            "rom_address": null,
+            "y": 32,
+            "q": 132,
+            "pre_r13": 16,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 20,
+            "previous_adc": 61,
+            "rom_address": null,
+            "y": 32,
+            "q": 132,
+            "pre_r13": 16,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 52,
+            "previous_adc": 175,
+            "rom_address": null,
+            "y": 32,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 100,
+            "previous_adc": 123,
+            "rom_address": null,
+            "y": 32,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 32
+          }
+        ]
+      },
+      {
+        "sample_phase": 4,
+        "adc_byte": 217,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 12,
+            "previous_adc": 130,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 16,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 28,
+            "previous_adc": 129,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 16,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 60,
+            "previous_adc": 78,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 124,
+            "previous_adc": 77,
+            "rom_address": null,
+            "y": 32,
+            "q": 129,
+            "pre_r13": 64,
+            "post_r13": 32
+          }
+        ]
+      },
+      {
+        "sample_phase": 4,
+        "adc_byte": 127,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 36,
+            "previous_adc": 84,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 16,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 44,
+            "previous_adc": 29,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 68,
+            "previous_adc": 197,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 80,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 76,
+            "previous_adc": 32,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 32
+          }
+        ]
+      },
+      {
+        "sample_phase": 6,
+        "adc_byte": 127,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 54,
+            "previous_adc": 10,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 32
+          },
+          {
+            "case": 0,
+            "sample": 126,
+            "previous_adc": 242,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 80,
+            "post_r13": 32
+          },
+          {
+            "case": 1,
+            "sample": 22,
+            "previous_adc": 11,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 32
+          }
+        ]
+      },
+      {
+        "sample_phase": 6,
+        "adc_byte": 124,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 62,
+            "previous_adc": 245,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 80,
+            "post_r13": 32
+          },
+          {
+            "case": 1,
+            "sample": 110,
+            "previous_adc": 8,
+            "rom_address": null,
+            "y": 32,
+            "q": 136,
+            "pre_r13": 96,
+            "post_r13": 32
+          }
+        ]
+      },
+      {
+        "sample_phase": 6,
+        "adc_byte": 130,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 0,
+            "sample": 94,
+            "previous_adc": 172,
+            "rom_address": null,
+            "y": 32,
+            "q": 143,
+            "pre_r13": 96,
+            "post_r13": 32
+          },
+          {
+            "case": 1,
+            "sample": 30,
+            "previous_adc": 247,
+            "rom_address": null,
+            "y": 32,
+            "q": 143,
+            "pre_r13": 80,
+            "post_r13": 32
+          }
+        ]
+      },
+      {
+        "sample_phase": 3,
+        "adc_byte": 172,
+        "differing_pre_ram": [
+          13
+        ],
+        "differing_ram": [],
+        "rows": [
+          {
+            "case": 1,
+            "sample": 75,
+            "previous_adc": 126,
+            "rom_address": null,
+            "y": 32,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 32
+          },
+          {
+            "case": 1,
+            "sample": 83,
+            "previous_adc": 127,
+            "rom_address": null,
+            "y": 32,
+            "q": 132,
+            "pre_r13": 96,
+            "post_r13": 32
+          },
+          {
+            "case": 1,
+            "sample": 91,
+            "previous_adc": 128,
+            "rom_address": null,
+            "y": 32,
+            "q": 132,
+            "pre_r13": 16,
+            "post_r13": 32
+          }
+        ]
+      }
+    ],
+    "3FE": []
+  },
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_postvisit_state_history.py": "6f53c2f9acfd53f129bab5e62f74da70f81972925d8f66252c0d3708a5a6258e",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/receiver-mask04-3f9-3fa-feature-screen.json": "0076a33e90538f473fd78924929d0f6f11bf2ae96fc4d609aa526901aaa42dfa"
+  },
+  "limitations": [
+    "A different prior ADC byte establishes history sensitivity, not a decoded dibit.",
+    "Only two legal carriers and the first visit of each held sample are compared.",
+    "The ADC timing, external RAM and output circuit remain assumed."
+  ]
+}

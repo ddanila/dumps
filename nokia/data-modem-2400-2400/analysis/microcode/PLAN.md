@@ -144,6 +144,15 @@ sample-processing hypothesis under these fixtures, not evidence of an
 onboard recovered-bit output. Trace post-`3F9` Q/RAM history and a
 later/mode-qualified consumer next. Keep C3/G2 active and the physical
 connections explicit assumptions.
+The [matched post-visit state replay](g2/RECEIVER-MASK04-POSTVISIT-STATE-HISTORY.md)
+checks two legal 192,047-word mask-04 traces at identical exact ADC bytes
+and sample positions with different preceding ADC bytes. In 8/21
+eligible groups, R13 differs after `3F9` while its ROM address, Y and Q
+agree. Executed `3FA` `55/C5` overwrites R13 to the same value; post-`3FA`
+Q/RAM/Y and post-`3FE` Q/RAM/Y agree in all 21 groups. The direct-mode
+history difference is transient and not visible at the tested Y/Q sites.
+Try a photo-compatible mode or RAM-return route that consumes it before
+overwrite, with matched-input controls. C3/G2 stay open.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
