@@ -279,7 +279,7 @@ remained a candidate pending an unseen-state and carrier-start test.
 The [fresh phase-logic challenge](g2/JOINT-MASK04-12A-PHASE-LOGIC-FRESH.md)
 now supplies that test. New eight-byte payloads in both modes, at
 untrained running R1 offsets 16 and 80, make the frozen 91-key table
-leave 29–63 of 64 data transitions unknown. The frozen Boolean phase
+leave 29–63 of 64 receive transitions unknown. The frozen Boolean phase
 rule makes 19–24 wrong decisions per run, while an independent
 reference decoder is exact in all four. Two new six-bit states occur,
 but 16 of the Boolean errors across the four runs involve only
@@ -290,6 +290,21 @@ decoder** across these fixtures, not demodulation itself. Try a
 photo-compatible carrier/timing-history or extra-visit consumer,
 then freeze it for untouched data and phase starts; do not block on
 the untraced clock or logic route.
+The [seventh-bit phase screen and holdout](g2/JOINT-MASK04-12A-SEVENTH-PHASE.md)
+tests the saved full Y bytes at 46/93. With the offset-16/80 failures
+now counted as development, adding either first Y4 or second Y5 is
+enough to remove all four-phase graph conflicts; the full two bytes
+are also consistent. Both seven-bit graphs have three independently
+rotatable components. Frozen candidates then face a fourth payload
+pair at new offsets 48/112. First-Y4 makes no known-component errors
+but abstains on 26–59 of 64 decisions; second-Y5 makes 3–6 errors
+and also abstains widely. Neither yields full line bytes. Using the
+new labels post hoc, first-Y4 still admits a phase assignment, while
+second-Y5 has 86 combined conflicts. Keep first-Y4 as a conditional
+feature candidate, explicitly move these failures into development
+before any refit, and validate on fresh payloads/starts. In parallel,
+test a photo-compatible third capture or carrier-history signal that
+predicts unseen states without fitting their labels. C3 stays open.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
