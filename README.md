@@ -73,6 +73,9 @@ acquisition details, checksums and open questions.
 
 ### Unidentified
 
+- [Tandberg TDV-2200S-family TMM27128AD-20](unknown/tandberg-tdv2200s-tmm27128ad/):
+  8085 terminal services and partial application, with 80 × 25 display, serial
+  I/O and programmable PUSH keys; exact model/revision unresolved.
 - [MB007 286 mainboard](unknown/mb007/): Phoenix 3.10 / CEC286 02.04
   [system BIOS](unknown/mb007/system-bios/) and Chips 451
   [video BIOS](unknown/mb007/video-bios/).

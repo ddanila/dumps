@@ -1,0 +1,83 @@
+{
+  "scope": "Isolated 8080-compatible routines only; 8085-only opcodes rejected; not a terminal boot.",
+  "cpu_revision": "2e57421095e18337e5b65bf2505d8f0f012766dd",
+  "cpu_source_sha256": {
+    "i8080.c": "c5277550a90350c4d8af8f6c4cf4b79a8624389c97d195c3ddfa8a23c7adb989",
+    "i8080.h": "ecbc33e21097b6511e2d081c4dafb20b87bd2da332cf345b04cc330f01c381d0"
+  },
+  "groups": [
+    {
+      "name": "reset prefix to 021B",
+      "cases": 1,
+      "passed": true,
+      "port_writes": [
+        "50:08",
+        "60:DF",
+        "3E:DF",
+        "3A:DF",
+        "30:71",
+        "31:7F",
+        "32:6D",
+        "33:18",
+        "34:51",
+        "35:28",
+        "36:18",
+        "3C:00",
+        "3D:00",
+        "3E:00"
+      ]
+    },
+    {
+      "name": "80 x 25 coordinate bounds, all HL inputs",
+      "cases": 65536,
+      "passed": true
+    },
+    {
+      "name": "display forward/backward wrapping",
+      "cases": 4000,
+      "passed": true
+    },
+    {
+      "name": "seven queues: order/full/empty/three wrap cycles",
+      "cases": 2580,
+      "passed": true
+    },
+    {
+      "name": "2000-byte optional queue: full/empty/two wrap cycles",
+      "cases": 8004,
+      "passed": true
+    },
+    {
+      "name": "PUSH-key capacities and low-nibble address lookup",
+      "cases": 512,
+      "passed": true
+    },
+    {
+      "name": "12 divisor table selections",
+      "cases": 12,
+      "passed": true
+    },
+    {
+      "name": "three-digit decimal conversion",
+      "cases": 256,
+      "passed": true
+    },
+    {
+      "name": "additive checksum spans",
+      "cases": 4,
+      "passed": true
+    },
+    {
+      "name": "RAM low/high address patterns: healthy and injected read fault",
+      "cases": 2,
+      "passed": true
+    },
+    {
+      "name": "keyboard ACIA transmitter ready/busy",
+      "cases": 2,
+      "passed": true
+    }
+  ],
+  "total_cases": 80909,
+  "all_passed": true
+}

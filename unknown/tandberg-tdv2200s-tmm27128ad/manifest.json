@@ -1,0 +1,63 @@
+{
+  "schema": "dumps-manifest/1",
+  "title": "Tandberg TDV-2200S-family firmware on TMM27128AD-20",
+  "status": "preserved",
+  "images": [
+    {
+      "file": "tmm27128ad-20.bin",
+      "size": 16384,
+      "sha256": "739c871b383c216428ee833d2758b7590ab4e589b76a065dece91e532cfb1849",
+      "sha1": "83f076d7ecc3225137125b6582d91cd6ac8ec156",
+      "crc32": "322b9060"
+    }
+  ],
+  "details": {
+    "date": "2026-11-26",
+    "part_marking": "TMM27128AD-20",
+    "provenance": "Loose chip; no device, board position or firmware label supplied.",
+    "identification": {
+      "architecture": "Intel 8085",
+      "family": "Tandberg TDV-2200S",
+      "confidence": "Strong code and I/O-map match to family; exact model and revision unresolved",
+      "origin": "0000h",
+      "missing_continuation": "4000h-57FFh"
+    },
+    "acquisition": {
+      "programmer": "T48",
+      "serial": "6MNNWV7B0LLRDYCAA5PF5744",
+      "firmware": "00.1.03",
+      "reader": "MiniPro 0.7.4",
+      "profile": "27128A@DIP28",
+      "skip_electronic_id": true,
+      "contact_check": "passed",
+      "contact_check_supply_v": 4.98,
+      "matching_reads": 2,
+      "read_exit_codes": [
+        0,
+        0
+      ],
+      "session": "rom-programmers/sessions/tmm27128ad-20-blank-check-20261126-222318",
+      "read_command": "minipro -p 27128A@DIP28 -x -r readN.bin",
+      "raw_logs": [
+        "evidence/read1.log",
+        "evidence/read2.log"
+      ],
+      "programmed": false,
+      "erased": false,
+      "warnings": [
+        "T48 support is not yet complete",
+        "Firmware is out of date"
+      ],
+      "reader_sha256": "b96986e1c374ffdd661b99b72d05f6dffc0e17436d1162ec9e4b352f32fa3f7c"
+    },
+    "analysis": {
+      "report": "analysis/README.md",
+      "execution_results": "analysis/probe-results.json",
+      "isolated_execution_cases": 80909,
+      "full_terminal_boot": false,
+      "public_match_check": "analysis/comparison.json",
+      "public_reference_count": 19,
+      "exact_public_match_found": false
+    }
+  }
+}
