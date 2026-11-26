@@ -176,6 +176,13 @@ eight line bytes; the paced
 controller descrambles the exact payload only with the assumed bit-64
 SYNDET placement. This strengthens the conditional receive path but does
 not supply a physical sync source or close C3.
+The [line-USART reinitialization screen](g2/RECEIVER-USART-REINIT-SCREEN.md)
+instruments the Timer-1-paced real-ROM `AD→AE→AF→B0` fixture. Neither
+selector writes line-side control port `05` before or during the eight
+received bytes; the only five control writes program DTE port `06`.
+This rules out a late 8031 line-USART reset in that executed path as the
+source of byte alignment. An earlier setup, clock gating or external
+SYNDET route remains possible; test those as labelled candidates.
 
 The [controller zero-run handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
 now joins a longer real-PROM receive trace to the 8031's executed `AF→B0`

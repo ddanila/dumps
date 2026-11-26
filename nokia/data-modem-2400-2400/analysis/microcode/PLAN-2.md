@@ -1541,6 +1541,14 @@ phases B–C turn "what" into "how".
   first payload; data-dependent bit-66 or bit-72 SYNDET pulses change
   USART byte alignment. This extends the conditional C3
   result but does not identify the physical sync source or serial route.
+  The [line-USART write screen](g2/RECEIVER-USART-REINIT-SCREEN.md)
+  instruments the Timer-1-paced `AD→AE→AF` controller path and finds no
+  port-`05` control write before or during eight received bytes, in
+  either scrambler direction or absent-pulse control. Its only control
+  writes are five bytes to DTE-side port `06`. Thus a late 8031 reset
+  of the line-side 8251 does not supply the required byte boundary in
+  this executed fixture; test external SYNDET or receive-clock gating,
+  while keeping earlier startup behavior as a separate possibility.
   The [four-bit phase readout](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md)
   combines row-0 `3ED` Y bits 0/1/3 with transient `3F8` Y7 in one
   frozen seven-entry table. Two new continuous preamble/data streams at
