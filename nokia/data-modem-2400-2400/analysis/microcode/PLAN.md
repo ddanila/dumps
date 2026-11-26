@@ -218,6 +218,16 @@ overrun and independent descrambler agreement; early and late pulses
 misalign. This establishes the modeled reverse path under its stated
 timing, while the physical DSC-to-RxD/RxC/SYNDET logic and a natural
 8031 A3/A4 receive-state transition remain open C3 hypotheses.
+The [fifth-bit receive screen](g2/JOINT-MASK04-12A-FIFTH-RECEIVE-BIT.md)
+now tests the photo-compatible two-capture Y readout against 75%,
+100%, 125% gain and half-quadrant start phase. Its original four-bit
+state pairs conflict on two transition keys. Adding first-visit Y4,
+second-visit Y5 or second-visit Y6 yields a zero-conflict development
+table; each frozen five-bit table then predicts all 96 decisions in
+each separate controller A4/A5 holdout with zero wrong and zero
+unknown. This gives a concrete fixed-logic candidate but does not
+identify its latch/clock/pin route. Next freeze one choice and
+challenge new waveforms and a photo-compatible implementation.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
