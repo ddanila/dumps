@@ -1184,6 +1184,16 @@ phases B–C turn "what" into "how".
   the latch phase. A 375-edge PROM divider is not required in this
   conditional fixture; the free-running clock, DAC and analog routes
   remain hypotheses, so C2 stays open.
+  The [direct MSB phase replay](g2/JOINT-MASK04-MSB-SEGMENT1-PHASE.md)
+  re-executes both 1,248,256-instruction joint-map streams and measures
+  phase from the raw candidate DAC top bit, without an analog filter or
+  reference decoder. A1 symbol phasors remain steady at 2,100 Hz; all
+  31 adjacent A3 pairs reverse by 180° at 1,800 Hz under each of four
+  free-clock phases. Their full-byte hashes differ, but their MSB hashes
+  agree. This strengthens the conditional segment-1 transmitter evidence;
+  Y7→latch→DAC08 B1 and the physical line output remain unverified, so
+  C2 stays open and the next test should constrain that route or an analog
+  node under labelled photo assumptions.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,

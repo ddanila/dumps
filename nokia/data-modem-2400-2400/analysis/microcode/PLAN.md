@@ -293,6 +293,15 @@ hashes differ, so the signal metrics do not identify the physical edge.
 The 375-PROM-edge divider is not required for this conditional result;
 test an independently constrained clock or analog node next and keep
 C2 open without waiting for a new photograph.
+The [direct MSB phase replay](g2/JOINT-MASK04-MSB-SEGMENT1-PHASE.md) now
+measures the raw candidate output bit in both executed controller-derived
+PROM streams. At all four free-clock phases, adjacent A1 symbols hold a
+steady 2,100 Hz phase while all 31 A3 symbol boundaries make 180°
+reversals at 1,800 Hz. Full-byte captures differ by phase, but their
+MSB streams are identical. This directly supports the segment-1 digital
+output behavior under the Y7→latch→DAC08 B1 hypothesis; the physical
+wire and analog line output remain open, so continue with a photo-compatible
+route or independent analog constraint rather than calling C2 passed.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.

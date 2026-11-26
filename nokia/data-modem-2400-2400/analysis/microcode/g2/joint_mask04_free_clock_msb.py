@@ -54,7 +54,8 @@ def site_streams(path):
     return streams
 
 
-def replay(mapping, base, tx_case, prior_case, edge_case, buses):
+def replay(mapping, base, tx_case, prior_case, edge_case, buses,
+           return_streams=False):
     selector = tx_case['selector']
     symbols = [3] * SEGMENT_SYMBOLS + segment2_from_txd(tx_case)
     inputs = ([TONE_STEP] * (TONE_SYMBOLS * VISITS_PER_SYMBOL) +
@@ -99,8 +100,9 @@ def replay(mapping, base, tx_case, prior_case, edge_case, buses):
                           selected_bus_sha256=hashlib.sha256(
                               bytes(mapped_codes(raw, SELECTED))).hexdigest(),
                           rows=rows))
-    return dict(selector=selector, cycles=cycles,
-                trace_digest=result['trace_digest'], sites=sites)
+    report = dict(selector=selector, cycles=cycles,
+                  trace_digest=result['trace_digest'], sites=sites)
+    return (report, streams) if return_streams else report
 
 
 def run(out=HERE / 'results/joint-mask04-free-clock-msb.json'):
