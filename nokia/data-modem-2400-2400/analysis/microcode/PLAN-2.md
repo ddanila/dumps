@@ -1420,8 +1420,16 @@ phases B–C turn "what" into "how".
   `B0` with eight exact bytes; RAM15:RAM14 ends at `74:F7`. This shows
   the forced gate is unnecessary for a plausible inherited countdown,
   but does not establish that `AF` naturally inherits that value.
-  Execute the preceding state transition and sync timing next; DTE
-  input, mode-0 completion and the serial route remain assumed. C3 open.
+  The [Timer-paced `AE→AF→B0` replay](g2/RECEIVER-AE-AF-ZERO-HANDOFF.md)
+  starts at synthetic `AE` with the ROM's long and short countdown
+  literals. The ROM decodes DTE byte `02` into mode `05`, enters `AF`
+  after 51 interrupts with RAM15:RAM14=`74:FD`, then reaches `B0`
+  with eight exact PROM-derived bytes only for the aligned SYNDET
+  pulse. Early, late, absent, opposite-selector and wrong-mode controls
+  fail to reach `B0`. Test the predecessor into `AE`, countdown
+  inheritance, sync decoder and serial route as labelled candidates.
+  Their physical continuity remains open evidence, not a G2 blocker;
+  C3 stays open.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero

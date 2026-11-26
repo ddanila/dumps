@@ -18,16 +18,16 @@ continue with an explicit candidate connection or independent PROM, controller
 or signal constraint. If several candidates remain indistinguishable, report
 that ambiguity and pursue a different discriminating test; do not wait for a
 photograph or continuity measurement to resolve it.
-When a photo shows only part of a net, choose the simplest pin-compatible
-continuation as the working assumption, label every unseen segment, inversion
-and clock/latch phase, and run the real PROMs with relevant controller traffic.
-Compare a few alternatives that could change the result and retain a control
-with the same input and startup state. A failure rejects only the stated
-fixture; select another photo-compatible route or independent program/signal
-constraint. A success remains conditional until the physical route is
-independently constrained. Report the working assumption, its distinguishing
-result and the next executable test; do not request continuity measurements
-or new photographs as a prerequisite. For C2, test the candidate Y7-to-latch-
+**Default action for an ambiguous photo:** infer the simplest connection
+compatible with the visible pins, chip directions and nearby parts; label its
+unseen segments and timing as assumptions; run it with the real dumps and a
+control. Try a few meaningful alternatives if the result depends on the
+inference. Record what each run supports or excludes and name the next runnable
+test. Keep G2 **active** and the affected acceptance check **open** while such
+tests exist. Never use missing photo detail or continuity alone as a blocker.
+Success remains conditional until the physical route is independently
+constrained; failure rejects only the stated wiring, timing and input fixture.
+For C2, test the candidate Y7-to-latch-
 to-DAC08 MSB and analog-output route identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
@@ -92,9 +92,17 @@ the zero synthetic seed underflows the high byte. A one-time
 ROM-literal `75:30` seed, with no per-dispatch force, survives all 57
 interrupts and again reaches `B0` with eight exact bytes; the final
 countdown is `74:F7`. This removes the continuously held gate from the
-successful fixture but does not prove how that countdown enters `AF`.
-Execute the preceding state transition, then constrain the sync source,
-DTE/serial events and receive route under labelled assumptions.
+successful fixture. The [Timer-paced `AE→AF→B0` replay](g2/RECEIVER-AE-AF-ZERO-HANDOFF.md)
+now starts at synthetic `AE` with the two ROM countdown literals. The
+ROM decodes DTE byte `02` to mode `05`, reaches `AF` after 51 Timer 1
+interrupts with RAM15:RAM14=`74:FD`, then consumes eight exact
+PROM-derived receive bytes and reaches `B0` only with the aligned
+external SYNDET pulse. Early, late, absent, opposite-selector and
+wrong-mode controls do not reach `B0`. This establishes the executed
+`AE→AF` transition under the fixture, but the predecessor into `AE`,
+countdown inheritance, sync source and physical serial route remain
+assumptions. Test those paths with photo-compatible candidates; keep
+C3 open and G2 active without waiting for a continuity measurement.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled

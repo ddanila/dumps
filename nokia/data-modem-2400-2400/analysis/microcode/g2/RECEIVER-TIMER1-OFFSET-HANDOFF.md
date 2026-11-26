@@ -62,6 +62,10 @@ the preceding state transition into `AF` and inspect RAM15:RAM14 there,
 then test the sync event without placing it directly while retaining the
 same PROM receive data and early/late controls.
 
+The [follow-up `AE→AF→B0` replay](RECEIVER-AE-AF-ZERO-HANDOFF.md) now executes
+that state transition with the countdown seeded once in `AE`. Its earlier
+state and physical input routes remain open.
+
 The [machine report](results/receiver-timer1-offset-handoff.json)
 includes all byte timings, ISR counts, frames, zero and ROM-literal seed
 controls, source hashes and the exact generated C-source transformations. Reproduce from the
