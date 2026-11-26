@@ -105,11 +105,19 @@ The [extended alignment test](g2/JOINT-MASK04-12A-EXTENDED-SHIFT.md)
 preserves the original 846 `12A` samples, adds six held-tail samples, and
 tests offsets +4 through +12. No added offset makes the call reference
 decoder exact on any of the six candidate DAC buses: +6 has one error at
-index 35, and +7 still has one or two errors at other indices. Keep the
-call-line discrepancy open and test photo-compatible analog gain/filter
-and latch-phase alternatives with independent data; another tail-only
-alignment sweep is not the next dependency. The missing DAC/analog trace
-is a labelled assumption, not a blocker.
+index 35, and +7 still has one or two errors at other indices. This
+excludes tail-only alignment as the repair for the original Q=1 fixture.
+The missing DAC/analog trace is a labelled assumption, not a blocker.
+The [bounded analog screen and holdout](g2/JOINT-MASK04-12A-ANALOG-HOLDOUT.md)
+find a fixed 1950 Hz, Q=0.5, peak-110, +6-sample line candidate with
+0/64 call and 0/64 answer reference errors on all six buses. Four new
+nonzero controller-fed streams also give 0/64 each on all six buses;
+the prior Q=1 control fails two streams. This resolves the call-line
+reference discrepancy for a conditional analog route. Next, challenge
+the frozen candidate with varied sample phase, gain and carrier offset,
+and seek a photo-compatible line/ADC and DSC-to-USART consumer. The
+external known-carrier decoder does not establish physical filter Q or
+complete C2/C3.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data

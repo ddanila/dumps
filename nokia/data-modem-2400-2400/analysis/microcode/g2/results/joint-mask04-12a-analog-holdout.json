@@ -1,0 +1,593 @@
+{
+  "experiment": "frozen 12A Q=0.5 analog holdout",
+  "fixture": {
+    "center_hz": 1950,
+    "sample_rate_hz": 9600,
+    "q_values": [
+      0.5,
+      1.0
+    ],
+    "peak": 110,
+    "shift": 6,
+    "dac_buses": 6,
+    "payloads": "two nonzero eight-byte payloads per selector"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "payload_index": 0,
+      "payload": [
+        "A5",
+        "3C",
+        "F0",
+        "0F",
+        "81",
+        "7E",
+        "55",
+        "CA"
+      ],
+      "offered_line_bytes": [
+        "67",
+        "62",
+        "E6",
+        "20",
+        "34",
+        "6B",
+        "48",
+        "79"
+      ],
+      "tx_trace_digest": "1f41bf0a1341abe09a1e2e98437332d19e5d529524c7e1c07771b32750d3c457",
+      "y12a_sha256": "cac73a99e504257ca0bfcef55251a85dad11ad34d1e544196352b66eeb476340",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "f8071693e3a975052be81b010c0e85c5f4e5bfe540764961c1fa3792bb09f1d2"
+            },
+            {
+              "q": 1.0,
+              "wrong": 3,
+              "wrong_indices": [
+                34,
+                35,
+                54
+              ],
+              "pcm_sha256": "f5bccb7405ba75816b16834dc596d7e9de0aa66db4bf1e1f918b9e0b945da1f0"
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "faff5f53d5e35fcdc2e122ff68d6f316fa2a2d6caf6a5fd2611e46688b935484"
+            },
+            {
+              "q": 1.0,
+              "wrong": 3,
+              "wrong_indices": [
+                34,
+                35,
+                54
+              ],
+              "pcm_sha256": "4c867df295fc631ae99ea273feda9a5718097948a6d5d1e81cf95171caa43919"
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "f8071693e3a975052be81b010c0e85c5f4e5bfe540764961c1fa3792bb09f1d2"
+            },
+            {
+              "q": 1.0,
+              "wrong": 3,
+              "wrong_indices": [
+                34,
+                35,
+                54
+              ],
+              "pcm_sha256": "f5bccb7405ba75816b16834dc596d7e9de0aa66db4bf1e1f918b9e0b945da1f0"
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "a13f99542143748875f6a7b43cd81b929d742a4bbb9260d26357b2f09722e43c"
+            },
+            {
+              "q": 1.0,
+              "wrong": 4,
+              "wrong_indices": [
+                34,
+                35,
+                53,
+                54
+              ],
+              "pcm_sha256": "618e23828893785ecfff7509f388e78360bab09e44fe726775524bcfbb40018f"
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "faff5f53d5e35fcdc2e122ff68d6f316fa2a2d6caf6a5fd2611e46688b935484"
+            },
+            {
+              "q": 1.0,
+              "wrong": 3,
+              "wrong_indices": [
+                34,
+                35,
+                54
+              ],
+              "pcm_sha256": "4c867df295fc631ae99ea273feda9a5718097948a6d5d1e81cf95171caa43919"
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "a13f99542143748875f6a7b43cd81b929d742a4bbb9260d26357b2f09722e43c"
+            },
+            {
+              "q": 1.0,
+              "wrong": 4,
+              "wrong_indices": [
+                34,
+                35,
+                53,
+                54
+              ],
+              "pcm_sha256": "618e23828893785ecfff7509f388e78360bab09e44fe726775524bcfbb40018f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "40",
+      "payload_index": 1,
+      "payload": [
+        "42",
+        "DB",
+        "19",
+        "E7",
+        "24",
+        "B6",
+        "68",
+        "93"
+      ],
+      "offered_line_bytes": [
+        "60",
+        "65",
+        "AF",
+        "02",
+        "56",
+        "8B",
+        "78",
+        "D7"
+      ],
+      "tx_trace_digest": "4d94ac717f348102f81cce726c817cdfe463021748e0e90ed6488280d1ff6faf",
+      "y12a_sha256": "093a34da1efd80902bce15d953388d286e189722acc27c0a422b1940239ffa24",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "ce9e8b8400f0ce7202fa5441ee9f52ff09f7675b4c86514f3465487501032d17"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "5c8fd420a53f0415cf5c433a43bac433d67778aefb6038d6eb774077c070663e"
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "0ee8a0d464401839ce973a42ceb2dfd6de2f3eff2f5c387f932916efd39a2376"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "aec95b529a0eda0dcd7d7935be19ed56c57f4dcdd63d738670b722ee63ae1348"
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "ce9e8b8400f0ce7202fa5441ee9f52ff09f7675b4c86514f3465487501032d17"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "5c8fd420a53f0415cf5c433a43bac433d67778aefb6038d6eb774077c070663e"
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "e9358d26e689a421e57d9ba293a086efde53c7c72c512d637fe3fa478c5ccb4a"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "772dd88fd1dce4735d3e1518891d81134a2e60c89c24ace19c1ec0885634259a"
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "0ee8a0d464401839ce973a42ceb2dfd6de2f3eff2f5c387f932916efd39a2376"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "aec95b529a0eda0dcd7d7935be19ed56c57f4dcdd63d738670b722ee63ae1348"
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "e9358d26e689a421e57d9ba293a086efde53c7c72c512d637fe3fa478c5ccb4a"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "772dd88fd1dce4735d3e1518891d81134a2e60c89c24ace19c1ec0885634259a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "payload_index": 0,
+      "payload": [
+        "A5",
+        "3C",
+        "F0",
+        "0F",
+        "81",
+        "7E",
+        "55",
+        "CA"
+      ],
+      "offered_line_bytes": [
+        "00",
+        "FE",
+        "A8",
+        "F7",
+        "5D",
+        "74",
+        "D9",
+        "35"
+      ],
+      "tx_trace_digest": "3f82561b8528844774d89601edebe0ef0ed695a0e74a6b7e01cdb6debc95f744",
+      "y12a_sha256": "7638874367eb7fcfd231b0b72382f4816bcf88969e8b0283fdc43d2e4a5a90e9",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "b1bf1ad6989e7067afaccc334990c5997bf3a94acf9df4854bbc4b1f53f1d7ba"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "601c88baeda50547ea04411db8e56b7f9bf4fee8d2e84b3be66b62bd2e9a9ed7"
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "88eb4845b199c324002f2fd1914aa814bbd0cfe78405848891d0131e31d87c77"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "e2cb52f04e0826262a8213b0c746783089fc43f072895add2ed775a3d8865cdc"
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "b1bf1ad6989e7067afaccc334990c5997bf3a94acf9df4854bbc4b1f53f1d7ba"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "601c88baeda50547ea04411db8e56b7f9bf4fee8d2e84b3be66b62bd2e9a9ed7"
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "7421ac16ef609bdb17f8791fa1308263793b7442022cc16f541ff7cb1f6932eb"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "dd318ce54b36fc7c6d156e791f1ac01c25e91a7fb26111fa6914e24eda24ede6"
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "88eb4845b199c324002f2fd1914aa814bbd0cfe78405848891d0131e31d87c77"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "e2cb52f04e0826262a8213b0c746783089fc43f072895add2ed775a3d8865cdc"
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "7421ac16ef609bdb17f8791fa1308263793b7442022cc16f541ff7cb1f6932eb"
+            },
+            {
+              "q": 1.0,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "dd318ce54b36fc7c6d156e791f1ac01c25e91a7fb26111fa6914e24eda24ede6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "payload_index": 1,
+      "payload": [
+        "42",
+        "DB",
+        "19",
+        "E7",
+        "24",
+        "B6",
+        "68",
+        "93"
+      ],
+      "offered_line_bytes": [
+        "E7",
+        "19",
+        "5D",
+        "73",
+        "DC",
+        "D5",
+        "20",
+        "2A"
+      ],
+      "tx_trace_digest": "1391be896135aa14a3e6eb45c2469a6796ff2b8777b52200cbac2fb945026c71",
+      "y12a_sha256": "fa2f994362f69c4222efbf6108d515288adff4f65c65ff8d2fc13d9d4f76530b",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "2c379d6f82a39750ac116805198154a294d2467065fddf482702529ce6a24447"
+            },
+            {
+              "q": 1.0,
+              "wrong": 2,
+              "wrong_indices": [
+                37,
+                62
+              ],
+              "pcm_sha256": "f2e2ce7d72ce5eaa3825b9805ef6504612f61cc64d0b10a12c29b4b0901e6e6a"
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "0066470553401586c2f501df0c304e1c6d7928291d57c311613e891765ff4504"
+            },
+            {
+              "q": 1.0,
+              "wrong": 2,
+              "wrong_indices": [
+                37,
+                62
+              ],
+              "pcm_sha256": "68c71e82ab9279ba3ec0aaa371d0ce823e5cf586ae984fcbad69c390ffa714e4"
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "2c379d6f82a39750ac116805198154a294d2467065fddf482702529ce6a24447"
+            },
+            {
+              "q": 1.0,
+              "wrong": 2,
+              "wrong_indices": [
+                37,
+                62
+              ],
+              "pcm_sha256": "f2e2ce7d72ce5eaa3825b9805ef6504612f61cc64d0b10a12c29b4b0901e6e6a"
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "4bbf1058e18e8646c89662c6fd550171355780cdd0d640c01df1fc171e42b731"
+            },
+            {
+              "q": 1.0,
+              "wrong": 2,
+              "wrong_indices": [
+                37,
+                62
+              ],
+              "pcm_sha256": "d5bea9ac855fd7fba41a5e52820472eb38a6fed5f9bda0999766937cb2710619"
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "0066470553401586c2f501df0c304e1c6d7928291d57c311613e891765ff4504"
+            },
+            {
+              "q": 1.0,
+              "wrong": 2,
+              "wrong_indices": [
+                37,
+                62
+              ],
+              "pcm_sha256": "68c71e82ab9279ba3ec0aaa371d0ce823e5cf586ae984fcbad69c390ffa714e4"
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "scores": [
+            {
+              "q": 0.5,
+              "wrong": 0,
+              "wrong_indices": [],
+              "pcm_sha256": "4bbf1058e18e8646c89662c6fd550171355780cdd0d640c01df1fc171e42b731"
+            },
+            {
+              "q": 1.0,
+              "wrong": 2,
+              "wrong_indices": [
+                37,
+                62
+              ],
+              "pcm_sha256": "d5bea9ac855fd7fba41a5e52820472eb38a6fed5f9bda0999766937cb2710619"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The held-out data use the same assumed controller-bit/PROM/DAC and analog route.",
+    "A known-carrier decoder is external to the DSC; no receiver/USART readout is established.",
+    "The filter setting is a candidate, not a measured board component value."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_analog_holdout.py": "39b3de9aae16142770f50283c254c7674bc89fe4cecd58e7694640f9181d04a7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_analog_screen.py": "0a7430492515a3478cc2eb0b5cfd995b9a092c6d52415473e175a1f19a4c809c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_buffered_line.py": "cb80559269af717d2318e6ac9f8e67245b7aeb54e811eaa43f87a193e2b37fdf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  }
+}
