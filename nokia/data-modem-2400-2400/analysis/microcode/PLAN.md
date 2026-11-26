@@ -623,6 +623,15 @@ clock turns `88` into 2,100 Hz and `B0` into a magnitude-1,800 Hz
 carrier. This identifies an executed candidate digital modulation
 mechanism; the D127 pulse decoder and physical DAC/line route remain
 open C2 hypotheses, not goal blockers.
+The [full-A4 pulse ablation](g2/JOINT-MASK04-TX-PHASE-PULSE-ABLATION.md)
+extends those checks through all 32 controller-derived data dibits in
+both modes. Each 384,256-word real-PROM run checks 96,053 consecutive
+R1 additions and 384,216 Y7/R1-high relations. Replacing only dibit
+23's four-visit `90` pulse with baseline `B0` leaves earlier symbol-end
+phases equal and shifts that and every later symbol end by exactly
+128/256, the predicted half-turn. This is causal internal transmitter
+evidence under an assumed D127 input route; constrain the input decoder,
+latch and DAC/line path before passing C2.
 The [causal serial-edge pulse screen](g2/JOINT-MASK04-SERIAL-EDGE-PULSE.md)
 now pairs the controller's actual 2,400-bit/s line bits and starts a
 16-microcycle D127 pulse on each pair's second bit edge, rather than

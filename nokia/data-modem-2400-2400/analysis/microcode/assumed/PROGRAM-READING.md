@@ -224,6 +224,13 @@ the loop. In the labelled controller-to-D127 pulse fixture, `88` and
 `B0` yield the 2,100 Hz and magnitude-1,800 Hz phase steps at the
 assumed 9,600 Hz sample clock; four-visit dibit pulses shift the phase
 by quadrants. The physical output route remains unverified.
+The [full-A4 intervention](../g2/JOINT-MASK04-TX-PHASE-PULSE-ABLATION.md)
+then verifies those R1 and Y7 relations across all 32 real-controller
+data dibits per selector. Replacing dibit 23's four `90` D127 visits
+with `B0` leaves prior symbol phases unchanged and offsets all later
+symbol ends by 128/256 in both modes. That directly ties one offered
+controller dibit pulse to persistent executed carrier phase under the
+assumed input route, without identifying its physical DAC output.
 The [full controller-fed bank-phase replay](../g2/JOINT-MASK04-TX-BANK-PHASE.md)
 adds a separate `12A` result: changing only Am27S31 A8 at `129`
 changes `12A` Y bit 0 on about 75,000 raw visits per selector and on

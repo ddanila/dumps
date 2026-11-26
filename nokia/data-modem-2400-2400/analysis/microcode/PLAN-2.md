@@ -1913,6 +1913,13 @@ Listed in order of value per effort:
   explains the candidate 1,800/2,100 Hz digital output under the
   assumed 9,600 Hz latch clock, while C2 still requires a constrained
   DAC and analog line route.
+  The [full-A4 pulse ablation](g2/JOINT-MASK04-TX-PHASE-PULSE-ABLATION.md)
+  checks the same R1/Y7 equations through all 32 controller dibits in
+  each selector. A one-dibit `11→00` intervention at symbol 23 causes
+  the predicted 128-count phase difference at every later symbol end
+  in both full real-PROM runs. It strengthens the causal microprogram
+  mechanism under the labelled D127 pulse fixture; the physical input
+  and DAC/line route still need independent constraint for C2.
   A [photo-B5 alternative](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
   takes the exact saved Y7 samples through an assumed Y7→LS273 D4
   input and the visible-candidate Q4→DAC08 B5 segment. The B5-only

@@ -1,0 +1,1609 @@
+{
+  "experiment": "full controller A4 R1/Y7 recurrence with one-dibit pulse ablation",
+  "fixture": {
+    "selectors": [
+      "40",
+      "60"
+    ],
+    "data_symbols": 32,
+    "ablated_symbol_zero_based": 23,
+    "visits_per_symbol": 3000,
+    "visits_per_sample": 375,
+    "pulse_visits": 4,
+    "baseline_d127": "B0"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "controller_dibits": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3,
+        2,
+        1,
+        3,
+        0,
+        0,
+        1,
+        3,
+        0,
+        0,
+        0,
+        1,
+        3,
+        3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        1,
+        2,
+        0
+      ],
+      "target_symbol_zero_based": 23,
+      "original_dibit": 3,
+      "control_dibit": 0,
+      "original_pulse_d127": "90",
+      "control_pulse_d127": "B0",
+      "changed_d127_visits": [
+        69000,
+        69001,
+        69002,
+        69003
+      ],
+      "expected_control_minus_original_phase": 128,
+      "symbol_end_phase_delta": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "normal": {
+        "selector": "40",
+        "dibits": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          2,
+          1,
+          3,
+          0,
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          1,
+          3,
+          3,
+          0,
+          0,
+          0,
+          3,
+          0,
+          1,
+          2,
+          0
+        ],
+        "cycles": 384256,
+        "pc127_visits": 96054,
+        "r1_recurrence_checks": 96053,
+        "y7_equals_r1_high_checks": 384216,
+        "initial_phase_before_first_input": 242,
+        "symbol_ends": [
+          {
+            "symbol": 0,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 1,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 2,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 3,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 4,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 5,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 6,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 7,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 8,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 9,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 10,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 11,
+            "dibit": 2,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 12,
+            "dibit": 1,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 13,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 14,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 15,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 16,
+            "dibit": 1,
+            "r1": 178,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 17,
+            "dibit": 3,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 18,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 19,
+            "dibit": 0,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 20,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 21,
+            "dibit": 1,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 22,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 23,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 24,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 25,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 26,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 27,
+            "dibit": 3,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 28,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 29,
+            "dibit": 1,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 30,
+            "dibit": 2,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 31,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          }
+        ],
+        "first_16_samples": [
+          {
+            "visit": 0,
+            "symbol": 0,
+            "sample": 0,
+            "phase": 162,
+            "y7": 1
+          },
+          {
+            "visit": 375,
+            "symbol": 0,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 750,
+            "symbol": 0,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 1125,
+            "symbol": 0,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 1500,
+            "symbol": 0,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 1875,
+            "symbol": 0,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 2250,
+            "symbol": 0,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 2625,
+            "symbol": 0,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          },
+          {
+            "visit": 3000,
+            "symbol": 1,
+            "sample": 0,
+            "phase": 2,
+            "y7": 0
+          },
+          {
+            "visit": 3375,
+            "symbol": 1,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 3750,
+            "symbol": 1,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 4125,
+            "symbol": 1,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 4500,
+            "symbol": 1,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 4875,
+            "symbol": 1,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 5250,
+            "symbol": 1,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 5625,
+            "symbol": 1,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          }
+        ],
+        "sampled_y7_sha256": "0b2fdb8eed69152e419e1ac0dbf3bda686293c2c45e229002782602aa6af9da7",
+        "trace_digest": "97740928f7d629be1cdd8a26ee223c7c6709063095e6d64a8c77d201f7fa243b"
+      },
+      "control": {
+        "selector": "40",
+        "dibits": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          2,
+          1,
+          3,
+          0,
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          1,
+          3,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          1,
+          2,
+          0
+        ],
+        "cycles": 384256,
+        "pc127_visits": 96054,
+        "r1_recurrence_checks": 96053,
+        "y7_equals_r1_high_checks": 384216,
+        "initial_phase_before_first_input": 242,
+        "symbol_ends": [
+          {
+            "symbol": 0,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 1,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 2,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 3,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 4,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 5,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 6,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 7,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 8,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 9,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 10,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 11,
+            "dibit": 2,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 12,
+            "dibit": 1,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 13,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 14,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 15,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 16,
+            "dibit": 1,
+            "r1": 178,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 17,
+            "dibit": 3,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 18,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 19,
+            "dibit": 0,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 20,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 21,
+            "dibit": 1,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 22,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 23,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 24,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 25,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 26,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 27,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 28,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 29,
+            "dibit": 1,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 30,
+            "dibit": 2,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 31,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 128
+          }
+        ],
+        "first_16_samples": [
+          {
+            "visit": 0,
+            "symbol": 0,
+            "sample": 0,
+            "phase": 162,
+            "y7": 1
+          },
+          {
+            "visit": 375,
+            "symbol": 0,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 750,
+            "symbol": 0,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 1125,
+            "symbol": 0,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 1500,
+            "symbol": 0,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 1875,
+            "symbol": 0,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 2250,
+            "symbol": 0,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 2625,
+            "symbol": 0,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          },
+          {
+            "visit": 3000,
+            "symbol": 1,
+            "sample": 0,
+            "phase": 2,
+            "y7": 0
+          },
+          {
+            "visit": 3375,
+            "symbol": 1,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 3750,
+            "symbol": 1,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 4125,
+            "symbol": 1,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 4500,
+            "symbol": 1,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 4875,
+            "symbol": 1,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 5250,
+            "symbol": 1,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 5625,
+            "symbol": 1,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          }
+        ],
+        "sampled_y7_sha256": "18c670ee492ac00b18cec974fabd4c8a2c077cdcd0a77aca2e9821831e361b92",
+        "trace_digest": "8aa047cddad73369d36fdbaa03d638d4b71ff4a1559198c9a2d8c4ef3f1e6f0e"
+      }
+    },
+    {
+      "selector": "60",
+      "controller_dibits": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3,
+        2,
+        1,
+        3,
+        0,
+        3,
+        3,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        3,
+        0,
+        2,
+        0,
+        1,
+        0,
+        3,
+        1,
+        3
+      ],
+      "target_symbol_zero_based": 23,
+      "original_dibit": 3,
+      "control_dibit": 0,
+      "original_pulse_d127": "90",
+      "control_pulse_d127": "B0",
+      "changed_d127_visits": [
+        69000,
+        69001,
+        69002,
+        69003
+      ],
+      "expected_control_minus_original_phase": 128,
+      "symbol_end_phase_delta": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "normal": {
+        "selector": "60",
+        "dibits": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          2,
+          1,
+          3,
+          0,
+          3,
+          3,
+          2,
+          0,
+          0,
+          2,
+          0,
+          1,
+          3,
+          0,
+          2,
+          0,
+          1,
+          0,
+          3,
+          1,
+          3
+        ],
+        "cycles": 384256,
+        "pc127_visits": 96054,
+        "r1_recurrence_checks": 96053,
+        "y7_equals_r1_high_checks": 384216,
+        "initial_phase_before_first_input": 242,
+        "symbol_ends": [
+          {
+            "symbol": 0,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 1,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 2,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 3,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 4,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 5,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 6,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 7,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 8,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 9,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 10,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 11,
+            "dibit": 2,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 12,
+            "dibit": 1,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 13,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 14,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 15,
+            "dibit": 3,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 16,
+            "dibit": 3,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 17,
+            "dibit": 2,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 18,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 19,
+            "dibit": 0,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 20,
+            "dibit": 2,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 21,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 22,
+            "dibit": 1,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 23,
+            "dibit": 3,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 24,
+            "dibit": 0,
+            "r1": 178,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 25,
+            "dibit": 2,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 26,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 27,
+            "dibit": 1,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 28,
+            "dibit": 0,
+            "r1": 178,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 29,
+            "dibit": 3,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 30,
+            "dibit": 1,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 31,
+            "dibit": 3,
+            "r1": 242,
+            "cumulative_offset": 0
+          }
+        ],
+        "first_16_samples": [
+          {
+            "visit": 0,
+            "symbol": 0,
+            "sample": 0,
+            "phase": 162,
+            "y7": 1
+          },
+          {
+            "visit": 375,
+            "symbol": 0,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 750,
+            "symbol": 0,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 1125,
+            "symbol": 0,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 1500,
+            "symbol": 0,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 1875,
+            "symbol": 0,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 2250,
+            "symbol": 0,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 2625,
+            "symbol": 0,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          },
+          {
+            "visit": 3000,
+            "symbol": 1,
+            "sample": 0,
+            "phase": 2,
+            "y7": 0
+          },
+          {
+            "visit": 3375,
+            "symbol": 1,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 3750,
+            "symbol": 1,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 4125,
+            "symbol": 1,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 4500,
+            "symbol": 1,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 4875,
+            "symbol": 1,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 5250,
+            "symbol": 1,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 5625,
+            "symbol": 1,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          }
+        ],
+        "sampled_y7_sha256": "177d3140c4498bde23f87719ca98d13107b60a0bc8c1bfb067dbf8891e368721",
+        "trace_digest": "c5e080753724191265299174b3575c280130a35ec456cd1029271e9c5e003242"
+      },
+      "control": {
+        "selector": "60",
+        "dibits": [
+          0,
+          3,
+          3,
+          3,
+          3,
+          0,
+          0,
+          0,
+          0,
+          3,
+          3,
+          2,
+          1,
+          3,
+          0,
+          3,
+          3,
+          2,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0,
+          2,
+          0,
+          1,
+          0,
+          3,
+          1,
+          3
+        ],
+        "cycles": 384256,
+        "pc127_visits": 96054,
+        "r1_recurrence_checks": 96053,
+        "y7_equals_r1_high_checks": 384216,
+        "initial_phase_before_first_input": 242,
+        "symbol_ends": [
+          {
+            "symbol": 0,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 1,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 2,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 3,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 4,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 5,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 6,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 7,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 8,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 9,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 10,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 11,
+            "dibit": 2,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 12,
+            "dibit": 1,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 13,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 14,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 15,
+            "dibit": 3,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 16,
+            "dibit": 3,
+            "r1": 242,
+            "cumulative_offset": 128
+          },
+          {
+            "symbol": 17,
+            "dibit": 2,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 18,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 19,
+            "dibit": 0,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 20,
+            "dibit": 2,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 21,
+            "dibit": 0,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 22,
+            "dibit": 1,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 23,
+            "dibit": 0,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 24,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 25,
+            "dibit": 2,
+            "r1": 242,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 26,
+            "dibit": 0,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 27,
+            "dibit": 1,
+            "r1": 178,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 28,
+            "dibit": 0,
+            "r1": 50,
+            "cumulative_offset": 192
+          },
+          {
+            "symbol": 29,
+            "dibit": 3,
+            "r1": 50,
+            "cumulative_offset": 64
+          },
+          {
+            "symbol": 30,
+            "dibit": 1,
+            "r1": 114,
+            "cumulative_offset": 0
+          },
+          {
+            "symbol": 31,
+            "dibit": 3,
+            "r1": 114,
+            "cumulative_offset": 128
+          }
+        ],
+        "first_16_samples": [
+          {
+            "visit": 0,
+            "symbol": 0,
+            "sample": 0,
+            "phase": 162,
+            "y7": 1
+          },
+          {
+            "visit": 375,
+            "symbol": 0,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 750,
+            "symbol": 0,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 1125,
+            "symbol": 0,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 1500,
+            "symbol": 0,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 1875,
+            "symbol": 0,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 2250,
+            "symbol": 0,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 2625,
+            "symbol": 0,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          },
+          {
+            "visit": 3000,
+            "symbol": 1,
+            "sample": 0,
+            "phase": 2,
+            "y7": 0
+          },
+          {
+            "visit": 3375,
+            "symbol": 1,
+            "sample": 1,
+            "phase": 114,
+            "y7": 0
+          },
+          {
+            "visit": 3750,
+            "symbol": 1,
+            "sample": 2,
+            "phase": 66,
+            "y7": 0
+          },
+          {
+            "visit": 4125,
+            "symbol": 1,
+            "sample": 3,
+            "phase": 18,
+            "y7": 0
+          },
+          {
+            "visit": 4500,
+            "symbol": 1,
+            "sample": 4,
+            "phase": 226,
+            "y7": 1
+          },
+          {
+            "visit": 4875,
+            "symbol": 1,
+            "sample": 5,
+            "phase": 178,
+            "y7": 1
+          },
+          {
+            "visit": 5250,
+            "symbol": 1,
+            "sample": 6,
+            "phase": 130,
+            "y7": 1
+          },
+          {
+            "visit": 5625,
+            "symbol": 1,
+            "sample": 7,
+            "phase": 82,
+            "y7": 0
+          }
+        ],
+        "sampled_y7_sha256": "561c54cc0cddc0c5f2bf2b74b63d907ad2d25491713c4599bc81737be05f91a6",
+        "trace_digest": "6f9143ae6f02cf2bdbaeb34aceed4c6153f7187e95e225c6c1aaa93075a6c833"
+      }
+    }
+  ],
+  "limitations": [
+    "The controller dibits are real 8031/8251 outputs; D127 pulse decoding and route remain assumed.",
+    "R1 and Y7 are executed internal values; their physical DAC and line connection is untraced.",
+    "The 9,600 Hz latch cadence follows an assumed clock division, not measured hardware."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_phase_pulse_ablation.py": "23701c8d07c4cde09f33db447fe3aaafad11b37d7a9e36706421411ab8fcadd5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_phase_accumulator.py": "6e4792f4d3ba53f0c8d6b20f92f4657abb0bfbb34dd803044fd9d9c0d07cc648",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}
