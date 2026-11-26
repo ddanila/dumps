@@ -1,0 +1,86 @@
+{
+  "experiment": "complete legal-carrier 3FA Y equation under delayed RAM return",
+  "fixture": {
+    "equation": "Y3FA(s) = ((Y3F9(s-3)&0xF0)+0x20)&0xF0 | bit(current_ADC_high in {6,B,C}); first three source highs 0",
+    "codebook": "independently executed three-carrier 3FA current-nibble table",
+    "routes": [
+      "write_only",
+      "high_return_3fa"
+    ]
+  },
+  "cases": [
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "feedback_trace_digest": "7489a3531b7858644846899660d89077a712c37e07b04005b6aea6ea1bedd0a1",
+      "checked_visits": 6000,
+      "full_byte_mismatches": 0,
+      "feedback_vs_control_low_mismatches": 0,
+      "control_low_vs_codebook_mismatches": 0,
+      "current_adc_high_nibble_visit_counts": {
+        "0": 326,
+        "1": 467,
+        "2": 611,
+        "3": 235,
+        "4": 374,
+        "5": 233,
+        "6": 235,
+        "7": 705,
+        "8": 329,
+        "9": 376,
+        "A": 282,
+        "B": 140,
+        "C": 47,
+        "D": 846,
+        "E": 328,
+        "F": 466
+      }
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "feedback_trace_digest": "35bcd988c7f592337172e5668b61451b878584830bf89b09949d4ea2692e2050",
+      "checked_visits": 6000,
+      "full_byte_mismatches": 0,
+      "feedback_vs_control_low_mismatches": 0,
+      "control_low_vs_codebook_mismatches": 0,
+      "current_adc_high_nibble_visit_counts": {
+        "0": 466,
+        "1": 375,
+        "2": 846,
+        "3": 0,
+        "4": 234,
+        "5": 47,
+        "6": 188,
+        "7": 799,
+        "8": 329,
+        "9": 282,
+        "A": 560,
+        "B": 420,
+        "C": 47,
+        "D": 658,
+        "E": 375,
+        "F": 374
+      }
+    }
+  ],
+  "checked_feedback_visits": 12000,
+  "low_bit_one_nibbles": [
+    "6",
+    "B",
+    "C"
+  ],
+  "full_byte_mismatches": 0,
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_ram_return_full_equation.py": "18a057683e392dcfefa7567f7ea20dbbe90700aaa9e733188eae446a0423ed71",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/receiver-mask04-legal-ram-return.json": "a3bd9fdf8538318a5a81afb9068d9c1aa0eb3cf512fb61c4c4489b1939bf3e76",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-receive-3f9-3fa-codebook.json": "fc4b1031a80a5e54ab8b531c893573c8d80d38244c8a38d5648e47fccb8ee4be",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/receiver-mask04-ram-return-delay-equation.json": "2c451ee6c4ed0da9841062c51cc85bfba70f9f4ce3b22bd793f42a51da67c865",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_legal_ram_return.py": "9004a7e7756d33e0c4811a2169ba89c20b17a38a0e1f9e81838cef962b43302a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_upper_ram_feedback_screen.py": "0d174e64e2efd650d09211c74782a119f4ecd70beb98cb8354ba369b8db84383"
+  },
+  "limitations": [
+    "This is an exact equation for the stated legal carriers and assumed RAM/TEST fixture, not a proof of physical wiring.",
+    "The equation describes a delayed sample code plus a current-sample code bit; it is not a demonstrated differential decision or echo residual."
+  ]
+}

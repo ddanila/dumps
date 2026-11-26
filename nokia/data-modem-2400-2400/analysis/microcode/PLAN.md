@@ -183,6 +183,15 @@ output is a fixed delayed sample recoding under this fixture, not an
 adaptive residual or recovered dibit. Test its low bit separately,
 and seek a mode/return route with a varying trained operand or an
 independently constrained receive/USART output. C3/C4/G2 remain open.
+The [full-byte RAM-return equation](g2/RECEIVER-MASK04-RAM-RETURN-FULL-EQUATION.md)
+now checks the remaining low bit against the same-input write-only
+control and the independently executed `3FA` ADC codebook. All 12,000
+feedback Y bytes equal the delayed `3F9` high code plus a bit that is
+one exactly for current ADC high nibbles `6`, `B`, `C`; feedback never
+changes that low bit. This fully explains the tested `3FA` output as
+fixed delayed/current sample recoding, not a demonstrated onboard
+dibit decision or adaptive residual. Pursue a consumed trained operand
+or distinct output/USART route; C3/C4/G2 stay open.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
