@@ -173,6 +173,14 @@ tested pair. Thus choosing a different pair among these visits cannot by
 itself repair the frozen two-feature readout. Inspect those Y states and
 test a different phase-aware or multi-sample decision on a fresh fixture;
 do not treat this narrow pair-family failure as a G2 blocker or C3 pass.
+The [gap-byte audit](g2/JOINT-MASK04-FULL-BUS-OFFSET-GAP-AUDIT.md) now
+captures ADC, `3F8` Y and `3ED` row bytes at all four gaps in hash-matched
+real-PROM runs. Two adjacent-pair gaps contain a primary/alternative
+decision conflict (`0` versus the correct `2`); the two symbol-56 gaps
+have no correct known consensus among eight tested pairs. Executed Y
+bytes vary with the input, so test a new phase-aware row/multi-sample
+feature and freeze conflict handling before a fresh payload/phase holdout.
+The currently untraced decoder path keeps C3 open, not G2 blocked.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
