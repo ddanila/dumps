@@ -119,8 +119,14 @@ calibrates gain on the zero-run only, then keeps it across both saved
 nonzero payloads per selector. At +6, all 24 bus/payload streams are
 exact at 75%, 100% and 125% of that gain. At +5, six stream/bus cases
 miss one answer dibit; +7 fails all 24. Constrain the latch/sample
-alignment and test carrier offset without refitting,
-and seek a photo-compatible line/ADC and DSC-to-USART consumer. The
+alignment. The [receiver-oscillator mismatch check](g2/JOINT-MASK04-12A-CARRIER-MISMATCH.md)
+keeps the line and zero-run gain frozen: all 24 bus/payload scores
+remain exact at reference-local offsets −14, −7, 0, +7 and +14 Hz.
+This removes a small *reference receiver* mismatch as an explanation
+for the earlier data error; it does not test DSC carrier recovery or
+the board's actual transmit-frequency offset. Test those executed
+paths without refitting, and seek a photo-compatible line/ADC and
+DSC-to-USART consumer. The
 external known-carrier decoder does not establish physical filter Q or
 complete C2/C3.
 The [Q=0.5 receiver replay](g2/JOINT-MASK04-12A-Q05-RECEIVER.md)

@@ -1,0 +1,871 @@
+{
+  "experiment": "12A fixed-line reference receiver oscillator mismatch",
+  "fixture": {
+    "transmit_line": "Q=0.5, center 1950 Hz, +6 samples; zero-run-calibrated gain",
+    "receiver_nominal_hz": 1800,
+    "receiver_offsets_hz": [
+      -14,
+      -7,
+      0,
+      7,
+      14
+    ],
+    "selectors": [
+      "40",
+      "60"
+    ],
+    "payloads_per_selector": 2,
+    "dac_buses": 6
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "payload_index": 0,
+      "offered_line_bytes": [
+        "67",
+        "62",
+        "E6",
+        "20",
+        "34",
+        "6B",
+        "48",
+        "79"
+      ],
+      "tx_trace_digest": "1f41bf0a1341abe09a1e2e98437332d19e5d529524c7e1c07771b32750d3c457",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "gain": 0.943293613,
+          "pcm_sha256": "f8071693e3a975052be81b010c0e85c5f4e5bfe540764961c1fa3792bb09f1d2",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "gain": 0.948482433,
+          "pcm_sha256": "faff5f53d5e35fcdc2e122ff68d6f316fa2a2d6caf6a5fd2611e46688b935484",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "gain": 0.943293613,
+          "pcm_sha256": "f8071693e3a975052be81b010c0e85c5f4e5bfe540764961c1fa3792bb09f1d2",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "gain": 0.951098308,
+          "pcm_sha256": "a13f99542143748875f6a7b43cd81b929d742a4bbb9260d26357b2f09722e43c",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "gain": 0.948482433,
+          "pcm_sha256": "faff5f53d5e35fcdc2e122ff68d6f316fa2a2d6caf6a5fd2611e46688b935484",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "gain": 0.951098308,
+          "pcm_sha256": "a13f99542143748875f6a7b43cd81b929d742a4bbb9260d26357b2f09722e43c",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "40",
+      "payload_index": 1,
+      "offered_line_bytes": [
+        "60",
+        "65",
+        "AF",
+        "02",
+        "56",
+        "8B",
+        "78",
+        "D7"
+      ],
+      "tx_trace_digest": "4d94ac717f348102f81cce726c817cdfe463021748e0e90ed6488280d1ff6faf",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "gain": 0.943293613,
+          "pcm_sha256": "ce9e8b8400f0ce7202fa5441ee9f52ff09f7675b4c86514f3465487501032d17",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "gain": 0.948482433,
+          "pcm_sha256": "0ee8a0d464401839ce973a42ceb2dfd6de2f3eff2f5c387f932916efd39a2376",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "gain": 0.943293613,
+          "pcm_sha256": "ce9e8b8400f0ce7202fa5441ee9f52ff09f7675b4c86514f3465487501032d17",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "gain": 0.951098308,
+          "pcm_sha256": "e9358d26e689a421e57d9ba293a086efde53c7c72c512d637fe3fa478c5ccb4a",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "gain": 0.948482433,
+          "pcm_sha256": "0ee8a0d464401839ce973a42ceb2dfd6de2f3eff2f5c387f932916efd39a2376",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "gain": 0.951098308,
+          "pcm_sha256": "e9358d26e689a421e57d9ba293a086efde53c7c72c512d637fe3fa478c5ccb4a",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "payload_index": 0,
+      "offered_line_bytes": [
+        "00",
+        "FE",
+        "A8",
+        "F7",
+        "5D",
+        "74",
+        "D9",
+        "35"
+      ],
+      "tx_trace_digest": "3f82561b8528844774d89601edebe0ef0ed695a0e74a6b7e01cdb6debc95f744",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "gain": 0.943293613,
+          "pcm_sha256": "2fcb7bc8c174113d9609d578c6a21f483a348535ccf428ca5701c93ad2f15130",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "gain": 0.948482433,
+          "pcm_sha256": "700cd9b83bb5450b2b6466d20e6738ac9bd9835ae8ed2aec7eae5bac0c87edda",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "gain": 0.943293613,
+          "pcm_sha256": "2fcb7bc8c174113d9609d578c6a21f483a348535ccf428ca5701c93ad2f15130",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "gain": 0.951098308,
+          "pcm_sha256": "e8a3dac6cba812ee11f8d8400d5ffd49594c96448155fc3825aa40c3d54aed93",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "gain": 0.948482433,
+          "pcm_sha256": "700cd9b83bb5450b2b6466d20e6738ac9bd9835ae8ed2aec7eae5bac0c87edda",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "gain": 0.951098308,
+          "pcm_sha256": "e8a3dac6cba812ee11f8d8400d5ffd49594c96448155fc3825aa40c3d54aed93",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "payload_index": 1,
+      "offered_line_bytes": [
+        "E7",
+        "19",
+        "5D",
+        "73",
+        "DC",
+        "D5",
+        "20",
+        "2A"
+      ],
+      "tx_trace_digest": "1391be896135aa14a3e6eb45c2469a6796ff2b8777b52200cbac2fb945026c71",
+      "bus_cases": [
+        {
+          "bus_index": 0,
+          "gain": 0.943293613,
+          "pcm_sha256": "2c379d6f82a39750ac116805198154a294d2467065fddf482702529ce6a24447",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "gain": 0.948482433,
+          "pcm_sha256": "0066470553401586c2f501df0c304e1c6d7928291d57c311613e891765ff4504",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "gain": 0.943293613,
+          "pcm_sha256": "2c379d6f82a39750ac116805198154a294d2467065fddf482702529ce6a24447",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "gain": 0.951098308,
+          "pcm_sha256": "4bbf1058e18e8646c89662c6fd550171355780cdd0d640c01df1fc171e42b731",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "gain": 0.948482433,
+          "pcm_sha256": "0066470553401586c2f501df0c304e1c6d7928291d57c311613e891765ff4504",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "gain": 0.951098308,
+          "pcm_sha256": "4bbf1058e18e8646c89662c6fd550171355780cdd0d640c01df1fc171e42b731",
+          "scores": [
+            {
+              "receiver_offset_hz": -14,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": -7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 0,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 7,
+              "wrong": 0,
+              "wrong_indices": []
+            },
+            {
+              "receiver_offset_hz": 14,
+              "wrong": 0,
+              "wrong_indices": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Only the external reference receiver oscillator changes; the DSC transmitter and its assumed line clock stay fixed.",
+    "A receiver-oscillator mismatch is not a direct transmitter frequency-offset or DSC carrier-tracking test.",
+    "The DAC bus, latch, filter, ADC and USART routes remain untraced assumptions."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_carrier_mismatch.py": "05e2648da742b0c9708c0e7adbb7f0cd7c943ad51ee0a6a67bef569c9bf5c629",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-analog-holdout.json": "dbd721269dfbe51bcb1e0f7fdbd0b68ad38b4ff24572e1a8b0f64f2fd012a737",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_fixed_gain_phase.py": "500d6b7ef338659e9a042663b2aa619c13ec6d12e0d217c1797ec5196467e102",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  }
+}

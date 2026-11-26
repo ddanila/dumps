@@ -1854,6 +1854,10 @@ Listed in order of value per effort:
   bus/payload reference scores are exact at the +6 sample phase over
   75–125% level. The adjacent +5 phase fails six scores, and +7 fails
   all 24, so the capture clock is a specific unresolved C2 constraint.
+  The [reference receiver oscillator check](g2/JOINT-MASK04-12A-CARRIER-MISMATCH.md)
+  retains all 24 exact scores at relative offsets through ±14 Hz, but
+  holds the DSC line clock fixed and cannot establish onboard carrier
+  tracking or physical frequency tolerance.
   No DAC/analog trace or onboard receive decision is established by
   this external reference decoder.
   The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
