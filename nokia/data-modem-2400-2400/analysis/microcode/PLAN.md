@@ -94,6 +94,18 @@ dibits. This links the candidate transmitter and receiver behaviors,
 but the physical bridge, decision circuit, final A4 dibit and USART
 handoff remain open. Extend the transmitter capture for the six samples
 lost to alignment, then test the complete line-byte handoff.
+The [full zero-run handoff](g2/JOINT-MASK04-FULL-ZERO-HANDOFF.md) now does
+that extension with 1,257,256-instruction transmitter and 768,047-word
+receiver runs per selector. The already frozen 46/93 receive pair
+recovers all 32 data dibits and the exact eight 8031-scrambled line
+bytes for both call and answer; the paced controller reaches `AF→B0`
+only with the aligned bit-64 SYNDET pulse. The ADC-margin selector
+instead makes one call-side error at symbol 44 by preferring a later,
+larger-magnitude but wrong pair. Keep that failure visible: it rejects
+ADC margin alone as a general selector for this joined waveform, while
+the successful fixed pair remains a conditional external readout.
+Continue testing the phase/decision source and physical serial route;
+the modeled analog and inter-board links do not close C2 or C3.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
