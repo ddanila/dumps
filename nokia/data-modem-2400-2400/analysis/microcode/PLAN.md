@@ -76,6 +76,15 @@ capture settled `12A` Y if the PROM gate changes before the next ALU Y;
 the paired bank run has 221 changed bytes on 1,013 observed edges.
 Test the counter-qualified edge with explicit gate/Y delay ordering and
 the six DAC buses. Keep the untraced wiring as an assumption, not a blocker.
+The [full delayed-latch replay](g2/JOINT-MASK04-TX-12A-DELAYED-LATCH.md)
+now tests both orders over the complete call and answer controller streams.
+Capturing preceding `12A` Y at every 375th NAND edge changes 198/202 of
+832 candidate DAC samples under the ROM-bank switch and gives a 2,100 Hz
+A1 peak plus 0/62 A3/A4 errors on all six bus orders. Capturing settled
+`127` Y after a later edge gives no bank-sensitive samples and 0–3 data
+errors, depending on selector and bus. The early gate/Y ordering is now
+a precise conditional C2 requirement; test its timing or the predicted
+16-count output-code contrast, and keep C2 open until the route is constrained.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
