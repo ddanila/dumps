@@ -1596,6 +1596,14 @@ phases B–C turn "what" into "how".
   with this conditional C3 readout, but remains untraced and supplies no
   C4 train/freeze evidence. Test a longer mode-qualified handoff and a
   different residual/output route.
+  The [long frame-mode zero-run handoff](g2/RECEIVER-MASK04-FRAME-MODE-ZERO-HANDOFF.md)
+  executes two 768,047-word receive traces with the hypothetical `81→A1`
+  wrapper input at the preamble/data boundary. Both recover all 63
+  measurable dibits and the controller's eight scrambled line bytes;
+  aligned SYNDET alone moves the paced controller `AF→B0`. Full PROM
+  digests differ from the held-`01` baseline, so the mode route is active
+  under this fixture. Physical mode/serial/sync nets remain untraced;
+  this is conditional C3 behavior, not C4 freeze evidence.
   The [same-map receive decision screens](g2/JOINT-UPPER-RECEIVE-DECISION.md)
   then run seven periodic/nonperiodic reference streams for 24,000 ADC
   visits each. No direct Y/Q/RAM bit at any of 1,500 fixed symbol phases,

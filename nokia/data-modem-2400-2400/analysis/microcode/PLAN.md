@@ -968,6 +968,15 @@ establish the physical frame route or echo freeze; it shows that those
 controller bytes need not disrupt the candidate C3 readout under the
 tested stimulus. Challenge longer streams and the USART handoff while
 seeking a separate mode-qualified residual path for C4.
+The [long frame-mode handoff](g2/RECEIVER-MASK04-FRAME-MODE-ZERO-HANDOFF.md)
+now does that challenge: two 768,047-word PROM runs offer the hypothetical
+`81→A1` frame byte at `3EB` across 32 preamble and 32 data symbols.
+Both recover all 63 measurable dibits, the controller's eight actual
+scrambled zero-run line bytes, and `AF→B0` only with an aligned external
+SYNDET pulse. Their full traces differ from the `01`-mode baseline.
+The frame-byte and serial wires, symbol clock and sync source remain
+hypotheses; C3 and C4 stay open. Test those photo-compatible routes or
+another natural timing fixture rather than waiting for continuity.
 For the next G2 runs, carry the six surviving photo-compatible DAC byte orders
 as separate transmitter hypotheses and test their sample/latch timing against
 the executed A1–A4 trace. On receive, test a stateful decision/output route

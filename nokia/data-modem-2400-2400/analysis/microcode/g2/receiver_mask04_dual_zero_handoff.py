@@ -34,7 +34,7 @@ ANGLES = ((5, 75), (18, 165))
 PULSES = (63, 64, 65, 128)
 
 
-def capture_zero_stream(mapping, base, degrees, data_dibits):
+def capture_zero_stream(mapping, base, degrees, data_dibits, mode_values=None):
     dibits = [3] * PREAMBLE + data_dibits + [0] * 8
     symbol_count = PREAMBLE + len(data_dibits)
     pcm = rotated_transmit(dibits, degrees)
@@ -48,10 +48,18 @@ def capture_zero_stream(mapping, base, degrees, data_dibits):
     if len(values) != adc_visits:
         raise ValueError('ADC hold schedule changed')
     scenario = configured(base, values, 'previous', 'overflow', 1)
+    expected_mode_reads = 4 * adc_visits + 1
+    if mode_values is not None:
+        if len(mode_values) != expected_mode_reads:
+            raise ValueError('wrapper mode sequence length changed')
+        scenario['io']['read']['pc_sequences'][str(0x3EB)] = mode_values
+        scenario['io']['read']['evidence'] += (
+            '; hypothetical controller third-frame-byte route to wrapper 3EB')
     captures = {}
     precaptures = {}
     source_captures = {}
     adc_event = 0
+    mode_event = 0
     previous = None
     latched_y = None
     latest_edge = None
@@ -88,10 +96,16 @@ def capture_zero_stream(mapping, base, degrees, data_dibits):
                 if phase in (47, 94):
                     source_captures[(symbol, phase)] = row['alu']['y'] & 0xE0
                 adc_event += 1
+            if row['pc'] == 0x3EB and mode_values is not None:
+                if (not row['external_read']['selected_by_alu'] or
+                        row['external_read']['value'] != mode_values[mode_event]):
+                    raise ValueError('3EB mode input changed')
+                mode_event += 1
             previous = row
     if (adc_event != adc_visits or len(captures) != 2 * symbol_count or
             len(precaptures) != 2 * symbol_count or
-            captures != source_captures or clock_edges != adc_visits + 1):
+            captures != source_captures or clock_edges != adc_visits + 1 or
+            (mode_values is not None and mode_event != expected_mode_reads)):
         raise ValueError('two-visit capture count changed')
     symbols = [dict(symbol=index, dibit=dibits[index],
                     visits={str(phase): dict(y3f8=captures[(index, phase)])
@@ -103,6 +117,7 @@ def capture_zero_stream(mapping, base, degrees, data_dibits):
                    for index in range(symbol_count)]
     return dict(degrees=degrees, symbols=symbols,
                 precapture_symbols=pre_symbols, candidate_clock_edges=clock_edges,
+                mode_reads=mode_event,
                 trace_digest=result['trace_digest'],
                 adc_stream_sha256=hashlib.sha256(bytes(values)).hexdigest(),
                 cycles=cycles, adc_visits=adc_visits)
