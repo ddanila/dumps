@@ -1338,6 +1338,16 @@ phases B–C turn "what" into "how".
   `3C` case. Both tables, capture clocks and symbol memory remain external
   hypotheses. Test serial timing and the USART receive path next; C3
   remains open until that handoff is supported.
+  The [two-visit zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
+  now feeds the controller's actual scrambled eight-zero-octet streams
+  through two continuous mask-`04` PROM runs at 75° and 165°. The frozen
+  consensus recovers all 63 measurable dibits and eight line bytes in each.
+  At 416 modeled 8031 ticks per RxC bit, the narrow external-sync/USART
+  handoff consumes all eight bytes without overrun and reaches `AF→B0`
+  only for the aligned SYNDET pulse; early, late, absent and opposite
+  selector controls remain at `AF`. Capture, serial, sync and ADC paths
+  are still assumed, so this is not a C3 pass. Test photo-compatible
+  latch/clock/USART routes and naturally timed controller behavior next.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero

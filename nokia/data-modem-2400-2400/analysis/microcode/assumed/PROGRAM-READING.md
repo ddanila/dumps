@@ -71,6 +71,12 @@ combines the two four-bit executed `3F8` captures and recovers all 611
 measurable dibits in the held-out 13-angle real-PROM run. The selector,
 previous-symbol storage and serial path remain external hypotheses rather
 than named microcode instructions.
+The [zero-run handoff](../g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md) extends
+that same frozen readout to two 64-symbol PROM streams. At 75° and 165° it
+recovers the exact eight scrambled zero-run line bytes; the paced USART/8031
+model reaches the executed controller `AF→B0` transition only with the
+aligned external-sync pulse. Capture and serial wiring remain hypotheses,
+so the listing does not label the external consumer as a DSC instruction.
 
 ## Earlier provisional names
 

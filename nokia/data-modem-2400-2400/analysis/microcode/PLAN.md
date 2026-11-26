@@ -144,6 +144,16 @@ resolves the primary rule's `3C` gap without fitting that held-out answer.
 This is a conditional external consumer, not a traced Nokia decoder;
 test the latch/serial/USART handoff and new phase/data cases, keeping C3
 open without waiting for continuity.
+The [dual-feature zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
+now runs two 768,047-word real-PROM receive traces at 75°/165° through
+32 `11` preamble symbols and eight controller-scrambled zero octets.
+Both recover all 63 measurable dibits and the exact eight line bytes;
+the paced external-sync/8031 model consumes all eight without overrun and
+reaches `AF→B0` only with the aligned SYNDET pulse. Early, late, absent
+and opposite-selector controls stay at `AF`. This supports a conditional
+DSC-to-controller behavior, but the five-bit capture, serialization,
+clock, SYNDET source and physical USART path are still hypotheses. Test
+photo-compatible latch/serial routes next; keep C3 open and G2 active.
 For C2, the [joint-map PROM-edge replay](g2/JOINT-MASK04-TX-PROM-EDGE.md)
 supports both candidate DAC latch phases under an assumed divided clock and
 six photo-compatible bus orders. Their output codes differ, so neither phase

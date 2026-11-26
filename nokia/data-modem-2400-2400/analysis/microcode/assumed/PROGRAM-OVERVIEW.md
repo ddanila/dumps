@@ -134,9 +134,12 @@ adds evidence-scoped modem-function names for the executed 127–12A transmit
 loop and 3F8–3FE/3EB–3ED receive update and readout. The same mapping sustains
 the tested controller-driven transmit samples and retains ADC-dependent state.
 The candidate DAC route reproduces a 2,100 Hz tone and reference dibit
-decisions, while the receive readout supports a conditional 45°-grid selector.
-Intermediate-angle decoding and the physical DAC, ADC and USART paths remain
-unverified, so C2 and C3 stay open.
+decisions. A later [two-visit receive readout](../g2/RECEIVER-MASK04-DUAL-FEATURE-CONSENSUS.md)
+recovers all 611 measurable dibits in a held-out 13-angle PROM run; its
+[zero-run handoff](../g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md) also gives the
+controller's executed `AF→B0` transition for two intermediate-angle streams
+under aligned external-sync timing. The physical DAC, ADC and USART paths
+remain unverified, so C2 and C3 stay open.
 
 ## What the coverage numbers establish
 
