@@ -2095,6 +2095,15 @@ Listed in order of value per effort:
   16/64 and 10/64 dibits and the modeled 8251/executed 8031 payloads
   are wrong. Sweep the gain transition and challenge capture bit/phase
   alternatives without waiting for board continuity; C3 stays open.
+  The [phase-131 gain sweep](g2/JOINT-MASK04-12A-MODE-PHASE131-GAIN-SWEEP.md)
+  now tests 1.125×, 1.150× and 1.175× on the same real-PROM line.
+  The frozen circuit stays exact at 1.125×, then misses 12/64 call
+  and 11/64 answer at 1.150× while no modeled PCM sample clips.
+  A joined, conflict-free graph across all gain runs assigns new
+  phase labels and localizes every circuit error to phase-bit-0
+  mislabels at `48` and `2F`; phase bit 1 still agrees. Test an
+  alternate capture bit/edge or a revised multistage bit-0 path
+  against this fixed waveform, with a fresh holdout afterward.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

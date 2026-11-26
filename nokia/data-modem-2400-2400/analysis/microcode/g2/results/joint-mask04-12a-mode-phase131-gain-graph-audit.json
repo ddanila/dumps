@@ -1,0 +1,165 @@
+{
+  "experiment": "joined phase-131 real-PROM gain graph and circuit mismatch",
+  "cases": [
+    {
+      "selector": "40",
+      "factor": 1.0,
+      "states": 7,
+      "clipped_samples": 0,
+      "reference_errors": 2,
+      "package_errors": 0,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "60",
+      "factor": 1.0,
+      "states": 7,
+      "clipped_samples": 0,
+      "reference_errors": 0,
+      "package_errors": 0,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "40",
+      "factor": 1.125,
+      "states": 5,
+      "clipped_samples": 0,
+      "reference_errors": 2,
+      "package_errors": 0,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "60",
+      "factor": 1.125,
+      "states": 5,
+      "clipped_samples": 0,
+      "reference_errors": 0,
+      "package_errors": 0,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "40",
+      "factor": 1.15,
+      "states": 4,
+      "clipped_samples": 0,
+      "reference_errors": 2,
+      "package_errors": 12,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "60",
+      "factor": 1.15,
+      "states": 4,
+      "clipped_samples": 0,
+      "reference_errors": 0,
+      "package_errors": 11,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "40",
+      "factor": 1.175,
+      "states": 5,
+      "clipped_samples": 3,
+      "reference_errors": 2,
+      "package_errors": 12,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "60",
+      "factor": 1.175,
+      "states": 4,
+      "clipped_samples": 2,
+      "reference_errors": 0,
+      "package_errors": 11,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "40",
+      "factor": 1.25,
+      "states": 4,
+      "clipped_samples": 6,
+      "reference_errors": 2,
+      "package_errors": 16,
+      "wrong_indices_explained_by_2f_48": true
+    },
+    {
+      "selector": "60",
+      "factor": 1.25,
+      "states": 4,
+      "clipped_samples": 3,
+      "reference_errors": 0,
+      "package_errors": 10,
+      "wrong_indices_explained_by_2f_48": true
+    }
+  ],
+  "combined_mode81_phase_labels": {
+    "02": 3,
+    "09": 2,
+    "0D": 1,
+    "12": 3,
+    "19": 2,
+    "1E": 0,
+    "2D": 1,
+    "2F": 0,
+    "36": 0,
+    "3D": 1,
+    "42": 3,
+    "48": 2,
+    "49": 2,
+    "4C": 1,
+    "4D": 1,
+    "52": 3,
+    "59": 2,
+    "5D": 1,
+    "5E": 0,
+    "6E": 0
+  },
+  "new_state_labels": {
+    "02": 3,
+    "2F": 0,
+    "42": 3,
+    "48": 2,
+    "4C": 1,
+    "5D": 1,
+    "6E": 0
+  },
+  "graph_conflicts": 0,
+  "frozen_circuit_wrong_state_phases": {
+    "48": {
+      "expected": 2,
+      "circuit": 3
+    },
+    "2F": {
+      "expected": 0,
+      "circuit": 1
+    }
+  },
+  "single_u15_direct_input_capacity": {
+    "0": {
+      "direct": false,
+      "output_inverted": false
+    },
+    "1": {
+      "direct": true,
+      "output_inverted": true
+    }
+  },
+  "limitations": [
+    "Phase labels are relative to the prior mode-81 anchor and expected offered dibits under the assumed line; no physical phase bus has been traced.",
+    "The graph gives a consistent state-phase explanation of these saved streams, not a guarantee across arbitrary gain or carrier phase.",
+    "The gate-capacity test assumes only direct seven-bit state plus mode inputs; additional preprocessing or another capture point can alter it."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_phase131_gain_graph_audit.py": "be1286e2aec5e627a44a82d7ce2e32e3cdf2deec25d98cdd83d6ba6b086763b1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase125-audit.json": "fecb0fc9dc75f6ca192c788851b2a25432db5cd972482f3d029ea6f685862bdb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-adc-range.json": "482e204bc0af5dd13dff3cc0c222e7ba3b93623c83245c7e63f3d21e9d234adc",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-baseline-control.json": "d9ffb252f9d77a5b74a3baf2e4fb75c3b8a64e18918b66570390c09cd49274a9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-intermediate-gain.json": "ead545793e4636d2ee31c14f9602346f1a8485b84adb3cf59568af60592956c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-boundary.json": "fd3d6c22f34a56d30083c052c077fa0b663b06ef8fe7742fe85b39f718f54bc2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-challenge.json": "ad5ed303e0cd7f82689ad746bf95791c58c330e514e0665c329224f56757c099",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_phase_gate_capacity.py": "825624f5a06ccd802cca7c57d9785b5144e32379bea0d23bf0bacb5063136a77",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_u19_u21_phase_route.py": "5f5e1b3ee93000a22f02729b7d46302289589e9d0e94af17b78ef3bcf693895d"
+  }
+}

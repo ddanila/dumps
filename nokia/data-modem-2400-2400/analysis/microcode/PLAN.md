@@ -135,6 +135,15 @@ zero conflicts, but the frozen circuit misses 16/64 and 10/64 dibits
 and delivers wrong controller bytes. This rejects that fixed gate
 under the boosted-gain assumption. Sweep the gain transition and test
 another capture bit/timing route; keep C3/G2 active.
+The [phase-131 gain sweep](g2/JOINT-MASK04-12A-MODE-PHASE131-GAIN-SWEEP.md)
+reconstructs the matched ADC waveform and executes intermediate
+real-PROM receive runs. The frozen circuit remains exact at 1.125×,
+then fails 12/64 call and 11/64 answer at 1.150× with **zero** clipped
+PCM samples. Across the sweep, the new-state phase graph has no
+conflicts; only `48` and `2F` disagree with the frozen circuit, both
+on phase bit 0, and every wrong transition crosses one of them.
+This localizes the next test to an alternate capture bit/edge or
+multistage phase-bit-0 path under the same line input; C3/G2 stay open.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
