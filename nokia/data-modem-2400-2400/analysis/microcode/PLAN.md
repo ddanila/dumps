@@ -169,8 +169,10 @@ photo-compatible sync connection; C3 and G2 remain active without waiting
 for continuity.
 The [nonzero frame-mode handoff](g2/RECEIVER-MASK04-NONZERO-FRAME-HANDOFF.md)
 now challenges that boundary with first payload bytes `01` and `02`, whose
-line streams keep `11` for one data dibit. Two 768,047-instruction PROM
-runs recover 63/63 measurable dibits and all eight line bytes; the paced
+line streams keep `11` for one data dibit, plus `3D` and `5A`, whose
+first line octet is an entire `FF` preamble-like byte. Four
+768,047-instruction PROM runs recover 63/63 measurable dibits and all
+eight line bytes; the paced
 controller descrambles the exact payload only with the assumed bit-64
 SYNDET placement. This strengthens the conditional receive path but does
 not supply a physical sync source or close C3.

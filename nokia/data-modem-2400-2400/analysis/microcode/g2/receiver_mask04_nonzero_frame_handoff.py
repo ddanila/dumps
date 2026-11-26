@@ -24,7 +24,8 @@ from receiver_mask04_controller_zero_handoff import dibits_from_bytes
 from receiver_syndet_preamble_transition import first_non_reversal
 from zero_run_detector import CORE, ROM, line_octets
 
-PAYLOADS = ((5, 75, 1), (18, 165, 2))
+PAYLOADS = ((5, 75, 1, 1), (5, 75, 61, 4),
+            (18, 165, 2, 1), (18, 165, 90, 4))
 FRAME_EDGE = PREAMBLE * VISITS_PER_SYMBOL * 4
 MODE_READS = (PREAMBLE + DATA_BYTES * 4) * VISITS_PER_SYMBOL * 4 + 1
 
@@ -44,11 +45,11 @@ def run(out=HERE / 'results/receiver-mask04-nonzero-frame-handoff.json'):
                         *(str(CORE / name) for name in
                           ('core.c', 'opcodes.c', 'disasm.c')),
                         '-o', str(exe)], check=True)
-        for delay, degrees, first in PAYLOADS:
+        for delay, degrees, first, offset in PAYLOADS:
             payload = [first] + [0] * (DATA_BYTES - 1)
             offered = line_octets(payload, delay)
-            if first_non_reversal(offered) != 1:
-                raise ValueError('the first non-11 dibit is no longer late')
+            if first_non_reversal(offered) != offset:
+                raise ValueError('the first non-11 dibit offset changed')
             trace = capture_zero_stream(mapping, base, degrees,
                                         dibits_from_bytes(offered), mode_values=modes)
             symbols = trace['symbols']
@@ -67,7 +68,7 @@ def run(out=HERE / 'results/receiver-mask04-nonzero-frame-handoff.json'):
                 raise ValueError('PROM byte/edge recovery changed')
             selector = 0x40 if delay == 5 else 0x60
             aligned = controller(exe, delay, selector, 64, recovered)
-            shifted = controller(exe, delay, selector, 66, recovered)
+            shifted = controller(exe, delay, selector, 64 + 2 * offset, recovered)
             if (aligned['state'] != 0xAF or aligned['consumed_bytes'] != offered or
                     aligned['decoded_bytes'] != payload or aligned['errors'] or
                     aligned['overruns'] or shifted['consumed_bytes'] == offered):
@@ -75,7 +76,7 @@ def run(out=HERE / 'results/receiver-mask04-nonzero-frame-handoff.json'):
             rows.append(dict(delay=delay, degrees=degrees, payload=payload,
                              offered_line_bytes=[f'{x:02X}' for x in offered],
                              recovered_line_bytes=[f'{x:02X}' for x in recovered],
-                             first_non_11_dibit=1, score=scores,
+                             first_non_11_dibit=offset, score=scores,
                              prom_cycles=trace['cycles'],
                              trace_digest=trace['trace_digest'],
                              adc_stream_sha256=trace['adc_stream_sha256'],
@@ -100,7 +101,7 @@ def run(out=HERE / 'results/receiver-mask04-nonzero-frame-handoff.json'):
     report = dict(experiment='nonzero first-byte frame-mode receive PROM and paced USART handoff',
                   fixture=dict(payloads=PAYLOADS, frame_edge_wrapper_visit=FRAME_EDGE,
                                mode_reads=MODE_READS, aligned_pulse_bit=64,
-                               first_non_11_pulse_bit=66),
+                               first_non_11_pulse_rule='64 + 2 * first_non_11_dibit'),
                   cases=rows,
                   limitations=['The ADC, frame-byte, latch, serializer, RxD/RxC and SYNDET connections remain hypotheses.',
                                'The SYNDET pulse is placed by the fixture; its physical source is not identified.',
