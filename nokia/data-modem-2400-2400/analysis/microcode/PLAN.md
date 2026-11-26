@@ -174,6 +174,15 @@ yet a decoded dibit or echo residual. Freeze a circuit-like temporal
 decision on independent carriers, challenge fresh buffered data, and
 retain own/remote/mixed controls for C4. Keep all RAM/TEST/output wiring
 assumed and C3/C4/G2 open.
+The [legal-carrier delay equation](g2/RECEIVER-MASK04-RAM-RETURN-DELAY-EQUATION.md)
+now hash-matches both high-return PROM runs and shows that all 12,000
+`3FA` Y high nibbles equal the `3F9` high nibble from exactly three held
+ADC samples earlier plus `0x20` modulo the high nibble; the first 141
+visits retain the initialized `20`. Thus the history-sensitive high
+output is a fixed delayed sample recoding under this fixture, not an
+adaptive residual or recovered dibit. Test its low bit separately,
+and seek a mode/return route with a varying trained operand or an
+independently constrained receive/USART output. C3/C4/G2 remain open.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop

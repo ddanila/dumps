@@ -1,0 +1,113 @@
+{
+  "experiment": "legal-carrier 3FA delayed high-nibble equation",
+  "fixture": {
+    "route": "3F9 Y high -> external RAM offset -3 -> 3FA D high",
+    "equation": "Y3FA_high(sample s)=(Y3F9_high(sample s-3)+0x20)&0xF0; first three samples 0x20",
+    "source_sample_hold": "47/46 visits; 128 samples; one address tick per sample"
+  },
+  "cases": [
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "trace_digest": "7489a3531b7858644846899660d89077a712c37e07b04005b6aea6ea1bedd0a1",
+      "y3f9_sha256": "1299a7a6109fc8efbd236f119e439f1bb85acd0728543c084a3b243aef292df9",
+      "y3fa_sha256": "083d622aa57d8bea07c4746d43468a4ec52eb8e47fb7f58df2027d13f6e39405",
+      "samples": 128,
+      "visits_checked": 6000,
+      "source_samples_constant": 128,
+      "high_nibble_mismatches": 0,
+      "initial_high_20_visits": 141,
+      "low_bit_one_visits": 422,
+      "observed_source_to_output_high": [
+        {
+          "source": "10",
+          "output": "30",
+          "visits": 423
+        },
+        {
+          "source": "20",
+          "output": "40",
+          "visits": 2013
+        },
+        {
+          "source": "30",
+          "output": "50",
+          "visits": 1829
+        },
+        {
+          "source": "40",
+          "output": "60",
+          "visits": 282
+        },
+        {
+          "source": "70",
+          "output": "90",
+          "visits": 470
+        },
+        {
+          "source": "90",
+          "output": "B0",
+          "visits": 842
+        }
+      ]
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "trace_digest": "35bcd988c7f592337172e5668b61451b878584830bf89b09949d4ea2692e2050",
+      "y3f9_sha256": "57804e0e6457f66e47ce615d21d102cb9cd6e22a01ee6f224fcfd6ff0791ee1b",
+      "y3fa_sha256": "63cd908967cde78cda4baa0293faeb4f14bdb3204f6c03f4c5b5781d95988df4",
+      "samples": 128,
+      "visits_checked": 6000,
+      "source_samples_constant": 128,
+      "high_nibble_mismatches": 0,
+      "initial_high_20_visits": 141,
+      "low_bit_one_visits": 655,
+      "observed_source_to_output_high": [
+        {
+          "source": "10",
+          "output": "30",
+          "visits": 611
+        },
+        {
+          "source": "20",
+          "output": "40",
+          "visits": 2343
+        },
+        {
+          "source": "30",
+          "output": "50",
+          "visits": 1218
+        },
+        {
+          "source": "40",
+          "output": "60",
+          "visits": 470
+        },
+        {
+          "source": "70",
+          "output": "90",
+          "visits": 376
+        },
+        {
+          "source": "90",
+          "output": "B0",
+          "visits": 841
+        }
+      ]
+    }
+  ],
+  "total_checked_visits": 12000,
+  "total_high_nibble_mismatches": 0,
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_ram_return_delay_equation.py": "9732d5611c8d5c2299e14b8c251f09bb7183cbdcb6628abe9591fa235e8cb887",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/receiver-mask04-legal-ram-return.json": "a3bd9fdf8538318a5a81afb9068d9c1aa0eb3cf512fb61c4c4489b1939bf3e76",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_legal_ram_return.py": "9004a7e7756d33e0c4811a2169ba89c20b17a38a0e1f9e81838cef962b43302a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_upper_ram_feedback_screen.py": "0d174e64e2efd650d09211c74782a119f4ecd70beb98cb8354ba369b8db84383"
+  },
+  "limitations": [
+    "The equation covers Y high nibble; the low bit comes from separate ALU carry behavior.",
+    "The external RAM address, latch, return mux, TEST and output path are assumed.",
+    "A delayed sample transform is not a decoded dibit or demonstrated echo cancellation."
+  ]
+}
