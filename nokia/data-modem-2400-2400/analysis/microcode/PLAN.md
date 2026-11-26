@@ -56,6 +56,13 @@ both pairs abstain once and disagree once. Inspect those executed symbols
 for a photo-compatible conflict/phase signal before another frozen holdout.
 Keep C3 open rather than filling missing decisions or waiting for a
 physical trace.
+The [gap audit](g2/RECEIVER-MASK04-HOLDOUT-GAP-AUDIT.md) now captures
+executed `3F8`/`3ED` bytes and ADC samples around those two symbols.
+A later sample pair resolves the joint abstention but makes seven wrong
+decisions elsewhere; at the preamble-to-data conflict, 46/93 is correct
+and 47/94 is wrong. Derive any selector from executed state or a plausible
+board circuit and freeze it before a new seed; do not add exceptions from
+these inspected reference labels.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled

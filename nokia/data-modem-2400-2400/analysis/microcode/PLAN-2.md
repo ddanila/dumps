@@ -1380,6 +1380,14 @@ phases B–C turn "what" into "how".
   Inspect those executed symbols and freeze a photo-compatible conflict
   or phase signal before another holdout; C3 and physical routing remain
   open.
+  The [executed gap audit](g2/RECEIVER-MASK04-HOLDOUT-GAP-AUDIT.md)
+  confirms both trace hashes and captures 25 ADC visits around each
+  unresolved symbol. A later 94/141 pair recovers the jointly unknown
+  symbol but makes seven wrong decisions elsewhere; at the
+  preamble-to-data boundary, 46/93 is correct while 47/94 is wrong.
+  Do not fit symbol-specific exceptions from those inspected labels.
+  Infer a selector from executed state or photo-compatible logic, then
+  test it on a new seed and the USART route before claiming C3.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
