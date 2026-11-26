@@ -1018,6 +1018,16 @@ the no-feedback control over 768 visits. These reject only the tested
 free-running write/read fixtures. Next try a photo-compatible training
 write gate and freeze, then compare retained RAM and line residual across
 own-echo, remote-only and zero-input runs. Keep C4 open and G2 active.
+The [training/freeze screen](g2/JOINT-UPPER-RAM-FREEZE-SCREEN.md) closes
+that assumed write gate after 256 loop visits. Its frozen RAM retains
+different input histories. High-nibble feedback at `3EB` exits on one
+prefix but changes 1,018/1,024 tail trace rows while staying in the loop
+on another; low-nibble feedback at `3FA` changes 122/114 tail rows across
+the two prefixes and leaves R13 changed for one. This is a conditional
+stateful effect, not a demonstrated echo residual. The per-loop counter
+spans only about 1.4 held ADC samples; next clock it once per sample and
+compare controller-derived own echo, independent remote and zero-input
+training with a frozen write gate and no-feedback control. Keep C4 open.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under

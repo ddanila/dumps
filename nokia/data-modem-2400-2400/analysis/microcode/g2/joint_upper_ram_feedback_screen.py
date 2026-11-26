@@ -32,7 +32,7 @@ def instrumented_execute():
          "    external_ram=[1]*256; external_address=0; external_latch=1\n"
          "    external_writes=0; external_reads=0; external_first_changed_read=None"),
         ("            carry=carry_input.resolve(r)",
-         "            if pc==0x3EB and scenario.get('external_ram_feedback'):\n"
+         "            if pc==scenario.get('external_ram_read_pc',0x3EB) and scenario.get('external_ram_feedback'):\n"
          "                lane=scenario.get('external_ram_lane','high')\n"
          "                d=((external_ram[external_address]&0xF0) if lane=='high' "
          "else (external_ram[external_address]&0x0E))|1\n"
@@ -43,7 +43,9 @@ def instrumented_execute():
          "selected_by_alu=selects_d,status='hypothesis')\n"
          "            carry=carry_input.resolve(r)"),
         ("            carry_input.observe(result)",
-         "            if pc==0x3EC and scenario.get('external_ram_write'):\n"
+         "            if (pc==0x3EC and scenario.get('external_ram_write') and\n"
+         "                    (scenario.get('external_ram_write_until') is None or\n"
+         "                     external_writes < scenario['external_ram_write_until'])):\n"
          "                external_ram[external_address]=external_latch\n"
          "                external_writes+=1\n"
          "            if pc==scenario.get('external_ram_latch_pc',0x3FA):\n"
