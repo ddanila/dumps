@@ -15,6 +15,16 @@ analog-line connections are *open wiring hypotheses*, not a reason to pause G2.
 If an experiment can run with a labelled assumption, run it now; physical
 continuity is a later validation step, not a prerequisite for progress. A
 failed candidate closes that experiment, not the goal.
+For each candidate, keep three claims separate: what the photograph actually
+shows, the continuation assumed to make a complete circuit, and what the
+real-ROM execution demonstrates under that circuit. Use a pin-compatible
+baseline first, then a control that changes the disputed wire, polarity or
+clock edge. Preserve negative results and move to the next runnable candidate;
+do not convert a failed assumption into a request for more photos. Mark a G2
+blocker only if no photo-compatible assumption, changed stimulus or independent
+microcode/signal test can still advance an open acceptance check. The need to
+confirm a surviving circuit physically belongs in that check, not in the goal
+status.
 Use the photographs already available to build the simplest complete,
 pin-compatible route, including plausible continuations where a trace
 disappears or its destination is uncertain. Assume the needed connection,
@@ -362,6 +372,20 @@ independent reference is exact. All holdout states are among the 20
 development states, so unseen-state and carrier-drift robustness
 remain open. Test those with the gates frozen and a photo-compatible
 row latch/serializer route; retain C3/G2 as active, not blocked.
+Make that route the next bounded C3 experiment. Start from the photographed
+ADC0800 input candidate and four-bit U12 as one possible capture stage; assign
+the remaining capture storage explicitly and label all untraced data and clock
+connections as assumptions. In a real-PROM, controller-fed receive run,
+capture `3ED` row-0 bit 0 at visit 46 and the two `3F8` Y snapshots at visits
+46 and 93; hold their needed bits until the 20-state gates can combine them.
+Test row-0-qualified capture against an every-row latch control, and test an
+aligned RxC/SYNDET schedule against one-bit-early and one-bit-late controls
+while serializing the recovered dibits to modeled USART-01 RxD. Compare the
+resulting octets and 8031 state with the known source stream. If a latch or
+timing variant fails, change that specific assumption or input condition and
+run the next variant. These are circuit hypotheses, even when they produce
+exact payloads; C3 passes only when the ADC and USART route is independently
+constrained as required in [PLAN-2.md](PLAN-2.md#goal-g2).
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
