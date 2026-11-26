@@ -193,6 +193,14 @@ frozen. Four more real-PROM runs recover all 252 measurable dibits and
 but still leaves the external `3F8` consumer, frame edge and physical
 USART/SYNDET path untraced. Keep C3 open and try a photo-compatible
 latch/serializer route; missing net continuity is not a blocker.
+The [±7 Hz payload handoff](g2/RECEIVER-MASK04-OFFSET-PAYLOAD-HANDOFF.md)
+keeps the ADC-margin selector frozen and runs two fresh complete
+eight-byte streams through the real PROM and paced 8251/8031 model.
+All 126 measurable dibits and 16 line bytes recover, and the ROM
+descrambles both payloads only with aligned assumed SYNDET and the
+matching selector. This tests carrier drift with new data, but the
+margin-selection hardware, serial path and SYNDET source remain
+unidentified. Keep C3 open and G2 active while testing plausible routes.
 The [line-USART reinitialization screen](g2/RECEIVER-USART-REINIT-SCREEN.md)
 instruments the Timer-1-paced real-ROM `AD→AE→AF→B0` fixture. Neither
 selector writes line-side control port `05` before or during the eight

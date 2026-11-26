@@ -87,6 +87,10 @@ The [new-angle challenge](../g2/RECEIVER-MASK04-RANDOM-ANGLE-CHALLENGE.md)
 replays those payloads at 15° and 105° through the unchanged PROM and
 frozen readout. It recovers all 252 measurable dibits and 32 line bytes;
 the same external route assumptions still limit the interpretation.
+The [±7 Hz payload handoff](../g2/RECEIVER-MASK04-OFFSET-PAYLOAD-HANDOFF.md)
+also recovers two fresh scrambled payloads through the frozen
+ADC-margin readout and the paced 8251/8031 model. Its capture selector
+and physical serial route remain external hypotheses, so C3 is open.
 
 ## Earlier provisional names
 
