@@ -244,10 +244,18 @@ At row-3 `3FE`, each of the sixteen observed ADC high nibbles maps to one
 Q/RAM state across all three runs (nine distinct states total). This
 capture point supplies no additional phase history in the tested direct
 `D3EB=01` fixture, though the short carryover and assumed U12 latch remain.
-Next run the photo-compatible previous/current U12 pair through a causal
-phase tracker on rotated carrier starts and new payloads, then test its
-candidate bit path to the controller/USART. Treat the latch, clock and
-phase-tracker wiring as assumptions; C3 stays open and G2 active.
+The [U12 code-collision replay](g2/JOINT-MASK04-U12-CODE-COLLISION.md)
+now checks the prerequisite for a phase tracker using a controlled `1F`
+versus `6F` sample-25 pulse. Executed `3F8`, `3F9` and `3FA` Y differ
+on all 47 affected visits, but all 3,000 assumed U12 row-pair captures,
+`3ED` Y, Q and post-visit RAM agree. The candidate U12-only stream loses
+this input distinction; a longer history of that same stream cannot
+recover it. The artificial pulses are not a legal dibit challenge, so
+do not infer that all modem data are lost. Next test a photo-compatible
+`3F9`/`3FA` latch on these matched inputs and legal rotated carriers,
+then seek a causal symbol decision and controller/USART route. The direct
+`3F8` Y nibble merely copies quantized ADC data. Keep candidate wiring
+labelled, C3 open and G2 active.
 The [held controller-mode impulse](g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 now repeats the varying-waveform pulse under candidate `3EB` D bytes
 `01`, `81` and `A1`. Nine real-PROM runs complete the same PC path;
