@@ -238,6 +238,16 @@ visit's row-3 edge, where live Y[2:0] is `2/2`. The unqualified
 every-row latch holds zero. This supplies a conditional previous/current
 sample pair after the DSC state rejoins, but the earlier 45° U12
 decoder fails, so C3 still needs a phase-robust consumer and USART path.
+The [post-visit Q/RAM codebook](g2/JOINT-MASK04-POSTVISIT-STATE-CODEBOOK.md)
+now compares 9,000 receive visits across three different dibit streams.
+At row-3 `3FE`, each of the sixteen observed ADC high nibbles maps to one
+Q/RAM state across all three runs (nine distinct states total). This
+capture point supplies no additional phase history in the tested direct
+`D3EB=01` fixture, though the short carryover and assumed U12 latch remain.
+Next run the photo-compatible previous/current U12 pair through a causal
+phase tracker on rotated carrier starts and new payloads, then test its
+candidate bit path to the controller/USART. Treat the latch, clock and
+phase-tracker wiring as assumptions; C3 stays open and G2 active.
 The [held controller-mode impulse](g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 now repeats the varying-waveform pulse under candidate `3EB` D bytes
 `01`, `81` and `A1`. Nine real-PROM runs complete the same PC path;
