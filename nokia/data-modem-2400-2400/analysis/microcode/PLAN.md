@@ -95,6 +95,16 @@ adjacent-dibit transitions. This weakens the zero-payload overfit concern,
 but the paired-bit buffer, DAC/ADC and USART output circuits remain
 unidentified. Challenge gain and sample phase next, and seek the actual
 photo-compatible pulse/readout routes. Keep C2/C3 open and G2 active.
+The [one-sample buffered phase challenge](g2/JOINT-MASK04-BUFFERED-SAMPLE-PHASE.md)
+hash-matches the saved real-PROM transmitter source before shifting the
+candidate ADC waveform and running four new real-PROM receiver traces.
+One sample early leaves frozen 46/93 exact for both varied payloads;
+one sample late leaves four call and three answer dibits unknown, with no
+wrong decisions. The previously frozen margin selector resolves those
+unknowns on these streams, but it failed once on the nominal zero-run.
+Treat both readouts as timing-dependent diagnostics and test a physically
+plausible sample/decision circuit with gain and phase controls. Neither
+the untraced clock nor this narrow abstention is a G2 blocker.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
