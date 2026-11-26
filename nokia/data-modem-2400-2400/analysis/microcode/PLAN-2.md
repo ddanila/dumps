@@ -1884,6 +1884,13 @@ Listed in order of value per effort:
   while Y7 and the program path do not. Transient `12A` Y lower bits do
   change, so the operand is active internally; the tested candidate
   MSB output is simply insensitive to this bank choice.
+  The [ROM-carry equation audit](g2/JOINT-MASK04-TX-ROM-CARRY-EQUATION.md)
+  verifies the exact split-slice path at every `129→12A` pair in held
+  tone and data-prefix controls. The selected ROM high nibble changes
+  `129`'s high carry on 221/1,014 and 254/1,014 paired bank visits;
+  precisely those `12A` Y bytes change, each by bit 0. R1 and the
+  entering R0 low nibble remain equal. This explains the delayed ROM
+  effect without establishing a physical DAC capture.
   The [full controller-fed phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
   checks the adjacent `12A` Y site on both selectors. Changing `129` A8
   changes only `12A` Y0 on 75,012/75,018 loop visits; all 375 divided

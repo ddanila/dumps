@@ -71,6 +71,16 @@ cycles. They change ALU `f` and register writes, plus 221 transient
 `12A` Y lower bytes; Y7, Q and PC path remain equal. Do not describe
 the ROM as ignored. Seek the actual latch source or a mode where the
 changed internal state reaches a measured output.
+The [split-slice ROM-carry audit](g2/JOINT-MASK04-TX-ROM-CARRY-EQUATION.md)
+now explains the ROM-sensitive `12A` Y0 path. For each reached `129`
+and `12A`, checked `C9/8D` and `C1/85` instructions put the selected
+ROM high nibble into `129`'s high-slice carry, then add that carry
+to R1lo and R0lo at `12A`. Upper-versus-lower bank changes this
+carry on 221/1,014 tone visits and 254/1,014 data-prefix visits;
+exactly those `12A` Y bytes change, always by XOR `01`, while R1
+and entering R0lo agree. This is executed arithmetic evidence for a
+ROM-dependent candidate DAC byte, conditional on the bank select and
+post-`12A` capture route. Keep C2/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

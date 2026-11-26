@@ -278,6 +278,15 @@ temporary register writes, and sometimes changes `12A` Y lower bits.
 Y7 remains equal throughout the tested tone window. This preserves
 the distinction between active ROM arithmetic and the proposed output
 bit's insensitivity to that bank change.
+The [split-slice ROM-carry audit](../g2/JOINT-MASK04-TX-ROM-CARRY-EQUATION.md)
+identifies the path through `129–12A`: low/high `C9/8D` at `129`
+use R1, R0 and the selected ROM byte; the high-slice carry then enters
+low/high `C1/85` at `12A`. There, low Y is R1lo+R0lo+that carry
+modulo 16 while high Y exposes R1hi. Every paired-bank Y0 change in
+the short tone and data-prefix runs coincides with a changed carry.
+This gives the candidate ROM-sensitive output byte an executed
+arithmetic explanation, still conditional on the selected bank and
+an external `12A` latch route.
 
 The [two-visit selector](../g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
 recovers the tested 45° grid streams from these receive-side outputs, but

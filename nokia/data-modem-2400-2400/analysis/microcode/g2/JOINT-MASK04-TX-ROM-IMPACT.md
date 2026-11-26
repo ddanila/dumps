@@ -25,6 +25,12 @@ returns `04` from `17A`, while the lower-bank read returns `16` from
 instants across phases `127`, `128`, `129` and `12A` are identical.
 The [full-stream replay](JOINT-MASK04-TX-ROM-BANK-ABLATION.md) extends
 sample identity to all 832 phase-`129` candidate samples per selector.
+The later [split-slice equation audit](JOINT-MASK04-TX-ROM-CARRY-EQUATION.md)
+explains the delayed bit-0 difference: the selected `129` ROM high
+nibble can change that word's high-slice carry, which becomes the
+`12A` low-slice carry input. Across the held-tone pair, exactly the
+221 changed carries cause the 221 changed `12A` Y bytes. A separate
+data-prefix pair gives the same exact relation on 254 changed carries.
 
 This establishes a narrower mechanism than “the ROM is ignored.” The
 selected operand participates in arithmetic and temporary state, but

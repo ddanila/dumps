@@ -1,0 +1,206 @@
+{
+  "experiment": "PC129 ROM byte to PC12A Y0 split-slice carry equation",
+  "fixture": {
+    "cycles_per_run": 4096,
+    "selected_pc129_visits_per_run": 1014,
+    "input_patterns": [
+      "tone_88",
+      "data_11_then_b0"
+    ],
+    "bank_upper": 256,
+    "bank_lower": 0,
+    "mapping": "joint upper-source lower mask04"
+  },
+  "equations": {
+    "pc129_low": "(~R1lo + R0lo + carry_in) mod 16",
+    "pc129_high": "(~ROMhi + R1hi + carry_from_low) mod 16",
+    "pc129_carry": "carry out of PC129 high slice",
+    "pc12a_low": "(R1lo + R0lo_from_129 + PC129_carry) mod 16",
+    "pc12a_y": "R1hi concatenated with PC12A low result"
+  },
+  "cases": [
+    {
+      "input": "tone_88",
+      "d127_prefix": [
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88",
+        "88"
+      ],
+      "bank_upper_trace_digest": "862719cb678afbc43de3b7a9490d66a5897775cf8abb35c67b45d815ecb82c81",
+      "bank_lower_trace_digest": "9041d7fc0ee14ce7c2296435455f067888e8176bbd75d9e36e2e782a84c4c7ac",
+      "common_pc_path_sha256": "b0e5e29eb51dc97ea06ca1834dafe24db7b0d32ea6bd98f9ae857787ebe00e82",
+      "pairs": 1014,
+      "differences": {
+        "rom_byte": 1014,
+        "f": 951,
+        "carry": 221,
+        "r1": 0,
+        "r0_before": 0,
+        "r1_at_12a": 0,
+        "r0_at_12a": 951,
+        "r0_low_at_12a": 0,
+        "low_sum_before_carry": 0,
+        "carry_in_12a": 221,
+        "y_12a": 221,
+        "f_12a": 221
+      },
+      "xor_masks": [
+        0,
+        1
+      ],
+      "first_y_difference_indices": [
+        7,
+        8,
+        10,
+        15,
+        25,
+        28,
+        29,
+        39,
+        40,
+        42,
+        47,
+        57,
+        60,
+        61,
+        71,
+        72
+      ],
+      "first_pair_upper": {
+        "address": 378,
+        "rom_byte": 4,
+        "r1": 122,
+        "r0_before": 96,
+        "f": 102,
+        "carry": 1,
+        "r1_at_12a": 122,
+        "r0_at_12a": 102,
+        "r0_low_at_12a": 6,
+        "low_sum_before_carry": 16,
+        "carry_in_12a": 1,
+        "y_12a": 113,
+        "f_12a": 129
+      },
+      "first_pair_lower": {
+        "address": 122,
+        "rom_byte": 22,
+        "r1": 122,
+        "r0_before": 96,
+        "f": 86,
+        "carry": 1,
+        "r1_at_12a": 122,
+        "r0_at_12a": 86,
+        "r0_low_at_12a": 6,
+        "low_sum_before_carry": 16,
+        "carry_in_12a": 1,
+        "y_12a": 113,
+        "f_12a": 129
+      }
+    },
+    {
+      "input": "data_11_then_b0",
+      "d127_prefix": [
+        "90",
+        "90",
+        "90",
+        "90",
+        "B0",
+        "B0",
+        "B0",
+        "B0"
+      ],
+      "bank_upper_trace_digest": "a857a3aa2425a2caf591336bd13a4b97d5f0b5cd51e4cbf13fe808f55fdeb795",
+      "bank_lower_trace_digest": "a6d7d9a028d74982d5d4d32666cdce6861545e80aa43a8bd47ca8b04dc39e1f2",
+      "common_pc_path_sha256": "b0e5e29eb51dc97ea06ca1834dafe24db7b0d32ea6bd98f9ae857787ebe00e82",
+      "pairs": 1014,
+      "differences": {
+        "rom_byte": 1014,
+        "f": 1014,
+        "carry": 254,
+        "r1": 0,
+        "r0_before": 0,
+        "r1_at_12a": 0,
+        "r0_at_12a": 1014,
+        "r0_low_at_12a": 0,
+        "low_sum_before_carry": 0,
+        "carry_in_12a": 254,
+        "y_12a": 254,
+        "f_12a": 254
+      },
+      "xor_masks": [
+        0,
+        1
+      ],
+      "first_y_difference_indices": [
+        3,
+        4,
+        14,
+        15,
+        19,
+        20,
+        30,
+        31,
+        35,
+        36,
+        46,
+        47,
+        51,
+        52,
+        62,
+        63
+      ],
+      "first_pair_upper": {
+        "address": 386,
+        "rom_byte": 10,
+        "r1": 130,
+        "r0_before": 96,
+        "f": 126,
+        "carry": 1,
+        "r1_at_12a": 130,
+        "r0_at_12a": 126,
+        "r0_low_at_12a": 14,
+        "low_sum_before_carry": 16,
+        "carry_in_12a": 1,
+        "y_12a": 129,
+        "f_12a": 145
+      },
+      "first_pair_lower": {
+        "address": 130,
+        "rom_byte": 36,
+        "r1": 130,
+        "r0_before": 96,
+        "f": 94,
+        "carry": 1,
+        "r1_at_12a": 130,
+        "r0_at_12a": 94,
+        "r0_low_at_12a": 14,
+        "low_sum_before_carry": 16,
+        "carry_in_12a": 1,
+        "y_12a": 129,
+        "f_12a": 145
+      }
+    }
+  ],
+  "limitations": [
+    "The selected ROM A8 bank and D127 input values are scenario assumptions, not traced Nokia nets.",
+    "The equations cover the reached q3/mask04 split-slice map, not all alternative field maps.",
+    "The short tone and data-prefix fixtures are internal arithmetic tests, not a measured DAC or line output."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_rom_carry_equation.py": "b90a2a1aecc3550ded28f19785dce7126e951788c48e2bf6cba18807442695f8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_rom_impact.py": "4c2bfde8f126b1fad3becb9f44a4ced6a8d868c5afae310eeeef707f48196d0c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_pulse.py": "e60abab932b35ec1a5dc3931ab2374e9722605d7f2f7a24804d8f47712f7becb",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/model.py": "52aae3bff736f37303609107ff842200d94ff417a73326fff2e4f313ac0bb8bf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}
