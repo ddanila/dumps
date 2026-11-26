@@ -396,15 +396,16 @@ RxC edge before the second Y leaves 64 first-bit edges unavailable. The
 replay narrows capture timing under labelled storage/clock/serial wiring; it
 does not trace those pins or pass C3. Next capture all four `3ED` rows in a
 real-PROM run and compare an every-row latch clock with row-0 qualification.
-The [four-row real-PROM capture](g2/JOINT-MASK04-12A-ALL-ROW-LATCH.md)
-now does that for the fresh call payload at offset 88 and 75% gain. Its
-new Tx, PCM and Rx digests match the prior holdout. Row 0 gives 0/64
-decision errors; rows 1 and 2 are zero at all 260 captured symbol/visit
-positions and give 20/64 errors; row 3 gives 14/64. An every-row latch
-would finish on row 3, so this proposed readout requires a row-qualified
-clock or another hold path. Test the same policy on the answer selector
-or an independently changed fixture, then constrain the qualifier and
-storage from the photos. Keep C3/G2 active under labelled wiring assumptions.
+The [four-row real-PROM captures](g2/JOINT-MASK04-12A-ALL-ROW-LATCH.md)
+now test both fresh call and answer payloads at offset 88 and 75% gain.
+Their new Tx, PCM and Rx digests match the prior holdout. Row 0 gives 0/64
+decision errors in each; rows 1 and 2 are zero at all 520 captured
+symbol/visit positions and give 20/64 and 21/64 errors; row 3 gives
+14/64 and 19/64. An every-row latch would finish on row 3, so this
+proposed readout requires a row-qualified clock or another hold path.
+Test an independently changed carrier/gain fixture, then constrain the
+qualifier and storage from the photos. Keep C3/G2 active under labelled
+wiring assumptions.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
