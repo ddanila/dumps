@@ -181,9 +181,16 @@ remain. Its frozen seven-state receive rule fails on the new `2,6,9,D`
 state family. A unique call-constrained four-state relabeling recovers
 64/64 dibits, exact line bytes and both modeled controller payloads on
 the answer holdout without refitting; no executed or photographed
-phase-normalization mechanism has been identified. Next test a
-photo-compatible ADC/latch/clock path that chooses quadrant labels
-across carrier starts, then freeze it on new payloads and levels.
+phase-normalization mechanism has been identified. The
+[controller A4 calibration replay](g2/JOINT-MASK04-12A-A4-PHASE-TRAINING.md)
+resolves the data-leakage concern: the constant preamble constrains no
+phase labels, but the independently known 32-dibit V.26 ter A4 pattern
+selects one of 64 maps for the offset-`20` receiver. Without using
+fresh-payload answers, that A4-trained map recovers 64/64 dibits and
+exact modeled controller payloads in both saved call/answer runs.
+Next join actual controller A3/A4 timing and later data in one
+uninterrupted replay, and test a photo-compatible ADC/latch/clock
+mechanism that chooses quadrant labels across carrier starts.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
