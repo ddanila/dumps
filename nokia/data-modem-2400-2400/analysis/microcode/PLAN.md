@@ -124,6 +124,16 @@ phase-47 Boolean readout makes 11/63 errors at each level on the joined
 waveform. These results do not identify an AGC/decision state; inspect
 other visits or an external latch path before proposing a new adaptive
 rule, while keeping C3 active.
+For C4, the [mask-04 external-RAM echo screen](g2/JOINT-MASK04-EXTERNAL-RAM-ECHO-SCREEN.md)
+uses a sample-paced counter, write/freeze gate and three-sample low-nibble
+readback with zero, own echo, independent remote and mixed controls.
+The `3FA` low-nibble latch stores only the initial `01` byte. A `3F9`
+low-nibble latch stores changing bytes and alters the PROM trace without
+loop exit, but its late mixed-minus-remote `Y3FA` response equals the
+no-feedback control rather than attenuating. Treat this as a negative
+result for that candidate output and timing, not for echo cancellation
+generally; test another photo-compatible output or mode-qualified return
+under the same controls.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
