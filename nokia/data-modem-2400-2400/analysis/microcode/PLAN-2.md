@@ -1969,6 +1969,14 @@ Listed in order of value per effort:
   already in development. This does not identify a DSC phase decision
   or a physical ADC-to-USART route; test unseen states and a
   photo-compatible capture/serializer circuit before passing C3.
+  The [phase-120 new-state challenge](g2/JOINT-MASK04-12A-ROW0-PHASE120.md)
+  freezes the same 22-state gates and line shift on another fresh
+  payload pair and carrier start. Both real-PROM receive streams
+  recover 64/64 dibits and exact modeled controller bytes. New state
+  `59` occurs in 40/65 call and 42/65 answer symbols; its anchored
+  phase matches the frozen gate, with zero graph conflicts. This
+  strengthens conditional transfer but still lacks an identified
+  executed DSC bit decision and physical RxD/RxC/SYNDET route.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

@@ -438,6 +438,17 @@ decoder is not an absolute line oracle. All holdout states were in the
 that reaches new states and constrain the row capture and USART
 hardware; these successes remain conditional C3 evidence, not a
 physical pass or a goal blocker.
+The [phase-120 new-state holdout](g2/JOINT-MASK04-12A-ROW0-PHASE120.md)
+now freezes that 22-state gate and +5 line shift before another fresh
+payload pair and carrier start. Both real-PROM Tx→line→Rx runs give
+0/64 reference errors, 0/64 gate errors, exact offered line bytes and
+exact aligned modeled 8251/8031 source bytes. They visit new state
+`59` on 40/65 call and 42/65 answer symbols; the frozen gates assign
+its anchored phase 2 correctly and all transitions extend the old
+graph without conflict. This is one unseen-state success for a
+conditional external consumer, not an executed DSC decision or traced
+USART route. Next test a photo-compatible row-capture/serializer and
+an independent output constraint while leaving C3/G2 active.
 Make that route the next bounded C3 experiment. Start from the photographed
 ADC0800 input candidate and four-bit U12 as one possible capture stage; assign
 the remaining capture storage explicitly and label all untraced data and clock

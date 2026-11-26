@@ -95,6 +95,18 @@ U24 counter or another stateful qualifier could do that, but its wiring,
 reset phase and the required extra storage are untraced. These phase gates
 and serial decisions are external readout hypotheses, not executed DSC
 instructions or a physical C3 pass.
+The original 20-state gate failed at a new carrier start because it
+assigned previously unseen state `5E` the wrong phase. After moving
+that fixture into development, a revised
+[22-state rule](../g2/JOINT-MASK04-12A-ROW0-TWENTYTWO-HOLDOUT.md)
+recovered fresh payloads at that start. A subsequent frozen
+[phase-120 holdout](../g2/JOINT-MASK04-12A-ROW0-PHASE120.md) reached
+another unseen state, `59`, on 40 call and 42 answer symbols; both
+executed PROM streams and the modeled 8251/8031 handoff recovered
+exact bytes, and the new state's phase prediction had zero graph
+conflicts. This validates a limited external consumer transfer, while
+the searched `3F8`/`3ED` bytes still show sample encoding rather than
+an identified microprogram bit decision.
 The [three-phase `3F9`/`3FA` capture](../g2/JOINT-MASK04-RECEIVE-3F9-3FA-CODEBOOK.md)
 now tests their executed Y bytes at all 9,000 visits of three legal
 rotated-carrier streams. Both execute once per ADC visit, and each Y byte

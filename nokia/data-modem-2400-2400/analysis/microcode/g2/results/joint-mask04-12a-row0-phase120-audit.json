@@ -1,0 +1,59 @@
+{
+  "experiment": "frozen 22-state row-phase gate transfer to unseen state 59",
+  "fixture": {
+    "R1_offset": 120,
+    "development_cases": 24,
+    "development_states": 22,
+    "combined_states": 23,
+    "combined_graph_conflicts": 0,
+    "components": 1
+  },
+  "unseen_state": {
+    "code": "59",
+    "graph_phase": 2,
+    "frozen_gate_phase": 2
+  },
+  "outcomes": [
+    {
+      "selector": "40",
+      "state_59_symbols": 40,
+      "reference_errors": 0,
+      "gate_errors": 0,
+      "offered_line_bytes_recovered": true,
+      "aligned_source_bytes_recovered": true,
+      "one_bit_early_source_recovered": false,
+      "one_bit_late_source_recovered": false
+    },
+    {
+      "selector": "60",
+      "state_59_symbols": 42,
+      "reference_errors": 0,
+      "gate_errors": 0,
+      "offered_line_bytes_recovered": true,
+      "aligned_source_bytes_recovered": true,
+      "one_bit_early_source_recovered": false,
+      "one_bit_late_source_recovered": false
+    }
+  ],
+  "limitations": [
+    "This holdout constrains an external gate model, not an executed DSC phase decision.",
+    "The line shift, ADC input, row capture, logic, RxD/RxC and SYNDET remain assumed routes.",
+    "One unseen state and two payloads do not establish arbitrary carrier/gain robustness."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_phase120_audit.py": "f68d72e0cb04fd7d1de15b981a5f75f88032f8b7587e6c9ba4abce840322cd4a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-twentytwo-phase120.json": "fa1de25bb3a79b9e6000cbee84f25e6a37ef6e711031852cd1ca6d91764e3065",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-phase112.json": "921b2ed60bb521170404303d6c2a4cc445332550ab2a614a5300596c66313cb9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-32.json": "c15cbc7eaa085f9cc90fcba4da965d51ebcdfd71be41097f802785b201c0011c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-96.json": "ab1d1d5ded31b4bddd15f5953fcd59d0d50a3237a034ceab27be995c0ae49e65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-16.json": "0accdbc1a5648d04aa707ef077a4a2d1f511f000c73c68bb243b3ef61dddaf6e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-80.json": "5b88ec1341651d6266cda8c8df1942f7eb3c11abb944071b3534e316f023728a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-low-gain.json": "92cf37d849db200dec0f6a35d2f22f2447702c4a8861b8d02a0f1611640098aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-0.json": "92a292afd429e3bdae7f03b9fc5ab18c9b276cec5853bf5a3892948babf939b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-64.json": "06d3470ae85db0531ca1d6bff35bc7f00b369eaab0d2a83d9d8021871c73de87",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-gain.json": "28882404cad0542a6aed03018b67e2ff0fe0435c293e630ecb21d3d9eea40221",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_multivisit_phase_screen.py": "57f86789b6c2620499c57a8e152b2dd415ea8facf90b646dfe95f315e199d387",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean.py": "e9a3cedabb9654a2d98cca71c8d2a305261387dd4b112f93d7ece2001d78219b"
+  }
+}
