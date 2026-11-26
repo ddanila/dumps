@@ -64,10 +64,264 @@
     "Raw PROM bits and instruction timing are executed; the physical gate, NAND edge and latch pin route are assumed.",
     "A combinational decode may glitch during PROM address transitions; edge cleanliness is not proved by the instruction-level model."
   ],
+  "one_bit_latch": {
+    "consumer_lags": {
+      "10": 6000,
+      "18": 5999,
+      "2": 6000,
+      "26": 5999
+    },
+    "consumers_before_any_latch": 0,
+    "data": "previous instruction Am2901 Y7",
+    "edge": "candidate NAND rising edge",
+    "first_receive_consumers": [
+      {
+        "cycle": 66,
+        "lag": 2,
+        "latch_y7": 0,
+        "output_y": 0,
+        "visit": 0
+      },
+      {
+        "cycle": 74,
+        "lag": 10,
+        "latch_y7": 0,
+        "output_y": 252,
+        "visit": 0
+      },
+      {
+        "cycle": 82,
+        "lag": 18,
+        "latch_y7": 0,
+        "output_y": 243,
+        "visit": 0
+      },
+      {
+        "cycle": 90,
+        "lag": 26,
+        "latch_y7": 0,
+        "output_y": 0,
+        "visit": 0
+      },
+      {
+        "cycle": 98,
+        "lag": 2,
+        "latch_y7": 0,
+        "output_y": 0,
+        "visit": 1
+      },
+      {
+        "cycle": 106,
+        "lag": 10,
+        "latch_y7": 0,
+        "output_y": 252,
+        "visit": 1
+      }
+    ],
+    "receive_consumer_count": 23998,
+    "startup_consumer": {
+      "cycle": 50,
+      "latch_y7": 0
+    },
+    "symbol_visit_47_94_row3": [
+      {
+        "cycle": 1594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 0
+      },
+      {
+        "cycle": 3098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 0
+      },
+      {
+        "cycle": 13594,
+        "latch_y7": 0,
+        "sample_visit": 47,
+        "symbol": 1
+      },
+      {
+        "cycle": 15098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 1
+      },
+      {
+        "cycle": 25594,
+        "latch_y7": 0,
+        "sample_visit": 47,
+        "symbol": 2
+      },
+      {
+        "cycle": 27098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 2
+      },
+      {
+        "cycle": 37594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 3
+      },
+      {
+        "cycle": 39098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 3
+      },
+      {
+        "cycle": 49594,
+        "latch_y7": 0,
+        "sample_visit": 47,
+        "symbol": 4
+      },
+      {
+        "cycle": 51098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 4
+      },
+      {
+        "cycle": 61594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 5
+      },
+      {
+        "cycle": 63098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 5
+      },
+      {
+        "cycle": 73594,
+        "latch_y7": 0,
+        "sample_visit": 47,
+        "symbol": 6
+      },
+      {
+        "cycle": 75098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 6
+      },
+      {
+        "cycle": 85594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 7
+      },
+      {
+        "cycle": 87098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 7
+      },
+      {
+        "cycle": 97594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 8
+      },
+      {
+        "cycle": 99098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 8
+      },
+      {
+        "cycle": 109594,
+        "latch_y7": 0,
+        "sample_visit": 47,
+        "symbol": 9
+      },
+      {
+        "cycle": 111098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 9
+      },
+      {
+        "cycle": 121594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 10
+      },
+      {
+        "cycle": 123098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 10
+      },
+      {
+        "cycle": 133594,
+        "latch_y7": 0,
+        "sample_visit": 47,
+        "symbol": 11
+      },
+      {
+        "cycle": 135098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 11
+      },
+      {
+        "cycle": 145594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 12
+      },
+      {
+        "cycle": 147098,
+        "latch_y7": 0,
+        "sample_visit": 94,
+        "symbol": 12
+      },
+      {
+        "cycle": 157594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 13
+      },
+      {
+        "cycle": 159098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 13
+      },
+      {
+        "cycle": 169594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 14
+      },
+      {
+        "cycle": 171098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 14
+      },
+      {
+        "cycle": 181594,
+        "latch_y7": 1,
+        "sample_visit": 47,
+        "symbol": 15
+      },
+      {
+        "cycle": 183098,
+        "latch_y7": 1,
+        "sample_visit": 94,
+        "symbol": 15
+      }
+    ]
+  },
   "selected_y_count": 6000,
   "source_sha256": {
     "analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
-    "analysis/microcode/g2/receiver_mask04_3f8_gate_timing.py": "b50e97b9d38f17e9fa1aa12ec2a0f0809685109caeace82a1bcd1f7f8e85d816",
+    "analysis/microcode/g2/receiver_mask04_3f8_gate_timing.py": "66ef514f03d510a328743bb919ca99f2aeedcb63c59effd4f67db02184d55102",
     "analysis/microcode/g2/receiver_mask04_3f8_phase_bit.py": "971611669d5a74f43fcf744857ec8843320e6600bed052bffb1eced8c9ff760c",
     "analysis/microcode/g2/receiver_mask04_carrier_phase_screen.py": "c8e9524f385d07a4016fce6959ca4393f0ccb9d7a0212c86729db3ae5c5e5264",
     "analysis/microcode/g2/receiver_mask04_collision_state.py": "70d29b9a864b5b433739ff84c669ad0f428f86104f342a35a407a335049a6e1e",

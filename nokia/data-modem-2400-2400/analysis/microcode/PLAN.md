@@ -235,10 +235,13 @@ PROM traces, then scores a separate 13-angle seed. Every added bit
 leaves more unknown decisions than the four-bit baseline (122–196
 versus 84 of 611), and none gives a consistent quadratic transition
 rule across the combined captures. This scopes out simple bit addition,
-not the complementary dual-feature rule. Test the raw-PROM `3F8→3F9`
-clock candidate as an explicit one-bit latch, including its startup
-edge and later `3ED` consumer, instead of adding arbitrary Y bits;
-keep C3 open and G2 active.
+not the complementary dual-feature rule. The [explicit one-bit latch
+replay](g2/RECEIVER-MASK04-3F8-TRANSIENT-BIT.md) now includes the startup
+edge and holds Y7 through all four later `3ED` observations per complete
+receive visit; its 32 symbol-visit row-3 observations agree with the
+executed `3F8` Y7. Test a photo-compatible symbol-rate consumer that retains
+both visits and reaches USART RxD/RxC, with alternate clock phases as
+controls; keep C3 open and G2 active.
 The [dual-feature zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
 now runs two 768,047-word real-PROM receive traces at 75°/165° through
 32 `11` preamble symbols and eight controller-scrambled zero octets.

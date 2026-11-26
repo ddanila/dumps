@@ -1316,9 +1316,12 @@ phases B–C turn "what" into "how".
   at 45°/135° with full coverage, while its 0°/90°/180° coverage is poor.
   A four-literal raw-PROM `3F8` decode produces 6,000 candidate latch
   edges at `3F8→3F9` in one full trace plus one startup edge. The edge
-  captures exactly the executed Y stream under the timing hypothesis;
-  physical clock integrity remains untested. Test an explicit latch and
-  a phase-class consumer next; do not promote this conditional bit
+  captures exactly the executed Y stream under the timing hypothesis.
+  An [explicit one-bit latch replay](g2/RECEIVER-MASK04-3F8-TRANSIENT-BIT.md)
+  includes the startup edge and holds Y7 to four later `3ED` observations
+  per complete receive visit; all 32 symbol-visit row-3 values agree with
+  the executed source. Physical clock integrity remains untested. Test a
+  symbol-rate phase-class consumer next; do not promote this conditional bit
   to a traced USART receive decision or block on the missing net.
   The [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
   now runs 32 `11` reversal symbols and 16 data symbols without restarting
@@ -1372,9 +1375,9 @@ phases B–C turn "what" into "how".
   the four-bit baseline under the same smaller training set. None gives
   a consistent quadratic transition rule across all saved captures.
   This does not reject the dual-feature consensus, which uses more
-  development data. Next test the raw-PROM `3F8→3F9` clock candidate
-  as an explicit one-bit latch with its startup edge and later `3ED`
-  consumer, rather than adding arbitrary Y bits.
+  development data. The explicit raw-PROM `3F8→3F9` one-bit latch now
+  passes its startup and later `3ED` timing check. Test a photo-compatible
+  two-visit hold and symbol-rate consumer, rather than adding arbitrary Y bits.
   The [two-visit zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
   now feeds the controller's actual scrambled eight-zero-octet streams
   through two continuous mask-`04` PROM runs at 75° and 165°. The frozen

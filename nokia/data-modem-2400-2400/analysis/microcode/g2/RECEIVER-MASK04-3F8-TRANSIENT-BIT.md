@@ -66,8 +66,24 @@ bit readout. Instruction-level edges do not prove a hazard-free physical
 clock. No such gate, Y7 latch, later
 phase logic, symbol clock or USART-01 RxD net has been traced. This is a
 conditional path through executed microcode, **not a C3 pass** or a
-physical wiring claim. Test an explicit one-bit latch with the startup
-edge and its symbol-time consumer without waiting for continuity.
+physical wiring claim. The following latch replay tests whether that
+edge can preserve Y7 through the later row outputs.
+
+An explicit one-bit latch replay now updates its held value from the
+preceding Am2901 Y7 at every candidate NAND edge, including the startup
+`18C→3EA` edge. In the 192,047-instruction trace, the startup edge sets
+Y7=0 before the first `3ED` observation at cycle 50. Each of the 6,000
+`3F8→3F9` edges then supplies the value still held at the next `3ED`
+observations: 6,000 each at lags 2 and 10 instructions, and 5,999 each
+at lags 18 and 26 because the run stops during its final receive visit.
+The row-3 observations at lag 26 on symbol visits 47 and 94 match the
+executed `3F8` Y7 for all 16 inspected symbols (32 observations). Thus
+the proposed edge has sufficient instruction-level timing to make the
+transient bit available throughout the later four-row window. It does
+not show that the photographed board actually has this gate, latch or
+consumer, or that a symbol-rate circuit retains both visits; those
+remain the next C3 tests. The instruction-level model also cannot
+exclude combinational clock glitches.
 
 The [state report](results/receiver-mask04-collision-state.json) contains
 the full sampled RAM/Q/Y/flags and ADC reads; the

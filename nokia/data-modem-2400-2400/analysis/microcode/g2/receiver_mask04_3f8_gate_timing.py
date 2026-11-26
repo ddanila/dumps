@@ -55,6 +55,14 @@ def run(out=HERE / 'results/receiver-mask04-3f8-gate-timing.json'):
     first_edges = []
     selected_y = []
     edge_y = []
+    latch_value = None
+    latest_receive_edge = None
+    first_consumers = []
+    symbol_consumers = []
+    receive_consumer_lags = Counter()
+    receive_consumers = 0
+    startup_consumer = None
+    missing_latch_consumers = 0
     previous = None
     with tempfile.TemporaryDirectory() as temporary:
         result = execute(mapping, scenario, CYCLES, mode='integrated',
@@ -70,14 +78,37 @@ def run(out=HERE / 'results/receiver-mask04-3f8-gate-timing.json'):
                     selected_y.append(row['alu']['y'])
             if previous is not None and high(previous['raw']) and not high(row['raw']):
                 falling_edges[(previous['pc'], row['pc'])] += 1
+                latch_value = (previous['alu']['y'] >> 7) & 1
                 if previous['pc'] == 0x3F8:
                     edge_y.append(previous['alu']['y'])
+                    latest_receive_edge = (len(edge_y) - 1, row['cycle'], latch_value)
                 if len(first_edges) < 6:
                     first_edges.append(dict(before_cycle=previous['cycle'],
                                             after_cycle=row['cycle'],
                                             before_pc=f'{previous["pc"]:03X}',
                                             after_pc=f'{row["pc"]:03X}',
                                             captured_y=previous['alu']['y']))
+            if row['pc'] == 0x3ED:
+                if latch_value is None:
+                    missing_latch_consumers += 1
+                elif latest_receive_edge is None:
+                    if startup_consumer is None:
+                        startup_consumer = dict(cycle=row['cycle'], latch_y7=latch_value)
+                else:
+                    visit, edge_cycle, captured_bit = latest_receive_edge
+                    if latch_value != captured_bit:
+                        raise ValueError('receive latch overwritten before 3ED')
+                    receive_consumer_lags[row['cycle'] - edge_cycle] += 1
+                    receive_consumers += 1
+                    if len(first_consumers) < 6:
+                        first_consumers.append(dict(visit=visit, cycle=row['cycle'],
+                                                    lag=row['cycle'] - edge_cycle,
+                                                    latch_y7=latch_value,
+                                                    output_y=row['alu']['y']))
+                    if visit // 375 < 16 and visit % 375 in (47, 94) and row['cycle'] - edge_cycle == 26:
+                        symbol_consumers.append(dict(symbol=visit // 375,
+                                                     sample_visit=visit % 375,
+                                                     cycle=row['cycle'], latch_y7=latch_value))
             previous = row
     old = json.loads((HERE / 'results/receiver-mask04-collision-state.json').read_text())
     reference = next(case for case in old['cases'] if case['seed'] == SEED)
@@ -93,6 +124,15 @@ def run(out=HERE / 'results/receiver-mask04-3f8-gate-timing.json'):
             [case['adc'][str(phase)]['state']['y']
              for case in reference['symbols'] for phase in (47, 94)]):
         raise ValueError('gate trace disagrees with state audit')
+    if (missing_latch_consumers or not receive_consumers or
+            sum(falling_edges.values()) != ADC_VISITS + 1 or
+            dict(receive_consumer_lags) != {2: 6000, 10: 6000,
+                                            18: 5999, 26: 5999} or
+            len(symbol_consumers) != 32 or
+            [entry['latch_y7'] for entry in symbol_consumers] !=
+            [(case['adc'][str(visit)]['state']['y'] >> 7) & 1
+             for case in reference['symbols'] for visit in (47, 94)]):
+        raise ValueError('latch/consumer timing disagrees with gate audit')
     paths = (Path(__file__), HERE / 'receiver_mask04_collision_state.py',
              HERE / 'receiver_mask04_3f8_phase_bit.py',
              HERE / 'receiver_mask04_carrier_phase_screen.py',
@@ -108,6 +148,15 @@ def run(out=HERE / 'results/receiver-mask04-3f8-gate-timing.json'):
                   falling_edges={f'{a:03X}->{b:03X}': count
                                  for (a, b), count in falling_edges.items()},
                   first_edges=first_edges,
+                  one_bit_latch=dict(edge='candidate NAND rising edge',
+                                     data='previous instruction Am2901 Y7',
+                                     startup_consumer=startup_consumer,
+                                     receive_consumer_count=receive_consumers,
+                                     first_receive_consumers=first_consumers,
+                                     symbol_visit_47_94_row3=symbol_consumers,
+                                     consumer_lags={str(lag): count for lag, count
+                                                    in sorted(receive_consumer_lags.items())},
+                                     consumers_before_any_latch=missing_latch_consumers),
                   captured_y_sha256=hashlib.sha256(bytes(selected_y)).hexdigest(),
                   edge_captured_y_sha256=hashlib.sha256(bytes(edge_y)).hexdigest(),
                   selected_y_count=len(selected_y),
