@@ -1908,7 +1908,8 @@ Listed in order of value per effort:
   when it is commanded off. The
   [sample-paced high-nibble return test](g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
   exits the receive loop for both `3F9` and `3FA` Y latches, while its
-  write-only and read-only controls sustain it. Try a mode-qualified or
+  write-only and read-only controls sustain it. Both exits settle into
+  `1E9/1EA` without further ADC reads in this fixture. Try a mode-qualified or
   differently timed route; no tested RAM output is yet a measured or
   selectively falling echo residual.
 

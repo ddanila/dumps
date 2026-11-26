@@ -1431,7 +1431,10 @@ now tests that alternative with the corrected sample-paced write gate:
 write-only and read-only controls complete 3,000 ADC visits, but
 `3F9`-latched and `3FA`-latched high feedback leave the four-row loop
 after 939 and 423 visits. Both exits occur before the sample-25 pulse;
-the `3F9` pulse and baseline traces are identical. Reject these two
+the `3F9` pulse and baseline traces are identical. Following `3EE`,
+both routes take a 53-word transition and then alternate at `1E9/1EA`
+for the remainder of the 96,047-word run, with no further ADC reads.
+Reject these two
 specific high-return routes as sustained receive/echo models, then try
 a mode-qualified or differently timed return and distinct output site
 with own/remote/mixed and no-write controls. C4 stays open and G2 active.

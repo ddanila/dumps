@@ -31,6 +31,17 @@ read. The first changed read precedes the exit, but the thousands of
 intervening words mean this is a sustained control-flow effect, not a
 claim that one `21` byte directly trips the branch.
 
+The [post-exit trace extension](joint_mask04_ram_high_return_exit.py)
+follows the program beyond `3EE`. Both variants run the same 53-word
+transition through `18D`, `270` and other setup words, then alternate
+at `1E9/1EA` without returning to the ADC loop. For the `3F9` latch,
+**65,911 of 65,964** post-exit words are at those two addresses; for
+the `3FA` latch, **82,423 of 82,476** are. The last sixteen PCs in
+each trace are eight repetitions of `1EA,1E9`. This rules out the exit
+being a productive alternate receiver within the tested run and
+strengthens the route-specific rejection. A different condition source
+could release that loop; the condition wiring is still an assumption.
+
 This rejects the two tested high-nibble `3FA` return fixtures as models
 of a sustained receiver or useful echo-training loop. It does not reject
 the photographed RAMs, a different read timing, write enable, mode or
@@ -42,5 +53,6 @@ attenuation plus a freeze response before passing C4. G2 remains active.
 
 The [machine report](results/joint-mask04-ram-high-return-exit.json)
 records input and trace hashes, read/write counts, first changed reads
-and the executed branch rows. Reproduce from this directory with
+the executed branch rows and the complete post-exit PC histogram.
+Reproduce from this directory with
 `python3 g2/joint_mask04_ram_high_return_exit.py`.

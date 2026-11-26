@@ -4,6 +4,7 @@ import hashlib
 import json
 import sys
 import tempfile
+from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -57,13 +58,24 @@ def run(out=HERE / 'results/joint-mask04-ram-high-return-exit.json'):
                              trace_limit=impulse.CYCLES if feedback and write else 0)
             memory = result['external_ram_candidate']
             exits = []
+            post_exit_counts = Counter()
+            post_exit_first = []
+            post_exit_last = []
             if feedback and write:
+                after_exit = False
                 for line in (path / 'trace.jsonl').open():
                     row = json.loads(line)
+                    if after_exit:
+                        pc = f"{row['pc']:03X}"
+                        post_exit_counts[pc] += 1
+                        if len(post_exit_first) < 60:
+                            post_exit_first.append(pc)
+                        post_exit_last = (post_exit_last + [pc])[-16:]
                     if row['pc'] == 0x3ED and row['next_pc'] == 0x3EE:
                         exits.append(dict(cycle=row['cycle'],
                                           test=row['test'], q=row['q'],
                                           y=row['alu']['y']))
+                        after_exit = True
             cases.append(dict(name=name, latch_pc=f'{latch_pc:03X}',
                               feedback=feedback, write=write, pulse=changed,
                               adc_sha256=hashlib.sha256(bytes(adc)).hexdigest(),
@@ -75,6 +87,11 @@ def run(out=HERE / 'results/joint-mask04-ram-high-return-exit.json'):
                               first_changed_read=memory['first_changed_read'],
                               writes=memory['writes'], reads=memory['reads'],
                               exit_events=exits,
+                              post_exit_words=sum(post_exit_counts.values()),
+                              post_exit_unique_pcs=len(post_exit_counts),
+                              post_exit_top_pcs=post_exit_counts.most_common(12),
+                              post_exit_first_pcs=post_exit_first,
+                              post_exit_last_pcs=post_exit_last,
                               final_pc=f"{result['final_state']['pc']:03X}"))
     by_name = {case['name']: case for case in cases}
     controls = (by_name['write_only_3f9'], by_name['read_only'])
@@ -86,10 +103,14 @@ def run(out=HERE / 'results/joint-mask04-ram-high-return-exit.json'):
         case = by_name[name]
         if (not case['clean'] or case['loop_exits'] != 1 or
                 case['adc_visits'] >= starts[25] or len(case['exit_events']) != 1 or
-                case['first_changed_read'] is None):
+                case['first_changed_read'] is None or
+                case['post_exit_last_pcs'] != ['1EA', '1E9'] * 8):
             raise ValueError(('high-lane exit did not reproduce', name))
     if by_name['feedback_3f9']['trace_digest'] != by_name['feedback_3f9_pulse']['trace_digest']:
         raise ValueError('post-exit pulse changed the completed trace')
+    if (by_name['feedback_3f9']['post_exit_first_pcs'] !=
+            by_name['feedback_3fa']['post_exit_first_pcs']):
+        raise ValueError('high-return exit paths differ after branch')
     report = dict(experiment='high-lane external RAM return at 3FA in real-PROM receive loop',
                   fixture=dict(adc_samples=impulse.SAMPLES,
                                adc_visits=impulse.ADC_VISITS,

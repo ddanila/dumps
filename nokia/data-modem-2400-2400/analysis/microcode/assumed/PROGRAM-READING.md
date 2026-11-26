@@ -122,7 +122,9 @@ The [high-nibble `3FA` return control](../g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.m
 puts `3F9` or `3FA` Y's high nibble into a sample-paced hypothetical
 external RAM and returns it at `3FA`. Unlike write-only or read-only
 controls, both feedback variants leave the four-row loop at `3ED→3EE`
-before the offered sample-25 pulse. This is an executed control-flow
+before the offered sample-25 pulse. Their post-exit traces take 53
+transition words and then remain in `1E9/1EA` for the rest of the run,
+without another ADC selection. This is an executed control-flow
 effect of the assumed return, not evidence of useful echo adaptation.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
