@@ -1934,6 +1934,11 @@ Listed in order of value per effort:
   mixed-versus-remote contrasts both rise from early to late training at
   every fixed sample latch phase. The frozen effect lasts only the first
   three zero-tail samples under this three-sample RAM lag.
+  The [word-level arithmetic audit](g2/JOINT-MASK04-RAM-CARRY-3FC-ARITHMETIC.md)
+  checks 48,000 reached `3FC`/`3FD` words and finds fixed R10=`10`
+  and R5=`00` at the two consumed operands. The route is a delayed
+  RAM-code-to-ROM lookup, without a varying trained coefficient at
+  these sites under the tested mode.
   No tested RAM output is yet a measured or selectively falling echo residual.
 
 ## 3. Acceptance for G2

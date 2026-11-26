@@ -1495,6 +1495,15 @@ increase. Only the first three tail samples differ from write-only after
 freeze. This tested `3FD` code is a delayed-input transform, not a
 selectively falling echo residual. Audit its arithmetic/ROM operands or
 try a distinct photo-compatible return; keep C4 open and G2 active.
+The [48,000-word `3FC→3FD` arithmetic audit](g2/JOINT-MASK04-RAM-CARRY-3FC-ARITHMETIC.md)
+now explains that route: at all 24,000 training `3FC` visits,
+R10=`10` and carry-in=0, so `Y3FC=(RAM_D+0x10)&0xff`; this selects
+the following real-ROM address. At all 24,000 `3FD` visits, R5=`00`
+and carry-in=1, so `Y3FD=(((ROM>>4)+1)&15)<<4`. Five reached RAM
+codes map to four output codes, with `31`/`91` colliding at `20`.
+The delayed input is recoded, but no varying trained coefficient enters
+either checked operand under this fixture. Seek a distinct mode/return
+or independently constrained line route; keep C4 open and G2 active.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`
 values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.

@@ -169,6 +169,13 @@ own-echo-versus-zero and mixed-versus-remote Y-byte contrasts grow between
 early and late training. All 46 candidate sample-paced latch phases agree,
 and only three tail samples retain the frozen RAM effect. This supports a
 delayed-input lookup under the stated mux, not a demonstrated echo canceler.
+The [split-slice audit](../g2/JOINT-MASK04-RAM-CARRY-3FC-ARITHMETIC.md)
+checks every training `3FC`/`3FD` pair across all four inputs. It finds
+R10=`10`, carry=0 at `3FC`, giving `Y=(RAM_D+0x10)&0xff`, followed by
+real-ROM address `0x100+Y`. At `3FD`, R5=`00`, carry=1, and Y is the
+ROM byte's high nibble plus one, shifted into the high output nibble.
+That explains the changed `3FD` code without an adaptive operand at
+either tested word.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127
