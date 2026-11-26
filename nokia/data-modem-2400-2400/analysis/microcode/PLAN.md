@@ -132,7 +132,17 @@ calibrates gain on the zero-run only, then keeps it across both saved
 nonzero payloads per selector. At +6, all 24 bus/payload streams are
 exact at 75%, 100% and 125% of that gain. At +5, six stream/bus cases
 miss one answer dibit; +7 fails all 24. Constrain the latch/sample
-alignment. The [receiver-oscillator mismatch check](g2/JOINT-MASK04-12A-CARRIER-MISMATCH.md)
+alignment. The [full-byte phase replay](g2/JOINT-MASK04-12A-FULL-BUS-PHASE.md)
+now checks the executed `12A` candidate directly on both buffered
+controller streams and all six surviving DAC orders. Their raw A1 byte
+streams peak at 2,100 Hz and all 31 A3 adjacent-symbol steps are ±180°.
+The raw eight-sample A4 phasors can miss a quadrant by 48–63°, but the
+previously fixed Q=0.5/+6 line fixture and matched symbol window put all
+32 data steps per selector/bus within 40.1° of the intended quadrant.
+These are conditional digital/analog-model signatures, not identified
+DAC08 current or line output. Constrain the latch and physical line route;
+keep C2 open and G2 active. The
+[receiver-oscillator mismatch check](g2/JOINT-MASK04-12A-CARRIER-MISMATCH.md)
 keeps the line and zero-run gain frozen: all 24 bus/payload scores
 remain exact at reference-local offsets −14, −7, 0, +7 and +14 Hz.
 This removes a small *reference receiver* mismatch as an explanation

@@ -58,6 +58,15 @@ linked G2 experiments; they do not revise the older profiles.
 | 3F8–3FE | Candidate ADC-table receive update: the assumed ADC high nibble affects 3F8 Y, 3F9 reads the real ROM at `0x100 + Y`, and the four-row cycle computes input-dependent Q/RAM state. A one-sample impulse changes the tested state only while that sample is held. [Arithmetic](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md); [impulse](../g2/JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md) | ADC ingress, row dispatch, mode/feedback path and any recovered-bit consumer; C3 stays open. |
 | 3EB–3ED | Candidate receive-state byte exposure: 3EB writes R1 from Q's low nibble and 3ED exposes that R1 byte on Y. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | Capture, phase decision and USART RxD/RxC/SYNDET route; C3 stays open. |
 
+The [full-byte `12A` phase replay](../g2/JOINT-MASK04-12A-FULL-BUS-PHASE.md)
+strengthens the transmit label under the joint map. In both unchanged
+controller-fed streams, all six photo-compatible candidate DAC bytes show
+a 2,100 Hz tone peak and 31 exact 180° segment-1 reversals. The 32 data
+steps per mode/bus fall within the intended quadrants only after the
+previously fixed Q=0.5 line filter and matched symbol window; raw
+eight-sample phasors are less accurate. This is a conditional signal
+signature of executed Y bytes, not a traced DAC08 input or line current.
+
 The [full-byte sampled-byte audit](../g2/JOINT-MASK04-FULL-BUS-ADC-ROW-IDENTITY.md)
 qualifies these receive names. At all 3,900 captured `3F8` visits in six
 real-PROM streams, Y equals the modeled ADC high nibble with low bits `F`.

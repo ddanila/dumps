@@ -1860,6 +1860,14 @@ Listed in order of value per effort:
   tracking or physical frequency tolerance.
   No DAC/analog trace or onboard receive decision is established by
   this external reference decoder.
+  The [full-byte `12A` phase replay](g2/JOINT-MASK04-12A-FULL-BUS-PHASE.md)
+  adds a direct digital check across the same six surviving DAC orders:
+  every raw A1 stream peaks at 2,100 Hz, all 31 A3 phase differences are
+  ±180°, and all 32 A4 steps per selector/bus fall within the intended
+  quadrant after the already fixed Q=0.5/+6 filter and matched-symbol
+  window. Raw eight-sample A4 phasors alone miss some quadrants. This
+  strengthens the conditional transmitter signature without identifying
+  the DAC08 input pins, latch edge or physical analog output; C2 stays open.
   The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
   holds the full controller-fed fixture fixed and switches just the
   Am27S31 `129` A8 bank. Both call and answer runs have changed full
