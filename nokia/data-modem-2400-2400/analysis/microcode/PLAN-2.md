@@ -1388,6 +1388,16 @@ phases B–C turn "what" into "how".
   Do not fit symbol-specific exceptions from those inspected labels.
   Infer a selector from executed state or photo-compatible logic, then
   test it on a new seed and the USART route before claiming C3.
+  The [ADC-margin selector](g2/RECEIVER-MASK04-ADC-MARGIN-SELECTOR.md)
+  now freezes one such answer-independent signal rule: rank 46/93,
+  47/94 and 94/141 by minimum distance from the ADC midpoint across
+  the current and previous symbol, taking the first known table result.
+  Four fresh 96-symbol ±7 Hz PROM runs yield 0 wrong and 0 unknown
+  among 380 measurable dibits, versus two unknown for the conservative
+  two-pair control. This establishes a viable conditional readout,
+  not physical capture/selector/USART wiring. Constrain those routes
+  and challenge intermediate offsets, noise and controller timing;
+  C3 remains open.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero

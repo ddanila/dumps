@@ -63,6 +63,15 @@ decisions elsewhere; at the preamble-to-data conflict, 46/93 is correct
 and 47/94 is wrong. Derive any selector from executed state or a plausible
 board circuit and freeze it before a new seed; do not add exceptions from
 these inspected reference labels.
+The [ADC-margin selector](g2/RECEIVER-MASK04-ADC-MARGIN-SELECTOR.md)
+now freezes a simple signal-confidence rule: rank three executed capture
+pairs by their minimum distance from the ADC midpoint over both symbols,
+then use the first known frozen-table decision. On four new 96-symbol
+±7 Hz streams it gives 0 wrong and 0 unknown among 380 measurable
+dibits, while the earlier two-pair control leaves two unknown. This is
+a successful **conditional readout**, not an identified Nokia circuit.
+Constrain the capture/selector/USART route and challenge the rule on
+additional phase, noise and controller-timing fixtures; keep C3 open.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
