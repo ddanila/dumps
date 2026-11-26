@@ -87,6 +87,14 @@ sync source are untraced. Keep G2 active and C2/C3 open; test those paths
 under photo-compatible alternatives and new timing/data fixtures. The
 frozen margin selector makes one call error here, so use the exact 46/93
 result only for its stated fixture rather than assuming readout robustness.
+The [non-zero buffered-payload challenge](g2/JOINT-MASK04-BUFFERED-PAYLOAD-CHALLENGE.md)
+keeps the same frozen 46/93 rule and real-PROM Tx/Rx runs but changes the
+eight line bytes twice. Both selectors recover all 32 data dibits and the
+exact bytes with zero errors/unknowns; the answer stream covers all 16
+adjacent-dibit transitions. This weakens the zero-payload overfit concern,
+but the paired-bit buffer, DAC/ADC and USART output circuits remain
+unidentified. Challenge gain and sample phase next, and seek the actual
+photo-compatible pulse/readout routes. Keep C2/C3 open and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
