@@ -165,6 +165,14 @@ and answer −7 Hz. Call ±7 Hz and answer +7 Hz fail. Seek a phase-aware
 capture/decision route and test it on fresh inputs after freezing it.
 This narrows the current external readout, not the DSC's possible tracking
 function; keep C2/C3 open and G2 active.
+The [adjacent-visit screen](g2/JOINT-MASK04-FULL-BUS-OFFSET-VISIT-SCREEN.md)
+reruns those six unchanged PROM inputs while reading eight pairs of executed
+Y bytes. All prior ADC and PROM hashes match. Across the three failing
+offset cases, four fixed-rule gaps have no correct known answer from any
+tested pair. Thus choosing a different pair among these visits cannot by
+itself repair the frozen two-feature readout. Inspect those Y states and
+test a different phase-aware or multi-sample decision on a fresh fixture;
+do not treat this narrow pair-family failure as a G2 blocker or C3 pass.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.

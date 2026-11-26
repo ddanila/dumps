@@ -1,0 +1,2731 @@
+{
+  "cases": [
+    {
+      "adc_sha256": "a29b5fa3e5c66ec2dacdb5068a1358267d9b47f1fff8e1bbc334c71a468a668e",
+      "fixed_score": {
+        "checks": 64,
+        "data_errors": 0,
+        "data_unknown": 5,
+        "errors": 0,
+        "unknown": 7,
+        "unknown_symbols": [
+          15,
+          23,
+          43,
+          45,
+          46,
+          47,
+          56
+        ],
+        "wrong_symbols": []
+      },
+      "fixed_unknown_gap_diagnostics": [
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0
+          },
+          "symbol": 43
+        },
+        {
+          "expected": 1,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 1,
+            "48/95": 1,
+            "93/140": 1
+          },
+          "symbol": 45
+        },
+        {
+          "expected": 2,
+          "has_correct": false,
+          "known": {
+            "47/93": 0
+          },
+          "symbol": 46
+        },
+        {
+          "expected": 3,
+          "has_correct": true,
+          "known": {
+            "47/93": 3,
+            "47/94": 3,
+            "48/95": 3,
+            "93/140": 3
+          },
+          "symbol": 47
+        },
+        {
+          "expected": 2,
+          "has_correct": false,
+          "known": {
+            "47/93": 0,
+            "94/141": 1
+          },
+          "symbol": 56
+        }
+      ],
+      "gaps_without_correct_candidate": [
+        46,
+        56
+      ],
+      "offered_line_bytes": "E4 1B C7 39 55 AA 00 FF",
+      "offset_hz": -7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "0c091e781ea0150bff03eb0b92b9e091982c5680a930828874a3e0854950d2bd",
+      "selector": "40",
+      "tx_cycles": 1269256,
+      "variants": {
+        "45/92": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              15,
+              23,
+              43,
+              45,
+              46,
+              47,
+              56
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              15,
+              23,
+              43,
+              45,
+              46,
+              47,
+              56
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              15,
+              23,
+              43,
+              45,
+              46,
+              47,
+              56
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              15,
+              23,
+              43,
+              45,
+              46,
+              47,
+              56
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 6,
+            "unknown_symbols": [
+              15,
+              43,
+              45,
+              46,
+              47,
+              56
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 17,
+            "errors": 0,
+            "unknown": 18,
+            "unknown_symbols": [
+              15,
+              34,
+              35,
+              38,
+              39,
+              42,
+              43,
+              45,
+              46,
+              47,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "47/93": {
+          "conflicts": [
+            34,
+            35,
+            51,
+            54
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 3,
+            "data_unknown": 0,
+            "errors": 4,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": [
+              23,
+              45,
+              46,
+              56
+            ]
+          },
+          "rescued": [
+            43,
+            45,
+            46,
+            47,
+            56
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 7,
+            "data_unknown": 16,
+            "errors": 8,
+            "unknown": 19,
+            "unknown_symbols": [
+              4,
+              14,
+              31,
+              33,
+              38,
+              39,
+              40,
+              41,
+              42,
+              49,
+              50,
+              52,
+              53,
+              55,
+              57,
+              58,
+              59,
+              60,
+              61
+            ],
+            "wrong_symbols": [
+              23,
+              34,
+              35,
+              45,
+              46,
+              51,
+              54,
+              56
+            ]
+          }
+        },
+        "47/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 3,
+            "unknown_symbols": [
+              23,
+              46,
+              56
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            43,
+            45,
+            47
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 11,
+            "unknown_symbols": [
+              4,
+              23,
+              40,
+              41,
+              46,
+              50,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "48/95": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 3,
+            "unknown_symbols": [
+              23,
+              46,
+              56
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            43,
+            45,
+            47
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 11,
+            "unknown_symbols": [
+              4,
+              23,
+              40,
+              41,
+              46,
+              50,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "93/140": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 3,
+            "unknown_symbols": [
+              23,
+              46,
+              56
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            43,
+            45,
+            47
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 11,
+            "unknown_symbols": [
+              4,
+              23,
+              40,
+              41,
+              46,
+              50,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "94/141": {
+          "conflicts": [
+            38,
+            60
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 4,
+            "errors": 1,
+            "unknown": 4,
+            "unknown_symbols": [
+              43,
+              45,
+              46,
+              47
+            ],
+            "wrong_symbols": [
+              56
+            ]
+          },
+          "rescued": [
+            56
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 3,
+            "data_unknown": 12,
+            "errors": 3,
+            "unknown": 12,
+            "unknown_symbols": [
+              35,
+              37,
+              40,
+              41,
+              43,
+              45,
+              46,
+              47,
+              50,
+              51,
+              54,
+              55
+            ],
+            "wrong_symbols": [
+              38,
+              56,
+              60
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adc_sha256": "8554b652a9d62fa59b70bd9aaad6f27a56905abfc9725946c8cb1ca4ed9e9c84",
+      "fixed_score": {
+        "checks": 64,
+        "data_errors": 0,
+        "data_unknown": 2,
+        "errors": 0,
+        "unknown": 2,
+        "unknown_symbols": [
+          33,
+          53
+        ],
+        "wrong_symbols": []
+      },
+      "fixed_unknown_gap_diagnostics": [
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 33
+        },
+        {
+          "expected": 2,
+          "has_correct": true,
+          "known": {
+            "47/94": 2,
+            "48/95": 2,
+            "93/140": 2
+          },
+          "symbol": 53
+        }
+      ],
+      "gaps_without_correct_candidate": [],
+      "offered_line_bytes": "E4 1B C7 39 55 AA 00 FF",
+      "offset_hz": 0,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "2ef61fc7b61a9f9b68ae4d18751f9abfa2ad7b9ea8b15d6c7fdfaa5ca7910f82",
+      "selector": "40",
+      "tx_cycles": 1269256,
+      "variants": {
+        "45/92": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2,
+            "unknown_symbols": [
+              33,
+              53
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2,
+            "unknown_symbols": [
+              33,
+              53
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2,
+            "unknown_symbols": [
+              33,
+              53
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2,
+            "unknown_symbols": [
+              33,
+              53
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2,
+            "unknown_symbols": [
+              33,
+              53
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 21,
+            "errors": 0,
+            "unknown": 21,
+            "unknown_symbols": [
+              33,
+              34,
+              35,
+              38,
+              39,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              59
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "47/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 1,
+            "unknown_symbols": [
+              53
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            33
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 21,
+            "errors": 0,
+            "unknown": 21,
+            "unknown_symbols": [
+              34,
+              35,
+              38,
+              39,
+              42,
+              43,
+              45,
+              46,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "47/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            33,
+            53
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 4,
+            "errors": 0,
+            "unknown": 4,
+            "unknown_symbols": [
+              38,
+              46,
+              54,
+              56
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "48/95": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            33,
+            53
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 4,
+            "errors": 0,
+            "unknown": 4,
+            "unknown_symbols": [
+              38,
+              46,
+              54,
+              56
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "93/140": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            33,
+            53
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 4,
+            "errors": 0,
+            "unknown": 4,
+            "unknown_symbols": [
+              38,
+              46,
+              54,
+              56
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "94/141": {
+          "conflicts": [
+            35
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 1,
+            "errors": 0,
+            "unknown": 1,
+            "unknown_symbols": [
+              53
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            33
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 7,
+            "errors": 1,
+            "unknown": 7,
+            "unknown_symbols": [
+              32,
+              37,
+              40,
+              41,
+              50,
+              51,
+              53
+            ],
+            "wrong_symbols": [
+              35
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adc_sha256": "291b178cb0f98e2e4962dd4ae0e06ef22be0913a3fd5014e505d43a715bfcf2b",
+      "fixed_score": {
+        "checks": 64,
+        "data_errors": 0,
+        "data_unknown": 7,
+        "errors": 0,
+        "unknown": 9,
+        "unknown_symbols": [
+          6,
+          27,
+          38,
+          43,
+          56,
+          57,
+          58,
+          59,
+          60
+        ],
+        "wrong_symbols": []
+      },
+      "fixed_unknown_gap_diagnostics": [
+        {
+          "expected": 2,
+          "has_correct": true,
+          "known": {
+            "47/94": 2,
+            "48/95": 2,
+            "93/140": 2
+          },
+          "symbol": 38
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0
+          },
+          "symbol": 43
+        },
+        {
+          "expected": 2,
+          "has_correct": false,
+          "known": {
+            "94/141": 3
+          },
+          "symbol": 56
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 57
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 58
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 1,
+            "48/95": 1,
+            "93/140": 1
+          },
+          "symbol": 59
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 60
+        }
+      ],
+      "gaps_without_correct_candidate": [
+        56
+      ],
+      "offered_line_bytes": "E4 1B C7 39 55 AA 00 FF",
+      "offset_hz": 7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "72907ff4002ab5f140f3f8d62b26dbd9f3173b410f19b84fadfd7aaab3b539c9",
+      "selector": "40",
+      "tx_cycles": 1269256,
+      "variants": {
+        "45/92": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 7,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              6,
+              27,
+              38,
+              43,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 7,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              6,
+              27,
+              38,
+              43,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 7,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              6,
+              27,
+              38,
+              43,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 7,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              6,
+              27,
+              38,
+              43,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 7,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              6,
+              27,
+              38,
+              43,
+              56,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 22,
+            "errors": 0,
+            "unknown": 26,
+            "unknown_symbols": [
+              6,
+              16,
+              27,
+              31,
+              34,
+              35,
+              38,
+              39,
+              42,
+              43,
+              45,
+              46,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              64
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "47/93": {
+          "conflicts": [
+            34,
+            42,
+            46,
+            50,
+            51,
+            54
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2,
+            "unknown_symbols": [
+              38,
+              56
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            43,
+            57,
+            58,
+            59,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 6,
+            "data_unknown": 10,
+            "errors": 6,
+            "unknown": 10,
+            "unknown_symbols": [
+              35,
+              37,
+              38,
+              39,
+              40,
+              45,
+              49,
+              52,
+              53,
+              56
+            ],
+            "wrong_symbols": [
+              34,
+              42,
+              46,
+              50,
+              51,
+              54
+            ]
+          }
+        },
+        "47/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 1,
+            "errors": 1,
+            "unknown": 1,
+            "unknown_symbols": [
+              56
+            ],
+            "wrong_symbols": [
+              59
+            ]
+          },
+          "rescued": [
+            38,
+            43,
+            57,
+            58,
+            59,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 4,
+            "errors": 1,
+            "unknown": 4,
+            "unknown_symbols": [
+              40,
+              53,
+              56,
+              64
+            ],
+            "wrong_symbols": [
+              59
+            ]
+          }
+        },
+        "48/95": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 1,
+            "errors": 1,
+            "unknown": 1,
+            "unknown_symbols": [
+              56
+            ],
+            "wrong_symbols": [
+              59
+            ]
+          },
+          "rescued": [
+            38,
+            43,
+            57,
+            58,
+            59,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 4,
+            "errors": 1,
+            "unknown": 4,
+            "unknown_symbols": [
+              40,
+              53,
+              56,
+              64
+            ],
+            "wrong_symbols": [
+              59
+            ]
+          }
+        },
+        "93/140": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 1,
+            "errors": 1,
+            "unknown": 1,
+            "unknown_symbols": [
+              56
+            ],
+            "wrong_symbols": [
+              59
+            ]
+          },
+          "rescued": [
+            38,
+            43,
+            57,
+            58,
+            59,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 4,
+            "errors": 1,
+            "unknown": 4,
+            "unknown_symbols": [
+              40,
+              53,
+              56,
+              64
+            ],
+            "wrong_symbols": [
+              59
+            ]
+          }
+        },
+        "94/141": {
+          "conflicts": [
+            55
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 3,
+            "errors": 1,
+            "unknown": 3,
+            "unknown_symbols": [
+              38,
+              43,
+              59
+            ],
+            "wrong_symbols": [
+              56
+            ]
+          },
+          "rescued": [
+            56,
+            57,
+            58,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 2,
+            "data_unknown": 9,
+            "errors": 2,
+            "unknown": 12,
+            "unknown_symbols": [
+              3,
+              12,
+              31,
+              35,
+              37,
+              38,
+              43,
+              45,
+              46,
+              54,
+              59,
+              64
+            ],
+            "wrong_symbols": [
+              55,
+              56
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adc_sha256": "958c9a3bcbd0e3c36f59413614cecd50b28dd220a10b2dc9409e1af16835f3cd",
+      "fixed_score": {
+        "checks": 64,
+        "data_errors": 0,
+        "data_unknown": 6,
+        "errors": 0,
+        "unknown": 8,
+        "unknown_symbols": [
+          15,
+          23,
+          45,
+          46,
+          47,
+          60,
+          61,
+          64
+        ],
+        "wrong_symbols": []
+      },
+      "fixed_unknown_gap_diagnostics": [
+        {
+          "expected": 2,
+          "has_correct": true,
+          "known": {
+            "47/94": 2,
+            "48/95": 2,
+            "93/140": 2
+          },
+          "symbol": 45
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0
+          },
+          "symbol": 46
+        },
+        {
+          "expected": 1,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 1,
+            "48/95": 1,
+            "93/140": 1
+          },
+          "symbol": 47
+        },
+        {
+          "expected": 2,
+          "has_correct": true,
+          "known": {
+            "46/94": 0,
+            "47/94": 2,
+            "48/95": 2,
+            "93/140": 2,
+            "94/141": 2
+          },
+          "symbol": 60
+        },
+        {
+          "expected": 2,
+          "has_correct": true,
+          "known": {
+            "46/94": 3,
+            "47/93": 0,
+            "47/94": 2,
+            "48/95": 2,
+            "93/140": 2
+          },
+          "symbol": 61
+        },
+        {
+          "expected": 1,
+          "has_correct": true,
+          "known": {
+            "47/93": 1,
+            "47/94": 1,
+            "48/95": 1,
+            "93/140": 1
+          },
+          "symbol": 64
+        }
+      ],
+      "gaps_without_correct_candidate": [],
+      "offered_line_bytes": "93 6C 2D D2 F0 0F 81 7E",
+      "offset_hz": -7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "cba1df3e82b7ae8b995823e038e47b1b29de097cc7e978f3593d9d4caa29106b",
+      "selector": "60",
+      "tx_cycles": 1269256,
+      "variants": {
+        "45/92": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 6,
+            "errors": 0,
+            "unknown": 8,
+            "unknown_symbols": [
+              15,
+              23,
+              45,
+              46,
+              47,
+              60,
+              61,
+              64
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 6,
+            "errors": 0,
+            "unknown": 8,
+            "unknown_symbols": [
+              15,
+              23,
+              45,
+              46,
+              47,
+              60,
+              61,
+              64
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 6,
+            "errors": 0,
+            "unknown": 8,
+            "unknown_symbols": [
+              15,
+              23,
+              45,
+              46,
+              47,
+              60,
+              61,
+              64
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 6,
+            "errors": 0,
+            "unknown": 8,
+            "unknown_symbols": [
+              15,
+              23,
+              45,
+              46,
+              47,
+              60,
+              61,
+              64
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 2,
+            "data_unknown": 4,
+            "errors": 2,
+            "unknown": 5,
+            "unknown_symbols": [
+              15,
+              45,
+              46,
+              47,
+              64
+            ],
+            "wrong_symbols": [
+              60,
+              61
+            ]
+          },
+          "rescued": [
+            60,
+            61
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 2,
+            "data_unknown": 11,
+            "errors": 2,
+            "unknown": 12,
+            "unknown_symbols": [
+              15,
+              35,
+              36,
+              39,
+              40,
+              41,
+              43,
+              45,
+              46,
+              47,
+              57,
+              64
+            ],
+            "wrong_symbols": [
+              60,
+              61
+            ]
+          }
+        },
+        "47/93": {
+          "conflicts": [
+            35,
+            36,
+            40,
+            43
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 2,
+            "data_unknown": 2,
+            "errors": 3,
+            "unknown": 2,
+            "unknown_symbols": [
+              45,
+              60
+            ],
+            "wrong_symbols": [
+              23,
+              47,
+              61
+            ]
+          },
+          "rescued": [
+            46,
+            47,
+            61,
+            64
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 6,
+            "data_unknown": 13,
+            "errors": 7,
+            "unknown": 16,
+            "unknown_symbols": [
+              4,
+              14,
+              31,
+              34,
+              37,
+              39,
+              41,
+              44,
+              45,
+              49,
+              50,
+              57,
+              58,
+              59,
+              60,
+              62
+            ],
+            "wrong_symbols": [
+              23,
+              35,
+              36,
+              40,
+              43,
+              47,
+              61
+            ]
+          }
+        },
+        "47/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 1,
+            "unknown_symbols": [
+              23
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            45,
+            46,
+            47,
+            60,
+            61,
+            64
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 6,
+            "errors": 0,
+            "unknown": 8,
+            "unknown_symbols": [
+              4,
+              23,
+              44,
+              49,
+              50,
+              58,
+              59,
+              62
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "48/95": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 1,
+            "unknown_symbols": [
+              23
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            45,
+            46,
+            47,
+            60,
+            61,
+            64
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 6,
+            "errors": 0,
+            "unknown": 8,
+            "unknown_symbols": [
+              4,
+              23,
+              44,
+              49,
+              50,
+              58,
+              59,
+              62
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "93/140": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 1,
+            "unknown_symbols": [
+              23
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            45,
+            46,
+            47,
+            60,
+            61,
+            64
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 6,
+            "errors": 0,
+            "unknown": 8,
+            "unknown_symbols": [
+              4,
+              23,
+              44,
+              49,
+              50,
+              58,
+              59,
+              62
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "94/141": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 5,
+            "unknown_symbols": [
+              45,
+              46,
+              47,
+              61,
+              64
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 10,
+            "errors": 0,
+            "unknown": 10,
+            "unknown_symbols": [
+              37,
+              39,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              61,
+              64
+            ],
+            "wrong_symbols": []
+          }
+        }
+      }
+    },
+    {
+      "adc_sha256": "55099d349d79a759b5bdba5208289bba3a0d955864a9e56f984f0e76ec6c750f",
+      "fixed_score": {
+        "checks": 64,
+        "data_errors": 0,
+        "data_unknown": 9,
+        "errors": 0,
+        "unknown": 9,
+        "unknown_symbols": [
+          34,
+          37,
+          43,
+          44,
+          49,
+          50,
+          55,
+          56,
+          60
+        ],
+        "wrong_symbols": []
+      },
+      "fixed_unknown_gap_diagnostics": [
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 34
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0
+          },
+          "symbol": 37
+        },
+        {
+          "expected": 2,
+          "has_correct": true,
+          "known": {
+            "47/94": 2,
+            "48/95": 2,
+            "93/140": 2,
+            "94/141": 2
+          },
+          "symbol": 43
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0
+          },
+          "symbol": 44
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 49
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0
+          },
+          "symbol": 50
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 55
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 0,
+            "48/95": 0,
+            "93/140": 0,
+            "94/141": 0
+          },
+          "symbol": 56
+        },
+        {
+          "expected": 2,
+          "has_correct": true,
+          "known": {
+            "47/94": 2,
+            "48/95": 2,
+            "93/140": 2
+          },
+          "symbol": 60
+        }
+      ],
+      "gaps_without_correct_candidate": [],
+      "offered_line_bytes": "93 6C 2D D2 F0 0F 81 7E",
+      "offset_hz": 0,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "32bd365388aa8884b559f1c65453830b0264cfead0c5bc087dcef7b979c77fdd",
+      "selector": "60",
+      "tx_cycles": 1269256,
+      "variants": {
+        "45/92": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              34,
+              37,
+              43,
+              44,
+              49,
+              50,
+              55,
+              56,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              34,
+              37,
+              43,
+              44,
+              49,
+              50,
+              55,
+              56,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              34,
+              37,
+              43,
+              44,
+              49,
+              50,
+              55,
+              56,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              34,
+              37,
+              43,
+              44,
+              49,
+              50,
+              55,
+              56,
+              60
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 9,
+            "errors": 0,
+            "unknown": 9,
+            "unknown_symbols": [
+              34,
+              37,
+              43,
+              44,
+              49,
+              50,
+              55,
+              56,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 23,
+            "errors": 0,
+            "unknown": 23,
+            "unknown_symbols": [
+              34,
+              35,
+              36,
+              37,
+              39,
+              40,
+              41,
+              43,
+              44,
+              45,
+              46,
+              47,
+              49,
+              50,
+              55,
+              56,
+              57,
+              58,
+              60,
+              61,
+              62,
+              63,
+              64
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "47/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 2,
+            "errors": 0,
+            "unknown": 2,
+            "unknown_symbols": [
+              43,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            34,
+            37,
+            44,
+            49,
+            50,
+            55,
+            56
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 15,
+            "errors": 0,
+            "unknown": 15,
+            "unknown_symbols": [
+              35,
+              36,
+              39,
+              40,
+              41,
+              43,
+              45,
+              46,
+              47,
+              57,
+              58,
+              59,
+              60,
+              61,
+              64
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "47/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            34,
+            37,
+            43,
+            44,
+            49,
+            50,
+            55,
+            56,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 3,
+            "errors": 0,
+            "unknown": 3,
+            "unknown_symbols": [
+              39,
+              45,
+              61
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "48/95": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            34,
+            37,
+            43,
+            44,
+            49,
+            50,
+            55,
+            56,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 3,
+            "errors": 0,
+            "unknown": 3,
+            "unknown_symbols": [
+              39,
+              45,
+              61
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "93/140": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 0,
+            "errors": 0,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            34,
+            37,
+            43,
+            44,
+            49,
+            50,
+            55,
+            56,
+            60
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 3,
+            "errors": 0,
+            "unknown": 3,
+            "unknown_symbols": [
+              39,
+              45,
+              61
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "94/141": {
+          "conflicts": [
+            42,
+            47
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 4,
+            "errors": 0,
+            "unknown": 4,
+            "unknown_symbols": [
+              37,
+              44,
+              50,
+              60
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [
+            34,
+            43,
+            49,
+            55,
+            56
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 2,
+            "data_unknown": 10,
+            "errors": 2,
+            "unknown": 10,
+            "unknown_symbols": [
+              33,
+              37,
+              38,
+              41,
+              44,
+              48,
+              50,
+              54,
+              59,
+              60
+            ],
+            "wrong_symbols": [
+              42,
+              47
+            ]
+          }
+        }
+      }
+    },
+    {
+      "adc_sha256": "fd5cee3a2f17b3c380f0eb30cdb5697fb8e6852292f2b9976f7b08bcb4b54394",
+      "fixed_score": {
+        "checks": 64,
+        "data_errors": 0,
+        "data_unknown": 5,
+        "errors": 0,
+        "unknown": 7,
+        "unknown_symbols": [
+          6,
+          27,
+          39,
+          40,
+          42,
+          58,
+          59
+        ],
+        "wrong_symbols": []
+      },
+      "fixed_unknown_gap_diagnostics": [
+        {
+          "expected": 2,
+          "has_correct": false,
+          "known": {
+            "47/93": 0
+          },
+          "symbol": 39
+        },
+        {
+          "expected": 1,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 1,
+            "48/95": 1,
+            "93/140": 1
+          },
+          "symbol": 40
+        },
+        {
+          "expected": 3,
+          "has_correct": true,
+          "known": {
+            "47/93": 3,
+            "47/94": 3,
+            "48/95": 3,
+            "93/140": 3
+          },
+          "symbol": 42
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0,
+            "47/94": 1,
+            "48/95": 1,
+            "93/140": 1
+          },
+          "symbol": 58
+        },
+        {
+          "expected": 0,
+          "has_correct": true,
+          "known": {
+            "47/93": 0
+          },
+          "symbol": 59
+        }
+      ],
+      "gaps_without_correct_candidate": [
+        39
+      ],
+      "offered_line_bytes": "93 6C 2D D2 F0 0F 81 7E",
+      "offset_hz": 7,
+      "rx_cycles": 780047,
+      "rx_trace_digest": "aa4b4295d03eb9e4c4d02cd5b926e9a1655a07466f4d6b9948eacddfb7c40801",
+      "selector": "60",
+      "tx_cycles": 1269256,
+      "variants": {
+        "45/92": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              6,
+              27,
+              39,
+              40,
+              42,
+              58,
+              59
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              6,
+              27,
+              39,
+              40,
+              42,
+              58,
+              59
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/93": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              6,
+              27,
+              39,
+              40,
+              42,
+              58,
+              59
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              6,
+              27,
+              39,
+              40,
+              42,
+              58,
+              59
+            ],
+            "wrong_symbols": []
+          }
+        },
+        "46/94": {
+          "conflicts": [
+            61,
+            64
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 7,
+            "unknown_symbols": [
+              6,
+              27,
+              39,
+              40,
+              42,
+              58,
+              59
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 2,
+            "data_unknown": 17,
+            "errors": 2,
+            "unknown": 20,
+            "unknown_symbols": [
+              6,
+              16,
+              27,
+              32,
+              35,
+              36,
+              39,
+              40,
+              41,
+              42,
+              43,
+              45,
+              46,
+              47,
+              50,
+              51,
+              57,
+              58,
+              59,
+              60
+            ],
+            "wrong_symbols": [
+              61,
+              64
+            ]
+          }
+        },
+        "47/93": {
+          "conflicts": [
+            35,
+            41,
+            47
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 2,
+            "data_unknown": 0,
+            "errors": 2,
+            "unknown": 0,
+            "unknown_symbols": [],
+            "wrong_symbols": [
+              39,
+              40
+            ]
+          },
+          "rescued": [
+            39,
+            40,
+            42,
+            58,
+            59
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 5,
+            "data_unknown": 13,
+            "errors": 5,
+            "unknown": 13,
+            "unknown_symbols": [
+              34,
+              36,
+              37,
+              43,
+              44,
+              45,
+              49,
+              50,
+              54,
+              57,
+              60,
+              61,
+              64
+            ],
+            "wrong_symbols": [
+              35,
+              39,
+              40,
+              41,
+              47
+            ]
+          }
+        },
+        "47/94": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 2,
+            "errors": 1,
+            "unknown": 2,
+            "unknown_symbols": [
+              39,
+              59
+            ],
+            "wrong_symbols": [
+              58
+            ]
+          },
+          "rescued": [
+            40,
+            42,
+            58
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 6,
+            "errors": 1,
+            "unknown": 6,
+            "unknown_symbols": [
+              32,
+              34,
+              37,
+              39,
+              41,
+              59
+            ],
+            "wrong_symbols": [
+              58
+            ]
+          }
+        },
+        "48/95": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 2,
+            "errors": 1,
+            "unknown": 2,
+            "unknown_symbols": [
+              39,
+              59
+            ],
+            "wrong_symbols": [
+              58
+            ]
+          },
+          "rescued": [
+            40,
+            42,
+            58
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 6,
+            "errors": 1,
+            "unknown": 6,
+            "unknown_symbols": [
+              32,
+              34,
+              37,
+              39,
+              41,
+              59
+            ],
+            "wrong_symbols": [
+              58
+            ]
+          }
+        },
+        "93/140": {
+          "conflicts": [],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 2,
+            "errors": 1,
+            "unknown": 2,
+            "unknown_symbols": [
+              39,
+              59
+            ],
+            "wrong_symbols": [
+              58
+            ]
+          },
+          "rescued": [
+            40,
+            42,
+            58
+          ],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 6,
+            "errors": 1,
+            "unknown": 6,
+            "unknown_symbols": [
+              32,
+              34,
+              37,
+              39,
+              41,
+              59
+            ],
+            "wrong_symbols": [
+              58
+            ]
+          }
+        },
+        "94/141": {
+          "conflicts": [
+            44
+          ],
+          "fixed_first": {
+            "checks": 64,
+            "data_errors": 0,
+            "data_unknown": 5,
+            "errors": 0,
+            "unknown": 5,
+            "unknown_symbols": [
+              39,
+              40,
+              42,
+              58,
+              59
+            ],
+            "wrong_symbols": []
+          },
+          "rescued": [],
+          "score": {
+            "checks": 64,
+            "data_errors": 1,
+            "data_unknown": 16,
+            "errors": 1,
+            "unknown": 18,
+            "unknown_symbols": [
+              3,
+              12,
+              32,
+              36,
+              38,
+              39,
+              40,
+              41,
+              42,
+              45,
+              46,
+              47,
+              48,
+              51,
+              52,
+              58,
+              59,
+              63
+            ],
+            "wrong_symbols": [
+              44
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "experiment": "adjacent receive-PROM visit screen on full-byte carrier-offset traces",
+  "fixture": {
+    "AGC": "same frozen 128-sample preamble calibration",
+    "DAC_order": [
+      4,
+      0,
+      6,
+      1,
+      3,
+      2,
+      5,
+      7
+    ],
+    "analog": "same Hilbert-rotated Q=1 full-byte line fixture",
+    "capture_phases": [
+      45,
+      46,
+      47,
+      48,
+      92,
+      93,
+      94,
+      95,
+      140,
+      141
+    ],
+    "decision_tables": "unchanged frozen two-feature tables",
+    "offsets_hz": [
+      -7,
+      0,
+      7
+    ],
+    "pairs": [
+      [
+        45,
+        92
+      ],
+      [
+        46,
+        93
+      ],
+      [
+        47,
+        94
+      ],
+      [
+        48,
+        95
+      ],
+      [
+        46,
+        94
+      ],
+      [
+        47,
+        93
+      ],
+      [
+        93,
+        140
+      ],
+      [
+        94,
+        141
+      ]
+    ],
+    "payloads": "same earlier frozen non-zero pair",
+    "rx_cycles": 780047,
+    "sample_site": "127",
+    "tx_cycles": 1269256
+  },
+  "limitations": [
+    "These capture visits are exploratory external latch-clock hypotheses, not traced hardware.",
+    "The rescue availability diagnostic uses expected dibits and is not a runnable decoder.",
+    "No selector is fitted or validated by this screen; a chosen rule requires a fresh holdout.",
+    "DAC, ADC, AGC, clock, decision and USART routes remain untraced."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_dac_bus.py": "79d64f830a377b2231f6c1463361c5538ec92cc7521e701d10140802abdb0609",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_full_bus_loopback.py": "5fb2b83df13368b36f4441d5fc8e56b977f92206d9bc92bebc46ba31274b6f69",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_payload_challenge.py": "af21157ace28e997d7a4fcf09c2ec805fb9e4609e5e097662dbc38615a36f2e3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_buffered_serial_handoff.py": "05ee8d7c35ee975c853cefede9987b995dcf93bcd81ee36bef5f0239c31563b4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_agc_candidate.py": "aa283c128b2caac38822fcd521bc7e147dda23c63591682db083ef90817d7378",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_carrier_offset.py": "1cc9b458fa646a22ae4c01993dfaf14ec33571f60cc9a1e878b0a8e4ce70883e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_bus_offset_visit_screen.py": "b8abbe33aa9dae02d4560f4f49dc7ad70c55043e46dd5b5d638e548f1ce77cd1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_full_zero_handoff.py": "f33d2d115c4e542e908d6da4b4261fafa12420ddd9a76dfc243f0a3cbc8b865d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_rx_loopback.py": "ff921fbbe50d3df024f869a86e1c40ced92c6dfef4840afaebda27cea1c32877",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-bus-agc-candidate.json": "495a61bb76bdbcaa3b565245adac4c24968478eaabaffb9ae74f2a61f06df833",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-full-bus-carrier-offset.json": "22bd578b1194a5d2be36606b06f41981255918bf16602ef8ce1fda829c14f9e2"
+  }
+}
