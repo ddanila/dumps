@@ -138,6 +138,16 @@ This strengthens the conditional full-byte Tx/Rx dataflow, but the
 readout circuit, DAC/ADC wiring, clocks, analog line and USART path remain
 unverified. Test gain/phase robustness and photo-compatible decision
 hardware; C2/C3 stay open and G2 active.
+The [full-byte ADC-level challenge](g2/JOINT-MASK04-FULL-BUS-LEVEL-CHALLENGE.md)
+now keeps that frozen bus, latch and readout but scales the zero-run PCM
+to 0.75 and adds ±16 counts. All four real-PROM receiver runs complete;
+the independent decoder remains exact with no clipping, while the
+fixed-first readout has 3–8 wrong and 3–9 unknown data dibits per case.
+Thus the current rule does not generalize to these modest input-level
+changes. Seek an executed or photo-compatible gain/midpoint/threshold
+path and freeze its rule before a fresh payload/phase challenge. This
+failed fixture narrows C3; it does not block G2 or erase the nominal
+conditional dataflow.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
