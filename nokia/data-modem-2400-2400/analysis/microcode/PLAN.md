@@ -186,6 +186,13 @@ opposite-selector controls fail. This strengthens the conditional C3
 data path but leaves the capture/serializer, RxD/RxC, frame edge and
 SYNDET source untraced. Continue with photo-compatible route/timing
 tests; do not promote the handoff to a physical C3 pass.
+The [new-angle challenge](g2/RECEIVER-MASK04-RANDOM-ANGLE-CHALLENGE.md)
+reuses those four payload seeds at 15° and 105° with the receive rule
+frozen. Four more real-PROM runs recover all 252 measurable dibits and
+32 line bytes. This widens the conditional result to new carrier angles,
+but still leaves the external `3F8` consumer, frame edge and physical
+USART/SYNDET path untraced. Keep C3 open and try a photo-compatible
+latch/serializer route; missing net continuity is not a blocker.
 The [line-USART reinitialization screen](g2/RECEIVER-USART-REINIT-SCREEN.md)
 instruments the Timer-1-paced real-ROM `AD→AE→AF→B0` fixture. Neither
 selector writes line-side control port `05` before or during the eight

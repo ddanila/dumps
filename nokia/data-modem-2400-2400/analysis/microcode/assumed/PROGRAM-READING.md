@@ -83,6 +83,10 @@ blocks from real-PROM traces, then passes their 32 line octets through
 the paced USART and unchanged 8031 descrambler. This strengthens the
 candidate receive-loop role, while the external decision logic, frame
 edge, bit serializer and physical serial wires remain unverified.
+The [new-angle challenge](../g2/RECEIVER-MASK04-RANDOM-ANGLE-CHALLENGE.md)
+replays those payloads at 15° and 105° through the unchanged PROM and
+frozen readout. It recovers all 252 measurable dibits and 32 line bytes;
+the same external route assumptions still limit the interpretation.
 
 ## Earlier provisional names
 

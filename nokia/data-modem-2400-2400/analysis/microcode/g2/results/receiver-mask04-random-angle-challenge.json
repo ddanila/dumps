@@ -1,0 +1,252 @@
+{
+  "aggregate": {
+    "checks": 252,
+    "errors": 0,
+    "unknown": 0
+  },
+  "cases": [
+    {
+      "adc_stream_sha256": "6785b1dd43d2c3018a7445e8a92b60e8f752e26eeceb9e241e97e68d651d41db",
+      "degrees": 15,
+      "delay": 5,
+      "mode_reads": 96001,
+      "offered_line_bytes": [
+        "39",
+        "D4",
+        "AE",
+        "83",
+        "ED",
+        "16",
+        "79",
+        "BA"
+      ],
+      "payload": [
+        "3B",
+        "41",
+        "AE",
+        "EA",
+        "37",
+        "1C",
+        "9A",
+        "83"
+      ],
+      "prom_cycles": 768047,
+      "recovered_line_bytes": [
+        "39",
+        "D4",
+        "AE",
+        "83",
+        "ED",
+        "16",
+        "79",
+        "BA"
+      ],
+      "score": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
+      "seed": 10311,
+      "trace_digest": "4cb3c10d09ea997f839577d76b26bbe6976f004afb290320c53dd32ae7b22989",
+      "unknown_indices": [],
+      "wrong_indices": []
+    },
+    {
+      "adc_stream_sha256": "11c7b070fcdfceee279d9cca9c54581e45d44f231fefc1bbf39b38044ef242e8",
+      "degrees": 105,
+      "delay": 5,
+      "mode_reads": 96001,
+      "offered_line_bytes": [
+        "05",
+        "D7",
+        "30",
+        "59",
+        "87",
+        "65",
+        "BB",
+        "E8"
+      ],
+      "payload": [
+        "87",
+        "25",
+        "F0",
+        "FD",
+        "07",
+        "4D",
+        "7B",
+        "3C"
+      ],
+      "prom_cycles": 768047,
+      "recovered_line_bytes": [
+        "05",
+        "D7",
+        "30",
+        "59",
+        "87",
+        "65",
+        "BB",
+        "E8"
+      ],
+      "score": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
+      "seed": 13655,
+      "trace_digest": "dbeaeaf45d3114424534c397515005d255939efadfaeb73746b8ce2a17945e03",
+      "unknown_indices": [],
+      "wrong_indices": []
+    },
+    {
+      "adc_stream_sha256": "881ea6b6a84b5c203c45f88f5461f913fbd604f374a7b6546cd95b60d2fe4d58",
+      "degrees": 15,
+      "delay": 18,
+      "mode_reads": 96001,
+      "offered_line_bytes": [
+        "D4",
+        "84",
+        "12",
+        "94",
+        "C3",
+        "C4",
+        "70",
+        "1D"
+      ],
+      "payload": [
+        "71",
+        "46",
+        "1A",
+        "ED",
+        "CB",
+        "9D",
+        "B4",
+        "6F"
+      ],
+      "prom_cycles": 768047,
+      "recovered_line_bytes": [
+        "D4",
+        "84",
+        "12",
+        "94",
+        "C3",
+        "C4",
+        "70",
+        "1D"
+      ],
+      "score": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
+      "seed": 10312,
+      "trace_digest": "4805358a4ebbdf3cf2a25cc57d57660403fe339732b98b3f476b622311c11956",
+      "unknown_indices": [],
+      "wrong_indices": []
+    },
+    {
+      "adc_stream_sha256": "8dce4fc926465538ccc0c5a4620539aadaef5988ee2e21690e3f42abb363bc48",
+      "degrees": 105,
+      "delay": 18,
+      "mode_reads": 96001,
+      "offered_line_bytes": [
+        "79",
+        "4D",
+        "EA",
+        "56",
+        "2B",
+        "5E",
+        "F9",
+        "F7"
+      ],
+      "payload": [
+        "DC",
+        "8F",
+        "D6",
+        "DF",
+        "A4",
+        "70",
+        "FF",
+        "9A"
+      ],
+      "prom_cycles": 768047,
+      "recovered_line_bytes": [
+        "79",
+        "4D",
+        "EA",
+        "56",
+        "2B",
+        "5E",
+        "F9",
+        "F7"
+      ],
+      "score": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
+      "seed": 13656,
+      "trace_digest": "fef7c4530887d2de6d82d9ab277b8a71f7cfa2596c503d51fa206c822227b90e",
+      "unknown_indices": [],
+      "wrong_indices": []
+    }
+  ],
+  "experiment": "new-angle random eight-byte PROM receive readout challenge",
+  "fixture": {
+    "frame_edge_wrapper_visit": 48000,
+    "mode_reads": 96001,
+    "payload_bytes": 8,
+    "rule": "unchanged frozen primary/alternative consensus",
+    "seeds_angles": [
+      [
+        5,
+        15,
+        10311
+      ],
+      [
+        5,
+        105,
+        13655
+      ],
+      [
+        18,
+        15,
+        10312
+      ],
+      [
+        18,
+        105,
+        13656
+      ]
+    ]
+  },
+  "limitations": [
+    "The ADC and frame-byte routes, capture logic, serializer and USART wires remain assumed.",
+    "The tested angles and payload seeds are a bounded challenge, not a full carrier/noise sweep."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_controller_zero_handoff.py": "cea80a089477de9d1b7508997205634eae0c2785564ca113cced6c2fcb7187bf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_dual_feature_consensus.py": "63775d74108ba4632ad64cd53f4acc6f12a8149eee49669ea0924ea282d0ada0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_dual_zero_handoff.py": "31d77df30a45a96663a1781fc64d0fc1e75a030ceeea3f7fc02773ab14139684",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_feature_choice.py": "e5e26a591a72f796d53be44d5fdd732ec6e6b86dea61eb8e75d6b5f4aadac1dd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_four_bit_transition.py": "e10cf6e16e4ee30cf49f317f0a16604c93b44ef3ead707c1537460bded168c14",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_protocol_preamble.py": "4b6f149d8e1470fcc2c9e3fb83d17f44751e4aa072fb026a2c3e480c8d0a3020",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_random_angle_challenge.py": "19d856095a4ec75751de2547568ae97862ba43199521d05c976bc19667fe1880",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_serial_candidate.py": "2195a070b7cdfb10a6759387b0f36f24cda28c075b25fbabe11dc21829ce64eb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/zero_run_detector.py": "4f0180cde570b9176fda7b99b226e5e0de5fd6288144f94e69c45c84a93868a5",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}
