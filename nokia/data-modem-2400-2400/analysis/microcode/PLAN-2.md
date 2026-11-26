@@ -1408,6 +1408,16 @@ phases B–C turn "what" into "how".
   pictured on separate boards, but the inter-board net, three capture
   clocks and selector remain untraced. This is a conditional handoff,
   not a C3 pass; test those routes and naturally timed CPU events next.
+  The [Timer 1 follow-up](g2/RECEIVER-TIMER1-OFFSET-HANDOFF.md) enables
+  `TMOD=15 TH1=FC TL1=21 TCON=40 IE=88` in the same paced 8031 probe.
+  Both delay cases execute 57 timer interrupts; byte consumption has no
+  overrun or emulator error, and only the aligned pulse reaches `B0`.
+  An unheld-RAM15 control drops to state `00`, consumes no bytes and
+  overruns seven characters in both delays. The held-positive gate is
+  essential to this synthetic `AF` fixture. Derive its source and the
+  `AF` entry/sync timing from preceding ROM execution; DTE input,
+  mode-0 completion and the serial route are still assumed. C3 remains
+  open.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
