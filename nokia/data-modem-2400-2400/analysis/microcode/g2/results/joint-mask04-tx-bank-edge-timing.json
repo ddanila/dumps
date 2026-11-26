@@ -1,0 +1,49 @@
+{
+  "experiment": "selected-ROM-bank dependence at raw U10.D2 latch edges",
+  "fixture": {
+    "cycles": 4096,
+    "d127": "88 held tone input",
+    "upper_bank": 256,
+    "lower_bank": 0,
+    "mapping": "joint lower mask 04 / q3 transmitter",
+    "raw_bit": "U10.D2",
+    "comparison": "Y before an edge versus Y after the new instruction settles"
+  },
+  "traces": {
+    "upper": "862719cb678afbc43de3b7a9490d66a5897775cf8abb35c67b45d815ecb82c81",
+    "lower": "9041d7fc0ee14ce7c2296435455f067888e8176bbd75d9e36e2e782a84c4c7ac"
+  },
+  "edges": {
+    "rising_at_129": {
+      "edges": 1014,
+      "pre_y_differences": 0,
+      "settled_y_differences": 0,
+      "pre_y_xor_masks": {},
+      "settled_y_xor_masks": {}
+    },
+    "falling_at_12a": {
+      "edges": 1014,
+      "pre_y_differences": 0,
+      "settled_y_differences": 221,
+      "pre_y_xor_masks": {},
+      "settled_y_xor_masks": {
+        "01": 221
+      }
+    }
+  },
+  "full_stream_phase_result": {
+    "selectors": [
+      "40",
+      "60"
+    ],
+    "post_12a_phases_with_changed_samples": {
+      "40": 375,
+      "60": 375
+    }
+  },
+  "limitations": [
+    "The photos do not establish U10.D2-to-LS273 CLK, inversion, divider or Y-bus wiring.",
+    "Pre-edge and settled-data capture are timing hypotheses; this does not resolve propagation delays or setup/hold on the physical board.",
+    "The 4,096-cycle edge result is a held-tone fixture; the linked full-stream result covers controller call and answer data."
+  ]
+}

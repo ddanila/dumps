@@ -45,6 +45,13 @@ physical output pass. Next constrain a `12A`-timed clock/data route or
 an output-node waveform against the predicted 16-count bank-dependent
 sample changes; keep C2 and G2 active.
 
+The [raw-edge timing check](JOINT-MASK04-TX-BANK-EDGE-TIMING.md) narrows
+that clock requirement. U10 D2 rises at `129` and falls at `12A`;
+if the DAC latch captures the **preceding** Y byte at either transition,
+it sees `128` or `129` Y and misses this bank effect. A bank-sensitive
+DAC route requires the `12A` Y byte to settle before capture. The photos
+do not yet establish that ordering or a delayed clock.
+
 The [machine report](results/joint-mask04-tx-bank-phase.json) records all
 375 phase-difference counts per selector/site, paired full-trace hashes,
 selected sample hashes, tone peaks and six-bus data scores. Reproduce

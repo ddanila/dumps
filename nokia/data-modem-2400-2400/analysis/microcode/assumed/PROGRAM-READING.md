@@ -192,6 +192,11 @@ orders map that bit to a 16-count code step. Both bank choices retain
 the 2,100 Hz tone and zero filtered A3/A4 data errors in this fixture;
 the `129` Y site remains unchanged. This narrows where ROM data could
 reach a DAC latch without verifying that physical connection.
+The [U10 D2 edge comparison](../g2/JOINT-MASK04-TX-BANK-EDGE-TIMING.md)
+adds the timing condition: the raw PROM bit rises at `129` and falls at
+`12A`, but preceding-word Y at both edges is bank-insensitive. The
+bank-dependent `12A` Y must settle before any candidate DAC latch
+captures it. No clock/data propagation order is established by the photos.
 The [photo-B5 alternative](../g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 projects those same executed Y7 samples through an assumed LS273 D4
 input and the photo-suggested Q4→DAC08 B5 segment. It preserves the

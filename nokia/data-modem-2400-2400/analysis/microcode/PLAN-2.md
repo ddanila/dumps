@@ -1872,6 +1872,11 @@ Listed in order of value per effort:
   bus orders, yet both banks retain a 2,100 Hz tone and 0/62 A3/A4
   filtered data errors. This is a specific ROM-sensitive output candidate,
   still conditional on the latch, DAC and analog route.
+  The [raw-edge timing check](g2/JOINT-MASK04-TX-BANK-EDGE-TIMING.md)
+  finds that a pre-edge capture at U10 D2 rise (`129`) or fall (`12A`)
+  misses the bank-dependent byte; only settled `12A` Y differs on
+  221/1,014 falling-edge visits in the held-tone run. Constrain a
+  post-`12A` capture phase before promoting this candidate to C2 evidence.
   The [R1/Y7 phase replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
   then verifies the executed mechanism over the first 18 continuous
   controller-derived A4 dibits of both selectors: R1 advances by D127

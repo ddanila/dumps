@@ -60,6 +60,14 @@ both banks retain the 2,100 Hz tone and 0/62 filtered A3/A4 errors.
 This supplies a ROM-sensitive `12A` output hypothesis; constrain the
 latch edge, Y data path and analog node before treating it as the line.
 Keep C2 open and G2 active.
+The [raw-edge timing comparison](g2/JOINT-MASK04-TX-BANK-EDGE-TIMING.md)
+shows why the capture phase matters: across 1,014 U10 D2 rises at `129`
+and falls at `12A` in a held-tone run, the preceding `128`/`129` Y bytes
+never show the bank switch, while settled `12A` Y differs 221 times.
+Use a photo-compatible post-`12A` data-capture hypothesis, or independently
+constrain CLK/data timing; a pre-edge latch does not establish this
+ROM-sensitive output path. The uncertain clock is a testable assumption,
+not a G2 blocker.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
