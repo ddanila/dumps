@@ -103,6 +103,14 @@ wrong-mode controls do not reach `B0`. This establishes the executed
 countdown inheritance, sync source and physical serial route remain
 assumptions. Test those paths with photo-compatible candidates; keep
 C3 open and G2 active without waiting for a continuity measurement.
+The [one-state-earlier replay](g2/RECEIVER-AD-AE-AF-ZERO-HANDOFF.md) now
+starts at synthetic `AD` with only the `75:30` long countdown seeded.
+The ROM advances `AD→AE` when RAM64 reaches eight, loads the `AE` short
+timer itself, then reaches `AF→B0` on the same aligned receive stream;
+the early, late, absent, opposite-selector and wrong-mode controls do
+not reach `B0`. This narrows the remaining initialization assumption to
+the entry into `AD` and its inherited long countdown. Test that
+predecessor and a photo-compatible sync/serial route while C3 stays open.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled

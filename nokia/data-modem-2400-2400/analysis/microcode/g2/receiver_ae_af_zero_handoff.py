@@ -20,14 +20,14 @@ RXC_START_CYCLE = 51200
 PULSES = (63, 64, 65, 128)
 
 
-def delayed_source(source):
+def delayed_source(source, start_cycle=RXC_START_CYCLE):
     changes = [
         ('for(cycle=0;cycle<(128+10)*bit_ticks && !errors;cycle++) {',
-         f'for(cycle=0;cycle<{RXC_START_CYCLE}+(128+10)*bit_ticks && !errors;cycle++) {{'),
+         f'for(cycle=0;cycle<{start_cycle}+(128+10)*bit_ticks && !errors;cycle++) {{'),
         ('if(next_bit<128 && cycle==next_bit*bit_ticks) rxc_edge(next_bit++);',
          'if(next_bit<128 && '
-         f'cycle>={RXC_START_CYCLE} && '
-         f'cycle-{RXC_START_CYCLE}==next_bit*bit_ticks) rxc_edge(next_bit++);'),
+         f'cycle>={start_cycle} && '
+         f'cycle-{start_cycle}==next_bit*bit_ticks) rxc_edge(next_bit++);'),
     ]
     for old, new in changes:
         if source.count(old) != 1:

@@ -1430,6 +1430,13 @@ phases B–C turn "what" into "how".
   inheritance, sync decoder and serial route as labelled candidates.
   Their physical continuity remains open evidence, not a G2 blocker;
   C3 stays open.
+  The [one-state-earlier replay](g2/RECEIVER-AD-AE-AF-ZERO-HANDOFF.md)
+  begins in synthetic `AD` with only the long countdown seeded. The ROM
+  increments `AD→AE` when RAM64 reaches eight, loads the `AE` short timer,
+  and reaches `AF→B0` for both aligned real-PROM byte streams after 141
+  Timer 1 interrupts. The same timing and selector controls fail. Next
+  test the predecessor into `AD` and its countdown inheritance, plus a
+  photo-compatible sync/serial route; missing continuity is not a blocker.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero
