@@ -1,0 +1,255 @@
+{
+  "cases": [
+    {
+      "adc_stream_sha256": "60e3e6edb6fb797cbcf86a2937fe0f6fd829bcd436f43d9059370df04be996b4",
+      "alternative": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 9,
+        "errors": 0,
+        "unknown": 12
+      },
+      "conflicts": [],
+      "consensus": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 2,
+        "errors": 0,
+        "unknown": 3
+      },
+      "degrees": 165,
+      "offset_hz": -7,
+      "primary": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 3,
+        "errors": 0,
+        "unknown": 4
+      },
+      "trace_digest": "6f095ab08931a3b6eafef583269c35fba335909712e5458e0db6e9acc88f564b",
+      "unknown_symbols": [
+        22,
+        51,
+        65
+      ],
+      "wrong_symbols": []
+    },
+    {
+      "adc_stream_sha256": "f3e27389fcfbf6fab5bc60c7dc8121376fbf3f6b2bba2a510c8730f8f4f41e6f",
+      "alternative": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
+      "conflicts": [],
+      "consensus": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
+      "degrees": 165,
+      "offset_hz": 0,
+      "primary": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
+      "trace_digest": "d906c0814f5f5d94c91ddb253ead02f285fb279a6a201e714c73cbede02f0260",
+      "unknown_symbols": [],
+      "wrong_symbols": []
+    },
+    {
+      "adc_stream_sha256": "fc73e2902e3fe06cd5864af914a03bd580c46650a4420399985989a2b5934540",
+      "alternative": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 7,
+        "errors": 0,
+        "unknown": 11
+      },
+      "conflicts": [],
+      "consensus": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 1,
+        "errors": 0,
+        "unknown": 3
+      },
+      "degrees": 75,
+      "offset_hz": 7,
+      "primary": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 2,
+        "errors": 0,
+        "unknown": 4
+      },
+      "trace_digest": "442cc8a9852871c0f1bdee03d8a206178cdb1348face59ae1f3f35ed50510e9d",
+      "unknown_symbols": [
+        8,
+        22,
+        65
+      ],
+      "wrong_symbols": []
+    },
+    {
+      "adc_stream_sha256": "2d66753eb7fc53b5fe270cfdddff6334038bf60d5741e00f9f4fd2c22688fc9e",
+      "alternative": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 9,
+        "errors": 0,
+        "unknown": 18
+      },
+      "conflicts": [],
+      "consensus": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 2,
+        "errors": 0,
+        "unknown": 2
+      },
+      "degrees": 165,
+      "offset_hz": 7,
+      "primary": {
+        "checks": 95,
+        "data_errors": 0,
+        "data_unknown": 4,
+        "errors": 0,
+        "unknown": 4
+      },
+      "trace_digest": "b3259d4c9d06c1ff66c5ff031b463524659f81688e9c656e22fea6eba234e3a2",
+      "unknown_symbols": [
+        50,
+        63
+      ],
+      "wrong_symbols": []
+    }
+  ],
+  "experiment": "long frozen 46/93 receive under carrier offset",
+  "fixture": {
+    "adc": "complementary PCM, 47/46 visits per sample",
+    "adc_visits": 36000,
+    "cases": [
+      [
+        -7,
+        165
+      ],
+      [
+        0,
+        165
+      ],
+      [
+        7,
+        75
+      ],
+      [
+        7,
+        165
+      ]
+    ],
+    "cycles": 1152047,
+    "data_dibits": [
+      3,
+      3,
+      0,
+      1,
+      1,
+      0,
+      2,
+      0,
+      1,
+      2,
+      1,
+      2,
+      0,
+      3,
+      1,
+      2,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      3,
+      2,
+      3,
+      2,
+      1,
+      1,
+      3,
+      3,
+      1,
+      2,
+      1,
+      3,
+      3,
+      2,
+      0,
+      0,
+      2,
+      3,
+      3,
+      0,
+      0,
+      3,
+      0,
+      1,
+      2,
+      1,
+      0,
+      1,
+      0,
+      0,
+      2,
+      2,
+      1,
+      0,
+      2,
+      3,
+      1,
+      0,
+      1,
+      1,
+      2,
+      2
+    ],
+    "data_symbols": 64,
+    "mapping": "joint upper-source mask 04",
+    "phases": [
+      46,
+      93
+    ],
+    "preamble_symbols": 32,
+    "seed": 32298
+  },
+  "limitations": [
+    "The reference receiver checks each generated PCM input; the ADC and capture-clock routes remain assumptions.",
+    "The two decision tables and selected 46/93 visits are frozen from earlier experiments; no labels from these streams enter either table.",
+    "A correct diagnostic readout does not by itself identify the actual modem decision or USART output circuit."
+  ],
+  "source_sha256": {
+    "analysis/microcode/g2/receiver_mask04_dual_feature_consensus.py": "63775d74108ba4632ad64cd53f4acc6f12a8149eee49669ea0924ea282d0ada0",
+    "analysis/microcode/g2/receiver_mask04_dual_zero_handoff.py": "787d2a3c9c9c4a691eacb19a014299f8e541b23adfca037469a8dc9c35e5515e",
+    "analysis/microcode/g2/receiver_mask04_feature_choice.py": "e5e26a591a72f796d53be44d5fdd732ec6e6b86dea61eb8e75d6b5f4aadac1dd",
+    "analysis/microcode/g2/receiver_mask04_four_bit_transition.py": "e10cf6e16e4ee30cf49f317f0a16604c93b44ef3ead707c1537460bded168c14",
+    "analysis/microcode/g2/receiver_mask04_frequency_offset.py": "fb41eb44476cfa2aed2d98d6930f7635a61d46e16d1fc213e0bdb533e47cd3ed",
+    "analysis/microcode/g2/receiver_mask04_long_offset.py": "afd1a82a7fa60c0832d6c4f7f1c674c795bf1730e28b7b0e24c0cea33ece96e4",
+    "analysis/microcode/g2/receiver_mask04_multivisit_capture.py": "46f01b7e6df20ce5558102b3ad6ff179a1c8975a7eb704b30cc97a7b936cfcbd",
+    "analysis/microcode/g2/receiver_mask04_offset_visit_phase.py": "e6df02d7bd94385c54c2a80814972263751e6b22c22cccfed5dcdbf90eddeea6",
+    "analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "analysis/microcode/g2/results/receiver-mask04-feature-choice.json": "05b0a0e9798c8cdc0237ede08b27f260355f6c3ddb1f3e26803410151b09743a",
+    "analysis/microcode/g2/results/receiver-mask04-four-bit-transition.json": "2cf720fb9d51e90cf90c1df8e7835a51aab08f8d80030f33932a71f797edc972",
+    "microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

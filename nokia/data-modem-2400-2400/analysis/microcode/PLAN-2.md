@@ -1364,8 +1364,13 @@ phases B–C turn "what" into "how".
   Pair 46/93 recovers all 64 +7 Hz data dibits across two seeds, while
   47/94 leaves seven unknown. Two preamble decisions per seed remain
   unknown, and the earlier sample edge is only a working hypothesis.
-  Test longer streams, preamble acquisition and a photo-compatible
-  latch/USART route before claiming C3.
+  The [96-symbol offset stress test](g2/RECEIVER-MASK04-LONG-OFFSET.md)
+  now exposes five unknown data dibits across three ±7 Hz cases on a
+  fresh seed, with no wrong known decisions; its zero-offset control is
+  complete. This rules out claiming complete ±7 Hz recovery from the
+  shorter 46/93 fixtures. Capture additional executed visits around the
+  unknowns and test a frozen phase consumer, preamble acquisition and a
+  photo-compatible latch/USART route before claiming C3.
   The [sync-hunt alignment screen](g2/RECEIVER-MASK04-SYNC-HUNT-ALIGNMENT.md)
   groups those recovered bits under a **counterfactual internal** `FF` hunt.
   Supplying the first unmeasured `11` dibit and starting hunt at bit zero

@@ -42,10 +42,14 @@ phases. The [adjacent-visit replay](g2/RECEIVER-MASK04-OFFSET-VISIT-PHASE.md)
 captures both sides of the ADC sample boundaries with the same frozen
 readout. Visit pair 46/93 recovers all 64 data dibits at +7 Hz across two
 seeds, where 47/94 leaves seven unknown, but two preamble dibits per seed
-remain unknown and the physical capture edge is unverified. Carry 46/93 as
-a working sampling hypothesis into longer, fresh-offset streams and test
-the preamble acquisition and USART route; keep C3 open rather than filling
-missing decisions or waiting for a physical phase-tracker trace.
+remain unknown and the physical capture edge is unverified. A [96-symbol
+stress test](g2/RECEIVER-MASK04-LONG-OFFSET.md) on a fresh seed now finds
+five unknown data dibits across three ±7 Hz cases, despite zero incorrect
+known decisions and a complete zero-offset control. Thus 46/93 is a useful
+sampling hypothesis, not a complete offset-tolerant readout. Capture
+additional executed visits around those unknowns, then test a frozen
+phase-selection rule and the preamble/USART route on fresh streams; keep C3
+open rather than filling missing decisions or waiting for a physical trace.
 
 For C3, the [continuous preamble/data replay](g2/RECEIVER-MASK04-PREAMBLE-SERIAL.md)
 recovers candidate dibits and a 2,400-bit/s serial schedule under labelled
