@@ -1,0 +1,160 @@
+{
+  "experiment": "development screen of visit-94 Y6 phase-bit-0 gate",
+  "fixture": {
+    "rule": "P0 = frozen_veto_P0 AND NOT(visit94_3F8_Y6); P1 unchanged",
+    "ready_cycle": 3071,
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "cases": [
+    {
+      "gain": "0.80",
+      "selector": "40",
+      "active_symbols": [
+        37,
+        47
+      ],
+      "active_states": [
+        "1D",
+        "1D"
+      ],
+      "wrong_decisions": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        115,
+        200,
+        26,
+        239,
+        4,
+        185,
+        82,
+        214
+      ],
+      "minimum_setup_cycles": 2929,
+      "rx_trace_digest": "9e1fdc31a4d50be3cb538b9f78b13ec0f8b9c60e330c675e77e9d8698bdb242a"
+    },
+    {
+      "gain": "0.80",
+      "selector": "60",
+      "active_symbols": [
+        33,
+        45,
+        59,
+        64
+      ],
+      "active_states": [
+        "1D",
+        "1D",
+        "1D",
+        "1D"
+      ],
+      "wrong_decisions": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        173,
+        38,
+        241,
+        72,
+        149,
+        11,
+        227,
+        124
+      ],
+      "minimum_setup_cycles": 2929,
+      "rx_trace_digest": "0582efe2f8402079ea0154762826a47f9e486222865a6801667eed48f695b92e"
+    },
+    {
+      "gain": "1.15",
+      "selector": "40",
+      "active_symbols": [],
+      "active_states": [],
+      "wrong_decisions": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        132,
+        25,
+        242,
+        93,
+        160,
+        59,
+        199,
+        110
+      ],
+      "minimum_setup_cycles": 2929,
+      "rx_trace_digest": "090c403b4caf98db14ceac1ff6961420bad93bde0e3df535a904450258c9b69e"
+    },
+    {
+      "gain": "1.15",
+      "selector": "60",
+      "active_symbols": [],
+      "active_states": [],
+      "wrong_decisions": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        11,
+        212,
+        113,
+        206,
+        40,
+        149,
+        240,
+        99
+      ],
+      "minimum_setup_cycles": 2929,
+      "rx_trace_digest": "32a75139969ec2b2887c64bdb86b1dbe50c55b71bd8cb44c75b633beddf2fad1"
+    },
+    {
+      "gain": "1.25",
+      "selector": "40",
+      "active_symbols": [],
+      "active_states": [],
+      "wrong_decisions": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        94,
+        3,
+        184,
+        113,
+        212,
+        47,
+        166,
+        201
+      ],
+      "minimum_setup_cycles": 2929,
+      "rx_trace_digest": "38c7667a68d6130c5219f4fb516e31e63e0993b74df566345a0c652c32b1af5d"
+    },
+    {
+      "gain": "1.25",
+      "selector": "60",
+      "active_symbols": [],
+      "active_states": [],
+      "wrong_decisions": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        224,
+        73,
+        29,
+        179,
+        103,
+        138,
+        245,
+        32
+      ],
+      "minimum_setup_cycles": 2929,
+      "rx_trace_digest": "b53d7497c5cc6bdf7c3f3a74d4c3a978ac39141b60b3cc49c4d7817e5e054fa2"
+    }
+  ],
+  "limitations": [
+    "The visit-94 gate was selected after observing the low-gain failure; these six cases are development evidence, not a holdout.",
+    "The Y6 latch, additional gate, board wiring and serial clock are assumptions, not photographed connections.",
+    "Exact modeled controller bytes do not establish the physical ADC or line output route."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_phase_gate.py": "e7dad172222b3781ddf97783e9e75f5edffb31a6defe07f36f536bc83dd8002e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto.py": "a6ceaca1ee003b20bd6c09d4556c7312a4536211d8dbcd833603c2df9666ea55",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_serial_timing.py": "c2e899943aae7aca3638ffb34eeb1ff09f406541e2a497057cd87da4679ebbef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-lowgain133-expanded-visits.json": "6c34a41ad8bc402d904adcfed73295636e772d74567a3fa7cd2f1cbfd1d08e3f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.15.json": "2025f1bca86f2401bca54c5d5ffe151f51bee1db8c1748bbbb2d5e7bfd4a2d99",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.25.json": "459f2ee9649c883f0f4ad0a3c6e269ac83e77d3aff1d2521c5fc23cf3445082a"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "experiment": "visit-94 capture on passing mode-1 gain controls",
+  "fixture": {
+    "gains": [
+      "1.15",
+      "1.25"
+    ],
+    "carrier_offset": 131,
+    "selectors": [
+      "40",
+      "60"
+    ],
+    "captured_visits": [
+      46,
+      47,
+      93,
+      94,
+      141
+    ]
+  },
+  "cases": [
+    {
+      "gain": "1.15",
+      "selector": "40",
+      "rx_trace_digest": "090c403b4caf98db14ceac1ff6961420bad93bde0e3df535a904450258c9b69e",
+      "states": {
+        "02": 6,
+        "48": 45,
+        "5D": 7,
+        "6E": 7
+      },
+      "visit94_y_by_state": {
+        "02": [
+          "8F"
+        ],
+        "48": [
+          "AF"
+        ],
+        "5D": [
+          "BF"
+        ],
+        "6E": [
+          "2F"
+        ]
+      }
+    },
+    {
+      "gain": "1.15",
+      "selector": "60",
+      "rx_trace_digest": "32a75139969ec2b2887c64bdb86b1dbe50c55b71bd8cb44c75b633beddf2fad1",
+      "states": {
+        "02": 5,
+        "48": 40,
+        "5D": 15,
+        "6E": 5
+      },
+      "visit94_y_by_state": {
+        "02": [
+          "8F"
+        ],
+        "48": [
+          "AF"
+        ],
+        "5D": [
+          "BF"
+        ],
+        "6E": [
+          "2F"
+        ]
+      }
+    },
+    {
+      "gain": "1.25",
+      "selector": "40",
+      "rx_trace_digest": "38c7667a68d6130c5219f4fb516e31e63e0993b74df566345a0c652c32b1af5d",
+      "states": {
+        "2F": 9,
+        "42": 10,
+        "48": 39,
+        "5D": 7
+      },
+      "visit94_y_by_state": {
+        "2F": [
+          "2F"
+        ],
+        "42": [
+          "8F"
+        ],
+        "48": [
+          "AF"
+        ],
+        "5D": [
+          "BF"
+        ]
+      }
+    },
+    {
+      "gain": "1.25",
+      "selector": "60",
+      "rx_trace_digest": "b53d7497c5cc6bdf7c3f3a74d4c3a978ac39141b60b3cc49c4d7817e5e054fa2",
+      "states": {
+        "2F": 5,
+        "42": 10,
+        "48": 41,
+        "5D": 9
+      },
+      "visit94_y_by_state": {
+        "2F": [
+          "2F"
+        ],
+        "42": [
+          "8F"
+        ],
+        "48": [
+          "AF"
+        ],
+        "5D": [
+          "BF"
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Visit 94 is an executed capture point, not a proven board latch edge.",
+    "The DAC/line, ADC, controller mode and serial routes remain assumptions.",
+    "Matching prior traces validates replay, not a new decision circuit."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode1_expanded_controls.py": "ee7b3d94e23b8ea3691ab92cde7b7035c7b6e2b36f46b1754bf8a6a677912842",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phasebit0-veto-phase131-holdout.json": "fb3b2b0fcea92d0aa293cd8e21297225de6dfee28c4c25f17542334758df68fe",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-phasebit0-veto-125gain-holdout.json": "3fd523735ca28d2abcf05b190a1b5db7a8dc0a71eaa682c2de3d0420beb2415d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_phase131_holdout.py": "6fe063db3667f10e7a1ef05cd23013b0c39fb3fdc3835d8957fcec273d3142b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_125gain_holdout.py": "8b9ba9cf8ebc6d6e3a461d3c22053f4e9b10980a3bde656bf03fb46e7493851f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.15.json": "2025f1bca86f2401bca54c5d5ffe151f51bee1db8c1748bbbb2d5e7bfd4a2d99",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.25.json": "459f2ee9649c883f0f4ad0a3c6e269ac83e77d3aff1d2521c5fc23cf3445082a"
+  }
+}

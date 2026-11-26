@@ -1,0 +1,242 @@
+{
+  "experiment": "frozen visit-94 phase gate on fresh payload/carrier cases",
+  "fixture": {
+    "payloads": {
+      "133": {
+        "40": [
+          "21",
+          "9A",
+          "6F",
+          "C4",
+          "08",
+          "D3",
+          "75",
+          "BE"
+        ],
+        "60": [
+          "F6",
+          "14",
+          "CB",
+          "39",
+          "82",
+          "5D",
+          "E0",
+          "A7"
+        ]
+      },
+      "135": {
+        "40": [
+          "4B",
+          "E5",
+          "12",
+          "A8",
+          "73",
+          "0D",
+          "C6",
+          "9F"
+        ],
+        "60": [
+          "91",
+          "2E",
+          "F4",
+          "58",
+          "B0",
+          "67",
+          "1C",
+          "DA"
+        ]
+      }
+    },
+    "carrier_offsets": [
+      133,
+      135
+    ],
+    "gain_factor": 0.8,
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e",
+    "rule": "P0 = frozen_veto_P0 AND NOT(visit94_3F8_Y6)"
+  },
+  "cases": [
+    {
+      "carrier_offset": 133,
+      "selector": "40",
+      "payload": [
+        "21",
+        "9A",
+        "6F",
+        "C4",
+        "08",
+        "D3",
+        "75",
+        "BE"
+      ],
+      "pcm_sha256": "addde98271d66489aee8569088c4734b722e1fafdabed064239cefac1dd4ff84",
+      "rx_trace_digest": "86805106f6dba56f8e8f9b19ff2e3016a828803037a84b130bebbac428f7474f",
+      "old_veto_errors": 8,
+      "active_symbols": [
+        34,
+        44,
+        48,
+        53
+      ],
+      "active_states": [
+        "1D",
+        "1D",
+        "1D",
+        "1D"
+      ],
+      "candidate_wrong_indices": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        33,
+        154,
+        111,
+        196,
+        8,
+        211,
+        117,
+        190
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "carrier_offset": 133,
+      "selector": "60",
+      "payload": [
+        "F6",
+        "14",
+        "CB",
+        "39",
+        "82",
+        "5D",
+        "E0",
+        "A7"
+      ],
+      "pcm_sha256": "4fd33848e0a104e33dd2f50f2dab8ea34a738a89b0fb51d7f724a30125285637",
+      "rx_trace_digest": "f49906bcc874e39d1a70ec4c51bc6d01b2bad85a8ddd9a508e76d825d5fcb949",
+      "old_veto_errors": 4,
+      "active_symbols": [
+        34,
+        61
+      ],
+      "active_states": [
+        "1D",
+        "1D"
+      ],
+      "candidate_wrong_indices": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        246,
+        20,
+        203,
+        57,
+        130,
+        93,
+        224,
+        167
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "carrier_offset": 135,
+      "selector": "40",
+      "payload": [
+        "4B",
+        "E5",
+        "12",
+        "A8",
+        "73",
+        "0D",
+        "C6",
+        "9F"
+      ],
+      "pcm_sha256": "db70b131937c1a78206f5ebbc649fb8a4e68364f46173d6b3d815505fec71520",
+      "rx_trace_digest": "2640a76a65ec7ad3fba5f00777aa91928f0a54063a9b53b17efd09318feba91c",
+      "old_veto_errors": 3,
+      "active_symbols": [
+        35,
+        64
+      ],
+      "active_states": [
+        "1D",
+        "1D"
+      ],
+      "candidate_wrong_indices": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        75,
+        229,
+        18,
+        168,
+        115,
+        13,
+        198,
+        159
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "carrier_offset": 135,
+      "selector": "60",
+      "payload": [
+        "91",
+        "2E",
+        "F4",
+        "58",
+        "B0",
+        "67",
+        "1C",
+        "DA"
+      ],
+      "pcm_sha256": "6f2b356a169ceca313ecc8b6c53b0cd07f0b235e4a9a427dedbe02c1fb2a6d99",
+      "rx_trace_digest": "92628e6082ad46dbbb6774578039dad8db41e58e44afabb7c23337627886c5fb",
+      "old_veto_errors": 8,
+      "active_symbols": [
+        33,
+        46,
+        52,
+        54
+      ],
+      "active_states": [
+        "1D",
+        "1D",
+        "1D",
+        "1D"
+      ],
+      "candidate_wrong_indices": [],
+      "recovered_matches_offered": true,
+      "controller_decoded_bytes": [
+        145,
+        46,
+        244,
+        88,
+        176,
+        103,
+        28,
+        218
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    }
+  ],
+  "limitations": [
+    "The gate is frozen from the earlier 0.8x/1.15x/1.25x screen; all payloads are new and carrier offset 135 is new.",
+    "Visit-94 latch, extra gate, ADC/line and serial nets are assumed; success is not a physical C3 pass.",
+    "The 0.8x gain uses the declared ADC fixture; clipping and analog calibration are model properties."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_phase_holdout.py": "f21aa9e03368b469282e8c6aca948aeae2ca650cf704fa1cf090b2cb12f97ddb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_phase_gate.py": "e7dad172222b3781ddf97783e9e75f5edffb31a6defe07f36f536bc83dd8002e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_challenge.py": "a1b8cc5624d337999478ebd4a695d7f2cbfe427adb9b9d2f2028177d299b46aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-133.json": "acc0d4fc1e0729f8e32144806bb95d00414aa6b92261d4c131975804afac971c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-135.json": "e0eff331908ee813e74b4a9e69b18e541a525f54800e11af20a94d33b3bd3ab9"
+  }
+}

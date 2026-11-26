@@ -185,6 +185,18 @@ visit-`141` row Y=`9F` also occurs in 24 opposite-bit symbols, and its
 not a new physical decoder. Capture visit `94` on the older mode-1
 controls before designing a frozen consumer, then challenge fresh
 carrier/gain data. Keep C3/G2 open.
+The [visit-94 phase-bit screen and holdout](g2/JOINT-MASK04-12A-VISIT94-PHASE-GATE.md)
+now supply that control and challenge. Replayed phase-131 1.15×/1.25×
+mode-1 streams give visit-`94` `3F8` Y=`AF` at state `48` and `2F` at
+state `2F`, while low-gain `1D` gives `4F`. A frozen later-capture Y6
+veto activates on `1D` but not those higher-gain states. Four fresh
+real-PROM call/answer streams at 0.8× gain and carrier starts `133`/`135`
+reduce 23 total old-veto dibit errors to zero, recover exact modeled
+line/controller bytes and show no clipping. This is conditional C3
+evidence: visit-`94` storage, extra gates and the serial/line nets are
+still assumptions, and the holdout reached no other unseen state. Test
+package-compatible capture/logic and a further unseen-state gain/carrier
+family before C3 acceptance; keep G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
