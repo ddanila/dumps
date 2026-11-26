@@ -181,6 +181,14 @@ have no correct known consensus among eight tested pairs. Executed Y
 bytes vary with the input, so test a new phase-aware row/multi-sample
 feature and freeze conflict handling before a fresh payload/phase holdout.
 The currently untraced decoder path keeps C3 open, not G2 blocked.
+The [frozen row-logic transfer test](g2/JOINT-MASK04-FULL-BUS-ROW-LOGIC-OFFSET.md)
+now applies the earlier phase-47 Boolean decoder to all six full-byte
+carrier-offset PROM runs. The traces and ADC hashes match the offset
+challenge, but that external gate misses 96/192 data dibits at its frozen
+visit, including 18/32 and 20/32 in the two zero-offset controls. Two
+correct gap snapshots were not representative. Capture complete full-byte
+row-byte sequences for a new causal development/holdout readout, or test
+another photo-compatible ADC/latch route; C3 remains open and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
