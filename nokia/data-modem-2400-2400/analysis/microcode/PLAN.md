@@ -253,9 +253,18 @@ real-PROM Tx→line→Rx runs again recover 64/64 dibits and eight exact
 line bytes; aligned modeled 8251/8031 handoff returns the source
 payloads without errors or overruns. Output, PCM, receiver traces and
 transition sequences differ from the offset-32 runs, but every key
-remains within the development table. Test a shifted capture edge or
-third carrier start, then a photo-compatible decision circuit without
-payload-trained labels; this phase result does not close C3.
+remains within the development table. A third carrier start and a
+photo-compatible decision circuit without payload-trained labels
+remain useful tests; this phase result does not close C3.
+The [one-visit-late capture challenge](g2/JOINT-MASK04-12A-SIXTH-LATE-CAPTURE.md)
+keeps phase 96 and the frozen table but moves both `3F8` Y reads from
+visits 46/93 to 47/94 at nominal gain. The call run leaves 26/64
+data dibits unknown across 16 unseen keys; answer leaves 22/64
+unknown across 14 unseen keys. Neither has a known-key error, but
+neither yields full line bytes or a controller handoff. This rejects
+that late-clock fixture as a complete explanation. Next test a
+photo-compatible timing or multi-visit consumer and freeze it before
+fresh data; do not treat the untraced latch edge as a G2 blocker.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
