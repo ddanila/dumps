@@ -1682,6 +1682,14 @@ phases B–C turn "what" into "how".
   narrows direct-byte residual sites under the fixed 128-sample fixture;
   next test a justified mode-controlled or separately latched receive route,
   and keep C3/C4 open without waiting for a physical continuity trace.
+  The [joint-map echo washout](g2/JOINT-UPPER-ECHO-WASHOUT.md) runs
+  128 own-transmit-echo samples followed by 64 identical zero samples
+  in four 288,047-word real-PROM traces. The late training state is
+  input-dependent, but all modeled Q/RAM and Y bytes match the zero
+  control by the third tail ADC visit, and the complete final states
+  agree. A longer fixed-mode run at those internal sites is unlikely
+  to expose echo taps; model the photographed external MCM93422 memory
+  or a train-enable route next. This does not close C4.
   A [computed-call source screen](g2/RECEIVER-DISPATCH-SOURCE.md) now exposes
   another fixture dependency: the long `D3F8` receive loop uses a constant
   scenario index of 2 at `3EC`. Under the same map and seed, modeled Y or

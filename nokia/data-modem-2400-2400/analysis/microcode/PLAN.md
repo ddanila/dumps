@@ -986,6 +986,14 @@ its exact executed transmitter samples to the complete four-row receive
 loop under labelled echo/ADC assumptions. Neither call nor answer shows
 rapid selective attenuation at any remote-responsive direct byte; C4
 remains open until a train/freeze route and residual are identified.
+The [joint-map echo washout](g2/JOINT-UPPER-ECHO-WASHOUT.md) adds a
+history control to the separate mask-`08` receive fixture: after 128
+own-transmit-echo samples, all modeled Q/RAM and Y bytes reconverge
+with a zero-input run within three ADC visits of a common zero tail.
+This rejects retained internal tap state in that fixed fixture, not
+the photographed external RAM or an untested train-enable path. Seek
+the external tap-memory/mode route before extending the same fixed
+echo window; keep C4 open and G2 active.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under
