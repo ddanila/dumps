@@ -176,6 +176,16 @@ eight line bytes; the paced
 controller descrambles the exact payload only with the assumed bit-64
 SYNDET placement. This strengthens the conditional receive path but does
 not supply a physical sync source or close C3.
+The [random eight-byte handoff](g2/RECEIVER-MASK04-RANDOM-PAYLOAD-HANDOFF.md)
+now challenges the frozen readout with four complete nonzero payloads,
+two per controller scrambler delay. Four 768,047-instruction PROM runs
+recover all 252 measurable dibits and 32 line octets. With an aligned
+assumed external SYNDET pulse, the paced 8251 and unchanged 8031 ROM
+consume and descramble every payload; one-bit-early, one-bit-late and
+opposite-selector controls fail. This strengthens the conditional C3
+data path but leaves the capture/serializer, RxD/RxC, frame edge and
+SYNDET source untraced. Continue with photo-compatible route/timing
+tests; do not promote the handoff to a physical C3 pass.
 The [line-USART reinitialization screen](g2/RECEIVER-USART-REINIT-SCREEN.md)
 instruments the Timer-1-paced real-ROM `AD→AE→AF→B0` fixture. Neither
 selector writes line-side control port `05` before or during the eight

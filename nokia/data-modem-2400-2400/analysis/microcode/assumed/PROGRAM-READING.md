@@ -77,6 +77,12 @@ recovers the exact eight scrambled zero-run line bytes; the paced USART/8031
 model reaches the executed controller `AF→B0` transition only with the
 aligned external-sync pulse. Capture and serial wiring remain hypotheses,
 so the listing does not label the external consumer as a DSC instruction.
+The [random eight-byte handoff](../g2/RECEIVER-MASK04-RANDOM-PAYLOAD-HANDOFF.md)
+keeps that frozen readout and recovers four new complete nonzero data
+blocks from real-PROM traces, then passes their 32 line octets through
+the paced USART and unchanged 8031 descrambler. This strengthens the
+candidate receive-loop role, while the external decision logic, frame
+edge, bit serializer and physical serial wires remain unverified.
 
 ## Earlier provisional names
 
