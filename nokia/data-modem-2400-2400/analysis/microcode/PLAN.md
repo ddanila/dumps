@@ -425,6 +425,19 @@ development if revising the gates, then test the revision on untouched
 payloads and another carrier start. Also find a line fixture whose
 independent decoder is exact at that start. These conditional failures
 are next experiments, not a G2 blocker or a C3 pass.
+The [22-state revision and fresh holdout](g2/JOINT-MASK04-12A-ROW0-TWENTYTWO-HOLDOUT.md)
+move those failed offset-112 cases to development, fix the `5E`
+phase under a connected zero-conflict graph, and choose +5 sample
+alignment from a fixed-gain screen whose +4/+5 candidates are exact
+on both development payloads. Frozen before a new payload pair at
+offset 112, the revised gates give 0/64 wrong decisions and exact
+aligned modeled 8251/8031 source bytes in both selectors. The
+independent reference has 0 call and 2 answer errors, so its separate
+decoder is not an absolute line oracle. All holdout states were in the
+22-state development set. Test the frozen gates on another phase/level
+that reaches new states and constrain the row capture and USART
+hardware; these successes remain conditional C3 evidence, not a
+physical pass or a goal blocker.
 Make that route the next bounded C3 experiment. Start from the photographed
 ADC0800 input candidate and four-bit U12 as one possible capture stage; assign
 the remaining capture storage explicitly and label all untraced data and clock

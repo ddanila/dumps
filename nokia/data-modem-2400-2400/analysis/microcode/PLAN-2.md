@@ -1959,6 +1959,16 @@ Listed in order of value per effort:
   dibit and the modeled aligned 8251/8031 handoff decodes the exact
   new payload. This is conditional on the untraced analog, capture,
   phase-logic, clock and SYNDET routes; C3 remains open.
+  The [22-state row-gate holdout](g2/JOINT-MASK04-12A-ROW0-TWENTYTWO-HOLDOUT.md)
+  tests a later conditional readout at R1 offset 112. After the failed
+  20-state holdout exposed state `5E`, a revised gate and +5 line shift
+  were frozen before two fresh controller-fed payloads. Both executed
+  PROM receiver runs yield 0/64 gate errors, exact offered line bytes,
+  and exact aligned modeled 8251/8031 source bytes. The independent
+  reference misses two answer dibits, and all holdout gate states were
+  already in development. This does not identify a DSC phase decision
+  or a physical ADC-to-USART route; test unseen states and a
+  photo-compatible capture/serializer circuit before passing C3.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3
