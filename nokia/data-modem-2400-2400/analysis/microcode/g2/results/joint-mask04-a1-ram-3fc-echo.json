@@ -1,0 +1,809 @@
+{
+  "experiment": "held A1 frame mode with delayed 3FC RAM return",
+  "fixture": {
+    "mode_3eb": "A1 on every wrapper visit",
+    "return_route": "3F9 Y high -> sample-paced RAM, offset -3 -> 3FC D high",
+    "conditions": "previous carry, polarity 1",
+    "output": "executed 3FD Y",
+    "controls": "same-input write-only, zero, own, remote, mixed",
+    "train_samples": 128,
+    "tail_samples": 64,
+    "visits": 9000,
+    "cycles": 288047
+  },
+  "cases": [
+    {
+      "stimulus": "zero",
+      "route": "write_only",
+      "adc_sha256": "53641a2250ea360eaa29dcc786ecf422a0bb7be25249081e8aef488a012deb4a",
+      "trace_digest": "0476a2f868d8a57d2745ff6ee064b693918bfe20a5c98cde2526e11122c87e42",
+      "y3fd_sha256": "53b79f0dd455cecc22bdded8515075e7fc29d95ca6a27079ecb1eca3c7edce6a",
+      "ram_sha256": "49c87ca2eb6cfacac2c17e88e302a6dbd43d47cc9b80dcd02bdbe2c0ef08132e",
+      "writes": 24000,
+      "reads": 0,
+      "tail_changes_vs_control": null
+    },
+    {
+      "stimulus": "zero",
+      "route": "high_return_3fc",
+      "adc_sha256": "53641a2250ea360eaa29dcc786ecf422a0bb7be25249081e8aef488a012deb4a",
+      "trace_digest": "1d6e8d1f739b9ac174f34034cded9bc7b37d657ff3c77bf76196ed5cc2043f00",
+      "y3fd_sha256": "64883bbb868c1fd939f98b9256a19d4bb03bac561bccf23922b1520fbffcff25",
+      "ram_sha256": "49c87ca2eb6cfacac2c17e88e302a6dbd43d47cc9b80dcd02bdbe2c0ef08132e",
+      "writes": 24000,
+      "reads": 9000,
+      "tail_changes_vs_control": 141
+    },
+    {
+      "stimulus": "own_echo",
+      "route": "write_only",
+      "adc_sha256": "8ba936575f42f975efba3862716309727c677f62c29ca284cb02349e0c0691f8",
+      "trace_digest": "f10509857f53b1aa2f6996413514dde7a63d44280d2597695082207bcd49d393",
+      "y3fd_sha256": "53b79f0dd455cecc22bdded8515075e7fc29d95ca6a27079ecb1eca3c7edce6a",
+      "ram_sha256": "693110c4a48219375b9c88ed9cac18e6cab3b28029b570632ec1de8544584910",
+      "writes": 24000,
+      "reads": 0,
+      "tail_changes_vs_control": null
+    },
+    {
+      "stimulus": "own_echo",
+      "route": "high_return_3fc",
+      "adc_sha256": "8ba936575f42f975efba3862716309727c677f62c29ca284cb02349e0c0691f8",
+      "trace_digest": "ad128b8df498b1d81fb51386dbd00c228f3b5c50cef12148d59b05c3c12df095",
+      "y3fd_sha256": "b7c88455cd676edddd340621c3029b1c88c59cee0103df99c4282370a90062d6",
+      "ram_sha256": "693110c4a48219375b9c88ed9cac18e6cab3b28029b570632ec1de8544584910",
+      "writes": 24000,
+      "reads": 9000,
+      "tail_changes_vs_control": 141
+    },
+    {
+      "stimulus": "independent_remote",
+      "route": "write_only",
+      "adc_sha256": "984ffd1d64d55881e34c518408f5992cdba652fdcca44f14ea356a847e4a4a6f",
+      "trace_digest": "7ee8b3868f4ac6d179572015448a6c9556360bfeddac9c7ca1a0337fd94605b4",
+      "y3fd_sha256": "53b79f0dd455cecc22bdded8515075e7fc29d95ca6a27079ecb1eca3c7edce6a",
+      "ram_sha256": "01ca687f863ba162bb503c3240c7eb62f11015c4ced4a035c951bdcb2bcd5b9f",
+      "writes": 24000,
+      "reads": 0,
+      "tail_changes_vs_control": null
+    },
+    {
+      "stimulus": "independent_remote",
+      "route": "high_return_3fc",
+      "adc_sha256": "984ffd1d64d55881e34c518408f5992cdba652fdcca44f14ea356a847e4a4a6f",
+      "trace_digest": "290b8ddffe244da39becb2af384653c66e0321f2d9c67306800b4b5f84ebaafe",
+      "y3fd_sha256": "47d9155f5a68b27e42e4bc919faba3647269b108b98f5adbe9047b501c68da6e",
+      "ram_sha256": "01ca687f863ba162bb503c3240c7eb62f11015c4ced4a035c951bdcb2bcd5b9f",
+      "writes": 24000,
+      "reads": 9000,
+      "tail_changes_vs_control": 141
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "route": "write_only",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "trace_digest": "898e4474297c6643ca4db8b95a297c31c915d463a7d37e37c479e16365d371b9",
+      "y3fd_sha256": "53b79f0dd455cecc22bdded8515075e7fc29d95ca6a27079ecb1eca3c7edce6a",
+      "ram_sha256": "820d99a9c6bcdcca1ec1077fd75ce888c4b27e68f15db97e6b9ceea13f49948a",
+      "writes": 24000,
+      "reads": 0,
+      "tail_changes_vs_control": null
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "route": "high_return_3fc",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "trace_digest": "06b6d8bbc056f2896bfe263033825cb8f8cf1a8a8dc7a4bd18020163907fbd5c",
+      "y3fd_sha256": "0ecc325c4af5b7bc06394f60fb9e367bc7b5476208c84613e95bcf1cf5fbdff5",
+      "ram_sha256": "820d99a9c6bcdcca1ec1077fd75ce888c4b27e68f15db97e6b9ceea13f49948a",
+      "writes": 24000,
+      "reads": 9000,
+      "tail_changes_vs_control": 141
+    }
+  ],
+  "comparisons": {
+    "early": {
+      "write_only": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        }
+      },
+      "high_return_3fc": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 4.970666666666666,
+          "unequal_visits": 466
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 4.010666666666666,
+          "unequal_visits": 376
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 7.477333333333333,
+          "unequal_visits": 654
+        }
+      }
+    },
+    "late": {
+      "write_only": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        }
+      },
+      "high_return_3fc": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 5.973333333333334,
+          "unequal_visits": 560
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 4.501333333333333,
+          "unequal_visits": 422
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 8.48,
+          "unequal_visits": 748
+        }
+      }
+    },
+    "tail": {
+      "write_only": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        }
+      },
+      "high_return_3fc": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.25066666666666665,
+          "unequal_visits": 47
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.752,
+          "unequal_visits": 94
+        }
+      }
+    }
+  },
+  "phase_training_comparisons": [
+    {
+      "phase": 0,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 1,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 2,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 3,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 4,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 5,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 6,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 7,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 8,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 9,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 10,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 11,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 12,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 13,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 14,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 15,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 16,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 17,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 18,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 19,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 20,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 21,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 22,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 23,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 24,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 25,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 26,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 27,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 28,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 29,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 30,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 31,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 32,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 33,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 34,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 35,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 36,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 37,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 38,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 39,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 40,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 41,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 42,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 43,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 44,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    },
+    {
+      "phase": 45,
+      "early": {
+        "own_vs_zero": 5.0,
+        "remote_vs_zero": 4.0,
+        "mixed_vs_remote": 7.5
+      },
+      "late": {
+        "own_vs_zero": 6.0,
+        "remote_vs_zero": 4.5,
+        "mixed_vs_remote": 8.5
+      }
+    }
+  ],
+  "late_attenuating_phases": [],
+  "limitations": [
+    "The A1-to-3EB connection, RAM mux, TEST, 3FD output latch, ADC and sample clock are assumptions.",
+    "Unsigned 3FD Y-byte contrast is a code diagnostic, not a measured analog residual.",
+    "A falling code contrast alone would not prove trained echo cancellation."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_a1_ram_3fc_echo.py": "b6039ea0abea23be9f7987473ac5d7fe5cf1b1e14ea6838a65cad123b44fbffb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-ram-carry-3fd-echo-screen.json": "2bfc3ed4676dc823f0f535946df79b4e55fa1ccf56c88179a52ef983ddb2dea7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_ram_carry_3fd_echo_screen.py": "ef917bfc6a137f4d34fdd8c8cba496589684a7ebef6416520ff213fbbee1cb15",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_upper_ram_feedback_screen.py": "0d174e64e2efd650d09211c74782a119f4ecd70beb98cb8354ba369b8db84383",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  }
+}

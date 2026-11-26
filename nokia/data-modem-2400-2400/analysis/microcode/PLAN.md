@@ -223,6 +223,17 @@ changes that low bit. This fully explains the tested `3FA` output as
 fixed delayed/current sample recoding, not a demonstrated onboard
 dibit decision or adaptive residual. Pursue a consumed trained operand
 or distinct output/USART route; C3/C4/G2 stay open.
+The [held-`A1` `3FC` RAM-return challenge](g2/JOINT-MASK04-A1-RAM-3FC-ECHO.md)
+combines a photo-compatible controller-frame mode input with delayed
+external memory on the same real-PROM receive loop. All eight
+own/remote/mixed/zero and write-only/return runs sustain, but the
+`3FD` own-echo-versus-zero code contrast rises from 4.97 early to 5.97
+late, and mixed-minus-remote rises from 7.48 to 8.48. All 46 latch
+phases show the same non-attenuating result. Held `A1` changes output
+scale relative to the prior `01` fixture but does not establish a
+trained coefficient or C4. Audit consumed `3FC`/`3FD` operands under
+`A1`, or test a distinct photo-compatible return/output route; the
+untraced mode and RAM wires remain hypotheses, not blockers.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop

@@ -1927,6 +1927,13 @@ Listed in order of value per effort:
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The
+  [held-`A1` frame mode with `3FC` RAM return](g2/JOINT-MASK04-A1-RAM-3FC-ECHO.md)
+  sustains eight own/remote/mixed/zero and write-only/return controls.
+  Its `3FD` code contrasts rise rather than attenuate from early to late
+  training at all 46 sample phases, so this combined mode/return/output
+  hypothesis does not satisfy C4. Inspect its consumed operands or
+  another explicit photo-compatible route; no pin trace is needed to
+  keep testing. The
   [sample-paced high-nibble return test](g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
   exits the receive loop under the previous-overflow TEST assumption,
   while its write-only and read-only controls sustain it. A
