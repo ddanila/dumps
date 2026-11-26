@@ -1,0 +1,113 @@
+{
+  "experiment": "offset-112 frozen 20-state gate holdout audit",
+  "fixture": {
+    "R1_offset": 112,
+    "level": 1.0,
+    "development_cases": 22,
+    "observed_states": 22,
+    "development_states": 20,
+    "combined_graph_conflicts": 0
+  },
+  "new_state_phases": {
+    "12": 3,
+    "5E": 0
+  },
+  "frozen_gate_new_state_phases": {
+    "12": 3,
+    "5E": 1
+  },
+  "outcomes": [
+    {
+      "selector": "40",
+      "payload": [
+        "3A",
+        "C7",
+        "95",
+        "E0",
+        "6D",
+        "12",
+        "B4",
+        "5F"
+      ],
+      "reference_wrong_indices_zero_based": [
+        0,
+        48
+      ],
+      "frozen_gate_wrong_indices_one_based": [
+        37,
+        38,
+        40,
+        41,
+        43,
+        44,
+        46,
+        47,
+        60,
+        61,
+        62,
+        63
+      ],
+      "frozen_gate_errors": 12,
+      "unseen_states": [
+        "12",
+        "5E"
+      ],
+      "diagnostic_relabel_errors": 0,
+      "affected_state": "5E"
+    },
+    {
+      "selector": "60",
+      "payload": [
+        "D6",
+        "09",
+        "7B",
+        "A4",
+        "21",
+        "FE",
+        "58",
+        "C3"
+      ],
+      "reference_wrong_indices_zero_based": [
+        0
+      ],
+      "frozen_gate_wrong_indices_one_based": [
+        36,
+        38,
+        43,
+        44,
+        54,
+        55,
+        56,
+        57,
+        63
+      ],
+      "frozen_gate_errors": 9,
+      "unseen_states": [
+        "12",
+        "5E"
+      ],
+      "diagnostic_relabel_errors": 0,
+      "affected_state": "5E"
+    }
+  ],
+  "limitations": [
+    "The 5E phase inferred from holdout labels is a post-hoc diagnostic, not a validated revised gate.",
+    "The independent reference decoder also misses one or two dibits in this phase-112 fixture.",
+    "ADC, row latch, phase logic, analog filter and USART nets remain assumed."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_phase112_audit.py": "0cf038c5ad39cdefc645339052619e7572b8f25b97e444d500927b57eb250201",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty.json": "e447f0c27daaadfad9773cf3f757f63073ceecdff427b4490fc7f5ce36fbfe89",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-phase112.json": "921b2ed60bb521170404303d6c2a4cc445332550ab2a614a5300596c66313cb9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-32.json": "c15cbc7eaa085f9cc90fcba4da965d51ebcdfd71be41097f802785b201c0011c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-96.json": "ab1d1d5ded31b4bddd15f5953fcd59d0d50a3237a034ceab27be995c0ae49e65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-16.json": "0accdbc1a5648d04aa707ef077a4a2d1f511f000c73c68bb243b3ef61dddaf6e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-80.json": "5b88ec1341651d6266cda8c8df1942f7eb3c11abb944071b3534e316f023728a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-low-gain.json": "92cf37d849db200dec0f6a35d2f22f2447702c4a8861b8d02a0f1611640098aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-0.json": "92a292afd429e3bdae7f03b9fc5ab18c9b276cec5853bf5a3892948babf939b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-64.json": "06d3470ae85db0531ca1d6bff35bc7f00b369eaab0d2a83d9d8021871c73de87",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-gain.json": "28882404cad0542a6aed03018b67e2ff0fe0435c293e630ecb21d3d9eea40221",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_multivisit_phase_screen.py": "57f86789b6c2620499c57a8e152b2dd415ea8facf90b646dfe95f315e199d387",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean.py": "e9a3cedabb9654a2d98cca71c8d2a305261387dd4b112f93d7ece2001d78219b"
+  }
+}

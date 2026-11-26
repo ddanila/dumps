@@ -48,7 +48,8 @@ def run(out=OUT):
             patch.object(frozen, 'capturing_execute', selected_execute), \
             patch.object(frozen.loopback, 'capture', preserving_capture):
         report = frozen.run(out=out)
-    if len(report['cases']) != len(captured) or len(captured) != 6:
+    if (len(report['cases']) != len(captured) or
+            len(captured) != len(PAYLOADS) * len(LEVELS)):
         raise ValueError('gain receive capture count changed')
     report['experiment'] = 'frozen row-0 Boolean phase gates on new payloads across gain'
     report['fixture']['phase_offset'] = OFFSET

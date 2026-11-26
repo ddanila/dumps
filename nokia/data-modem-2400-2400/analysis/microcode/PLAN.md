@@ -412,6 +412,19 @@ independent reference is exact. All holdout states are among the 20
 development states, so unseen-state and carrier-drift robustness
 remain open. Test those with the gates frozen and a photo-compatible
 row latch/serializer route; retain C3/G2 as active, not blocked.
+The [offset-112 fresh-payload challenge](g2/JOINT-MASK04-12A-ROW0-PHASE112.md)
+now supplies an unseen-state control on the real-PROM Tx→line→Rx path.
+At fixed 100% level, the independent reference misses 2/64 call and
+1/64 answer decisions; the frozen row gates miss 12/64 and 9/64,
+respectively. The gate errors do not coincide with those reference
+errors. Both selectors reach new states `12` and `5E`; the combined
+22-state phase graph has zero conflicts and keeps every development
+label, but the frozen gates assign `5E` phase 1 where the graph requires
+0. Every gate error touches `5E`. Treat the offset-112 labels as
+development if revising the gates, then test the revision on untouched
+payloads and another carrier start. Also find a line fixture whose
+independent decoder is exact at that start. These conditional failures
+are next experiments, not a G2 blocker or a C3 pass.
 Make that route the next bounded C3 experiment. Start from the photographed
 ADC0800 input candidate and four-bit U12 as one possible capture stage; assign
 the remaining capture storage explicitly and label all untraced data and clock
