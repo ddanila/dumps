@@ -8,8 +8,13 @@ detector. This [handoff run](receiver_mask04_dual_zero_handoff.py) uses 32
 for eight zero bytes under the controller's two scrambler delays. It tests
 75° with delay 5 and 165° with delay 18. The fixed joint mask-`04` mapping
 executes 768,047 real-PROM words per case, accepting 24,000 complementary
-ADC visits. The script captures only executed `3F8` Y at symbol-relative
-ADC visits 47 and 94, then applies the two frozen readouts and their
+ADC visits. The script now clocks a candidate three-bit Y5/Y6/Y7 latch
+on the raw-PROM gate's falling level at each `3F8→3F9` transition, with
+one additional startup edge. It reads the held bits at the later row-3
+`3ED` observation for symbol-relative ADC visits 47 and 94. All 160
+selected latch values across the two cases match the executed `3F8`
+source bits. The symbol-relative capture schedule remains an external
+assumption. The script then applies the two frozen readouts and their
 conservative consensus. The input PCM and conversion schedule remain
 explicit board hypotheses.
 
@@ -28,6 +33,14 @@ primary readout alone has one unknown data dibit, while the alternative
 supplies it. The two readouts have no conflicting known labels in either
 run.
 
+A timing control reads the same latch at row 0 *before* the next selected
+visit's `3F8` edge, so it holds the preceding ADC visit instead. That
+control also scores 0 wrong and 0 unknown of 63 measurable dibits in
+both cases. These streams establish that the row-3 clocked capture is
+sufficient, but do not distinguish it from the adjacent pre-capture
+phase. The candidate gate has 24,001 edges in each run: 24,000 receive
+captures and one startup capture.
+
 The existing [paced external-sync model](RECEIVER-TIMED-CONTROLLER-HANDOFF.md)
 clocks those recovered bytes at an assumed 416 8031 machine ticks per bit
 while the unchanged 8031 ROM executes its main loop. A SYNDET pulse just
@@ -38,14 +51,14 @@ control produces no receive-ready bytes. The machine report retains the
 per-byte completion/consumption cycles and every control result.
 
 This closes a **conditional behavioral handoff**, not C3. The ADC gate,
-two symbol-relative capture clocks, five-bit readout logic, previous
-symbol memory, bit serializer, RxD/RxC/SYNDET nets and SYNDET pulse
+three-bit Y latch, two symbol-relative capture clocks, five-bit readout
+logic, previous symbol memory, bit serializer, RxD/RxC/SYNDET nets and SYNDET pulse
 source are not established from the photographs. The 8251A model covers
 only external-sync shifting and RxRDY behavior; the 8031's mode-0 input
 and serial completion are synthetic, Timer 1 is disabled, and the two
 processors execute sequentially. No line-board receive signal or physical
-USART event has been measured. Next test a photo-compatible latch/clock
-route for the five captured bits, then tighten the serial timing and
+USART event has been measured. Next test a photo-compatible symbol-rate
+capture/clock route for the five selected bits, then tighten the serial timing and
 SYNDET source. Missing continuity does not pause those experiments.
 
 The [machine report](results/receiver-mask04-dual-zero-handoff.json)

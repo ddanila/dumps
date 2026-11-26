@@ -11,6 +11,7 @@ HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE.parent / 'assumed'), str(HERE)]
 
 from common import save
+from receiver_mask04_3f8_gate_timing import high
 from receiver_mask04_cubic_transition import fit, forced_prediction
 from receiver_mask04_dual_feature_consensus import consensus, decisions, metrics
 from receiver_mask04_feature_choice import alternative_states, development_table
@@ -48,7 +49,13 @@ def capture_zero_stream(mapping, base, degrees, data_dibits):
         raise ValueError('ADC hold schedule changed')
     scenario = configured(base, values, 'previous', 'overflow', 1)
     captures = {}
+    precaptures = {}
+    source_captures = {}
     adc_event = 0
+    previous = None
+    latched_y = None
+    latest_edge = None
+    clock_edges = 0
     with tempfile.TemporaryDirectory() as temporary:
         result = execute(mapping, scenario, cycles, mode='integrated',
                          out=temporary, trace_limit=cycles)
@@ -58,22 +65,44 @@ def capture_zero_stream(mapping, base, degrees, data_dibits):
             raise ValueError('two-visit receive loop stopped')
         for line in (Path(temporary) / 'trace.jsonl').open():
             row = json.loads(line)
-            if row['pc'] != 0x3F8:
-                continue
-            if (not row['external_read']['selected_by_alu'] or
-                    row['external_read']['value'] != values[adc_event]):
-                raise ValueError('3F8 ADC input changed')
-            symbol, phase = divmod(adc_event, VISITS_PER_SYMBOL)
-            if phase in (47, 94):
-                captures[(symbol, phase)] = row['alu']['y']
-            adc_event += 1
-    if adc_event != adc_visits or len(captures) != 2 * symbol_count:
+            if previous is not None and high(previous['raw']) and not high(row['raw']):
+                latched_y = previous['alu']['y'] & 0xE0
+                clock_edges += 1
+                if previous['pc'] == 0x3F8:
+                    latest_edge = (adc_event - 1, row['cycle'])
+            if row['pc'] == 0x3ED and latest_edge is not None:
+                visit, edge_cycle = latest_edge
+                lag = row['cycle'] - edge_cycle
+                symbol, phase = divmod(visit, VISITS_PER_SYMBOL)
+                if lag == 10 and phase in (47, 94):
+                    captures[(symbol, phase)] = latched_y
+                if lag == 18:
+                    next_symbol, next_phase = divmod(visit + 1, VISITS_PER_SYMBOL)
+                    if next_phase in (47, 94):
+                        precaptures[(next_symbol, next_phase)] = latched_y
+            if row['pc'] == 0x3F8:
+                if (not row['external_read']['selected_by_alu'] or
+                        row['external_read']['value'] != values[adc_event]):
+                    raise ValueError('3F8 ADC input changed')
+                symbol, phase = divmod(adc_event, VISITS_PER_SYMBOL)
+                if phase in (47, 94):
+                    source_captures[(symbol, phase)] = row['alu']['y'] & 0xE0
+                adc_event += 1
+            previous = row
+    if (adc_event != adc_visits or len(captures) != 2 * symbol_count or
+            len(precaptures) != 2 * symbol_count or
+            captures != source_captures or clock_edges != adc_visits + 1):
         raise ValueError('two-visit capture count changed')
     symbols = [dict(symbol=index, dibit=dibits[index],
                     visits={str(phase): dict(y3f8=captures[(index, phase)])
                             for phase in (47, 94)})
                for index in range(symbol_count)]
+    pre_symbols = [dict(symbol=index, dibit=dibits[index],
+                        visits={str(phase): dict(y3f8=precaptures[(index, phase)])
+                                for phase in (47, 94)})
+                   for index in range(symbol_count)]
     return dict(degrees=degrees, symbols=symbols,
+                precapture_symbols=pre_symbols, candidate_clock_edges=clock_edges,
                 trace_digest=result['trace_digest'],
                 adc_stream_sha256=hashlib.sha256(bytes(values)).hexdigest(),
                 cycles=cycles, adc_visits=adc_visits)
@@ -129,6 +158,10 @@ def run(out=HERE / 'results/receiver-mask04-dual-zero-handoff.json'):
             scores = dict(primary=metrics(p, expected),
                           alternative=metrics(a, expected),
                           consensus=metrics(decoded, expected))
+            pre_symbols = trace['precapture_symbols']
+            pre_p = decisions(states_from_symbols(pre_symbols), primary)
+            pre_a = decisions(alternative_states(pre_symbols), alternative)
+            pre_scores = metrics(consensus(pre_p, pre_a), expected)
             conflicts = sum(x is not None and y is not None and x != y
                             for x, y in zip(p[1:], a[1:]))
             recovered = None
@@ -165,17 +198,21 @@ def run(out=HERE / 'results/receiver-mask04-dual-zero-handoff.json'):
                        trace_digest=trace['trace_digest'],
                        adc_stream_sha256=trace['adc_stream_sha256'],
                        cycles=trace['cycles'], adc_visits=trace['adc_visits'],
+                       candidate_clock_edges=trace['candidate_clock_edges'],
                        offered_line_bytes=[f'{x:02X}' for x in offered],
                        recovered_line_bytes=([f'{x:02X}' for x in recovered]
                                              if recovered is not None else None),
-                       scores=scores, conflicts=conflicts,
+                       scores=scores, precapture_control=pre_scores,
+                       conflicts=conflicts,
                        pulse_cases=pulse_cases, opposite_selector=opposite)
             cases.append(row)
-            print(delay, degrees, scores, 'conflicts', conflicts,
+            print(delay, degrees, scores, 'pre-capture', pre_scores,
+                  'conflicts', conflicts,
                   'states', [(x['pulse'], x['result']['state']) for x in pulse_cases],
                   flush=True)
     paths = [Path(__file__), PRIMARY, ALTERNATIVE,
              HERE / 'receiver_mask04_cubic_transition.py',
+             HERE / 'receiver_mask04_3f8_gate_timing.py',
              HERE / 'receiver_mask04_dual_feature_consensus.py',
              HERE / 'receiver_mask04_feature_choice.py',
              HERE / 'receiver_mask04_four_bit_transition.py',
@@ -200,7 +237,7 @@ def run(out=HERE / 'results/receiver-mask04-dual-zero-handoff.json'):
                                mapping='joint upper-source mask 04'),
                   cases=cases,
                   limitations=[
-                      'The 3F8 ADC ingress, two Y capture clocks, phase logic, serial bit route and external SYNDET source are assumed.',
+                      'The 3F8 ADC ingress, raw-PROM gate, three-bit Y latch, two symbol-relative capture clocks, phase logic, serial bit route and external SYNDET source are assumed.',
                       'The 8251 shift/RxRDY model is narrow, the 8031 mode-0 input and serial completion are synthetic, and Timer 1 is disabled.',
                       'This is sequential co-simulation, not simultaneous physical-board execution or a C3 pass.'],
                   source_sha256={str(path.relative_to(HERE.parents[4])):

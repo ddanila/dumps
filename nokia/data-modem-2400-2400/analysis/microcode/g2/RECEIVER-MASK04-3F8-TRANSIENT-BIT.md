@@ -76,8 +76,10 @@ Y7=0 before the first `3ED` observation at cycle 50. Each of the 6,000
 `3F8→3F9` edges then supplies the value still held at the next `3ED`
 observations: 6,000 each at lags 2 and 10 instructions, and 5,999 each
 at lags 18 and 26 because the run stops during its final receive visit.
-The row-3 observations at lag 26 on symbol visits 47 and 94 match the
-executed `3F8` Y7 for all 16 inspected symbols (32 observations). Thus
+The row-3 observations at lag 10 on symbol visits 47 and 94 match the
+executed `3F8` Y7 for all 16 inspected symbols (32 observations). Lags
+18 and 26 belong to the next visit's earlier rows, before its own `3F8`
+capture. Thus
 the proposed edge has sufficient instruction-level timing to make the
 transient bit available throughout the later four-row window. It does
 not show that the photographed board actually has this gate, latch or

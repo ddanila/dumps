@@ -105,7 +105,7 @@ def run(out=HERE / 'results/receiver-mask04-3f8-gate-timing.json'):
                                                     lag=row['cycle'] - edge_cycle,
                                                     latch_y7=latch_value,
                                                     output_y=row['alu']['y']))
-                    if visit // 375 < 16 and visit % 375 in (47, 94) and row['cycle'] - edge_cycle == 26:
+                    if visit // 375 < 16 and visit % 375 in (47, 94) and row['cycle'] - edge_cycle == 10:
                         symbol_consumers.append(dict(symbol=visit // 375,
                                                      sample_visit=visit % 375,
                                                      cycle=row['cycle'], latch_y7=latch_value))
@@ -131,6 +131,9 @@ def run(out=HERE / 'results/receiver-mask04-3f8-gate-timing.json'):
             len(symbol_consumers) != 32 or
             [entry['latch_y7'] for entry in symbol_consumers] !=
             [(case['adc'][str(visit)]['state']['y'] >> 7) & 1
+             for case in reference['symbols'] for visit in (47, 94)] or
+            [entry['cycle'] for entry in symbol_consumers] !=
+            [case['visits'][str(visit)]['3']['cycle']
              for case in reference['symbols'] for visit in (47, 94)]):
         raise ValueError('latch/consumer timing disagrees with gate audit')
     paths = (Path(__file__), HERE / 'receiver_mask04_collision_state.py',

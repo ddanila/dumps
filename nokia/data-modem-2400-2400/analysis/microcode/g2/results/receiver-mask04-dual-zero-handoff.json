@@ -3,6 +3,7 @@
     {
       "adc_stream_sha256": "da1fc53acee64ea8f15cdf842660eb96ea7e9e272e19a2437f3362e1d3c00986",
       "adc_visits": 24000,
+      "candidate_clock_edges": 24001,
       "conflicts": 0,
       "cycles": 768047,
       "degrees": 75,
@@ -80,6 +81,13 @@
         "zero_octets": 0
       },
       "polynomial_delay": 5,
+      "precapture_control": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
       "pulse_cases": [
         {
           "pulse": 63,
@@ -344,6 +352,7 @@
     {
       "adc_stream_sha256": "1db46970df885fc9585ec06a7d4509cd77c29090b08a83a5844f18cbafb632ab",
       "adc_visits": 24000,
+      "candidate_clock_edges": 24001,
       "conflicts": 0,
       "cycles": 768047,
       "degrees": 165,
@@ -421,6 +430,13 @@
         "zero_octets": 0
       },
       "polynomial_delay": 18,
+      "precapture_control": {
+        "checks": 63,
+        "data_errors": 0,
+        "data_unknown": 0,
+        "errors": 0,
+        "unknown": 0
+      },
       "pulse_cases": [
         {
           "pulse": 63,
@@ -708,17 +724,18 @@
     ]
   },
   "limitations": [
-    "The 3F8 ADC ingress, two Y capture clocks, phase logic, serial bit route and external SYNDET source are assumed.",
+    "The 3F8 ADC ingress, raw-PROM gate, three-bit Y latch, two symbol-relative capture clocks, phase logic, serial bit route and external SYNDET source are assumed.",
     "The 8251 shift/RxRDY model is narrow, the 8031 mode-0 input and serial completion are synthetic, and Timer 1 is disabled.",
     "This is sequential co-simulation, not simultaneous physical-board execution or a C3 pass."
   ],
   "source_sha256": {
     "nokia/data-modem-2400-2400/analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
     "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_3f8_gate_timing.py": "13ba60d0918f534d5af49398f41c9566349812b16aa45c1e568680b41a77a333",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_controller_zero_handoff.py": "cea80a089477de9d1b7508997205634eae0c2785564ca113cced6c2fcb7187bf",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_cubic_transition.py": "ee5a75be6c5a0978b9de350c58eec0b723f06ffa323938d98368f8a73f0517bc",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_dual_feature_consensus.py": "63775d74108ba4632ad64cd53f4acc6f12a8149eee49669ea0924ea282d0ada0",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_dual_zero_handoff.py": "787d2a3c9c9c4a691eacb19a014299f8e541b23adfca037469a8dc9c35e5515e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_dual_zero_handoff.py": "4560a2f12d69e7e8c34a1a23c57cf29a66924ad0ca7b78e75b193207d2a174a2",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_feature_choice.py": "e5e26a591a72f796d53be44d5fdd732ec6e6b86dea61eb8e75d6b5f4aadac1dd",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_four_bit_transition.py": "e10cf6e16e4ee30cf49f317f0a16604c93b44ef3ead707c1537460bded168c14",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_protocol_preamble.py": "4b6f149d8e1470fcc2c9e3fb83d17f44751e4aa072fb026a2c3e480c8d0a3020",

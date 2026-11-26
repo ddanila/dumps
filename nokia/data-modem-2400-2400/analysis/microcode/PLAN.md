@@ -239,9 +239,14 @@ not the complementary dual-feature rule. The [explicit one-bit latch
 replay](g2/RECEIVER-MASK04-3F8-TRANSIENT-BIT.md) now includes the startup
 edge and holds Y7 through all four later `3ED` observations per complete
 receive visit; its 32 symbol-visit row-3 observations agree with the
-executed `3F8` Y7. Test a photo-compatible symbol-rate consumer that retains
-both visits and reaches USART RxD/RxC, with alternate clock phases as
-controls; keep C3 open and G2 active.
+executed `3F8` Y7. The [long zero-run latch handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
+now clocks Y5–Y7 at every candidate gate edge and reads the held value
+at row-3 `3ED` for visits 47 and 94 in two 768,047-word PROM streams.
+Both recover the controller line bytes, but a preceding-visit row-0
+capture control also succeeds, so those fixtures do not fix the symbol
+clock phase. Test an input transition near a selected visit to separate
+the phases, then a photo-compatible two-visit consumer and RxD/RxC route;
+keep C3 open and G2 active.
 The [dual-feature zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
 now runs two 768,047-word real-PROM receive traces at 75°/165° through
 32 `11` preamble symbols and eight controller-scrambled zero octets.

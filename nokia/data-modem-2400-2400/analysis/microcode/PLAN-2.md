@@ -1378,6 +1378,10 @@ phases B–C turn "what" into "how".
   development data. The explicit raw-PROM `3F8→3F9` one-bit latch now
   passes its startup and later `3ED` timing check. Test a photo-compatible
   two-visit hold and symbol-rate consumer, rather than adding arbitrary Y bits.
+  In two long zero-run PROM handoffs, the candidate Y5–Y7 latch supplies
+  the frozen readout at row-3 `3ED` and recovers the controller line bytes.
+  A row-0 pre-capture control also recovers them, so use a transition near
+  visit 47 or 94 to discriminate capture phase before fixing a symbol clock.
   The [two-visit zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
   now feeds the controller's actual scrambled eight-zero-octet streams
   through two continuous mask-`04` PROM runs at 75° and 165°. The frozen
