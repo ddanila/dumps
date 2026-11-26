@@ -226,8 +226,17 @@ second-visit Y5 or second-visit Y6 yields a zero-conflict development
 table; each frozen five-bit table then predicts all 96 decisions in
 each separate controller A4/A5 holdout with zero wrong and zero
 unknown. This gives a concrete fixed-logic candidate but does not
-identify its latch/clock/pin route. Next freeze one choice and
-challenge new waveforms and a photo-compatible implementation.
+identify its latch/clock/pin route. The [frozen fifth-bit challenge](g2/JOINT-MASK04-12A-FROZEN-FIFTH-CHALLENGE.md)
+then tests two new payloads at a half-quadrant start and 75/100/125%
+gain. Both nominal-level runs recover exact bytes and modeled 8031
+payloads, but 75% causes known-key errors and 125% leaves many keys
+unseen. No single added bit survives all 14 labeled development
+cases. Three six-bit two-capture features remove those collisions;
+the smallest uses first Y5–Y7 and second Y4, Y6, Y7, with 91 observed
+transition keys. Its controller A4/A5 check is reused evidence,
+not a fresh holdout. Freeze that rule next and challenge new combined
+gain/phase waveforms before claiming robust receive behavior; then
+test a photo-compatible latch/clock/decision implementation.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
