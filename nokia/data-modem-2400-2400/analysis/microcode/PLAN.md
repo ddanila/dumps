@@ -118,6 +118,15 @@ the frozen candidate with varied sample phase, gain and carrier offset,
 and seek a photo-compatible line/ADC and DSC-to-USART consumer. The
 external known-carrier decoder does not establish physical filter Q or
 complete C2/C3.
+The [Q=0.5 receiver replay](g2/JOINT-MASK04-12A-Q05-RECEIVER.md)
+feeds one new nonzero payload per selector through the real-PROM mask-04
+receiver, using the exact line PCM hashes that scored 0/64 in the
+independent reference decoder. All four frozen readouts remain
+incomplete: the no-wrong 46/93 rule has 27/32 call and 22/32 answer
+data dibits unknown; the margin rule has fewer unknowns but wrong
+decisions. No complete byte reaches the modeled USART/8031 handoff.
+Seek a causal photo-compatible multi-sample decision/serial route on
+fresh legal data; do not reinterpret reference line success as C3.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
 shows why selecting among the three frozen capture pairs cannot repair
 that handoff: no pair supplies a correct known dibit at call data
