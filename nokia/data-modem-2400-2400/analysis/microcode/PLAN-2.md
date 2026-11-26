@@ -2040,6 +2040,18 @@ Listed in order of value per effort:
   seven-bit gate is condition-dependent; an assumed `3EB` bit-7 mux
   covers the tested streams but is not traced. Test new mode/phase data
   and a concrete bit-7-to-serial route before passing C3.
+  The [fresh changed-mode phase-120 challenge](g2/JOINT-MASK04-12A-MODE-TWELVE-HOLDOUT.md)
+  found that the frozen eight-state gate misses 9/64 call and 12/64
+  answer dibits on two new payloads, even though the reference line is
+  exact: four new states appear, and every wrong transition touches
+  state `36`, whose inferred phase is 0 rather than the gate's 1.
+  After moving those failed runs into development, a frozen 12-state
+  revision recovers 0/64 errors, exact line bytes and exact modeled
+  8251/executed 8031 payload bytes on a separate new pair at offset
+  120. Its answer reference decoder still misses two dibits. The
+  holdout has no unseen states and physical mode/serial nets remain
+  assumed; test another carrier/gain fixture and a concrete route
+  before passing C3.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

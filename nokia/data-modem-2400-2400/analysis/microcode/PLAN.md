@@ -125,6 +125,16 @@ the earlier `01` and new `81` development graphs; a conditional mode
 selector is therefore required for this seven-bit readout. Its physical
 source and the serial path are still assumptions. Challenge fresh
 mode/phase data; keep C3/G2 active.
+The [fresh changed-mode phase-120 challenge](g2/JOINT-MASK04-12A-MODE-TWELVE-HOLDOUT.md)
+rejects the eight-state gate on two new payloads: 9/64 and 12/64
+wrong dibits, all involving new state `36`. The anchored transition
+graph remains conflict-free and assigns `36` phase 0, while the frozen
+gate assigned 1. A 12-state revision frozen after that failure then
+recovers exact dibits, line bytes and modeled USART/executed controller
+payloads on a separate new pair. The answer-side reference decoder
+misses two dibits, and the holdout adds no unseen states. Keep the
+external logic, mode route and serial nets conditional; test another
+phase/gain fixture and keep C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

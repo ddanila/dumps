@@ -1,0 +1,72 @@
+{
+  "experiment": "12-state changed-mode phase gates after phase-120 challenge",
+  "fixture": {
+    "development_cases": 5,
+    "development_states": 12,
+    "graph_conflicts": 0,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "feature": [
+      "46",
+      "row0",
+      0
+    ]
+  },
+  "prior_unseen_state_failures": {
+    "36": {
+      "frozen": 1,
+      "graph": 0
+    }
+  },
+  "trained_state_phase": {
+    "09": 2,
+    "0D": 1,
+    "12": 3,
+    "19": 2,
+    "1E": 0,
+    "2D": 1,
+    "36": 0,
+    "49": 2,
+    "4D": 1,
+    "52": 3,
+    "59": 2,
+    "5E": 0
+  },
+  "phase_bits": [
+    {
+      "bit": 0,
+      "product_terms": 2,
+      "literals": 4,
+      "cubes": [
+        "***0*0*",
+        "**1*0**"
+      ]
+    },
+    {
+      "bit": 1,
+      "product_terms": 1,
+      "literals": 1,
+      "cubes": [
+        "**0****"
+      ]
+    }
+  ],
+  "limitations": [
+    "The failed fresh phase-120 pair is now development data; it cannot validate this revised gate.",
+    "Unobserved states receive Boolean extrapolations, not identified Nokia logic.",
+    "The mode input, capture, line and USART wiring remain assumed."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_phase_twelve.py": "f52817145069128622803e636b79f1928db81cd77ad573827ff6acfc3ad67ea9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-holdout.json": "0584b2c3928e262760cac71ad69cdf68ae6d3765fa9be50687b1abc17e250226",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row-mode-edge.json": "9dde00d75c5099ba075f5f371bf6343675cfada9fa86e757b9eaa2aba348eeef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-phase112.json": "921b2ed60bb521170404303d6c2a4cc445332550ab2a614a5300596c66313cb9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-fresh-phase120.json": "312f56c484f10e274226ab5d2f2c1711ef7d9ae72bf9d763ad274f675f5fab0c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_multivisit_phase_screen.py": "57f86789b6c2620499c57a8e152b2dd415ea8facf90b646dfe95f315e199d387",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean.py": "e9a3cedabb9654a2d98cca71c8d2a305261387dd4b112f93d7ece2001d78219b"
+  }
+}
