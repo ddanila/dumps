@@ -1916,8 +1916,12 @@ Listed in order of value per effort:
   Its [arithmetic audit](g2/JOINT-MASK04-RAM-CARRY-ARITHMETIC.md)
   finds R10 fixed at `10` at every tested `3FA` operand read, so that
   output's high nibble is the delayed return high nibble plus two.
-  Try a signed or mode-qualified return or another output site; no
-  tested RAM output is yet a measured or selectively falling echo residual.
+  The [paired propagation trace](g2/JOINT-MASK04-RAM-CARRY-PROPAGATION.md)
+  finds that changed R13 lasts six cycles and rejoins at `3FC` on both
+  legal streams, with no changed downstream ALU, Q, TEST or PC path.
+  Test a photo-compatible `3FA` output latch and line consequence, or a
+  signed/mode-qualified return that reaches a later consumed operand.
+  No tested RAM output is yet a measured or selectively falling echo residual.
 
 ## 3. Acceptance for G2
 

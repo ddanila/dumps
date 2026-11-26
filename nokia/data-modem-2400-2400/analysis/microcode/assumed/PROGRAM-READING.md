@@ -141,6 +141,15 @@ assumed RAM D low nibble forced to `1`, this site's executed output
 reduces to `Yhi=(Dhi+2)&15`, `Ylo=carry_in`. That is a delayed input
 code plus current carry at this proposed output site, not a varying
 trained R10 estimate.
+The [paired full-word propagation trace](../g2/JOINT-MASK04-RAM-CARRY-PROPAGATION.md)
+shows where this candidate return's effect ends. Against a same-input
+write-only control, it changes only `3FA` Y and R13 writes on the
+64-sample varying and 192-sample mixed own-echo/remote streams. Every
+changed R13 value is overwritten six cycles later at `3FC`; later ALU
+words, Q, TEST and PC path agree. An external latch might still capture
+`3FA` Y, but this tested internal route supplies no retained estimate
+to a later executed operand. Its physical wires and line effect remain
+unverified.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127

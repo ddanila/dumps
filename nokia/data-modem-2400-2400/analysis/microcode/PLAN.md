@@ -1460,6 +1460,15 @@ carry explain this candidate output without a varying R10 estimate.
 Seek a mode or feedback timing that puts trained state into a consumed
 operand, or inspect another executed output before inferring cancellation.
 C4 stays open and G2 active.
+The [paired propagation trace](g2/JOINT-MASK04-RAM-CARRY-PROPAGATION.md)
+now compares that previous-carry, high-nibble return with the same-input
+write-only control across 96,047- and 288,047-word runs. Only `3FA` ALU
+and R13 writes differ (1,219 and 6,000 times); each R13 difference lasts
+six cycles and is overwritten at `3FC`. PC, Q, TEST and all later ALU
+words agree. Test an external `3FA` latch with a line consequence, or a
+photo-compatible feedback route that reaches a later consumed operand;
+do not treat transient `3FA` code contrast as a proven echo residual.
+The missing latch/return wires are hypotheses, not goal blockers.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`
 values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.
