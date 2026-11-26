@@ -23,10 +23,13 @@ two-stage hold remain different, photo-compatible hypotheses.
 
 The [two-stage `12A` replay](JOINT-MASK04-TX-12A-TWO-STAGE-LATCH.md)
 demonstrates what one such assumed circuit would output, **not** that these
-eight traces carry its 74LS373 Q→74LS273 D links. Next compare a shared
-Y-input/tri-state-output hypothesis with the hold-stage timing on the same
-real-PROM stream, and identify a pin or output observation that separates
-them. Missing continuity does not block that experiment or pass C2.
+eight traces carry its 74LS373 Q→74LS273 D links. The
+[B5 topology comparison](JOINT-MASK04-TX-LATCH-B5-DISCRIMINATOR.md) now
+runs that hold against a shared-Y late-clock route on the same real-PROM
+stream. They predict 698/832 call and 696/832 answer differences at the
+photo-suggested DAC08 B5 input, conditional on an untraced Y4→74LS273 D4
+wire. A pin observation or another photo-compatible route can narrow them;
+missing continuity does not block C2 work or pass C2.
 
 Reproduce from the microcode directory with:
 

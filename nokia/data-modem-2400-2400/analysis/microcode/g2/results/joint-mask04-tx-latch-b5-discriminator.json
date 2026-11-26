@@ -1,0 +1,152 @@
+{
+  "experiment": "visible-candidate DAC08 B5 discriminator for two latch topologies",
+  "fixture": {
+    "serial_hold": "74LS373 holds 12A Y before 74LS273 clocks at 127->128",
+    "shared_y": "74LS273 D sees current Y and clocks after 127 Y settles",
+    "b5_route": "assumed Y4->74LS273 D4; photo-suggested Q4->DAC08 B5 pin 9",
+    "candidate_buses": 6,
+    "invariant_mapping": "Y4->DAC code bit 3 (B5) on all six buses",
+    "bank_intervention_mapping": "Y0->DAC code bit 4 (B4) on all six buses"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "tx_trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd",
+      "samples": 832,
+      "serial_hold_b5_sha256": "04b254bb59c5f66fda1a8722e057c3207688081e9901eb4b6ea4d7129be5c9e3",
+      "shared_y_late_clock_b5_sha256": "28134d9ab7ca65fc885873dbd43ffb8bcb95bf86e1974ad166dc00ee11add25f",
+      "b5_different_samples": 698,
+      "b5_differences_by_segment": {
+        "A1_tone": 128,
+        "A2_silence": 64,
+        "A3_reversals": 256,
+        "A4_data": 250
+      },
+      "first_different_sample_indices": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        46
+      ],
+      "serial_hold_b5_one_count": 422,
+      "shared_y_b5_one_count": 416,
+      "serial_hold_data_errors_by_bus": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shared_y_data_errors_by_bus": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "selector": "60",
+      "tx_trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5",
+      "samples": 832,
+      "serial_hold_b5_sha256": "eab241a1d940777e80ba0ffe023874f132466f7fd526e8b5631e8fb96d11be1d",
+      "shared_y_late_clock_b5_sha256": "28134d9ab7ca65fc885873dbd43ffb8bcb95bf86e1974ad166dc00ee11add25f",
+      "b5_different_samples": 696,
+      "b5_differences_by_segment": {
+        "A1_tone": 128,
+        "A2_silence": 64,
+        "A3_reversals": 256,
+        "A4_data": 248
+      },
+      "first_different_sample_indices": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        46
+      ],
+      "serial_hold_b5_one_count": 424,
+      "shared_y_b5_one_count": 416,
+      "serial_hold_data_errors_by_bus": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shared_y_data_errors_by_bus": [
+        3,
+        2,
+        3,
+        2,
+        2,
+        2
+      ]
+    }
+  ],
+  "limitations": [
+    "The B5 copper segment is photo-suggested, not continuity-verified; Y4-to-D4 and the latch clocks are untraced.",
+    "This is a digital pin-level prediction from two executed stream interpretations, not a measured DAC08 voltage/current.",
+    "The saved Q=1 filtered data scores are diagnostic and do not identify the physical analog filter.",
+    "The ROM-bank switch alone changes B4, not the visible-candidate B5 segment."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_latch_b5_discriminator.py": "c9f30e0c1233a9d771932f154597dd8c13287eafd28f3a2c4904839013446052",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-12a-delayed-latch.json": "dd2a2dd6069e6f342298dc676c724e8da9da0912d6f6ddf28df47ce076c39cb2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-bank-phase.json": "9a0ba239192c94978a08cd8d8e34e69d4b9e1b5074f61d66e39abb2feb56b482",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-random-dibit-validation.json": "df23d89e1b7c6a5eb5c18ed712a7759afeeb9c139aed7eba463b452ba65c1081",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_12a_delayed_latch.py": "7746afd7122cd0c007a7797374de29b6e61461ab7cf004dce81628aa017651cd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_bank_phase.py": "7415192494eceaba3d31cad3171d947b7f7ee4718a54d6d13fb03b1bc69d8de0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_dac_bus_permutations.py": "7032d9a809229467df736d417d5c2a36a9ff6d04a0f83c9271627f106507f4ab",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}

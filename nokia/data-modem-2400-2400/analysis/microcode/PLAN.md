@@ -10,7 +10,9 @@
 > timing and inputs, then test another photo-compatible route or independent
 > program/signal constraint.
 
-**Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART or
+## Uncertainty is a reason to experiment, not a goal blocker
+
+Missing DAC, ADC, latch, clock, DSC-to-USART or
 analog-line connections are *open wiring hypotheses*, not a reason to pause G2.
 If an experiment can run with a labelled assumption, run it now; physical
 continuity is a later validation step, not a prerequisite for progress. A
@@ -113,14 +115,24 @@ control retains none. The proposed 127 decode has seven full-store hits,
 so it is mode-specific. This supplies a concrete late-clock circuit
 hypothesis without identifying the latch pins, divider, DAC or analog route.
 Test those photo-compatible nets and timing alternatives; C2/G2 stay active.
-The [DED latch-bus photo audit](g2/PHOTO-DED-LATCH-BUS.md) now finds eight
+The [DED latch-bus photo audit](g2/PHOTO-DED-LATCH-BUS.md) finds eight
 threshold-stable visible front-side tracks between the 74LS273 and
 74LS373 pad banks. The image does not establish their pad continuity,
-direction or Q→D staging. Keep the serial 74LS373→74LS273 hold and a
-shared Y-input/tri-state-output bus as competing hypotheses; run both
-with the same real-PROM `12A` stream and a timing control before assigning
-the photographed bundle to either route. The ambiguous tracks do not
-block C2 work.
+direction or Q→D staging. The
+[B5 topology comparison](g2/JOINT-MASK04-TX-LATCH-B5-DISCRIMINATOR.md)
+therefore runs two explicit continuations on the same real-PROM controller
+streams: a 74LS373 hold of `12A` Y followed by a 74LS273 clock at
+`127→128`, and a shared Y-input bus on which the 74LS273 instead samples
+settled `127` Y. Under the untraced Y4→74LS273 D4 assumption and the
+photo-suggested Q4→DAC08 B5 connection, these routes predict different
+B5 levels on 698/832 call and 696/832 answer sample clocks. The normal
+stream is thus a useful discriminating stimulus even without a new ROM-bank
+switch; that switch affects B4, not this B5 segment. Next test another
+photo-compatible data/clock route or independent pin/line constraint, with
+the same controller stimulus and a changed-edge control. Until physical
+continuity or an independent observation chooses a route, keep both
+topologies conditional and C2/G2 active. The ambiguous tracks do not block
+further work.
 The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
 now substitutes the `12A` latch into the full controller-bit/PROM path.
 At the existing six-sample alignment, an independent line decoder gives
