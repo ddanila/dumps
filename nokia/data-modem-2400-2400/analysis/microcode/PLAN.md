@@ -1469,6 +1469,14 @@ words agree. Test an external `3FA` latch with a line consequence, or a
 photo-compatible feedback route that reaches a later consumed operand;
 do not treat transient `3FA` code contrast as a proven echo residual.
 The missing latch/return wires are hypotheses, not goal blockers.
+The [sample-paced `3FA` latch screen](g2/JOINT-MASK04-RAM-CARRY-LATCH-PHASE.md)
+replays the four own/remote/zero controls on both write-only and high-return
+routes. `3FA` Y is constant across all 47/46 visits within every held ADC
+sample in all eight runs, so all 46 fixed latch phases capture the same
+byte. Late mixed-versus-remote code difference is 0.4375 in the control
+and 17.8125 with return at every phase; a phase choice cannot rescue
+this particular residual proxy. Seek a consumed trained operand or an
+explicit photo-compatible analog output circuit next; keep C4 open.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`
 values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.

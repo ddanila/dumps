@@ -1921,6 +1921,10 @@ Listed in order of value per effort:
   legal streams, with no changed downstream ALU, Q, TEST or PC path.
   Test a photo-compatible `3FA` output latch and line consequence, or a
   signed/mode-qualified return that reaches a later consumed operand.
+  The [sample-paced latch screen](g2/JOINT-MASK04-RAM-CARRY-LATCH-PHASE.md)
+  finds `3FA` Y constant within every held ADC sample on all eight controls;
+  all 46 fixed phases preserve the larger late echo code contrast.
+  A phase choice at this output site therefore does not rescue this route.
   No tested RAM output is yet a measured or selectively falling echo residual.
 
 ## 3. Acceptance for G2

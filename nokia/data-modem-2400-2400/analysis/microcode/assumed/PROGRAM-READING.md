@@ -150,6 +150,11 @@ words, Q, TEST and PC path agree. An external latch might still capture
 `3FA` Y, but this tested internal route supplies no retained estimate
 to a later executed operand. Its physical wires and line effect remain
 unverified.
+The [sample-paced latch screen](../g2/JOINT-MASK04-RAM-CARRY-LATCH-PHASE.md)
+shows that `3FA` Y itself is constant over each held ADC sample on all
+four inputs with and without high RAM return. Every one of 46 candidate
+fixed latch phases therefore captures the same per-sample code; none
+turns this tested code-space echo response into selective attenuation.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127
