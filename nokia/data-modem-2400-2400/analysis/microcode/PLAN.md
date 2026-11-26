@@ -302,6 +302,15 @@ MSB streams are identical. This directly supports the segment-1 digital
 output behavior under the Y7→latch→DAC08 B1 hypothesis; the physical
 wire and analog line output remain open, so continue with a photo-compatible
 route or independent analog constraint rather than calling C2 passed.
+The [direct A4 data-phase replay](g2/JOINT-MASK04-MSB-DATA-PHASE.md)
+now compares raw executed MSB symbol phasors with the controller's
+32 segment-2 dibits. Both call and answer streams give 0/32 wrong
+quadrant steps, including the A3→A4 boundary; the opposite phase sign
+misses six and eight. The four free-clock phases have identical MSB
+streams, so this is 64 distinct data comparisons. It ties the conditional
+DSC output bit to the controller's actual data pattern without the assumed
+analog filter, but the physical DAC and line route remain open. Continue
+with photo-compatible output-route hypotheses; do not mark C2 passed.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.

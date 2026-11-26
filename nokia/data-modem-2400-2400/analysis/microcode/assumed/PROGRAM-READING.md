@@ -54,7 +54,7 @@ linked G2 experiments; they do not revise the older profiles.
 
 | Addresses | Executed role | What remains assumed |
 | --- | --- | --- |
-| 127–12A | Candidate DPSK transmit sample loop: controller-derived input sustains the loop; PC 129 selects the upper Am27S31 bank; a divided raw-PROM edge captures bytes whose candidate DAC path yields the 2,100 Hz tone and all tested A3/A4 dibits. [Trace](../g2/JOINT-MASK04-TX-PROM-EDGE.md) | Input and latch clocks, DAC bus and line filter/output; C2 stays open. |
+| 127–12A | Candidate DPSK transmit sample loop: controller-derived input sustains the loop and PC 129 selects the upper Am27S31 bank. In two full PROM runs the raw candidate DAC MSB holds the A1 tone phase, reverses 180° at all 31 A3 boundaries, and follows all 64 call/answer A4 dibit quadrants. [Phase traces](../g2/JOINT-MASK04-MSB-DATA-PHASE.md) | D127 input rule, latch clock, Y7→DAC08 B1 and analog line output; C2 stays open. |
 | 3F8–3FE | Candidate ADC-table receive update: the assumed ADC high nibble affects 3F8 Y, 3F9 reads the real ROM at `0x100 + Y`, and the four-row cycle retains input-dependent Q/RAM state. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | ADC ingress, row dispatch and any recovered-bit consumer; C3 stays open. |
 | 3EB–3ED | Candidate receive-state byte exposure: 3EB writes R1 from Q's low nibble and 3ED exposes that R1 byte on Y. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | Capture, phase decision and USART RxD/RxC/SYNDET route; C3 stays open. |
 

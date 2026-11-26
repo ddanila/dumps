@@ -1194,6 +1194,14 @@ phases B–C turn "what" into "how".
   Y7→latch→DAC08 B1 and the physical line output remain unverified, so
   C2 stays open and the next test should constrain that route or an analog
   node under labelled photo assumptions.
+  The [direct A4 data-phase replay](g2/JOINT-MASK04-MSB-DATA-PHASE.md)
+  measures the next 32 raw-MSB phase changes in each executed call/answer
+  stream, including the A3→A4 boundary. The frozen D127 four-visit rule
+  predicts every nearest quadrant (0/64 wrong distinct steps), whereas
+  the opposite phase sign misses six call and eight answer steps. This
+  ties the candidate DSC output to the controller's segment-2 dibits
+  without the external bandpass or decoder. The sample clock and
+  Y7/latch/DAC/line path remain assumptions, so C2 stays open.
   An [executed arithmetic check](g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md)
   now identifies the actual input path in this candidate: `3F8` combines
   the ADC high nibble with R5 into Y, `3F9` reads Am27S31 at `0x100+Y`,
