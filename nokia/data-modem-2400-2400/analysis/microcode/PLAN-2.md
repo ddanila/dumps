@@ -2017,6 +2017,16 @@ Listed in order of value per effort:
   qualifier or another hold path across carrier offsets. Test a
   photo-compatible U24/raw-PROM gate timing next; C3 stays open because
   its physical clock and USART nets are unverified.
+  The [two-edge PROM replay](g2/JOINT-MASK04-12A-ROW-CLOCK-TWO-EDGE.md)
+  now tests a concrete ordering on both complete phase-112 real-PROM
+  receiver traces: an existing three-bit decode selects `3ED→3EA`
+  for row data capture, while a second three-bit decode selects the
+  following `3EA→3EB` edge for a candidate U24 increment. Each run
+  has 97,500 row edges and 24,375 row-0 captures with no logical
+  phase drift; checked captured bytes match the independent all-row
+  snapshots. U24 entry/reset phase and electrical gate timing remain
+  assumptions. Test initialization across a natural mode transition;
+  the serial route and C3 acceptance remain open.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

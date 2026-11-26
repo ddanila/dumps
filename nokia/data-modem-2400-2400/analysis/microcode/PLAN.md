@@ -104,6 +104,14 @@ both mode traces match saved real-PROM hashes, row-0 qualification is exact,
 and an unqualified every-row clock leaves row 3 with 19/64 and 15/64
 errors. This narrows the required logical clock selection, not the actual
 U24/U12 nets. Test a photo-compatible raw-PROM gate timing next.
+The [two-edge PROM replay](g2/JOINT-MASK04-12A-ROW-CLOCK-TWO-EDGE.md)
+now finds separate raw-decode edges at `3ED→3EA` for candidate row
+capture and `3EA→3EB` for counter advance on both full phase-112
+receive runs. A seeded modulo-four qualifier retains every fourth row
+without logical phase drift, and the checked values agree with the
+earlier all-row capture. U24 reset phase, actual gate wiring and
+electrical timing are still assumptions. Test counter initialization
+under a natural mode transition; keep C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

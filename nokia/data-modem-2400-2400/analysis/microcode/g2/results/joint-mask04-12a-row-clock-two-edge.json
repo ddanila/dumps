@@ -1,0 +1,101 @@
+{
+  "experiment": "two separated PROM edges for candidate row-0 U12 capture and U24 increment",
+  "fixture": {
+    "capture_decode": [
+      [
+        1,
+        7,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        5,
+        1
+      ]
+    ],
+    "counter_decode": [
+      [
+        1,
+        7,
+        1
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        3,
+        6,
+        1
+      ]
+    ],
+    "capture_edge": "3ED->3EA",
+    "increment_edge": "3EA->3EB",
+    "assumed_initial_counter": "row 0 before first 3ED"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "rx_trace_digest": "a5f9bf93092d22a4ba954d5ecce231b347e7fc0a37bfda8888a76a9403917b9c",
+      "selected_row0_sha256": "ba65e09328973322ddef09bbdf945276eb13f2633dfb4f44e540fa81edecf8d9",
+      "selected_visits": 24375,
+      "high_sites": [
+        {
+          "3ED": 97500
+        },
+        {
+          "3EA": 97501
+        }
+      ],
+      "nand_rising_edges": [
+        {
+          "3ED->3EA": 97500
+        },
+        {
+          "3EA->3EB": 97501
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "rx_trace_digest": "c159f70c45b44cc67bd68ea31ff2acccf050fc4eb4b6ab06f834f2d78afe83cc",
+      "selected_row0_sha256": "013426b8b41b383430723ace6da7dc65ba3390effece5536797f6e4ea6f29879",
+      "selected_visits": 24375,
+      "high_sites": [
+        {
+          "3ED": 97500
+        },
+        {
+          "3EA": 97501
+        }
+      ],
+      "nand_rising_edges": [
+        {
+          "3ED->3EA": 97500
+        },
+        {
+          "3EA->3EB": 97501
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Raw PROM bytes and executed PC sequence prove candidate logical edge timing only; gates and U24/U12 wires are untraced.",
+    "U24 row phase is assumed at entry; this run does not establish its physical reset source.",
+    "Propagation delays, clock pulse widths and setup/hold times are not measured.",
+    "The DAC, analog and ADC route remains the same labelled line scenario."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_clock_two_edge.py": "91568bd0d546ded77ca8eac8855695dc9603a1e223df0712c051919fc429aff6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-phase112.json": "921b2ed60bb521170404303d6c2a4cc445332550ab2a614a5300596c66313cb9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-all-row-phase112.json": "841c9cdcf9a953abf55f535972e6da42094eb97527383e71925a6bbbe0d41a74",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_3ed_prom_latch.py": "105ea21dd5061074aaa66453d82821a5961722ef008f91354c98ab5502befa72"
+  }
+}
