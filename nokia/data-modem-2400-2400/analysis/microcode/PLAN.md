@@ -13,21 +13,24 @@
 **Current blocker approach:** Missing DAC, ADC, latch, clock, DSC-to-USART or
 analog-line connections are *open wiring hypotheses*, not a reason to pause G2.
 Use the photographs already available to choose the simplest pin-compatible
-route. Record visible endpoints separately from assumed connections, polarity,
-enable/latch edge and clock division; run that route with the real dumps and a
-control. Test a few meaningful alternatives when the inference affects the
-result. A failed run rejects only its stated wiring, timing and input fixture;
-record it and run the next candidate or an independent PROM/controller/signal
-test. If an experiment needs unavailable continuity data, defer that experiment
-alone. Request new physical evidence only to distinguish surviving candidates,
-never as a prerequisite to runnable work.
+route, even if a trace disappears or its destination is uncertain. Record
+visible endpoints separately from assumed connections, polarity, enable/latch
+edge and clock division. Run that route with the real dumps and a control;
+test a few meaningful alternatives when the inference affects the result.
+A failed run rejects only its stated wiring, timing and input fixture: record
+it, then run the next candidate or an independent PROM/controller/signal test.
+If one experiment needs unavailable continuity data, defer that experiment
+alone. Do not wait for a new photograph, measurement or user confirmation
+before running another explicit, photo-compatible hypothesis. Request physical
+evidence later when it can distinguish surviving candidates.
 
 Keep G2 **active** and C2/C3/C4 **open** while these tests continue. A plausible
 run remains conditional until the physical route is independently constrained;
 it does not by itself pass an acceptance check. An unsuccessful model or unmet
 check does not make the goal blocked. Only consider a goal-level blocker after
-recording why every remaining candidate and independent analysis cannot advance
-the work, and the exact outside observation required to resume.
+recording why every remaining candidate, changed stimulus or timing, and
+independent analysis cannot advance the work, and the exact outside observation
+required to resume. Until then, each result must name the next runnable test.
 For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
 identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
 The [PC129 ROM-bank ablation](g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
