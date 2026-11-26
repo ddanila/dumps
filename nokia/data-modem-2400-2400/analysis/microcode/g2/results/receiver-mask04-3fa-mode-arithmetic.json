@@ -1,0 +1,528 @@
+{
+  "experiment": "3FA operand and history test under held 3EB mode bytes",
+  "fixture": {
+    "modes": [
+      "01",
+      "81",
+      "A1"
+    ],
+    "legal_carriers": [
+      {
+        "seed": 23063,
+        "degrees": 45
+      },
+      {
+        "seed": 30373,
+        "degrees": 135
+      }
+    ],
+    "adc_visits_per_run": 6000,
+    "d3fa": 1,
+    "mode_route": "candidate held controller byte to 3EB D"
+  },
+  "cases": [
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "mode_byte": "01",
+      "trace_digest": "82286e34703a324fc4323221662836047c25e2bc30f0cfc64040fb61a6b3b2a4",
+      "equations_checked": 6000,
+      "distinct_y": 2,
+      "distinct_pre_r13": 4,
+      "distinct_post_r13": 1
+    },
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "mode_byte": "81",
+      "trace_digest": "17ead56ef019caf2dab287c4ed840fa85455e83ede04d34b9e2427ff62f2cf6a",
+      "equations_checked": 6000,
+      "distinct_y": 2,
+      "distinct_pre_r13": 2,
+      "distinct_post_r13": 1
+    },
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "mode_byte": "A1",
+      "trace_digest": "9fdc42024d903d7db37cfb8d5df2ab2aa7d89e3d969bc8df238876da42b47ab7",
+      "equations_checked": 6000,
+      "distinct_y": 2,
+      "distinct_pre_r13": 2,
+      "distinct_post_r13": 1
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "mode_byte": "01",
+      "trace_digest": "712b6616926d01c0333f508c688c68209071c669c83cd09b8a9c989471f785b9",
+      "equations_checked": 6000,
+      "distinct_y": 2,
+      "distinct_pre_r13": 4,
+      "distinct_post_r13": 1
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "mode_byte": "81",
+      "trace_digest": "1269a7f59873f0ec271d99498d98bc730b807d13c9bc8aac82c10ef4f64015a6",
+      "equations_checked": 6000,
+      "distinct_y": 2,
+      "distinct_pre_r13": 2,
+      "distinct_post_r13": 1
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "mode_byte": "A1",
+      "trace_digest": "924d655c0f7878ec20466223032b25b0f92d8994a9652aecf7e118bf1f4fb9f4",
+      "equations_checked": 6000,
+      "distinct_y": 2,
+      "distinct_pre_r13": 2,
+      "distinct_post_r13": 1
+    }
+  ],
+  "mode_summary": {
+    "01": {
+      "eligible_groups": 21,
+      "varying_groups": {
+        "pre_r13": 8
+      },
+      "witnesses": [
+        [
+          {
+            "previous_adc": 60,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 132
+          },
+          {
+            "previous_adc": 61,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 132
+          },
+          {
+            "previous_adc": 175,
+            "pre_r10": 16,
+            "pre_r13": 96,
+            "post_r13": 32,
+            "y": 32,
+            "q": 132
+          },
+          {
+            "previous_adc": 123,
+            "pre_r10": 16,
+            "pre_r13": 96,
+            "post_r13": 32,
+            "y": 32,
+            "q": 132
+          }
+        ],
+        [
+          {
+            "previous_adc": 242,
+            "pre_r10": 16,
+            "pre_r13": 80,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 76,
+            "pre_r10": 16,
+            "pre_r13": 64,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 242,
+            "pre_r10": 16,
+            "pre_r13": 80,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 72,
+            "pre_r10": 16,
+            "pre_r13": 64,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          }
+        ],
+        [
+          {
+            "previous_adc": 130,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 129,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 78,
+            "pre_r10": 16,
+            "pre_r13": 64,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 77,
+            "pre_r10": 16,
+            "pre_r13": 64,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          }
+        ],
+        [
+          {
+            "previous_adc": 84,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 29,
+            "pre_r10": 16,
+            "pre_r13": 96,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 197,
+            "pre_r10": 16,
+            "pre_r13": 80,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 32,
+            "pre_r10": 16,
+            "pre_r13": 96,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          }
+        ]
+      ]
+    },
+    "81": {
+      "eligible_groups": 21,
+      "varying_groups": {
+        "pre_r13": 6
+      },
+      "witnesses": [
+        [
+          {
+            "previous_adc": 242,
+            "pre_r10": 16,
+            "pre_r13": 0,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 76,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 242,
+            "pre_r10": 16,
+            "pre_r13": 0,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 72,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          }
+        ],
+        [
+          {
+            "previous_adc": 130,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 129,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 78,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          },
+          {
+            "previous_adc": 77,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 129
+          }
+        ],
+        [
+          {
+            "previous_adc": 84,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 29,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 197,
+            "pre_r10": 16,
+            "pre_r13": 0,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 32,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          }
+        ],
+        [
+          {
+            "previous_adc": 10,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 242,
+            "pre_r10": 16,
+            "pre_r13": 0,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          },
+          {
+            "previous_adc": 11,
+            "pre_r10": 16,
+            "pre_r13": 16,
+            "post_r13": 32,
+            "y": 32,
+            "q": 136
+          }
+        ]
+      ]
+    },
+    "A1": {
+      "eligible_groups": 21,
+      "varying_groups": {
+        "pre_r13": 4
+      },
+      "witnesses": [
+        [
+          {
+            "previous_adc": 60,
+            "pre_r10": 32,
+            "pre_r13": 16,
+            "post_r13": 48,
+            "y": 48,
+            "q": 132
+          },
+          {
+            "previous_adc": 61,
+            "pre_r10": 32,
+            "pre_r13": 16,
+            "post_r13": 48,
+            "y": 48,
+            "q": 132
+          },
+          {
+            "previous_adc": 175,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 132
+          },
+          {
+            "previous_adc": 123,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 132
+          }
+        ],
+        [
+          {
+            "previous_adc": 130,
+            "pre_r10": 32,
+            "pre_r13": 16,
+            "post_r13": 48,
+            "y": 48,
+            "q": 129
+          },
+          {
+            "previous_adc": 129,
+            "pre_r10": 32,
+            "pre_r13": 16,
+            "post_r13": 48,
+            "y": 48,
+            "q": 129
+          },
+          {
+            "previous_adc": 78,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 129
+          },
+          {
+            "previous_adc": 77,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 129
+          }
+        ],
+        [
+          {
+            "previous_adc": 84,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 136
+          },
+          {
+            "previous_adc": 29,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 136
+          },
+          {
+            "previous_adc": 197,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 136
+          },
+          {
+            "previous_adc": 32,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 136
+          }
+        ],
+        [
+          {
+            "previous_adc": 126,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 132
+          },
+          {
+            "previous_adc": 127,
+            "pre_r10": 32,
+            "pre_r13": 32,
+            "post_r13": 48,
+            "y": 48,
+            "q": 132
+          },
+          {
+            "previous_adc": 128,
+            "pre_r10": 32,
+            "pre_r13": 16,
+            "post_r13": 48,
+            "y": 48,
+            "q": 132
+          }
+        ]
+      ]
+    }
+  },
+  "changed_visits_vs_01": {
+    "81": {
+      "y": 0,
+      "post_q": 0,
+      "pre_r13": 10827,
+      "post_r13": 0
+    },
+    "A1": {
+      "y": 12000,
+      "post_q": 0,
+      "pre_r13": 11107,
+      "post_r13": 12000
+    }
+  },
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_3fa_mode_arithmetic.py": "ff680a13e3beda0d3f1d050a75c1c43bee1017fd20c9c0b5a4066404f5524c0c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/receiver-mask04-3f9-3fa-feature-screen.json": "0076a33e90538f473fd78924929d0f6f11bf2ae96fc4d609aa526901aaa42dfa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_postvisit_state_history.py": "6f53c2f9acfd53f129bab5e62f74da70f81972925d8f66252c0d3708a5a6258e",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  },
+  "limitations": [
+    "The 3EB frame-byte route is a hypothesis, not a traced connection.",
+    "The equations prove this mapped 3FA does not read its B=R13 operand; they do not exclude another mode-dependent circuit.",
+    "Internal state differences are not a demonstrated USART RxD or analog residual."
+  ]
+}

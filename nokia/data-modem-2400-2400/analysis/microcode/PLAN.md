@@ -153,6 +153,16 @@ Q/RAM/Y and post-`3FE` Q/RAM/Y agree in all 21 groups. The direct-mode
 history difference is transient and not visible at the tested Y/Q sites.
 Try a photo-compatible mode or RAM-return route that consumes it before
 overwrite, with matched-input controls. C3/G2 stay open.
+The [held-mode `3FA` arithmetic test](g2/RECEIVER-MASK04-3FA-MODE-ARITHMETIC.md)
+checks all 36,000 `3FA` words on two legal carriers with candidate held
+`3EB` bytes `01`, `81`, and `A1`. The mapped `55/C5` calculation reads
+R10 and D=`01`, writes R13 high, and leaves Q unchanged; old R13 is not
+an operand. Held `81` changes pre-R13 on 10,827/12,000 paired visits
+but never changes `3FA` Y or post-R13. Held `A1` changes Y/post-R13 on
+all 12,000 paired visits through R10, yet matched ADC/phase groups show
+no within-mode Y or Q history variation. Try another photo-compatible
+return/mux timing that puts stored state on A or D before overwrite;
+keep C3/C4/G2 open and the `3EB` frame route assumed.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
