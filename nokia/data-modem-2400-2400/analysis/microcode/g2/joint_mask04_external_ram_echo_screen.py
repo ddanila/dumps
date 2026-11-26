@@ -97,8 +97,8 @@ def run(out=HERE / 'results/joint-mask04-external-ram-echo-screen.json'):
                             external_ram_latch_pc=latch_pc,
                             external_ram_read_pc=read_pc,
                             external_ram_read_offset=-3,
-                            external_ram_write_until=TRAIN_VISITS,
-                            external_ram_address_tick_visits=ticks)
+                            external_ram_write_until=4 * TRAIN_VISITS,
+                            external_ram_address_tick_visits=[4 * tick for tick in ticks])
             result = execute(mapping, scenario, CYCLES,
                              mode='integrated', trace_limit=0)
             memory = result['external_ram_candidate']
@@ -172,7 +172,8 @@ def run(out=HERE / 'results/joint-mask04-external-ram-echo-screen.json'):
                                remote_gain=REMOTE_GAIN, remote_seed=REMOTE_SEED,
                                ram='hypothetical 256x8, low-nibble 3FA or 3F9 Y latch written at 3EC, D0 forced high',
                                read='3FA or 3EB D low nibble from address minus three samples',
-                               freeze='after 128 held ADC samples'),
+                               freeze='after 128 held ADC samples; four 3EC writes per ADC visit',
+                               address_clock='one 3EA tick per held ADC sample; four 3EA visits per ADC visit'),
                   cases=rows, y3fa_code_space_comparisons=comparisons,
                   y_by_pc_code_space_comparisons=comparisons_by_pc,
                   limitations=[

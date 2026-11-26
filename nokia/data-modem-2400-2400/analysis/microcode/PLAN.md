@@ -307,11 +307,14 @@ uses a sample-paced counter, write/freeze gate and three-sample low-nibble
 readback with zero, own echo, independent remote and mixed controls.
 The `3FA` low-nibble latch stores only the initial `01` byte. A `3F9`
 low-nibble latch stores changing bytes and alters the PROM trace without
-loop exit, but its late mixed-minus-remote `Y3FA` response equals the
-no-feedback control rather than attenuating. Treat this as a negative
-result for that candidate output and timing, not for echo cancellation
-generally; test another photo-compatible output or mode-qualified return
-under the same controls.
+loop exit. Correcting the four-row address-clock and write-gate counts
+shows delayed `3FA` changes in the common zero tail, but the late
+mixed-minus-remote `Y3FA` code difference grows from 0.439 to 6.065
+instead of attenuating. The [matched-tail RAM pulse](g2/JOINT-MASK04-RAM-PULSE-FREEZE.md)
+isolates one changed byte and a delayed `3FA` response at either three
+or sixteen samples. These establish a conditional memory route, not
+echo cancellation. Test another photo-compatible output or mode-qualified
+return under the same controls; keep C4 and G2 active.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
@@ -1357,15 +1360,14 @@ not a measured line residual or a rejection of external echo RAM.
 Try another photo-compatible RAM return/output or controller mode path
 with the same own-echo, remote and zero controls; keep C4 open and G2
 active without waiting for a pin-level trace.
-The [expanded four-row RAM screen](g2/JOINT-MASK04-EXTERNAL-RAM-ECHO-SCREEN.md#other-executed-outputs-and-an-earlier-ram-return)
-now checks all three visited Y sites and a second low-nibble return at
-`3EB`. With `3FA` return, the RAM changes only early `Y3FA`; late
-own-echo and remote response is identical to no-feedback at `Y3F8`,
-`Y3F9` and `Y3FA`. With `3EB` return, all four stimuli sustain the
-receive loop and changed RAM bytes are read, but complete PROM trace
-digests match their no-feedback controls. The changed `3EB` D byte is
-selected by the ALU yet leaves F/Y unchanged in a differential trace.
-These two low-nibble routes do not demonstrate echo cancellation. Try a
+The corrected [four-row RAM screen](g2/JOINT-MASK04-EXTERNAL-RAM-ECHO-SCREEN.md)
+accounts for four `3EA` address opportunities and four `3EC` writes per
+ADC visit; its earlier claimed sample-paced timing was invalid. With
+`3F9` latch and `3FA` return, all four stimuli sustain the receive loop,
+and frozen RAM affects `3FA` in the common tail. `3F8` and `3F9` stay
+unchanged, while the late `3FA` own-echo proxy grows rather than shrinks.
+With `3EB` return, complete PROM trace digests still match no-feedback
+controls. These routes do not demonstrate echo cancellation. Try a
 mode-qualified or differently timed return, high-nibble route or a
 distinct output latch with the same controls; C4 stays open and G2 active.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
