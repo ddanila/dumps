@@ -115,6 +115,15 @@ and up to three wrong; the margin selector also fails. Do not generalize
 the nominal controller handoff to altered input levels. Seek an executed
 gain/midpoint or adaptive decision state and test it on fresh fixtures;
 continue C2/C4 work in parallel with this open C3 question.
+The [phase-47 state probe](g2/JOINT-MASK04-RX-STATE-LEVEL-PROBE.md)
+replays the exact nominal and +16-biased, 0.75-gain call receive traces
+and records all modeled Am2901 RAM bytes and Q at each symbol. R0, R1,
+R12 and Q differ on 24/64 symbols; the other 13 RAM bytes stay fixed at
+this site, and R1 equals row-3 Y on every capture. The previously frozen
+phase-47 Boolean readout makes 11/63 errors at each level on the joined
+waveform. These results do not identify an AGC/decision state; inspect
+other visits or an external latch path before proposing a new adaptive
+rule, while keeping C3 active.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)
