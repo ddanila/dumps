@@ -68,6 +68,14 @@ Use a photo-compatible post-`12A` data-capture hypothesis, or independently
 constrain CLK/data timing; a pre-edge latch does not establish this
 ROM-sensitive output path. The uncertain clock is a testable assumption,
 not a G2 blocker.
+The [two-bit `12A` PROM-gate replay](g2/JOINT-MASK04-TX-12A-GATE.md)
+supplies a concrete alternative clock hypothesis: `U11.D0 & U17.D1`
+is high only at `12A` among all 39 PCs reached in the full call and answer
+transmitter runs, so a NAND rises at `12A→127`. A latch on that edge can
+capture settled `12A` Y if the PROM gate changes before the next ALU Y;
+the paired bank run has 221 changed bytes on 1,013 observed edges.
+Test the counter-qualified edge with explicit gate/Y delay ordering and
+the six DAC buses. Keep the untraced wiring as an assumption, not a blocker.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
