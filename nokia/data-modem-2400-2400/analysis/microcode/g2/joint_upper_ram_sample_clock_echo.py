@@ -30,9 +30,11 @@ SAMPLES = TRAIN_SAMPLES + TAIL_SAMPLES
 TRAIN_VISITS = TRAIN_SAMPLES * 375 // 2
 VISITS = SAMPLES * 375 // 2
 CYCLES = 8 * VISITS + 47
-ROUTES = (('trained_no_feedback', False, 0),
-          ('read_previous_3_samples', True, -3),
-          ('read_previous_64_samples', True, -64))
+ROUTES = (('trained_no_feedback', False, 0, 'low'),
+          ('read_previous_3_samples', True, -3, 'low'),
+          ('read_previous_64_samples', True, -64, 'low'),
+          ('read_previous_3_samples_high', True, -3, 'high'),
+          ('read_previous_64_samples_high', True, -64, 'high'))
 
 
 def sample_starts():
@@ -77,11 +79,11 @@ def run(out=HERE / 'results/joint-upper-ram-sample-clock-echo.json'):
         offered = hold([127 - x for x in samples])
         if len(offered) != VISITS:
             raise ValueError('ADC held visits changed')
-        for name, feedback, offset in ROUTES:
+        for name, feedback, offset, lane in ROUTES:
             scenario = scenario_for_full_byte(base, offered, 'complementary')
             scenario.update(external_ram_feedback=feedback,
                             external_ram_write=True,
-                            external_ram_lane='low',
+                            external_ram_lane=lane,
                             external_ram_latch_pc=0x3FA,
                             external_ram_read_pc=0x3FA,
                             external_ram_read_offset=offset,
@@ -122,7 +124,7 @@ def run(out=HERE / 'results/joint-upper-ram-sample-clock-echo.json'):
             control_y = observations[(row['stimulus'], 'trained_no_feedback')][pc]
             test_y = observations[(row['stimulus'], row['route'])][pc]
             zero_y = observations[('zero', row['route'])][pc]
-            if len(control_y) == VISITS and len(test_y) == VISITS:
+            if len(control_y) == VISITS and len(test_y) == VISITS and len(zero_y) == VISITS:
                 row['tail_y_differences_vs_control'][key] = sum(
                     a != b for a, b in zip(control_y[TRAIN_VISITS:],
                                              test_y[TRAIN_VISITS:]))
@@ -161,7 +163,7 @@ def run(out=HERE / 'results/joint-upper-ram-sample-clock-echo.json'):
                                address='increment at each held ADC sample start',
                                ram='256x8, initial 01; write 3FA low-nibble Y at 3EC',
                                freeze=f'after {TRAIN_VISITS} writes',
-                               read='3FA low-nibble D, 0/-3/-64 address offset',
+                               read='3FA low or high D nibble, -3/-64 address offset',
                                echo_gain=ECHO_GAIN, echo_delay=ECHO_DELAY,
                                remote_gain=REMOTE_GAIN, remote_seed=REMOTE_SEED),
                   cases=cases,

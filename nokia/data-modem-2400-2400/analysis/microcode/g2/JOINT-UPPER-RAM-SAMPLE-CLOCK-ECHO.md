@@ -5,8 +5,8 @@ counter tick on every receive-loop visit. This [PROM replay](joint_upper_ram_sam
 instead advances the assumed RAM address once per held ADC sample:
 alternating 188 and 187 loop visits per sample. It writes the low nibble
 of `3FA` Y to a candidate 256×8 RAM bank at `3EC`, freezes after 128
-training samples, and reads a previous address's low nibble back into
-`3FA` D. Two read offsets, three and 64 samples, represent distinct
+training samples, and reads a previous address's low or high nibble
+back into `3FA` D. Two read offsets, three and 64 samples, represent distinct
 untraced address-mux possibilities. The no-feedback control still trains
 and freezes the RAM.
 
@@ -15,10 +15,10 @@ stream, and candidate own echoes from each of the controller's `40`
 and `60` transmit streams. The latter use the existing hash-checked
 real-PROM DAC-code candidates, with an assumed three-sample delay and
 half gain. All inputs then receive the same 64 zero-amplitude samples.
-Every one of the 12 runs completes 36,000 ADC visits without a loop
-exit, and every RAM writes exactly 24,000 times before freezing.
+All 12 no-feedback and low-nibble runs complete 36,000 ADC visits
+without a loop exit, and each writes exactly 24,000 times before freezing.
 
-The RAM return changes executed `3FA` Y during the common tail, but
+The low-nibble RAM return changes executed `3FA` Y during the common tail, but
 does not change `3F8` or `3F9` Y relative to each same-input
 no-feedback control. The number of changed `3FA` tail visits is:
 
@@ -40,7 +40,16 @@ same-route zero run during training is:
 | Own echo, `40` | 6.225 | 8.074 | 7.020 |
 | Own echo, `60` | 6.259 | 8.162 | 7.040 |
 
-Neither tested RAM offset reduces this proxy response to own echo.
+Neither tested low-nibble RAM offset reduces this proxy response to own echo.
+The high-nibble route was challenged on the same four stimuli. With a
+three-sample read lag it exits the loop after 1,130–1,689 ADC visits.
+With a 64-sample lag, zero input alone completes all 36,000 visits;
+remote exits after 22,881 and both own-echo streams after 13,502.
+Its first changed return is `21` from RAM address 1 in every case.
+These input-dependent exits reject the two high-nibble routes as
+continuous receivers under this fixture; a short initial loop run
+would have missed them.
+
 The result constrains this particular sample-clocked, `3FA`-return,
 freezing fixture; it is **not** an analog line-residual measurement.
 The RAM address clock, read offset, write gate, D0 forcing, DAC/ADC

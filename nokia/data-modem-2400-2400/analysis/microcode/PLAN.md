@@ -1030,10 +1030,15 @@ compare controller-derived own echo, independent remote and zero-input
 training with a frozen write gate and no-feedback control. Keep C4 open.
 The [sample-clocked echo replay](g2/JOINT-UPPER-RAM-SAMPLE-CLOCK-ECHO.md)
 now runs that comparison for 128 held ADC samples and a common 64-sample
-zero tail. All 12 PROM runs sustain 36,000 receive visits. Frozen RAM
-feedback changes `3FA` Y under own echo, remote and even zero training;
-three- and 64-sample read offsets both increase, rather than attenuate,
-the tested own-echo `3FA` Y difference from a same-route zero run.
+zero tail. All 12 no-feedback/low-nibble PROM runs sustain 36,000 receive
+visits. Frozen low-nibble RAM feedback changes `3FA` Y under own echo,
+remote and even zero training; three- and 64-sample read offsets both
+increase, rather than attenuate, the tested own-echo `3FA` Y difference
+from a same-route zero run. Two high-nibble `3FA` return routes were also
+run: the three-sample lag exits under all four inputs, while the
+64-sample lag survives only zero input and exits under remote and both
+own-echo inputs. Thus neither tested nibble/offset is a sustained,
+selective echo path across these controls.
 This is a negative result for that code-space proxy and wiring fixture,
 not a measured line residual or a rejection of external echo RAM.
 Try another photo-compatible RAM return/output or controller mode path
