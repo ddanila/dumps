@@ -265,6 +265,18 @@ neither yields full line bytes or a controller handoff. This rejects
 that late-clock fixture as a complete explanation. Next test a
 photo-compatible timing or multi-visit consumer and freeze it before
 fresh data; do not treat the untraced latch edge as a G2 blocker.
+The [phase-logic test](g2/JOINT-MASK04-12A-PHASE-LOGIC.md) replaces the
+91-key interpretation with a stronger DPSK constraint. Across 896
+labelled development transitions, 18 observed six-bit states admit one
+connected four-phase assignment under only two mirror-image dibit
+conventions. A frozen phase-difference decoder matches all 12
+third-payload holdouts at offsets 32/96 and 75/100/125% gain, 64/64
+dibits each. Separately minimized Boolean covers use three terms per
+phase bit and also matches those holdouts, but treats 46 unseen states
+as don't-cares. At the one-visit-late edge it makes 19 call and 21
+answer errors, rejecting that clock for the compact circuit. Test a
+fresh unseen-state stimulus and compare the frozen logic with
+photo-compatible latch/gate routes; C3 remains open.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
