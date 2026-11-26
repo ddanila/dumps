@@ -67,6 +67,15 @@ current one. These outputs expose quantized input samples; a dibit decoded
 externally from them is not yet an executed microprogram decision. The
 `3F9` ROM read and retained Q/RAM updates still merit a downstream-output
 test before naming a receive-demodulation routine or passing C3.
+The [three-phase `3F9`/`3FA` capture](../g2/JOINT-MASK04-RECEIVE-3F9-3FA-CODEBOOK.md)
+now tests their executed Y bytes at all 9,000 visits of three legal
+rotated-carrier streams. Both execute once per ADC visit, and each Y byte
+is single-valued by the current ADC high nibble across all sixteen codes
+and 110 observed adjacent-sample pairs. `3F9` has 15 output values;
+`3FA` has only `20`/`21`. This observed route is an input-sample
+recoding, not evidence that either word emits a received bit. The
+transient Q/RAM, external feedback and downstream physical route remain
+open C3 candidates.
 The [matched-tail impulse test](../g2/JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md)
 adds a time limit to that statement: under the tested four-row `D3EB=01`
 fixture, one changed ADC high nibble affects Q/RAM and intermediate Y

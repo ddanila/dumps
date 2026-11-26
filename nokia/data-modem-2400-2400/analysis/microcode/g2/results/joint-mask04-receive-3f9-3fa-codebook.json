@@ -1,0 +1,171 @@
+{
+  "experiment": "once-per-visit 3F9/3FA Y dependence on current and previous ADC nibble",
+  "fixture": {
+    "dibits": [
+      3,
+      1,
+      0,
+      2,
+      3,
+      2,
+      1,
+      0
+    ],
+    "degrees": [
+      0,
+      45,
+      90
+    ],
+    "adc_visits_per_case": 3000,
+    "cycles_per_case": 96047,
+    "adc": "complementary legal reference PCM, 47/46 held visits"
+  },
+  "cases": [
+    {
+      "degrees": 0,
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "trace_digest": "f6fb964a6ec32323bb2a2ed1444163947df213e04d0ef34c2984cf2f2ef23606",
+      "visit_y_sha256": "c13ae59022e5eba18f757521cdb0c363b78658b70ae30c7861a18afc96552ec9",
+      "cycles": 96047
+    },
+    {
+      "degrees": 45,
+      "adc_sha256": "c9c168e299803a10da172d0a1d55b34ea483640d3d290ad7d2bced5741d028e4",
+      "trace_digest": "1750e25f9d52a273ce5856c15a89f3e45e3e86ebf9c88e6db30856840119fa76",
+      "visit_y_sha256": "c07a4709d476092cdfd2feabbfbf94367e353cc91132aa941311832bada88079",
+      "cycles": 96047
+    },
+    {
+      "degrees": 90,
+      "adc_sha256": "a02e3f9276a0669ae948c8456014dfe5c65795efc8d1272b9998ab98cd6ac0f1",
+      "trace_digest": "17a54884116530ab140ae055888be263dc18c41102c474c94a764ad0e6de2efb",
+      "visit_y_sha256": "aaa77dbe65dfeb0455c1d71e8c20f092530ef4ca7b392d8b890d4c588e1d3dfc",
+      "cycles": 96047
+    }
+  ],
+  "codebooks": {
+    "3F9": {
+      "distinct_values": 15,
+      "current_nibbles": 16,
+      "observed_adjacent_pairs": 110,
+      "max_values_per_current": 1,
+      "current_conflicts": 0,
+      "max_values_per_pair": 1,
+      "pair_conflicts": 0,
+      "values_by_current": {
+        "0": [
+          "4E"
+        ],
+        "1": [
+          "78"
+        ],
+        "2": [
+          "94"
+        ],
+        "3": [
+          "9F"
+        ],
+        "4": [
+          "37"
+        ],
+        "5": [
+          "30"
+        ],
+        "6": [
+          "18"
+        ],
+        "7": [
+          "28"
+        ],
+        "8": [
+          "2F"
+        ],
+        "9": [
+          "31"
+        ],
+        "A": [
+          "24"
+        ],
+        "B": [
+          "1E"
+        ],
+        "C": [
+          "1B"
+        ],
+        "D": [
+          "31"
+        ],
+        "E": [
+          "2D"
+        ],
+        "F": [
+          "2B"
+        ]
+      }
+    },
+    "3FA": {
+      "distinct_values": 2,
+      "current_nibbles": 16,
+      "observed_adjacent_pairs": 110,
+      "max_values_per_current": 1,
+      "current_conflicts": 0,
+      "max_values_per_pair": 1,
+      "pair_conflicts": 0,
+      "values_by_current": {
+        "0": [
+          "20"
+        ],
+        "1": [
+          "20"
+        ],
+        "2": [
+          "20"
+        ],
+        "3": [
+          "20"
+        ],
+        "4": [
+          "20"
+        ],
+        "5": [
+          "20"
+        ],
+        "6": [
+          "21"
+        ],
+        "7": [
+          "20"
+        ],
+        "8": [
+          "20"
+        ],
+        "9": [
+          "20"
+        ],
+        "A": [
+          "20"
+        ],
+        "B": [
+          "21"
+        ],
+        "C": [
+          "21"
+        ],
+        "D": [
+          "20"
+        ],
+        "E": [
+          "20"
+        ],
+        "F": [
+          "20"
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Observed codebooks are limited to three legal waveforms and the direct D3EB=01 mask04 fixture.",
+    "A single-valued output by ADC nibble does not imply an actual board latch or received-bit decision.",
+    "A current/previous-pair codebook does not rule out longer history outside these streams."
+  ]
+}

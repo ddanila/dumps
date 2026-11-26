@@ -251,11 +251,18 @@ on all 47 affected visits, but all 3,000 assumed U12 row-pair captures,
 `3ED` Y, Q and post-visit RAM agree. The candidate U12-only stream loses
 this input distinction; a longer history of that same stream cannot
 recover it. The artificial pulses are not a legal dibit challenge, so
-do not infer that all modem data are lost. Next test a photo-compatible
-`3F9`/`3FA` latch on these matched inputs and legal rotated carriers,
-then seek a causal symbol decision and controller/USART route. The direct
-`3F8` Y nibble merely copies quantized ADC data. Keep candidate wiring
-labelled, C3 open and G2 active.
+do not infer that all modem data are lost.
+The [executed `3F9`/`3FA` codebook](g2/JOINT-MASK04-RECEIVE-3F9-3FA-CODEBOOK.md)
+tests that route on three legal streams at 0°, 45° and 90°. Each site
+executes once per ADC visit, while `3ED` executes four times. Across
+9,000 visits, `3F9` has 15 values and `3FA` only `20/21`; both are
+single-valued by the current ADC high nibble over 110 observed adjacent
+sample pairs. Thus these Y taps expose current-sample recodings in this
+fixture, not an observed received-bit decision or carrier-history state.
+Next test the transient Q/RAM or mode/feedback route at actual symbol
+transitions, then follow any candidate bit to controller/USART RxD. The
+direct `3F8` Y nibble merely copies quantized ADC data. Keep candidate
+wiring labelled, C3 open and G2 active.
 The [held controller-mode impulse](g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 now repeats the varying-waveform pulse under candidate `3EB` D bytes
 `01`, `81` and `A1`. Nine real-PROM runs complete the same PC path;
