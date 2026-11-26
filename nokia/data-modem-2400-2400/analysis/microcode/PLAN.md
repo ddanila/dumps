@@ -104,6 +104,18 @@ positions have all three pairs unknown. Capture another executed
 feature such as `3F9`/`3FA` Y at these windows, train its rule on
 independent legal streams, and retest the held-out loopback. Missing
 photo continuity does not block that experiment or relax C3.
+The [independent `3F9`/`3FA` feature screen](g2/RECEIVER-MASK04-3F9-3FA-FEATURE-SCREEN.md)
+tests 36 small transition features on six legal rotated-carrier runs.
+A frozen 16-key `3F9` Y4/Y5 rule at visits 46/93 fits 24/24 training
+dibits and makes no known errors but 16 unknowns among 48 independent
+holdout dibits. The [buffered-line gap test](g2/JOINT-MASK04-12A-3F9-GAP-TEST.md)
+then reruns the ROM-sensitive DAC→ADC path with matching trace/PCM hashes;
+the frozen rule makes 3 call and 7 answer errors, leaves 24 unknowns
+in each mode, and rescues none of the previously unanswerable gaps.
+Inspect ADC quantization and `3F9`/`3FA` keys at those gaps, then test
+a photo-compatible gain/phase or multi-sample circuit on fresh data.
+This result rejects only that fixed lookup under its declared fixture;
+C3 and G2 remain open.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
