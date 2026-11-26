@@ -216,9 +216,19 @@ affect `3F8`/`3F9`/`3FA` Y and Q/R1 (plus R12 on the varying stream)
 for exactly the 47 held visits, then all captured channels reconverge
 on the first restored-input visit. Low-nibble changes leave captured
 state and executor trace digests identical. This four-row `D3EB=01`
-fixture shows no tested cross-sample
-memory; try a labelled mode-qualified or external-RAM feedback route
+fixture shows no tested cross-sample memory; try a labelled mode-qualified
+or external-RAM feedback route
 with matched-prefix/common-tail controls. C3/C4 remain open, G2 active.
+The [held controller-mode impulse](g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
+now repeats the varying-waveform pulse under candidate `3EB` D bytes
+`01`, `81` and `A1`. Nine real-PROM runs complete the same PC path;
+the `01` controls hash-match the prior experiment. Each high-nibble
+pulse changes intermediate Y/Q/R1 for only its 47 held visits, with
+zero captured differences after input rejoins. Low-nibble controls
+leave captured state and executor trace digests unchanged. The observed
+controller bytes do not create memory on this direct lane in the tested
+mode, so try a photo-compatible external-RAM, mode-gated or alternate
+input/output route rather than treating this as a C3/C4 pass or blocker.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.

@@ -73,6 +73,11 @@ fixture, one changed ADC high nibble affects Q/RAM and intermediate Y
 only during its held sample. The first identical-input ADC visit after
 the pulse has no captured difference, on either a constant or varying
 waveform. No cross-sample memory is demonstrated on this route.
+Holding the controller's observed `81` or `A1` frame byte at the
+[candidate `3EB` D input](../g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
+also leaves no post-pulse captured difference on the varying waveform.
+That constrains the direct frame-byte lane, not an untraced external
+RAM return or a different mode gate.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127
