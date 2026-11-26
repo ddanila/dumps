@@ -96,6 +96,14 @@ ROM-sensitive route. Develop a new receiver readout on independent data
 and retest here; constrain the call-line decision and physical DAC route.
 C2/C3 stay open, and these incomplete connections remain runnable
 assumptions rather than goal blockers.
+The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
+shows why selecting among the three frozen capture pairs cannot repair
+that handoff: no pair supplies a correct known dibit at call data
+indices `8,14,29` or answer indices `10,12,13,17,31`; four of those
+positions have all three pairs unknown. Capture another executed
+feature such as `3F9`/`3FA` Y at these windows, train its rule on
+independent legal streams, and retest the held-out loopback. Missing
+photo continuity does not block that experiment or relax C3.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
