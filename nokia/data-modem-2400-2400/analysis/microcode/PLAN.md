@@ -177,6 +177,14 @@ happens to assign 0. Do not promote the two-term fix to C3. Test a
 richer photo-compatible state/timing input against both low- and
 high-gain fixtures, then challenge a frozen route on fresh real-PROM
 data. C3/G2 stay active.
+The [adjacent-visit low-gain replay](g2/JOINT-MASK04-12A-LOWGAIN133-EXPANDED-VISITS.md)
+preserves the failed real-PROM traces while adding visits `47`, `94`
+and `141`. All six `1D` occurrences give `3F8` Y=`4F` at visit `94`;
+visit-`141` row Y=`9F` also occurs in 24 opposite-bit symbols, and its
+`3F8` Y varies within `1D`. This identifies a timing feature to test,
+not a new physical decoder. Capture visit `94` on the older mode-1
+controls before designing a frozen consumer, then challenge fresh
+carrier/gain data. Keep C3/G2 open.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

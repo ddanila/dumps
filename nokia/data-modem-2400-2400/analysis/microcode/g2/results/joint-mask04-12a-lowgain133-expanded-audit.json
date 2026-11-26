@@ -1,0 +1,129 @@
+{
+  "experiment": "adjacent-visit signature of unseen state 1D",
+  "fixture": {
+    "carrier_offset": 133,
+    "gain_factor": 0.8,
+    "selectors": [
+      "40",
+      "60"
+    ],
+    "target_count": 6,
+    "opposite_phase_bit_symbols": 38
+  },
+  "fields": {
+    "46/row0": {
+      "target_values": {
+        "A0": 6
+      },
+      "opposite_phase_bit_values": {
+        "9E": 14,
+        "9F": 24
+      },
+      "exact_value_overlap": {}
+    },
+    "46/y3f8": {
+      "target_values": {
+        "BF": 6
+      },
+      "opposite_phase_bit_values": {
+        "5F": 14,
+        "9F": 24
+      },
+      "exact_value_overlap": {}
+    },
+    "47/row0": {
+      "target_values": {
+        "A0": 6
+      },
+      "opposite_phase_bit_values": {
+        "9E": 14,
+        "9F": 24
+      },
+      "exact_value_overlap": {}
+    },
+    "47/y3f8": {
+      "target_values": {
+        "BF": 6
+      },
+      "opposite_phase_bit_values": {
+        "2F": 14,
+        "AF": 24
+      },
+      "exact_value_overlap": {}
+    },
+    "93/row0": {
+      "target_values": {
+        "A0": 6
+      },
+      "opposite_phase_bit_values": {
+        "9F": 38
+      },
+      "exact_value_overlap": {}
+    },
+    "93/y3f8": {
+      "target_values": {
+        "BF": 6
+      },
+      "opposite_phase_bit_values": {
+        "2F": 14,
+        "AF": 24
+      },
+      "exact_value_overlap": {}
+    },
+    "94/row0": {
+      "target_values": {
+        "A0": 6
+      },
+      "opposite_phase_bit_values": {
+        "9F": 38
+      },
+      "exact_value_overlap": {}
+    },
+    "94/y3f8": {
+      "target_values": {
+        "4F": 6
+      },
+      "opposite_phase_bit_values": {
+        "8F": 14,
+        "AF": 24
+      },
+      "exact_value_overlap": {}
+    },
+    "141/row0": {
+      "target_values": {
+        "9F": 6
+      },
+      "opposite_phase_bit_values": {
+        "91": 14,
+        "9F": 24
+      },
+      "exact_value_overlap": {
+        "9F": 24
+      }
+    },
+    "141/y3f8": {
+      "target_values": {
+        "3F": 4,
+        "4F": 2
+      },
+      "opposite_phase_bit_values": {
+        "5F": 15,
+        "6F": 9,
+        "AF": 8,
+        "CF": 6
+      },
+      "exact_value_overlap": {}
+    }
+  },
+  "limitations": [
+    "These are emulator capture values under an assumed ADC and clock; no physical latch edge is identified.",
+    "The opposite-bit comparison covers this low-gain fixture, not all saved mode-1 labels.",
+    "A unique byte in this capture is not a validated physical discriminator or a new receiver circuit."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_lowgain133_expanded_audit.py": "fc6afaada9944b510acd6a9665b93f7b8e8e37ac190e2e56da1a46a627d25782",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-lowgain133-expanded-visits.json": "6c34a41ad8bc402d904adcfed73295636e772d74567a3fa7cd2f1cbfd1d08e3f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_lowgain133_expanded_visits.py": "6a4e1e50665a14500e6d7c6aebd8f3322f0487f121e0eaf4c58fd7ff2062b9ed",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto.py": "a6ceaca1ee003b20bd6c09d4556c7312a4536211d8dbcd833603c2df9666ea55"
+  }
+}
