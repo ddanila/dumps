@@ -30,17 +30,25 @@ of unrelated line streams.
 
 Under this explicit mode and input route, the active ROM and Q/RAM
 arithmetic responds to the current ADC high nibble but shows **no
-cross-sample memory** for either single-sample perturbation. That is a
-substantial limit on interpreting this four-row path as a complete
+persistent difference at these capture points** after the next ADC
+visit. That is a substantial limit on interpreting this four-row path as a complete
 demodulator or echo canceller. It does not reject an unmodeled external
 RAM return, mode-qualified training path, different TEST/dispatch lane,
 or an output not captured here. No received bit reaches USART-01 in this
 test; C3/C4 and G2 remain open and active.
 
-Next, run a photo-compatible external RAM or mode-control hypothesis with
-write-enabled training and frozen readback, using the same matched-prefix
-and common-tail controls. Require a persistent or selectively attenuated
-downstream state before treating a candidate path as receive/echo work.
+The later [full-cycle differential trace](JOINT-MASK04-RECEIVE-PULSE-CARRYOVER.md)
+checks the unobserved words and corrects the broader inference: for 21
+microinstructions before the next identical ADC byte is selected, Y,
+Q, register writes and ROM reads still carry the previous sample's
+effect. Full modeled state rejoins two cycles after the next `3F8` read.
+Thus this fixture has a brief previous-sample window, although it has
+no persistent post-visit pulse state at the captured sites.
+
+The subsequent [RAM return](JOINT-MASK04-RAM-PULSE-FREEZE.md) tests
+longer modeled history. For C3, seek a photo-compatible consumer of the
+brief pre-`3F8` window and require a recovered bit to reach USART-01;
+for C4, require a selectively attenuated residual under echo controls.
 
 Run `python3 g2/joint_mask04_receive_impulse_memory.py` from the
 microcode directory. The [machine report](results/joint-mask04-receive-impulse-memory.json)

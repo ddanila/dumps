@@ -1,8 +1,11 @@
 # Observed controller mode bytes do not add impulse memory at direct D3EB
 
 The [matched-tail ADC impulse](JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md)
-found no cross-sample state memory with the receive wrapper's assumed
-`D3EB=01`. The controller actually emits frame bytes `81` and `A1`
+found no persistent post-visit difference at its selected capture
+points with the receive wrapper's assumed `D3EB=01`. A later
+[full-word trace](JOINT-MASK04-RECEIVE-PULSE-CARRYOVER.md) finds brief
+pre-`3F8` carryover in that `01` case. The controller actually emits
+frame bytes `81` and `A1`
 around the A3→A4 boundary. This test offers each byte as a **held,
 hypothetical direct D input at `3EB`**, alongside `01`, to ask whether
 that mode choice changes the impulse response. It does not assert the

@@ -219,9 +219,17 @@ affect `3F8`/`3F9`/`3FA` Y and Q/R1 (plus R12 on the varying stream)
 for exactly the 47 held visits, then all captured channels reconverge
 on the first restored-input visit. Low-nibble changes leave captured
 state and executor trace digests identical. This four-row `D3EB=01`
-fixture shows no tested cross-sample memory; try a labelled mode-qualified
+fixture shows no persistent post-visit difference at the captured sites;
+try a labelled mode-qualified
 or external-RAM feedback route
 with matched-prefix/common-tail controls. C3/C4 remain open, G2 active.
+The [full-word pulse trace](g2/JOINT-MASK04-RECEIVE-PULSE-CARRYOVER.md)
+corrects that broad wording: the selected capture points rejoin, but
+14 ALU results, six Q rows and four ROM reads differ during the 21
+microinstructions before the next identical ADC byte reaches `3F8`.
+The complete modeled state rejoins at the following `3FA` word.
+Search for a photo-compatible consumer of this short previous-sample
+window; it is not itself a received-bit decision or C3 pass.
 The [held controller-mode impulse](g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 now repeats the varying-waveform pulse under candidate `3EB` D bytes
 `01`, `81` and `A1`. Nine real-PROM runs complete the same PC path;

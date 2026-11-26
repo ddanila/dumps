@@ -70,9 +70,14 @@ test before naming a receive-demodulation routine or passing C3.
 The [matched-tail impulse test](../g2/JOINT-MASK04-RECEIVE-IMPULSE-MEMORY.md)
 adds a time limit to that statement: under the tested four-row `D3EB=01`
 fixture, one changed ADC high nibble affects Q/RAM and intermediate Y
-only during its held sample. The first identical-input ADC visit after
-the pulse has no captured difference, on either a constant or varying
-waveform. No cross-sample memory is demonstrated on this route.
+at the selected capture points only during its held sample. The first
+identical-input ADC visit after the pulse has no captured difference,
+on either a constant or varying waveform. The
+[full-word differential trace](../g2/JOINT-MASK04-RECEIVE-PULSE-CARRYOVER.md)
+finds a shorter history window that the captures missed: 21 executed
+words before the next `3F8` read still differ in Y, Q, register writes
+or ROM reads; the whole state rejoins at the next `3FA` word. This is
+previous-sample carryover, not a retained symbol decision.
 Holding the controller's observed `81` or `A1` frame byte at the
 [candidate `3EB` D input](../g2/JOINT-MASK04-RECEIVE-MODE-IMPULSE.md)
 also leaves no post-pulse captured difference on the varying waveform.
