@@ -34,7 +34,7 @@ def instrumented_execute():
          "    external_loop_visits=0\n"
          "    external_ticks=(set(scenario['external_ram_address_tick_visits']) "
          "if 'external_ram_address_tick_visits' in scenario else None)\n"
-         "    external_y={0x3F8:[],0x3F9:[],0x3FA:[]}"),
+         "    external_y={0x3F8:[],0x3F9:[],0x3FA:[],0x3FC:[],0x3FD:[]}"),
         ("            carry=carry_input.resolve(r)",
          "            if pc==scenario.get('external_ram_read_pc',0x3EB) and scenario.get('external_ram_feedback'):\n"
          "                lane=scenario.get('external_ram_lane','high')\n"

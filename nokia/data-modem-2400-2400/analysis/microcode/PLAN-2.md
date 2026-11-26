@@ -1929,6 +1929,11 @@ Listed in order of value per effort:
   changes the following `3FD` ROM calculation on both legal streams while
   sustaining the loop. Test that new output site on the four echo controls;
   the changed state still rejoins and does not yet prove cancellation.
+  The [four-input `3FD` replay](g2/JOINT-MASK04-RAM-CARRY-3FD-ECHO-SCREEN.md)
+  finds input-sensitive delayed codes, but their own-echo and
+  mixed-versus-remote contrasts both rise from early to late training at
+  every fixed sample latch phase. The frozen effect lasts only the first
+  three zero-tail samples under this three-sample RAM lag.
   No tested RAM output is yet a measured or selectively falling echo residual.
 
 ## 3. Acceptance for G2

@@ -1,0 +1,921 @@
+{
+  "experiment": "3FC RAM return: 3FD own-echo/remote output challenge",
+  "fixture": {
+    "condition": "previous carry, polarity 1",
+    "ram": "3F9 Y high nibble -> sample-paced RAM -> -3 sample 3FC D high nibble",
+    "output": "executed 3FD Y, with one 3FD visit per ADC visit",
+    "controls": "same-input write-only; own echo; remote; mixed; zero",
+    "train_samples": 128,
+    "tail_samples": 64,
+    "visits": 9000,
+    "cycles": 288047
+  },
+  "cases": [
+    {
+      "stimulus": "zero",
+      "route": "write_only",
+      "adc_sha256": "53641a2250ea360eaa29dcc786ecf422a0bb7be25249081e8aef488a012deb4a",
+      "trace_digest": "aa4b37bcaf694e2ecd89990f6b09ea078213e084bdd29ecb249e37a000cc74cc",
+      "y3fd_sha256": "cf178ea6794f6fe4ea17bc02d41d8387faa8433cc14c46263f534507e6a1ffc6",
+      "ram_sha256": "06e6da0dfedc51a0b7443f29c5c3fff63ee1782a17b7c7808440a2057b593084",
+      "writes": 24000,
+      "reads": 0,
+      "samples_with_within_sample_y_change": 0
+    },
+    {
+      "stimulus": "zero",
+      "route": "high_return_3fc",
+      "adc_sha256": "53641a2250ea360eaa29dcc786ecf422a0bb7be25249081e8aef488a012deb4a",
+      "trace_digest": "869ccf4830038ab589027c92804955d4327b23a41db4fd55925181f9d3530089",
+      "y3fd_sha256": "965da1d96b6335732f95168c6d92e70db27b11e2cba40c0057ffbe5301b102a9",
+      "ram_sha256": "06e6da0dfedc51a0b7443f29c5c3fff63ee1782a17b7c7808440a2057b593084",
+      "writes": 24000,
+      "reads": 9000,
+      "samples_with_within_sample_y_change": 0,
+      "tail_changes_vs_control": 141
+    },
+    {
+      "stimulus": "own_echo",
+      "route": "write_only",
+      "adc_sha256": "8ba936575f42f975efba3862716309727c677f62c29ca284cb02349e0c0691f8",
+      "trace_digest": "d00c6d49082d76d39519746d4c48a98d944e8d4edd3856f1005739a1e8f1fe2a",
+      "y3fd_sha256": "cf178ea6794f6fe4ea17bc02d41d8387faa8433cc14c46263f534507e6a1ffc6",
+      "ram_sha256": "c89675c120394e7b3df955a810cb3c628d6e718116e3d30ef96c86268c7b5eb8",
+      "writes": 24000,
+      "reads": 0,
+      "samples_with_within_sample_y_change": 0
+    },
+    {
+      "stimulus": "own_echo",
+      "route": "high_return_3fc",
+      "adc_sha256": "8ba936575f42f975efba3862716309727c677f62c29ca284cb02349e0c0691f8",
+      "trace_digest": "df156a4c1e1c3638c1ec0888659fe71c09f9fcb17cbd8ef6c8605dac67b48c42",
+      "y3fd_sha256": "1ec81d2c23a54e018bc67f67cea10a9abbac60423d7c2afede10de18c6691fb0",
+      "ram_sha256": "c89675c120394e7b3df955a810cb3c628d6e718116e3d30ef96c86268c7b5eb8",
+      "writes": 24000,
+      "reads": 9000,
+      "samples_with_within_sample_y_change": 0,
+      "tail_changes_vs_control": 141
+    },
+    {
+      "stimulus": "independent_remote",
+      "route": "write_only",
+      "adc_sha256": "984ffd1d64d55881e34c518408f5992cdba652fdcca44f14ea356a847e4a4a6f",
+      "trace_digest": "81ec1930594c2346d539fc3257e1db1f53fa3d6add94279183696aff4c614b7e",
+      "y3fd_sha256": "cf178ea6794f6fe4ea17bc02d41d8387faa8433cc14c46263f534507e6a1ffc6",
+      "ram_sha256": "f866ee588f477af77d5a7abeea4a1185261716588334ff16e0b14ebb3000b429",
+      "writes": 24000,
+      "reads": 0,
+      "samples_with_within_sample_y_change": 0
+    },
+    {
+      "stimulus": "independent_remote",
+      "route": "high_return_3fc",
+      "adc_sha256": "984ffd1d64d55881e34c518408f5992cdba652fdcca44f14ea356a847e4a4a6f",
+      "trace_digest": "42b7f4261c7d931fbf719b2aaf3b60608ff4df894ba2a568d939c19f65bf156e",
+      "y3fd_sha256": "417eb5141fc8628756321fd881453738c6a7a025250e803d6343d037ab7a5bb9",
+      "ram_sha256": "f866ee588f477af77d5a7abeea4a1185261716588334ff16e0b14ebb3000b429",
+      "writes": 24000,
+      "reads": 9000,
+      "samples_with_within_sample_y_change": 0,
+      "tail_changes_vs_control": 141
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "route": "write_only",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "trace_digest": "87ee9711a01cc186259f71440f5334f182dc2536f3cb9395a4e5e79111f1fdb7",
+      "y3fd_sha256": "cf178ea6794f6fe4ea17bc02d41d8387faa8433cc14c46263f534507e6a1ffc6",
+      "ram_sha256": "ca547d23db7d8e7863dd750370964e2e89dcae8f388b9d5dbff5b00047d10615",
+      "writes": 24000,
+      "reads": 0,
+      "samples_with_within_sample_y_change": 0
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "route": "high_return_3fc",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "trace_digest": "3f027044dae033c3f3454d12b559beb68403fab43fced296199e4e42b8816f8d",
+      "y3fd_sha256": "442d35e6a8ade990b74d10e6548793536323473e10ea878ac07a806a5435087e",
+      "ram_sha256": "ca547d23db7d8e7863dd750370964e2e89dcae8f388b9d5dbff5b00047d10615",
+      "writes": 24000,
+      "reads": 9000,
+      "samples_with_within_sample_y_change": 0,
+      "tail_changes_vs_control": 141
+    }
+  ],
+  "full_visit_comparisons": {
+    "early": {
+      "write_only": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        }
+      },
+      "high_return_3fc": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 29.824,
+          "unequal_visits": 466
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 31.082666666666668,
+          "unequal_visits": 705
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 40.85333333333333,
+          "unequal_visits": 795
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 30.08,
+          "unequal_visits": 705
+        }
+      }
+    },
+    "late": {
+      "write_only": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        }
+      },
+      "high_return_3fc": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 35.84,
+          "unequal_visits": 560
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 34.986666666666665,
+          "unequal_visits": 796
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 44.906666666666666,
+          "unequal_visits": 983
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 32.02133333333333,
+          "unequal_visits": 751
+        }
+      }
+    },
+    "tail": {
+      "write_only": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        }
+      },
+      "high_return_3fc": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 1.504,
+          "unequal_visits": 47
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 1.0026666666666666,
+          "unequal_visits": 94
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 2.506666666666667,
+          "unequal_visits": 94
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 2.005333333333333,
+          "unequal_visits": 94
+        }
+      }
+    }
+  },
+  "phase_training_comparisons": [
+    {
+      "phase": 0,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 1,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 2,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 3,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 4,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 5,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 6,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 7,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 8,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 9,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 10,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 11,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 12,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 13,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 14,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 15,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 16,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 17,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 18,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 19,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 20,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 21,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 22,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 23,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 24,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 25,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 26,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 27,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 28,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 29,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 30,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 31,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 32,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 33,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 34,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 35,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 36,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 37,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 38,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 39,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 40,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 41,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 42,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 43,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 44,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    },
+    {
+      "phase": 45,
+      "early": {
+        "own_vs_zero": 30.0,
+        "remote_vs_zero": 31.0,
+        "mixed_vs_remote": 41.0,
+        "mixed_vs_own": 30.0
+      },
+      "late": {
+        "own_vs_zero": 36.0,
+        "remote_vs_zero": 35.0,
+        "mixed_vs_remote": 45.0,
+        "mixed_vs_own": 32.0
+      }
+    }
+  ],
+  "late_attenuating_phases": [],
+  "limitations": [
+    "The external RAM mux, TEST, 3FD output latch, ADC and sample clock are assumed.",
+    "Unsigned 3FD Y-byte differences are code-space diagnostics, not measured line residuals.",
+    "The phase screen requires both own-echo contrasts to fall from early to late training while retaining remote response; no code-space reduction alone proves C4."
+  ]
+}

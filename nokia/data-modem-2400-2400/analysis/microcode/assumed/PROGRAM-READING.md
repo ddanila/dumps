@@ -162,6 +162,13 @@ its changed Y changes the `3FD` ROM address/read and ALU Y on both a
 but Q, TEST, PC path and all ALU sites after `3FD` agree with write-only
 controls. This is a candidate delayed-input transform, still lacking a
 line-output connection or selective echo-residual test.
+The [eight-run `3FD` echo challenge](../g2/JOINT-MASK04-RAM-CARRY-3FD-ECHO-SCREEN.md)
+then finds that this output is constant across own, remote, mixed and zero
+inputs without RAM readback. Readback makes it input-sensitive, but both
+own-echo-versus-zero and mixed-versus-remote Y-byte contrasts grow between
+early and late training. All 46 candidate sample-paced latch phases agree,
+and only three tail samples retain the frozen RAM effect. This supports a
+delayed-input lookup under the stated mux, not a demonstrated echo canceler.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127

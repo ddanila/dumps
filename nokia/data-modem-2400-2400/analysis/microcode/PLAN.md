@@ -1485,6 +1485,16 @@ R10/R13 state then rejoins, with no later changed ALU site. Compare
 `3FD` Y across own, remote, mixed and zero training/freeze controls
 before treating it as an echo residual. Keep the `3FC` RAM mux and output
 latch explicitly assumed; neither is a goal blocker.
+The [four-input `3FD` challenge](g2/JOINT-MASK04-RAM-CARRY-3FD-ECHO-SCREEN.md)
+now does that comparison for eight full-PROM runs. Write-only `3FD` Y
+does not distinguish the inputs; high return makes it input-sensitive,
+but late own-echo-versus-zero contrast grows from 29.824 to 35.840
+and mixed-versus-remote from 40.853 to 44.907. Its Y is constant
+within each held sample, so all 46 fixed latch phases retain that
+increase. Only the first three tail samples differ from write-only after
+freeze. This tested `3FD` code is a delayed-input transform, not a
+selectively falling echo residual. Audit its arithmetic/ROM operands or
+try a distinct photo-compatible return; keep C4 open and G2 active.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`
 values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.
