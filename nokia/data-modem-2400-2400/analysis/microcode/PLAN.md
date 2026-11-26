@@ -994,6 +994,14 @@ This rejects retained internal tap state in that fixed fixture, not
 the photographed external RAM or an untested train-enable path. Seek
 the external tap-memory/mode route before extending the same fixed
 echo window; keep C4 open and G2 active.
+The [external-RAM bus screen](g2/JOINT-UPPER-RAM-BUS-SCREEN.md)
+checks 2,048 executed receive visits under held and varying ADC input.
+No reached Y site increments like an 8-bit RAM address, and no bare
+PROM bit is active low at just one loop word; U18 D2/D4 pulse high at
+`3EC` and U18 D7 at `3EA`. The DSC 3557 photo places a 74LS163 counter
+and 74LS157 mux near four MCM93422 RAMs. Test an explicitly labelled
+external counter/mux, inverted or decoded write strobe, data latch and
+RAM-to-DSC return route; do not infer those nets from proximity alone.
 The [controller-frame D3EB test](g2/RECEIVER-MASK04-FRAME-MODE-3EB.md)
 shows that a labelled `81→A1` mode-byte edge changes several executed
 registers but leaves no post-edge history or conditional branch under

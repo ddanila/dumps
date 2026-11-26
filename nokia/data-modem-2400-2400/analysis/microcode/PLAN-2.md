@@ -1690,6 +1690,15 @@ phases B–C turn "what" into "how".
   agree. A longer fixed-mode run at those internal sites is unlikely
   to expose echo taps; model the photographed external MCM93422 memory
   or a train-enable route next. This does not close C4.
+  The [external-RAM bus screen](g2/JOINT-UPPER-RAM-BUS-SCREEN.md) runs
+  2,048 steady receive visits under constant and varying ADC bytes.
+  None of the eight reached Y sites supplies a simple incrementing
+  8-bit RAM address, and no bare PROM bit is low only once per loop.
+  U18 D2/D4 pulse high at `3EC` and D7 at `3EA`; the DSC 3557 photo
+  shows a 74LS163 counter and 74LS157 mux beside four 256×4 RAMs.
+  Test a labelled external counter/mux, write-strobe and return-bus
+  hypothesis instead of assuming the present internal-Q/RAM fixture
+  already models the echo-tap store. Keep C4 open.
   A [computed-call source screen](g2/RECEIVER-DISPATCH-SOURCE.md) now exposes
   another fixture dependency: the long `D3F8` receive loop uses a constant
   scenario index of 2 at `3EC`. Under the same map and seed, modeled Y or
