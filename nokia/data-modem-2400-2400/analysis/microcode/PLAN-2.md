@@ -2085,6 +2085,16 @@ Listed in order of value per effort:
   and recovers exact line and controller bytes. Test another unseen
   state family or changed gain/clock; retain the physical mode/serial
   routes as assumptions and C3 as open.
+  The [matched phase-131 gain test](g2/JOINT-MASK04-12A-MODE-PHASE131-GAIN.md)
+  holds carrier and payloads fixed while changing receive gain from
+  calibrated to 1.25×. Baseline call/answer runs visit new `4C`, which
+  has phase 1 from 18 adjacent constraints, and the frozen circuit
+  makes 0/64 errors in each. Boosted runs retain the same transmitter
+  bytes and receiver PC path but visit a disjoint four-state alphabet.
+  Its relative phase graph is conflict-free; the frozen circuit misses
+  16/64 and 10/64 dibits and the modeled 8251/executed 8031 payloads
+  are wrong. Sweep the gain transition and challenge capture bit/phase
+  alternatives without waiting for board continuity; C3 stays open.
   The [matched-tail U12 replay](g2/JOINT-MASK04-CARRYOVER-LATCH-PULSE.md)
   establishes a conditional previous/current sample pair at an executed
   raw-PROM gate: the qualified latch holds the previous nibble at row 3

@@ -125,6 +125,16 @@ misses 14/64 and 8/64 dibits; the package circuit predicts 1 and
 recovers 0/64 errors plus exact modeled serial/executed controller
 bytes in both runs. This tests one new state under assumed wiring;
 challenge another gain/clock fixture and keep C3/G2 open.
+The [matched phase-131 gain challenge](g2/JOINT-MASK04-12A-MODE-PHASE131-GAIN.md)
+now supplies that changed-gain control. At original gain, new state
+`4C` has phase 1 from 18 neighboring constraints and the frozen
+package circuit makes 0/64 errors in both call/answer runs. At 1.25×
+gain with identical transmitter bytes and PC path, the receive state
+alphabet switches to four new states; their relative phase graph has
+zero conflicts, but the frozen circuit misses 16/64 and 10/64 dibits
+and delivers wrong controller bytes. This rejects that fixed gate
+under the boosted-gain assumption. Sweep the gain transition and test
+another capture bit/timing route; keep C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

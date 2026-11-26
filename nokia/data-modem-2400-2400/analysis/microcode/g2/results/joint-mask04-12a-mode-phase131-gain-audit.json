@@ -1,0 +1,127 @@
+{
+  "experiment": "matched-gain new-state phase-131 control and graph",
+  "cases": [
+    {
+      "selector": "40",
+      "same_tx_and_raw": true,
+      "same_pc_path": true,
+      "different_pcm": true,
+      "baseline_new_state": "4C",
+      "baseline_4c_anchor_constraints": 12,
+      "baseline_reference_errors": 2,
+      "baseline_old_cover_errors": 0,
+      "baseline_package_errors": 0,
+      "gain_new_states": [
+        "2F",
+        "42",
+        "48",
+        "5D"
+      ],
+      "gain_reference_errors": 2,
+      "gain_old_cover_errors": 21,
+      "gain_package_errors": 16,
+      "gain_exact_line_bytes": false
+    },
+    {
+      "selector": "60",
+      "same_tx_and_raw": true,
+      "same_pc_path": true,
+      "different_pcm": true,
+      "baseline_new_state": "4C",
+      "baseline_4c_anchor_constraints": 6,
+      "baseline_reference_errors": 0,
+      "baseline_old_cover_errors": 0,
+      "baseline_package_errors": 0,
+      "gain_new_states": [
+        "2F",
+        "42",
+        "48",
+        "5D"
+      ],
+      "gain_reference_errors": 0,
+      "gain_old_cover_errors": 18,
+      "gain_package_errors": 10,
+      "gain_exact_line_bytes": false
+    }
+  ],
+  "baseline_4c_phase": 1,
+  "baseline_4c_anchor_constraints": 18,
+  "gain_relative_graph": {
+    "anchor": "48=0, arbitrary global rotation",
+    "labels": {
+      "48": 0,
+      "42": 1,
+      "5D": 3,
+      "2F": 2
+    },
+    "conflicts": 0
+  },
+  "frozen_circuit_relative_labels": {
+    "48": 0,
+    "42": 0,
+    "5D": 2,
+    "2F": 2
+  },
+  "direct_u15_capacity_by_rotation": [
+    {
+      "relative_rotation": 0,
+      "direct_single_u15": {
+        "0": false,
+        "1": false
+      },
+      "inverted_single_u15": {
+        "0": false,
+        "1": false
+      }
+    },
+    {
+      "relative_rotation": 1,
+      "direct_single_u15": {
+        "0": false,
+        "1": true
+      },
+      "inverted_single_u15": {
+        "0": false,
+        "1": true
+      }
+    },
+    {
+      "relative_rotation": 2,
+      "direct_single_u15": {
+        "0": false,
+        "1": true
+      },
+      "inverted_single_u15": {
+        "0": false,
+        "1": true
+      }
+    },
+    {
+      "relative_rotation": 3,
+      "direct_single_u15": {
+        "0": false,
+        "1": false
+      },
+      "inverted_single_u15": {
+        "0": false,
+        "1": true
+      }
+    }
+  ],
+  "limitations": [
+    "The four boosted-gain states form a disjoint alphabet, so their absolute phase cannot be anchored to the earlier states without another observation.",
+    "A conflict-free relative graph shows a state-phase readout is possible under these input symbols, but the frozen package circuit fails it.",
+    "The single-U15 screen excludes only direct eight-input realizations; preprocessing and other gates remain possible.",
+    "Neither gain setting identifies the physical DAC/ADC, mode, logic or serial connections."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_phase131_gain_audit.py": "c1591e79d8af607cbfe3531af23234b470ca6c219395a482f024d9942ddd6485",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twentytwo.json": "1b896ad8c6bcbb322f12f6e569a23da2424afb88df0f4adf75ba5c6d3dcd81a4",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase125-audit.json": "fecb0fc9dc75f6ca192c788851b2a25432db5cd972482f3d029ea6f685862bdb",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-baseline-control.json": "d9ffb252f9d77a5b74a3baf2e4fb75c3b8a64e18918b66570390c09cd49274a9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-challenge.json": "ad5ed303e0cd7f82689ad746bf95791c58c330e514e0665c329224f56757c099",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_phase_gate_capacity.py": "825624f5a06ccd802cca7c57d9785b5144e32379bea0d23bf0bacb5063136a77",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_u15_u19_u21_phase_route.py": "5f5e1b3ee93000a22f02729b7d46302289589e9d0e94af17b78ef3bcf693895d"
+  }
+}
