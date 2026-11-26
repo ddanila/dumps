@@ -244,9 +244,13 @@ now clocks Y5–Y7 at every candidate gate edge and reads the held value
 at row-3 `3ED` for visits 47 and 94 in two 768,047-word PROM streams.
 Both recover the controller line bytes, but a preceding-visit row-0
 capture control also succeeds, so those fixtures do not fix the symbol
-clock phase. Test an input transition near a selected visit to separate
-the phases, then a photo-compatible two-visit consumer and RxD/RxC route;
-keep C3 open and G2 active.
+clock phase. The [boundary-impulse replay](g2/RECEIVER-MASK04-CAPTURE-PHASE-BOUNDARY.md)
+now separates them: one-visit ADC bit-7 flips at 47/94 make only the
+row-3 readout abstain (13/31), while flips at 46/93 make only row 0
+abstain (11/31). Both decode the unmodified stream, so the diagnostic
+does not identify the physical phase. Constrain the symbol clock from
+photo-compatible dividers or another natural phase-sensitive stimulus,
+then test the two-visit consumer and RxD/RxC route; keep C3 open and G2 active.
 The [dual-feature zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
 now runs two 768,047-word real-PROM receive traces at 75°/165° through
 32 `11` preamble symbols and eight controller-scrambled zero octets.

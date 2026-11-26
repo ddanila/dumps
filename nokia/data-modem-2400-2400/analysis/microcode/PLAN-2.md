@@ -1380,8 +1380,13 @@ phases B–C turn "what" into "how".
   two-visit hold and symbol-rate consumer, rather than adding arbitrary Y bits.
   In two long zero-run PROM handoffs, the candidate Y5–Y7 latch supplies
   the frozen readout at row-3 `3ED` and recovers the controller line bytes.
-  A row-0 pre-capture control also recovers them, so use a transition near
-  visit 47 or 94 to discriminate capture phase before fixing a symbol clock.
+  A row-0 pre-capture control also recovers them, leaving the physical
+  symbol clock phase unresolved.
+  The [boundary-impulse replay](g2/RECEIVER-MASK04-CAPTURE-PHASE-BOUNDARY.md)
+  shows that one-visit ADC bit-7 flips at 47/94 make only row 3 abstain
+  (13/31), whereas flips at 46/93 make only row 0 abstain (11/31).
+  Both natural readouts still pass; use photo-compatible clock dividers
+  or a natural phase-sensitive fixture to choose the board phase.
   The [two-visit zero-run handoff](g2/RECEIVER-MASK04-DUAL-ZERO-HANDOFF.md)
   now feeds the controller's actual scrambled eight-zero-octet streams
   through two continuous mask-`04` PROM runs at 75° and 165°. The frozen
