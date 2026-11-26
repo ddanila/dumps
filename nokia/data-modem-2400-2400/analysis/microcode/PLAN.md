@@ -163,6 +163,17 @@ all 12,000 paired visits through R10, yet matched ADC/phase groups show
 no within-mode Y or Q history variation. Try another photo-compatible
 return/mux timing that puts stored state on A or D before overwrite;
 keep C3/C4/G2 open and the `3EB` frame route assumed.
+The [legal-carrier delayed MCM93422 return](g2/RECEIVER-MASK04-LEGAL-RAM-RETURN.md)
+now tests `3F9` Y-high → sample-paced RAM → offset-3 `3FA` D-high on two
+192,047-word PROM receive runs with previous-carry TEST. Read-only and
+write-only controls give identical `3FA` Y, but combined feedback
+changes 5,859/6,000 visits per carrier, starting at visit 141. Among
+21 matched exact-ADC/phase groups, only feedback gives history-sensitive
+`3FA` Y in nine groups. This is a conditional consumed-memory path, not
+yet a decoded dibit or echo residual. Freeze a circuit-like temporal
+decision on independent carriers, challenge fresh buffered data, and
+retain own/remote/mixed controls for C4. Keep all RAM/TEST/output wiring
+assumed and C3/C4/G2 open.
 The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
 controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop

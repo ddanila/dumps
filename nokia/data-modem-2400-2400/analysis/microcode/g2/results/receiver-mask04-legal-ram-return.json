@@ -1,0 +1,254 @@
+{
+  "experiment": "legal-carrier delayed high-nibble MCM93422 return at 3FA",
+  "fixture": {
+    "cases": [
+      {
+        "seed": 23063,
+        "degrees": 45
+      },
+      {
+        "seed": 30373,
+        "degrees": 135
+      }
+    ],
+    "samples": 128,
+    "visits": 6000,
+    "cycles": 192047,
+    "ram": "3F9 Y high -> sample-paced external RAM -> 3FA D high, -3 address offset",
+    "test_source": "previous carry, polarity 1",
+    "matched_on": "exact ADC byte and sample position with different previous ADC byte"
+  },
+  "cases": [
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "route": "read_only",
+      "adc_sha256": "53852ba6f42339a4613e44e79974d1d333d9967a3a17c32fbf37ebcc179c7669",
+      "trace_digest": "2436929135c0f5aeadcafcd70852fa890c23c074a3414b7ff12f3fa49c713296",
+      "y3fa_sha256": "8760e76f97710b3ea549f9599a739bc27d1f33ec69e13f16932d91e4f7d8b813",
+      "writes": 0,
+      "reads": 6000,
+      "first_changed_read": null,
+      "distinct_y3fa": 2
+    },
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "route": "write_only",
+      "adc_sha256": "53852ba6f42339a4613e44e79974d1d333d9967a3a17c32fbf37ebcc179c7669",
+      "trace_digest": "2436929135c0f5aeadcafcd70852fa890c23c074a3414b7ff12f3fa49c713296",
+      "y3fa_sha256": "8760e76f97710b3ea549f9599a739bc27d1f33ec69e13f16932d91e4f7d8b813",
+      "writes": 24001,
+      "reads": 0,
+      "first_changed_read": null,
+      "distinct_y3fa": 2
+    },
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "route": "high_return_3fa",
+      "adc_sha256": "53852ba6f42339a4613e44e79974d1d333d9967a3a17c32fbf37ebcc179c7669",
+      "trace_digest": "7489a3531b7858644846899660d89077a712c37e07b04005b6aea6ea1bedd0a1",
+      "y3fa_sha256": "083d622aa57d8bea07c4746d43468a4ec52eb8e47fb7f58df2027d13f6e39405",
+      "writes": 24001,
+      "reads": 6000,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 49
+      },
+      "distinct_y3fa": 10
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "route": "read_only",
+      "adc_sha256": "1d6b3ebcd7a55d491c81da8423a38aaf11969df110228d2333d1d9ffa8be5d29",
+      "trace_digest": "9afd24ffb72116fae4801121723023ba792b8abf5171080603d4510a230e1d85",
+      "y3fa_sha256": "b30e87e6d121237ca242acb7e8edcb3b727861a081480ee76ccb409e0456ca90",
+      "writes": 0,
+      "reads": 6000,
+      "first_changed_read": null,
+      "distinct_y3fa": 2
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "route": "write_only",
+      "adc_sha256": "1d6b3ebcd7a55d491c81da8423a38aaf11969df110228d2333d1d9ffa8be5d29",
+      "trace_digest": "9afd24ffb72116fae4801121723023ba792b8abf5171080603d4510a230e1d85",
+      "y3fa_sha256": "b30e87e6d121237ca242acb7e8edcb3b727861a081480ee76ccb409e0456ca90",
+      "writes": 24001,
+      "reads": 0,
+      "first_changed_read": null,
+      "distinct_y3fa": 2
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "route": "high_return_3fa",
+      "adc_sha256": "1d6b3ebcd7a55d491c81da8423a38aaf11969df110228d2333d1d9ffa8be5d29",
+      "trace_digest": "35bcd988c7f592337172e5668b61451b878584830bf89b09949d4ea2692e2050",
+      "y3fa_sha256": "63cd908967cde78cda4baa0293faeb4f14bdb3204f6c03f4c5b5781d95988df4",
+      "writes": 24001,
+      "reads": 6000,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 49
+      },
+      "distinct_y3fa": 11
+    }
+  ],
+  "contrasts": [
+    {
+      "seed": 23063,
+      "degrees": 45,
+      "read_only_vs_write_only": 0,
+      "feedback_vs_write_only": 5859,
+      "feedback_vs_read_only": 5859,
+      "first_feedback_change": 141
+    },
+    {
+      "seed": 30373,
+      "degrees": 135,
+      "read_only_vs_write_only": 0,
+      "feedback_vs_write_only": 5859,
+      "feedback_vs_read_only": 5859,
+      "first_feedback_change": 141
+    }
+  ],
+  "matched_groups": {
+    "read_only": {
+      "eligible_groups": 21,
+      "groups_with_different_y3fa": 0,
+      "witnesses": []
+    },
+    "write_only": {
+      "eligible_groups": 21,
+      "groups_with_different_y3fa": 0,
+      "witnesses": []
+    },
+    "high_return_3fa": {
+      "eligible_groups": 21,
+      "groups_with_different_y3fa": 9,
+      "witnesses": [
+        [
+          {
+            "previous_adc": 60,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 61,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 175,
+            "y3fa": 48
+          },
+          {
+            "previous_adc": 123,
+            "y3fa": 48
+          }
+        ],
+        [
+          {
+            "previous_adc": 242,
+            "y3fa": 176
+          },
+          {
+            "previous_adc": 76,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 242,
+            "y3fa": 176
+          },
+          {
+            "previous_adc": 72,
+            "y3fa": 64
+          }
+        ],
+        [
+          {
+            "previous_adc": 130,
+            "y3fa": 80
+          },
+          {
+            "previous_adc": 129,
+            "y3fa": 80
+          },
+          {
+            "previous_adc": 78,
+            "y3fa": 80
+          },
+          {
+            "previous_adc": 77,
+            "y3fa": 80
+          }
+        ],
+        [
+          {
+            "previous_adc": 84,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 29,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 197,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 32,
+            "y3fa": 64
+          }
+        ],
+        [
+          {
+            "previous_adc": 20,
+            "y3fa": 80
+          },
+          {
+            "previous_adc": 6,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 14,
+            "y3fa": 64
+          },
+          {
+            "previous_adc": 19,
+            "y3fa": 64
+          }
+        ],
+        [
+          {
+            "previous_adc": 179,
+            "y3fa": 144
+          },
+          {
+            "previous_adc": 178,
+            "y3fa": 144
+          },
+          {
+            "previous_adc": 175,
+            "y3fa": 96
+          }
+        ]
+      ]
+    }
+  },
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_legal_ram_return.py": "9004a7e7756d33e0c4811a2169ba89c20b17a38a0e1f9e81838cef962b43302a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_upper_ram_feedback_screen.py": "0d174e64e2efd650d09211c74782a119f4ecd70beb98cb8354ba369b8db84383",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_mask04_postvisit_state_history.py": "6f53c2f9acfd53f129bab5e62f74da70f81972925d8f66252c0d3708a5a6258e",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723"
+  },
+  "limitations": [
+    "External RAM address, write gate, Y latch, return mux and TEST selection are assumed.",
+    "A varying 3FA Y is not a recovered bit or echo-cancelled line residual.",
+    "Only the first 128 samples of two legal carriers are challenged."
+  ]
+}
