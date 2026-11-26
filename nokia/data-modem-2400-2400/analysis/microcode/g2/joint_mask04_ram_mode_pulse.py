@@ -20,16 +20,18 @@ from photo_mapping_stream_screen import MAPPINGS
 from receiver_four_row_condition_screen import configured
 from reference_modem import transmit
 
-MODES = ('01', '81', 'A1', '81_to_A1_at_freeze')
+MODES = ('01', '81', 'A1', 'C1', '81_to_A1_at_freeze',
+         '81_to_C1_at_freeze')
 ROUTES = (('write_only', False), ('read_3', True))
 PRIOR = HERE / 'results/joint-mask04-ram-pulse-freeze.json'
 
 
 def mode_sequence(name):
     size = 4 * impulse.ADC_VISITS + 1
-    if name == '81_to_A1_at_freeze':
+    if name in ('81_to_A1_at_freeze', '81_to_C1_at_freeze'):
         edge = 4 * pulse.TRAIN_VISITS
-        return [0x81] * edge + [0xA1] * (size - edge)
+        target = 0xA1 if name == '81_to_A1_at_freeze' else 0xC1
+        return [0x81] * edge + [target] * (size - edge)
     return [int(name, 16)] * size
 
 
@@ -115,6 +117,16 @@ def run(out=HERE / 'results/joint-mask04-ram-mode-pulse.json'):
                     other_tail=pulse.delta(a[pc], b[pc], starts[26], starts[28]))
                     for pc in (0x3F8, 0x3F9, 0x3FA)})
         comparisons[mode] = by_route
+    mode_equivalence = {}
+    for mode in ('C1', '81_to_C1_at_freeze'):
+        mode_equivalence[mode] = {}
+        for input_name in offered:
+            for route, _ in ROUTES:
+                left = y_by_case[('81', input_name, route)]
+                right = y_by_case[(mode, input_name, route)]
+                mode_equivalence[mode][f'{input_name}/{route}'] = {
+                    f'{pc:03X}': sum(a != b for a, b in zip(left[pc], right[pc]))
+                    for pc in (0x3F8, 0x3F9, 0x3FA)}
     paths = (Path(__file__), PRIOR, Path(pulse.__file__), Path(impulse.__file__),
              HERE / 'joint_upper_ram_feedback_screen.py',
              HERE / 'receiver_four_row_condition_screen.py',
@@ -132,6 +144,7 @@ def run(out=HERE / 'results/joint-mask04-ram-mode-pulse.json'):
                      train_writes=pulse.TRAIN_WRITES,
                      return_route='3F9 Y low nibble to candidate RAM; 3FA D low nibble from address minus 3'),
         cases=cases, comparisons=comparisons,
+        c1_vs_81_y_differences=mode_equivalence,
         limitations=[
             'D3EB controller mode connection and held timing are untraced assumptions.',
             'RAM pins, address clock, write gate and D return are untraced assumptions.',

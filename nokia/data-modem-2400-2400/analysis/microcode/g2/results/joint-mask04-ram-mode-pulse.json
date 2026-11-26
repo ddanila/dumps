@@ -1,4 +1,50 @@
 {
+  "c1_vs_81_y_differences": {
+    "81_to_C1_at_freeze": {
+      "baseline/read_3": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      },
+      "baseline/write_only": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      },
+      "pulse/read_3": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      },
+      "pulse/write_only": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      }
+    },
+    "C1": {
+      "baseline/read_3": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      },
+      "baseline/write_only": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      },
+      "pulse/read_3": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      },
+      "pulse/write_only": {
+        "3F8": 0,
+        "3F9": 0,
+        "3FA": 0
+      }
+    }
+  },
   "cases": [
     {
       "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
@@ -163,6 +209,58 @@
       "external_writes": 4876,
       "feedback": false,
       "input": "baseline",
+      "mode": "C1",
+      "noninitial_ram_bytes": 23,
+      "ram_sha256": "017777bc0a55e3c8b002d4beb0f57d9b23010159da3dd5e9322679862a300f15",
+      "route": "write_only",
+      "trace_digest": "97ab60c5662a8ec9a612e5872eecfa0333e0a80f08e43cea56ccd7c3ec71b4e1"
+    },
+    {
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "completed_cycles": 96047,
+      "external_reads": 3000,
+      "external_writes": 4876,
+      "feedback": true,
+      "input": "baseline",
+      "mode": "C1",
+      "noninitial_ram_bytes": 23,
+      "ram_sha256": "017777bc0a55e3c8b002d4beb0f57d9b23010159da3dd5e9322679862a300f15",
+      "route": "read_3",
+      "trace_digest": "acb453c6d625e2abb8f6894b74d75a7421ee19534aaea8d2878b0329c3cc3e7f"
+    },
+    {
+      "adc_sha256": "fd4cc2155c754360922c1cf2e6d9d96de991b0b370a5f70d28ace960f3430dab",
+      "completed_cycles": 96047,
+      "external_reads": 0,
+      "external_writes": 4876,
+      "feedback": false,
+      "input": "pulse",
+      "mode": "C1",
+      "noninitial_ram_bytes": 24,
+      "ram_sha256": "587dfa9df2be3211b6de30c7058ae85e209f67f5ed393b3e12ffcc49021547cc",
+      "route": "write_only",
+      "trace_digest": "388bac2fec0b2bc0a8950c1ea8623cb476f50d835f07ba24b094194657f47884"
+    },
+    {
+      "adc_sha256": "fd4cc2155c754360922c1cf2e6d9d96de991b0b370a5f70d28ace960f3430dab",
+      "completed_cycles": 96047,
+      "external_reads": 3000,
+      "external_writes": 4876,
+      "feedback": true,
+      "input": "pulse",
+      "mode": "C1",
+      "noninitial_ram_bytes": 24,
+      "ram_sha256": "587dfa9df2be3211b6de30c7058ae85e209f67f5ed393b3e12ffcc49021547cc",
+      "route": "read_3",
+      "trace_digest": "1adf6862fbf2c253ad47623b0be2124429244c78aef75b773454f0c380859ad6"
+    },
+    {
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "completed_cycles": 96047,
+      "external_reads": 0,
+      "external_writes": 4876,
+      "feedback": false,
+      "input": "baseline",
       "mode": "81_to_A1_at_freeze",
       "noninitial_ram_bytes": 23,
       "ram_sha256": "017777bc0a55e3c8b002d4beb0f57d9b23010159da3dd5e9322679862a300f15",
@@ -207,6 +305,58 @@
       "ram_sha256": "587dfa9df2be3211b6de30c7058ae85e209f67f5ed393b3e12ffcc49021547cc",
       "route": "read_3",
       "trace_digest": "8baab8dcb1d9a04b482402cdfdfbc8401dd6efd2d0df7d6b68292ac96efc023d"
+    },
+    {
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "completed_cycles": 96047,
+      "external_reads": 0,
+      "external_writes": 4876,
+      "feedback": false,
+      "input": "baseline",
+      "mode": "81_to_C1_at_freeze",
+      "noninitial_ram_bytes": 23,
+      "ram_sha256": "017777bc0a55e3c8b002d4beb0f57d9b23010159da3dd5e9322679862a300f15",
+      "route": "write_only",
+      "trace_digest": "f21bbba636ee01cce6369c71bde87db3ca54d295b15e5aba02a9a5bcafe4574c"
+    },
+    {
+      "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+      "completed_cycles": 96047,
+      "external_reads": 3000,
+      "external_writes": 4876,
+      "feedback": true,
+      "input": "baseline",
+      "mode": "81_to_C1_at_freeze",
+      "noninitial_ram_bytes": 23,
+      "ram_sha256": "017777bc0a55e3c8b002d4beb0f57d9b23010159da3dd5e9322679862a300f15",
+      "route": "read_3",
+      "trace_digest": "9bdafc8a1644328bb37608d9de76c3eb9ccb1add0fc3f54ab73d9a1dae903fda"
+    },
+    {
+      "adc_sha256": "fd4cc2155c754360922c1cf2e6d9d96de991b0b370a5f70d28ace960f3430dab",
+      "completed_cycles": 96047,
+      "external_reads": 0,
+      "external_writes": 4876,
+      "feedback": false,
+      "input": "pulse",
+      "mode": "81_to_C1_at_freeze",
+      "noninitial_ram_bytes": 24,
+      "ram_sha256": "587dfa9df2be3211b6de30c7058ae85e209f67f5ed393b3e12ffcc49021547cc",
+      "route": "write_only",
+      "trace_digest": "d51ce115c3f7da036b4f21ab0aecaa4e01ff1ff0eba5bb6c4063b18548b19694"
+    },
+    {
+      "adc_sha256": "fd4cc2155c754360922c1cf2e6d9d96de991b0b370a5f70d28ace960f3430dab",
+      "completed_cycles": 96047,
+      "external_reads": 3000,
+      "external_writes": 4876,
+      "feedback": true,
+      "input": "pulse",
+      "mode": "81_to_C1_at_freeze",
+      "noninitial_ram_bytes": 24,
+      "ram_sha256": "587dfa9df2be3211b6de30c7058ae85e209f67f5ed393b3e12ffcc49021547cc",
+      "route": "read_3",
+      "trace_digest": "f56f142391b510423a71c9873018cdb7d62bad3bb62339546208a66b6dd4d1fd"
     }
   ],
   "comparisons": {
@@ -705,6 +855,171 @@
         }
       }
     },
+    "81_to_C1_at_freeze": {
+      "read_3": {
+        "changed_ram_bytes": [
+          {
+            "address": 26,
+            "baseline": 1,
+            "pulse": 15
+          }
+        ],
+        "y_by_site": {
+          "3F8": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                95,
+                191
+              ],
+              "last": 1218
+            }
+          },
+          "3F9": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                48,
+                30
+              ],
+              "last": 1218
+            }
+          },
+          "3FA": {
+            "delayed_3": {
+              "count": 47,
+              "first": 1313,
+              "first_values": [
+                32,
+                46
+              ],
+              "last": 1359
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                46,
+                47
+              ],
+              "last": 1218
+            }
+          }
+        }
+      },
+      "write_only": {
+        "changed_ram_bytes": [
+          {
+            "address": 26,
+            "baseline": 1,
+            "pulse": 15
+          }
+        ],
+        "y_by_site": {
+          "3F8": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                95,
+                191
+              ],
+              "last": 1218
+            }
+          },
+          "3F9": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                48,
+                30
+              ],
+              "last": 1218
+            }
+          },
+          "3FA": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                32,
+                33
+              ],
+              "last": 1218
+            }
+          }
+        }
+      }
+    },
     "A1": {
       "read_3": {
         "changed_ram_bytes": [
@@ -869,6 +1184,171 @@
           }
         }
       }
+    },
+    "C1": {
+      "read_3": {
+        "changed_ram_bytes": [
+          {
+            "address": 26,
+            "baseline": 1,
+            "pulse": 15
+          }
+        ],
+        "y_by_site": {
+          "3F8": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                95,
+                191
+              ],
+              "last": 1218
+            }
+          },
+          "3F9": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                48,
+                30
+              ],
+              "last": 1218
+            }
+          },
+          "3FA": {
+            "delayed_3": {
+              "count": 47,
+              "first": 1313,
+              "first_values": [
+                32,
+                46
+              ],
+              "last": 1359
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                46,
+                47
+              ],
+              "last": 1218
+            }
+          }
+        }
+      },
+      "write_only": {
+        "changed_ram_bytes": [
+          {
+            "address": 26,
+            "baseline": 1,
+            "pulse": 15
+          }
+        ],
+        "y_by_site": {
+          "3F8": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                95,
+                191
+              ],
+              "last": 1218
+            }
+          },
+          "3F9": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                48,
+                30
+              ],
+              "last": 1218
+            }
+          },
+          "3FA": {
+            "delayed_3": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "other_tail": {
+              "count": 0,
+              "first": null,
+              "first_values": null,
+              "last": null
+            },
+            "pulse": {
+              "count": 47,
+              "first": 1172,
+              "first_values": [
+                32,
+                33
+              ],
+              "last": 1218
+            }
+          }
+        }
+      }
     }
   },
   "experiment": "held controller-like D3EB mode bytes with one frozen RAM pulse",
@@ -881,7 +1361,9 @@
       "01",
       "81",
       "A1",
-      "81_to_A1_at_freeze"
+      "C1",
+      "81_to_A1_at_freeze",
+      "81_to_C1_at_freeze"
     ],
     "pulse_adc": 177,
     "pulse_sample": 25,
@@ -907,10 +1389,10 @@
   ],
   "source_sha256": {
     "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_ram_mode_pulse.py": "c3a80cd18825f6c8a692b4017072e7f1ca8ff75e7ffcbca8d79124b949751dbd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_ram_mode_pulse.py": "bc5c8eb0a5c34de75b98318d664927e06b133020f244c44326250c0651820881",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_ram_pulse_freeze.py": "f6319dbbf30b563bcd57def3ab67554e8b3c4c33a0a8942923aa00e4f116d6dc",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_receive_impulse_memory.py": "5493f40252c5200a9fe82a9a164ba7894de6a0d69eb095ac1c6340d9c843be65",
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_upper_ram_feedback_screen.py": "d5944d732a617bcaf66a80ac6542473f7e70a7a1a2503121bd0ba2aa7b056dbd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_upper_ram_feedback_screen.py": "0d174e64e2efd650d09211c74782a119f4ecd70beb98cb8354ba369b8db84383",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/receiver_four_row_condition_screen.py": "ecdb0cbbb4ca4aed1c5f3293e2686b01d296a5d2754a550a9f321cacea62807e",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-ram-pulse-freeze.json": "9606216d94a6133843f77288a78c4ed0580316e674336d1dfeeb58a5741751c7",
