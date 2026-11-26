@@ -1428,16 +1428,27 @@ With `3EB` return, complete PROM trace digests still match no-feedback
 controls. These routes do not demonstrate echo cancellation. The
 [high-nibble `3FA` return test](g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
 now tests that alternative with the corrected sample-paced write gate:
-write-only and read-only controls complete 3,000 ADC visits, but
+under the assumed previous-overflow TEST source, write-only and
+read-only controls complete 3,000 ADC visits, but
 `3F9`-latched and `3FA`-latched high feedback leave the four-row loop
 after 939 and 423 visits. Both exits occur before the sample-25 pulse;
 the `3F9` pulse and baseline traces are identical. Following `3EE`,
 both routes take a 53-word transition and then alternate at `1E9/1EA`
 for the remainder of the 96,047-word run, with no further ADC reads.
-Reject these two
-specific high-return routes as sustained receive/echo models, then try
-a mode-qualified or differently timed return and distinct output site
-with own/remote/mixed and no-write controls. C4 stays open and G2 active.
+The [TEST-source screen](g2/JOINT-MASK04-RAM-CONDITION-RESCUE.md)
+checks all sixteen timing/flag/polarity choices on the legal waveform.
+Previous sign, carry and overflow alone sustain the no-feedback loop;
+with the same high return, sign exits at 236 visits, overflow at 939,
+but **previous carry completes 3,000**. The
+[own/remote/mixed challenge](g2/JOINT-MASK04-RAM-CARRY-ECHO-SCREEN.md)
+then runs that surviving candidate for eight 288,047-word cases,
+all sustaining 9,000 visits. Yet the late `3FA` mixed-versus-remote
+code-space difference grows from 0.439 in write-only control to 17.796
+with feedback, with 658→1,312 differing visits. Frozen RAM affects
+the first three common-tail samples but this is not selective echo
+attenuation. Keep TEST and RAM wiring assumed; try a signed or
+mode-qualified return or another output site with the same controls.
+C4 stays open and G2 active.
 The [held-mode RAM pulse test](g2/JOINT-MASK04-RAM-MODE-PULSE.md) now
 combines that corrected sample-paced memory route with candidate `D3EB`
 values `01`, `81` and `A1`, plus a synthetic `81→A1` edge at freeze.

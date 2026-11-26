@@ -120,12 +120,20 @@ operation; it must not be read as a full-byte subtraction or an
 identified echo residual. The RAM wiring and Y consumer remain open.
 The [high-nibble `3FA` return control](../g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
 puts `3F9` or `3FA` Y's high nibble into a sample-paced hypothetical
-external RAM and returns it at `3FA`. Unlike write-only or read-only
+external RAM and returns it at `3FA` under a previous-overflow TEST
+assumption. Unlike write-only or read-only
 controls, both feedback variants leave the four-row loop at `3ED→3EE`
 before the offered sample-25 pulse. Their post-exit traces take 53
 transition words and then remain in `1E9/1EA` for the rest of the run,
 without another ADC selection. This is an executed control-flow
 effect of the assumed return, not evidence of useful echo adaptation.
+The [TEST-source challenge](../g2/JOINT-MASK04-RAM-CONDITION-RESCUE.md)
+changes that result: previous carry sustains the same `3F9`-latched
+high return for 3,000 ADC visits. It also sustains the subsequent
+[own/remote/mixed run](../g2/JOINT-MASK04-RAM-CARRY-ECHO-SCREEN.md),
+but `3FA` code-space differences grow late rather than selectively
+falling for the own echo. The condition mux and RAM return remain
+untraced; this is an active but non-cancelling candidate, not C4.
 
 The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
 gives `127–12A` a specific candidate modem function: R1 adds the D127

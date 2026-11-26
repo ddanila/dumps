@@ -1,0 +1,303 @@
+{
+  "experiment": "previous-carry high-nibble RAM route on own echo and remote mixtures",
+  "fixture": {
+    "train_samples": 128,
+    "tail_samples": 64,
+    "adc_visits": 9000,
+    "cycles": 288047,
+    "condition": "previous ALU carry, polarity 1",
+    "own_source": "saved real-PROM call Y7 reconstructed PCM",
+    "input_source": "same four controls as corrected low-lane echo screen",
+    "ram": "3F9 Y high nibble to 256x8 sample-paced RAM, frozen after training",
+    "return_path": "RAM address minus three samples to 3FA D high nibble, D0=1"
+  },
+  "cases": [
+    {
+      "stimulus": "zero",
+      "route": "write_only",
+      "input_sha256": "c24e73f000a4255a612416ecc4df81c9313e4c099877384712e4d8530dd7acbd",
+      "adc_sha256": "53641a2250ea360eaa29dcc786ecf422a0bb7be25249081e8aef488a012deb4a",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "aa4b37bcaf694e2ecd89990f6b09ea078213e084bdd29ecb249e37a000cc74cc",
+      "first_changed_read": null,
+      "writes": 24000,
+      "reads": 0,
+      "ram_noninitial": 128,
+      "ram_sha256": "06e6da0dfedc51a0b7443f29c5c3fff63ee1782a17b7c7808440a2057b593084",
+      "y3fa_sha256": "7a8424eaae23fb07ab9a9fd5bb6add9ff7a5c11817a64e1cd03893996433ac47"
+    },
+    {
+      "stimulus": "zero",
+      "route": "high_return",
+      "input_sha256": "c24e73f000a4255a612416ecc4df81c9313e4c099877384712e4d8530dd7acbd",
+      "adc_sha256": "53641a2250ea360eaa29dcc786ecf422a0bb7be25249081e8aef488a012deb4a",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "93fb225410c21a2f0613a6b011cfcf23efe2d4cddf69e8ac650a2327b3f3f1ba",
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "writes": 24000,
+      "reads": 9000,
+      "ram_noninitial": 128,
+      "ram_sha256": "06e6da0dfedc51a0b7443f29c5c3fff63ee1782a17b7c7808440a2057b593084",
+      "y3fa_sha256": "22e3e16abf97ffd59d88bf08d804353c130d137a10192786b4ba939211141e8d",
+      "tail_changes_vs_write_only": 141,
+      "same_trace_as_write_only": false
+    },
+    {
+      "stimulus": "own_echo",
+      "route": "write_only",
+      "input_sha256": "05a81ab062bc8c008967ca38536522e3e4d24bbe8b46c9350b38026ab1a4a375",
+      "adc_sha256": "8ba936575f42f975efba3862716309727c677f62c29ca284cb02349e0c0691f8",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "d00c6d49082d76d39519746d4c48a98d944e8d4edd3856f1005739a1e8f1fe2a",
+      "first_changed_read": null,
+      "writes": 24000,
+      "reads": 0,
+      "ram_noninitial": 128,
+      "ram_sha256": "c89675c120394e7b3df955a810cb3c628d6e718116e3d30ef96c86268c7b5eb8",
+      "y3fa_sha256": "7a8424eaae23fb07ab9a9fd5bb6add9ff7a5c11817a64e1cd03893996433ac47"
+    },
+    {
+      "stimulus": "own_echo",
+      "route": "high_return",
+      "input_sha256": "05a81ab062bc8c008967ca38536522e3e4d24bbe8b46c9350b38026ab1a4a375",
+      "adc_sha256": "8ba936575f42f975efba3862716309727c677f62c29ca284cb02349e0c0691f8",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "f7ad6d3470be8836e04e72b7701bb0a70dc773fabd7ab23f40d4a3553c5a0fbe",
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "writes": 24000,
+      "reads": 9000,
+      "ram_noninitial": 128,
+      "ram_sha256": "c89675c120394e7b3df955a810cb3c628d6e718116e3d30ef96c86268c7b5eb8",
+      "y3fa_sha256": "0912fe1ceaf75ae63ababf30da9b0658055428fdb3162a72d5a899b431e2de89",
+      "tail_changes_vs_write_only": 141,
+      "same_trace_as_write_only": false
+    },
+    {
+      "stimulus": "independent_remote",
+      "route": "write_only",
+      "input_sha256": "433491df2790c5030e6672fb09c053efb83ef92681f60255eaa647debb9ad5d5",
+      "adc_sha256": "984ffd1d64d55881e34c518408f5992cdba652fdcca44f14ea356a847e4a4a6f",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "81ec1930594c2346d539fc3257e1db1f53fa3d6add94279183696aff4c614b7e",
+      "first_changed_read": null,
+      "writes": 24000,
+      "reads": 0,
+      "ram_noninitial": 128,
+      "ram_sha256": "f866ee588f477af77d5a7abeea4a1185261716588334ff16e0b14ebb3000b429",
+      "y3fa_sha256": "7bf2bb92a89365245bea61c6f2ac25e2651db7d03150137b3c98dc4e097ab2b0"
+    },
+    {
+      "stimulus": "independent_remote",
+      "route": "high_return",
+      "input_sha256": "433491df2790c5030e6672fb09c053efb83ef92681f60255eaa647debb9ad5d5",
+      "adc_sha256": "984ffd1d64d55881e34c518408f5992cdba652fdcca44f14ea356a847e4a4a6f",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "296d05d2633be0e051b1ab717e2fb7938be9bd0625d39e3a646bd17478ada3d1",
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 49
+      },
+      "writes": 24000,
+      "reads": 9000,
+      "ram_noninitial": 128,
+      "ram_sha256": "f866ee588f477af77d5a7abeea4a1185261716588334ff16e0b14ebb3000b429",
+      "y3fa_sha256": "0f4b7a750195ca542ad6c9551e0c635a7004d7733ad71dfed9cb647dca4ca1fe",
+      "tail_changes_vs_write_only": 141,
+      "same_trace_as_write_only": false
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "route": "write_only",
+      "input_sha256": "be0497e7aee5dee1c0f648d88a27b12846fd464f64dd322039fd917f35060c3a",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "87ee9711a01cc186259f71440f5334f182dc2536f3cb9395a4e5e79111f1fdb7",
+      "first_changed_read": null,
+      "writes": 24000,
+      "reads": 0,
+      "ram_noninitial": 128,
+      "ram_sha256": "ca547d23db7d8e7863dd750370964e2e89dcae8f388b9d5dbff5b00047d10615",
+      "y3fa_sha256": "7bb964398219856d82b685e9d49c6ae106b6bf53e0e7599ac2d3009f28073b62"
+    },
+    {
+      "stimulus": "remote_plus_echo",
+      "route": "high_return",
+      "input_sha256": "be0497e7aee5dee1c0f648d88a27b12846fd464f64dd322039fd917f35060c3a",
+      "adc_sha256": "9f4fd417ea9cf3607ab88860793c6eafbe3838cd64e579b17772ce9e9c665a85",
+      "clean": true,
+      "cycles": 288047,
+      "adc_visits": 9000,
+      "loop_exits": 0,
+      "final_pc": "3F0",
+      "trace_digest": "057624bb8b952ef30715b068215e118ac595f4bb3154614c606dad44e2d69fdc",
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 49
+      },
+      "writes": 24000,
+      "reads": 9000,
+      "ram_noninitial": 128,
+      "ram_sha256": "ca547d23db7d8e7863dd750370964e2e89dcae8f388b9d5dbff5b00047d10615",
+      "y3fa_sha256": "01d73cc53a8af878b88d97abe21b20a158aa20b135fe2bd3a21d27feb8d413c7",
+      "tail_changes_vs_write_only": 141,
+      "same_trace_as_write_only": false
+    }
+  ],
+  "y3fa_code_space_comparisons": {
+    "write_only": {
+      "early": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.21933333333333332,
+          "unequal_visits": 329
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.25066666666666665,
+          "unequal_visits": 376
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 0.282,
+          "unequal_visits": 423
+        }
+      },
+      "late": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.31266666666666665,
+          "unequal_visits": 469
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.43866666666666665,
+          "unequal_visits": 658
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 0.31266666666666665,
+          "unequal_visits": 469
+        }
+      },
+      "tail": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 0.0,
+          "unequal_visits": 0
+        }
+      }
+    },
+    "high_return": {
+      "early": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 4.970666666666666,
+          "unequal_visits": 466
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 7.739333333333334,
+          "unequal_visits": 846
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 13.556,
+          "unequal_visits": 889
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 11.248666666666667,
+          "unequal_visits": 1128
+        }
+      },
+      "late": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 5.973333333333334,
+          "unequal_visits": 560
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 8.803333333333333,
+          "unequal_visits": 984
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 17.796,
+          "unequal_visits": 1312
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 12.022,
+          "unequal_visits": 986
+        }
+      },
+      "tail": {
+        "own_vs_zero": {
+          "mean_absolute_code_difference": 0.25066666666666665,
+          "unequal_visits": 47
+        },
+        "remote_vs_zero": {
+          "mean_absolute_code_difference": 0.5013333333333333,
+          "unequal_visits": 94
+        },
+        "mixed_vs_remote": {
+          "mean_absolute_code_difference": 2.256,
+          "unequal_visits": 94
+        },
+        "mixed_vs_own": {
+          "mean_absolute_code_difference": 2.005333333333333,
+          "unequal_visits": 141
+        }
+      }
+    }
+  },
+  "limitations": [
+    "RAM and TEST wiring, sample clock, ADC and line model are assumed.",
+    "Y3FA byte differences are code-space diagnostics, not measured analog residuals.",
+    "A candidate C4 pass requires selective late echo attenuation and a freeze response under sustained execution."
+  ]
+}

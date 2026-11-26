@@ -1907,11 +1907,14 @@ Listed in order of value per effort:
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The
   [sample-paced high-nibble return test](g2/JOINT-MASK04-RAM-HIGH-RETURN-EXIT.md)
-  exits the receive loop for both `3F9` and `3FA` Y latches, while its
-  write-only and read-only controls sustain it. Both exits settle into
-  `1E9/1EA` without further ADC reads in this fixture. Try a mode-qualified or
-  differently timed route; no tested RAM output is yet a measured or
-  selectively falling echo residual.
+  exits the receive loop under the previous-overflow TEST assumption,
+  while its write-only and read-only controls sustain it. A
+  [previous-carry TEST choice](g2/JOINT-MASK04-RAM-CONDITION-RESCUE.md)
+  sustains the same high return, but the
+  [own/remote/mixed challenge](g2/JOINT-MASK04-RAM-CARRY-ECHO-SCREEN.md)
+  increases rather than attenuates the late `3FA` own-echo code proxy.
+  Try a signed or mode-qualified return or another output site; no
+  tested RAM output is yet a measured or selectively falling echo residual.
 
 ## 3. Acceptance for G2
 

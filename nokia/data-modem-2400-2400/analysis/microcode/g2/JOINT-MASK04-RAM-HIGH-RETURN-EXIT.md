@@ -43,7 +43,12 @@ strengthens the route-specific rejection. A different condition source
 could release that loop; the condition wiring is still an assumption.
 
 This rejects the two tested high-nibble `3FA` return fixtures as models
-of a sustained receiver or useful echo-training loop. It does not reject
+of a sustained receiver or useful echo-training loop **under the tested
+previous-overflow TEST source**. The later
+[condition screen](JOINT-MASK04-RAM-CONDITION-RESCUE.md) finds that
+previous carry sustains the same `3F9`-latched return; its
+[functional challenge](JOINT-MASK04-RAM-CARRY-ECHO-SCREEN.md) still does
+not selectively attenuate the own-echo proxy. This does not reject
 the photographed RAMs, a different read timing, write enable, mode or
 output site. The already tested low-nibble return sustains the loop but
 increases the own-echo code-space proxy; neither result is a measured
@@ -52,7 +57,7 @@ with own/remote/mixed and no-write controls, and require selective late
 attenuation plus a freeze response before passing C4. G2 remains active.
 
 The [machine report](results/joint-mask04-ram-high-return-exit.json)
-records input and trace hashes, read/write counts, first changed reads
+records input and trace hashes, read/write counts, first changed reads,
 the executed branch rows and the complete post-exit PC histogram.
 Reproduce from this directory with
 `python3 g2/joint_mask04_ram_high_return_exit.py`.

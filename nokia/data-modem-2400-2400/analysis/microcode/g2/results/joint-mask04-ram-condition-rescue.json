@@ -1,0 +1,236 @@
+{
+  "experiment": "condition-source rescue of high-nibble 3FA RAM feedback",
+  "fixture": {
+    "mapping": "joint mask04, upper source 17.6",
+    "adc_sha256": "2be19239e298b954625934683d8ab2ca9e75e322ffd58bacc3c27c7730b424f2",
+    "adc_visits": 3000,
+    "cycles": 96047,
+    "condition_sources": [
+      "zero",
+      "sign",
+      "carry",
+      "overflow"
+    ],
+    "condition_timing": [
+      "previous",
+      "current"
+    ],
+    "polarity": [
+      0,
+      1
+    ],
+    "feedback": "3F9 Y high nibble to sample-paced 256x8 RAM, -3 sample 3FA D high return, D0=1"
+  },
+  "cases": [
+    {
+      "timing": "previous",
+      "source": "zero",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "b6335dfc56645eab96ac3124fb83fb9f9842c342226db25f8368be4fcc0c81ff"
+    },
+    {
+      "timing": "previous",
+      "source": "zero",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "e9c4f01369c0a5087cdbfb516d8683e7eb48cfbaeddb2933255b2b18f2f189e6"
+    },
+    {
+      "timing": "previous",
+      "source": "sign",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "68251a24e725949e64111090b66765ddb77a0eefeff562fc8d548aebde8b5e19"
+    },
+    {
+      "timing": "previous",
+      "source": "sign",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 3000,
+      "loop_exits": 0,
+      "trace_digest": "8861e3d16f1760da504abc6ab00ca46474c22e0c0a9c88b8310ce9f13d9a6a42"
+    },
+    {
+      "timing": "previous",
+      "source": "carry",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "30aa1697559c26ce96254a865a65a66ceaee82fa25f6249c944a939e4bf73f28"
+    },
+    {
+      "timing": "previous",
+      "source": "carry",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 3000,
+      "loop_exits": 0,
+      "trace_digest": "1a28c27d4af709f18aa537490bb184623c675fba973c228bbeb38e8a17cbeefe"
+    },
+    {
+      "timing": "previous",
+      "source": "overflow",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "69943c375e60a8b8c7af6dcca480e756f79923a0fa8557b2bd8ad2b1df559313"
+    },
+    {
+      "timing": "previous",
+      "source": "overflow",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 3000,
+      "loop_exits": 0,
+      "trace_digest": "f6fb964a6ec32323bb2a2ed1444163947df213e04d0ef34c2984cf2f2ef23606"
+    },
+    {
+      "timing": "current",
+      "source": "zero",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "54960b3d03478d291a4ba9b75f132bd01826cfd632204b98accc627cdce63830"
+    },
+    {
+      "timing": "current",
+      "source": "zero",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "c084b3338b84e9b855052bf4aa30b5b196baf177d454e649fc1f12a891d6673e"
+    },
+    {
+      "timing": "current",
+      "source": "sign",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "d586c4345989491ab14f2a0ffb51bbcf68afe3cada866ace3619523be6120f43"
+    },
+    {
+      "timing": "current",
+      "source": "sign",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "69e119a6f9fac9933bf01deb9d6dbe6c61b800bb09f289fc40c574440a9f96bd"
+    },
+    {
+      "timing": "current",
+      "source": "carry",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "e4b599e0e4e1ad60fedbc73d009e68e1c1117ef09e32bb13b434c5d4a35fbd14"
+    },
+    {
+      "timing": "current",
+      "source": "carry",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "19f0cf14add70c0aaa1137e8557909b097215910c3ad68c45f29e7e902c445f0"
+    },
+    {
+      "timing": "current",
+      "source": "overflow",
+      "polarity": 0,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "235aefe2dfc4e565345de30813da067d3bd0c8bcaa8aa40a0c830c43fb4827b2"
+    },
+    {
+      "timing": "current",
+      "source": "overflow",
+      "polarity": 1,
+      "feedback": false,
+      "clean": true,
+      "adc_visits": 0,
+      "loop_exits": 1,
+      "trace_digest": "5fe37623541b8b1a7dd92caf7300bbe3b45da5acef8d7491d6399041fc46d8b7"
+    },
+    {
+      "timing": "previous",
+      "source": "sign",
+      "polarity": 1,
+      "feedback": true,
+      "clean": true,
+      "adc_visits": 236,
+      "loop_exits": 1,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "trace_digest": "64d7d25947df5a2cef4f20ac57706cea1dbd40bf5d43faa1223ad23f54759a18"
+    },
+    {
+      "timing": "previous",
+      "source": "carry",
+      "polarity": 1,
+      "feedback": true,
+      "clean": true,
+      "adc_visits": 3000,
+      "loop_exits": 0,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "trace_digest": "a188f72b3306d533d0859e9c614471cf7fc8ae21fcb10d3bafe3e5cf42f7669b"
+    },
+    {
+      "timing": "previous",
+      "source": "overflow",
+      "polarity": 1,
+      "feedback": true,
+      "clean": true,
+      "adc_visits": 939,
+      "loop_exits": 1,
+      "first_changed_read": {
+        "cycle": 4577,
+        "address": 1,
+        "value": 33
+      },
+      "trace_digest": "e35de17b3c4eda367be132284f5e3d26a3608adf0d0769c00cb7f69e04bd22c7"
+    }
+  ],
+  "limitations": [
+    "TEST-source selection, RAM wiring and D0 forcing are explicit hypotheses.",
+    "Sustaining the four-row loop is a prerequisite, not evidence of echo cancellation.",
+    "The previous-carry result applies to this waveform and must be challenged with own/remote/mixed inputs."
+  ]
+}
