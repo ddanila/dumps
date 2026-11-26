@@ -406,6 +406,23 @@ proposed readout requires a row-qualified clock or another hold path.
 Test an independently changed carrier/gain fixture, then constrain the
 qualifier and storage from the photos. Keep C3/G2 active under labelled
 wiring assumptions.
+The photographed U19 NAND near U12 and the
+[raw-PROM `3ED` decode](g2/RECEIVER-MASK04-3ED-PROM-LATCH.md) offer a
+concrete every-row clock source, but the same `3ED` word executes in all
+four rows. Its PROM bits alone cannot distinguish row 0. Model U24's
+pictured four-bit counter, or another explicit stateful index, as the
+qualifier: test the pre- and post-increment phases and all four low-bit
+decodes against the captured call/answer streams. Keep the counter-to-gate
+and gate-to-U12 pins assumed until a photo or independent signal constraint
+separates them. Do not wait for that trace to run the phase screen.
+The [U24-style phase screen](g2/JOINT-MASK04-12A-ALL-ROW-LATCH.md)
+now tests those eight counter-edge/decode combinations on both saved
+real-PROM row captures. Only pre-increment `00` or post-increment `01`
+selects row 0 and makes 0/64 errors in both streams; the other six
+make 14–21 errors. This constrains the logical counter phase under the
+assumed modulo-four clock but does not identify the U24 pins or reset.
+Next compare a second counter/reset source or seek an independent output
+constraint while continuing C2/C3/C4 experiments.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)

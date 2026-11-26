@@ -67,6 +67,25 @@ current one. These outputs expose quantized input samples; a dibit decoded
 externally from them is not yet an executed microprogram decision. The
 `3F9` ROM read and retained Q/RAM updates still merit a downstream-output
 test before naming a receive-demodulation routine or passing C3.
+The later [20-state row-phase rule](../g2/JOINT-MASK04-12A-ROW0-TWENTY-STATE.md)
+uses executed `3ED` row-0 bit 0 and two `3F8` Y snapshots to recover all
+64 measurable receive decisions in each of six fresh Tx→line→Rx runs at
+75–125% level. At aligned modeled USART timing the eight line bytes and
+eight 8031-decoded source bytes are exact. The
+[cycle replay](../g2/JOINT-MASK04-12A-ROW0-SERIAL-TIMING.md) places the
+second snapshot 2,961 microcycles before the proposed first RxC sample.
+Two new [four-row real-PROM captures](../g2/JOINT-MASK04-12A-ALL-ROW-LATCH.md)
+show why an unqualified output latch cannot implement this rule: rows 1
+and 2 are zero at all 520 checked symbol/visit points, while a latch
+clocked after every `3ED` would finish on row 3 and make 14/64 call or
+19/64 answer decision errors. The separate raw-PROM
+[U19 clock candidate](../g2/RECEIVER-MASK04-3ED-PROM-LATCH.md) fires after
+every row; since the same `3ED` word is executed four times, its PROM
+decode cannot by itself select row 0. A row index from the photographed
+U24 counter or another stateful qualifier could do that, but its wiring,
+reset phase and the required extra storage are untraced. These phase gates
+and serial decisions are external readout hypotheses, not executed DSC
+instructions or a physical C3 pass.
 The [three-phase `3F9`/`3FA` capture](../g2/JOINT-MASK04-RECEIVE-3F9-3FA-CODEBOOK.md)
 now tests their executed Y bytes at all 9,000 visits of three legal
 rotated-carrier streams. Both execute once per ADC visit, and each Y byte

@@ -27,6 +27,19 @@ Row-0 qualification preserves the distinguishing bit and makes none. This
 supports a **necessary row qualification or alternate hold path for this
 candidate**, not a traced U12 pin or proof of the actual Nokia consumer.
 
+The [counter-phase screen](joint_mask04_12a_u24_phase_screen.py) makes the
+pictured U24 74LS161 a specific, still hypothetical qualifier. Assuming its
+low bits count `00→01→10→11` over the four `3ED` rows, it tries all four
+two-bit decodes both before and after an increment at the candidate raw-PROM
+`3ED→3EA` edge. Only pre-increment `00` (or equivalently post-increment `01`)
+selects row 0 and leaves both streams error-free. The other six decoded
+phases make 14–21 errors; an unqualified edge makes 14/19. This fixes the
+required **logical counter phase under that candidate**. It does not show
+that U24 actually clocks on `3ED`, drives U19, or resets at row 0. The
+[phase report](results/joint-mask04-12a-u24-phase-screen.json) preserves the
+eight alternatives per selector. Reproduce with
+`python3 g2/joint_mask04_12a_u24_phase_screen.py`.
+
 The [call report](results/joint-mask04-12a-all-row-latch.json) and
 [answer report](results/joint-mask04-12a-all-row-answer.json) include all 520
 five-value snapshots, per-row errors, trace digests and source hashes.

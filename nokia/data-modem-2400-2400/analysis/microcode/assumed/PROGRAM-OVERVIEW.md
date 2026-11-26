@@ -141,6 +141,19 @@ controller's executed `AF→B0` transition for two intermediate-angle streams
 under aligned external-sync timing. The physical DAC, ADC and USART paths
 remain unverified, so C2 and C3 stay open.
 
+A newer [row-phase readout](../g2/JOINT-MASK04-12A-ROW0-TWENTY-STATE.md)
+uses two executed receive Y snapshots and the first `3ED` row bit. On six
+fresh controller-payload runs at three line levels it recovers all 64
+measurable dibits, the exact eight line bytes and the exact eight source
+bytes after modeled USART/8031 handoff. The
+[timing replay](../g2/JOINT-MASK04-12A-ROW0-SERIAL-TIMING.md) gives that
+candidate 2,961 microcycles of setup before its assumed RxC sample. New
+[call and answer row captures](../g2/JOINT-MASK04-12A-ALL-ROW-LATCH.md)
+show that a latch clocked on every `3ED` row loses the needed row-0 bit;
+an external qualifier or another hold path is necessary for this readout.
+The executed microprogram exposes input-dependent phase information, while
+the phase gates, capture storage and serial output remain circuit hypotheses.
+
 ## What the coverage numbers establish
 
 The historical 28.80% is the union of 294 visited addresses in the original

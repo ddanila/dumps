@@ -1,0 +1,422 @@
+{
+  "experiment": "four-state U24-style counter phase for candidate 3ED row clock",
+  "fixture": {
+    "counter": "assumed modulo-four low-bit index 0,1,2,3",
+    "clock": "candidate raw-PROM 3ED->3EA edge after every row",
+    "data": "executed all-row Y bit 0 from two real-PROM streams",
+    "timings": [
+      "before_increment",
+      "after_increment"
+    ],
+    "decodes": [
+      "00",
+      "01",
+      "10",
+      "11"
+    ]
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "level": 0.75,
+      "rx_trace_digest": "d22d964b11c1ca83d0ff716570c2fb8d972fb6cad8c7d77b84a22288ee5ca5f0",
+      "unqualified_every_row_wrong_indices": [
+        36,
+        39,
+        44,
+        47,
+        49,
+        50,
+        51,
+        52,
+        54,
+        55,
+        57,
+        58,
+        60,
+        61
+      ],
+      "counter_phase_cases": [
+        {
+          "timing": "before_increment",
+          "decoded_counter": "00",
+          "selected_row": 0,
+          "wrong_indices": []
+        },
+        {
+          "timing": "before_increment",
+          "decoded_counter": "01",
+          "selected_row": 1,
+          "wrong_indices": [
+            33,
+            34,
+            35,
+            36,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            55,
+            57,
+            59,
+            60,
+            64
+          ]
+        },
+        {
+          "timing": "before_increment",
+          "decoded_counter": "10",
+          "selected_row": 2,
+          "wrong_indices": [
+            33,
+            34,
+            35,
+            36,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            55,
+            57,
+            59,
+            60,
+            64
+          ]
+        },
+        {
+          "timing": "before_increment",
+          "decoded_counter": "11",
+          "selected_row": 3,
+          "wrong_indices": [
+            36,
+            39,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            57,
+            58,
+            60,
+            61
+          ]
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "00",
+          "selected_row": 3,
+          "wrong_indices": [
+            36,
+            39,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            57,
+            58,
+            60,
+            61
+          ]
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "01",
+          "selected_row": 0,
+          "wrong_indices": []
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "10",
+          "selected_row": 1,
+          "wrong_indices": [
+            33,
+            34,
+            35,
+            36,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            55,
+            57,
+            59,
+            60,
+            64
+          ]
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "11",
+          "selected_row": 2,
+          "wrong_indices": [
+            33,
+            34,
+            35,
+            36,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            47,
+            49,
+            50,
+            51,
+            52,
+            55,
+            57,
+            59,
+            60,
+            64
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "level": 0.75,
+      "rx_trace_digest": "3e948787231287e5a0f3b2e92616874b44f88d42dde32cf69800c8e75b88bce0",
+      "unqualified_every_row_wrong_indices": [
+        33,
+        34,
+        40,
+        41,
+        42,
+        43,
+        45,
+        46,
+        48,
+        49,
+        50,
+        51,
+        54,
+        56,
+        58,
+        60,
+        61,
+        62,
+        63
+      ],
+      "counter_phase_cases": [
+        {
+          "timing": "before_increment",
+          "decoded_counter": "00",
+          "selected_row": 0,
+          "wrong_indices": []
+        },
+        {
+          "timing": "before_increment",
+          "decoded_counter": "01",
+          "selected_row": 1,
+          "wrong_indices": [
+            33,
+            34,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            45,
+            46,
+            49,
+            50,
+            51,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            63,
+            64
+          ]
+        },
+        {
+          "timing": "before_increment",
+          "decoded_counter": "10",
+          "selected_row": 2,
+          "wrong_indices": [
+            33,
+            34,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            45,
+            46,
+            49,
+            50,
+            51,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            63,
+            64
+          ]
+        },
+        {
+          "timing": "before_increment",
+          "decoded_counter": "11",
+          "selected_row": 3,
+          "wrong_indices": [
+            33,
+            34,
+            40,
+            41,
+            42,
+            43,
+            45,
+            46,
+            48,
+            49,
+            50,
+            51,
+            54,
+            56,
+            58,
+            60,
+            61,
+            62,
+            63
+          ]
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "00",
+          "selected_row": 3,
+          "wrong_indices": [
+            33,
+            34,
+            40,
+            41,
+            42,
+            43,
+            45,
+            46,
+            48,
+            49,
+            50,
+            51,
+            54,
+            56,
+            58,
+            60,
+            61,
+            62,
+            63
+          ]
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "01",
+          "selected_row": 0,
+          "wrong_indices": []
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "10",
+          "selected_row": 1,
+          "wrong_indices": [
+            33,
+            34,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            45,
+            46,
+            49,
+            50,
+            51,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            63,
+            64
+          ]
+        },
+        {
+          "timing": "after_increment",
+          "decoded_counter": "11",
+          "selected_row": 2,
+          "wrong_indices": [
+            33,
+            34,
+            36,
+            38,
+            39,
+            41,
+            42,
+            43,
+            45,
+            46,
+            49,
+            50,
+            51,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            63,
+            64
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "U24 74LS161 is photographed, but its clock, reset, outputs and U19/U12 connections are not traced.",
+    "The counter phase screen reuses saved real-PROM row snapshots and the fitted external phase gates; it is not a new execution.",
+    "Only the candidate row clock is tested; the remaining capture storage and USART routes are still assumed."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_u24_phase_screen.py": "62688ad735cba89184a8ebe7e119f0056dba915004ae251d79652d59295be961",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-all-row-latch.json": "85920b175f691769dc92192f3a457ad42d3590e0190212bd12d981f4e649e25a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-all-row-answer.json": "37ad770f103b52faf6608e870e780810068a60da37eeea22bdbcf3bb1f73603d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty-fresh-88.json": "dca71095e6bdb6109e08759388f108da88162af3ad6f2cf8be2c5a565cbebd49",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-twenty.json": "e447f0c27daaadfad9773cf3f757f63073ceecdff427b4490fc7f5ce36fbfe89",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_all_row_latch.py": "2f77476579648fbe8d4d8bafb440bc6767b1bf57cacdc2601a9dcae396c00e2c"
+  }
+}
