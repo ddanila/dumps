@@ -1549,6 +1549,13 @@ phases B–C turn "what" into "how".
   of the line-side 8251 does not supply the required byte boundary in
   this executed fixture; test external SYNDET or receive-clock gating,
   while keeping earlier startup behavior as a separate possibility.
+  The [held-SYNDET/RxC-gate screen](g2/RECEIVER-RXC-GATE-SCREEN.md)
+  tests six saved real-PROM streams through a narrow 8251/8031 model.
+  A SYNDET high established before data plus RxC first enabled at bit
+  64 gives exactly the earlier aligned-pulse result; gates at bit 0,
+  63, 65 or never fail the complete-byte check. This supplies a second
+  conditional sync architecture, not a traced gate or receive-boundary
+  signal. Keep C3 open and test a photo-compatible gate driver.
   The [four-bit phase readout](g2/RECEIVER-MASK04-FOUR-BIT-PHASE.md)
   combines row-0 `3ED` Y bits 0/1/3 with transient `3F8` Y7 in one
   frozen seven-entry table. Two new continuous preamble/data streams at

@@ -183,6 +183,14 @@ received bytes; the only five control writes program DTE port `06`.
 This rules out a late 8031 line-USART reset in that executed path as the
 source of byte alignment. An earlier setup, clock gating or external
 SYNDET route remains possible; test those as labelled candidates.
+The [held-SYNDET/RxC-gate screen](g2/RECEIVER-RXC-GATE-SCREEN.md)
+tests another photo-compatible timing family: assert external SYNDET
+before the segment and withhold RxC until the first data bit. For all
+six saved PROM-derived streams, opening RxC at bit 64 exactly matches
+the earlier pulse handoff; opening at bit 0, 63, 65 or never does not
+deliver the complete intended stream. Seek a receive-side event that
+can open the clock at that boundary, while keeping both gate and pulse
+routes conditional and C3 open.
 
 The [controller zero-run handoff](g2/RECEIVER-MASK04-CONTROLLER-ZERO-HANDOFF.md)
 now joins a longer real-PROM receive trace to the 8031's executed `AF→B0`
