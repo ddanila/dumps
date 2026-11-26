@@ -48,6 +48,15 @@ cycles. They change ALU `f` and register writes, plus 221 transient
 `12A` Y lower bytes; Y7, Q and PC path remain equal. Do not describe
 the ROM as ignored. Seek the actual latch source or a mode where the
 changed internal state reaches a measured output.
+The [joint-map phase-accumulator replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
+now verifies R1 += D127 (mod 256) on 54,053 consecutive updates per
+controller selector, and Y7 = R1 bit 7 at all 216,216 executed loop
+words per selector. The first 18 continuous call/answer A4 dibits give
+their exact cumulative quadrant steps. The assumed 9,600 Hz sample
+clock turns `88` into 2,100 Hz and `B0` into a magnitude-1,800 Hz
+carrier. This identifies an executed candidate digital modulation
+mechanism; the D127 pulse decoder and physical DAC/line route remain
+open C2 hypotheses, not goal blockers.
 For C3, test a photo-compatible multi-visit consumer of `3F8`/`3ED` output,
 including intermediate carrier phases, then its RxD/RxC and external SYNDET
 route; the [two-visit selector](g2/RECEIVER-MASK04-PREAMBLE-TWO-VISIT-SELECTOR.md)

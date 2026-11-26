@@ -58,6 +58,14 @@ linked G2 experiments; they do not revise the older profiles.
 | 3F8–3FE | Candidate ADC-table receive update: the assumed ADC high nibble affects 3F8 Y, 3F9 reads the real ROM at `0x100 + Y`, and the four-row cycle retains input-dependent Q/RAM state. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | ADC ingress, row dispatch and any recovered-bit consumer; C3 stays open. |
 | 3EB–3ED | Candidate receive-state byte exposure: 3EB writes R1 from Q's low nibble and 3ED exposes that R1 byte on Y. [Trace](../g2/JOINT-MASK04-ADC-ROM-WRAPPER-RULE.md) | Capture, phase decision and USART RxD/RxC/SYNDET route; C3 stays open. |
 
+The [executed phase-accumulator check](../g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
+gives `127–12A` a specific candidate modem function: R1 adds the D127
+step modulo 256 at each visit, and Y7 exposes its high bit throughout
+the loop. In the labelled controller-to-D127 pulse fixture, `88` and
+`B0` yield the 2,100 Hz and magnitude-1,800 Hz phase steps at the
+assumed 9,600 Hz sample clock; four-visit dibit pulses shift the phase
+by quadrants. The physical output route remains unverified.
+
 The [transmit ROM-bank ablation](../g2/JOINT-MASK04-TX-ROM-BANK-ABLATION.md)
 qualifies the `127–12A` interpretation: switching the selected `129`
 operand bank changes the executed trace but not one of the captured

@@ -1864,6 +1864,14 @@ Listed in order of value per effort:
   while Y7 and the program path do not. Transient `12A` Y lower bits do
   change, so the operand is active internally; the tested candidate
   MSB output is simply insensitive to this bank choice.
+  The [R1/Y7 phase replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
+  then verifies the executed mechanism over the first 18 continuous
+  controller-derived A4 dibits of both selectors: R1 advances by D127
+  modulo 256 on every visit, Y7 equals R1 bit 7 at all four loop words,
+  and four-visit pulses create the exact expected quadrants. This
+  explains the candidate 1,800/2,100 Hz digital output under the
+  assumed 9,600 Hz latch clock, while C2 still requires a constrained
+  DAC and analog line route.
 - **C3 Receive test.** Encode reference line samples as ADC0800 complementary
   bytes under an explicit reference range and conversion schedule, feed them
   through the identified input path, and check that recovered bits reach the
