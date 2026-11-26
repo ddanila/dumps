@@ -378,6 +378,16 @@ streams, so this is 64 distinct data comparisons. It ties the conditional
 DSC output bit to the controller's actual data pattern without the assumed
 analog filter, but the physical DAC and line route remain open. Continue
 with photo-compatible output-route hypotheses; do not mark C2 passed.
+The [fresh controller-payload replay](g2/JOINT-MASK04-FRESH-CONTROLLER-PAYLOAD.md)
+now runs the preserved 8031 scrambler locally on nonzero call/answer
+data bytes and feeds the new dibits through the same real-PROM transmit
+candidate. Both 32-dibit streams give zero direct phase errors and zero
+errors under the existing filtered reference receiver; opposite phase
+sign and zero-data controls fail. The raw phase margin is narrow (worst
+40.29° error against a 45° boundary), and the uninterrupted 8031 main
+loop, DAC latch clock/data pins and analog line path remain unverified.
+This strengthens the candidate `127–12A` data-modulator role but does
+not pass C2. Continue with an independently constrained output route.
 
 **Goal G1:** get the four-PROM control store (810237C–810240C) running in an
 emulator without errors, so that we can read what the microprogram does.
