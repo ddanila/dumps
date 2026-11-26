@@ -155,6 +155,16 @@ the conditional AGC-plus-PROM dataflow over data and affine level changes,
 but the AGC stage remains external and hypothetical. Test carrier phase,
 noise and photo-compatible gain/decision circuits without treating those
 untraced nets as a G2 blocker; C2/C3 stay open.
+The [full-byte carrier-offset challenge](g2/JOINT-MASK04-FULL-BUS-CARRIER-OFFSET.md)
+now shifts that modeled line by ±7 Hz while keeping the non-zero payloads,
+AGC target, DAC bus and receive rule frozen. Zero-offset controls reproduce
+the saved PCM; the independent decoder is exact in all six real-PROM receive
+runs. The fixed 46/93 rule makes no wrong data decisions but abstains on
+2–9; its frozen margin fallback recovers exact bytes only at zero offset
+and answer −7 Hz. Call ±7 Hz and answer +7 Hz fail. Seek a phase-aware
+capture/decision route and test it on fresh inputs after freezing it.
+This narrows the current external readout, not the DSC's possible tracking
+function; keep C2/C3 open and G2 active.
 The [photo-B5 Y7 route test](g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 reassigns the same executed Y7 samples to a different candidate latch
 input: Y7→LS273 D4, then the photo-suggested Q4→DAC08 B5 segment.
