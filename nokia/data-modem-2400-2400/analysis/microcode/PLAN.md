@@ -336,6 +336,19 @@ unseen-state success under assumed ADC, latch, analog and serial
 routes, not a physical C3 pass. Freeze the gates for gain/drift and
 new-data tests, and test a photo-compatible row-latch/serializer path
 to USART-01 without waiting for continuity measurements.
+The [frozen row-0 gain challenge](g2/JOINT-MASK04-12A-ROW0-GAIN-CHALLENGE.md)
+supplies new payloads at offset 24 and 75/100/125% of the fixed
+line gain. The real-PROM reference line is exact in all six cases.
+The frozen two-output gate recovers all decisions, eight line bytes
+and exact aligned modeled 8251/8031 payloads at 100% and 125%, but
+at 75% it makes 14 call and 10 answer payload-dibit errors. Every
+error touches an unseen state; its phase for new state `52` is 2,
+while the post-hoc graph requires 3. The feature's expanded 20-state
+graph remains connected and conflict-free, but these low-level labels
+are now development evidence: any revised gates require untouched
+data/gain validation. Test a photo-compatible level or carrier-state
+signal and the actual row-latch/serial route. C3/G2 stay open; missing
+net continuity is not a blocker.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)

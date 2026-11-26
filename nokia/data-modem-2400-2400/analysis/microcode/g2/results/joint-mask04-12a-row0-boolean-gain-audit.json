@@ -1,0 +1,391 @@
+{
+  "experiment": "frozen row-0 Boolean phase gates across fixed line gain",
+  "fixture": {
+    "levels": [
+      0.75,
+      1.0,
+      1.25
+    ],
+    "development_states": 14,
+    "post_hoc_states": 20,
+    "phase_feature": [
+      "46",
+      "row0",
+      0
+    ],
+    "decisions_per_case": 64,
+    "payload_dibits_per_case": 32
+  },
+  "new_state_phases": {
+    "00": {
+      "gate": 3,
+      "post_hoc_graph": 3
+    },
+    "2C": {
+      "gate": 2,
+      "post_hoc_graph": 2
+    },
+    "52": {
+      "gate": 2,
+      "post_hoc_graph": 3
+    },
+    "5C": {
+      "gate": 1,
+      "post_hoc_graph": 1
+    },
+    "6C": {
+      "gate": 1,
+      "post_hoc_graph": 1
+    },
+    "7D": {
+      "gate": 1,
+      "post_hoc_graph": 1
+    }
+  },
+  "outcomes": [
+    {
+      "selector": "40",
+      "level": 0.75,
+      "payload": [
+        "07",
+        "B2",
+        "59",
+        "EC",
+        "31",
+        "8D",
+        "C4",
+        "6A"
+      ],
+      "Boolean_wrong_indices": [
+        36,
+        37,
+        38,
+        40,
+        41,
+        42,
+        46,
+        47,
+        49,
+        52,
+        58,
+        59,
+        62,
+        63
+      ],
+      "known_state_wrong_indices": [],
+      "payload_wrong": 14,
+      "new_states": [
+        "52",
+        "5C"
+      ],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": null,
+      "line_matches_offered": null,
+      "aligned_decoded_bytes": null,
+      "aligned_errors": null,
+      "aligned_overruns": null
+    },
+    {
+      "selector": "40",
+      "level": 1.0,
+      "payload": [
+        "07",
+        "B2",
+        "59",
+        "EC",
+        "31",
+        "8D",
+        "C4",
+        "6A"
+      ],
+      "Boolean_wrong_indices": [],
+      "known_state_wrong_indices": [],
+      "payload_wrong": 0,
+      "new_states": [
+        "6C"
+      ],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "85",
+        "B0",
+        "35",
+        "A8",
+        "7C",
+        "98",
+        "E3",
+        "48"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        7,
+        178,
+        89,
+        236,
+        49,
+        141,
+        196,
+        106
+      ],
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    },
+    {
+      "selector": "40",
+      "level": 1.25,
+      "payload": [
+        "07",
+        "B2",
+        "59",
+        "EC",
+        "31",
+        "8D",
+        "C4",
+        "6A"
+      ],
+      "Boolean_wrong_indices": [],
+      "known_state_wrong_indices": [],
+      "payload_wrong": 0,
+      "new_states": [
+        "00",
+        "2C",
+        "7D"
+      ],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "85",
+        "B0",
+        "35",
+        "A8",
+        "7C",
+        "98",
+        "E3",
+        "48"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        7,
+        178,
+        89,
+        236,
+        49,
+        141,
+        196,
+        106
+      ],
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    },
+    {
+      "selector": "60",
+      "level": 0.75,
+      "payload": [
+        "F1",
+        "26",
+        "90",
+        "4B",
+        "DA",
+        "73",
+        "05",
+        "BE"
+      ],
+      "Boolean_wrong_indices": [
+        34,
+        35,
+        37,
+        38,
+        39,
+        41,
+        50,
+        51,
+        58,
+        59
+      ],
+      "known_state_wrong_indices": [],
+      "payload_wrong": 10,
+      "new_states": [
+        "52",
+        "5C"
+      ],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": null,
+      "line_matches_offered": null,
+      "aligned_decoded_bytes": null,
+      "aligned_errors": null,
+      "aligned_overruns": null
+    },
+    {
+      "selector": "60",
+      "level": 1.0,
+      "payload": [
+        "F1",
+        "26",
+        "90",
+        "4B",
+        "DA",
+        "73",
+        "05",
+        "BE"
+      ],
+      "Boolean_wrong_indices": [],
+      "known_state_wrong_indices": [],
+      "payload_wrong": 0,
+      "new_states": [
+        "6C"
+      ],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "54",
+        "E4",
+        "98",
+        "F0",
+        "CB",
+        "FD",
+        "D2",
+        "AC"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        241,
+        38,
+        144,
+        75,
+        218,
+        115,
+        5,
+        190
+      ],
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    },
+    {
+      "selector": "60",
+      "level": 1.25,
+      "payload": [
+        "F1",
+        "26",
+        "90",
+        "4B",
+        "DA",
+        "73",
+        "05",
+        "BE"
+      ],
+      "Boolean_wrong_indices": [],
+      "known_state_wrong_indices": [],
+      "payload_wrong": 0,
+      "new_states": [
+        "00",
+        "2C",
+        "7D"
+      ],
+      "reference_wrong_indices": [],
+      "recovered_line_bytes": [
+        "54",
+        "E4",
+        "98",
+        "F0",
+        "CB",
+        "FD",
+        "D2",
+        "AC"
+      ],
+      "line_matches_offered": true,
+      "aligned_decoded_bytes": [
+        241,
+        38,
+        144,
+        75,
+        218,
+        115,
+        5,
+        190
+      ],
+      "aligned_errors": 0,
+      "aligned_overruns": 0
+    }
+  ],
+  "graph_compatibility": {
+    "0.75": {
+      "minimum_conflicts": 0,
+      "zero_conventions": [
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ]
+      ],
+      "observed_states": 16,
+      "component_sizes": [
+        16
+      ]
+    },
+    "1.0": {
+      "minimum_conflicts": 0,
+      "zero_conventions": [
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ]
+      ],
+      "observed_states": 15,
+      "component_sizes": [
+        15
+      ]
+    },
+    "1.25": {
+      "minimum_conflicts": 0,
+      "zero_conventions": [
+        [
+          2,
+          1,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ]
+      ],
+      "observed_states": 17,
+      "component_sizes": [
+        17
+      ]
+    }
+  },
+  "limitations": [
+    "The post-hoc state phases use the new gain-case payload labels and cannot validate a revised gate rule.",
+    "These levels scale one assumed analog line; no physical AGC, ADC range or latch clock is established."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean_gain_audit.py": "870f98931a47b08870f78eeb2d7044ea761fc12195120c590e039199da29c7f1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean.json": "f4f9f2970d1679049e544f3ffc9c5ce1181b774597490db65be1d0c127664f2f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-boolean-gain.json": "28882404cad0542a6aed03018b67e2ff0fe0435c293e630ecb21d3d9eea40221",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-32.json": "c15cbc7eaa085f9cc90fcba4da965d51ebcdfd71be41097f802785b201c0011c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-baseline-96.json": "ab1d1d5ded31b4bddd15f5953fcd59d0d50a3237a034ceab27be995c0ae49e65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-16.json": "0accdbc1a5648d04aa707ef077a4a2d1f511f000c73c68bb243b3ef61dddaf6e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-80.json": "5b88ec1341651d6266cda8c8df1942f7eb3c11abb944071b3534e316f023728a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-third-capture-low-gain.json": "92cf37d849db200dec0f6a35d2f22f2447702c4a8861b8d02a0f1611640098aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-0.json": "92a292afd429e3bdae7f03b9fc5ab18c9b276cec5853bf5a3892948babf939b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row0-fresh-64.json": "06d3470ae85db0531ca1d6bff35bc7f00b369eaab0d2a83d9d8021871c73de87",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_multivisit_phase_screen.py": "57f86789b6c2620499c57a8e152b2dd415ea8facf90b646dfe95f315e199d387",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean.py": "e9a3cedabb9654a2d98cca71c8d2a305261387dd4b112f93d7ece2001d78219b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_boolean_gain.py": "dada4eb6bce740697388aa17e962685b1edbe81cefcf78930aae51f05e9e7d9a"
+  }
+}
