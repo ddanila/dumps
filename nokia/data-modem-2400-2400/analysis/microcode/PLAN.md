@@ -244,10 +244,18 @@ real-PROM Tx→line→Rx replays recover 64/64 dibits and eight exact
 line bytes; aligned modeled 8251/8031 handoff returns each exact
 source payload without errors or overruns. Both streams contain all
 four dibits. All observed transition keys were already in the
-91-key development table, so unseen-key and different-start
-robustness remain unverified. Next vary carrier start and capture
-timing with the six-bit rule frozen, and test a photo-compatible
-latch/clock/decision implementation.
+91-key development table, so unseen-key and other-start robustness
+remain unverified.
+The [second carrier-start challenge](g2/JOINT-MASK04-12A-SIXTH-PHASE96.md)
+keeps those new payloads, gain levels, feature and 91-key table fixed,
+but changes the one-time running R1 offset from 32 to 96. All six
+real-PROM Tx→line→Rx runs again recover 64/64 dibits and eight exact
+line bytes; aligned modeled 8251/8031 handoff returns the source
+payloads without errors or overruns. Output, PCM, receiver traces and
+transition sequences differ from the offset-32 runs, but every key
+remains within the development table. Test a shifted capture edge or
+third carrier start, then a photo-compatible decision circuit without
+payload-trained labels; this phase result does not close C3.
 Keep C2/C3/G2 open. These untraced connections are explicit, runnable
 assumptions, not a goal blocker.
 The [saved-readout gap audit](g2/JOINT-MASK04-12A-READOUT-GAP-AUDIT.md)
