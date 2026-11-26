@@ -18,6 +18,10 @@ continue with an explicit candidate connection or independent PROM, controller
 or signal constraint. If several candidates remain indistinguishable, report
 that ambiguity and pursue a different discriminating test; do not wait for a
 photograph or continuity measurement to resolve it.
+If one proposed experiment truly needs an unavailable measurement, defer that
+experiment only and move to another runnable hypothesis. Mark G2 blocked only
+after checking the remaining candidate routes and independent tests, and
+recording the specific observation that no available test can replace.
 **Default action for an ambiguous photo:** infer the simplest connection
 compatible with the visible pins, chip directions and nearby parts; label its
 unseen segments and timing as assumptions; run it with the real dumps and a
