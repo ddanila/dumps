@@ -27,6 +27,17 @@ Consider a goal-level blocker only after documenting why no remaining runnable
 experiment can advance an open check and what specific external observation is
 required.
 
+**Current blocker decision:** G2 is active. The disputed DED latch tracks and
+the receiver's mode, clock and serial-input nets are reasons to run explicit
+photo-compatible models, not reasons to pause. For C2, test a direct 74LS273
+capture at `12A` against the later-edge alternative, including the required
+setup/hold timing. For C3, treat the `3EB` mode-bit capture and its phase and
+serializer wiring as stated assumptions; freeze a candidate decoder before
+testing fresh controller-fed, real-PROM streams. If a candidate fails, record
+the failed fixture and try another pin-compatible route or an independent
+signal constraint. Keep C2/C3 open until their acceptance evidence is met;
+neither a plausible simulation nor an untraced wire settles them.
+
 Apply this rule to each open check: name the photo-supported candidate and its
 uncertain nets; run a real-ROM/controller fixture with a discriminating control;
 record what passed or failed under that assumption; then choose the next
