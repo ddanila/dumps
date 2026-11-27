@@ -1329,14 +1329,20 @@
     }
   },
   "row0_y2_93_to_94_shifts": 0,
+  "row0_y012_47_to_93_shifts": [
+    1723,
+    3058,
+    3144
+  ],
   "limitations": [
     "All 92 streams were used to select the extra bit; zero conflicts are development evidence, not a fresh holdout.",
     "Three call-side 1.05x/1.15x streams with independent reference errors are excluded only from the separate 89-stream subset check.",
     "The mode bit and extra row-0 Y2 capture are assumed inputs; gate logic, pin nets and serial timing remain unproved.",
+    "U12 LS175 flip-flops share one clock: a spare bit in that package alone cannot capture late row-0 Y2 while preserving its previously captured early Y0/Y1.",
     "A conflict-free graph does not by itself supply a Boolean phase decoder or a package-budgeted circuit."
   ],
   "source_sha256": {
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit70_level_feature_screen.py": "5747650750ebee081f509ca7e02f8788a57634eba63807ddac0adf5f160337e8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit70_level_feature_screen.py": "349dfc95198d4c64bf1b9915993ce36eb6eb1fbf2e7ca5adef3bfeddc6ee75bd",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit70_revision.py": "aed35153b1122734c7c96cf329c45d7e6326bb0a810596fc6aa37115cfe8f93e",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit66_graph.py": "fec482d30b097a0b943addd298c9a82a9678360aca4c1d8533ed504e2a2628fc",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_0d_feature_graph.py": "bd2f35c826952db22031704f5f5f6138d4de0d76ae45b42d2304737b44833bcc",

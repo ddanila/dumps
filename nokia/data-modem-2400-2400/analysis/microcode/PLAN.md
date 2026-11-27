@@ -409,9 +409,24 @@ graph has 314 conflicts, so relabeling it is insufficient. Adding one
 photo-compatible row-0 Y2 capture at visit 93 or 94 yields a connected,
 conflict-free 91-state graph, including the 89-stream subset after the
 three known reference-error runs are excluded. Freeze an eleven-bit
-Boolean decision and challenge fresh data;
-test the fourth-U12-FF and gate/serial timing as explicit assumptions.
+Boolean decision and challenge fresh data. The added row-0 Y2 is a
+**late** value, different from the early U12 capture in 3,144/5,980
+symbols; U12's common clock means its spare FF alone cannot preserve
+early Y0/Y1 while taking that late bit. Test a separate storage or
+timed-transfer route and its gate/serial timing as explicit assumptions.
 C3/G2 remain active, not blocked by missing pin continuity.
+The [frozen eleven-bit phase holdouts](g2/JOINT-MASK04-12A-MODEBIT91-HOLDOUT.md)
+now test late row-0 Y2 as the extra captured signal. A 17-product
+Boolean cover fits 91 observed development states; it is not a
+package-realized decoder. Fresh 1.25× offset-187 streams recover exact
+dibits and controller bytes across both mode boundaries, but reach only
+known states. Fresh unclipped 1.10× offset-189 edge-32 streams pass on
+unseen states, while matched edge-48 streams miss four dibits per
+selector. Three wrong transitions per stream join known states, and the
+joined 96-stream eleven-bit graph has 132 conflicts. Screened late-Y7
+and late-row alternatives remove these conflicts as new hypotheses;
+freeze one, run untouched data, and test its storage/gate/serial timing.
+The failed candidate and untraced nets do not block G2.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

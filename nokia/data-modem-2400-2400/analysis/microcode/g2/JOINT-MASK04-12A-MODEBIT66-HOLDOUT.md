@@ -156,9 +156,13 @@ choices remove all conflicts; row-0 Y2 at visit 93 or 94 gives a connected 91-st
 graph with zero conflicts. The result remains connected and conflict-free
 on the 89-stream subset that excludes the three known call-side 1.05×/1.15×
 reference-error runs. Row-0 Y2 never changes between visits 93 and 94
-in these streams. A fourth U12 LS175 flip-flop is a photo-compatible
-storage candidate because the earlier staged route assigns three of its
-four flip-flops, but its data and clock nets are untraced.
+in these streams, but differs between the earlier U12 capture at visit
+47 and visit 93 in 3,144 of 5,980 symbols. Early row-0 Y0/Y1 also shift
+1,723/3,058 times. All four U12 LS175 flip-flops share a clock, so its
+spare flip-flop **alone** cannot make the later Y2 capture while its
+other outputs retain the early Y0/Y1 values. A separate storage stage
+or a timed transfer is an explicit circuit hypothesis to test; the
+photographs have not established those nets.
 
 This is a development feature screen, not a working decoder. Next freeze
 an eleven-bit phase function and test untouched high-level payloads and

@@ -2186,8 +2186,20 @@ Listed in order of value per effort:
   ten-bit graph has 314 conflicts over all 92 saved streams. One extra
   row-0 Y2 bit at visit 93 or 94 yields a connected, conflict-free
   91-state graph, also when the three known reference-error runs are
-  removed. Freeze and challenge an eleven-bit decoder; test its U12
-  storage and gate/serial timing as photo-compatible hypotheses.
+  removed. The required late Y2 differs from visit-47 Y2 in 3,144/5,980
+  symbols; U12's shared clock prevents its spare FF alone from holding
+  this late bit while preserving early Y0/Y1. Freeze and challenge an
+  eleven-bit decoder, then test separate storage or a timed transfer
+  and the gate/serial timing as photo-compatible hypotheses.
+  The [frozen eleven-bit holdouts](g2/JOINT-MASK04-12A-MODEBIT91-HOLDOUT.md)
+  recover exact modeled line and controller bytes on four fresh 1.25×
+  streams, but all their states were known. At a new, unclipped 1.10×
+  level, the edge-32 pair passes unseen states while the matched
+  edge-48 pair misses four dibits per selector. Known-state transitions
+  make the joined eleven-bit graph conflict 132 times. A further
+  captured bit such as visit-94 Y7 or visit-141 row-0 Y4 is a new
+  photo-compatible hypothesis; freeze and challenge one, then verify
+  its storage, gate and USART timing before passing C3.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

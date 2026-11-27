@@ -92,6 +92,14 @@ def run(out=OUT):
                             symbol['visits']['94']['row0']) & 4)
                       for case in cases
                       for symbol in case['multi_visit_symbols'])
+    early_to_late_row_shifts = [
+        sum(bool((symbol['visits']['47']['row0'] ^
+                  symbol['visits']['93']['row0']) & (1 << bit))
+            for case in cases
+            for symbol in case['multi_visit_symbols'])
+        for bit in range(3)]
+    if row2_shifts != 0 or early_to_late_row_shifts != [1723, 3058, 3144]:
+        raise ValueError('row-0 capture timing contrast changed')
     report = dict(experiment='one-extra-bit capture screen across frozen mode-bit level failures',
                   fixture=dict(streams=len(cases),
                                known_reference_error_excluded_streams=len(without_known_reference_errors),
@@ -106,10 +114,12 @@ def run(out=OUT):
                   zero_conflict_bits=zero,
                   selected_row0_y2_graphs=chosen,
                   row0_y2_93_to_94_shifts=row2_shifts,
+                  row0_y012_47_to_93_shifts=early_to_late_row_shifts,
                   limitations=[
                       'All 92 streams were used to select the extra bit; zero conflicts are development evidence, not a fresh holdout.',
                       'Three call-side 1.05x/1.15x streams with independent reference errors are excluded only from the separate 89-stream subset check.',
                       'The mode bit and extra row-0 Y2 capture are assumed inputs; gate logic, pin nets and serial timing remain unproved.',
+                      'U12 LS175 flip-flops share one clock: a spare bit in that package alone cannot capture late row-0 Y2 while preserving its previously captured early Y0/Y1.',
                       'A conflict-free graph does not by itself supply a Boolean phase decoder or a package-budgeted circuit.'
                   ],
                   source_sha256={str(path.relative_to(HERE.parents[4])):
