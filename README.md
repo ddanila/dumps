@@ -79,9 +79,6 @@ acquisition details, checksums and open questions.
 
 ### Unidentified
 
-- [NM27C512Q](unknown/nm27c512q/): AMI FA3 ISA BIOS (12/12/91); no exact public match verified;
-  metadata only, binary retained in the local acquisition session.
-
 - [Mitsubishi M5L27128K](unknown/mitsubishi-m5l27128k/): likely Paradise VGA BIOS odd-byte half;
   no exact public match verified; metadata only, binary retained in the local acquisition session.
 

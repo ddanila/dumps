@@ -1,7 +1,7 @@
 {
   "date": "2026-11-27",
-  "decision": "keep",
-  "conclusion": "Keep: closest public image ABITFA3.BIN differs at four bytes; Sannata image differs at 48 bytes. No exact duplicate.",
+  "decision": "remove at owner request",
+  "conclusion": "Owner accepted the four-byte discrepancy as insignificant for preservation. Removed from analysis queue and deleted both local capture binaries. Byte usage remains unproven.",
   "public_collection": {
     "url": "https://github.com/86Box/roms",
     "commit": "de5a7d21982622def2c51a8e04119eea4119fc31",
@@ -342,5 +342,22 @@
       "paradise_even_lane_contiguous_match": false,
       "paradise_odd_lane_contiguous_match": false
     }
-  ]
+  ],
+  "removed_capture": {
+    "session": "rom-programmers/sessions/nm27c512q-blank-check-20261127-070629",
+    "files": [
+      "read1.bin",
+      "read2.bin"
+    ],
+    "size": 65536,
+    "sha256": "ffa9fecaa866a7f5e0efc35aa7cd0c435bc651baa2c7c168d47564c039012e7b",
+    "matching_reads": 2,
+    "non_ff_bytes": 64825,
+    "contact_check": "passed",
+    "programmer": "T48",
+    "profile": "NM27C512@DIP28",
+    "skip_electronic_id": true,
+    "programmed": false,
+    "erased": false
+  }
 }
