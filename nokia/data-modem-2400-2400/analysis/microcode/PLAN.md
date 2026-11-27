@@ -433,6 +433,16 @@ obtain the successful held-`12A` waveform. Test the direct 74LS273
 clock-before-new-`127`-Y route and any back-side continuation explicitly;
 do not equate a good modeled line score with identified wiring. C2/G2
 remain active.
+The [whole-store `12A` PROM-gate audit](g2/JOINT-MASK04-TX-12A-FULL-STORE-GATE.md)
+now tests the direct 74LS273 clock alternative. The prior two-bit decode
+selects 111 store words, including eight in the receive-address span.
+Adding `~U18.D1` removes all `3E0–3FF` aliases; adding `U17.D3` isolates
+`12A` across the full 1,024-word store. The four-literal product is
+minimal, while every all-positive product aliases other words. A direct
+capture still requires the old `12A` Y to meet the 74LS273's 20 ns setup
+and remain unchanged for 5 ns after the clock; those propagation margins
+and nets are unmeasured. Test the gate/counter/clock timing and late-edge
+control under these explicit assumptions; keep C2/G2 active.
 The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
 now substitutes the `12A` latch into the full controller-bit/PROM path.
 At the existing six-sample alignment, an independent line decoder gives

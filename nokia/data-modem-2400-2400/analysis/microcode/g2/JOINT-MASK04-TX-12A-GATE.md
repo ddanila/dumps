@@ -41,3 +41,10 @@ The [machine report](results/joint-mask04-tx-12a-gate.json) contains
 gate definitions, reached-PC counts, paired bank contrasts, trace
 digests and source hashes. Reproduce with
 `python3 g2/joint_mask04_tx_12a_gate.py`.
+
+The later [whole-store audit](JOINT-MASK04-TX-12A-FULL-STORE-GATE.md)
+finds that this two-bit level also selects receive-address words. A
+four-literal product uniquely selects `12A` in the entire PROM store;
+the shorter three-literal extension removes all `3E0–3FF` aliases. These
+are alternative, still-untraced clock decodes for the direct 74LS273
+candidate.
