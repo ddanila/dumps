@@ -407,6 +407,16 @@ the same controller stimulus and a changed-edge control. Until physical
 continuity or an independent observation chooses a route, keep both
 topologies conditional and C2/G2 active. The ambiguous tracks do not block
 further work.
+The [fresh latch-topology line challenge](g2/JOINT-MASK04-TX-LATCH-TOPOLOGY-LINE-CHALLENGE.md)
+now scores held-`12A` and shared-live-`127` samples from the same real-PROM
+trace on new call/answer payloads encoded by the established line-side
+scrambler model, using the previously fixed
+Q=0.5 line stage, +6 alignment and zero-run gains. Across all six DAC bus
+orders, held `12A` makes 0/64 errors per selector, while live `127` makes
+5/64 call and 1/64 answer errors at nominal unclipped gain; the counts
+persist at 0.75× and 1.25×. This disfavors the exact shared-live-`127`
+route under that analog model. Constrain the latch data/clock or DAC pin
+path independently before passing C2; keep G2 active.
 The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
 now substitutes the `12A` latch into the full controller-bit/PROM path.
 At the existing six-sample alignment, an independent line decoder gives
