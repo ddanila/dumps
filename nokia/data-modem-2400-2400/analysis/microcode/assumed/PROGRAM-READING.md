@@ -267,6 +267,13 @@ early clock. It reproduces the same candidate bytes, but an enabled
 transparent 74LS373 would drive opposite values on the tied Q lines
 before every checked clock. Its output enable must arbitrate that bus
 under this model; the actual control net remains unknown.
+The [integrated event replay](../g2/JOINT-MASK04-TX-PARALLEL-CLOCK-SCHEDULE.md)
+then applies a unique raw-PROM `12A` decode and assumed 375-edge counter
+to both full controller-fed executions. It selects 832 clocks exactly
+1,500 PROM cycles apart, capturing the same settled-`12A` bytes while a
+late-edge control captures a different stream. This gives the candidate
+transmit sample loop an explicit executable clock path, conditional on
+the 74LS273 setup/hold order, 74LS373 output enable and DAC/line nets.
 The [photo-B5 alternative](../g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 projects those same executed Y7 samples through an assumed LS273 D4
 input and the photo-suggested Q4→DAC08 B5 segment. It preserves the

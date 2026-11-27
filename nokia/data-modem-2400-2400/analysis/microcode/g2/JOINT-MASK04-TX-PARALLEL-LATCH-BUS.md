@@ -28,8 +28,9 @@ current Y byte. Their paired upper-four-bit Q values disagree on **831 of
 disagreements). If both Q outputs were enabled, these lines would have
 opposing digital drivers. A viable parallel model must disable the
 74LS373 outputs during that interval or otherwise arbitrate the bus;
-after both latches hold the same byte, simultaneous equal logic values
-are possible. This is a logic-level prediction, not a current measurement
+if the 74LS373 latch then closes on that byte before the next Y change,
+simultaneous equal logic values are possible. This is a logic-level
+prediction, not a current measurement
 or proof of the actual output-enable schedule.
 
 The [source-hashed report](results/joint-mask04-tx-parallel-latch-bus.json)
@@ -39,3 +40,8 @@ output enable or DAC08/line route. Next test a pin-compatible enable/clock
 schedule against the raw PROM edges and the controller's A1/A3/A4 timing,
 or constrain the DAC input from another visible trace. C2 and G2 remain
 active under these explicit assumptions.
+
+The [integrated clock/OE replay](JOINT-MASK04-TX-PARALLEL-CLOCK-SCHEDULE.md)
+now exercises one such schedule on the executed controller-fed PROM stream.
+It confirms 832 early captures at exactly 1,500 PROM-cycle intervals and
+the same 831/831 potential preclock Q conflicts if the 74LS373 is enabled.

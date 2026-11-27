@@ -630,6 +630,15 @@ enabled while the 74LS373 is transparent, their four paired output bits
 disagree before all 831 tested sample clocks per selector. Test a
 pin-compatible output-enable interval and clock route; the missing
 control nets remain runnable assumptions, not a C2/G2 blocker.
+The [integrated parallel clock/OE schedule](g2/JOINT-MASK04-TX-PARALLEL-CLOCK-SCHEDULE.md)
+now applies the unique four-literal `12A` PROM select to both full
+controller-fed transmitter runs. It sees 312,053 completed `12A→127`
+edges per selector and qualifies 832 clocks exactly 1,500 PROM cycles
+apart. With the assumed early 74LS273 clock and disabled 74LS373 output
+window, the captured-byte hashes match settled `12A` Y; a late clock
+matches the different `127` control. This is an executable clock/bus
+schedule, not measured setup/hold margin or identified DAC/line wiring.
+Test those remaining assumptions while C2/G2 stay active.
 The [whole-store `12A` PROM-gate audit](g2/JOINT-MASK04-TX-12A-FULL-STORE-GATE.md)
 now tests the direct 74LS273 clock alternative. The prior two-bit decode
 selects 111 store words, including eight in the receive-address span.

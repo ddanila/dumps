@@ -1,0 +1,151 @@
+{
+  "experiment": "whole-store PROM decode and parallel latch/OE event schedule",
+  "model": {
+    "clock_decode": [
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        2,
+        1,
+        1
+      ],
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        3,
+        1,
+        0
+      ]
+    ],
+    "clock_edge": "inverted select rises at 12A-to-127; clocks before new 127 Y settles",
+    "counter_divisor": 375,
+    "output_enable": "assumed 373 OE high during transparent input and 273 clock; may go low only after 373 LE closes on the same byte before 127 Y changes, or remain high for Tx",
+    "input": "assumed Y bus to both D banks; photo suggests four shared D and Q pairs",
+    "required_timing": "12A Y valid >=20 ns before clock; 127 Y change >=5 ns after clock"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd",
+      "whole_store_decode_hits": [
+        "12A"
+      ],
+      "raw_12a_to_127_clock_edges": 312053,
+      "qualified_clock_edges": 832,
+      "qualified_clock_period_prom_cycles": 1500,
+      "first_qualified_clock_cycles": [
+        44,
+        1544,
+        3044,
+        4544,
+        6044,
+        7544,
+        9044,
+        10544,
+        12044,
+        13544,
+        15044,
+        16544,
+        18044,
+        19544,
+        21044,
+        22544
+      ],
+      "early_sample_sha256": "dd5791001161a79a04cceff06859ccb3831d2ec9003f6f7dbdd040798988f079",
+      "late_control_sample_sha256": "c95156aec890499d5206724c348f8715be213a6f07303ebc7fef9c4ef473d6e6",
+      "enabled_373_preclock_conflicting_samples": 831,
+      "enabled_373_preclock_conflicting_bits": 1982,
+      "assumed_373_disabled_preclock_conflicting_samples": 0,
+      "early_bus_data_errors": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "late_bus_data_errors": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "selector": "60",
+      "trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5",
+      "whole_store_decode_hits": [
+        "12A"
+      ],
+      "raw_12a_to_127_clock_edges": 312053,
+      "qualified_clock_edges": 832,
+      "qualified_clock_period_prom_cycles": 1500,
+      "first_qualified_clock_cycles": [
+        44,
+        1544,
+        3044,
+        4544,
+        6044,
+        7544,
+        9044,
+        10544,
+        12044,
+        13544,
+        15044,
+        16544,
+        18044,
+        19544,
+        21044,
+        22544
+      ],
+      "early_sample_sha256": "c38f70fa11566fb3b0ce208a6a4865544fc1ba566ca39477abeae901378f1c03",
+      "late_control_sample_sha256": "62102c6b9ce1a64622bfd550094b10c19c58244db4021b64b968e1facc336721",
+      "enabled_373_preclock_conflicting_samples": 831,
+      "enabled_373_preclock_conflicting_bits": 1978,
+      "assumed_373_disabled_preclock_conflicting_samples": 0,
+      "early_bus_data_errors": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "late_bus_data_errors": [
+        3,
+        2,
+        3,
+        2,
+        2,
+        2
+      ]
+    }
+  ],
+  "limitations": [
+    "The PROM literal gate and counter are executed as a model; their board nets and package realization are untraced.",
+    "The OE interval is explicitly assumed and removes logical contention; no actual enable waveform or analog current is measured.",
+    "The 20 ns setup and 5 ns hold minima are requirements, not measured propagation margins.",
+    "The DAC08 pin bus, analog line output and full controller-to-D127 connection remain conditional."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_parallel_clock_schedule.py": "23c4acb44eb7588f5e8f0226f4de705252059656c7844773cc4a491ac123ec8e",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-12a-full-store-gate.json": "f99819f03f915e6b6441a1d2e8fad04dfaf0a37a81c6f9706886b0ac4babaa92",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-12a-delayed-latch.json": "dd2a2dd6069e6f342298dc676c724e8da9da0912d6f6ddf28df47ce076c39cb2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-parallel-latch-bus.json": "6edbbbe5ed3ec6b522b5a260b830f67b39ac026f570bf3207e8a0623aeb8db6f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b"
+  }
+}

@@ -1923,6 +1923,15 @@ Listed in order of value per effort:
   per selector. The parallel route thus needs an output-enable window or
   other bus arbitration, plus an identified clock and DAC/line path.
   Treat these as testable assumptions; C2/G2 remain open and active.
+  The [integrated clock/OE schedule](g2/JOINT-MASK04-TX-PARALLEL-CLOCK-SCHEDULE.md)
+  now runs the unique four-literal `12A` select, a 375-edge counter and
+  an assumed 74LS373 disabled-output window against both full PROM and
+  controller traces. It obtains 832 early sample clocks exactly 1,500
+  PROM cycles apart in each selector, preserving the settled-`12A`
+  sample hashes. The late `127` control differs; enabling both Q drivers
+  before the early clock predicts 831/831 conflicting transitions.
+  This is a coherent conditional digital schedule, not a measured
+  setup/hold margin or identified DAC08/line connection. Keep C2 open.
   The [R1/Y7 phase replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
   then verifies the executed mechanism over the first 18 continuous
   controller-derived A4 dibits of both selectors: R1 advances by D127
