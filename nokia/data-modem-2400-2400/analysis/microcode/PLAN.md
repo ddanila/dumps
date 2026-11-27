@@ -427,6 +427,17 @@ joined 96-stream eleven-bit graph has 132 conflicts. Screened late-Y7
 and late-row alternatives remove these conflicts as new hypotheses;
 freeze one, run untouched data, and test its storage/gate/serial timing.
 The failed candidate and untraced nets do not block G2.
+The [frozen twelve-bit late-Y7 holdout](g2/JOINT-MASK04-12A-MODEBIT97-HOLDOUT.md)
+now adds visit-94 `3F8` Y7 to resolve those development conflicts.
+Its 97-state graph is connected and conflict-free; an 8/5-product
+Boolean cover fits all 96 development streams but is not a photographed
+gate circuit. On fresh offset-191 1.10× data, both mode edges recover
+exact modeled line and executed-controller bytes with 0/64 gate errors,
+no clipping, and unseen states. The independent answer reference is
+exact; the call reference misses two dibits, so keep the call-side
+interpretation conditional. Test another carrier/level and a timed,
+package-budgeted Y2/Y7 storage, gate and USART path. C3/G2 remain open
+and active; missing physical continuity is not a blocker.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

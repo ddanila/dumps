@@ -2200,6 +2200,16 @@ Listed in order of value per effort:
   captured bit such as visit-94 Y7 or visit-141 row-0 Y4 is a new
   photo-compatible hypothesis; freeze and challenge one, then verify
   its storage, gate and USART timing before passing C3.
+  The [frozen twelve-bit late-Y7 challenge](g2/JOINT-MASK04-12A-MODEBIT97-HOLDOUT.md)
+  now uses visit-94 `3F8` Y7, yielding a connected conflict-free
+  97-state development graph and an 8/5-product Boolean cover. Fresh
+  offset-191 1.10× call/answer streams under both mode edges recover
+  exact modeled line and executed-controller bytes, with zero clipping
+  and unseen states. The independent answer reference is exact; the
+  call reference misses two dibits. The extra capture and multi-stage
+  gate/USART route remain assumed, so this is conditional C3 evidence.
+  Challenge another carrier/level and build a package-budgeted timed
+  route before C3 acceptance.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The
