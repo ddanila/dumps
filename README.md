@@ -73,6 +73,9 @@ acquisition details, checksums and open questions.
 
 ### Unidentified
 
+- [Mitsubishi M5L27128K](unknown/mitsubishi-m5l27128k/): unidentified contents queued
+  for future analysis; metadata only, binary retained in the local acquisition session.
+
 - [Intel D27010](unknown/intel-d27010/): unidentified contents queued for future
   analysis; metadata only, binary retained in the local acquisition session.
 - [Tandberg TDV-2200S-family TMM27128AD-20](unknown/tandberg-tdv2200s-tmm27128ad/):
