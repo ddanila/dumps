@@ -1,0 +1,112 @@
+{
+  "experiment": "33-code two-bit development phase graph",
+  "fixture": {
+    "streams": 26,
+    "symbols": 1690,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "phase_graph": {
+    "state_codes": 33,
+    "components": [
+      33
+    ],
+    "directed_conflicts": 0,
+    "relative_phase": {
+      "009": 0,
+      "00D": 1,
+      "01C": 2,
+      "01D": 1,
+      "01E": 1,
+      "02F": 1,
+      "049": 0,
+      "082": 0,
+      "089": 3,
+      "08D": 2,
+      "092": 0,
+      "0C2": 0,
+      "0C8": 3,
+      "0C9": 3,
+      "0CC": 2,
+      "0CD": 2,
+      "0D2": 0,
+      "0D3": 0,
+      "0DC": 2,
+      "0EE": 1,
+      "109": 3,
+      "10E": 1,
+      "11E": 1,
+      "149": 3,
+      "15C": 3,
+      "18A": 3,
+      "18D": 2,
+      "1CA": 3,
+      "1CC": 2,
+      "1CD": 2,
+      "1DB": 3,
+      "1DD": 2,
+      "1E5": 1
+    }
+  },
+  "development_replay": [
+    {
+      "carrier_offset": 145,
+      "selector": "40",
+      "wrong_decisions": 0,
+      "exact_line": true,
+      "exact_controller": true,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "carrier_offset": 145,
+      "selector": "60",
+      "wrong_decisions": 0,
+      "exact_line": true,
+      "exact_controller": true,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "carrier_offset": 147,
+      "selector": "40",
+      "wrong_decisions": 0,
+      "exact_line": true,
+      "exact_controller": true,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "carrier_offset": 147,
+      "selector": "60",
+      "wrong_decisions": 0,
+      "exact_line": true,
+      "exact_controller": true,
+      "minimum_setup_cycles": 2929
+    }
+  ],
+  "limitations": [
+    "The 145/147 streams supplied the two new labels; replay on them is development evidence, not a new holdout.",
+    "The table remains a graph lookup under assumed capture, line and serial connections."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_two_bit_phase_extension.py": "f116b46e1652d99e317ee9f2d66cca73c0038cc6ea0b50ca9a5f2f5d49cd1ae2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-lowgain133-expanded-visits.json": "6c34a41ad8bc402d904adcfed73295636e772d74567a3fa7cd2f1cbfd1d08e3f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.15.json": "2025f1bca86f2401bca54c5d5ffe151f51bee1db8c1748bbbb2d5e7bfd4a2d99",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.25.json": "459f2ee9649c883f0f4ad0a3c6e269ac83e77d3aff1d2521c5fc23cf3445082a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-133.json": "acc0d4fc1e0729f8e32144806bb95d00414aa6b92261d4c131975804afac971c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-135.json": "e0eff331908ee813e74b4a9e69b18e541a525f54800e11af20a94d33b3bd3ab9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.7.json": "eb5ad1d35208a081b51559b1122898a0d8c3eeb654bde89fd1c019a392c2887f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.8.json": "4d9912eaef43b1dcfb2633fef68a5b586537a9ff9a8362dea7bade9d40ed46d6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-mode81-control-expanded.json": "db71829dd1db5490d5b3290e568078be739a8ca8c61f7c373d40e6c40b627024",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-old0d-replay.json": "21153ff54e8fa3cc684a7d43645851b3dbc2211077c4ff1675936887b02511b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row1-phase-holdout-141.json": "a50a1e928c3a0a861893b0c8526ccf221ca0ce8c1ec646af0d19c53e068faf55",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row1-phase-holdout-143.json": "fa19caa9d94b93c345340dd8781b76164e8add251b09bda14b105b9571ae772b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-holdout-145.json": "c3063559b85ec9b993a236623bddc647e5b247a067bd4ea9207ccdf8ab1ff5c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-holdout-147.json": "ddde36bbfdd6f987168e3a546294222f1cec4e9072d9f16d332430747a4f7b9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_two_bit_phase_holdout.py": "a48d68f7b05cc77875a8fda10d85989d337b9876c93729261cdc509a4a311425",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_0d_feature_graph.py": "bd2f35c826952db22031704f5f5f6138d4de0d76ae45b42d2304737b44833bcc"
+  }
+}

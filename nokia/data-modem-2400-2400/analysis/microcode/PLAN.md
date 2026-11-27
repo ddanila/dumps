@@ -257,6 +257,17 @@ change. A 22-stream screen finds no conflict-free single captured bit, while
 row-0 Y1 at visit `46` plus `3F8` Y4 or Y5 at visit `94` yields a
 conflict-free development graph. Freeze one photo-compatible two-bit capture
 route for a new holdout; keep the nets conditional and C3/G2 active.
+The [two-bit phase holdouts](g2/JOINT-MASK04-12A-TWO-BIT-PHASE-HOLDOUT.md)
+now test row-0 Y1 at visit `46` plus `3F8` Y4 at visit `94`. A frozen
+31-code table meets new keys `1DB` and `1CC` on carrier-`145/147`
+streams but makes no errors between known keys. Those streams extend a
+conflict-free graph to 33 codes; their exact controller replay is
+development evidence because it supplies the new labels. The enlarged
+table, frozen before four new carrier-`149/151` real-PROM/controller
+streams, then recovers all 64 dibits and exact modeled line/controller
+bytes in each, without clipping. Test another gain family and a
+photo-package-compatible gate/latch realization; C3/G2 stay active and
+the physical nets remain assumptions, not blockers.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
