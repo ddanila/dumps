@@ -82,3 +82,35 @@ a different clock allocation. Continue those alternatives as experiments.
 The [source-hashed staged report](results/joint-mask04-12a-modebit97-staged-capture.json)
 can be reproduced from the microcode directory with
 `python3 g2/joint_mask04_12a_modebit97_staged_capture.py`.
+
+## U28 phase and dibit pipeline hypothesis
+
+The photographed U28 is marked `74LS169AN`. A [TI LS169-family datasheet](https://www.ti.com/product/SN74LS169B)
+describes a four-bit counter with synchronous parallel load. The
+[U28 pipeline replay](joint_mask04_12a_modebit97_u28_phase_pipeline.py)
+uses that capacity as a **candidate register**: Q A/B hold the current
+phase for the next symbol's subtraction, while Q C/D hold the two dibit
+bits for serial readout. At an assumed cycle-4,500 load, combinational
+inputs use the old Q phase to form the new dibit and the captured twelve-bit
+state to form the new phase; all four Q outputs update together. The load
+is 1,429 modeled cycles after the final capture and 1,500 before the first
+assumed RxC sample. The second sample at cycle 12,000 precedes the next
+symbol's load at cycle 16,500, so both output bits remain stored through
+their respective sample edges.
+
+On the same 100 saved real-PROM/controller streams, the candidate register
+produces **0/6,400 decision errors and 0/13,000 serial-bit errors**. A
+cycle-3,000 load, before the late captures, yields 2,991/12,800 bit
+errors; a cycle-6,500 load, after the first RxC edge, yields 1,569/6,400
+first-bit errors. The first symbol uses the known preamble dibit. These
+controls distinguish the event schedule, not the real board clock.
+
+This allocation avoids using U25 as previous-phase memory. It also uses
+U28 as a register rather than the earlier assumed serial selector. The
+physical U28 load/data/output nets, phase-subtraction gates, bit-select
+mux, RxC and SYNDET routes are untraced, and the twelve-bit Boolean cover
+has not been realized in the photographed gate budget. The result is a
+working timing and storage hypothesis, not a complete receiver circuit or
+C3 pass. Test a package-budgeted subtraction/selector and a fresh
+carrier/level fixture next. The [source-hashed report](results/joint-mask04-12a-modebit97-u28-phase-pipeline.json)
+is reproduced with `python3 g2/joint_mask04_12a_modebit97_u28_phase_pipeline.py`.

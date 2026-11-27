@@ -2221,6 +2221,13 @@ Listed in order of value per effort:
   frozen gate: 1,268/6,400 preceding-phase comparisons disagree after the
   new symbol's early captures. Try another register, held phase signal or
   clock allocation while C3 remains open.
+  A [U28 synchronous-load candidate](g2/JOINT-MASK04-12A-MODEBIT97-HOLDOUT.md#u28-phase-and-dibit-pipeline-hypothesis)
+  stores the new two-bit phase and outgoing dibit in one photographed
+  four-bit counter at assumed cycle 4,500. Its saved-stream replay has
+  0/6,400 decision and 0/13,000 serial-bit errors; early and late load
+  controls fail. This solves the storage schedule conditionally, while
+  subtraction, bit-select, Boolean gate budget and actual nets remain
+  open experiments before C3 acceptance.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

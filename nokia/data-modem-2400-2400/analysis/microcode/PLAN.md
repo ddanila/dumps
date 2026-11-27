@@ -462,6 +462,15 @@ preceding final phase into U3's spare latches at its visit-93 second-Y clock
 would see a mixed old/new state. The frozen gate disagrees with that prior
 phase on 1,268/6,400 tested transitions. Try a separately held phase signal,
 another register or a different capture clock; keep G2 active.
+The [U28 four-bit pipeline replay](g2/JOINT-MASK04-12A-MODEBIT97-HOLDOUT.md#u28-phase-and-dibit-pipeline-hypothesis)
+now supplies one such register allocation: assumed synchronous load at
+cycle 4,500 stores the new phase and both outgoing bits together. It
+matches 6,400 decisions and 13,000 serial bits across the saved streams;
+loads before the late captures or after first RxC fail their timing
+controls. This removes the U25 storage conflict **within the model**, not
+the untraced clock/data nets or gate-budget problem. Test the subtraction
+and bit selector as package-budgeted circuits, then run a new signal
+fixture. C3/G2 stay active.
 
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
