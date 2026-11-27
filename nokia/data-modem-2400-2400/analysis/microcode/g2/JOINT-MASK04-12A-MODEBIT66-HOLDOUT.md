@@ -123,6 +123,47 @@ but the successful decision still depends on the assumed mode input,
 analog/ADC mapping and aligned serializer. A high-level or clipped case
 and a complete package-budgeted circuit are next; C3 and G2 stay active.
 
+## Higher-level failure and extra capture bit
+
+The frozen ten-bit decoder fails a fresh [1.25× offset-185 challenge](joint_mask04_12a_modebit70_highgain.py)
+at both mode boundaries: 23/64 call and 17/64 answer dibit errors in each
+boundary pair, with wrong modeled line and controller bytes. All four
+independent reference streams still have zero errors, but each PCM stream
+clips twice. Every wrong decoder transition touches a new state. The
+[diagnosis](joint_mask04_12a_modebit70_highgain_diagnosis.py) joins these
+four streams with the 70 development streams and finds a connected
+70-state graph with zero conflicts. Four new labels disagree with the
+frozen rule: `02E/22E` need phase 3 instead of 2, and `108/308` need
+phase 0 instead of 1. These offset-185 streams are now development data.
+
+A matched [1.15× control](joint_mask04_12a_modebit70_gain115.py) also
+clips twice per stream and misses 23/17 dibits. Its call-side independent
+reference misses one dibit, so it is not an exact-reference holdout.
+The [1.05× edge-32 control](joint_mask04_12a_modebit70_gain105.py) has
+**zero clipped samples**, yet the frozen decoder misses 11 call and
+10 answer dibits and yields wrong controller bytes. The answer-side
+reference remains exact; the call-side reference misses one dibit.
+Thus clipping is not required for this decoder failure under the modeled
+line path. At 1.15×, the same ten-bit captured states can require
+different phase steps: adding its four streams to the 70 development
+streams yields 112 directed graph conflicts. A static relabeling of the
+ten-bit state cannot repair that gain level.
+
+The [one-extra-bit screen](joint_mask04_12a_modebit70_level_feature_screen.py)
+tests 80 captured bit choices across all 92 saved streams. The ten-bit
+graph has 82 states and 314 directed conflicts. Six individual extra-bit
+choices remove all conflicts; row-0 Y2 at visit 93 or 94 gives a connected 91-state
+graph with zero conflicts. The result remains connected and conflict-free
+on the 89-stream subset that excludes the three known call-side 1.05×/1.15×
+reference-error runs. Row-0 Y2 never changes between visits 93 and 94
+in these streams. A fourth U12 LS175 flip-flop is a photo-compatible
+storage candidate because the earlier staged route assigns three of its
+four flip-flops, but its data and clock nets are untraced.
+
+This is a development feature screen, not a working decoder. Next freeze
+an eleven-bit phase function and test untouched high-level payloads and
+carrier starts, then test its gate/serializer timing. C3 and G2 stay open.
+
 Source-hashed machine results:
 [`graph`](results/joint-mask04-12a-modebit66-graph.json),
 [`cover`](results/joint-mask04-12a-modebit66-cover.json),
@@ -135,3 +176,9 @@ The [late-boundary result](results/joint-mask04-12a-modebit70-late48.json)
 records all four new cases.
 The [lower-level result](results/joint-mask04-12a-modebit70-lowgain.json)
 records the four 0.8× cases.
+The [1.25× failure](results/joint-mask04-12a-modebit70-highgain.json),
+[failure diagnosis](results/joint-mask04-12a-modebit70-highgain-diagnosis.json),
+[1.15× control](results/joint-mask04-12a-modebit70-gain115.json),
+[1.05× control](results/joint-mask04-12a-modebit70-gain105.json), and
+[extra-bit screen](results/joint-mask04-12a-modebit70-level-feature-screen.json)
+record the level limit and the next candidate.

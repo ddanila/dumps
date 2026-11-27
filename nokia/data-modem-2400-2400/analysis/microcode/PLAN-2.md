@@ -2179,6 +2179,15 @@ Listed in order of value per effort:
   without clipping or controller status errors. The late-edge pair
   reaches five states absent from the frozen 64-state graph. Test high
   level or clipping and complete the gate/serial route; C3 stays open.
+  The subsequent 1.25× holdout fails both mode boundaries by 23/17
+  call/answer dibits despite exact reference decisions; each stream
+  clips twice. At 1.05× the frozen decoder still misses 11/10 with no
+  clipping, while the call-side reference itself misses one. The
+  ten-bit graph has 314 conflicts over all 92 saved streams. One extra
+  row-0 Y2 bit at visit 93 or 94 yields a connected, conflict-free
+  91-state graph, also when the three known reference-error runs are
+  removed. Freeze and challenge an eleven-bit decoder; test its U12
+  storage and gate/serial timing as photo-compatible hypotheses.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

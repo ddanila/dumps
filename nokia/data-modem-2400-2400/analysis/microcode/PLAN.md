@@ -399,6 +399,19 @@ previously unseen states in the late-edge pair. This is stronger
 conditional C3 evidence across gain; a high-level challenge and a
 complete package/serial implementation remain open experiments, not
 reasons to block G2.
+The [higher-level challenge and capture screen](g2/JOINT-MASK04-12A-MODEBIT66-HOLDOUT.md#higher-level-failure-and-extra-capture-bit)
+now locate a real limit of that frozen decoder. At 1.25×, both mode
+boundaries miss 23/17 call/answer dibits despite exact independent
+reference decisions; each stream clips twice. A matched 1.05× control
+still misses 11/10 with **no** clipped samples, although its call-side
+reference has one error. Across 92 saved streams, the ten-bit phase
+graph has 314 conflicts, so relabeling it is insufficient. Adding one
+photo-compatible row-0 Y2 capture at visit 93 or 94 yields a connected,
+conflict-free 91-state graph, including the 89-stream subset after the
+three known reference-error runs are excluded. Freeze an eleven-bit
+Boolean decision and challenge fresh data;
+test the fourth-U12-FF and gate/serial timing as explicit assumptions.
+C3/G2 remain active, not blocked by missing pin continuity.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
