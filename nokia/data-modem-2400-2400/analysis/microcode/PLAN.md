@@ -247,6 +247,16 @@ through visit `47` in all 1,170 symbols, so an assumed third U12 FF
 is one package-capacity route. Freeze an early-bit state candidate and
 challenge fresh data/carrier/gain before treating it as a receiver
 decision; C3/G2 remain active.
+The [frozen row-0 Y1 holdout](g2/JOINT-MASK04-12A-ROW1-PHASE-HOLDOUT.md)
+now tests that candidate on four new real-PROM/controller streams at 0.75×
+gain. Both carrier-`141` selectors recover exact dibits, line bytes and
+executed controller payloads; both carrier-`143` selectors reach two unseen
+keys and have five/four wrong transitions even between known keys, without
+clipping. The one-bit table therefore does not transfer across this carrier
+change. A 22-stream screen finds no conflict-free single captured bit, while
+row-0 Y1 at visit `46` plus `3F8` Y4 or Y5 at visit `94` yields a
+conflict-free development graph. Freeze one photo-compatible two-bit capture
+route for a new holdout; keep the nets conditional and C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
