@@ -1,0 +1,236 @@
+{
+  "experiment": "18-stream early-bit receive phase graph screen",
+  "fixture": {
+    "streams": 18,
+    "symbols": 1170,
+    "decisions": 1152,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "row0_bit1_46_to_47_mismatches": 0,
+    "features": {
+      "seven_bit": [],
+      "first_y4": [
+        {
+          "visit": "46",
+          "site": "y3f8",
+          "bit": 4
+        }
+      ],
+      "row0_bit1": [
+        {
+          "visit": "46",
+          "site": "row0",
+          "bit": 1
+        }
+      ],
+      "later_y6": [
+        {
+          "visit": "94",
+          "site": "y3f8",
+          "bit": 6
+        }
+      ],
+      "first_y4_plus_row0_bit1": [
+        {
+          "visit": "46",
+          "site": "y3f8",
+          "bit": 4
+        },
+        {
+          "visit": "46",
+          "site": "row0",
+          "bit": 1
+        }
+      ]
+    }
+  },
+  "results": {
+    "seven_bit": {
+      "state_codes": 21,
+      "components": [
+        21
+      ],
+      "directed_conflicts": 116,
+      "relative_phase": {
+        "002": 0,
+        "009": 3,
+        "00A": 3,
+        "00D": 2,
+        "00E": 1,
+        "012": 0,
+        "01C": 3,
+        "01D": 1,
+        "01E": 1,
+        "02F": 1,
+        "042": 0,
+        "048": 3,
+        "049": 3,
+        "04A": 3,
+        "04C": 2,
+        "04D": 2,
+        "052": 0,
+        "053": 0,
+        "05C": 2,
+        "05D": 2,
+        "06E": 1
+      }
+    },
+    "first_y4": {
+      "state_codes": 24,
+      "components": [
+        24
+      ],
+      "directed_conflicts": 0,
+      "relative_phase": {
+        "009": 0,
+        "00A": 0,
+        "00D": 3,
+        "00E": 2,
+        "01E": 2,
+        "02F": 2,
+        "042": 1,
+        "049": 0,
+        "04A": 0,
+        "04D": 3,
+        "053": 1,
+        "05D": 3,
+        "082": 1,
+        "089": 0,
+        "08D": 2,
+        "092": 1,
+        "09C": 3,
+        "09D": 2,
+        "0C8": 0,
+        "0C9": 0,
+        "0CC": 3,
+        "0D2": 1,
+        "0DC": 3,
+        "0EE": 2
+      }
+    },
+    "row0_bit1": {
+      "state_codes": 24,
+      "components": [
+        24
+      ],
+      "directed_conflicts": 0,
+      "relative_phase": {
+        "009": 0,
+        "00D": 2,
+        "00E": 2,
+        "01C": 3,
+        "01D": 2,
+        "01E": 2,
+        "02F": 2,
+        "049": 0,
+        "082": 1,
+        "089": 0,
+        "08A": 0,
+        "08D": 3,
+        "092": 1,
+        "0C2": 1,
+        "0C8": 0,
+        "0C9": 0,
+        "0CA": 0,
+        "0CC": 3,
+        "0CD": 3,
+        "0D2": 1,
+        "0D3": 1,
+        "0DC": 3,
+        "0DD": 3,
+        "0EE": 2
+      }
+    },
+    "later_y6": {
+      "state_codes": 26,
+      "components": [
+        26
+      ],
+      "directed_conflicts": 16,
+      "relative_phase": {
+        "002": 0,
+        "009": 3,
+        "00A": 3,
+        "00D": 2,
+        "00E": 1,
+        "012": 0,
+        "01C": 2,
+        "01E": 1,
+        "02F": 1,
+        "042": 0,
+        "048": 3,
+        "049": 3,
+        "04A": 3,
+        "04C": 2,
+        "04D": 2,
+        "052": 0,
+        "053": 0,
+        "05C": 2,
+        "05D": 2,
+        "06E": 1,
+        "089": 3,
+        "08D": 1,
+        "09D": 1,
+        "09E": 1,
+        "0C9": 3,
+        "0CD": 2
+      }
+    },
+    "first_y4_plus_row0_bit1": {
+      "state_codes": 24,
+      "components": [
+        24
+      ],
+      "directed_conflicts": 0,
+      "relative_phase": {
+        "00E": 0,
+        "01E": 0,
+        "02F": 0,
+        "089": 2,
+        "08D": 0,
+        "09C": 1,
+        "09D": 0,
+        "0C9": 2,
+        "109": 2,
+        "10A": 2,
+        "10D": 1,
+        "142": 3,
+        "149": 2,
+        "14A": 2,
+        "14D": 1,
+        "153": 3,
+        "15D": 1,
+        "182": 3,
+        "192": 3,
+        "1C8": 2,
+        "1CC": 1,
+        "1D2": 3,
+        "1DC": 1,
+        "1EE": 0
+      }
+    }
+  },
+  "limitations": [
+    "The feature screen uses all 18 cases to select a bit; zero conflicts are development evidence, not a fresh holdout.",
+    "The graph labels are relative phases inferred from offered dibits under assumed line and ADC routes.",
+    "A graph fit does not prove a Boolean gate implementation, package wiring, serial route or analog demodulator."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_0d_feature_graph.py": "bd2f35c826952db22031704f5f5f6138d4de0d76ae45b42d2304737b44833bcc",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-lowgain133-expanded-visits.json": "6c34a41ad8bc402d904adcfed73295636e772d74567a3fa7cd2f1cbfd1d08e3f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.15.json": "2025f1bca86f2401bca54c5d5ffe151f51bee1db8c1748bbbb2d5e7bfd4a2d99",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.25.json": "459f2ee9649c883f0f4ad0a3c6e269ac83e77d3aff1d2521c5fc23cf3445082a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-133.json": "acc0d4fc1e0729f8e32144806bb95d00414aa6b92261d4c131975804afac971c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-135.json": "e0eff331908ee813e74b4a9e69b18e541a525f54800e11af20a94d33b3bd3ab9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.7.json": "eb5ad1d35208a081b51559b1122898a0d8c3eeb654bde89fd1c019a392c2887f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.8.json": "4d9912eaef43b1dcfb2633fef68a5b586537a9ff9a8362dea7bade9d40ed46d6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-mode81-control-expanded.json": "db71829dd1db5490d5b3290e568078be739a8ca8c61f7c373d40e6c40b627024",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-old0d-replay.json": "21153ff54e8fa3cc684a7d43645851b3dbc2211077c4ff1675936887b02511b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_multivisit_phase_screen.py": "57f86789b6c2620499c57a8e152b2dd415ea8facf90b646dfe95f315e199d387"
+  }
+}

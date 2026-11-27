@@ -59,6 +59,8 @@ def run(out=OUT):
                         occurrences.append(dict(symbol=index,
                                                 visit94_y=f"{symbol['visits']['94']['y3f8']:02X}",
                                                 visit94_y6=(symbol['visits']['94']['y3f8'] >> 6) & 1,
+                                                visits={visit: symbol['visits'][visit]
+                                                        for visit in ('46', '47', '93', '94', '141')},
                                                 candidate_phase=candidate_phase(symbol)))
                 if not occurrences:
                     raise ValueError(('old 0D missing', case['mode']))
@@ -70,6 +72,8 @@ def run(out=OUT):
                                       None, inverse, exe)
                 rows.append(dict(mode=case['mode'],
                                  rx_trace_digest=case['rx_trace_digest'],
+                                 expected_dibits=answer['expected_dibits'],
+                                 multi_visit_symbols=[symbols[i] for i in range(65)],
                                  state_0d_occurrences=occurrences,
                                  state_0d_visit94_y6_counts={str(bit): count
                                      for bit, count in sorted(Counter(
@@ -103,4 +107,5 @@ def run(out=OUT):
 
 if __name__ == '__main__':
     report = run()
-    print(report['cases'])
+    print([(case['mode'], len(case['state_0d_occurrences']),
+            len(case['candidate_wrong_indices'])) for case in report['cases']])

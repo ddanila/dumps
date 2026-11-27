@@ -227,6 +227,17 @@ requires phase 0 in the joined graph, versus phase 1 in the older
 held-`81` answer fixture. The direct mode byte alone does not explain
 that conflict. Test carrier/timing history or another constrained
 receive signal; do not add a per-state patch.
+The [early-bit phase graph](g2/JOINT-MASK04-12A-EARLY-BIT-PHASE-GRAPH.md)
+now compares full five-visit old/new `0D` captures. First `3F8` Y4
+and row-0 Y1 at visit `46` each separate every older phase-112 `0D`
+from every newer carrier-141 `0D` under both held and switched mode.
+Across 18 real-PROM streams, the original seven-bit graph has 116
+directed conflicts; either early bit yields one 24-state component
+with zero conflicts, while visit-`94` Y6 leaves 16. Row-0 Y1 is stable
+through visit `47` in all 1,170 symbols, so an assumed third U12 FF
+is one package-capacity route. Freeze an early-bit state candidate and
+challenge fresh data/carrier/gain before treating it as a receiver
+decision; C3/G2 remain active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
