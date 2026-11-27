@@ -281,6 +281,17 @@ screen requires at least five products for one phase bit under any
 global phase offset, exceeding U15's four direct AOI products. Freeze
 the 37-code table for a new gain-1 holdout and test a multistage
 photo-package-compatible gate; keep C3/G2 active.
+The [frozen 37-code calibrated-gain holdout](g2/JOINT-MASK04-12A-TWO-BIT-GAIN1-37-HOLDOUT.md)
+now adds four new carrier-`157/159` real-PROM/controller streams. All
+reach unseen keys, but there are no errors between known keys or clipped
+samples. The joined 42-stream graph remains conflict-free at 42 codes;
+the exact controller replays after labelling the five new keys are
+development evidence. The previously frozen observed-state SOP predicts
+four of those five keys but misses `1ED`; a new exact SOP screen still
+requires at least five products for one phase output. Pursue a
+multistage photo-compatible circuit and test it on untouched data;
+keep C3/G2 active rather than treating expanding state coverage as a
+blocker.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
