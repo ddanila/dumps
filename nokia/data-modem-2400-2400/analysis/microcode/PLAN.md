@@ -30,13 +30,16 @@ required.
 **Current blocker decision:** G2 is active. The disputed DED latch tracks and
 the receiver's mode, clock and serial-input nets are reasons to run explicit
 photo-compatible models, not reasons to pause. For C2, test a direct 74LS273
-capture at `12A` against the later-edge alternative, including the required
-setup/hold timing. For C3, treat the `3EB` mode-bit capture and its phase and
-serializer wiring as stated assumptions; freeze a candidate decoder before
-testing fresh controller-fed, real-PROM streams. If a candidate fails, record
-the failed fixture and try another pin-compatible route or an independent
-signal constraint. Keep C2/C3 open until their acceptance evidence is met;
-neither a plausible simulation nor an untraced wire settles them.
+capture at `12A` against the later-edge and held-74LS373 alternatives, including
+the required setup/hold timing and the visible DED track assignments. For C3,
+treat the `3EB` mode-bit capture and its phase and
+serializer wiring as stated assumptions. The revised thirteen-bit decoder has
+now been frozen and challenged on fresh controller-fed, real-PROM streams at
+1.15× gain; test a package-budgeted gate/serializer and a fixture that reaches
+new states next. If a candidate fails, record the failed fixture and try
+another pin-compatible route or an independent signal constraint. Keep C2/C3
+open until their acceptance evidence is met; neither a plausible simulation
+nor an untraced wire settles them.
 
 When a proposed route needs a photographed part already assigned another
 *assumed* role, test the competing allocations separately. For example, using
@@ -510,6 +513,17 @@ witnesses still exist. Revise phase bit 1 using this new constraint,
 then challenge untouched carrier/level data; the offset-199 run is now
 development evidence for any revision. Keep the U14/U3/U25/U28 nets,
 gate budget and serial path conditional, with C3/G2 active.
+The [revised-cover higher-gain holdout](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md#fresh-higher-gain-holdout)
+freezes the post-offset-199 eight/five-product witness and tests fresh
+offset-201 call/answer payloads with both mode edges at 1.15× gain. All four
+real-PROM/controller runs recover exact modeled line/controller bytes with
+zero decision errors or clipping. None reaches a state outside the joined
+159-state development graph; the independent reference has one wrong dibit
+in each answer run. This supports the conditional decoder at higher gain but
+does not identify its physical gate or serial nets, so C3/G2 stay active.
+Next budget the phase gate and serializer against photographed packages and
+test a fresh fixture selected to visit an unseen state. Missing pin continuity
+does not postpone either experiment.
 
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer

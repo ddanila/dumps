@@ -1,0 +1,242 @@
+{
+  "experiment": "fresh offset-201 1.15x challenge of post-159-state thirteen-bit cover",
+  "fixture": {
+    "carrier_offset": 201,
+    "gain_factor": 1.15,
+    "payloads": {
+      "40": [
+        "A2",
+        "6D",
+        "13",
+        "C5",
+        "08",
+        "F4",
+        "7B",
+        "90"
+      ],
+      "60": [
+        "4E",
+        "B8",
+        "21",
+        "D7",
+        "65",
+        "0A",
+        "F3",
+        "9C"
+      ]
+    },
+    "modes": [
+      "edge32",
+      "edge48"
+    ],
+    "frozen_observed_states": 156,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "phase_bit0_cubes": [
+      "***0*0*******",
+      "****0**00**10",
+      "1*1********1*",
+      "**1***0**1*1*",
+      "**11**1*0*1**",
+      "*0110**1*****",
+      "001*0********",
+      "*****1*****1*"
+    ],
+    "phase_bit1_cubes": [
+      "***0*0*******",
+      "**0**********",
+      "*0**10*0*0***",
+      "******10**0**",
+      "00**1***1****"
+    ],
+    "assumed_U28_load_cycle": 5000,
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e",
+    "fitted_observed_states": 159,
+    "candidate_cover": "joint-mask04-12a-modebit159-revised-cover.json"
+  },
+  "cases": [
+    {
+      "mode": "edge32",
+      "selector": "40",
+      "carrier_offset": 201,
+      "payload": [
+        "A2",
+        "6D",
+        "13",
+        "C5",
+        "08",
+        "F4",
+        "7B",
+        "90"
+      ],
+      "tx_trace_digest": "e502b216679447c307cea71254a983c9b6921605a6bca0ab6ef1ad365c03cea8",
+      "rx_trace_digest": "4fa76b85831fdf8ec172758162bb4bc3749f7ddb9c657c39e5117d8b28e4152c",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "18c86c8001e4ec7931e4bb63c45b5d3a78c0a97a2ae034b34327f76f84e6832e",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [],
+      "unseen_keys": [],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        162,
+        109,
+        19,
+        197,
+        8,
+        244,
+        123,
+        144
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000,
+      "unseen_vs_159_states": []
+    },
+    {
+      "mode": "edge32",
+      "selector": "60",
+      "carrier_offset": 201,
+      "payload": [
+        "4E",
+        "B8",
+        "21",
+        "D7",
+        "65",
+        "0A",
+        "F3",
+        "9C"
+      ],
+      "tx_trace_digest": "ae97413affdf7e586b0cf383691022c5b0bfcb67ed1698717596ff6618fd8f13",
+      "rx_trace_digest": "a501fea115c660355e697085f8a2079b10df940e3853e05f8e2df208543dbea1",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "dc5c95e3ee0d6a4e8ced55435fc5bd14cbd4903983a8fe04a8f852a7ac079b3b",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [
+        35
+      ],
+      "unseen_keys": [],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        78,
+        184,
+        33,
+        215,
+        101,
+        10,
+        243,
+        156
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000,
+      "unseen_vs_159_states": []
+    },
+    {
+      "mode": "edge48",
+      "selector": "40",
+      "carrier_offset": 201,
+      "payload": [
+        "A2",
+        "6D",
+        "13",
+        "C5",
+        "08",
+        "F4",
+        "7B",
+        "90"
+      ],
+      "tx_trace_digest": "e502b216679447c307cea71254a983c9b6921605a6bca0ab6ef1ad365c03cea8",
+      "rx_trace_digest": "aff7934774f76b4d0cd1a4c29b630cedcdb70ab89ac24a2f73ef8681551a054b",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "18c86c8001e4ec7931e4bb63c45b5d3a78c0a97a2ae034b34327f76f84e6832e",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [],
+      "unseen_keys": [],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        162,
+        109,
+        19,
+        197,
+        8,
+        244,
+        123,
+        144
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000,
+      "unseen_vs_159_states": []
+    },
+    {
+      "mode": "edge48",
+      "selector": "60",
+      "carrier_offset": 201,
+      "payload": [
+        "4E",
+        "B8",
+        "21",
+        "D7",
+        "65",
+        "0A",
+        "F3",
+        "9C"
+      ],
+      "tx_trace_digest": "ae97413affdf7e586b0cf383691022c5b0bfcb67ed1698717596ff6618fd8f13",
+      "rx_trace_digest": "4a97c9037761774ab9a9f6e5f2458934bddb2d2883d081e5f75e88d1fa6aab10",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "dc5c95e3ee0d6a4e8ced55435fc5bd14cbd4903983a8fe04a8f852a7ac079b3b",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [
+        35
+      ],
+      "unseen_keys": [],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        78,
+        184,
+        33,
+        215,
+        101,
+        10,
+        243,
+        156
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000,
+      "unseen_vs_159_states": []
+    }
+  ],
+  "limitations": [
+    "The thirteen-bit witness was fitted to the 108 saved streams that selected visit-141 Y6; offset-199 is the untouched challenge.",
+    "U14-to-U3 transfer, U25 late-Y6 capture, U28 load, D3EB mode and all actual data/clock nets are assumptions.",
+    "Direct products do not establish a photographed-package gate, phase-subtraction or bit-select circuit.",
+    "DAC/ADC/line and RxD/RxC/SYNDET paths remain conditional model routes.",
+    "The phase-bit-1 witness was revised after offset-199; only offset-201 is untouched validation."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_gain100_holdout.py": "5401cf6f220f81d25d68eb8a52f546e7cd1974bec2c15b0b90ab8b07f86a44ab",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit156-staged-transfer.json": "e8116251f63959ef8ce06c341c3b5d0d5d539869de8757d82e51d609867abe35",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-revised-cover.json": "62b5793973198584c676db1cd289b0a783f7456b2539b2789a8b0a6fdba095c0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain115-fixture.json": "8f6be76605eeaf118a0e3b0031b4c8ae080e486c6642f9addf10a89763703db3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_staged_transfer.py": "3b78c275f0f5a043fc184f1e8e17a639e719b5e374405f49e2f82e81ab899ed1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_exact_products.py": "357626ab47e0c789dd0385fe421c9f7275b3dc94bc716f6d24678c7addea05da",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_challenge.py": "a1b8cc5624d337999478ebd4a695d7f2cbfe427adb9b9d2f2028177d299b46aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_fresh_phase120.py": "bd953824959a42725a14d6aa9025b44fa61b4d6bc9dfb59a30d34244ad446f2a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit159_revised_holdout.py": "62012b1f039c9a96dfeae93c3c74f28346a5e5749c0c349de2647b9fa5211bab",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-nominal-diagnosis.json": "68c813b02b83728313601d36fbb5b7e05ceddd774c4abd18949e87f7b12108c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain115-holdout-edge32-201.json": "618bc070b7b6e85be878e32bbaaf0919b46b936b60680cbf3c58bf8683e5a237",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain115-holdout-edge48-201.json": "f54c840479945cb28f06d5c5ff86ae883c1de3cdaf1353aa6fd2f3800a5458ed"
+  }
+}

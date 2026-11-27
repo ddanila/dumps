@@ -2256,6 +2256,15 @@ Listed in order of value per effort:
   direct 8/5-product cover still exists. Revise that gate label, run an
   untouched carrier/level challenge, and keep U14/U3/U25/U28 nets and
   physical serial logic conditional before C3 acceptance.
+  The [revised-cover higher-gain holdout](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md#fresh-higher-gain-holdout)
+  freezes the post-offset-199 eight/five-product witness and challenges it
+  with fresh offset-201 call/answer payloads, both mode-edge schedules and
+  1.15× gain. All four real-PROM/controller runs recover exact modeled line
+  and controller bytes with zero wrong dibits or clipped samples. The
+  independent reference misses one dibit in each answer run. No run visits a
+  state outside the fitted 159-state graph. Test a photographed-package gate
+  and serial route, then seek a new-state fixture; keep the nets conditional,
+  C3 open and G2 active rather than blocking on pin continuity.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

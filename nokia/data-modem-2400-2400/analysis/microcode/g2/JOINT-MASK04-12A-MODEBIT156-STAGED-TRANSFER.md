@@ -80,3 +80,30 @@ The [nominal holdout](results/joint-mask04-12a-modebit156-gain100-holdout.json)
 and [159-state diagnosis](results/joint-mask04-12a-modebit159-nominal-diagnosis.json)
 are source-hashed. The late capture, transfer and serial nets remain
 untraced; three passing runs do not establish C3 acceptance.
+
+## Fresh higher-gain holdout
+
+The [revised thirteen-bit cover](results/joint-mask04-12a-modebit159-revised-cover.json)
+uses the joined 159-state graph, including the offset-199 `190C` constraint.
+It retains eight direct products for phase bit 0 and five for phase bit 1.
+That offset-199 run is development evidence for this revision. The cover was
+frozen before a new [offset-201, 1.15×-gain real-PROM/controller challenge](joint_mask04_12a_modebit159_revised_holdout.py)
+with fresh call/answer payloads and mode edges at symbols 32 and 48.
+
+All four runs have zero wrong decisions, exact modeled line bytes and exact
+executed-controller payloads. No PCM sample clips, and the assumed U28 load
+still precedes the first RxC by 1,000 modeled cycles. The independent
+reference misses dibit 35 in both answer runs; the modeled exactness is
+therefore conditional on the known transmitted bits and the circuit
+assumptions. None of the four runs reaches a state outside the fitted
+159-state graph, so this checks new data and higher level, not unseen-state
+generalization.
+
+The [source-hashed holdout](results/joint-mask04-12a-modebit159-gain115-holdout.json)
+and its [input fixture](results/joint-mask04-12a-modebit159-gain115-fixture.json)
+preserve the test. The thirteen-bit state route still assumes U14-to-U3
+transfer, U25 late capture, U28 load, the `3EB` mode bit and the RxD/RxC
+serial path. The direct-product cover is not yet a photographed-package gate.
+Test that gate and serializer under a package budget and seek a fresh fixture
+that visits an unseen state; the untraced nets are testable assumptions, not
+a G2 blocker or a C3 pass.
