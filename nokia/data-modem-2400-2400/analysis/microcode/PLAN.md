@@ -338,6 +338,13 @@ dibits each and wrong controller payloads, without clipping). The expanded
 60-state graph has zero conflicts but two disconnected components. Reallocate
 the occupied U15 arms or test another photo-compatible capture while keeping
 physical nets assumed; neither failed gate blocks C3/G2 experiments.
+The [ten-bit product-bound audit](g2/JOINT-MASK04-12A-TEN-BIT-PACKAGE-MODE.md)
+proves that phase bit 0 needs five direct product terms for either global
+phase polarity on the expanded 60-state graph; U15 supplies only four AOI
+arms. A direct arm swap cannot resolve `12D`. The same 66-stream screen
+finds 24 conflict-free alternate captured bits, including connected graphs
+for first `3F8` Y4, later `3F8` Y7 and visit-`141` Y6. Test their package
+logic or a multistage route, then challenge fresh data; keep C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

@@ -45,3 +45,22 @@ reallocation or another photo-compatible capture route, freeze it, and test
 fresh real-PROM/controller data. Keep C3 and G2 active. The two disconnected
 phase components leave their relative offset unconstrained, and no actual
 latch, gate, analog or USART net has been traced.
+
+The [product-bound audit](results/joint-mask04-12a-ten-bit-product-bound.json)
+now rules out a direct four-product readout of this captured state, independent
+of input width or global phase offset. For each phase-bit-0 polarity it gives
+five observed on states such that every pair shares a maximally specific
+product with at least one observed off state. No valid product can cover two
+members of a witness, so at least five products are required. The report also
+verifies an exact five-product cover for each polarity. This excludes another
+simple substitution into U15's four AOI arms; it does **not** exclude
+multistage logic, another captured feature, or a different phase readout.
+
+On the same 66 streams, 24 of 80 alternate single-bit captures remove graph
+conflicts. Among them, first `3F8` Y4 at visit `46` gives one 55-state
+component, and `3F8` Y7 at visit `94` gives one 56-state component. Later
+`3F8` Y6 at visit `141` gives one 77-state component and 1,425 modeled
+cycles before first RxC. These are graph candidates, not package circuits;
+their clock and data nets remain hypotheses. The next experiment should
+evaluate package logic for an alternate capture or an explicitly multistage
+route, then freeze it for a fresh held-mode challenge.
