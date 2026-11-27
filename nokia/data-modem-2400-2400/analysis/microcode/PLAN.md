@@ -6,7 +6,7 @@
 > the available dumps and keep physical confirmation as a separate acceptance
 > question.
 
-## Uncertainty is a reason to experiment, not a goal blocker
+## Treat uncertain connections as runnable hypotheses
 
 Use the existing photographs to build the simplest pin-compatible route for
 each missing DAC, ADC, latch, clock, DSC-to-USART or analog-line connection.
@@ -25,6 +25,15 @@ is conditional evidence, not proof of the physical circuit or an automatic
 acceptance pass. Consider a goal-level blocker only after documenting why no
 remaining runnable experiment can advance an open check and what specific
 external observation is required.
+
+Apply this rule to each open check: name the photo-supported candidate and its
+uncertain nets; run a real-ROM/controller fixture with a discriminating control;
+record what passed or failed under that assumption; then choose the next
+candidate. If the available photographs support several routes, keep them as
+separate variants and test them in turn. Exhaustion of one route, a missing
+continuity measurement, or an unconfirmed physical net does **not** by itself
+block G2. Only report a blocker after the runnable variants and independent
+tests have been exhausted, with the missing observation stated precisely.
 
 For C2, test the candidate Y7-to-latch-to-DAC08 MSB and analog-output route
 identified by the [MSB-only replay](g2/JOINT-MASK04-DAC-MSB-DATA.md).
