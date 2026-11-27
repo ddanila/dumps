@@ -2210,6 +2210,13 @@ Listed in order of value per effort:
   gate/USART route remain assumed, so this is conditional C3 evidence.
   Challenge another carrier/level and build a package-budgeted timed
   route before C3 acceptance.
+  A [staged capture replay](g2/JOINT-MASK04-12A-MODEBIT97-HOLDOUT.md#photo-package-capacity-replay)
+  now fits all twelve state bits into photographed U3/U12/U14/U25 storage
+  capacity and reproduces 6,500 saved symbol states with zero decision
+  errors. It assumes the mode input holds through U12's shared clock and
+  uses both U25 flip-flops, displacing the earlier assumed previous-phase
+  memory. Test a phase/serializer allocation or another photo-compatible
+  route; neither the displaced role nor the untraced nets block G2.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

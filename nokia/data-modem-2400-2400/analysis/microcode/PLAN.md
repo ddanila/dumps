@@ -38,6 +38,15 @@ the failed fixture and try another pin-compatible route or an independent
 signal constraint. Keep C2/C3 open until their acceptance evidence is met;
 neither a plausible simulation nor an untraced wire settles them.
 
+When a proposed route needs a photographed part already assigned another
+*assumed* role, test the competing allocations separately. For example, using
+both U25 flip-flops for late receive captures leaves the earlier candidate's
+previous-phase memory unallocated. That is a concrete circuit-design question:
+replay the capture timing, then seek a photo-compatible phase/serializer path
+or another allocation. It does not stop G2 merely because the first combined
+allocation is incomplete. Keep the missing capacity, nets and timing visible
+in the result, and reserve C3 acceptance for an executed, constrained route.
+
 Apply this rule to each open check: name the photo-supported candidate and its
 uncertain nets; run a real-ROM/controller fixture with a discriminating control;
 record what passed or failed under that assumption; then choose the next
@@ -438,6 +447,17 @@ exact; the call reference misses two dibits, so keep the call-side
 interpretation conditional. Test another carrier/level and a timed,
 package-budgeted Y2/Y7 storage, gate and USART path. C3/G2 remain open
 and active; missing physical continuity is not a blocker.
+The [staged twelve-bit capture replay](g2/JOINT-MASK04-12A-MODEBIT97-HOLDOUT.md#photo-package-capacity-replay)
+now assigns the capture bits across photographed U3/U12/U14/U25 storage
+capacity. On 100 saved real-PROM streams (6,500 symbols), staged values
+match direct states with zero decision mismatches and 2,929 modeled cycles
+between the last capture and the assumed first RxC. This tests a storage
+schedule, not a complete circuit: U25 is no longer available for the older
+assumed previous-phase memory, the mode-bit hold and actual data/clock nets
+are untraced, and the Boolean gate/USART path is unallocated. Continue with
+alternative package allocations and a timed serial-output hypothesis while
+C3/G2 remain active. Treat each failed allocation as a result, not a blocker.
+
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
