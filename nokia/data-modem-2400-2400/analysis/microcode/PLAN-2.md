@@ -2318,6 +2318,15 @@ Listed in order of value per effort:
   probe's declared history, not the original A4 plaintext. TxD-to-D127
   buffering and the DAC/ADC/USART nets remain conditional; test those
   routes and a package gate before C2/C3 acceptance.
+  The [later paced A5 challenge](g2/JOINT-MASK04-PACED-A5-THIRTEENBIT.md)
+  feeds the next eight aligned bytes from the **same continuous 8031/8251
+  source** through separate real-PROM DSC replays. Both selectors recover
+  exact modeled line and receiver-probe bytes with 0/64 frozen-gate
+  errors, no clipping and no controller status errors. The independent
+  reference misses one call and two answer dibits; both runs again
+  reach `1909` correctly. The DSC replays restart at A5, so test a
+  continuous 16-byte A4→A5 DSC run next. Keep the physical paths and
+  package gate conditional, with C2/C3/G2 open.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

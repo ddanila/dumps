@@ -657,6 +657,14 @@ modeled line bytes, zero wrong dibits and no clipping. Both visit the
 previously unseen `1909` state. The TxD-to-D127 pair buffer, DAC/ADC,
 gate and USART wires remain labelled assumptions; test them rather
 than treating their missing pin continuity as a G2 blocker.
+The [paced A5 follow-up](g2/JOINT-MASK04-PACED-A5-THIRTEENBIT.md) now
+feeds the next eight aligned bytes from that continuous controller TxD
+source into separate real-PROM DSC call/answer replays. Both return
+exact modeled line and controller-probe bytes with 0/64 frozen-gate
+errors, no clipping and no status errors; the independent reference
+misses one/two dibits. The DSC restarts before A5 in these fixtures,
+so test a continuous 16-byte A4→A5 run next. Physical nets remain
+assumptions; C2/C3/G2 stay active.
 The [whole-store `12A` PROM-gate audit](g2/JOINT-MASK04-TX-12A-FULL-STORE-GATE.md)
 now tests the direct 74LS273 clock alternative. The prior two-bit decode
 selects 111 store words, including eight in the receive-address span.

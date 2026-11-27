@@ -39,3 +39,7 @@ buffer, D127 net, DAC/ADC/analog route, receiver capture/gate and
 RxD/RxC/SYNDET wiring remain assumptions. It is stronger conditional
 end-to-end evidence; C2, C3 and G2 remain open until their physical
 routes and gate implementation are constrained.
+
+The same frozen route also passes the [next eight paced A5 bytes](JOINT-MASK04-PACED-A5-THIRTEENBIT.md)
+in separate DSC runs for call and answer. The continuous A4→A5 DSC
+boundary remains to be tested.

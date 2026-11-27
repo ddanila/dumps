@@ -1,4 +1,4 @@
-"""Challenge frozen thirteen-bit Rx with actual paced controller A4 TxD."""
+"""Challenge frozen thirteen-bit Rx with paced controller A4 and A5 TxD."""
 
 import hashlib
 import json
@@ -36,11 +36,12 @@ MODE_EDGE = 48
 SHIFT = 5
 
 
-def run(selector=SELECTOR, out=None):
-    if selector not in ('40', '60'):
-        raise ValueError('unknown controller selector')
+def run(selector=SELECTOR, segment='A4', out=None):
+    if selector not in ('40', '60') or segment not in ('A4', 'A5'):
+        raise ValueError('unknown controller selector or segment')
     if out is None:
-        out = OUT if selector == '40' else RESULTS / 'joint-mask04-paced-a4-thirteenbit-answer.json'
+        name = f'joint-mask04-paced-{segment.lower()}-thirteenbit'
+        out = RESULTS / f'{name}{"-answer" if selector == "60" else ""}.json'
     delay = 5 if selector == '40' else 18
     paced = json.loads(PACED.read_text())
     cases = [row for row in paced['cases'] if row['selector'] == selector]
@@ -50,7 +51,10 @@ def run(selector=SELECTOR, out=None):
     aligned = [row['aligned_dsc_bytes'] for row in cases]
     if any(row != aligned[0] for row in aligned):
         raise ValueError('TxD clock phases give different DSC bytes')
-    offered = [int(value, 16) for value in aligned[0][:8]]
+    start = 0 if segment == 'A4' else 8
+    offered = [int(value, 16) for value in aligned[0][start:start + 8]]
+    if len(offered) != 8:
+        raise ValueError('paced segment lacks eight line bytes')
     expected_payload = independent_descramble(offered, delay)
     gain_fixture = json.loads(GAIN.read_text())
     cover = json.loads(COVER.read_text())
@@ -119,10 +123,10 @@ def run(selector=SELECTOR, out=None):
              HERE / 'joint_mask04_12a_modebit156_staged_transfer.py',
              HERE.parent / 'assumed/execute.py', line.MAPPINGS['q3'],
              *(HERE.parents[2] / 'microcode-810237c-810240c').glob('chip*.bin'))
-    report = dict(experiment='frozen thirteen-bit receive of paced 8031/8251 A4 TxD',
-                  fixture=dict(selector=selector,
+    report = dict(experiment=f'frozen thirteen-bit receive of paced 8031/8251 {segment} TxD',
+                  fixture=dict(selector=selector, segment=segment,
                                paced_txd_clock_phases=[row['tx_clock_phase_ticks'] for row in cases],
-                               transmitted_a4_line_bytes=[f'{value:02X}' for value in offered],
+                               transmitted_line_bytes=[f'{value:02X}' for value in offered],
                                expected_decoded_bytes=[f'{value:02X}' for value in expected_payload],
                                receiver_probe_initial_history='5A1234',
                                carrier_offset=OFFSET, receive_gain_factor=0.85,
@@ -152,15 +156,15 @@ def run(selector=SELECTOR, out=None):
                            minimum_setup_cycles=score['minimum_setup_cycles']),
                   limitations=[
                       'The 8251 transmit model supplies shifted TxD bits from an executed 8031 stream, but TxD-to-D127 pair buffering is assumed.',
-                      'Aligned A4 bytes begin at bit 1 of a controller character; decoded bytes use the receiver probe history, not the original controller A4 plaintext.',
+                      'Aligned A4/A5 bytes begin at bit 1 of a controller character; decoded bytes use the receiver probe history, not the original controller plaintext.',
                       'The carrier phase poke, DAC/line/ADC path, D3EB mode, thirteen-bit capture and RxD/RxC/SYNDET connections remain assumed.',
-                      'The frozen gate was not fitted to this A4 stream; the first preamble dibit is supplied rather than recovered.'
+                      f'The frozen gate is unchanged for this {segment} stream; the first preamble dibit is supplied rather than recovered.'
                   ],
                   source_sha256={str(path.relative_to(HERE.parents[4])):
                                  hashlib.sha256(path.read_bytes()).hexdigest()
                                  for path in paths})
     out.write_text(json.dumps(report, indent=2) + '\n')
-    print('paced A4', selector, 'wrong', score['wrong_decision_indices'],
+    print('paced', segment, selector, 'wrong', score['wrong_decision_indices'],
           'line exact', score['recovered_matches_offered'],
           'controller exact', score['controller_decoded_bytes'] == expected_payload,
           'unseen', report['run']['unseen_vs_frozen_159'], flush=True)
@@ -168,5 +172,6 @@ def run(selector=SELECTOR, out=None):
 
 
 if __name__ == '__main__':
-    run()
-    run('60')
+    for segment in ('A4', 'A5'):
+        for selector in ('40', '60'):
+            run(selector, segment)

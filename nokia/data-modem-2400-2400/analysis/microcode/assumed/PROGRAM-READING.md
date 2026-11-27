@@ -375,6 +375,11 @@ loops and frozen thirteen-bit readout with all eight line bytes exact.
 The D127 pair buffer and physical analog/serial wiring remain external
 assumptions; the controller receive probe uses its stated initial
 descrambler history rather than claiming the original A4 plaintext.
+The [next paced A5 block](../g2/JOINT-MASK04-PACED-A5-THIRTEENBIT.md)
+also passes call and answer through separate executed DSC Tx/Rx runs
+with the frozen thirteen-bit gate, even where the independent
+known-carrier reference misses one or two dibits. Those separate
+replays do not yet show the A4→A5 state transition in one DSC run.
 
 ## Earlier provisional names
 

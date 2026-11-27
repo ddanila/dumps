@@ -2,6 +2,7 @@
   "experiment": "frozen thirteen-bit receive of paced 8031/8251 A4 TxD",
   "fixture": {
     "selector": "40",
+    "segment": "A4",
     "paced_txd_clock_phases": [
       0,
       416,
@@ -12,7 +13,7 @@
       2496,
       2912
     ],
-    "transmitted_a4_line_bytes": [
+    "transmitted_line_bytes": [
       "FC",
       "03",
       "7C",
@@ -96,12 +97,12 @@
   },
   "limitations": [
     "The 8251 transmit model supplies shifted TxD bits from an executed 8031 stream, but TxD-to-D127 pair buffering is assumed.",
-    "Aligned A4 bytes begin at bit 1 of a controller character; decoded bytes use the receiver probe history, not the original controller A4 plaintext.",
+    "Aligned A4/A5 bytes begin at bit 1 of a controller character; decoded bytes use the receiver probe history, not the original controller plaintext.",
     "The carrier phase poke, DAC/line/ADC path, D3EB mode, thirteen-bit capture and RxD/RxC/SYNDET connections remain assumed.",
-    "The frozen gate was not fitted to this A4 stream; the first preamble dibit is supplied rather than recovered."
+    "The frozen gate is unchanged for this A4 stream; the first preamble dibit is supplied rather than recovered."
   ],
   "source_sha256": {
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_paced_a4_thirteenbit.py": "a7f87059a7232ef5b951457d3543e54bd6efa6e7d0122338d8219d502c7fa352",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_paced_a4_thirteenbit.py": "6de137fa91a12484d51c9306c81da0460d88eafdd3d6306a018a13c285b1e1d2",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready-17.json": "792486b1b01699213c354460e11251fae4a6c87842b5b264eea72b5803c95631",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain085-fixture.json": "6fcfcb721663e6f3621092f53b132c226393a8247ae81890b581347703b88ca7",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-revised-cover.json": "62b5793973198584c676db1cd289b0a783f7456b2539b2789a8b0a6fdba095c0",
