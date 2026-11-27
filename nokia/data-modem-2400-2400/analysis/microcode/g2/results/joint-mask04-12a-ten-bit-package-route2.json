@@ -1,0 +1,462 @@
+{
+  "experiment": "revised ten-bit package-capacity receive phase route",
+  "fixture": {
+    "streams": 62,
+    "symbols": 4030,
+    "decisions": 3968,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "observed_state_codes": 56,
+    "global_phase_offset": 3,
+    "last_capture_cycle": 3071,
+    "first_RxC_cycle": 6000,
+    "modeled_setup_cycles": 2929
+  },
+  "packages": {
+    "U12": "SN74LS175N",
+    "U13": "DM74LS04N",
+    "U14": "SN74LS75N",
+    "U15": "SN74S64J",
+    "U19": "SN74LS10N",
+    "U21": "HD74LS02P"
+  },
+  "resource_use": {
+    "U12_flipflops": 3,
+    "U14_latches": 4,
+    "U3_latches": 3,
+    "U13_inverters": 5,
+    "U15_AOI_outputs": 1,
+    "U19_three_input_NANDs": 3,
+    "U21_two_input_NORs": 3
+  },
+  "phase_graph": {
+    "state_codes": 56,
+    "components": [
+      38,
+      18
+    ],
+    "directed_conflicts": 0,
+    "relative_phase": {
+      "001": 0,
+      "005": 1,
+      "009": 0,
+      "015": 1,
+      "01C": 2,
+      "02F": 1,
+      "035": 1,
+      "041": 0,
+      "049": 0,
+      "082": 0,
+      "089": 3,
+      "08D": 2,
+      "092": 0,
+      "0C2": 0,
+      "0C8": 3,
+      "0C9": 3,
+      "0CC": 2,
+      "0CD": 2,
+      "0D2": 0,
+      "0D3": 0,
+      "0DC": 2,
+      "0E5": 1,
+      "0EE": 1,
+      "0F5": 1,
+      "101": 0,
+      "109": 3,
+      "10E": 1,
+      "11E": 1,
+      "135": 1,
+      "141": 0,
+      "149": 3,
+      "15C": 3,
+      "18A": 3,
+      "1C8": 0,
+      "1CA": 3,
+      "1DB": 3,
+      "1DD": 2,
+      "1E5": 1,
+      "20D": 1,
+      "21C": 3,
+      "21D": 1,
+      "21E": 1,
+      "24C": 3,
+      "25C": 3,
+      "289": 3,
+      "28D": 2,
+      "2C9": 3,
+      "2CD": 2,
+      "31E": 1,
+      "32C": 2,
+      "38D": 2,
+      "3AD": 2,
+      "3CC": 2,
+      "3CD": 2,
+      "3DD": 2,
+      "3ED": 2
+    }
+  },
+  "gate_label_mismatches": [],
+  "staged_state_mismatches": 0,
+  "row0_y01_46_to_47_shifts": 0,
+  "saved_stream_checks": [
+    {
+      "source": "joint-mask04-12a-lowgain133-expanded-visits.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-lowgain133-expanded-visits.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-mode1-expanded-1.15.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-mode1-expanded-1.15.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-mode1-expanded-1.25.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-mode1-expanded-1.25.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-phase-holdout-133.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-phase-holdout-133.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-phase-holdout-135.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-phase-holdout-135.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-gain07-challenge-0.7.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-gain07-challenge-0.7.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-gain07-challenge-0.8.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-gain07-challenge-0.8.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-mode81-control-expanded.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-mode81-control-expanded.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-old0d-replay.json",
+      "selector": null,
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-visit94-old0d-replay.json",
+      "selector": null,
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-row1-phase-holdout-141.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-row1-phase-holdout-141.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-row1-phase-holdout-143.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-row1-phase-holdout-143.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-holdout-145.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-holdout-145.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-holdout-147.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-holdout-147.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-frozen33-149.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-frozen33-149.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-frozen33-151.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-phase-frozen33-151.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-matched-149.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-matched-149.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-matched-151.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-matched-151.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen36-153.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen36-153.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen36-155.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen36-155.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen37-157.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen37-157.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen37-159.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-gain1-frozen37-159.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-holdout-161.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-holdout-161.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-holdout-163.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-holdout-163.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-route2-holdout-165.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-route2-holdout-165.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-route2-holdout-167.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-route2-holdout-167.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode81-165.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode81-165.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode81-167.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode81-167.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode-late48-165.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode-late48-165.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode-late48-167.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-two-bit-package-mode-late48-167.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-ten-bit-package-mode81-holdout-169.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-ten-bit-package-mode81-holdout-169.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-ten-bit-package-mode81-holdout-171.json",
+      "selector": "40",
+      "wrong_decision_indices": []
+    },
+    {
+      "source": "joint-mask04-12a-ten-bit-package-mode81-holdout-171.json",
+      "selector": "60",
+      "wrong_decision_indices": []
+    }
+  ],
+  "limitations": [
+    "The ten-bit feature and revised gate network were selected using all 62 streams, including the failed held-81 169/171 challenge; zero saved errors are a development fit.",
+    "The observed phase graph has two disconnected components, so their relative global phase remains unconstrained by these streams.",
+    "Actual package data/enable nets, complementary-Q use, tie-high points, analog path and USART connection are not identified.",
+    "The modeled 2,929-cycle setup interval is not a measured electrical timing margin."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_ten_bit_package_route2.py": "fe0aa32e593e4e72cab6faf665c64344885a06a89f64b0b67be4abc96aa54e1b",
+    "nokia/data-modem-2400-2400/analysis/microcode/board/inventory.json": "1c2b07b8e377c2b646fdaff6e20f74065128351d90f41b68609cbd4616ad14e9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-lowgain133-expanded-visits.json": "6c34a41ad8bc402d904adcfed73295636e772d74567a3fa7cd2f1cbfd1d08e3f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.15.json": "2025f1bca86f2401bca54c5d5ffe151f51bee1db8c1748bbbb2d5e7bfd4a2d99",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.25.json": "459f2ee9649c883f0f4ad0a3c6e269ac83e77d3aff1d2521c5fc23cf3445082a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-133.json": "acc0d4fc1e0729f8e32144806bb95d00414aa6b92261d4c131975804afac971c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-135.json": "e0eff331908ee813e74b4a9e69b18e541a525f54800e11af20a94d33b3bd3ab9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.7.json": "eb5ad1d35208a081b51559b1122898a0d8c3eeb654bde89fd1c019a392c2887f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.8.json": "4d9912eaef43b1dcfb2633fef68a5b586537a9ff9a8362dea7bade9d40ed46d6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-mode81-control-expanded.json": "db71829dd1db5490d5b3290e568078be739a8ca8c61f7c373d40e6c40b627024",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-old0d-replay.json": "21153ff54e8fa3cc684a7d43645851b3dbc2211077c4ff1675936887b02511b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row1-phase-holdout-141.json": "a50a1e928c3a0a861893b0c8526ccf221ca0ce8c1ec646af0d19c53e068faf55",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row1-phase-holdout-143.json": "fa19caa9d94b93c345340dd8781b76164e8add251b09bda14b105b9571ae772b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-holdout-145.json": "c3063559b85ec9b993a236623bddc647e5b247a067bd4ea9207ccdf8ab1ff5c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-holdout-147.json": "ddde36bbfdd6f987168e3a546294222f1cec4e9072d9f16d332430747a4f7b9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-frozen33-149.json": "225c3846caff36b1047c2d55ad16fac88e506ad3dc9e7c3e3fcefda56e5ef6c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-frozen33-151.json": "12f7a03672675e95b44da0ff3ee45f45514c6d9418842905a0c45024c132d2d8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-matched-149.json": "38f223a235318251484bd4b1977b81292c3cca6e450fd4f9e015363800400a28",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-matched-151.json": "f4dd72ce7a19f346a0867d6666d12448af355cfd829924cb8ebd5e31625e6aba",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen36-153.json": "71ef98e53910d98577458291224134862a2ee55f5700c0798769414586ebfdd9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen36-155.json": "b928ac1e80b2a86f19c590834f7d06319ef149954088adaaf68b870ac8f95589",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen37-157.json": "b29c31906c976877e0c2c8ba18785e0f97987dc384cba50f1bb6f26600202810",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen37-159.json": "e8afa20ebd0ce8077c905eccf107ff2eb12d90e34d7718acca229ed56baf9b9b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-holdout-161.json": "4ba5c1156f828c935a9701993541988485f338b802662db536b113f76c8d8129",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-holdout-163.json": "77490e15d2e5406602c2b71d040fc1513193e1d8ba6309b5e776860f9ba0ab8d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-route2-holdout-165.json": "ed5fbecd14b3f44dcf8dacc526ad082959cecffd6a80984c4b06244ec122df65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-route2-holdout-167.json": "ee36c57598a506024676fa6372f0313b1254e5343064f88450909835bffd7b9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode81-165.json": "cd64947b4d82b5233a5191cf18014eece302d3fecef230d9661417a74dad14f1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode81-167.json": "a5cce1028786d458a3e8c0485e0365c8d44471e91cdf0474778f395621ce21da",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode-late48-165.json": "c22257655432207fc616f7ebb879e9fb6e3a7e909b6a9c13150ab092b9c4988c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode-late48-167.json": "afd9119ab213780a08e00d0f22572c832cbcba5a20326b68148553186ec3b974",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-ten-bit-package-mode81-holdout-169.json": "4ed2c667294cbb7519ddd8fb823300c8c3cf1304d9b58f0f5393bf46486ff1b5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-ten-bit-package-mode81-holdout-171.json": "ae6f207b63e18bd9bef0e56ba528214536a585a6f3f185ddfeb612631c8b5770",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_two_bit_package_mode_audit.py": "61d5a9cbf72ac1680aa6a316fcfca511cf54941426e5a1aa994d6709a4a97765",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_ten_bit_mode81_audit.py": "fcc817301dc0c6f4ef1fd823b5d8d7ced3d9ba468213fc349e26f86168617276",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_two_bit_package_latch.py": "39953306383a8eea36389030769e20a4f091aca5064c0c2c3c9fbd8bf425cf24",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_0d_feature_graph.py": "bd2f35c826952db22031704f5f5f6138d4de0d76ae45b42d2304737b44833bcc"
+  }
+}

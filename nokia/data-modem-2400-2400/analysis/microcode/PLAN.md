@@ -329,6 +329,15 @@ first `3F8` Y4 at visit `46` removes them. U14/U12 have a plausible
 spare-latch/fourth-FF storage schedule for early Y4, but its full gate
 is not yet package-realized. Freeze and challenge a mode-qualified or
 early-Y4 circuit; keep C3/G2 active and the nets assumed.
+The [ten-bit package-gate held-81 challenge](g2/JOINT-MASK04-12A-TEN-BIT-PACKAGE-MODE.md)
+now tests a later-Y6 capture alternative. A first photographed-package-budgeted
+gate fails new `32C` at carriers `169/171`. A revised gate fits those
+development streams, then passes two fresh carrier-`173` cases with unseen
+states but fails both carrier-`175` cases at new state `12D` (12/64 wrong
+dibits each and wrong controller payloads, without clipping). The expanded
+60-state graph has zero conflicts but two disconnected components. Reallocate
+the occupied U15 arms or test another photo-compatible capture while keeping
+physical nets assumed; neither failed gate blocks C3/G2 experiments.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
