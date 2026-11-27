@@ -46,6 +46,12 @@ acquisition details, checksums and open questions.
 - [D-Link NE2000 BootROM V2.40](d-link/ne2000-v240/): NetWare remote DOS
   loader; INT 19h installer verified in an emulator
 
+### Terminals
+
+- [Philips P2776-family terminal](philips/p2776/): NEC V25/V35 firmware with
+  terminal emulations, multilingual setup, 512 glyphs and verified ROM checksum;
+  [analysis](philips/p2776/analysis/).
+
 ### Modems and telecom
 
 - [Nokia Data Modem 2400/2400](nokia/data-modem-2400-2400/): 8031 controller,
@@ -79,8 +85,6 @@ acquisition details, checksums and open questions.
 - [Mitsubishi M5L27128K](unknown/mitsubishi-m5l27128k/): unidentified contents queued
   for future analysis; metadata only, binary retained in the local acquisition session.
 
-- [Intel D27010](unknown/intel-d27010/): unidentified contents queued for future
-  analysis; metadata only, binary retained in the local acquisition session.
 - [Tandberg TDV-2200S-family TMM27128AD-20](unknown/tandberg-tdv2200s-tmm27128ad/):
   8085 terminal services and partial application, with 80 × 25 display, serial
   I/O and programmable PUSH keys; exact model/revision unresolved.
