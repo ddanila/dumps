@@ -73,6 +73,9 @@ acquisition details, checksums and open questions.
 
 ### Unidentified
 
+- [NM27C512Q](unknown/nm27c512q/): unidentified contents queued for future
+  analysis; metadata only, binary retained in the local acquisition session.
+
 - [Mitsubishi M5L27128K](unknown/mitsubishi-m5l27128k/): unidentified contents queued
   for future analysis; metadata only, binary retained in the local acquisition session.
 
