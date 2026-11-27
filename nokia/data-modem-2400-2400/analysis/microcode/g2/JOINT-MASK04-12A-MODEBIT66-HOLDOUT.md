@@ -85,6 +85,25 @@ eight-input NAND, while U13 has four inverters and U21 one NOR left
 under that allocation. This identifies the extra gate work but does
 not claim a complete package-budgeted overlay or measured timing.
 
+## Fresh late-boundary control
+
+The [offset-181 boundary challenge](joint_mask04_12a_modebit70_late48.py)
+holds new call/answer transmitter payloads, PCM and receiver PC paths fixed
+while moving the imposed `3EB` `81→A1` edge from symbol 32 to 48. The frozen
+64-state decoder makes 0/64 dibit errors in each of the four real-PROM
+streams. All four recover exact modeled line bytes and executed-controller
+payloads, with zero clipped samples and zero controller status errors. The
+edge-48 streams reach unseen `099` and `2D9`; the edge-32 controls reach
+unseen `2D9`. Within each selector, Tx, PCM and PC digests match while Rx
+digests differ. The modeled interval from visit-94 capture to the first RxC
+edge remains 2,929 cycles in all four cases; this is an assumed schedule,
+not a measured propagation margin.
+
+This additional mode-boundary holdout strengthens the conditional receive
+decision without resolving the gate-resource and physical-net questions.
+The next tests should use a different gain/carrier phase and construct a
+complete package-budgeted route for the same frozen function.
+
 Source-hashed machine results:
 [`graph`](results/joint-mask04-12a-modebit66-graph.json),
 [`cover`](results/joint-mask04-12a-modebit66-cover.json),
@@ -93,3 +112,5 @@ Source-hashed machine results:
 [`revision`](results/joint-mask04-12a-modebit70-revision.json) and
 [`offset-179 holdout`](results/joint-mask04-12a-modebit70-holdout.json),
 plus the [`package delta`](results/joint-mask04-12a-modebit70-package-delta.json).
+The [late-boundary result](results/joint-mask04-12a-modebit70-late48.json)
+records all four new cases.

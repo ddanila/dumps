@@ -384,6 +384,13 @@ old U19 and U15 allocation is full; the visible U7 NAND and spare U13/U21
 gates are candidate resources, not a demonstrated complete circuit.
 Test a rewired or multistage package realization and its timing; the
 unassigned nets are an experiment, not a G2 blocker.
+The [fresh late-boundary control](g2/JOINT-MASK04-12A-MODEBIT66-HOLDOUT.md#fresh-late-boundary-control)
+now moves the imposed `3EB` edge from symbol 32 to 48 with new offset-181
+payloads. The frozen revised decoder recovers all four real-PROM streams
+with 0/64 dibit errors, exact modeled line and controller bytes, and unseen
+states. Matched Tx/PCM/PC digests isolate the changed Rx input. Keep C3
+open for a complete package/serial route and test a different gain and
+carrier phase next; the untraced mode net does not block those tests.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

@@ -2167,6 +2167,12 @@ Listed in order of value per effort:
   and five literals. U19 and U15 are fully allocated in that circuit,
   so a complete rewired or multistage package route remains to be built
   and timed. Keep these connections as runnable hypotheses.
+  A fresh offset-181 control then moves the imposed `3EB` mode edge from
+  symbol 32 to 48. The frozen revised decoder recovers all four new
+  call/answer streams with zero dibit errors and exact modeled line and
+  executed-controller bytes, including unseen states. Matched Tx, PCM
+  and PC digests isolate the receive change. Vary gain/carrier phase
+  and establish the package/serial circuit before passing C3.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The
