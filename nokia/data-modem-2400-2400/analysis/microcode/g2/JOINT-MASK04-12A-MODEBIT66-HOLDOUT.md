@@ -104,6 +104,25 @@ decision without resolving the gate-resource and physical-net questions.
 The next tests should use a different gain/carrier phase and construct a
 complete package-budgeted route for the same frozen function.
 
+## Fresh lower-level and mode-boundary control
+
+The [offset-183 low-level challenge](joint_mask04_12a_modebit70_lowgain.py)
+uses new call/answer payloads, a new carrier start and a calibrated 0.8×
+receive level. It repeats the edge-at-32 and edge-at-48 schedules with the
+same frozen decoder. The independent reference has zero wrong dibits in
+all four streams. The decoder also has 0/64 wrong dibits per stream and
+recovers exact modeled line bytes and executed-controller payloads, with
+zero clipping and zero controller status errors. Edge-32 reaches unseen
+`225` and `259`; edge-48 reaches unseen `019`, `025`, `19D`, `225` and
+`259`. Each selector's paired Tx, PCM and PC digests agree, while its Rx
+digests differ with the imposed mode edge. The modeled visit-94-to-RxC
+interval remains 2,929 cycles.
+
+This tests a signal level that had exposed earlier phase-gate failures,
+but the successful decision still depends on the assumed mode input,
+analog/ADC mapping and aligned serializer. A high-level or clipped case
+and a complete package-budgeted circuit are next; C3 and G2 stay active.
+
 Source-hashed machine results:
 [`graph`](results/joint-mask04-12a-modebit66-graph.json),
 [`cover`](results/joint-mask04-12a-modebit66-cover.json),
@@ -114,3 +133,5 @@ Source-hashed machine results:
 plus the [`package delta`](results/joint-mask04-12a-modebit70-package-delta.json).
 The [late-boundary result](results/joint-mask04-12a-modebit70-late48.json)
 records all four new cases.
+The [lower-level result](results/joint-mask04-12a-modebit70-lowgain.json)
+records the four 0.8× cases.

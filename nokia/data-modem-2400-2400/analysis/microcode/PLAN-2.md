@@ -2173,6 +2173,12 @@ Listed in order of value per effort:
   executed-controller bytes, including unseen states. Matched Tx, PCM
   and PC digests isolate the receive change. Vary gain/carrier phase
   and establish the package/serial circuit before passing C3.
+  The next untouched offset-183 challenge lowers calibrated receive
+  level to 0.8× and again pairs edges at 32 and 48. All four real-PROM
+  streams recover 64/64 dibits and exact modeled line/controller bytes,
+  without clipping or controller status errors. The late-edge pair
+  reaches five states absent from the frozen 64-state graph. Test high
+  level or clipping and complete the gate/serial route; C3 stays open.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

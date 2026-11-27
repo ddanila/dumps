@@ -391,6 +391,14 @@ with 0/64 dibit errors, exact modeled line and controller bytes, and unseen
 states. Matched Tx/PCM/PC digests isolate the changed Rx input. Keep C3
 open for a complete package/serial route and test a different gain and
 carrier phase next; the untraced mode net does not block those tests.
+The [fresh 0.8× lower-level challenge](g2/JOINT-MASK04-12A-MODEBIT66-HOLDOUT.md#fresh-lower-level-and-mode-boundary-control)
+then changes carrier start and payloads while pairing edges at symbols
+32 and 48. All four real-PROM/controller runs recover 64/64 dibits and
+exact modeled line/controller bytes without clipping, including five
+previously unseen states in the late-edge pair. This is stronger
+conditional C3 evidence across gain; a high-level challenge and a
+complete package/serial implementation remain open experiments, not
+reasons to block G2.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
