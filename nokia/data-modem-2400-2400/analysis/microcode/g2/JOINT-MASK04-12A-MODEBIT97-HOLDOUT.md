@@ -60,6 +60,14 @@ these streams. The final proposed capture occurs at modeled cycle 3,071,
 an event-snapshot and storage-capacity replay, not a measured electrical
 timing margin or a traced circuit.
 
+The later [paired-enable audit](JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md)
+corrects this allocation: U14 has two shared-enable pairs, so its
+three-early/one-later assignment cannot be clocked directly without
+overwriting an early bit. The revised schedule transfers first Y7 into
+U3 before reusing U14's second pair, and reserves U25's second flip-flop
+for a newly required visit-141 capture. Treat the twelve-bit replay here
+as a capacity and state-value check, not a complete latch schedule.
+
 Assigning both U25 flip-flops here displaces their earlier **assumed**
 previous-phase-memory role. Phase subtraction, Boolean gates and the
 RxD/RxC/SYNDET route therefore remain unallocated; actual data and

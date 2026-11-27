@@ -2238,6 +2238,24 @@ Listed in order of value per effort:
   assumed U28 load, and a visit-141 U3 recapture overwrites its earlier
   Y bits. Test an explicit later-load/data-hold route or separate
   storage before a thirteen-bit decoder holdout; keep C3/G2 active.
+  The [paired-U14 staged transfer](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md)
+  repairs an earlier capacity-only assumption: U14's shared-enable
+  pairs cannot directly take three early and one later bit. U3 copies
+  first Y7 before U14 pair B is reused for later Y4/Y7; U25 captures
+  late row Y2 and visit-141 Y6, and a proposed U28 load moves to
+  cycle 5,000. The stage replay matches all 7,020 saved thirteen-bit
+  states, and the 156-state graph is connected without conflicts.
+  Direct observed-label products need 8/5 terms, but no gate/serial
+  package route is established. Challenge the frozen gate as below while
+  keeping physical connections conditional and C3 open.
+  The [fresh nominal thirteen-bit holdout](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md#fresh-nominal-level-holdout)
+  passes three of four offset-199 real-PROM/controller streams with exact
+  modeled line and controller bytes. The edge-48 call reaches unseen
+  `190C`, where frozen phase bit 1 is wrong, causing six dibit errors.
+  The joined 159-state graph remains connected and conflict-free; a
+  direct 8/5-product cover still exists. Revise that gate label, run an
+  untouched carrier/level challenge, and keep U14/U3/U25/U28 nets and
+  physical serial logic conditional before C3 acceptance.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

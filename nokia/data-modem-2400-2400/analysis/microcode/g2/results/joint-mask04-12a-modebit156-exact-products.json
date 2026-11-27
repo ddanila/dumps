@@ -1,0 +1,201 @@
+{
+  "experiment": "exact direct-product bound on 156 observed thirteen-bit receiver states",
+  "fixture": {
+    "input_width": 13,
+    "observed_states": 156,
+    "streams": 108,
+    "selected_extra_capture": [
+      "141",
+      "y3f8",
+      6
+    ]
+  },
+  "bounds": [
+    {
+      "phase_bit": 0,
+      "on_polarity": 0,
+      "on_states": 85,
+      "off_states": 71,
+      "distinct_valid_coverages": 1997,
+      "maximal_candidate_coverages": 76,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 1
+        },
+        {
+          "products": 3,
+          "search_calls": 1
+        },
+        {
+          "products": 4,
+          "search_calls": 4
+        },
+        {
+          "products": 5,
+          "search_calls": 8
+        },
+        {
+          "products": 6,
+          "search_calls": 16
+        },
+        {
+          "products": 7,
+          "search_calls": 54
+        }
+      ],
+      "minimum_direct_products": 8,
+      "witness_cubes": [
+        "***0*1*******",
+        "**01********1",
+        "****10*0*0***",
+        "0**1**1***0**",
+        "**01***1*****",
+        "***1*0*01****",
+        "***1***00**0*",
+        "***110******0"
+      ],
+      "successful_search_calls": 9
+    },
+    {
+      "phase_bit": 0,
+      "on_polarity": 1,
+      "on_states": 71,
+      "off_states": 85,
+      "distinct_valid_coverages": 1377,
+      "maximal_candidate_coverages": 51,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 1
+        },
+        {
+          "products": 3,
+          "search_calls": 2
+        },
+        {
+          "products": 4,
+          "search_calls": 3
+        },
+        {
+          "products": 5,
+          "search_calls": 9
+        },
+        {
+          "products": 6,
+          "search_calls": 27
+        },
+        {
+          "products": 7,
+          "search_calls": 134
+        }
+      ],
+      "minimum_direct_products": 8,
+      "witness_cubes": [
+        "***0*0*******",
+        "****0**00**10",
+        "1*1********1*",
+        "**1***0**1*1*",
+        "**11**1*0*1**",
+        "*0110**1*****",
+        "001*0********",
+        "*****1*****1*"
+      ],
+      "successful_search_calls": 9
+    },
+    {
+      "phase_bit": 1,
+      "on_polarity": 0,
+      "on_states": 78,
+      "off_states": 78,
+      "distinct_valid_coverages": 3739,
+      "maximal_candidate_coverages": 30,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 2
+        },
+        {
+          "products": 3,
+          "search_calls": 4
+        },
+        {
+          "products": 4,
+          "search_calls": 8
+        },
+        {
+          "products": 5,
+          "search_calls": 17
+        }
+      ],
+      "minimum_direct_products": 6,
+      "witness_cubes": [
+        "*****1*******",
+        "**11**0**1***",
+        "**1****1*****",
+        "0*1*0********",
+        "*11**********",
+        "0*1*****0*1**"
+      ],
+      "successful_search_calls": 7
+    },
+    {
+      "phase_bit": 1,
+      "on_polarity": 1,
+      "on_states": 78,
+      "off_states": 78,
+      "distinct_valid_coverages": 2793,
+      "maximal_candidate_coverages": 10,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 2
+        },
+        {
+          "products": 3,
+          "search_calls": 3
+        },
+        {
+          "products": 4,
+          "search_calls": 5
+        }
+      ],
+      "minimum_direct_products": 5,
+      "witness_cubes": [
+        "***0*0*******",
+        "**0**********",
+        "*0**10*0*0***",
+        "******10**0**",
+        "*0***0*01****"
+      ],
+      "successful_search_calls": 6
+    }
+  ],
+  "limitations": [
+    "These are direct sum-of-products counts with unobserved thirteen-bit states as don\u2019t-cares, not a minimum multistage or photographed-package gate circuit.",
+    "The 156 labels include the 0.95x streams that selected this extra bit; all witnesses are development fits requiring a new real-PROM holdout.",
+    "Storage timing is an assumed U14-to-U3 transfer with U25 late capture; physical nets and a phase/USART route remain untraced."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_exact_products.py": "357626ab47e0c789dd0385fe421c9f7275b3dc94bc716f6d24678c7addea05da",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit156-staged-transfer.json": "e8116251f63959ef8ce06c341c3b5d0d5d539869de8757d82e51d609867abe35",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_exact_products.py": "354bf5ecade939bbebc3ef12b5dc4ea0ba862ab2b2474c7a717a7548e6d9d225",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_ten_bit_product_bound.py": "b349c597ac420c787ff6326b4c444c63045a6a0861811e475f3eb3f1e0ce035e"
+  }
+}

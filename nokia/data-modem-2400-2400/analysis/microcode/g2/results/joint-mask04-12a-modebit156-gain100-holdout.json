@@ -1,0 +1,257 @@
+{
+  "experiment": "fresh offset-199 nominal-level challenge of frozen thirteen-bit direct cover",
+  "fixture": {
+    "carrier_offset": 199,
+    "gain_factor": 1.0,
+    "payloads": {
+      "40": [
+        "67",
+        "0E",
+        "B4",
+        "39",
+        "D1",
+        "8A",
+        "25",
+        "FC"
+      ],
+      "60": [
+        "92",
+        "5D",
+        "E1",
+        "48",
+        "0C",
+        "B7",
+        "36",
+        "AF"
+      ]
+    },
+    "modes": [
+      "edge32",
+      "edge48"
+    ],
+    "frozen_observed_states": 156,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "phase_bit0_cubes": [
+      "***0*0*******",
+      "****0**00**10",
+      "1*1********1*",
+      "**1***0**1*1*",
+      "**11**1*0*1**",
+      "*0110**1*****",
+      "001*0********",
+      "*****1*****1*"
+    ],
+    "phase_bit1_cubes": [
+      "***0*0*******",
+      "**0**********",
+      "*0**10*0*0***",
+      "******10**0**",
+      "*0***0*01****"
+    ],
+    "assumed_U28_load_cycle": 5000,
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "cases": [
+    {
+      "mode": "edge32",
+      "selector": "40",
+      "carrier_offset": 199,
+      "payload": [
+        "67",
+        "0E",
+        "B4",
+        "39",
+        "D1",
+        "8A",
+        "25",
+        "FC"
+      ],
+      "tx_trace_digest": "275842c6d62868a2935eb47941771e6190cac84281343850ef1baa6c28106bb6",
+      "rx_trace_digest": "b24c64cb9d7b148907dfc3ed01f0ede8eb70b97a4d41b976c693c40905c467ae",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "125f8fc689850e5143439b2c58c3343aa5d747abcb6b35924e6bbd673c81fa7f",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [
+        44
+      ],
+      "unseen_keys": [
+        "03DE",
+        "1FCC"
+      ],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        103,
+        14,
+        180,
+        57,
+        209,
+        138,
+        37,
+        252
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000
+    },
+    {
+      "mode": "edge32",
+      "selector": "60",
+      "carrier_offset": 199,
+      "payload": [
+        "92",
+        "5D",
+        "E1",
+        "48",
+        "0C",
+        "B7",
+        "36",
+        "AF"
+      ],
+      "tx_trace_digest": "8796068fa3271616503c4482f9ed738f8172896a87ad1d0e268797600409ba0d",
+      "rx_trace_digest": "ce2fdb471cf6dcb74ce9d835390b93716ebb64ef011f5f4754e2143fc29e32da",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "4322364562376b23cd9507f360780906d03865555fd58c535f9c24fb6170ecfe",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [
+        48
+      ],
+      "unseen_keys": [
+        "03DE",
+        "1FCC"
+      ],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        146,
+        93,
+        225,
+        72,
+        12,
+        183,
+        54,
+        175
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000
+    },
+    {
+      "mode": "edge48",
+      "selector": "40",
+      "carrier_offset": 199,
+      "payload": [
+        "67",
+        "0E",
+        "B4",
+        "39",
+        "D1",
+        "8A",
+        "25",
+        "FC"
+      ],
+      "tx_trace_digest": "275842c6d62868a2935eb47941771e6190cac84281343850ef1baa6c28106bb6",
+      "rx_trace_digest": "1fca9a4f7b3bb14e0cfa219783c36706b1c0711efc256f9f86f306c353089b16",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "125f8fc689850e5143439b2c58c3343aa5d747abcb6b35924e6bbd673c81fa7f",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [
+        44
+      ],
+      "unseen_keys": [
+        "03DE",
+        "190C",
+        "1FCC"
+      ],
+      "wrong_decision_indices": [
+        34,
+        35,
+        44,
+        45,
+        47,
+        48
+      ],
+      "line_exact": false,
+      "controller_decoded_bytes": [
+        219,
+        9,
+        116,
+        172,
+        207,
+        106,
+        92,
+        252
+      ],
+      "controller_exact": false,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000
+    },
+    {
+      "mode": "edge48",
+      "selector": "60",
+      "carrier_offset": 199,
+      "payload": [
+        "92",
+        "5D",
+        "E1",
+        "48",
+        "0C",
+        "B7",
+        "36",
+        "AF"
+      ],
+      "tx_trace_digest": "8796068fa3271616503c4482f9ed738f8172896a87ad1d0e268797600409ba0d",
+      "rx_trace_digest": "f254811686cf11df25593dc54bb21c0b2c93400a39eff120c71643ca29c9a5f5",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "4322364562376b23cd9507f360780906d03865555fd58c535f9c24fb6170ecfe",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [
+        48
+      ],
+      "unseen_keys": [
+        "03DE",
+        "1FCC"
+      ],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        146,
+        93,
+        225,
+        72,
+        12,
+        183,
+        54,
+        175
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 1000
+    }
+  ],
+  "limitations": [
+    "The thirteen-bit witness was fitted to the 108 saved streams that selected visit-141 Y6; offset-199 is the untouched challenge.",
+    "U14-to-U3 transfer, U25 late-Y6 capture, U28 load, D3EB mode and all actual data/clock nets are assumptions.",
+    "Direct products do not establish a photographed-package gate, phase-subtraction or bit-select circuit.",
+    "DAC/ADC/line and RxD/RxC/SYNDET paths remain conditional model routes."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_gain100_holdout.py": "5401cf6f220f81d25d68eb8a52f546e7cd1974bec2c15b0b90ab8b07f86a44ab",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit156-staged-transfer.json": "e8116251f63959ef8ce06c341c3b5d0d5d539869de8757d82e51d609867abe35",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit156-exact-products.json": "3750d602fb478a0471309f360e90317ace9d6655e49d4cbcf840e3662c711533",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit156-gain100-fixture.json": "7febcec31e4e2045c26a992e49ec0f90060070ffa8b1dfcaca4e87d4054b22d8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_staged_transfer.py": "3b78c275f0f5a043fc184f1e8e17a639e719b5e374405f49e2f82e81ab899ed1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_exact_products.py": "357626ab47e0c789dd0385fe421c9f7275b3dc94bc716f6d24678c7addea05da",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_challenge.py": "a1b8cc5624d337999478ebd4a695d7f2cbfe427adb9b9d2f2028177d299b46aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_fresh_phase120.py": "bd953824959a42725a14d6aa9025b44fa61b4d6bc9dfb59a30d34244ad446f2a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit156-gain100-holdout-edge32-199.json": "b613dc2a5aa262d1126bf5faf667d549f8711b510651ea768870428bda5ad413",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit156-gain100-holdout-edge48-199.json": "cb33bbc9a29048ed0d9bedbfb02568034360561cb7204f501724baca0a31aa75"
+  }
+}

@@ -484,6 +484,32 @@ at 4,500; U3's shared latch cannot be re-enabled without overwriting
 second-visit bits. Test a later U28 load with a justified data-hold path
 or separate late-bit storage, then freeze a new gate for untouched data.
 These failed fixtures and untraced nets keep C3 open, not G2 blocked.
+The [paired-U14 transfer replay](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md)
+corrects the older twelve-bit **capacity-only** assignment: U14's two
+shared-enable pairs cannot directly hold three early Y bits while one
+later Y bit is captured, because all three early bits change in the
+tested streams. A photo-package-compatible alternative copies first
+Y7 from U14 into a spare U3 latch at visit 93, then reuses U14's second
+pair for later Y4/Y7; U25's two independent FFs take late row-0 Y2 and
+visit-141 Y6. A cycle-5,000 U28 load follows the final capture and
+precedes RxC. All 7,020 saved thirteen-bit staged states match direct
+states, with a connected conflict-free 156-state development graph.
+An executed short PROM trace confirms the `3F8` Y bus changes on the
+cycle after visit 141, so the late bit needs storage. The exact direct
+Boolean bounds are 8/5 products on observed labels, not a package gate.
+A frozen decoder is challenged below; keep all proposed nets explicit
+and C3/G2 active.
+The [frozen thirteen-bit nominal-level holdout](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md#fresh-nominal-level-holdout)
+now passes three of four fresh real-PROM/controller streams with zero
+decision errors and exact modeled line/controller bytes. The later-edge
+call alone reaches unseen `190C`, which the frozen gate labels phase 3
+instead of the phase 1 required by adjacent transitions; six dibits and
+the line/controller payload fail. All 112 joined streams form a
+connected, conflict-free 159-state graph, and direct 8/5-product
+witnesses still exist. Revise phase bit 1 using this new constraint,
+then challenge untouched carrier/level data; the offset-199 run is now
+development evidence for any revision. Keep the U14/U3/U25/U28 nets,
+gate budget and serial path conditional, with C3/G2 active.
 
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
