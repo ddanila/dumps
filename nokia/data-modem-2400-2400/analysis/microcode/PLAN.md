@@ -305,8 +305,18 @@ modeled line bytes and executed controller payloads in all four new
 streams, without clipping. A staged U14/U12/U3 replay matches 3,250
 symbol states across 50 streams and leaves 2,929 modeled cycles before
 RxC. The photographed packages support this capacity hypothesis; their
-actual nets and the analog/USART path remain untraced. Test another
-gain/timing family and constrain those connections; keep C3/G2 active.
+actual nets and the analog/USART path remain untraced. The matched-gain
+challenge below tests that route at another signal level; C3/G2 stay
+active.
+The [matched 1.15× gain challenge](g2/JOINT-MASK04-12A-TWO-BIT-PACKAGE-ROUTE.md)
+now holds the carrier-`165/167` transmitter traces and payloads fixed
+while changing receive PCM/PROM traces. The same frozen package circuit
+predicts four new nine-bit states and recovers every dibit, modeled line
+byte and executed controller payload across all four higher-gain runs,
+without clipping. Their staged latch states also match. This strengthens
+the conditional C3 route across signal level; test a distinct clock or
+mode boundary and constrain the actual nets before acceptance. Keep
+G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

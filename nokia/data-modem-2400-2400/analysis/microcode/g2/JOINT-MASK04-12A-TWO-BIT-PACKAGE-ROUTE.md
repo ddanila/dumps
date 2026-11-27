@@ -70,9 +70,26 @@ then `joint_mask04_12a_two_bit_package_route2.py`,
 `joint_mask04_12a_two_bit_package_latch.py` (revised circuit and staged
 replay). Matching source-hashed JSON reports are in `results/`.
 
+A matched **1.15× receive-gain challenge** keeps the same carrier-`165/167`
+starts and controller payloads as the successful 1.0× holdout. All four
+transmitter trace hashes remain identical; their receive PCM and PROM
+trace hashes change. Each higher-gain stream reaches four previously
+unseen nine-bit states (`091`, `0D1`, `125`, `1FD`) yet the **same frozen
+package circuit** recovers 0/64 wrong dibits, exact modeled line bytes,
+and exact executed-controller payloads, with no modeled clipping. The
+joined 54-stream phase graph has one 50-state component and zero
+conflicts; it assigns those four new states the phases predicted by the
+gate. The staged latch state also matches all 260 higher-gain symbols,
+with no row-0 Y0/Y1 change across the U12 clock. This is a matched
+gain-transfer pass under the same circuit assumptions. The
+[audit](results/joint-mask04-12a-two-bit-package-gain115-audit.json)
+checks the paired hashes, new-key predictions and staged capture;
+`joint_mask04_12a_two_bit_package_route2_gain115.py` reproduces the
+real-PROM challenge.
+
 This supplies a photo-package-compatible **candidate** capture and
 phase-decision path with an independent unseen-state pass. Data and
 enable nets, fan-out, tie-high points, analog line/ADC route, and the
 DSC-to-USART connection remain assumed. C3 and G2 stay open; challenge
-another gain/timing family and constrain the nets before accepting the
-physical receive circuit.
+a distinct clock/mode boundary and constrain the nets before accepting
+the physical receive circuit.
