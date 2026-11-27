@@ -208,6 +208,25 @@ A common-enable overwrite of U14's first Y5/Y7 at visit `94` causes
 22–29 dibit errors per stream, so the independent pair enables matter.
 The specific data/enable nets and full phase-gate package budget remain
 unknown, so keep C3/G2 open and test them as explicit assumptions.
+The [carrier-141 gain challenge](g2/JOINT-MASK04-12A-VISIT94-CARRIER141-FAILURE.md)
+then rejects the frozen later-capture gate outside its earlier carrier
+family. Four new real-PROM streams at 0.7×/0.8× gain have 19/22 and
+6/14 dibit errors, wrong line/controller bytes and no modeled clipping.
+The matched gain pairs retain identical transmitter and receiver PC
+digests. A joined phase graph localizes the new gate's wrong predictions
+to states `0A`, `4A`, `53`; older and newer runs also disagree on `0D`
+under the current collapsed `81/A1` mode assumption. Replaying the
+older answer run shows visit-`94` Y6 varies within `0D`, and the frozen
+gate adds seven errors there. Test held `81` versus `81→A1` on the same
+carrier-141 waveform before trying more Boolean terms; keep C3/G2
+active and the physical wiring assumptions explicit. The matched
+held-`81` control now does that: it preserves the same Tx/raw/PCM
+waveform, changes the receive states, but leaves 15/23 candidate dibit
+errors and wrong controller bytes. State `0D` with later Y6=1 still
+requires phase 0 in the joined graph, versus phase 1 in the older
+held-`81` answer fixture. The direct mode byte alone does not explain
+that conflict. Test carrier/timing history or another constrained
+receive signal; do not add a per-state patch.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

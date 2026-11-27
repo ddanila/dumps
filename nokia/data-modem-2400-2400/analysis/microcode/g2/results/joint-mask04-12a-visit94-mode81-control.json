@@ -1,0 +1,140 @@
+{
+  "experiment": "held-81 mode control on carrier-141 0.7x waveform",
+  "fixture": {
+    "carrier_offset": 141,
+    "gain_factor": 0.7,
+    "selectors": [
+      "40",
+      "60"
+    ],
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e",
+    "input_mode": "81 held instead of 81-to-A1 at D3EB"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "tx_trace_digest": "56490d7151891b87fb17f2b906a3c9871f7164c5d24eea54f4fc44a37872eedf",
+      "pcm_sha256": "8d36167ea34b9e9f9d23ac71eb3548da35daed144f27b2f4a9edf5f380efaad4",
+      "rx_trace_digest": "c9eb516182421eaf71903b2128830860cc3c54e7683a1889efc6c0bb838cf4c5",
+      "edge_rx_trace_digest": "cd569edc71e9fc393416f8c8a9d8c540850c4060e0e98bed10a894db87ac949a",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "edge_pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "states": {
+        "0A": 39,
+        "0D": 7,
+        "1C": 7,
+        "53": 12
+      },
+      "state_0d_count": 7,
+      "state_0d_later_bit_counts": {
+        "1": 7
+      },
+      "edge_candidate_errors": 19,
+      "held_candidate_wrong_indices": [
+        33,
+        34,
+        36,
+        41,
+        43,
+        44,
+        45,
+        46,
+        48,
+        49,
+        50,
+        55,
+        57,
+        62,
+        63
+      ],
+      "recovered_matches_offered": false,
+      "controller_decoded_bytes": [
+        191,
+        37,
+        50,
+        47,
+        66,
+        33,
+        224,
+        30
+      ],
+      "controller_errors": 0,
+      "clipped_samples": 0
+    },
+    {
+      "selector": "60",
+      "tx_trace_digest": "7b3c385a1e6a8c06199b202fab525b1fd3f56a9cf931e5e6b1828b31c1907c09",
+      "pcm_sha256": "1f9c73099595fe6610b0b9122f0a331c7c64b7d26f9db94f4cf748aa6bebefb1",
+      "rx_trace_digest": "7170d1ee180e9fef177f6d897f8525e7151a425e028318d8afc5ccf9b5c39b12",
+      "edge_rx_trace_digest": "464ba5e08d81930142c258302eb8b0fab543b8b1d6a662956ae57e99135d50f3",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "edge_pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "states": {
+        "0A": 42,
+        "0D": 11,
+        "1C": 4,
+        "53": 8
+      },
+      "state_0d_count": 11,
+      "state_0d_later_bit_counts": {
+        "1": 11
+      },
+      "edge_candidate_errors": 22,
+      "held_candidate_wrong_indices": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        43,
+        44,
+        45,
+        46,
+        47,
+        49,
+        50,
+        52,
+        54,
+        55,
+        56,
+        57,
+        59,
+        63
+      ],
+      "recovered_matches_offered": false,
+      "controller_decoded_bytes": [
+        179,
+        126,
+        77,
+        45,
+        216,
+        19,
+        70,
+        68
+      ],
+      "controller_errors": 0,
+      "clipped_samples": 0
+    }
+  ],
+  "limitations": [
+    "The D3EB input is a hypothesized frame-byte connection, not a traced physical mode wire.",
+    "Only the held versus switched mode input changes; the candidate phase gate remains frozen.",
+    "This test can distinguish the modeled mode fixture but not prove its physical source."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_mode81_control.py": "8e512aa26ab8d803df2f422512a915b157cb6ce60c40933e8363fcbe47063acc",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.7.json": "eb5ad1d35208a081b51559b1122898a0d8c3eeb654bde89fd1c019a392c2887f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge.json": "1d20dbfa448210e30b408d229e6ee1f7c944d707a4d61960e51fc523400b0b23",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-mode81-control-expanded.json": "db71829dd1db5490d5b3290e568078be739a8ca8c61f7c373d40e6c40b627024",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-fixture.json": "97659471fd0a7123894cbde9baa84e5fd714cd72fd121e8696769e4afe159c9f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_gain07_challenge.py": "265731451c3393ba0bc60f90123f95cab2a33993e0f7adb914ac4ce438eda33c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_fresh_phase120.py": "bd953824959a42725a14d6aa9025b44fa61b4d6bc9dfb59a30d34244ad446f2a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_challenge.py": "a1b8cc5624d337999478ebd4a695d7f2cbfe427adb9b9d2f2028177d299b46aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_phase_gate.py": "e7dad172222b3781ddf97783e9e75f5edffb31a6defe07f36f536bc83dd8002e"
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "experiment": "frozen visit-94 gate at new carrier 141, matched 0.7x/0.8x gains",
+  "fixture": {
+    "carrier_offset": 141,
+    "gains": [
+      0.7,
+      0.8
+    ],
+    "payloads": {
+      "40": [
+        "D8",
+        "35",
+        "A1",
+        "6C",
+        "F2",
+        "09",
+        "47",
+        "BE"
+      ],
+      "60": [
+        "2C",
+        "E7",
+        "50",
+        "9B",
+        "14",
+        "F8",
+        "63",
+        "A5"
+      ]
+    },
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "cases": [
+    {
+      "gain_factor": 0.7,
+      "selector": "40",
+      "payload": [
+        "D8",
+        "35",
+        "A1",
+        "6C",
+        "F2",
+        "09",
+        "47",
+        "BE"
+      ],
+      "tx_trace_digest": "56490d7151891b87fb17f2b906a3c9871f7164c5d24eea54f4fc44a37872eedf",
+      "rx_trace_digest": "cd569edc71e9fc393416f8c8a9d8c540850c4060e0e98bed10a894db87ac949a",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "8d36167ea34b9e9f9d23ac71eb3548da35daed144f27b2f4a9edf5f380efaad4",
+      "clipped_samples": 0,
+      "states": {
+        "0A": 32,
+        "0D": 7,
+        "4A": 7,
+        "53": 12,
+        "5C": 7
+      },
+      "unseen_states": [
+        "0A",
+        "4A",
+        "53",
+        "5C"
+      ],
+      "active_symbols": [
+        34,
+        35,
+        44,
+        49,
+        55,
+        56,
+        62
+      ],
+      "active_states": [
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D"
+      ],
+      "old_veto_wrong_indices": [
+        33,
+        34,
+        36,
+        37,
+        38,
+        40,
+        41,
+        43,
+        44,
+        45,
+        46,
+        48,
+        49,
+        50,
+        51,
+        55,
+        57,
+        58,
+        59,
+        61,
+        62
+      ],
+      "candidate_wrong_indices": [
+        33,
+        36,
+        37,
+        38,
+        40,
+        41,
+        43,
+        44,
+        45,
+        46,
+        48,
+        49,
+        51,
+        55,
+        58,
+        59,
+        61,
+        62,
+        63
+      ],
+      "recovered_matches_offered": false,
+      "controller_decoded_bytes": [
+        26,
+        99,
+        224,
+        45,
+        25,
+        35,
+        6,
+        55
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "gain_factor": 0.7,
+      "selector": "60",
+      "payload": [
+        "2C",
+        "E7",
+        "50",
+        "9B",
+        "14",
+        "F8",
+        "63",
+        "A5"
+      ],
+      "tx_trace_digest": "7b3c385a1e6a8c06199b202fab525b1fd3f56a9cf931e5e6b1828b31c1907c09",
+      "rx_trace_digest": "464ba5e08d81930142c258302eb8b0fab543b8b1d6a662956ae57e99135d50f3",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "1f9c73099595fe6610b0b9122f0a331c7c64b7d26f9db94f4cf748aa6bebefb1",
+      "clipped_samples": 0,
+      "states": {
+        "0A": 32,
+        "0D": 11,
+        "4A": 10,
+        "53": 8,
+        "5C": 4
+      },
+      "unseen_states": [
+        "0A",
+        "4A",
+        "53",
+        "5C"
+      ],
+      "active_symbols": [
+        35,
+        37,
+        39,
+        41,
+        42,
+        47,
+        48,
+        50,
+        51,
+        54,
+        56
+      ],
+      "active_states": [
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D",
+        "0D"
+      ],
+      "old_veto_wrong_indices": [
+        33,
+        34,
+        36,
+        37,
+        38,
+        39,
+        43,
+        44,
+        45,
+        46,
+        49,
+        50,
+        52,
+        53,
+        54,
+        59,
+        61,
+        63
+      ],
+      "candidate_wrong_indices": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        40,
+        41,
+        43,
+        44,
+        45,
+        46,
+        47,
+        49,
+        50,
+        52,
+        53,
+        55,
+        56,
+        57,
+        59,
+        61,
+        63
+      ],
+      "recovered_matches_offered": false,
+      "controller_decoded_bytes": [
+        179,
+        102,
+        77,
+        77,
+        212,
+        21,
+        70,
+        126
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "gain_factor": 0.8,
+      "selector": "40",
+      "payload": [
+        "D8",
+        "35",
+        "A1",
+        "6C",
+        "F2",
+        "09",
+        "47",
+        "BE"
+      ],
+      "tx_trace_digest": "56490d7151891b87fb17f2b906a3c9871f7164c5d24eea54f4fc44a37872eedf",
+      "rx_trace_digest": "ff0dad07ca5c156ca1a78bf273026bf9cbc62416f17b5ab8d0e9f427bdad2b71",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "96a80d8627e6ca66324796098a47ff41d0b2e98e5bef6ab34250fe8142c9e891",
+      "clipped_samples": 0,
+      "states": {
+        "02": 12,
+        "0A": 32,
+        "0E": 7,
+        "4A": 7,
+        "4C": 7
+      },
+      "unseen_states": [
+        "0A",
+        "0E",
+        "4A"
+      ],
+      "active_symbols": [],
+      "active_states": [],
+      "old_veto_wrong_indices": [
+        33,
+        41,
+        43,
+        46,
+        48,
+        63
+      ],
+      "candidate_wrong_indices": [
+        33,
+        41,
+        43,
+        46,
+        48,
+        63
+      ],
+      "recovered_matches_offered": false,
+      "controller_decoded_bytes": [
+        154,
+        53,
+        160,
+        109,
+        98,
+        25,
+        5,
+        158
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "gain_factor": 0.8,
+      "selector": "60",
+      "payload": [
+        "2C",
+        "E7",
+        "50",
+        "9B",
+        "14",
+        "F8",
+        "63",
+        "A5"
+      ],
+      "tx_trace_digest": "7b3c385a1e6a8c06199b202fab525b1fd3f56a9cf931e5e6b1828b31c1907c09",
+      "rx_trace_digest": "4cfeaee5b53a4314040ddedde613ab4e01a9fdb87737ec5f70a822ede1b14086",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "b838116bd58539f756128885cedaac7648158165067d151ec6a5d467e3212c9d",
+      "clipped_samples": 0,
+      "states": {
+        "02": 8,
+        "0A": 32,
+        "0E": 11,
+        "4A": 10,
+        "4C": 4
+      },
+      "unseen_states": [
+        "0A",
+        "0E",
+        "4A"
+      ],
+      "active_symbols": [],
+      "active_states": [],
+      "old_veto_wrong_indices": [
+        33,
+        34,
+        35,
+        40,
+        41,
+        44,
+        45,
+        46,
+        47,
+        55,
+        56,
+        57,
+        59,
+        63
+      ],
+      "candidate_wrong_indices": [
+        33,
+        34,
+        35,
+        40,
+        41,
+        44,
+        45,
+        46,
+        47,
+        55,
+        56,
+        57,
+        59,
+        63
+      ],
+      "recovered_matches_offered": false,
+      "controller_decoded_bytes": [
+        58,
+        103,
+        73,
+        134,
+        210,
+        225,
+        74,
+        53
+      ],
+      "controller_errors": 0,
+      "controller_overruns": 0,
+      "minimum_setup_cycles": 2929
+    }
+  ],
+  "limitations": [
+    "Both payloads and carrier 141 are new; the phase gate and sample timing are unchanged.",
+    "The gain fixture changes only modeled ADC amplitude; the analog line and ADC connections are assumed.",
+    "A positive modeled serial handoff would not establish physical latch, phase-gate or USART nets."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_gain07_challenge.py": "265731451c3393ba0bc60f90123f95cab2a33993e0f7adb914ac4ce438eda33c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-fixture.json": "97659471fd0a7123894cbde9baa84e5fd714cd72fd121e8696769e4afe159c9f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase133-lowgain-fixture.json": "1ca0f6146d448dc014f5c88341b2602f246d48b18b023430b72aa19f68f8d93a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase131-gain-graph-audit.json": "9821384d640a8b020d1e4c18ef4081997d762574191e7b8ba860c5714c6e3a9e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode-phase-twelve.json": "8fa13ea1bfa30ea8ee7ff86c8d806f350371d6914450af90cfd184b5ead5ff39",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_visit94_phase_gate.py": "e7dad172222b3781ddf97783e9e75f5edffb31a6defe07f36f536bc83dd8002e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_challenge.py": "a1b8cc5624d337999478ebd4a695d7f2cbfe427adb9b9d2f2028177d299b46aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.7.json": "eb5ad1d35208a081b51559b1122898a0d8c3eeb654bde89fd1c019a392c2887f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.8.json": "4d9912eaef43b1dcfb2633fef68a5b586537a9ff9a8362dea7bade9d40ed46d6"
+  }
+}
