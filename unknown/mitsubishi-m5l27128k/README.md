@@ -1,8 +1,6 @@
-# Mitsubishi M5L27128K — pending analysis
+# Mitsubishi M5L27128K — Paradise VGA BIOS half
 
-Unidentified contents from a Mitsubishi M5L27128K EPROM. **Queued for future
-analysis at the owner’s request (2026-11-27).** The originating device and
-firmware identity are unknown.
+Likely odd-byte half of a Paradise VGA BIOS. Alternating characters preserve the Paradise copyright and IBM-compatible banner; the companion ROM and exact card/revision are unknown.
 
 ## Acquisition
 
@@ -18,8 +16,10 @@ Both binaries, raw logs and the blank-check result remain in local session
 SHA-256 (both reads):
 `3a8fd648aa8312d516de6152fdac32d0f850e71bb7234b238a2fbf9c6bb2b1e5`.
 
-## Deferred work
+## Public comparison — 2026-11-27
 
-On a future explicit request, identify the contents, compare public firmware
-collections, analyze the code/data, and decide whether to preserve the binary
-in this repository. This record does not schedule or start that work.
+**Keep: no exact public match verified.** This does not establish that the dump is unique.
+
+Compared against 1,834 files in [86Box/roms](https://github.com/86Box/roms/tree/de5a7d21982622def2c51a8e04119eea4119fc31), checking whole files and, for files twice the capture size, even/odd lanes and first/second halves. No match. The PCjs WDVGA PLUS 16 image and both DOS Days Philips PVGA1A-JK ROMs differ from this capture.
+
+See [comparison.json](comparison.json) for source URLs, hashes and results. Both local reads remain intact. Full reverse engineering remains deferred.
