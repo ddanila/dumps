@@ -317,6 +317,17 @@ without clipping. Their staged latch states also match. This strengthens
 the conditional C3 route across signal level; test a distinct clock or
 mode boundary and constrain the actual nets before acceptance. Keep
 G2 active.
+The [matched mode-boundary control](g2/JOINT-MASK04-12A-TWO-BIT-PACKAGE-MODE-CONTROL.md)
+now holds the carrier-`165/167` Tx, PCM and PC path fixed while offering
+held `81` or moving the assumed `3EB` `81→A1` edge from symbol 32 to
+48. The frozen nine-bit gate makes 8/10 and 11/13 dibit errors under
+held `81`, then 4/4 and 4/6 under the late edge; all wrong transitions
+touch `01C` and occur before the later edge. The joined nine-bit graph
+has 102 conflicts across 58 streams. Adding the imposed mode bit 5 or
+first `3F8` Y4 at visit `46` removes them. U14/U12 have a plausible
+spare-latch/fourth-FF storage schedule for early Y4, but its full gate
+is not yet package-realized. Freeze and challenge a mode-qualified or
+early-Y4 circuit; keep C3/G2 active and the nets assumed.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

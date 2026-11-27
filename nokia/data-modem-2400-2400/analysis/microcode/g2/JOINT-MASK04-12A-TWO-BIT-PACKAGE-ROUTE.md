@@ -90,6 +90,8 @@ real-PROM challenge.
 This supplies a photo-package-compatible **candidate** capture and
 phase-decision path with an independent unseen-state pass. Data and
 enable nets, fan-out, tie-high points, analog line/ADC route, and the
-DSC-to-USART connection remain assumed. C3 and G2 stay open; challenge
-a distinct clock/mode boundary and constrain the nets before accepting
-the physical receive circuit.
+DSC-to-USART connection remain assumed. The subsequent
+[matched mode-boundary control](JOINT-MASK04-12A-TWO-BIT-PACKAGE-MODE-CONTROL.md)
+rejects this fixed gate under held `81` and a later `81→A1` edge, while
+identifying a photo-compatible early-Y4 capture alternative. C3 and G2
+stay open; constrain the nets and challenge a revised frozen route.
