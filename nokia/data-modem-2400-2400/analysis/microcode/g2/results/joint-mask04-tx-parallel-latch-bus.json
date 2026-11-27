@@ -1,0 +1,137 @@
+{
+  "experiment": "photo-compatible parallel D-D/Q-Q transmit latch timing",
+  "model": {
+    "visible_front_pairs": "four LS273 D5-D8 to LS373 D4-D1 and four matching Q-Q tracks",
+    "input": "assume all eight LS273 D pins see the executed Y byte; visible four D-D pairs share Y with LS373",
+    "direct_early": "LS273 clocks after 12A Y settles and before next 127 Y settles",
+    "control_late": "LS273 clocks after next 127 Y settles",
+    "contention_control": "LS373 output enable is inactive whenever transparent Q differs from held LS273 Q on the four tied lines",
+    "analog": "use only the saved candidate DAC bus/filter scores; physical DAC08/line nets remain untraced"
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd",
+      "sample_count": 832,
+      "direct_early_y_sha256": "dd5791001161a79a04cceff06859ccb3831d2ec9003f6f7dbdd040798988f079",
+      "late_y_sha256": "c95156aec890499d5206724c348f8715be213a6f07303ebc7fef9c4ef473d6e6",
+      "early_vs_late_changed": 832,
+      "active_parallel_q_conflict_before_clock_samples": 831,
+      "active_parallel_q_conflict_before_clock_bits": 1982,
+      "first_conflict_sample_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "saved_early_data_errors_by_bus": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "saved_late_data_errors_by_bus": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "selector": "60",
+      "trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5",
+      "sample_count": 832,
+      "direct_early_y_sha256": "c38f70fa11566fb3b0ce208a6a4865544fc1ba566ca39477abeae901378f1c03",
+      "late_y_sha256": "62102c6b9ce1a64622bfd550094b10c19c58244db4021b64b968e1facc336721",
+      "early_vs_late_changed": 832,
+      "active_parallel_q_conflict_before_clock_samples": 831,
+      "active_parallel_q_conflict_before_clock_bits": 1978,
+      "first_conflict_sample_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "saved_early_data_errors_by_bus": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "saved_late_data_errors_by_bus": [
+        3,
+        2,
+        3,
+        2,
+        2,
+        2
+      ]
+    }
+  ],
+  "limitations": [
+    "Pin pairing is photo-suggested, not proven pad continuity; the LS273 Y input, clock, LS373 output-enable and DAC nets are assumed.",
+    "A logic-level bus disagreement predicts contention only if both Q outputs are electrically enabled; no current or voltage is measured.",
+    "This run checks the direct early-capture topology against the late control, but cannot establish physical propagation order."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_parallel_latch_bus.py": "cc4001cfc3ce75e6e5a7497767232464037eec3f1a563f3d1f5e79ee86c91f3d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-12a-delayed-latch.json": "dd2a2dd6069e6f342298dc676c724e8da9da0912d6f6ddf28df47ce076c39cb2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-ded-latch-pin-pairing.json": "8b8a39bf8e98b64062228b97e66b8a8645cb835fe8fc85937930850637fea455",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_bank_phase.py": "7415192494eceaba3d31cad3171d947b7f7ee4718a54d6d13fb03b1bc69d8de0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_12a_delayed_latch.py": "7746afd7122cd0c007a7797374de29b6e61461ab7cf004dce81628aa017651cd",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}

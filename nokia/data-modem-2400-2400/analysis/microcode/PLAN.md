@@ -622,6 +622,14 @@ obtain the successful held-`12A` waveform. Test the direct 74LS273
 clock-before-new-`127`-Y route and any back-side continuation explicitly;
 do not equate a good modeled line score with identified wiring. C2/G2
 remain active.
+The [parallel-latch bus replay](g2/JOINT-MASK04-TX-PARALLEL-LATCH-BUS.md)
+now tests that photo-suggested D–D/Q–Q pairing. An assumed early 74LS273
+clock preserves settled `12A` Y without a serial 74LS373→74LS273 wire;
+the late-clock control captures `127` Y instead. If both Q drivers are
+enabled while the 74LS373 is transparent, their four paired output bits
+disagree before all 831 tested sample clocks per selector. Test a
+pin-compatible output-enable interval and clock route; the missing
+control nets remain runnable assumptions, not a C2/G2 blocker.
 The [whole-store `12A` PROM-gate audit](g2/JOINT-MASK04-TX-12A-FULL-STORE-GATE.md)
 now tests the direct 74LS273 clock alternative. The prior two-bit decode
 selects 111 store words, including eight in the receive-address span.

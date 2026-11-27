@@ -260,6 +260,13 @@ the held route preserves 198/202 bank-sensitive samples while a
 transparent-through-`127` control preserves none. This is a more explicit
 conditional output-timing route; neither chip's data/clock nets nor the
 DAC08 input byte has been identified electrically.
+The [parallel-latch replay](../g2/JOINT-MASK04-TX-PARALLEL-LATCH-BUS.md)
+tests a route closer to the visible four D–D and four Q–Q latch-track
+pairings: the 74LS273 directly captures settled `12A` Y at an assumed
+early clock. It reproduces the same candidate bytes, but an enabled
+transparent 74LS373 would drive opposite values on the tied Q lines
+before every checked clock. Its output enable must arbitrate that bus
+under this model; the actual control net remains unknown.
 The [photo-B5 alternative](../g2/JOINT-MASK04-PHOTO-B5-Y7-ROUTE.md)
 projects those same executed Y7 samples through an assumed LS273 D4
 input and the photo-suggested Q4→DAC08 B5 segment. It preserves the

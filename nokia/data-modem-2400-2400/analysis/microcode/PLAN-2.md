@@ -1912,6 +1912,17 @@ Listed in order of value per effort:
   route preserves 198/202 ROM-bank-sensitive DAC candidates, while the
   transparent-through-`127` control preserves none. Neither latch's pins,
   divider or DAC/line net is traced; this remains conditional C2 evidence.
+  The [parallel-latch bus replay](g2/JOINT-MASK04-TX-PARALLEL-LATCH-BUS.md)
+  uses the front photo's four D–D and four Q–Q pad-pair candidates instead
+  of an unobserved serial 74LS373→74LS273 link. An assumed early 74LS273
+  clock captures the same settled `12A` byte stream in two fresh
+  controller-fed real-PROM runs; a late clock captures `127` Y and changes
+  every sample. If the 74LS373 is transparent and both Q drivers are
+  enabled before that early clock, its shared upper-four-bit outputs
+  disagree with the held 74LS273 outputs on all 831 checked transitions
+  per selector. The parallel route thus needs an output-enable window or
+  other bus arbitration, plus an identified clock and DAC/line path.
+  Treat these as testable assumptions; C2/G2 remain open and active.
   The [R1/Y7 phase replay](g2/JOINT-MASK04-TX-PHASE-ACCUMULATOR.md)
   then verifies the executed mechanism over the first 18 continuous
   controller-derived A4 dibits of both selectors: R1 advances by D127
