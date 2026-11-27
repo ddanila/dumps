@@ -457,6 +457,11 @@ assumed previous-phase memory, the mode-bit hold and actual data/clock nets
 are untraced, and the Boolean gate/USART path is unallocated. Continue with
 alternative package allocations and a timed serial-output hypothesis while
 C3/G2 remain active. Treat each failed allocation as a result, not a blocker.
+The first alternate allocation has a concrete negative result: sampling the
+preceding final phase into U3's spare latches at its visit-93 second-Y clock
+would see a mixed old/new state. The frozen gate disagrees with that prior
+phase on 1,268/6,400 tested transitions. Try a separately held phase signal,
+another register or a different capture clock; keep G2 active.
 
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer

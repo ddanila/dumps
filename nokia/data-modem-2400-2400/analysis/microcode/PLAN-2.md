@@ -2217,6 +2217,10 @@ Listed in order of value per effort:
   uses both U25 flip-flops, displacing the earlier assumed previous-phase
   memory. Test a phase/serializer allocation or another photo-compatible
   route; neither the displaced role nor the untraced nets block G2.
+  A direct U3 spare-latch reuse at its visit-93 clock is excluded for the
+  frozen gate: 1,268/6,400 preceding-phase comparisons disagree after the
+  new symbol's early captures. Try another register, held phase signal or
+  clock allocation while C3 remains open.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

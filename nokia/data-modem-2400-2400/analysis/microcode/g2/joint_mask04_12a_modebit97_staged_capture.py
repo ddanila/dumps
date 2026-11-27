@@ -68,6 +68,12 @@ def run(out=OUT):
     early_row_shifts = [0, 0]
     late_row_shift = 0
     checks = []
+    # Before the visit-93 U3 edge, the new symbol has refreshed U14's
+    # first-Y bits and U12's row/mode bits; the other six bits are old.
+    early_mask = sum(1 << bit for bit in (0, 1, 2, 6, 7, 9))
+    u3_prior_phase_disagreements = 0
+    u3_affected_streams = 0
+    u3_first_counterexample = None
     for path, case in cases:
         states = []
         for symbol in case['multi_visit_symbols']:
@@ -84,6 +90,17 @@ def run(out=OUT):
                  if inverse[(gate_phase(states[index]) -
                              gate_phase(states[index - 1])) & 3]
                  != case['expected_dibits'][index]]
+        u3_wrong = []
+        for index in range(1, len(states)):
+            mixed = (states[index] & early_mask) | (states[index - 1] & ~early_mask)
+            if gate_phase(mixed) != gate_phase(states[index - 1]):
+                u3_wrong.append(index)
+        u3_prior_phase_disagreements += len(u3_wrong)
+        u3_affected_streams += bool(u3_wrong)
+        if u3_wrong and u3_first_counterexample is None:
+            u3_first_counterexample = dict(source=path.name,
+                                           selector=case.get('selector'),
+                                           symbol_index=u3_wrong[0])
         checks.append(dict(source=path.name, selector=case.get('selector'),
                            wrong_decision_indices=wrong))
     if mismatches or early_row_shifts != [0, 0] or late_row_shift:
@@ -91,6 +108,8 @@ def run(out=OUT):
                           mismatches, early_row_shifts, late_row_shift))
     if any(row['wrong_decision_indices'] for row in checks):
         raise ValueError('staged phase decisions differ')
+    if not u3_prior_phase_disagreements:
+        raise ValueError('U3 previous-phase counterfactual changed')
     summary = json.loads(SUMMARY.read_text())
     if any(row['wrong_decision_indices'] or not row['line_exact'] or
            not row['controller_exact'] for row in summary['cases']):
@@ -124,6 +143,12 @@ def run(out=OUT):
                   row0_y01_46_to_47_shifts=early_row_shifts,
                   row0_y2_93_to_94_shifts=late_row_shift,
                   saved_stream_checks=checks,
+                  u3_spare_latch_previous_phase_counterfactual=dict(
+                      transitions=64 * len(cases),
+                      disagreements=u3_prior_phase_disagreements,
+                      affected_streams=u3_affected_streams,
+                      first_counterexample=u3_first_counterexample,
+                      interpretation='A spare U3 latch clocked with visit-93 second-Y capture cannot directly sample the preceding final phase from the same combinational gate after visit-46/47 inputs refresh.'),
                   limitations=[
                       'The data and clock nets to U25 and other packages are assumptions; the photos establish package presence, not these connections.',
                       'The mode bit is assigned to the spare U12 flip-flop, assuming its source holds through the common visit-47 clock; that source and hold time are not traced.',

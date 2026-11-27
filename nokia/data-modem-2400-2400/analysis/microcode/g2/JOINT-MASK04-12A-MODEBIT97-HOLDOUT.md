@@ -68,6 +68,17 @@ or photo-compatible timed phase/serializer path without waiting for
 continuity measurements. C3 and G2 remain active, and this capture
 replay alone does not pass C3.
 
+A direct reuse of U3's spare latches does not recover that phase memory
+at its proposed visit-93 clock. By then U14's first-Y bits and U12's
+early row/mode bits have been replaced by the new symbol, while U3's
+second-Y bits and the late captures still hold the old symbol. Evaluating
+the frozen gate on that mixed state differs from the preceding symbol's
+final phase in **1,268 of 6,400 transitions**, across all 100 streams.
+The first mismatch is symbol 36 of the low-gain selector-40 stream. This
+rejects the direct same-gate U3 sampling route under the tested schedule;
+it does not rule out another register, a separately held phase signal or
+a different clock allocation. Continue those alternatives as experiments.
+
 The [source-hashed staged report](results/joint-mask04-12a-modebit97-staged-capture.json)
 can be reproduced from the microcode directory with
 `python3 g2/joint_mask04_12a_modebit97_staged_capture.py`.

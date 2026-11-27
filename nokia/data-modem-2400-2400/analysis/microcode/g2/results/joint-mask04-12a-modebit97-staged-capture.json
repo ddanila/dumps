@@ -539,6 +539,17 @@
       "wrong_decision_indices": []
     }
   ],
+  "u3_spare_latch_previous_phase_counterfactual": {
+    "transitions": 6400,
+    "disagreements": 1268,
+    "affected_streams": 100,
+    "first_counterexample": {
+      "source": "joint-mask04-12a-lowgain133-expanded-visits.json",
+      "selector": "40",
+      "symbol_index": 36
+    },
+    "interpretation": "A spare U3 latch clocked with visit-93 second-Y capture cannot directly sample the preceding final phase from the same combinational gate after visit-46/47 inputs refresh."
+  },
   "limitations": [
     "The data and clock nets to U25 and other packages are assumptions; the photos establish package presence, not these connections.",
     "The mode bit is assigned to the spare U12 flip-flop, assuming its source holds through the common visit-47 clock; that source and hold time are not traced.",
@@ -547,7 +558,7 @@
     "This replays saved PROM symbol snapshots; it does not rerun the PROM or prove physical RxD/RxC/SYNDET wiring."
   ],
   "source_sha256": {
-    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_staged_capture.py": "b1d2464e64517c90217a79859f87f203d9318fa987bf78451fb5515fd4af7a88",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_staged_capture.py": "b29b84bd635b87289ee968b9187ee02c7a559a7bafabb3e719033d2589377517",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit97-gain110-holdout.json": "2a73910229c72392020e35000313b6ce8dbb2af788d64770f0ab48490448ad98",
     "nokia/data-modem-2400-2400/analysis/microcode/board/inventory.json": "1c2b07b8e377c2b646fdaff6e20f74065128351d90f41b68609cbd4616ad14e9",
     "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_cover.py": "9b406d7338c94f4a2096b7ace4ecf4395cc0458784a3a8fffb821fd44b440b31",
