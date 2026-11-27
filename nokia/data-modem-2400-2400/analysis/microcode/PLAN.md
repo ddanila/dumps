@@ -417,6 +417,14 @@ orders, held `12A` makes 0/64 errors per selector, while live `127` makes
 persist at 0.75× and 1.25×. This disfavors the exact shared-live-`127`
 route under that analog model. Constrain the latch data/clock or DAC pin
 path independently before passing C2; keep G2 active.
+The [executed-controller A4 topology check](g2/JOINT-MASK04-TX-LATCH-CONTROLLER-LINE.md)
+now repeats that comparison with the saved 8031-produced segment-2 bytes
+and real-PROM Tx traces. At the fixed Q=0.5 line stage, held `12A` makes
+0/62 A3/A4 decision errors for each selector and all six buses; live
+`127` makes 1/62 call and 2/62 answer errors, while both retain the
+2,100 Hz A1 peak. This supports the conditional held route on executed
+controller traffic but leaves the latch, DAC and analog nets to constrain;
+C2/G2 stay open.
 The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
 now substitutes the `12A` latch into the full controller-bit/PROM path.
 At the existing six-sample alignment, an independent line decoder gives

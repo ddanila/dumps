@@ -1,0 +1,694 @@
+{
+  "experiment": "executed-8031 A4 line comparison of held-12A and shared-127 DAC latch routes",
+  "fixture": {
+    "controller_source": "main-loop-usart-txready.json",
+    "transmitter_bank": 256,
+    "samples": 832,
+    "sample_divisor": 375,
+    "assumed_a2_output": "DAC mid-code mute",
+    "fixed_center_hz": 1950,
+    "q_values": [
+      0.5,
+      1.0
+    ],
+    "sample_shift": 6,
+    "surviving_dac_buses": 6
+  },
+  "cases": [
+    {
+      "selector": "40",
+      "tx_trace_digest": "8a22afc92c147aade28ec03f1587a68cd8ac727c73699161cfdbfb382ff117cd",
+      "expected_a4_dibits": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3,
+        2,
+        1,
+        3,
+        0,
+        0,
+        1,
+        3,
+        0,
+        0,
+        0,
+        1,
+        3,
+        3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        1,
+        2,
+        0
+      ],
+      "different_y_samples": 832,
+      "buses": [
+        {
+          "bus_index": 0,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "b46a03de779d8aa2040e1683531df9cafa57481f491097cb2113cc0081e7fe60"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "b46a03de779d8aa2040e1683531df9cafa57481f491097cb2113cc0081e7fe60"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "99c99a867ada97fb20c41f28602e0563dadcfb2426d1393335dbdea66ebb8df3"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "99c99a867ada97fb20c41f28602e0563dadcfb2426d1393335dbdea66ebb8df3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "93ed59a99c897adf642ae8f4548d36ec902bb4f59673c7917780d689fffaf581"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "93ed59a99c897adf642ae8f4548d36ec902bb4f59673c7917780d689fffaf581"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "a11761f445f8c42519dd83ced0200496e8c12ad2aa58082057d73f5bea390a3a"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "a11761f445f8c42519dd83ced0200496e8c12ad2aa58082057d73f5bea390a3a"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "b46a03de779d8aa2040e1683531df9cafa57481f491097cb2113cc0081e7fe60"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "b46a03de779d8aa2040e1683531df9cafa57481f491097cb2113cc0081e7fe60"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "33e2114b106658ed67304f39245e37fe4080bc3282c2c4fdf70676d51daca91d"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "33e2114b106658ed67304f39245e37fe4080bc3282c2c4fdf70676d51daca91d"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "6e366660c0782215ab12b06999a8b0ea721f6f4af5fc8508e78d131a778bc2b5"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "6e366660c0782215ab12b06999a8b0ea721f6f4af5fc8508e78d131a778bc2b5"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "f04456bdf9a009215040a8540990bb6a9022c4934209ccfe150f14fe223e1aea"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "f04456bdf9a009215040a8540990bb6a9022c4934209ccfe150f14fe223e1aea"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "93ed59a99c897adf642ae8f4548d36ec902bb4f59673c7917780d689fffaf581"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "93ed59a99c897adf642ae8f4548d36ec902bb4f59673c7917780d689fffaf581"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "0696b140fb8bae6d1747f36dd8b9c2d804acf7583e35a80607176822a0f82054"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "0696b140fb8bae6d1747f36dd8b9c2d804acf7583e35a80607176822a0f82054"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "6e366660c0782215ab12b06999a8b0ea721f6f4af5fc8508e78d131a778bc2b5"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "6e366660c0782215ab12b06999a8b0ea721f6f4af5fc8508e78d131a778bc2b5"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 1,
+                  "wrong_decision_indices": [
+                    42
+                  ],
+                  "raw_code_sha256": "298066ed028af19024e5914c402d0603444eece05c4806d389758fdf3dcfd962"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "298066ed028af19024e5914c402d0603444eece05c4806d389758fdf3dcfd962"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "selector": "60",
+      "tx_trace_digest": "e7c2a1d0dd5bdfb7af9a6eeae8e9d56640e2b74dcaac2918c21a9898d4ea17b5",
+      "expected_a4_dibits": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3,
+        2,
+        1,
+        3,
+        0,
+        3,
+        3,
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        3,
+        0,
+        2,
+        0,
+        1,
+        0,
+        3,
+        1,
+        3
+      ],
+      "different_y_samples": 832,
+      "buses": [
+        {
+          "bus_index": 0,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "8a548b8494c8076d685290f6d684f3d7a4177ea0c40056c0b787b32451e1d0db"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "8a548b8494c8076d685290f6d684f3d7a4177ea0c40056c0b787b32451e1d0db"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    42,
+                    47
+                  ],
+                  "raw_code_sha256": "91194534d6e52e5ba448f4f2e3839cfd587fcb5cc8dbd8beee347e19e806881b"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 3,
+                  "wrong_decision_indices": [
+                    42,
+                    47,
+                    48
+                  ],
+                  "raw_code_sha256": "91194534d6e52e5ba448f4f2e3839cfd587fcb5cc8dbd8beee347e19e806881b"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 1,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "914b4c7dcdee53eb3d91b879c7ce7ad53e6ca68f6c5bd40d287ebb8aecd0785a"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "914b4c7dcdee53eb3d91b879c7ce7ad53e6ca68f6c5bd40d287ebb8aecd0785a"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    42,
+                    47
+                  ],
+                  "raw_code_sha256": "6f11ee4f5b9e949f1650b24f8bf426852dab8b17efc4f65b198546c64d1ec6bc"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    47,
+                    48
+                  ],
+                  "raw_code_sha256": "6f11ee4f5b9e949f1650b24f8bf426852dab8b17efc4f65b198546c64d1ec6bc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 2,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "8a548b8494c8076d685290f6d684f3d7a4177ea0c40056c0b787b32451e1d0db"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "8a548b8494c8076d685290f6d684f3d7a4177ea0c40056c0b787b32451e1d0db"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    42,
+                    47
+                  ],
+                  "raw_code_sha256": "5957bf0ee807aeea78d3d31b014608c1924cadcae11a9bf2b9cae69198fd70ff"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 3,
+                  "wrong_decision_indices": [
+                    42,
+                    47,
+                    48
+                  ],
+                  "raw_code_sha256": "5957bf0ee807aeea78d3d31b014608c1924cadcae11a9bf2b9cae69198fd70ff"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 3,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "a7e687c3e15bd492e48d854ba452038f5316a307c54c28d429ad801c8826978c"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "a7e687c3e15bd492e48d854ba452038f5316a307c54c28d429ad801c8826978c"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    42,
+                    47
+                  ],
+                  "raw_code_sha256": "4e458774a976b42a2ddd59c505fc49bc00bf20f5a49288f61d231bad51acf0d9"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    47,
+                    48
+                  ],
+                  "raw_code_sha256": "4e458774a976b42a2ddd59c505fc49bc00bf20f5a49288f61d231bad51acf0d9"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 4,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "914b4c7dcdee53eb3d91b879c7ce7ad53e6ca68f6c5bd40d287ebb8aecd0785a"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "914b4c7dcdee53eb3d91b879c7ce7ad53e6ca68f6c5bd40d287ebb8aecd0785a"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    42,
+                    47
+                  ],
+                  "raw_code_sha256": "1f1e75059b4ef5cc4132126cfc869f8b21c94039a211dfed8d0968daad6a34fb"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    47,
+                    48
+                  ],
+                  "raw_code_sha256": "1f1e75059b4ef5cc4132126cfc869f8b21c94039a211dfed8d0968daad6a34fb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bus_index": 5,
+          "topologies": [
+            {
+              "name": "held_12A",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "a7e687c3e15bd492e48d854ba452038f5316a307c54c28d429ad801c8826978c"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 0,
+                  "wrong_decision_indices": [],
+                  "raw_code_sha256": "a7e687c3e15bd492e48d854ba452038f5316a307c54c28d429ad801c8826978c"
+                }
+              ]
+            },
+            {
+              "name": "shared_127",
+              "scores": [
+                {
+                  "q": 0.5,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    42,
+                    47
+                  ],
+                  "raw_code_sha256": "944d4ccfd15ff92efe4d751c7b32d7ec4cb053f3b67c035065e8e2bbd42093f1"
+                },
+                {
+                  "q": 1.0,
+                  "tone_peak_hz": 2100.0,
+                  "wrong": 2,
+                  "wrong_decision_indices": [
+                    47,
+                    48
+                  ],
+                  "raw_code_sha256": "944d4ccfd15ff92efe4d751c7b32d7ec4cb053f3b67c035065e8e2bbd42093f1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The 8031 bytes were executed in the saved controller fixture, but its timer and ready signals were modeled; the DAC data/clock and analog line remain assumed.",
+    "A known-carrier reference decoder scores the line; it is not an executed DSC receive decision.",
+    "This score covers the A3/A4 segment and does not choose actual latch wiring without an independent pin or line constraint."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_latch_controller_line.py": "9ed566c4044034eb89ce47ccb26e6ee204154495fcaf330116228a6babc74d21",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-tx-12a-delayed-latch.json": "dd2a2dd6069e6f342298dc676c724e8da9da0912d6f6ddf28df47ce076c39cb2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready.json": "67701873a67ff2d5d1b010f0f092c94a13f434e485eb9e8e9c57c12eed7de94d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-random-dibit-validation.json": "df23d89e1b7c6a5eb5c18ed712a7759afeeb9c139aed7eba463b452ba65c1081",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_12a_delayed_latch.py": "7746afd7122cd0c007a7797374de29b6e61461ab7cf004dce81628aa017651cd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_bank_phase.py": "7415192494eceaba3d31cad3171d947b7f7ee4718a54d6d13fb03b1bc69d8de0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_line_filter_screen.py": "0ac143acff20462285333d49b5c743f0994438d728d39b852370f492fa5943a8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_main_dibit_dac_decode.py": "2ee3fbba408bb144d07ee86a1cc748bf9b896713a80cc84c03658104313d00e8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}
