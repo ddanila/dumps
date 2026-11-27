@@ -649,6 +649,14 @@ random-data window peaks at 1,650 Hz. A separate
 peaks at 1,800 Hz on all six candidate DAC orders. Keep the DAC/ADC,
 clock, gate and serial nets
 explicit assumptions, with C2/C3 open and G2 active.
+The [paced A4 call/answer challenge](g2/JOINT-MASK04-PACED-A4-THIRTEENBIT.md)
+now uses the modeled 8251's actual shifted bits from an uninterrupted
+8031 execution as the transmit source. Both eight-byte A4 streams pass
+the real-PROM Tx/line/Rx loop and frozen thirteen-bit readout with exact
+modeled line bytes, zero wrong dibits and no clipping. Both visit the
+previously unseen `1909` state. The TxD-to-D127 pair buffer, DAC/ADC,
+gate and USART wires remain labelled assumptions; test them rather
+than treating their missing pin continuity as a G2 blocker.
 The [whole-store `12A` PROM-gate audit](g2/JOINT-MASK04-TX-12A-FULL-STORE-GATE.md)
 now tests the direct 74LS273 clock alternative. The prior two-bit decode
 selects 111 store words, including eight in the receive-address span.

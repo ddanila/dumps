@@ -1,0 +1,123 @@
+{
+  "experiment": "frozen thirteen-bit receive of paced 8031/8251 A4 TxD",
+  "fixture": {
+    "selector": "40",
+    "paced_txd_clock_phases": [
+      0,
+      416,
+      832,
+      1248,
+      1664,
+      2080,
+      2496,
+      2912
+    ],
+    "transmitted_a4_line_bytes": [
+      "FC",
+      "03",
+      "7C",
+      "0E",
+      "0E",
+      "F8",
+      "C0",
+      "18"
+    ],
+    "expected_decoded_bytes": [
+      "5E",
+      "6E",
+      "A6",
+      "3F",
+      "CE",
+      "C7",
+      "D8",
+      "07"
+    ],
+    "receiver_probe_initial_history": "5A1234",
+    "carrier_offset": 203,
+    "receive_gain_factor": 0.85,
+    "assumed_mode_edge_symbol": 48,
+    "candidate_dac_bus": [
+      4,
+      0,
+      5,
+      1,
+      3,
+      2,
+      6,
+      7
+    ],
+    "line_filter_Q": 0.5,
+    "line_shift_samples": 5,
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "run": {
+    "tx_trace_sha256": "e81c5c997e159d36abdf872955db8ddd4562586a8ea962883047967c6e378deb",
+    "tx_candidate_samples": 846,
+    "tone_peak_hz": 2100.0,
+    "pcm_sha256": "5786dd2a02b4406613388310fe436d66f17c22a8af905774b8308d9161acd270",
+    "clipped_samples": 0,
+    "reference_wrong_indices": [],
+    "rx_trace_sha256": "15553237bd890872036c21f89902709f7f84db317d8868d88fccdc93ca93c3e0",
+    "rx_pc_sha256": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+    "rx_gate_edges": [
+      97500,
+      97501
+    ],
+    "observed_states": 8,
+    "unseen_vs_frozen_159": [
+      "1909"
+    ],
+    "wrong_dibit_indices": [],
+    "recovered_line_bytes": [
+      "FC",
+      "03",
+      "7C",
+      "0E",
+      "0E",
+      "F8",
+      "C0",
+      "18"
+    ],
+    "line_exact": true,
+    "controller_decoded_bytes": [
+      "5E",
+      "6E",
+      "A6",
+      "3F",
+      "CE",
+      "C7",
+      "D8",
+      "07"
+    ],
+    "controller_exact": true,
+    "controller_status_errors": 0,
+    "controller_overruns": 0,
+    "minimum_setup_cycles": 1000
+  },
+  "limitations": [
+    "The 8251 transmit model supplies shifted TxD bits from an executed 8031 stream, but TxD-to-D127 pair buffering is assumed.",
+    "Aligned A4 bytes begin at bit 1 of a controller character; decoded bytes use the receiver probe history, not the original controller A4 plaintext.",
+    "The carrier phase poke, DAC/line/ADC path, D3EB mode, thirteen-bit capture and RxD/RxC/SYNDET connections remain assumed.",
+    "The frozen gate was not fitted to this A4 stream; the first preamble dibit is supplied rather than recovered."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_paced_a4_thirteenbit.py": "a7f87059a7232ef5b951457d3543e54bd6efa6e7d0122338d8219d502c7fa352",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/main-loop-usart-txready-17.json": "792486b1b01699213c354460e11251fae4a6c87842b5b264eea72b5803c95631",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain085-fixture.json": "6fcfcb721663e6f3621092f53b132c226393a8247ae81890b581347703b88ca7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-revised-cover.json": "62b5793973198584c676db1cd289b0a783f7456b2539b2789a8b0a6fdba095c0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-nominal-diagnosis.json": "68c813b02b83728313601d36fbb5b7e05ceddd774c4abd18949e87f7b12108c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-random-dibit-validation.json": "df23d89e1b7c6a5eb5c18ed712a7759afeeb9c139aed7eba463b452ba65c1081",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/main_loop_usart_txready_17.py": "df42548c0827bd9bc6dfdad55f60f75419bca84dd3ddeebc2c68f785bec8f336",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_16byte_reverse_handoff.py": "901a567fc8b6c422b87eb1dba504c29480be391104e533bd64d13b17a85d2394",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_buffered_line.py": "cb80559269af717d2318e6ac9f8e67245b7aeb54e811eaa43f87a193e2b37fdf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_fresh_phase120.py": "bd953824959a42725a14d6aa9025b44fa61b4d6bc9dfb59a30d34244ad446f2a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_serial_timing.py": "c2e899943aae7aca3638ffb34eeb1ff09f406541e2a497057cd87da4679ebbef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_staged_transfer.py": "3b78c275f0f5a043fc184f1e8e17a639e719b5e374405f49e2f82e81ab899ed1",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}

@@ -2308,6 +2308,16 @@ Listed in order of value per effort:
   Controller-to-D127 pacing, DAC/ADC/line, phase gates and USART nets
   remain conditional. Constrain the physical routes before passing C2
   or C3.
+  The [paced A4 thirteen-bit challenge](g2/JOINT-MASK04-PACED-A4-THIRTEENBIT.md)
+  then replaces generated transmit octets with the actual shifted bits
+  from the 17-character modeled 8251/unchanged 8031 execution. For both
+  call and answer, all eight aligned A4 line bytes survive the real-PROM
+  Tx/line/Rx path and frozen thirteen-bit gate with 0/64 wrong dibits,
+  no clipping or modeled controller errors. Both reach `1909`, unseen
+  in the 159-state fit. The returned controller bytes use the receive
+  probe's declared history, not the original A4 plaintext. TxD-to-D127
+  buffering and the DAC/ADC/USART nets remain conditional; test those
+  routes and a package gate before C2/C3 acceptance.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

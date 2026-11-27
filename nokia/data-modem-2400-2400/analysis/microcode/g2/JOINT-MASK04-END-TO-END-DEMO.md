@@ -41,3 +41,8 @@ analog line or instantiate the thirteen-bit gate in photographed logic;
 C2, C3 and G2 remain open. An independent pin/line constraint is next
 for C2, while a package-budgeted
 receive gate and serial path are next for C3.
+
+The later [paced A4 challenge](JOINT-MASK04-PACED-A4-THIRTEENBIT.md) replaces
+the generated transmit octets with the controller/8251 model's actual
+shifted TxD stream for call and answer. Both pass the same frozen
+thirteen-bit receive route under the stated board assumptions.

@@ -367,6 +367,14 @@ places all six candidate DAC orders at 1,800 Hz. The DAC/ADC/analog and
 serial nets remain assumed;
 this run shows a coherent possible modem function of the microprogram,
 not a physical board-level acceptance pass.
+The [paced A4 follow-up](../g2/JOINT-MASK04-PACED-A4-THIRTEENBIT.md)
+starts from the modeled 8251's shifted TxD events in an uninterrupted
+8031 execution rather than generated scrambler octets. The call and
+answer A4 streams each pass the same executed PROM transmit and receive
+loops and frozen thirteen-bit readout with all eight line bytes exact.
+The D127 pair buffer and physical analog/serial wiring remain external
+assumptions; the controller receive probe uses its stated initial
+descrambler history rather than claiming the original A4 plaintext.
 
 ## Earlier provisional names
 
