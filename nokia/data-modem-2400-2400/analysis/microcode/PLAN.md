@@ -17,14 +17,15 @@ observation that would favor or reject the route and the next runnable candidate
 
 A failed run rejects only its stated wiring, timing and input fixture. Try the
 next photo-compatible route, changed stimulus or independent microcode/signal
-test; do not wait for new photos, continuity checks or user confirmation before
-running an explicit assumption. Keep G2 **active** and C2/C3/C4 **open** while
-experiments remain possible. Record missing physical continuity as an open
-validation question, not a stop condition for simulation. A plausible execution
-is conditional evidence, not proof of the physical circuit or an automatic
-acceptance pass. Consider a goal-level blocker only after documenting why no
-remaining runnable experiment can advance an open check and what specific
-external observation is required.
+test; continue other open checks while revising that route. Do not wait for new
+photos, continuity checks or user confirmation before running an explicit
+assumption. Keep G2 **active** and C2/C3/C4 **open** while experiments remain
+possible. Record missing physical continuity as an open validation question,
+not a stop condition for simulation. A plausible execution is conditional
+evidence, not proof of the physical circuit or an automatic acceptance pass.
+Consider a goal-level blocker only after documenting why no remaining runnable
+experiment can advance an open check and what specific external observation is
+required.
 
 Apply this rule to each open check: name the photo-supported candidate and its
 uncertain nets; run a real-ROM/controller fixture with a discriminating control;

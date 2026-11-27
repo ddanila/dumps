@@ -20,7 +20,7 @@ Unknown board connections are **active hypotheses, not a G2 blocker**: use
 photo-compatible candidates with recorded pin-direction and timing assumptions,
 run bounded tests, and revise candidates when the evidence changes. Physical
 continuity checks in Phase B can resolve them, but are not required before
-continuing Phases A and C. Follow the [working rules](PLAN.md#uncertainty-is-a-reason-to-experiment-not-a-goal-blocker)
+continuing Phases A and C. Follow the [working rules](PLAN.md#treat-uncertain-connections-as-runnable-hypotheses)
 without relaxing the acceptance criteria.
 
 ## Why a second plan
