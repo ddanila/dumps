@@ -1,0 +1,143 @@
+{
+  "experiment": "photographed-package delta for the revised mode-bit phase rule",
+  "observed_states": 64,
+  "prior_package_gate_mismatches": {
+    "01C": {
+      "prior": 3,
+      "revised": 0,
+      "changed_bits": 3
+    },
+    "11C": {
+      "prior": 3,
+      "revised": 0,
+      "changed_bits": 3
+    },
+    "12D": {
+      "prior": 2,
+      "revised": 3,
+      "changed_bits": 1
+    },
+    "32D": {
+      "prior": 2,
+      "revised": 3,
+      "changed_bits": 1
+    }
+  },
+  "correction_groups": [
+    {
+      "action": "clear_both_phase_bits",
+      "states": [
+        "01C",
+        "11C"
+      ],
+      "minimum_direct_literals": 4,
+      "all_shortest_cubes": [
+        "00**1****0",
+        "*0*11****0",
+        "*0**10***0"
+      ]
+    },
+    {
+      "action": "set_phase_bit0",
+      "states": [
+        "12D",
+        "32D"
+      ],
+      "minimum_direct_literals": 5,
+      "all_shortest_cubes": [
+        "10*1*1*0**",
+        "10**01*0**",
+        "1*11***01*",
+        "1*1*0**01*",
+        "1**1*1*01*",
+        "1***01*01*"
+      ]
+    }
+  ],
+  "photographed_packages": {
+    "U7": "SN74LS30N",
+    "U13": "DM74LS04N",
+    "U15": "SN74S64J",
+    "U19": "SN74LS10N",
+    "U21": "HD74LS02P"
+  },
+  "prior_network_resource_use": {
+    "U13_inverters": 2,
+    "U15_AOI_outputs": 1,
+    "U19_three_input_NANDs": 3,
+    "U21_two_input_NORs": 3
+  },
+  "additional_visible_gate_capacity": {
+    "U7_eight_input_NANDs": 1,
+    "U13_inverters": 4,
+    "U21_two_input_NORs": 1
+  },
+  "fresh_cases": [
+    {
+      "mode": "held81",
+      "selector": "40",
+      "prior_wrong_decisions": 13,
+      "revised_wrong_decisions": 0,
+      "correction_state_visits": {
+        "01C": 0,
+        "11C": 0,
+        "12D": 7,
+        "32D": 0
+      }
+    },
+    {
+      "mode": "held81",
+      "selector": "60",
+      "prior_wrong_decisions": 16,
+      "revised_wrong_decisions": 0,
+      "correction_state_visits": {
+        "01C": 0,
+        "11C": 0,
+        "12D": 14,
+        "32D": 0
+      }
+    },
+    {
+      "mode": "edge32",
+      "selector": "40",
+      "prior_wrong_decisions": 13,
+      "revised_wrong_decisions": 0,
+      "correction_state_visits": {
+        "01C": 0,
+        "11C": 0,
+        "12D": 0,
+        "32D": 7
+      }
+    },
+    {
+      "mode": "edge32",
+      "selector": "60",
+      "prior_wrong_decisions": 16,
+      "revised_wrong_decisions": 0,
+      "correction_state_visits": {
+        "01C": 0,
+        "11C": 0,
+        "12D": 0,
+        "32D": 14
+      }
+    }
+  ],
+  "limitations": [
+    "The old package network agrees on 60 observed states, but this audit does not construct the required correction and output-combination circuit.",
+    "Direct correction cube widths are minima only on these 64 observed states; unobserved states are unconstrained.",
+    "Photographed package presence is not evidence that its gates are unused, nearby nets connect, or propagation timing closes.",
+    "The mode bit, capture and RxD/RxC/SYNDET paths remain assumed."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit70_package_delta.py": "2384faaa35f40e46d89b38ae1b30d731b6aa8d7c2039208b234eb9558a2f670f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-revision.json": "97bebecc0c23fcb180ad08db02c74cd2ff913ac6f25d412e02c49ca275cca869",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-holdout.json": "59d97a92578e2611c5102a500498221340e19b2b7735353d1643f468ba3a63fd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-holdout-held81-179.json": "792f36c3161ce123eaee6a81d1a22d5847891085fdfaff1836f1c99bc3e082a7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-holdout-edge32-179.json": "a138b1dc188cc5afed451de506ac4f266bf452137a655b9bd9148b33d8caee8b",
+    "nokia/data-modem-2400-2400/analysis/microcode/board/inventory.json": "1c2b07b8e377c2b646fdaff6e20f74065128351d90f41b68609cbd4616ad14e9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit70_revision.py": "aed35153b1122734c7c96cf329c45d7e6326bb0a810596fc6aa37115cfe8f93e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_two_bit_package_route2.py": "06fc43d84557eedc18e0b07e42044d4c4077b69ae56efd41df16be6a3713d1df",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_0d_feature_graph.py": "bd2f35c826952db22031704f5f5f6138d4de0d76ae45b42d2304737b44833bcc",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_ten_bit_product_bound.py": "b349c597ac420c787ff6326b4c444c63045a6a0861811e475f3eb3f1e0ce035e"
+  }
+}

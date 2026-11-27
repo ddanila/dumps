@@ -2161,6 +2161,12 @@ Listed in order of value per effort:
   The paired transmitter and PCM traces agree across mode choices.
   This is conditional receiver evidence; test package-budgeted phase
   logic and mode-to-serial timing plus other boundaries/levels before C3.
+  A package-delta audit finds that the previous nine-bit gate already
+  matches 60/64 revised phase states; its four exceptions require two
+  distinct correction decodes with minimum observed-state widths four
+  and five literals. U19 and U15 are fully allocated in that circuit,
+  so a complete rewired or multistage package route remains to be built
+  and timed. Keep these connections as runnable hypotheses.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

@@ -376,6 +376,14 @@ streams, so the correction is exercised. Keep the mode net and multistage
 gate/serializer timing as testable assumptions; establish a package-budgeted
 circuit and challenge other mode boundaries, gains and carrier phases before
 passing C3. G2 remains active.
+The [package-delta audit](g2/JOINT-MASK04-12A-MODEBIT66-HOLDOUT.md#frozen-revision-and-independent-offset-179-challenge)
+shows the old nine-bit photographed-package network already matches 60/64
+revised phase labels. Its four exceptions need two distinct correction
+decodes, of at least four and five literals on the observed states. The
+old U19 and U15 allocation is full; the visible U7 NAND and spare U13/U21
+gates are candidate resources, not a demonstrated complete circuit.
+Test a rewired or multistage package realization and its timing; the
+unassigned nets are an experiment, not a G2 blocker.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

@@ -71,10 +71,25 @@ a package-budgeted multistage gate and a pin-compatible mode-to-serializer
 route using the same frozen decision function, then vary mode boundary,
 gain and carrier phase on untouched data.
 
+The [package-delta audit](joint_mask04_12a_modebit70_package_delta.py)
+compares this function with the earlier photographed-package nine-bit
+circuit. They agree on 60 of the 64 observed revised states. At `01C`
+and `11C` in held mode, both old phase bits must be cleared; at `12D`
+and `32D`, phase bit 0 must be set. The shortest direct decodes for
+those two correction groups use four and five input literals,
+respectively, on the observed state set. The old circuit alone makes
+13/16 dibit errors in **each** held/moving offset-179 selector pair;
+the revised function makes none. The existing network already uses all
+three U19 NANDs and the U15 AOI output. Photographed U7 has one
+eight-input NAND, while U13 has four inverters and U21 one NOR left
+under that allocation. This identifies the extra gate work but does
+not claim a complete package-budgeted overlay or measured timing.
+
 Source-hashed machine results:
 [`graph`](results/joint-mask04-12a-modebit66-graph.json),
 [`cover`](results/joint-mask04-12a-modebit66-cover.json),
 [`holdout`](results/joint-mask04-12a-modebit66-holdout.json), and
 [`diagnosis`](results/joint-mask04-12a-modebit66-diagnosis.json);
 [`revision`](results/joint-mask04-12a-modebit70-revision.json) and
-[`offset-179 holdout`](results/joint-mask04-12a-modebit70-holdout.json).
+[`offset-179 holdout`](results/joint-mask04-12a-modebit70-holdout.json),
+plus the [`package delta`](results/joint-mask04-12a-modebit70-package-delta.json).
