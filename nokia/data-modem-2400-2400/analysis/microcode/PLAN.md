@@ -425,6 +425,14 @@ and real-PROM Tx traces. At the fixed Q=0.5 line stage, held `12A` makes
 2,100 Hz A1 peak. This supports the conditional held route on executed
 controller traffic but leaves the latch, DAC and analog nets to constrain;
 C2/G2 stay open.
+The [latch-gap pin-function audit](g2/PHOTO-DED-LATCH-BUS.md#pin-function-audit-of-the-visible-tracks)
+now aligns the eight visible front-side tracks with four Q–Q and four D–D
+74LS273/74LS373 pin pairs. None is a visible 373-Q→273-D copy link under
+that photo assignment. This weakens the simple serial-hold circuit used to
+obtain the successful held-`12A` waveform. Test the direct 74LS273
+clock-before-new-`127`-Y route and any back-side continuation explicitly;
+do not equate a good modeled line score with identified wiring. C2/G2
+remain active.
 The [ROM-sensitive buffered-line replay](g2/JOINT-MASK04-12A-BUFFERED-LINE.md)
 now substitutes the `12A` latch into the full controller-bit/PROM path.
 At the existing six-sample alignment, an independent line decoder gives

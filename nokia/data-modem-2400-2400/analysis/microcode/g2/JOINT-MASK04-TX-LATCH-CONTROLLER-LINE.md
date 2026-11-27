@@ -36,3 +36,10 @@ under the fixed analog fixture, but does not identify Nokia's actual
 74LS373/74LS273 clock and data nets, DAC08 pins, or line filter. C2 and
 G2 remain open; continue circuit and line constraints without waiting for
 continuity alone.
+
+The later [photo pin-function audit](PHOTO-DED-LATCH-BUS.md#pin-function-audit-of-the-visible-tracks)
+finds that the eight visible latch-gap tracks align with four Q–Q and four
+D–D pin pairs, rather than a simple LS373-Q→LS273-D copy bus. Therefore
+the successful held-`12A` waveform should also be carried as a direct
+74LS273 early-edge capture hypothesis; the serial hold is not established
+by those tracks.

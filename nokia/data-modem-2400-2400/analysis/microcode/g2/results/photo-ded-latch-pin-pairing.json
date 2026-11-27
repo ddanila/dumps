@@ -1,0 +1,118 @@
+{
+  "experiment": "photo-inferred pin functions of DED 3558 latch-gap tracks",
+  "front_photo": "PXL_20261123_114854803.jpg",
+  "back_photo": "PXL_20261123_114901193.jpg",
+  "front_roi_xyxy": [
+    1642,
+    3230,
+    1895,
+    3511
+  ],
+  "thresholds": [
+    [
+      105,
+      125,
+      65
+    ],
+    [
+      100,
+      120,
+      60
+    ]
+  ],
+  "pad_assignment": "eight ordered front-side tracks appear to meet the eight signal pads on facing chip banks; LS273 right pins 19 through 12 and LS373 left pins 2 through 9, top to bottom",
+  "pinout_sources": [
+    "https://www.ti.com/lit/ds/symlink/sn74ls273.pdf",
+    "https://www.ti.com/lit/ds/symlink/sn74ls373.pdf"
+  ],
+  "pairings": [
+    {
+      "track_left_y": 3278,
+      "track_right_y": 3261,
+      "ls273_pin": 19,
+      "ls273_signal": "8Q",
+      "ls373_pin": 2,
+      "ls373_signal": "1Q",
+      "functional_pair": "Q-Q"
+    },
+    {
+      "track_left_y": 3293,
+      "track_right_y": 3277,
+      "ls273_pin": 18,
+      "ls273_signal": "8D",
+      "ls373_pin": 3,
+      "ls373_signal": "1D",
+      "functional_pair": "D-D"
+    },
+    {
+      "track_left_y": 3326,
+      "track_right_y": 3340,
+      "ls273_pin": 17,
+      "ls273_signal": "7D",
+      "ls373_pin": 4,
+      "ls373_signal": "2D",
+      "functional_pair": "D-D"
+    },
+    {
+      "track_left_y": 3342,
+      "track_right_y": 3356,
+      "ls273_pin": 16,
+      "ls273_signal": "7Q",
+      "ls373_pin": 5,
+      "ls373_signal": "2Q",
+      "functional_pair": "Q-Q"
+    },
+    {
+      "track_left_y": 3406,
+      "track_right_y": 3388,
+      "ls273_pin": 15,
+      "ls273_signal": "6Q",
+      "ls373_pin": 6,
+      "ls373_signal": "3Q",
+      "functional_pair": "Q-Q"
+    },
+    {
+      "track_left_y": 3422,
+      "track_right_y": 3404,
+      "ls273_pin": 14,
+      "ls273_signal": "6D",
+      "ls373_pin": 7,
+      "ls373_signal": "3D",
+      "functional_pair": "D-D"
+    },
+    {
+      "track_left_y": 3454,
+      "track_right_y": 3468,
+      "ls273_pin": 13,
+      "ls273_signal": "5D",
+      "ls373_pin": 8,
+      "ls373_signal": "4D",
+      "functional_pair": "D-D"
+    },
+    {
+      "track_left_y": 3471,
+      "track_right_y": 3484,
+      "ls273_pin": 12,
+      "ls273_signal": "5Q",
+      "ls373_pin": 9,
+      "ls373_signal": "4Q",
+      "functional_pair": "Q-Q"
+    }
+  ],
+  "inferred_function_counts": {
+    "output_to_output": 4,
+    "data_to_data": 4,
+    "output_to_data": 0
+  },
+  "limitations": [
+    "Track-to-pad assignment is visual and ordered by proximity; the threshold ROI stops before pad metal and cannot prove continuity beneath the packages.",
+    "The back-side photograph was inspected but not registered to each chip pad; it can contain additional connections.",
+    "Q-Q and D-D pairings, if continuous, disfavor the simple LS373-Q to LS273-D serial hold on these eight visible tracks; they do not identify all board nets or clocks."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_ded_latch_pin_pairing.py": "217740477775f0a8033dbd0dfaa174a7ec8efb7c3993a4cc42967060d0bdd899",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_ded_latch_bus.py": "7692012748a5e5d2a3db089d3559f063b91e992ead6a2c7da5b9821fbb0fb620",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114854803.jpg": "f11810e13a5b4f334333bbd79f59badb258d497653bc9e109f4d5bb5a012bf9d",
+    "nokia/data-modem-2400-2400/photos/PXL_20261123_114901193.jpg": "416c61a3bf5f1a7d0f57e6df5cc77f73fa4f334aab5c00cd817eb4f16c8f2178"
+  }
+}
