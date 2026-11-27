@@ -1,0 +1,117 @@
+{
+  "experiment": "frozen 70-stream mode-bit phase cover revision",
+  "fixture": {
+    "development_streams": 70,
+    "observed_states": 64,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "features": [
+      [
+        "46",
+        "row0",
+        1
+      ],
+      [
+        "94",
+        "y3f8",
+        4
+      ],
+      [
+        "46",
+        "mode_bit5",
+        0
+      ]
+    ],
+    "global_phase_offset": 1,
+    "corrected_state": "32D"
+  },
+  "mode_bit_graph": {
+    "state_codes": 64,
+    "components": [
+      64
+    ],
+    "directed_conflicts": 0,
+    "relative_phase": {
+      "001": 0,
+      "009": 0,
+      "01C": 3,
+      "01E": 1,
+      "035": 1,
+      "082": 0,
+      "089": 3,
+      "08D": 2,
+      "0C2": 0,
+      "0C8": 3,
+      "0D2": 0,
+      "101": 0,
+      "109": 3,
+      "11C": 3,
+      "11E": 1,
+      "12C": 2,
+      "12D": 2,
+      "135": 1,
+      "136": 1,
+      "181": 0,
+      "18A": 3,
+      "18D": 2,
+      "1AD": 2,
+      "1C8": 0,
+      "205": 1,
+      "20D": 1,
+      "215": 1,
+      "21C": 2,
+      "21D": 1,
+      "21E": 1,
+      "22F": 1,
+      "235": 1,
+      "241": 0,
+      "249": 0,
+      "24C": 3,
+      "25C": 3,
+      "282": 0,
+      "292": 0,
+      "2C2": 0,
+      "2C8": 3,
+      "2C9": 3,
+      "2CC": 2,
+      "2CD": 2,
+      "2D3": 0,
+      "2DC": 2,
+      "2E5": 1,
+      "2EE": 1,
+      "2F5": 1,
+      "30E": 1,
+      "31E": 1,
+      "32D": 2,
+      "336": 1,
+      "341": 0,
+      "349": 3,
+      "35C": 3,
+      "38A": 3,
+      "3C8": 0,
+      "3CA": 3,
+      "3CC": 2,
+      "3CD": 2,
+      "3DB": 3,
+      "3DD": 2,
+      "3E5": 1,
+      "3ED": 2
+    }
+  },
+  "development_label_mismatches": [],
+  "correction": "OR phase bit 0 with exact state 32D",
+  "limitations": [
+    "The offset-177 cases are development data, not validation of this revision.",
+    "The extra exact-state term is a Boolean correction, not a photographed-package circuit.",
+    "Mode, analog, latch and serial connections remain assumed."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit70_revision.py": "aed35153b1122734c7c96cf329c45d7e6326bb0a810596fc6aa37115cfe8f93e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit66-diagnosis.json": "d83e53598d21d94068ca68bcbe15afadc5f4e2fc16191b3e93ba3602ffda3eb8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit66_cover.py": "c817fd0ba5061163904be6e35b0eed1173ddc6d720b44a9f86bebcae5911fe37"
+  }
+}

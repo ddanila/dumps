@@ -46,8 +46,35 @@ the physical Nokia circuit or pass C3. The next bounded test is to freeze a
 revised `32D` phase label, then challenge new held and moving-mode streams
 while checking package gate capacity and timing separately.
 
+## Frozen revision and independent offset-179 challenge
+
+[`joint_mask04_12a_modebit70_revision.py`](joint_mask04_12a_modebit70_revision.py)
+freezes exactly that correction: phase bit 0 is ORed with the exact ten-bit
+state `32D`. It fits the resulting 64-state, 70-stream development graph
+without changing any other observed label. The
+[`new challenge`](joint_mask04_12a_modebit70_holdout.py) uses untouched
+eight-byte payloads at carrier offset 179, with matched held-`81` and
+edge-at-32 runs for each selector. All four have 0/64 wrong dibits, exact
+modeled line bytes, exact executed-controller payloads, zero controller
+status errors and zero clipped samples. The held runs reach unseen `099`;
+the moving-mode runs reach unseen `2D9`. The old cover would have made
+13/64 and 16/64 errors on those moving-mode runs, so the correction was
+actually exercised.
+
+Within each selector, the held and moving-mode runs have identical Tx, PC
+and PCM digests and different Rx digests. This supports a mode-conditioned
+receiver decision under the stated stimulus. The exact-state correction
+adds logic to a cover that already exceeds one U15 output's four direct
+arms; a photographed-package implementation, actual `3EB` mode net and
+serial/line timing have not been established. C3 remains open. Next, test
+a package-budgeted multistage gate and a pin-compatible mode-to-serializer
+route using the same frozen decision function, then vary mode boundary,
+gain and carrier phase on untouched data.
+
 Source-hashed machine results:
 [`graph`](results/joint-mask04-12a-modebit66-graph.json),
 [`cover`](results/joint-mask04-12a-modebit66-cover.json),
 [`holdout`](results/joint-mask04-12a-modebit66-holdout.json), and
-[`diagnosis`](results/joint-mask04-12a-modebit66-diagnosis.json).
+[`diagnosis`](results/joint-mask04-12a-modebit66-diagnosis.json);
+[`revision`](results/joint-mask04-12a-modebit70-revision.json) and
+[`offset-179 holdout`](results/joint-mask04-12a-modebit70-holdout.json).

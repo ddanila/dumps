@@ -368,6 +368,14 @@ conflict-free and identifies one wrong phase label at `32D`. Treat those
 streams as development data, freeze a revised decoder and challenge new
 payloads and carrier starts. The mode connection and gate packages remain
 assumptions; C3/G2 stay active rather than blocked.
+The [frozen `32D` revision and offset-179 challenge](g2/JOINT-MASK04-12A-MODEBIT66-HOLDOUT.md#frozen-revision-and-independent-offset-179-challenge)
+now passes four untouched held/moving-mode real-PROM streams: 0/64 dibit
+errors in each, exact modeled line bytes and executed-controller payloads,
+and unseen `099`/`2D9` states. The old gate would fail the two moving-mode
+streams, so the correction is exercised. Keep the mode net and multistage
+gate/serializer timing as testable assumptions; establish a package-budgeted
+circuit and challenge other mode boundaries, gains and carrier phases before
+passing C3. G2 remains active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock

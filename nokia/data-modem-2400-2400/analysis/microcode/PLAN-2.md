@@ -2155,6 +2155,12 @@ Listed in order of value per effort:
   mode challenge; still require a package-compatible circuit and a
   constrained serial/line route before passing C3. Neither missing net
   continuity nor this failed candidate blocks G2.
+  The frozen `32D` correction then passes four untouched offset-179
+  held/moving-mode streams with exact dibits, modeled line bytes and
+  executed-controller payloads, including unseen `099` and `2D9`.
+  The paired transmitter and PCM traces agree across mode choices.
+  This is conditional receiver evidence; test package-budgeted phase
+  logic and mode-to-serial timing plus other boundaries/levels before C3.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The
