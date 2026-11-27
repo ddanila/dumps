@@ -292,6 +292,21 @@ requires at least five products for one phase output. Pursue a
 multistage photo-compatible circuit and test it on untouched data;
 keep C3/G2 active rather than treating expanding state coverage as a
 blocker.
+The [revised package-capacity receive route](g2/JOINT-MASK04-12A-TWO-BIT-PACKAGE-ROUTE.md)
+now uses U12/U14 complementary Q outputs, U13's two inversions, one
+U15 AOI, all three U19 NANDs and three U21 NORs to compute both phase
+bits from the nine-bit state. Its first frozen version passes the new
+carrier-`161` unseen state but fails `101`/`141` at carrier `163`, with
+17/13 wrong dibits and wrong controller payloads despite zero USART
+status errors. Replacing one U15 input term yields a revised circuit
+that fits the resulting 45 observed states. Frozen before carrier
+`165/167` runs, it predicts unseen `035` and recovers exact dibits,
+modeled line bytes and executed controller payloads in all four new
+streams, without clipping. A staged U14/U12/U3 replay matches 3,250
+symbol states across 50 streams and leaves 2,929 modeled cycles before
+RxC. The photographed packages support this capacity hypothesis; their
+actual nets and the analog/USART path remain untraced. Test another
+gain/timing family and constrain those connections; keep C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
