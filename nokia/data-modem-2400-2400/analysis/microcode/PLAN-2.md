@@ -2228,6 +2228,16 @@ Listed in order of value per effort:
   controls fail. This solves the storage schedule conditionally, while
   subtraction, bit-select, Boolean gate budget and actual nets remain
   open experiments before C3 acceptance.
+  The [fresh level and late-bit screen](g2/JOINT-MASK04-12A-MODEBIT102-LEVEL-SCREEN.md)
+  shows why that twelve-bit schedule is insufficient across levels.
+  The exact seven/five direct cover fails unseen `2DE` at 1.05×, while
+  the prior eight/five gate passes four real-PROM/controller runs. At
+  0.95× both covers fail at the same indices; the 108-stream twelve-bit
+  graph has 218 conflicts. Only visit-141 `3F8` Y4 or Y6 among 76
+  one-bit alternatives removes them. That value arrives after the
+  assumed U28 load, and a visit-141 U3 recapture overwrites its earlier
+  Y bits. Test an explicit later-load/data-hold route or separate
+  storage before a thirteen-bit decoder holdout; keep C3/G2 active.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

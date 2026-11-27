@@ -1,0 +1,252 @@
+{
+  "experiment": "fresh 1.05x offset-193 challenge of frozen exact seven/five-product cover",
+  "fixture": {
+    "carrier_offset": 193,
+    "gain_factor": 1.05,
+    "payloads": {
+      "40": [
+        "5E",
+        "A3",
+        "19",
+        "C7",
+        "42",
+        "D8",
+        "6B",
+        "F0"
+      ],
+      "60": [
+        "91",
+        "2C",
+        "E5",
+        "70",
+        "0B",
+        "B6",
+        "4D",
+        "83"
+      ]
+    },
+    "modes": [
+      "edge32",
+      "edge48"
+    ],
+    "frozen_observed_states": 100,
+    "phase_convention": [
+      2,
+      1,
+      3,
+      0
+    ],
+    "phase_bit0_cubes": [
+      "***0*0******",
+      "****0**00**1",
+      "**1***0**1*1",
+      "**11**1*0*1*",
+      "*0110**1****",
+      "1*1********1",
+      "***1*1**1***"
+    ],
+    "phase_bit1_cubes": [
+      "***0*0******",
+      "**0*********",
+      "*0***0*0*0**",
+      "0****01***0*",
+      "*0***0*01***"
+    ],
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "cases": [
+    {
+      "mode": "edge32",
+      "selector": "40",
+      "carrier_offset": 193,
+      "payload": [
+        "5E",
+        "A3",
+        "19",
+        "C7",
+        "42",
+        "D8",
+        "6B",
+        "F0"
+      ],
+      "tx_trace_digest": "a9f71c055a98924979356d05ed9031f1edbcf392f024960573ac4f47a7af8877",
+      "rx_trace_digest": "4c07b70a354e62671385135ab58e2a8fc7e1363e4d3aca08466648556479410c",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "39f777f883d0173b8ae3f55526e4a89804f65f11cc99e3c9b9d06344f9dfe3d9",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [],
+      "unseen_keys": [
+        "2DE"
+      ],
+      "wrong_decision_indices": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "line_exact": false,
+      "controller_decoded_bytes": [
+        94,
+        163,
+        25,
+        199,
+        66,
+        216,
+        23,
+        48
+      ],
+      "controller_exact": false,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "mode": "edge32",
+      "selector": "60",
+      "carrier_offset": 193,
+      "payload": [
+        "91",
+        "2C",
+        "E5",
+        "70",
+        "0B",
+        "B6",
+        "4D",
+        "83"
+      ],
+      "tx_trace_digest": "354e6a1768bfb900be14d87f400fb393a35c96392decb405b8c7620d0f55c5ab",
+      "rx_trace_digest": "ff6a18526ec86154104ff6a9c3c08fb0db9d6c9043e48ae47f9fea9a630998b6",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "1ebcb7625b5bebebf98f91d43921b99afd22c1a7d6d5a2392b4afe162ed5d574",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [],
+      "unseen_keys": [
+        "2DE"
+      ],
+      "wrong_decision_indices": [
+        36,
+        37,
+        46,
+        47
+      ],
+      "line_exact": false,
+      "controller_decoded_bytes": [
+        81,
+        47,
+        229,
+        163,
+        10,
+        70,
+        83,
+        131
+      ],
+      "controller_exact": false,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "mode": "edge48",
+      "selector": "40",
+      "carrier_offset": 193,
+      "payload": [
+        "5E",
+        "A3",
+        "19",
+        "C7",
+        "42",
+        "D8",
+        "6B",
+        "F0"
+      ],
+      "tx_trace_digest": "a9f71c055a98924979356d05ed9031f1edbcf392f024960573ac4f47a7af8877",
+      "rx_trace_digest": "0fd6948b67f9028250ccdde4d895042a69f5bce4b12d9b17476a5d94034d3b6e",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "39f777f883d0173b8ae3f55526e4a89804f65f11cc99e3c9b9d06344f9dfe3d9",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [],
+      "unseen_keys": [
+        "2DE"
+      ],
+      "wrong_decision_indices": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "line_exact": false,
+      "controller_decoded_bytes": [
+        94,
+        163,
+        25,
+        199,
+        66,
+        216,
+        23,
+        48
+      ],
+      "controller_exact": false,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 2929
+    },
+    {
+      "mode": "edge48",
+      "selector": "60",
+      "carrier_offset": 193,
+      "payload": [
+        "91",
+        "2C",
+        "E5",
+        "70",
+        "0B",
+        "B6",
+        "4D",
+        "83"
+      ],
+      "tx_trace_digest": "354e6a1768bfb900be14d87f400fb393a35c96392decb405b8c7620d0f55c5ab",
+      "rx_trace_digest": "ae36ba2474953c2c1741eac342a152bbe8fe9989145f7575d92216a1c1fa6fd0",
+      "pc_digest": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+      "pcm_sha256": "1ebcb7625b5bebebf98f91d43921b99afd22c1a7d6d5a2392b4afe162ed5d574",
+      "clipped_samples": 0,
+      "reference_wrong_indices": [],
+      "unseen_keys": [],
+      "wrong_decision_indices": [],
+      "line_exact": true,
+      "controller_decoded_bytes": [
+        145,
+        44,
+        229,
+        112,
+        11,
+        182,
+        77,
+        131
+      ],
+      "controller_exact": true,
+      "controller_status_errors": 0,
+      "minimum_setup_cycles": 2929
+    }
+  ],
+  "limitations": [
+    "The exact-product witness was fitted to 100 earlier streams including offset-191; offset-193 is the untouched challenge.",
+    "The D3EB mode schedule and additional captures remain assumptions, not traced board connections.",
+    "The direct-product count does not establish a photographed-package gate network or phase-subtraction and serial-select logic.",
+    "DAC/ADC/latch and RxD/RxC/SYNDET nets remain untraced; controller recovery is conditional on the modeled line and external-sync handoff."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit100_exact7_holdout.py": "2c3db43f947a301ad56fbfb0542397419125df215414ea3655ab188ecf53a507",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit97-exact-products.json": "aaf53c9d248a9881fe994257d89ccac255bfe4e03ecf6951d6dd07681471bb5e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_exact_products.py": "354bf5ecade939bbebc3ef12b5dc4ea0ba862ab2b2474c7a717a7548e6d9d225",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-fixed-gain-phase.json": "683c2ed8fd0b78fc049249fcc99724ca2cffe78d09ae6e275f38bf229f76b4c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit100-exact7-gain105-fixture.json": "2545bbbb247582f88d167c45f714f2cab30f8e159507c42d89a0199ad5626ea7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_phasebit0_veto_lowgain133_challenge.py": "a1b8cc5624d337999478ebd4a695d7f2cbfe427adb9b9d2f2028177d299b46aa",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row_mode_edge.py": "770cddc12410ae26be5d730d3ddf893aa12cfbf881e561019d7d40a51dd84306",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_fresh_phase120.py": "bd953824959a42725a14d6aa9025b44fa61b4d6bc9dfb59a30d34244ad446f2a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_cover.py": "9b406d7338c94f4a2096b7ace4ecf4395cc0458784a3a8fffb821fd44b440b31",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_ten_bit_product_bound.py": "b349c597ac420c787ff6326b4c444c63045a6a0861811e475f3eb3f1e0ce035e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit100-exact7-gain105-holdout-edge32-193.json": "297ad487a30fa5a873152b37fc7b66686d1a319d669c4ecc4a3787f87a551b1e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit100-exact7-gain105-holdout-edge48-193.json": "723187361627665b8ad05f502e25a0000a720243e2c1953053c6a4013d8d4f73"
+  }
+}

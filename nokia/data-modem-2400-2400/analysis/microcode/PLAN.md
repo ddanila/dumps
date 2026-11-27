@@ -471,6 +471,19 @@ controls. This removes the U25 storage conflict **within the model**, not
 the untraced clock/data nets or gate-budget problem. Test the subtraction
 and bit selector as package-budgeted circuits, then run a new signal
 fixture. C3/G2 stay active.
+The [new level and capture screen](g2/JOINT-MASK04-12A-MODEBIT102-LEVEL-SCREEN.md)
+now challenges that receiver state family at fresh 1.05× and 0.95×
+levels. An exact seven/five-product cover fitted through offset 191
+fails on unseen `2DE` at 1.05×, while the older eight/five cover passes
+all four real-PROM/controller runs. A post-hoc seven/old-five combination
+then fails the untouched 0.95× runs at the same indices as the older
+gate: the joined 102-state twelve-bit graph has 218 conflicts. Only
+visit-141 `3F8` Y4 or Y6 among 76 screened extra bits removes them.
+That capture arrives at modeled cycle 4,575, after the assumed U28 load
+at 4,500; U3's shared latch cannot be re-enabled without overwriting
+second-visit bits. Test a later U28 load with a justified data-hold path
+or separate late-bit storage, then freeze a new gate for untouched data.
+These failed fixtures and untraced nets keep C3 open, not G2 blocked.
 
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer

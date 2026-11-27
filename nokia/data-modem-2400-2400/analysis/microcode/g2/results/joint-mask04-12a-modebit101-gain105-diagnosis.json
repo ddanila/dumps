@@ -1,0 +1,427 @@
+{
+  "experiment": "gain105 unseen-state diagnosis and old eight-product controller control",
+  "fixture": {
+    "streams": 104,
+    "states": 101,
+    "new_states": [
+      "2DE"
+    ],
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "joined_phase_graph": {
+    "state_codes": 101,
+    "components": [
+      101
+    ],
+    "directed_conflicts": 0,
+    "relative_phase": {
+      "01E": 0,
+      "08D": 1,
+      "11E": 0,
+      "18D": 1,
+      "20D": 0,
+      "215": 3,
+      "21D": 0,
+      "21E": 0,
+      "22F": 0,
+      "2DE": 0,
+      "2EE": 0,
+      "31E": 0,
+      "3DD": 0,
+      "3ED": 1,
+      "425": 0,
+      "426": 0,
+      "42E": 0,
+      "435": 0,
+      "436": 0,
+      "52C": 1,
+      "535": 0,
+      "536": 0,
+      "5AD": 1,
+      "605": 3,
+      "60D": 0,
+      "625": 0,
+      "635": 0,
+      "6CD": 1,
+      "6E5": 0,
+      "6E6": 0,
+      "6F5": 0,
+      "6F6": 0,
+      "70E": 0,
+      "736": 0,
+      "7CC": 1,
+      "7CD": 1,
+      "7E5": 0,
+      "7F6": 0,
+      "801": 3,
+      "809": 3,
+      "819": 2,
+      "81C": 2,
+      "83D": 1,
+      "882": 3,
+      "889": 2,
+      "88D": 1,
+      "899": 2,
+      "89D": 1,
+      "8C2": 3,
+      "8C8": 2,
+      "8D2": 3,
+      "901": 3,
+      "908": 2,
+      "909": 2,
+      "91C": 2,
+      "93E": 1,
+      "981": 3,
+      "98A": 2,
+      "99D": 1,
+      "9C8": 2,
+      "A1C": 1,
+      "A2E": 1,
+      "A49": 3,
+      "A5C": 2,
+      "A82": 3,
+      "A92": 3,
+      "AC2": 3,
+      "AC8": 2,
+      "AC9": 2,
+      "AD3": 3,
+      "ADD": 1,
+      "B2D": 1,
+      "B49": 2,
+      "B8A": 2,
+      "BC8": 2,
+      "BCA": 2,
+      "BDD": 1,
+      "C2E": 1,
+      "CD2": 3,
+      "D2D": 1,
+      "E3D": 1,
+      "E41": 3,
+      "E4C": 1,
+      "E59": 2,
+      "E5C": 1,
+      "E82": 3,
+      "E92": 3,
+      "EC2": 3,
+      "EC8": 2,
+      "EC9": 2,
+      "ECC": 1,
+      "ECD": 1,
+      "ED9": 2,
+      "EDC": 1,
+      "F08": 2,
+      "F3D": 1,
+      "F3E": 1,
+      "F41": 3,
+      "F5C": 2,
+      "FC8": 2,
+      "FDB": 2
+    }
+  },
+  "post_gain105_direct_product_bounds": [
+    {
+      "phase_bit": 0,
+      "on_polarity": 0,
+      "on_states": 53,
+      "off_states": 48,
+      "distinct_valid_coverages": 707,
+      "maximal_candidate_coverages": 43,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 1
+        },
+        {
+          "products": 3,
+          "search_calls": 1
+        },
+        {
+          "products": 4,
+          "search_calls": 3
+        },
+        {
+          "products": 5,
+          "search_calls": 4
+        },
+        {
+          "products": 6,
+          "search_calls": 12
+        },
+        {
+          "products": 7,
+          "search_calls": 32
+        }
+      ],
+      "minimum_direct_products": 8,
+      "witness_cubes": [
+        "***0*1******",
+        "**01***1****",
+        "0**1**1***0*",
+        "***1*0*01***",
+        "1**110*0****",
+        "0**1*0***0**",
+        "***1*0***100",
+        "***1***00**0"
+      ],
+      "successful_search_calls": 9
+    },
+    {
+      "phase_bit": 0,
+      "on_polarity": 1,
+      "on_states": 48,
+      "off_states": 53,
+      "distinct_valid_coverages": 646,
+      "maximal_candidate_coverages": 43,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 1
+        },
+        {
+          "products": 3,
+          "search_calls": 2
+        },
+        {
+          "products": 4,
+          "search_calls": 3
+        },
+        {
+          "products": 5,
+          "search_calls": 9
+        },
+        {
+          "products": 6,
+          "search_calls": 39
+        }
+      ],
+      "minimum_direct_products": 7,
+      "witness_cubes": [
+        "***0*0******",
+        "****0**00**1",
+        "**1***0**1*1",
+        "**11**1*0*1*",
+        "*0110**1****",
+        "1*1********1",
+        "***1*1**1***"
+      ],
+      "successful_search_calls": 13
+    },
+    {
+      "phase_bit": 1,
+      "on_polarity": 0,
+      "on_states": 56,
+      "off_states": 45,
+      "distinct_valid_coverages": 1912,
+      "maximal_candidate_coverages": 26,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 2
+        },
+        {
+          "products": 3,
+          "search_calls": 4
+        },
+        {
+          "products": 4,
+          "search_calls": 8
+        }
+      ],
+      "minimum_direct_products": 5,
+      "witness_cubes": [
+        "*****1******",
+        "**11**0**1**",
+        "**1****1****",
+        "*11*********",
+        "0*1*****0*1*"
+      ],
+      "successful_search_calls": 6
+    },
+    {
+      "phase_bit": 1,
+      "on_polarity": 1,
+      "on_states": 45,
+      "off_states": 56,
+      "distinct_valid_coverages": 1019,
+      "maximal_candidate_coverages": 9,
+      "rejected_product_limits": [
+        {
+          "products": 1,
+          "search_calls": 1
+        },
+        {
+          "products": 2,
+          "search_calls": 2
+        },
+        {
+          "products": 3,
+          "search_calls": 3
+        },
+        {
+          "products": 4,
+          "search_calls": 5
+        }
+      ],
+      "minimum_direct_products": 5,
+      "witness_cubes": [
+        "***0*0******",
+        "**0*********",
+        "*0***0*0*0**",
+        "******10**0*",
+        "*0***0*01***"
+      ],
+      "successful_search_calls": 6
+    }
+  ],
+  "exact_seven_five_phase_at_2DE": 2,
+  "observed_phase_at_2DE": 0,
+  "old8_phase_at_2DE": 0,
+  "holdout_replays": [
+    {
+      "mode": "edge32",
+      "selector": "40",
+      "exact7_wrong_indices": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "old8_wrong_indices": [],
+      "old8_line_exact": true,
+      "old8_controller_exact": true,
+      "posthoc_seven_plus_oldfive_wrong_indices": [],
+      "posthoc_seven_plus_oldfive_controller_exact": true,
+      "reference_wrong_indices": [],
+      "clipped_samples": 0
+    },
+    {
+      "mode": "edge32",
+      "selector": "60",
+      "exact7_wrong_indices": [
+        36,
+        37,
+        46,
+        47
+      ],
+      "old8_wrong_indices": [],
+      "old8_line_exact": true,
+      "old8_controller_exact": true,
+      "posthoc_seven_plus_oldfive_wrong_indices": [],
+      "posthoc_seven_plus_oldfive_controller_exact": true,
+      "reference_wrong_indices": [],
+      "clipped_samples": 0
+    },
+    {
+      "mode": "edge48",
+      "selector": "40",
+      "exact7_wrong_indices": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "old8_wrong_indices": [],
+      "old8_line_exact": true,
+      "old8_controller_exact": true,
+      "posthoc_seven_plus_oldfive_wrong_indices": [],
+      "posthoc_seven_plus_oldfive_controller_exact": true,
+      "reference_wrong_indices": [],
+      "clipped_samples": 0
+    },
+    {
+      "mode": "edge48",
+      "selector": "60",
+      "exact7_wrong_indices": [],
+      "old8_wrong_indices": [],
+      "old8_line_exact": true,
+      "old8_controller_exact": true,
+      "posthoc_seven_plus_oldfive_wrong_indices": [],
+      "posthoc_seven_plus_oldfive_controller_exact": true,
+      "reference_wrong_indices": [],
+      "clipped_samples": 0
+    }
+  ],
+  "limitations": [
+    "The frozen seven/five witness was fixed before offset-193 and fails state 2DE through phase bit 1, not phase bit 0.",
+    "Combining its seven-product bit 0 with the older five-product bit 1 is a post-hoc repair on these streams, not a fresh holdout.",
+    "The older eight-product Boolean gate passes under the same assumed line, mode, capture and USART wiring; its photographed-package realization remains unknown.",
+    "The seven-product lower/upper bound is direct SOP on 101 observed labels only; it does not establish robustness on unobserved states or a multistage circuit."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit101_gain105_diagnosis.py": "be14e15439578fc80aaaac856f022055fd74e72691055b19c26ab3a110bc54ee",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit97-exact-products.json": "aaf53c9d248a9881fe994257d89ccac255bfe4e03ecf6951d6dd07681471bb5e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit100-exact7-gain105-holdout.json": "8f98495aed322a747f9ee5e6e8ece60327095c176aca5ebcf7b59b9a7fbd7a74",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_exact_products.py": "354bf5ecade939bbebc3ef12b5dc4ea0ba862ab2b2474c7a717a7548e6d9d225",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit97_cover.py": "9b406d7338c94f4a2096b7ace4ecf4395cc0458784a3a8fffb821fd44b440b31",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_0d_feature_graph.py": "bd2f35c826952db22031704f5f5f6138d4de0d76ae45b42d2304737b44833bcc",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_serial_timing.py": "c2e899943aae7aca3638ffb34eeb1ff09f406541e2a497057cd87da4679ebbef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-lowgain133-expanded-visits.json": "6c34a41ad8bc402d904adcfed73295636e772d74567a3fa7cd2f1cbfd1d08e3f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.15.json": "2025f1bca86f2401bca54c5d5ffe151f51bee1db8c1748bbbb2d5e7bfd4a2d99",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-mode1-expanded-1.25.json": "459f2ee9649c883f0f4ad0a3c6e269ac83e77d3aff1d2521c5fc23cf3445082a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-133.json": "acc0d4fc1e0729f8e32144806bb95d00414aa6b92261d4c131975804afac971c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-phase-holdout-135.json": "e0eff331908ee813e74b4a9e69b18e541a525f54800e11af20a94d33b3bd3ab9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.7.json": "eb5ad1d35208a081b51559b1122898a0d8c3eeb654bde89fd1c019a392c2887f",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-gain07-challenge-0.8.json": "4d9912eaef43b1dcfb2633fef68a5b586537a9ff9a8362dea7bade9d40ed46d6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-mode81-control-expanded.json": "db71829dd1db5490d5b3290e568078be739a8ca8c61f7c373d40e6c40b627024",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-visit94-old0d-replay.json": "21153ff54e8fa3cc684a7d43645851b3dbc2211077c4ff1675936887b02511b6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row1-phase-holdout-141.json": "a50a1e928c3a0a861893b0c8526ccf221ca0ce8c1ec646af0d19c53e068faf55",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-row1-phase-holdout-143.json": "fa19caa9d94b93c345340dd8781b76164e8add251b09bda14b105b9571ae772b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-holdout-145.json": "c3063559b85ec9b993a236623bddc647e5b247a067bd4ea9207ccdf8ab1ff5c6",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-holdout-147.json": "ddde36bbfdd6f987168e3a546294222f1cec4e9072d9f16d332430747a4f7b9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-frozen33-149.json": "225c3846caff36b1047c2d55ad16fac88e506ad3dc9e7c3e3fcefda56e5ef6c5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-phase-frozen33-151.json": "12f7a03672675e95b44da0ff3ee45f45514c6d9418842905a0c45024c132d2d8",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-matched-149.json": "38f223a235318251484bd4b1977b81292c3cca6e450fd4f9e015363800400a28",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-matched-151.json": "f4dd72ce7a19f346a0867d6666d12448af355cfd829924cb8ebd5e31625e6aba",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen36-153.json": "71ef98e53910d98577458291224134862a2ee55f5700c0798769414586ebfdd9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen36-155.json": "b928ac1e80b2a86f19c590834f7d06319ef149954088adaaf68b870ac8f95589",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen37-157.json": "b29c31906c976877e0c2c8ba18785e0f97987dc384cba50f1bb6f26600202810",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-gain1-frozen37-159.json": "e8afa20ebd0ce8077c905eccf107ff2eb12d90e34d7718acca229ed56baf9b9b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-holdout-161.json": "4ba5c1156f828c935a9701993541988485f338b802662db536b113f76c8d8129",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-holdout-163.json": "77490e15d2e5406602c2b71d040fc1513193e1d8ba6309b5e776860f9ba0ab8d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-route2-holdout-165.json": "ed5fbecd14b3f44dcf8dacc526ad082959cecffd6a80984c4b06244ec122df65",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-route2-holdout-167.json": "ee36c57598a506024676fa6372f0313b1254e5343064f88450909835bffd7b9d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode81-165.json": "cd64947b4d82b5233a5191cf18014eece302d3fecef230d9661417a74dad14f1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode81-167.json": "a5cce1028786d458a3e8c0485e0365c8d44471e91cdf0474778f395621ce21da",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode-late48-165.json": "c22257655432207fc616f7ebb879e9fb6e3a7e909b6a9c13150ab092b9c4988c",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-two-bit-package-mode-late48-167.json": "afd9119ab213780a08e00d0f22572c832cbcba5a20326b68148553186ec3b974",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-ten-bit-package-mode81-holdout-169.json": "4ed2c667294cbb7519ddd8fb823300c8c3cf1304d9b58f0f5393bf46486ff1b5",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-ten-bit-package-mode81-holdout-171.json": "ae6f207b63e18bd9bef0e56ba528214536a585a6f3f185ddfeb612631c8b5770",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-ten-bit-package-route2-mode81-holdout-173.json": "ae927ff7d0309a7022aeb7679f2610f8ca83a1b0e43fcbe9875e13a5f165b47d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-ten-bit-package-route2-mode81-holdout-175.json": "ee7738653ab9e15410eacdfe6c79f577e8dd040622d01535197ac29e9a16fc24",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit66-holdout-held81-177.json": "9d62879424c7355b00996084304a0aec9ac2ffcf260957ac6085bc2bc1170c84",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit66-holdout-edge32-177.json": "b811ccb4c99bb9667a722961ef8df8bf78b75e4279d2714f5dc5b1bce3565528",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-holdout-held81-179.json": "792f36c3161ce123eaee6a81d1a22d5847891085fdfaff1836f1c99bc3e082a7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-holdout-edge32-179.json": "a138b1dc188cc5afed451de506ac4f266bf452137a655b9bd9148b33d8caee8b",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-late48-edge32-181.json": "d19f6d77a629593310841b759e2f2e8291b3242c807a26cbc09108c4a578163e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-late48-edge48-181.json": "ff486500d3be88dbbd5bc5f81ec5c36f0828b544d1c736c68f381427f08f5445",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-lowgain-edge32-183.json": "f6ac2c51464e381ebd6c90ff31708ae6df01e4f2dce8bfd19e6ebffedc745b60",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-lowgain-edge48-183.json": "0aaabd55da8896793cca39f5486734afabf4b7a150ef49f235afa543d5302767",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-gain105-edge32-185.json": "78933732b93b1470b0f88d972184782572b5ff41462c70763b2be3dc28c1e0f3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-gain115-edge32-185.json": "d56fd315e47c5882c84658cf99ce7a4fba0631da16b202ad9c7c1d57eaf10d2a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-gain115-edge48-185.json": "1b45240840ceed1ec026f2522bd95738a9e141b33656d86faa3dd60e1c87ee93",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-highgain-edge32-185.json": "f46b8c3f8f7c71668a0b557d6f756d11647e85bd8cb62123b93c7b60e31fc979",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit70-highgain-edge48-185.json": "a5b152656f22914f85a00c35f527c60f29b4ee8cfc18b9cecdeee479173394c2",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit91-gain110-holdout-edge32-189.json": "f8f7f6a14f3645d0e363ce66943bd0881ac38231dd9708d3745aa988df29e9ca",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit91-gain110-holdout-edge48-189.json": "ee6e753a52992be5531205c9744d7d425d3632d4ecdd36c9c004a71d78902613",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit97-gain110-holdout-edge32-191.json": "d0103bca9c352eb0ecc0ea8863fe558ef9aeb2fbedcde9006dd2abfcdacc3aa3",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit97-gain110-holdout-edge48-191.json": "fe38e0ace9f4860e2e21dcc886711eab530ed128d1d3d290aaedbce2bbc3a1d9",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit100-exact7-gain105-holdout-edge32-193.json": "297ad487a30fa5a873152b37fc7b66686d1a319d669c4ecc4a3787f87a551b1e",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit100-exact7-gain105-holdout-edge48-193.json": "723187361627665b8ad05f502e25a0000a720243e2c1953053c6a4013d8d4f73"
+  }
+}

@@ -114,3 +114,9 @@ working timing and storage hypothesis, not a complete receiver circuit or
 C3 pass. Test a package-budgeted subtraction/selector and a fresh
 carrier/level fixture next. The [source-hashed report](results/joint-mask04-12a-modebit97-u28-phase-pipeline.json)
 is reproduced with `python3 g2/joint_mask04_12a_modebit97_u28_phase_pipeline.py`.
+
+The later [level challenge and capture screen](JOINT-MASK04-12A-MODEBIT102-LEVEL-SCREEN.md)
+finds twelve-bit state conflicts at 0.95× and places the two surviving
+extra-capture hypotheses after this assumed U28 load. The U28 pipeline
+remains a timing/storage candidate for the earlier twelve-bit state,
+not a receiver implementation validated across those levels.
