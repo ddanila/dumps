@@ -1,7 +1,7 @@
 {
   "date": "2026-11-27",
   "decision": "keep",
-  "conclusion": "No exact public match verified; not a claim of uniqueness.",
+  "conclusion": "Keep: closest public image ABITFA3.BIN differs at four bytes; Sannata image differs at 48 bytes. No exact duplicate.",
   "public_collection": {
     "url": "https://github.com/86Box/roms",
     "commit": "de5a7d21982622def2c51a8e04119eea4119fc31",
@@ -21,14 +21,326 @@
     "FA3_present": false,
     "001247_present": true
   },
-  "unverified_candidate": {
-    "url": "https://phantom.sannata.org/viewtopic.php?p=543978",
-    "download_url": "https://phantom.sannata.org/download/file.php?id=8588",
-    "filename": "AMI_386_ALI1419_121291.7z",
-    "result": "Download returned HTML site verification, not firmware; no byte comparison."
-  },
-  "unavailable_source": {
-    "url": "https://theretroweb.com/motherboards/?name=fa3",
-    "result": "HTTP 403"
-  }
+  "owner_downloaded_candidates": [
+    {
+      "archive": "abit-386dx-fa3.zip",
+      "archive_sha256": "bf084c33b6d6c9582af01187d1a65030ca90d530a14dcb08e7f13d3c6ac28562",
+      "url": "https://theretroweb.com/motherboard/bios/abit-386dx-fa3-5ea4d7c538889909926304.zip",
+      "page_url": "https://theretroweb.com/motherboards/s/abit-ab-fa3",
+      "member": "ABITFA3.BIN",
+      "size": 65536,
+      "sha256": "58904976cf3a5b614b20f8620e418fb840a31f3d2ef79bef4c6a96388fb7865b",
+      "exact_match": false,
+      "differing_bytes": 4,
+      "paradise_contiguous_match": false,
+      "paradise_even_lane_contiguous_match": false,
+      "paradise_odd_lane_contiguous_match": false,
+      "differences": [
+        {
+          "offset": "0xE13E",
+          "capture": "00",
+          "public": "04"
+        },
+        {
+          "offset": "0xE13F",
+          "capture": "00",
+          "public": "0C"
+        },
+        {
+          "offset": "0xE145",
+          "capture": "00",
+          "public": "08"
+        },
+        {
+          "offset": "0xE14B",
+          "capture": "00",
+          "public": "11"
+        }
+      ]
+    },
+    {
+      "archive": "AMI_386_ALI1419_121291.7z",
+      "archive_sha256": "2206ebfe470b039f4d9f2fcaf0dd2b453474f9a6df35a809d26f59ad21b9bc51",
+      "url": "https://phantom.sannata.org/download/file.php?id=8588",
+      "page_url": "https://phantom.sannata.org/viewtopic.php?p=543978",
+      "member": "AMI_386_ALI1419_121291.BIN",
+      "size": 65536,
+      "sha256": "159c677d97042f439d10c75443bfbabe6702a1671e01d1bf7209950076ec3f33",
+      "exact_match": false,
+      "differing_bytes": 48,
+      "paradise_contiguous_match": false,
+      "paradise_even_lane_contiguous_match": false,
+      "paradise_odd_lane_contiguous_match": false,
+      "differences": [
+        {
+          "offset": "0x807D",
+          "capture": "41",
+          "public": "30"
+        },
+        {
+          "offset": "0x807E",
+          "capture": "45",
+          "public": "31"
+        },
+        {
+          "offset": "0x8083",
+          "capture": "32",
+          "public": "34"
+        },
+        {
+          "offset": "0x8084",
+          "capture": "34",
+          "public": "39"
+        },
+        {
+          "offset": "0x8085",
+          "capture": "37",
+          "public": "34"
+        },
+        {
+          "offset": "0x80CC",
+          "capture": "30",
+          "public": "31"
+        },
+        {
+          "offset": "0x8153",
+          "capture": "46",
+          "public": "20"
+        },
+        {
+          "offset": "0x8154",
+          "capture": "41",
+          "public": "20"
+        },
+        {
+          "offset": "0x8155",
+          "capture": "33",
+          "public": "20"
+        },
+        {
+          "offset": "0x8157",
+          "capture": "49",
+          "public": "20"
+        },
+        {
+          "offset": "0x8158",
+          "capture": "53",
+          "public": "20"
+        },
+        {
+          "offset": "0x8159",
+          "capture": "41",
+          "public": "20"
+        },
+        {
+          "offset": "0x815B",
+          "capture": "53",
+          "public": "20"
+        },
+        {
+          "offset": "0x815C",
+          "capture": "59",
+          "public": "20"
+        },
+        {
+          "offset": "0x815D",
+          "capture": "53",
+          "public": "20"
+        },
+        {
+          "offset": "0x815E",
+          "capture": "54",
+          "public": "20"
+        },
+        {
+          "offset": "0x815F",
+          "capture": "45",
+          "public": "20"
+        },
+        {
+          "offset": "0x8160",
+          "capture": "4D",
+          "public": "20"
+        },
+        {
+          "offset": "0x8162",
+          "capture": "42",
+          "public": "20"
+        },
+        {
+          "offset": "0x8163",
+          "capture": "49",
+          "public": "20"
+        },
+        {
+          "offset": "0x8164",
+          "capture": "4F",
+          "public": "20"
+        },
+        {
+          "offset": "0x8165",
+          "capture": "53",
+          "public": "20"
+        },
+        {
+          "offset": "0x8210",
+          "capture": "20",
+          "public": "00"
+        },
+        {
+          "offset": "0x8214",
+          "capture": "05",
+          "public": "3D"
+        },
+        {
+          "offset": "0x822D",
+          "capture": "3F",
+          "public": "7F"
+        },
+        {
+          "offset": "0x822E",
+          "capture": "01",
+          "public": "02"
+        },
+        {
+          "offset": "0x822F",
+          "capture": "D1",
+          "public": "29"
+        },
+        {
+          "offset": "0x8233",
+          "capture": "08",
+          "public": "48"
+        },
+        {
+          "offset": "0x84BA",
+          "capture": "90",
+          "public": "74"
+        },
+        {
+          "offset": "0x84BB",
+          "capture": "90",
+          "public": "01"
+        },
+        {
+          "offset": "0x84E9",
+          "capture": "46",
+          "public": "A1"
+        },
+        {
+          "offset": "0x84EA",
+          "capture": "EB",
+          "public": "E6"
+        },
+        {
+          "offset": "0x84EB",
+          "capture": "14",
+          "public": "64"
+        },
+        {
+          "offset": "0x8B90",
+          "capture": "3F",
+          "public": "7F"
+        },
+        {
+          "offset": "0x8B91",
+          "capture": "73",
+          "public": "71"
+        },
+        {
+          "offset": "0x8B94",
+          "capture": "08",
+          "public": "48"
+        },
+        {
+          "offset": "0x8C15",
+          "capture": "7F",
+          "public": "4F"
+        },
+        {
+          "offset": "0x9075",
+          "capture": "21",
+          "public": "14"
+        },
+        {
+          "offset": "0xCB3F",
+          "capture": "2D",
+          "public": "AD"
+        },
+        {
+          "offset": "0xCC1E",
+          "capture": "2D",
+          "public": "AD"
+        },
+        {
+          "offset": "0xCEF2",
+          "capture": "36",
+          "public": "B6"
+        },
+        {
+          "offset": "0xCF14",
+          "capture": "33",
+          "public": "B3"
+        },
+        {
+          "offset": "0xCFE8",
+          "capture": "34",
+          "public": "B4"
+        },
+        {
+          "offset": "0xD00A",
+          "capture": "34",
+          "public": "B4"
+        },
+        {
+          "offset": "0xD02C",
+          "capture": "34",
+          "public": "B4"
+        },
+        {
+          "offset": "0xD04E",
+          "capture": "35",
+          "public": "B5"
+        },
+        {
+          "offset": "0xFF50",
+          "capture": "B4",
+          "public": "09"
+        },
+        {
+          "offset": "0xFF51",
+          "capture": "F3",
+          "public": "38"
+        }
+      ]
+    },
+    {
+      "archive": "za633995.zip",
+      "archive_sha256": "26b1a10e2ac922fc94f9e3cb949636b8b442477d65bc06ad44a2112cbe5be509",
+      "url": "https://theretroweb.com/motherboard/bios/za633995-644c25cc809d4297359136.zip",
+      "page_url": "https://theretroweb.com/motherboards/s/abit-ab-fa3",
+      "member": "ZA633995.bin",
+      "size": 65536,
+      "sha256": "70f453dfe7629146c9a50bde296fc7535f686cd69c04d4066a4d56f480938978",
+      "exact_match": false,
+      "differing_bytes": 33714,
+      "paradise_contiguous_match": false,
+      "paradise_even_lane_contiguous_match": false,
+      "paradise_odd_lane_contiguous_match": false
+    },
+    {
+      "archive": "pt-3401.zip",
+      "archive_sha256": "b2e404114fe87b3b2e21f5e289896959cebd898bedceabd381ce4c3f9cea60d1",
+      "url": "https://theretroweb.com/motherboard/bios/pt-3401-65df2ba484cff446106610.zip",
+      "page_url": "https://theretroweb.com/motherboards/s/abit-ab-fa3",
+      "member": "PT-3401.bin",
+      "size": 65536,
+      "sha256": "57e3be279faa72951c91fe39c115cabd5eebccedc51c0ba79cc5b305046c8bc4",
+      "exact_match": false,
+      "differing_bytes": 31496,
+      "paradise_contiguous_match": false,
+      "paradise_even_lane_contiguous_match": false,
+      "paradise_odd_lane_contiguous_match": false
+    }
+  ]
 }
