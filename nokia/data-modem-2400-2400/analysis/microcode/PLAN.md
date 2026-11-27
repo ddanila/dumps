@@ -268,6 +268,19 @@ streams, then recovers all 64 dibits and exact modeled line/controller
 bytes in each, without clipping. Test another gain family and a
 photo-package-compatible gate/latch realization; C3/G2 stay active and
 the physical nets remain assumptions, not blockers.
+The [matched-gain two-bit challenge and logic screen](g2/JOINT-MASK04-12A-TWO-BIT-GAIN1-LOGIC.md)
+now changes only receive gain on the carrier-`149/151` payloads: all
+four calibrated-gain streams retain the same Tx trace but reach three
+new nine-bit states, with zero wrong known-state transitions and no
+clipping. A 36-code table fitted to those states then meets a further
+new state `05C` on four fresh carrier-`153/155` streams, again with no
+wrong known-state transitions or clipping. The 38-stream phase graph
+remains conflict-free at 37 codes; exact replays of the newly labelled
+streams are development evidence. An exhaustive observed-state SOP
+screen requires at least five products for one phase bit under any
+global phase offset, exceeding U15's four direct AOI products. Freeze
+the 37-code table for a new gain-1 holdout and test a multistage
+photo-package-compatible gate; keep C3/G2 active.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
