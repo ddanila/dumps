@@ -1,0 +1,131 @@
+{
+  "experiment": "stationary 1800 Hz data-mode control for 12A DAC candidate",
+  "fixture": {
+    "selector": "40",
+    "carrier_offset": 203,
+    "data_mode_D127": "B0 held after segment 1",
+    "stationarity": "counterfactual input control; not real 8031 TxD payload",
+    "candidate_sample_rate_hz": 9600,
+    "sample_count": 846,
+    "data_window_samples": 256
+  },
+  "tx_prom_trace_sha256": "5171c0738db4e6760266007f8897c0a1f63a2a4dfec122251f9c7c5de720172d",
+  "cases": [
+    {
+      "bus_index": 0,
+      "mapping": [
+        4,
+        0,
+        5,
+        1,
+        3,
+        2,
+        6,
+        7
+      ],
+      "tone_peak_hz": 2100.0,
+      "stationary_data_peak_hz": 1800.0,
+      "dac_code_sha256": "2b8f2a4d312933bed9fe4ebb4f411bf1d55575700bca407ac9d3e52da6ef4fa7"
+    },
+    {
+      "bus_index": 1,
+      "mapping": [
+        4,
+        0,
+        5,
+        2,
+        3,
+        1,
+        6,
+        7
+      ],
+      "tone_peak_hz": 2100.0,
+      "stationary_data_peak_hz": 1800.0,
+      "dac_code_sha256": "5753108449a8bab618540a90938f04ba3a283aeadccb9995fe9829f3ed9a1e29"
+    },
+    {
+      "bus_index": 2,
+      "mapping": [
+        4,
+        1,
+        5,
+        0,
+        3,
+        2,
+        6,
+        7
+      ],
+      "tone_peak_hz": 2100.0,
+      "stationary_data_peak_hz": 1800.0,
+      "dac_code_sha256": "2b8f2a4d312933bed9fe4ebb4f411bf1d55575700bca407ac9d3e52da6ef4fa7"
+    },
+    {
+      "bus_index": 3,
+      "mapping": [
+        4,
+        1,
+        5,
+        2,
+        3,
+        0,
+        6,
+        7
+      ],
+      "tone_peak_hz": 2100.0,
+      "stationary_data_peak_hz": 1800.0,
+      "dac_code_sha256": "3b153541ce265aee9ff79df30d2daab37a2b6a4c43a4590172f6439767257813"
+    },
+    {
+      "bus_index": 4,
+      "mapping": [
+        4,
+        2,
+        5,
+        0,
+        3,
+        1,
+        6,
+        7
+      ],
+      "tone_peak_hz": 2100.0,
+      "stationary_data_peak_hz": 1800.0,
+      "dac_code_sha256": "5753108449a8bab618540a90938f04ba3a283aeadccb9995fe9829f3ed9a1e29"
+    },
+    {
+      "bus_index": 5,
+      "mapping": [
+        4,
+        2,
+        5,
+        1,
+        3,
+        0,
+        6,
+        7
+      ],
+      "tone_peak_hz": 2100.0,
+      "stationary_data_peak_hz": 1800.0,
+      "dac_code_sha256": "3b153541ce265aee9ff79df30d2daab37a2b6a4c43a4590172f6439767257813"
+    }
+  ],
+  "limitations": [
+    "The B0 hold is a controlled stationary input, not the real controller scrambled data stream.",
+    "The output bytes are assumed settled 12A Y mapped to candidate DAC08 pins; physical line and clock remain untraced.",
+    "An FFT peak on a stationary control does not establish the spectrum of every modulated payload or the physical analog line."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_stationary_carrier_control.py": "ab2aa7a2952f2566a1a022bbccc38e392e6830775145b39adb5f3da648a25305",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-end-to-end-demo.json": "a3a3a6dc00b86200ce43c71ccd57bf5e56034b05f79d016df26a0c1ce6b2d369",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-random-dibit-validation.json": "df23d89e1b7c6a5eb5c18ed712a7759afeeb9c139aed7eba463b452ba65c1081",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_buffered_line.py": "cb80559269af717d2318e6ac9f8e67245b7aeb54e811eaa43f87a193e2b37fdf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_tx_12a_delayed_latch.py": "7746afd7122cd0c007a7797374de29b6e61461ab7cf004dce81628aa017651cd",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_dac_bus_permutations.py": "7032d9a809229467df736d417d5c2a36a9ff6d04a0f83c9271627f106507f4ab",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/reference_modem.py": "e19c464f939afec846e433decb5066757123a8445556016ce3930334f42de078",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}

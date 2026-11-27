@@ -2294,6 +2294,20 @@ Listed in order of value per effort:
   This is a narrow unseen-state success, not an identified package gate
   or USART path. Test those circuits and further unseen states under
   labelled wiring assumptions; C3 and G2 remain active.
+  The [single-run end-to-end demonstration](g2/JOINT-MASK04-END-TO-END-DEMO.md)
+  now executes the 8031 scrambler for one eight-byte call payload, the
+  real-PROM `12A` transmitter and `3F8` receiver, and the paced
+  modeled 8251/8031 receive handoff. The 2,100 Hz tone is present;
+  all eight payload bytes return with no frozen-gate decision or
+  controller status errors, even though the independent reference
+  decoder misses dibit 40. Its short random-data FFT peak is 1,650 Hz,
+  so it is not a stationary carrier test. A separate
+  [constant-D127 control](g2/JOINT-MASK04-STATIONARY-CARRIER-CONTROL.md)
+  executes the real PROM with data-mode `B0` held and obtains a 1,800 Hz
+  peak on all six candidate DAC bus orders, alongside the 2,100 Hz tone.
+  Controller-to-D127 pacing, DAC/ADC/line, phase gates and USART nets
+  remain conditional. Constrain the physical routes before passing C2
+  or C3.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

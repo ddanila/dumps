@@ -1,0 +1,130 @@
+{
+  "experiment": "one real-PROM controller-to-controller conditional modem demonstration",
+  "fixture": {
+    "selector": "40",
+    "payload": [
+      "3B",
+      "D6",
+      "81",
+      "4F",
+      "A9",
+      "02",
+      "75",
+      "EC"
+    ],
+    "carrier_offset": 203,
+    "gain_factor": 0.85,
+    "assumed_mode_edge_symbol": 48,
+    "candidate_dac_bus": [
+      4,
+      0,
+      5,
+      1,
+      3,
+      2,
+      6,
+      7
+    ],
+    "line_filter_Q": 0.5,
+    "line_shift_samples": 5,
+    "controller_probe_sha256": "3294866019016b92447cdc0264e0c45c2ec7ae288ac9093c1586b6b12e99884e"
+  },
+  "chain": {
+    "rom_executed_8031_scrambler_bytes": [
+      "39",
+      "A3",
+      "AF",
+      "06",
+      "78",
+      "1A",
+      "D5",
+      "8A"
+    ],
+    "offered_scrambled_line_bytes": [
+      "39",
+      "A3",
+      "AF",
+      "06",
+      "78",
+      "1A",
+      "D5",
+      "8A"
+    ],
+    "tx_prom_trace_sha256": "9d986cca48c8ff966e2f45c3ce8fd5601ab259ed04cdf7d84f2c8f0ca59fd83a",
+    "tx_12a_samples": 846,
+    "candidate_dac_codes_sha256": "e85ee2ec742dbff21e427de84b2c4e621f58af046fc2a0b8fba024ce8be2aa81",
+    "modeled_2100hz_tone_peak_hz": 2100.0,
+    "modeled_segment1_spectrum_peak_hz": 2400.0,
+    "modeled_data_spectrum_peak_hz": 1650.0,
+    "pcm_sha256": "f356a34ed11efff34a0fceb4476641051106675103d8ba32da08843e32df350d",
+    "clipped_pcm_samples": 0,
+    "independent_reference_wrong_dibits": [
+      40
+    ],
+    "rx_prom_trace_sha256": "16c1c2c5b3e96c0983c945c7ef41e354dc3a3447a530a889ed1fbe7ea3284d48",
+    "rx_pc_trace_sha256": "e5d5ade405a8059763d88db94f4232c07f8de4bd171674f5b8d8c1834965c892",
+    "rx_gate_edges": [
+      97500,
+      97501
+    ],
+    "staged_thirteen_bit_states": 65,
+    "wrong_dibit_indices": [],
+    "recovered_line_bytes": [
+      "39",
+      "A3",
+      "AF",
+      "06",
+      "78",
+      "1A",
+      "D5",
+      "8A"
+    ],
+    "decoded_controller_bytes": [
+      "3B",
+      "D6",
+      "81",
+      "4F",
+      "A9",
+      "02",
+      "75",
+      "EC"
+    ],
+    "controller_status_errors": 0,
+    "minimum_phase_setup_cycles": 1000
+  },
+  "limitations": [
+    "The 8031 scrambler is executed locally for each byte with carried history; a full USART transmit/main-loop run is not modeled.",
+    "The DSC field mapping, controller-to-D127 bit buffering and initial carrier phase poke are conditional model choices.",
+    "DAC08 bit assignment, latch/clock, analog line filter, ADC conversion and gain are assumed, not measured Nokia nets.",
+    "Thirteen-bit capture, phase gates, RxD/RxC/SYNDET and 8251 receive timing are conditional external circuits.",
+    "The first reversal dibit is supplied by the known preamble; subsequent decisions are checked against known transmitted bits.",
+    "This is one full conditional run, not a C2 or C3 physical acceptance pass."
+  ],
+  "source_sha256": {
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_end_to_end_demo.py": "da62839183e510cb0bd42cb33666f62f28146b2fb12b43f51fbd8c39d97a721d",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain085-holdout.json": "0e712f5e1de80af9b9c5b197e4ce580f2c1e76689d5b7d7b3897bc671d76aa85",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain085-holdout-edge48-203.json": "878f93723e204da18f72d021b9ebd9bde7cd1a75bbe77048d4d28e1586b83201",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-gain085-fixture.json": "6fcfcb721663e6f3621092f53b132c226393a8247ae81890b581347703b88ca7",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/joint-mask04-12a-modebit159-revised-cover.json": "62b5793973198584c676db1cd289b0a783f7456b2539b2789a8b0a6fdba095c0",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-random-dibit-validation.json": "df23d89e1b7c6a5eb5c18ed712a7759afeeb9c139aed7eba463b452ba65c1081",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_fresh_controller_payload.py": "4fa31c293a40b6adaccb2eab6542bd4f8243977dce6cc85718ac3bf3975286b6",
+    "nokia/data-modem-2400-2400/controller-810244e/nokia-modem-other-board-2764.bin": "daf854c513cd427664bb345f511afc2d38441e5002e4a85389d289aedbfc0038",
+    "nokia/data-modem-2400-2400/analysis/interface_probe.c": "9dcda6531bb853652c89c253ad557ee85c6f2855c2d77379b706a48f9becdd2b",
+    "nokia/data-modem-2400-2400/analysis/controller_scrambler.py": "d082844fa09a0b53bf5d33d004135645d9205dd6fc988647dcede28dbabc3799",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/core.c": "6e1ea76c0556cb3a869dbb8f8d4b99b6e8d0c57503a1b9547e2dad4bfaf3a656",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/opcodes.c": "9bb7649585c6a7f159f72dc2891e9c595fbba050fe8006c50d24af76123cc57b",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/disasm.c": "0ea5dddc11310d8f1fcff475ff3e3f177ce8b0163b71444c2b937ad55021601e",
+    "unknown/satellite-mac304-m27c2001/analysis/emulation/emu8051/emu8051.h": "3cf6f070b8cd51791aeb2555dcfdcb75220b3931f1617c7e2a6148c0628a7a63",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_buffered_line.py": "cb80559269af717d2318e6ac9f8e67245b7aeb54e811eaa43f87a193e2b37fdf",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_mode_fresh_phase120.py": "bd953824959a42725a14d6aa9025b44fa61b4d6bc9dfb59a30d34244ad446f2a",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_row0_serial_timing.py": "c2e899943aae7aca3638ffb34eeb1ff09f406541e2a497057cd87da4679ebbef",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/joint_mask04_12a_modebit156_staged_transfer.py": "3b78c275f0f5a043fc184f1e8e17a639e719b5e374405f49e2f82e81ab899ed1",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/photo_joint_tone_training_data.py": "c184abea87f92c84f762fcd3b7f1336ecaaa47fc2004c1191126a05c79d072fe",
+    "nokia/data-modem-2400-2400/analysis/microcode/assumed/execute.py": "8758e8dce368a3da18eb230149568d086529058a7b8bb73daaa2f3e5aa147723",
+    "nokia/data-modem-2400-2400/analysis/microcode/g2/results/photo-b-constraints/q3-photo-swapped.json": "c5dca536f62ea2629fafd67ebccce207f69b5cecf7de0aa26c9792151f88308a",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip18-810240c.bin": "e44a0e77fbcb525f5a758ea3db85c2d6b82021c2f73af30514ce9f4837abbb6b",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip11-810238c.bin": "260733c911c861d6ae19a28ce48717b1fe755e79636ab3da6f9b9b10e65a3939",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip17-810239c.bin": "52972d336004697ae3883784a477bbfa0bcccc5f003995d7288e0669ae7fa231",
+    "nokia/data-modem-2400-2400/microcode-810237c-810240c/chip10-810237c.bin": "eae7ef704a0f6a1d262134826d364bd651a99351ebb395eaf19c78790b67e2bc"
+  }
+}

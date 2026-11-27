@@ -639,6 +639,16 @@ window, the captured-byte hashes match settled `12A` Y; a late clock
 matches the different `127` control. This is an executable clock/bus
 schedule, not measured setup/hold margin or identified DAC/line wiring.
 Test those remaining assumptions while C2/G2 stay active.
+The [single-run transmit-to-receive demonstration](g2/JOINT-MASK04-END-TO-END-DEMO.md)
+now executes the 8031 scrambler locally, the real-PROM transmitter and
+receiver, and the paced modeled 8251/8031 receive path for one eight-byte
+payload. It returns the exact payload with zero frozen-gate decision and
+controller status errors. The A1 tone peaks at 2,100 Hz; the short
+random-data window peaks at 1,650 Hz. A separate
+[stationary D127=`B0` control](g2/JOINT-MASK04-STATIONARY-CARRIER-CONTROL.md)
+peaks at 1,800 Hz on all six candidate DAC orders. Keep the DAC/ADC,
+clock, gate and serial nets
+explicit assumptions, with C2/C3 open and G2 active.
 The [whole-store `12A` PROM-gate audit](g2/JOINT-MASK04-TX-12A-FULL-STORE-GATE.md)
 now tests the direct 74LS273 clock alternative. The prior two-bit decode
 selects 111 store words, including eight in the receive-address span.

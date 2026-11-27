@@ -353,6 +353,21 @@ capture/clock nets, ADC/line route and USART connections remain assumed,
 so the microprogram itself is still identified as producing the sample
 state, not as executing the final dibit decision.
 
+The [one-run conditional modem demonstration](../g2/JOINT-MASK04-END-TO-END-DEMO.md)
+joins these candidate functions. Eight locally ROM-scrambled 8031 bytes
+drive the buffered `127–12A` loop; 846 executed `12A` samples form a
+modeled DAC/line waveform with a 2,100 Hz A1 tone. Feeding its quantized
+samples to the executed `3F8–3FE` loop and the frozen external
+thirteen-bit capture/phase/USART route recovers all eight original
+controller bytes with zero modeled decision errors. The short
+random-data spectrum peaks at 1,650 Hz, not an established stationary
+1,800 Hz line peak; a separate
+[constant-B0 PROM control](../g2/JOINT-MASK04-STATIONARY-CARRIER-CONTROL.md)
+places all six candidate DAC orders at 1,800 Hz. The DAC/ADC/analog and
+serial nets remain assumed;
+this run shows a coherent possible modem function of the microprogram,
+not a physical board-level acceptance pass.
+
 ## Earlier provisional names
 
 | Addresses | Interpretation | Principal limitation |
