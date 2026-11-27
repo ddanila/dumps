@@ -2146,6 +2146,15 @@ Listed in order of value per effort:
   in five legal waveforms. Test a preselection latch or a changed
   mode/feedback path on fresh legal symbol transitions and then seek a
   causal bit route to USART-01; do not promote the U12-only Boolean rule.
+  The [mode-bit matched challenge](g2/JOINT-MASK04-12A-MODEBIT66-HOLDOUT.md)
+  adds an assumed `3EB` mode input to a connected, conflict-free 61-state
+  phase graph. Its frozen Boolean cover passes fresh held-`81` streams but
+  misses 16/15 dibits after a moving-mode edge, all involving unseen states.
+  The joined 70-stream graph has zero conflicts and isolates a wrong frozen
+  label at `32D`. Revise and freeze the decoder before another independent
+  mode challenge; still require a package-compatible circuit and a
+  constrained serial/line route before passing C3. Neither missing net
+  continuity nor this failed candidate blocks G2.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

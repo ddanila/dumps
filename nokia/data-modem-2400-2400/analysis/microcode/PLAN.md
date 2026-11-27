@@ -356,6 +356,18 @@ arms. A direct arm swap cannot resolve `12D`. The same 66-stream screen
 finds 24 conflict-free alternate captured bits, including connected graphs
 for first `3F8` Y4, later `3F8` Y7 and visit-`141` Y6. Test their package
 logic or a multistage route, then challenge fresh data; keep C3/G2 active.
+The [mode-bit graph and matched-mode challenge](g2/JOINT-MASK04-12A-MODEBIT66-HOLDOUT.md)
+now replaces later-Y6 with an explicitly assumed `3EB` mode bit. Its
+66-stream phase graph has 61 connected states and zero conflicts, but phase
+bit 0 needs six or seven direct product terms, beyond one four-arm U15
+output. A frozen Boolean cover passes fresh held-`81` call/answer streams,
+including unseen `0C2`, with exact dibits, line bytes and controller payloads.
+It fails fresh edge-at-32 streams with 16/15 dibit errors. Every wrong
+transition touches an unseen state; a joined 70-stream graph remains
+conflict-free and identifies one wrong phase label at `32D`. Treat those
+streams as development data, freeze a revised decoder and challenge new
+payloads and carrier starts. The mode connection and gate packages remain
+assumptions; C3/G2 stay active rather than blocked.
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
 visits when `129` A8 changes, and **every** one of 375 fixed divided-clock
