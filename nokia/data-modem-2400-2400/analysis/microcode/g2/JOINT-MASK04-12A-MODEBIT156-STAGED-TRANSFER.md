@@ -107,3 +107,28 @@ serial path. The direct-product cover is not yet a photographed-package gate.
 Test that gate and serializer under a package budget and seek a fresh fixture
 that visits an unseen state; the untraced nets are testable assumptions, not
 a G2 blocker or a C3 pass.
+
+## Fresh lower-gain, unseen-state holdout
+
+The same 159-state witness was kept frozen for a new
+[offset-203, 0.85×-gain challenge](joint_mask04_12a_modebit159_gain085_holdout.py).
+Fresh call/answer payloads were run through the real PROM and controller
+with both mode-edge schedules. All four streams have zero wrong decisions,
+exact modeled line/controller bytes, no clipped PCM samples and no
+controller status errors. The independent reference misses dibit 40 in
+both call runs, so these matches still depend on the known transmitted
+bits and the stated signal assumptions.
+
+The later-edge call reaches one state absent from the frozen 159-state
+graph: `1909`, once. The [transition diagnosis](joint_mask04_12a_modebit160_gain085_diagnosis.py)
+constrains its phase to 2 from neighboring known states `18C2` and `180C`;
+the frozen cover predicts 2. The four new streams add 252 checked phase
+transitions with zero conflicts against the previous labels, yielding a
+160-state joined graph. This is one successful unseen-state prediction,
+not a proof of full level or carrier robustness.
+
+The [holdout](results/joint-mask04-12a-modebit159-gain085-holdout.json)
+and [unseen-state diagnosis](results/joint-mask04-12a-modebit160-gain085-diagnosis.json)
+are source-hashed. The physical capture, mode, gate and USART nets remain
+untraced. Test a photographed-package gate and serializer, then challenge
+additional unseen states; C3 and G2 remain active.

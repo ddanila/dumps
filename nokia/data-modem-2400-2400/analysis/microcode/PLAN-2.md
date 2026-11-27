@@ -2265,6 +2265,15 @@ Listed in order of value per effort:
   state outside the fitted 159-state graph. Test a photographed-package gate
   and serial route, then seek a new-state fixture; keep the nets conditional,
   C3 open and G2 active rather than blocking on pin continuity.
+  The [fresh 0.85× holdout](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md#fresh-lower-gain-unseen-state-holdout)
+  passes four more real-PROM/controller streams at offset 203 with zero
+  wrong decisions, no clipping and exact modeled line/controller bytes.
+  The later-edge call reaches new state `1909` once; its neighboring
+  known states constrain phase 2, which the frozen gate predicts. All
+  252 new phase transitions agree with the joined 160-state graph.
+  This is a narrow unseen-state success, not an identified package gate
+  or USART path. Test those circuits and further unseen states under
+  labelled wiring assumptions; C3 and G2 remain active.
 - **C4 Echo canceller.** Feed the board's own transmit signal back as echo
   and check that the residual falls while training is enabled and freezes
   when it is commanded off. The

@@ -322,6 +322,23 @@ also recovers two fresh scrambled payloads through the frozen
 ADC-margin readout and the paced 8251/8031 model. Its capture selector
 and physical serial route remain external hypotheses, so C3 is open.
 
+The later [thirteen-bit staged capture](../g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md)
+gives this candidate receiver a more explicit timed readout. Two
+executed `3F8` Y visits, a late row-0 Y bit, visit-141 Y6 and an
+assumed `3EB` mode bit are held through a proposed U14→U3 transfer and
+U25 capture before an assumed U28 phase/dibit load. The staged replay
+matches all 7,020 saved thirteen-bit states. A revised eight/five-product
+phase witness fits a connected, conflict-free 159-state graph. With that
+witness frozen, four fresh 1.15× streams and four fresh 0.85× streams
+recover exact modeled line and executed-controller bytes. The lower-gain
+later-edge call reaches one previously unseen state, `1909`; its two
+neighboring known states require phase 2, which the frozen witness
+predicts. This is a runnable account of a possible external decision
+and serial path from executed DSC sample codes. The physical gate,
+capture/clock nets, ADC/line route and USART connections remain assumed,
+so the microprogram itself is still identified as producing the sample
+state, not as executing the final dibit decision.
+
 ## Earlier provisional names
 
 | Addresses | Interpretation | Principal limitation |

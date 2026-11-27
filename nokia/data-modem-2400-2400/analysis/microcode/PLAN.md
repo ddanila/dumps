@@ -35,8 +35,9 @@ the required setup/hold timing and the visible DED track assignments. For C3,
 treat the `3EB` mode-bit capture and its phase and
 serializer wiring as stated assumptions. The revised thirteen-bit decoder has
 now been frozen and challenged on fresh controller-fed, real-PROM streams at
-1.15× gain; test a package-budgeted gate/serializer and a fixture that reaches
-new states next. If a candidate fails, record the failed fixture and try
+1.15× and 0.85× gain; the lower-level run reaches one new state correctly.
+Test a package-budgeted gate/serializer and more unseen states next. If a
+candidate fails, record the failed fixture and try
 another pin-compatible route or an independent signal constraint. Keep C2/C3
 open until their acceptance evidence is met; neither a plausible simulation
 nor an untraced wire settles them.
@@ -524,6 +525,14 @@ does not identify its physical gate or serial nets, so C3/G2 stay active.
 Next budget the phase gate and serializer against photographed packages and
 test a fresh fixture selected to visit an unseen state. Missing pin continuity
 does not postpone either experiment.
+The [lower-gain unseen-state holdout](g2/JOINT-MASK04-12A-MODEBIT156-STAGED-TRANSFER.md#fresh-lower-gain-unseen-state-holdout)
+now passes four fresh offset-203 streams at 0.85× gain with exact modeled
+line/controller bytes and no clipping. One later-edge call symbol reaches
+new state `1909`; its two adjacent known states constrain phase 2, which
+the frozen gate predicts. The 160-state joined graph has zero transition
+conflicts. This tests one unseen prediction, not the package gate or
+physical USART wiring. Keep C3/G2 active and run the package/serializer
+experiment plus further unseen-state challenges under labelled assumptions.
 
 The [full-stream bank-phase screen](g2/JOINT-MASK04-TX-BANK-PHASE.md)
 now finds that `12A` Y bit 0 changes on 75,012/75,018 raw call/answer
